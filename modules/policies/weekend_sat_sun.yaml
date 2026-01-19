@@ -1,0 +1,7 @@
+kind: module
+id: weekend_sat_sun
+
+policies:
+  weekends:
+    - SATURDAY
+    - SUNDAY

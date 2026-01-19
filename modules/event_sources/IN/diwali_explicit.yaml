@@ -1,0 +1,19 @@
+kind: module
+id: diwali_explicit
+
+event_sources:
+  - key: diwali
+    name: Diwali
+    default_classification: NOTABLE
+    rule:
+      type: explicit_dates
+      key: diwali
+      name: Diwali
+      dates:
+        - 2024-11-01
+        - 2025-10-20
+        - 2026-11-08
+        - 2027-10-29
+        - 2028-10-17
+        - 2029-11-05
+        - 2030-10-26

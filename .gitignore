@@ -1,0 +1,25 @@
+# Gradle
+.gradle/
+build/
+tools/build/
+
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Generated files
+generated/*.csv
+generated/*.json
+
+# Local environment
+.env
+.env.local

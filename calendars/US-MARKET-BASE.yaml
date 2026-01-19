@@ -1,0 +1,74 @@
+kind: calendar
+id: US-MARKET-BASE
+
+metadata:
+  name: US Market Base Calendar
+  description: Base calendar for US markets with federal holidays
+  chronology: ISO
+
+uses:
+  - weekend_sat_sun
+
+event_sources:
+  - key: new_years_day
+    name: New Year's Day
+    default_classification: CLOSED
+    rule:
+      type: fixed_month_day
+      key: new_years_day
+      name: New Year's Day
+      month: 1
+      day: 1
+
+  - key: independence_day
+    name: Independence Day
+    default_classification: CLOSED
+    rule:
+      type: fixed_month_day
+      key: independence_day
+      name: Independence Day
+      month: 7
+      day: 4
+
+  - key: christmas
+    name: Christmas Day
+    default_classification: CLOSED
+    rule:
+      type: fixed_month_day
+      key: christmas
+      name: Christmas Day
+      month: 12
+      day: 25
+
+  - key: memorial_day
+    name: Memorial Day
+    default_classification: CLOSED
+    rule:
+      type: nth_weekday_of_month
+      key: memorial_day
+      name: Memorial Day
+      month: 5
+      weekday: MONDAY
+      nth: -1
+
+  - key: labor_day
+    name: Labor Day
+    default_classification: CLOSED
+    rule:
+      type: nth_weekday_of_month
+      key: labor_day
+      name: Labor Day
+      month: 9
+      weekday: MONDAY
+      nth: 1
+
+  - key: thanksgiving
+    name: Thanksgiving Day
+    default_classification: CLOSED
+    rule:
+      type: nth_weekday_of_month
+      key: thanksgiving
+      name: Thanksgiving Day
+      month: 11
+      weekday: THURSDAY
+      nth: 4

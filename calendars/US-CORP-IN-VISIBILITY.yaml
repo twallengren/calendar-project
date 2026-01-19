@@ -1,0 +1,16 @@
+kind: calendar
+id: US-CORP-IN-VISIBILITY
+
+metadata:
+  name: US Corporate Calendar with India Visibility
+  description: US corporate calendar with Indian holidays for visibility
+  chronology: ISO
+
+extends:
+  - US-MARKET-BASE
+
+uses:
+  - diwali_explicit
+
+classifications:
+  diwali: NOTABLE
