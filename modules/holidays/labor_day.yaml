@@ -1,0 +1,14 @@
+kind: module
+id: labor_day
+
+event_sources:
+  - key: labor_day
+    name: Labor Day
+    default_classification: CLOSED
+    rule:
+      type: nth_weekday_of_month
+      key: labor_day
+      name: Labor Day
+      month: 9
+      weekday: MONDAY
+      nth: 1

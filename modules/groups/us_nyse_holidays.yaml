@@ -1,0 +1,9 @@
+kind: module
+id: us_nyse_holidays
+
+uses:
+  - us_market_base
+  - mlk_day
+  - presidents_day
+  - good_friday
+  - juneteenth

@@ -63,6 +63,9 @@ public class OccurrenceClassifier {
             if (delta instanceof Delta.Reclassify r) {
                 result.computeIfAbsent(r.key(), k -> new HashMap<>())
                     .put(r.date(), r.newClassification());
+            } else if (delta instanceof Delta.Add a && a.classification() != null) {
+                result.computeIfAbsent(a.key(), k -> new HashMap<>())
+                    .put(a.date(), a.classification());
             }
         }
 

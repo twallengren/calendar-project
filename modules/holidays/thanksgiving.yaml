@@ -1,0 +1,14 @@
+kind: module
+id: thanksgiving
+
+event_sources:
+  - key: thanksgiving
+    name: Thanksgiving Day
+    default_classification: CLOSED
+    rule:
+      type: nth_weekday_of_month
+      key: thanksgiving
+      name: Thanksgiving Day
+      month: 11
+      weekday: THURSDAY
+      nth: 4

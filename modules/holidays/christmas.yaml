@@ -1,0 +1,13 @@
+kind: module
+id: christmas
+
+event_sources:
+  - key: christmas
+    name: Christmas Day
+    default_classification: CLOSED
+    rule:
+      type: fixed_month_day
+      key: christmas
+      name: Christmas Day
+      month: 12
+      day: 25

@@ -1,0 +1,13 @@
+kind: module
+id: new_years_day
+
+event_sources:
+  - key: new_years_day
+    name: New Year's Day
+    default_classification: CLOSED
+    rule:
+      type: fixed_month_day
+      key: new_years_day
+      name: New Year's Day
+      month: 1
+      day: 1

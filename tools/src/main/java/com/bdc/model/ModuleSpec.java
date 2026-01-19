@@ -9,6 +9,7 @@ import java.util.Map;
 public record ModuleSpec(
     String kind,
     String id,
+    List<String> uses,
     Policies policies,
     @JsonProperty("event_sources")
     List<EventSource> eventSources
@@ -17,6 +18,7 @@ public record ModuleSpec(
         if (!"module".equals(kind)) {
             throw new IllegalArgumentException("kind must be 'module', got: " + kind);
         }
+        if (uses == null) uses = List.of();
         if (eventSources == null) eventSources = List.of();
     }
 

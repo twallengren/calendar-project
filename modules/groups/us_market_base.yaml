@@ -1,0 +1,10 @@
+kind: module
+id: us_market_base
+
+uses:
+  - new_years_day
+  - memorial_day
+  - independence_day
+  - labor_day
+  - thanksgiving
+  - christmas

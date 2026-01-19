@@ -1,0 +1,14 @@
+kind: module
+id: mlk_day
+
+event_sources:
+  - key: mlk_day
+    name: Martin Luther King Jr. Day
+    default_classification: CLOSED
+    rule:
+      type: nth_weekday_of_month
+      key: mlk_day
+      name: Martin Luther King Jr. Day
+      month: 1
+      weekday: MONDAY
+      nth: 3

@@ -6,10 +6,9 @@ metadata:
   description: US corporate calendar with Indian holidays for visibility
   chronology: ISO
 
-extends:
-  - US-MARKET-BASE
-
 uses:
+  - weekend_sat_sun
+  - us_market_base
   - diwali_explicit
 
 classifications:

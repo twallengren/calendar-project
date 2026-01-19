@@ -1,0 +1,14 @@
+kind: module
+id: memorial_day
+
+event_sources:
+  - key: memorial_day
+    name: Memorial Day
+    default_classification: CLOSED
+    rule:
+      type: nth_weekday_of_month
+      key: memorial_day
+      name: Memorial Day
+      month: 5
+      weekday: MONDAY
+      nth: -1

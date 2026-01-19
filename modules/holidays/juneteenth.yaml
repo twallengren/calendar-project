@@ -1,0 +1,13 @@
+kind: module
+id: juneteenth
+
+event_sources:
+  - key: juneteenth
+    name: Juneteenth National Independence Day
+    default_classification: CLOSED
+    rule:
+      type: fixed_month_day
+      key: juneteenth
+      name: Juneteenth National Independence Day
+      month: 6
+      day: 19

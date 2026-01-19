@@ -1,0 +1,13 @@
+kind: module
+id: independence_day
+
+event_sources:
+  - key: independence_day
+    name: Independence Day
+    default_classification: CLOSED
+    rule:
+      type: fixed_month_day
+      key: independence_day
+      name: Independence Day
+      month: 7
+      day: 4

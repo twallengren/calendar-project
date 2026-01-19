@@ -1,0 +1,14 @@
+kind: module
+id: presidents_day
+
+event_sources:
+  - key: presidents_day
+    name: Presidents Day
+    default_classification: CLOSED
+    rule:
+      type: nth_weekday_of_month
+      key: presidents_day
+      name: Presidents Day
+      month: 2
+      weekday: MONDAY
+      nth: 3

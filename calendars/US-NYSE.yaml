@@ -6,57 +6,9 @@ metadata:
   description: New York Stock Exchange trading calendar
   chronology: ISO
 
-extends:
-  - US-MARKET-BASE
-
-event_sources:
-  - key: mlk_day
-    name: Martin Luther King Jr. Day
-    default_classification: CLOSED
-    rule:
-      type: nth_weekday_of_month
-      key: mlk_day
-      name: Martin Luther King Jr. Day
-      month: 1
-      weekday: MONDAY
-      nth: 3
-
-  - key: presidents_day
-    name: Presidents Day
-    default_classification: CLOSED
-    rule:
-      type: nth_weekday_of_month
-      key: presidents_day
-      name: Presidents Day
-      month: 2
-      weekday: MONDAY
-      nth: 3
-
-  - key: good_friday
-    name: Good Friday
-    default_classification: CLOSED
-    rule:
-      type: explicit_dates
-      key: good_friday
-      name: Good Friday
-      dates:
-        - 2024-03-29
-        - 2025-04-18
-        - 2026-04-03
-        - 2027-03-26
-        - 2028-04-14
-        - 2029-03-30
-        - 2030-04-19
-
-  - key: juneteenth
-    name: Juneteenth National Independence Day
-    default_classification: CLOSED
-    rule:
-      type: fixed_month_day
-      key: juneteenth
-      name: Juneteenth National Independence Day
-      month: 6
-      day: 19
+uses:
+  - weekend_sat_sun
+  - us_nyse_holidays
 
 deltas:
   - action: add

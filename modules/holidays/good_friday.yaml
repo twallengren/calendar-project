@@ -1,0 +1,19 @@
+kind: module
+id: good_friday
+
+event_sources:
+  - key: good_friday
+    name: Good Friday
+    default_classification: CLOSED
+    rule:
+      type: explicit_dates
+      key: good_friday
+      name: Good Friday
+      dates:
+        - 2024-03-29
+        - 2025-04-18
+        - 2026-04-03
+        - 2027-03-26
+        - 2028-04-14
+        - 2029-03-30
+        - 2030-04-19

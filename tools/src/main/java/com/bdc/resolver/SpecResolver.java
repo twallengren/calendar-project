@@ -52,16 +52,10 @@ public class SpecResolver {
             resolutionChain.addAll(parent.resolutionChain());
         }
 
-        // 2. Resolve uses (modules) in order
+        // 2. Resolve uses (modules) in order - recursively
+        Set<String> visitedModules = new LinkedHashSet<>();
         for (String moduleId : spec.uses()) {
-            ModuleSpec module = registry.getModule(moduleId)
-                .orElseThrow(() -> new IllegalArgumentException("Module not found: " + moduleId));
-
-            if (module.policies() != null && module.policies().weekends() != null) {
-                weekendDays.addAll(module.policies().weekends());
-            }
-            mergedSources.addAll(module.eventSources());
-            resolutionChain.add("module:" + moduleId);
+            resolveModuleRecursive(moduleId, visitedModules, mergedSources, weekendDays, resolutionChain);
         }
 
         // 3. Merge local content
@@ -84,6 +78,44 @@ public class SpecResolver {
             List.copyOf(mergedDeltas),
             List.copyOf(resolutionChain)
         );
+    }
+
+    private void resolveModuleRecursive(
+            String moduleId,
+            Set<String> visitedModules,
+            List<EventSource> mergedSources,
+            Set<DayOfWeek> weekendDays,
+            List<String> resolutionChain) {
+
+        if (visitedModules.contains(moduleId)) {
+            // Already processed this module (handles diamonds in dependency graph)
+            return;
+        }
+
+        ModuleSpec module = registry.getModule(moduleId)
+            .orElseThrow(() -> new IllegalArgumentException("Module not found: " + moduleId));
+
+        // Check for cycles
+        if (visitedModules.contains("processing:" + moduleId)) {
+            throw new IllegalStateException("Circular module dependency detected: " + moduleId);
+        }
+        visitedModules.add("processing:" + moduleId);
+
+        // First, recursively resolve any modules this module uses
+        for (String depModuleId : module.uses()) {
+            resolveModuleRecursive(depModuleId, visitedModules, mergedSources, weekendDays, resolutionChain);
+        }
+
+        // Then add this module's own content
+        if (module.policies() != null && module.policies().weekends() != null) {
+            weekendDays.addAll(module.policies().weekends());
+        }
+        mergedSources.addAll(module.eventSources());
+        resolutionChain.add("module:" + moduleId);
+
+        // Mark as fully processed
+        visitedModules.remove("processing:" + moduleId);
+        visitedModules.add(moduleId);
     }
 
     public void clearCache() {
