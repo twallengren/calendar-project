@@ -1,0 +1,13 @@
+kind: calendar
+id: USES-MODULES
+
+metadata:
+  name: Uses Modules Calendar
+  description: Tests module composition
+  chronology: ISO
+
+uses:
+  - weekend_test
+  - single_holiday
+  - nth_weekday_holiday
+  - hijri_holiday

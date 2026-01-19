@@ -11,7 +11,10 @@ import picocli.CommandLine.Command;
     subcommands = {
         ValidateCommand.class,
         ResolveCommand.class,
-        GenerateCommand.class
+        GenerateCommand.class,
+        QueryCommand.class,
+        HistoryCommand.class,
+        DiffCommand.class
     }
 )
 public class Main implements Runnable {

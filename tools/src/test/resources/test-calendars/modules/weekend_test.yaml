@@ -1,0 +1,7 @@
+kind: module
+id: weekend_test
+
+policies:
+  weekends:
+    - SATURDAY
+    - SUNDAY

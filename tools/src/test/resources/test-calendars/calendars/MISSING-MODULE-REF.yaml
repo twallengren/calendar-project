@@ -1,0 +1,10 @@
+kind: calendar
+id: MISSING-MODULE-REF
+
+metadata:
+  name: Missing Module Reference Test
+  description: Tests error handling for missing module
+  chronology: ISO
+
+uses:
+  - nonexistent_module

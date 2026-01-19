@@ -1,0 +1,16 @@
+kind: module
+id: circular_b
+
+uses:
+  - circular_a
+
+event_sources:
+  - key: circular_b_event
+    name: Circular B Event
+    default_classification: CLOSED
+    rule:
+      type: fixed_month_day
+      key: circular_b_event
+      name: Circular B Event
+      month: 2
+      day: 1

@@ -1,0 +1,14 @@
+kind: module
+id: hijri_holiday
+
+event_sources:
+  - key: test_hijri
+    name: Test Hijri Holiday (Shawwal 1)
+    default_classification: CLOSED
+    rule:
+      type: fixed_month_day
+      key: test_hijri
+      name: Test Hijri Holiday (Shawwal 1)
+      month: 10
+      day: 1
+      chronology: HIJRI

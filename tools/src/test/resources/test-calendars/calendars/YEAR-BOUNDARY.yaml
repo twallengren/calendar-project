@@ -1,0 +1,31 @@
+kind: calendar
+id: YEAR-BOUNDARY
+
+metadata:
+  name: Year Boundary Test Calendar
+  description: Tests Dec 31 and Jan 1 holidays
+  chronology: ISO
+
+uses:
+  - weekend_test
+
+event_sources:
+  - key: new_years_eve
+    name: New Year's Eve
+    default_classification: NOTABLE
+    rule:
+      type: fixed_month_day
+      key: new_years_eve
+      name: New Year's Eve
+      month: 12
+      day: 31
+
+  - key: new_years_day
+    name: New Year's Day
+    default_classification: CLOSED
+    rule:
+      type: fixed_month_day
+      key: new_years_day
+      name: New Year's Day
+      month: 1
+      day: 1

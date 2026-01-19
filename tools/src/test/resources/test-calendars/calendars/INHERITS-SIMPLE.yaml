@@ -1,0 +1,13 @@
+kind: calendar
+id: INHERITS-SIMPLE
+
+metadata:
+  name: Inherited Calendar
+  description: Tests extends functionality
+  chronology: ISO
+
+extends:
+  - BASE-FOR-INHERITANCE
+
+uses:
+  - nth_weekday_holiday

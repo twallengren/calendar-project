@@ -1,0 +1,12 @@
+kind: calendar
+id: DIAMOND
+
+metadata:
+  name: Diamond Dependency Calendar
+  description: Tests diamond pattern - A uses B, A uses C, B uses D, C uses D
+  chronology: ISO
+
+uses:
+  - weekend_test
+  - branch_a
+  - branch_b

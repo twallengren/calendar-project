@@ -1,0 +1,10 @@
+kind: calendar
+id: CIRCULAR-USES
+
+metadata:
+  name: Circular Uses Test
+  description: Tests circular module dependency detection
+  chronology: ISO
+
+uses:
+  - circular_a

@@ -1,0 +1,21 @@
+kind: calendar
+id: DEEP-INHERITANCE
+
+metadata:
+  name: Deep Inheritance Calendar
+  description: Tests A extends B extends C chain
+  chronology: ISO
+
+extends:
+  - LEVEL-B
+
+event_sources:
+  - key: deep_event
+    name: Deep Inheritance Event
+    default_classification: CLOSED
+    rule:
+      type: fixed_month_day
+      key: deep_event
+      name: Deep Inheritance Event
+      month: 3
+      day: 15

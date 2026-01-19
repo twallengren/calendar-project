@@ -1,0 +1,22 @@
+kind: calendar
+id: FIFTH-WEEKDAY
+
+metadata:
+  name: Fifth Weekday Test Calendar
+  description: Tests 5th weekday of month (doesn't always exist)
+  chronology: ISO
+
+uses:
+  - weekend_test
+
+event_sources:
+  - key: fifth_monday
+    name: Fifth Monday (May Not Exist)
+    default_classification: CLOSED
+    rule:
+      type: nth_weekday_of_month
+      key: fifth_monday
+      name: Fifth Monday (May Not Exist)
+      month: 2
+      weekday: MONDAY
+      nth: 5

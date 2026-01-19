@@ -1,0 +1,21 @@
+kind: calendar
+id: LEAP-YEAR
+
+metadata:
+  name: Leap Year Test Calendar
+  description: Tests Feb 29 holiday handling
+  chronology: ISO
+
+uses:
+  - weekend_test
+
+event_sources:
+  - key: leap_day
+    name: Leap Day Holiday
+    default_classification: CLOSED
+    rule:
+      type: fixed_month_day
+      key: leap_day
+      name: Leap Day Holiday
+      month: 2
+      day: 29

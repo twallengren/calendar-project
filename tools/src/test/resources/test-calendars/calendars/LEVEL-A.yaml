@@ -1,0 +1,21 @@
+kind: calendar
+id: LEVEL-A
+
+metadata:
+  name: Level A Base Calendar
+  description: Deepest level for inheritance chain test
+  chronology: ISO
+
+uses:
+  - weekend_test
+
+event_sources:
+  - key: level_a_event
+    name: Level A Event
+    default_classification: CLOSED
+    rule:
+      type: fixed_month_day
+      key: level_a_event
+      name: Level A Event
+      month: 1
+      day: 15

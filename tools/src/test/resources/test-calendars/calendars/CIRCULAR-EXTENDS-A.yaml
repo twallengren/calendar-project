@@ -1,0 +1,10 @@
+kind: calendar
+id: CIRCULAR-EXTENDS-A
+
+metadata:
+  name: Circular Extends A
+  description: Tests circular calendar extends detection (extends B)
+  chronology: ISO
+
+extends:
+  - CIRCULAR-EXTENDS-B

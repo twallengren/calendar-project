@@ -1,0 +1,11 @@
+kind: calendar
+id: SIMPLE
+
+metadata:
+  name: Simple Test Calendar
+  description: Minimal calendar with one fixed holiday
+  chronology: ISO
+
+uses:
+  - weekend_test
+  - single_holiday

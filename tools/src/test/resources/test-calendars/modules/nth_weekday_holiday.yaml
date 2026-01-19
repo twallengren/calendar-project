@@ -1,0 +1,14 @@
+kind: module
+id: nth_weekday_holiday
+
+event_sources:
+  - key: third_monday
+    name: Third Monday Holiday
+    default_classification: CLOSED
+    rule:
+      type: nth_weekday_of_month
+      key: third_monday
+      name: Third Monday Holiday
+      month: 3
+      weekday: MONDAY
+      nth: 3

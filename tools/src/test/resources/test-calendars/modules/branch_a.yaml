@@ -1,0 +1,16 @@
+kind: module
+id: branch_a
+
+uses:
+  - shared_module
+
+event_sources:
+  - key: branch_a_holiday
+    name: Branch A Holiday
+    default_classification: CLOSED
+    rule:
+      type: fixed_month_day
+      key: branch_a_holiday
+      name: Branch A Holiday
+      month: 9
+      day: 1

@@ -1,0 +1,21 @@
+kind: calendar
+id: LEVEL-B
+
+metadata:
+  name: Level B Calendar
+  description: Middle level for inheritance chain test
+  chronology: ISO
+
+extends:
+  - LEVEL-A
+
+event_sources:
+  - key: level_b_event
+    name: Level B Event
+    default_classification: CLOSED
+    rule:
+      type: fixed_month_day
+      key: level_b_event
+      name: Level B Event
+      month: 2
+      day: 15

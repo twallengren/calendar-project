@@ -1,0 +1,10 @@
+kind: calendar
+id: EMPTY
+
+metadata:
+  name: Empty Test Calendar
+  description: Calendar with no event sources
+  chronology: ISO
+
+uses:
+  - weekend_test

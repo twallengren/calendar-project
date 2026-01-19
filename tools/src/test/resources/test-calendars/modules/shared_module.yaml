@@ -1,0 +1,13 @@
+kind: module
+id: shared_module
+
+event_sources:
+  - key: shared_holiday
+    name: Shared Holiday
+    default_classification: NOTABLE
+    rule:
+      type: fixed_month_day
+      key: shared_holiday
+      name: Shared Holiday
+      month: 8
+      day: 1

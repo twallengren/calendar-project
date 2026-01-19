@@ -25,6 +25,7 @@ dependencies {
 
     testImplementation(platform("org.junit:junit-bom:5.10.2"))
     testImplementation("org.junit.jupiter:junit-jupiter")
+    testImplementation("net.jqwik:jqwik:1.8.2")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
@@ -35,6 +36,8 @@ application {
 tasks.named<Test>("test") {
     useJUnitPlatform()
     workingDir = rootProject.projectDir
+    // Pass system properties to tests
+    systemProperty("updateGoldens", System.getProperty("updateGoldens", "false"))
 }
 
 tasks.named<JavaExec>("run") {

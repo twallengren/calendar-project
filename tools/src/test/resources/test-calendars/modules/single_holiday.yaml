@@ -1,0 +1,13 @@
+kind: module
+id: single_holiday
+
+event_sources:
+  - key: test_holiday
+    name: Test Holiday
+    default_classification: CLOSED
+    rule:
+      type: fixed_month_day
+      key: test_holiday
+      name: Test Holiday
+      month: 6
+      day: 15

@@ -1,0 +1,11 @@
+kind: calendar
+id: BASE-FOR-INHERITANCE
+
+metadata:
+  name: Base Calendar for Inheritance Tests
+  description: Base calendar to test extends functionality
+  chronology: ISO
+
+uses:
+  - weekend_test
+  - single_holiday

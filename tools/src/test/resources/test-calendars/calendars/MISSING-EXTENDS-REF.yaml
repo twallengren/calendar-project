@@ -1,0 +1,10 @@
+kind: calendar
+id: MISSING-EXTENDS-REF
+
+metadata:
+  name: Missing Extends Reference Test
+  description: Tests error handling for missing parent calendar
+  chronology: ISO
+
+extends:
+  - NONEXISTENT-CALENDAR
