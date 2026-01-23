@@ -1,0 +1,13 @@
+{
+  "calendar_id" : "US-CORP-IN-VISIBILITY",
+  "calendar_name" : "US Corporate Calendar with India Visibility",
+  "generated_at" : "2026-01-22T23:50:01.042945776Z",
+  "range_start" : "2020-01-01",
+  "range_end" : "2030-12-31",
+  "event_count" : 73,
+  "resolution_chain" : [ "module:weekend_sat_sun", "module:new_years_day", "module:memorial_day", "module:independence_day", "module:labor_day", "module:thanksgiving", "module:christmas", "module:us_market_base", "module:diwali_explicit", "calendar:US-CORP-IN-VISIBILITY" ],
+  "counts_by_type" : {
+    "CLOSED" : 66,
+    "NOTABLE" : 7
+  }
+}

@@ -6,43 +6,49 @@ on:
   pull_request:
     branches: [main]
 
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
+env:
+  JAVA_VERSION: '21'
+  JAVA_DISTRIBUTION: 'temurin'
+
 jobs:
   build:
     runs-on: ubuntu-latest
+    outputs:
+      tools-path: ${{ steps.build.outputs.tools-path }}
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up JDK 21
+      - name: Set up JDK ${{ env.JAVA_VERSION }}
         uses: actions/setup-java@v4
         with:
-          java-version: '21'
-          distribution: 'temurin'
+          java-version: ${{ env.JAVA_VERSION }}
+          distribution: ${{ env.JAVA_DISTRIBUTION }}
 
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v3
 
       - name: Build
-        run: ./gradlew :tools:build
-        working-directory: .
+        id: build
+        run: |
+          ./gradlew :tools:build
+          ./gradlew :tools:installDist
+          echo "tools-path=tools/build/install/tools/bin/tools" >> $GITHUB_OUTPUT
 
       - name: Run tests
         run: ./gradlew :tools:test
-        working-directory: .
 
       - name: Validate example calendars
         run: |
-          ./gradlew :tools:run --args="validate US-MARKET-BASE"
-          ./gradlew :tools:run --args="validate US-NYSE"
-          ./gradlew :tools:run --args="validate US-CORP-IN-VISIBILITY"
-        working-directory: .
-
-      - name: Generate sample output
-        run: |
-          mkdir -p build/out
-          ./gradlew :tools:run --args="generate US-MARKET-BASE --from 2024-01-01 --to 2024-12-31 --out build/out/US-MARKET-BASE"
-        working-directory: .
+          ./tools/build/install/tools/bin/tools validate US-MARKET-BASE
+          ./tools/build/install/tools/bin/tools validate US-NYSE
+          ./tools/build/install/tools/bin/tools validate US-CORP-IN-VISIBILITY
 
       - name: Upload test results
         uses: actions/upload-artifact@v4
@@ -50,3 +56,147 @@ jobs:
         with:
           name: test-results
           path: tools/build/reports/tests/
+
+  calendar-diff:
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.event_name == 'pull_request'
+    outputs:
+      severity: ${{ steps.diff.outputs.severity }}
+      has_changes: ${{ steps.diff.outputs.has_changes }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK ${{ env.JAVA_VERSION }}
+        uses: actions/setup-java@v4
+        with:
+          java-version: ${{ env.JAVA_VERSION }}
+          distribution: ${{ env.JAVA_DISTRIBUTION }}
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
+
+      - name: Build tools
+        run: ./gradlew :tools:installDist
+
+      - name: Run calendar diff
+        id: diff
+        run: |
+          set +e
+          ./tools/build/install/tools/bin/tools ci-diff \
+            --blessed-dir blessed \
+            --calendars all \
+            --output-format json \
+            --current-sha "${{ github.sha }}" > diff-result.json
+          EXIT_CODE=$?
+          set -e
+
+          # Parse results based on exit code
+          if [ $EXIT_CODE -eq 0 ]; then
+            echo "severity=NONE" >> $GITHUB_OUTPUT
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          elif [ $EXIT_CODE -eq 1 ]; then
+            echo "severity=MINOR" >> $GITHUB_OUTPUT
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          elif [ $EXIT_CODE -eq 2 ]; then
+            echo "severity=MAJOR" >> $GITHUB_OUTPUT
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          else
+            echo "severity=ERROR" >> $GITHUB_OUTPUT
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+            cat diff-result.json
+            exit 1
+          fi
+
+          # Generate markdown report
+          ./tools/build/install/tools/bin/tools ci-diff \
+            --blessed-dir blessed \
+            --calendars all \
+            --output-format markdown \
+            --current-sha "${{ github.sha }}" > diff-report.md
+
+      - name: Upload diff artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: calendar-diff
+          path: |
+            diff-result.json
+            diff-report.md
+
+      - name: Post PR comment
+        if: steps.diff.outputs.has_changes == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const report = fs.readFileSync('diff-report.md', 'utf8');
+
+            // Find existing comment
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number
+            });
+
+            const botComment = comments.find(c =>
+              c.user.type === 'Bot' &&
+              c.body.includes('## Calendar Diff Report')
+            );
+
+            const body = report + '\n\n---\n*Generated at: ' + new Date().toISOString() + '*';
+
+            if (botComment) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: botComment.id,
+                body: body
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: body
+              });
+            }
+
+  require-approval:
+    runs-on: ubuntu-latest
+    needs: calendar-diff
+    if: needs.calendar-diff.outputs.has_changes == 'true'
+
+    steps:
+      - name: Check for approval label
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { data: labels } = await github.rest.issues.listLabelsOnIssue({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number
+            });
+
+            const approvalLabel = labels.find(l => l.name === 'calendar-change-approved');
+            const severity = '${{ needs.calendar-diff.outputs.severity }}';
+
+            if (severity === 'MAJOR' && !approvalLabel) {
+              core.setFailed(
+                'MAJOR calendar changes detected. ' +
+                'Add the "calendar-change-approved" label after reviewing the diff report.'
+              );
+            } else if (severity === 'MINOR' && !approvalLabel) {
+              core.warning(
+                'MINOR calendar changes detected (future events only). ' +
+                'Consider adding the "calendar-change-approved" label.'
+              );
+              // Still fail for consistency - all calendar changes need approval
+              core.setFailed(
+                'MINOR calendar changes detected. ' +
+                'Add the "calendar-change-approved" label to proceed.'
+              );
+            }
+
+            console.log('Calendar change approved via label');

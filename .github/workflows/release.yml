@@ -1,0 +1,253 @@
+name: Release
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'calendars/**'
+      - 'modules/**'
+  workflow_dispatch:
+    inputs:
+      force_version_type:
+        description: 'Force version bump type'
+        required: false
+        type: choice
+        options:
+          - auto
+          - major
+          - minor
+          - patch
+
+permissions:
+  contents: write
+
+env:
+  JAVA_VERSION: '21'
+  JAVA_DISTRIBUTION: 'temurin'
+
+jobs:
+  check-release-needed:
+    runs-on: ubuntu-latest
+    outputs:
+      should_release: ${{ steps.check.outputs.should_release }}
+      version_type: ${{ steps.check.outputs.version_type }}
+      new_version: ${{ steps.check.outputs.new_version }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up JDK ${{ env.JAVA_VERSION }}
+        uses: actions/setup-java@v4
+        with:
+          java-version: ${{ env.JAVA_VERSION }}
+          distribution: ${{ env.JAVA_DISTRIBUTION }}
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
+
+      - name: Build tools
+        run: ./gradlew :tools:installDist
+
+      - name: Determine version bump
+        id: check
+        run: |
+          # Get current version from manifest
+          CURRENT_VERSION=$(jq -r '.release_version.semantic // "0.0.0"' blessed/manifest.json)
+          echo "Current version: $CURRENT_VERSION"
+
+          # Parse version components
+          IFS='.' read -r MAJOR MINOR PATCH <<< "$CURRENT_VERSION"
+
+          # Determine bump type
+          if [ "${{ inputs.force_version_type }}" != "" ] && [ "${{ inputs.force_version_type }}" != "auto" ]; then
+            VERSION_TYPE="${{ inputs.force_version_type }}"
+          else
+            # Run diff to determine severity
+            set +e
+            ./tools/build/install/tools/bin/tools ci-diff \
+              --blessed-dir blessed \
+              --calendars all \
+              --output-format json \
+              --current-sha "${{ github.sha }}" > /tmp/diff.json
+            EXIT_CODE=$?
+            set -e
+
+            if [ $EXIT_CODE -eq 0 ]; then
+              echo "No changes detected"
+              echo "should_release=false" >> $GITHUB_OUTPUT
+              exit 0
+            elif [ $EXIT_CODE -eq 1 ]; then
+              VERSION_TYPE="minor"
+            elif [ $EXIT_CODE -eq 2 ]; then
+              VERSION_TYPE="major"
+            else
+              echo "Error running diff"
+              cat /tmp/diff.json
+              exit 1
+            fi
+          fi
+
+          # Calculate new version
+          case $VERSION_TYPE in
+            major)
+              NEW_VERSION="$((MAJOR + 1)).0.0"
+              ;;
+            minor)
+              NEW_VERSION="${MAJOR}.$((MINOR + 1)).0"
+              ;;
+            patch)
+              NEW_VERSION="${MAJOR}.${MINOR}.$((PATCH + 1))"
+              ;;
+          esac
+
+          echo "should_release=true" >> $GITHUB_OUTPUT
+          echo "version_type=$VERSION_TYPE" >> $GITHUB_OUTPUT
+          echo "new_version=$NEW_VERSION" >> $GITHUB_OUTPUT
+          echo "New version will be: $NEW_VERSION (type: $VERSION_TYPE)"
+
+  create-release:
+    runs-on: ubuntu-latest
+    needs: check-release-needed
+    if: needs.check-release-needed.outputs.should_release == 'true'
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK ${{ env.JAVA_VERSION }}
+        uses: actions/setup-java@v4
+        with:
+          java-version: ${{ env.JAVA_VERSION }}
+          distribution: ${{ env.JAVA_DISTRIBUTION }}
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
+
+      - name: Build tools
+        run: ./gradlew :tools:installDist
+
+      - name: Generate release artifacts
+        id: artifacts
+        run: |
+          NEW_VERSION="${{ needs.check-release-needed.outputs.new_version }}"
+          GIT_SHA="${{ github.sha }}"
+          SHORT_SHA="${GIT_SHA:0:7}"
+          GEN_DATE=$(date -u +%Y-%m-%d)
+
+          # Create release directory
+          RELEASE_DIR="release-artifacts"
+          mkdir -p "$RELEASE_DIR"
+
+          # Read calendar list from manifest
+          CALENDARS=$(jq -r '.calendars | keys[]' blessed/manifest.json)
+
+          # Generate each calendar
+          for CAL_ID in $CALENDARS; do
+            RANGE_START=$(jq -r ".calendars[\"$CAL_ID\"].range_start" blessed/manifest.json)
+            RANGE_END=$(jq -r ".calendars[\"$CAL_ID\"].range_end" blessed/manifest.json)
+
+            echo "Generating $CAL_ID from $RANGE_START to $RANGE_END"
+
+            CAL_DIR="$RELEASE_DIR/$CAL_ID"
+            mkdir -p "$CAL_DIR"
+
+            ./tools/build/install/tools/bin/tools generate "$CAL_ID" \
+              --from "$RANGE_START" \
+              --to "$RANGE_END" \
+              --out "$CAL_DIR" \
+              --source-version "$GIT_SHA"
+          done
+
+          # Create combined archive
+          ARCHIVE_NAME="bdc-calendars-${NEW_VERSION}+${SHORT_SHA}.${GEN_DATE}"
+          cd "$RELEASE_DIR"
+
+          # tar.gz archive
+          tar -czvf "../${ARCHIVE_NAME}.tar.gz" .
+
+          # zip archive
+          zip -r "../${ARCHIVE_NAME}.zip" .
+
+          cd ..
+
+          # Generate checksums
+          sha256sum "${ARCHIVE_NAME}"* > checksums.txt
+
+          echo "archive_name=$ARCHIVE_NAME" >> $GITHUB_OUTPUT
+          echo "gen_date=$GEN_DATE" >> $GITHUB_OUTPUT
+
+      - name: Update blessed artifacts
+        run: |
+          NEW_VERSION="${{ needs.check-release-needed.outputs.new_version }}"
+          GIT_SHA="${{ github.sha }}"
+          GEN_DATE="${{ steps.artifacts.outputs.gen_date }}"
+
+          # Copy generated files to blessed/
+          cp -r release-artifacts/* blessed/
+
+          # Update manifest
+          jq --arg version "$NEW_VERSION" \
+             --arg sha "$GIT_SHA" \
+             --arg date "$GEN_DATE" \
+             --arg timestamp "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+             '.release_version.semantic = $version |
+              .release_version.git_sha = $sha |
+              .release_version.generation_date = $date |
+              .blessed_at = $timestamp |
+              .blessed_by = "github-actions"' \
+             blessed/manifest.json > blessed/manifest.json.tmp
+          mv blessed/manifest.json.tmp blessed/manifest.json
+
+          # Update checksums in manifest
+          for CAL_DIR in blessed/*/; do
+            CAL_ID=$(basename "$CAL_DIR")
+            if [ -f "$CAL_DIR/events.csv" ]; then
+              CHECKSUM=$(sha256sum "$CAL_DIR/events.csv" | cut -d' ' -f1)
+              EVENT_COUNT=$(tail -n +2 "$CAL_DIR/events.csv" | grep -c . || echo 0)
+              jq --arg cal "$CAL_ID" \
+                 --arg checksum "sha256:$CHECKSUM" \
+                 --arg count "$EVENT_COUNT" \
+                 '.calendars[$cal].checksum = $checksum | .calendars[$cal].event_count = ($count | tonumber)' \
+                 blessed/manifest.json > blessed/manifest.json.tmp
+              mv blessed/manifest.json.tmp blessed/manifest.json
+            fi
+          done
+
+          # Commit updated blessed artifacts
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add blessed/
+          git commit -m "chore: update blessed artifacts for v${NEW_VERSION}" || echo "No changes to commit"
+          git push
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v${{ needs.check-release-needed.outputs.new_version }}
+          name: Calendar Release v${{ needs.check-release-needed.outputs.new_version }}
+          body: |
+            ## Calendar Release v${{ needs.check-release-needed.outputs.new_version }}
+
+            **Version Info:**
+            - Semantic Version: `${{ needs.check-release-needed.outputs.new_version }}`
+            - Git SHA: `${{ github.sha }}`
+            - Generation Date: `${{ steps.artifacts.outputs.gen_date }}`
+            - Release Type: `${{ needs.check-release-needed.outputs.version_type }}`
+
+            **Included Calendars:**
+            - US-MARKET-BASE (2020-01-01 to 2030-12-31)
+            - US-NYSE (2020-01-01 to 2030-12-31)
+            - US-CORP-IN-VISIBILITY (2020-01-01 to 2030-12-31)
+
+            **Downloads:**
+            - `*.tar.gz` / `*.zip` - Individual calendar CSV files with metadata
+            - See `checksums.txt` for SHA-256 verification
+          files: |
+            ${{ steps.artifacts.outputs.archive_name }}.tar.gz
+            ${{ steps.artifacts.outputs.archive_name }}.zip
+            checksums.txt
+          draft: false
+          prerelease: false
