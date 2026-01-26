@@ -3,6 +3,7 @@ package com.bdc.test;
 import com.bdc.generator.EventGenerator;
 import com.bdc.loader.SpecRegistry;
 import com.bdc.model.Event;
+import com.bdc.model.EventType;
 import com.bdc.model.ResolvedSpec;
 import com.bdc.resolver.SpecResolver;
 import org.junit.jupiter.api.*;
@@ -51,12 +52,14 @@ class EdgeCaseTests {
     void emptyDateRangeWorks() {
         ResolvedSpec spec = resolver.resolve("YEAR-BOUNDARY");
         LocalDate date = LocalDate.of(2024, 1, 1);
+        Event expectedEvent = new Event(date, EventType.CLOSED, "New Year's Day", "YEAR-BOUNDARY:new_years_day");
 
         List<Event> events = generator.generate(spec, date, date);
 
         // Should find the New Year's Day event
         assertEquals(1, events.size());
-        assertEquals(LocalDate.of(2024, 1, 1), events.get(0).date());
+        Event newYearsDay = events.getFirst();
+        assertEquals(expectedEvent, newYearsDay);
     }
 
     @Test
