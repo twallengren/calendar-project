@@ -6,12 +6,10 @@ public record EventSource(
     String key,
     String name,
     Rule rule,
-    @JsonProperty("default_classification")
-    EventType defaultClassification
-) {
-    public EventSource {
-        if (defaultClassification == null) {
-            defaultClassification = EventType.CLOSED;
-        }
+    @JsonProperty("default_classification") EventType defaultClassification) {
+  public EventSource {
+    if (defaultClassification == null) {
+      defaultClassification = EventType.CLOSED;
     }
+  }
 }

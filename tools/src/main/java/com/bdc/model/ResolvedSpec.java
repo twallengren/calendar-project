@@ -10,13 +10,12 @@ public record ResolvedSpec(
     List<EventSource> eventSources,
     Map<String, EventType> classifications,
     List<Delta> deltas,
-    List<String> resolutionChain
-) {
-    public ResolvedSpec {
-        if (weekendPolicy == null) weekendPolicy = WeekendPolicy.SAT_SUN;
-        if (eventSources == null) eventSources = List.of();
-        if (classifications == null) classifications = Map.of();
-        if (deltas == null) deltas = List.of();
-        if (resolutionChain == null) resolutionChain = List.of();
-    }
+    List<String> resolutionChain) {
+  public ResolvedSpec {
+    if (weekendPolicy == null) weekendPolicy = WeekendPolicy.SAT_SUN;
+    if (eventSources == null) eventSources = List.of();
+    if (classifications == null) classifications = Map.of();
+    if (deltas == null) deltas = List.of();
+    if (resolutionChain == null) resolutionChain = List.of();
+  }
 }

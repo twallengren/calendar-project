@@ -1,19 +1,17 @@
 kind: module
 id: good_friday
 
+references:
+  - key: easter
+    formula: EASTER_WESTERN
+
 event_sources:
   - key: good_friday
     name: Good Friday
     default_classification: CLOSED
     rule:
-      type: explicit_dates
+      type: relative_to_reference
       key: good_friday
       name: Good Friday
-      dates:
-        - 2024-03-29
-        - 2025-04-18
-        - 2026-04-03
-        - 2027-03-26
-        - 2028-04-14
-        - 2029-03-30
-        - 2030-04-19
+      reference: easter
+      offset_days: -2

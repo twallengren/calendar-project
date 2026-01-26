@@ -9,13 +9,12 @@ public record CalendarDiff(
     List<EventDiff> additions,
     List<EventDiff> removals,
     List<EventDiff> modifications,
-    LocalDate cutoffDate
-) {
-    public int totalChanges() {
-        return additions.size() + removals.size() + modifications.size();
-    }
+    LocalDate cutoffDate) {
+  public int totalChanges() {
+    return additions.size() + removals.size() + modifications.size();
+  }
 
-    public boolean hasChanges() {
-        return totalChanges() > 0;
-    }
+  public boolean hasChanges() {
+    return totalChanges() > 0;
+  }
 }
