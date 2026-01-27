@@ -108,7 +108,7 @@ public class RuleExpander {
   }
 
   private List<Occurrence> expandRelativeToReference(
-          Rule.RelativeToReference rule, DateRange range, String provenance) {
+      Rule.RelativeToReference rule, DateRange range, String provenance) {
     if (referenceResolver == null) {
       throw new IllegalStateException("ReferenceResolver not set");
     }

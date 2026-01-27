@@ -10,7 +10,8 @@ import java.util.List;
 @JsonSubTypes({
   @JsonSubTypes.Type(value = Rule.ExplicitDates.class, name = "explicit_dates"),
   @JsonSubTypes.Type(value = Rule.FixedMonthDay.class, name = "fixed_month_day"),
-  @JsonSubTypes.Type(value = Rule.NthWeekdayOfMonth.class, name = "nth_weekday_of_month")
+  @JsonSubTypes.Type(value = Rule.NthWeekdayOfMonth.class, name = "nth_weekday_of_month"),
+  @JsonSubTypes.Type(value = Rule.RelativeToReference.class, name = "relative_to_reference")
 })
 public sealed interface Rule
     permits Rule.ExplicitDates,

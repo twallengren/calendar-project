@@ -59,7 +59,8 @@ public class SpecResolver {
     // 2. Resolve uses (modules) in order - recursively
     Set<String> visitedModules = new LinkedHashSet<>();
     for (String moduleId : spec.uses()) {
-      resolveModuleRecursive(moduleId, visitedModules, mergedSources, weekendDays, resolutionChain, mergedReferences);
+      resolveModuleRecursive(
+          moduleId, visitedModules, mergedSources, weekendDays, resolutionChain, mergedReferences);
     }
 
     // 3. Merge local content
@@ -110,7 +111,12 @@ public class SpecResolver {
     // First, recursively resolve any modules this module uses
     for (String depModuleId : module.uses()) {
       resolveModuleRecursive(
-          depModuleId, visitedModules, mergedSources, weekendDays, resolutionChain, mergedReferences);
+          depModuleId,
+          visitedModules,
+          mergedSources,
+          weekendDays,
+          resolutionChain,
+          mergedReferences);
     }
 
     // Then add this module's own content

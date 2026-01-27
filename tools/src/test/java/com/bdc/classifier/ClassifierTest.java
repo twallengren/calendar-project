@@ -48,7 +48,14 @@ class ClassifierTest {
 
     ResolvedSpec spec =
         new ResolvedSpec(
-            "test", null, WeekendPolicy.SAT_SUN, List.of(), List.of(source), Map.of(), List.of(), List.of());
+            "test",
+            null,
+            WeekendPolicy.SAT_SUN,
+            List.of(),
+            List.of(source),
+            Map.of(),
+            List.of(),
+            List.of());
 
     List<Event> events = classifier.classify(List.of(occ), spec);
 
