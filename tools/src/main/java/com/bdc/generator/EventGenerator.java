@@ -2,6 +2,7 @@ package com.bdc.generator;
 
 import com.bdc.chronology.DateRange;
 import com.bdc.classifier.OccurrenceClassifier;
+import com.bdc.formula.ReferenceResolver;
 import com.bdc.model.*;
 import java.time.LocalDate;
 import java.util.*;
@@ -19,6 +20,10 @@ public class EventGenerator {
 
   public List<Event> generate(ResolvedSpec spec, LocalDate from, LocalDate to) {
     DateRange range = new DateRange(from, to);
+
+    ReferenceResolver refResolver = new ReferenceResolver();
+    refResolver.resolve(spec.references(), range);
+    ruleExpander.setReferenceResolver(refResolver);
 
     // 1. Expand all rules to occurrences
     List<Occurrence> occurrences = new ArrayList<>();

@@ -9,6 +9,7 @@ public record ModuleSpec(
     String id,
     List<String> uses,
     Policies policies,
+    List<Reference> references,
     @JsonProperty("event_sources") List<EventSource> eventSources) {
   public ModuleSpec {
     if (!"module".equals(kind)) {

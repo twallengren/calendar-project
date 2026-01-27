@@ -24,6 +24,9 @@ deltas: [...]                 # Modifications
 ```yaml
 kind: module
 id: string
+references:
+  - key: string      # Unique identifier for this reference
+    formula: string  # Formula to compute dates (e.g., EASTER_WESTERN)
 policies:
   weekends: [SATURDAY, SUNDAY]
 event_sources: [...]
@@ -65,6 +68,16 @@ rule:
   month: 9
   weekday: MONDAY
   nth: 1             # 1 = first, -1 = last
+```
+
+### relative_to_reference
+```yaml
+rule:
+  type: relative_to_reference
+  key: good_friday
+  name: Good Friday
+  reference: easter      # Key of a reference defined in this module
+  offset_days: -2        # Days to add (negative = before, positive = after)
 ```
 
 ## Event Types

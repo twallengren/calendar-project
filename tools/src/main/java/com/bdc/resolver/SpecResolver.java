@@ -43,6 +43,7 @@ public class SpecResolver {
     List<Delta> mergedDeltas = new ArrayList<>();
     Set<DayOfWeek> weekendDays = new LinkedHashSet<>();
     List<String> resolutionChain = new ArrayList<>();
+    List<Reference> mergedReferences = new ArrayList<>();
 
     // 1. Resolve extends (parents) in order
     for (String parentId : spec.extendsList()) {
@@ -52,12 +53,13 @@ public class SpecResolver {
       mergedDeltas.addAll(parent.deltas());
       weekendDays.addAll(parent.weekendPolicy().weekendDays());
       resolutionChain.addAll(parent.resolutionChain());
+      mergedReferences.addAll(parent.references());
     }
 
     // 2. Resolve uses (modules) in order - recursively
     Set<String> visitedModules = new LinkedHashSet<>();
     for (String moduleId : spec.uses()) {
-      resolveModuleRecursive(moduleId, visitedModules, mergedSources, weekendDays, resolutionChain);
+      resolveModuleRecursive(moduleId, visitedModules, mergedSources, weekendDays, resolutionChain, mergedReferences);
     }
 
     // 3. Merge local content
@@ -74,6 +76,7 @@ public class SpecResolver {
         calendarId,
         spec.metadata(),
         policy,
+        List.copyOf(mergedReferences),
         List.copyOf(mergedSources),
         Map.copyOf(mergedClassifications),
         List.copyOf(mergedDeltas),
@@ -85,7 +88,8 @@ public class SpecResolver {
       Set<String> visitedModules,
       List<EventSource> mergedSources,
       Set<DayOfWeek> weekendDays,
-      List<String> resolutionChain) {
+      List<String> resolutionChain,
+      List<Reference> mergedReferences) {
 
     if (visitedModules.contains(moduleId)) {
       // Already processed this module (handles diamonds in dependency graph)
@@ -106,7 +110,7 @@ public class SpecResolver {
     // First, recursively resolve any modules this module uses
     for (String depModuleId : module.uses()) {
       resolveModuleRecursive(
-          depModuleId, visitedModules, mergedSources, weekendDays, resolutionChain);
+          depModuleId, visitedModules, mergedSources, weekendDays, resolutionChain, mergedReferences);
     }
 
     // Then add this module's own content
@@ -115,6 +119,9 @@ public class SpecResolver {
     }
     mergedSources.addAll(module.eventSources());
     resolutionChain.add("module:" + moduleId);
+    if (module.references() != null) {
+      mergedReferences.addAll(module.references());
+    }
 
     // Mark as fully processed
     visitedModules.remove("processing:" + moduleId);

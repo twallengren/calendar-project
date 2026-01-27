@@ -4,6 +4,7 @@ import com.bdc.emitter.CsvEmitter;
 import com.bdc.model.BitemporalMeta;
 import com.bdc.model.Event;
 import com.bdc.model.ResolvedSpec;
+import com.bdc.model.Rule;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
@@ -286,6 +287,12 @@ public class ArtifactStore {
       case com.bdc.model.Rule.ExplicitDates r -> {
         map.put("type", "explicit_dates");
         map.put("dates", r.dates().stream().map(LocalDate::toString).toList());
+      }
+      case Rule.RelativeToReference r -> {
+        map.put("type", "relative_to_reference");
+        map.put("name", r.name());
+        map.put("reference", r.reference());
+        map.put("offset_days", r.offsetDays());
       }
     }
     return map;

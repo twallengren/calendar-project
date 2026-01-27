@@ -2,6 +2,7 @@ package com.bdc.generator;
 
 import com.bdc.chronology.ChronologyTranslator;
 import com.bdc.chronology.DateRange;
+import com.bdc.formula.ReferenceResolver;
 import com.bdc.model.Occurrence;
 import com.bdc.model.Rule;
 import java.time.DayOfWeek;
@@ -13,11 +14,18 @@ import java.util.List;
 
 public class RuleExpander {
 
+  private ReferenceResolver referenceResolver;
+
+  public void setReferenceResolver(ReferenceResolver referenceResolver) {
+    this.referenceResolver = referenceResolver;
+  }
+
   public List<Occurrence> expand(Rule rule, DateRange range, String provenance) {
     return switch (rule) {
       case Rule.ExplicitDates r -> expandExplicitDates(r, range, provenance);
       case Rule.FixedMonthDay r -> expandFixedMonthDay(r, range, provenance);
       case Rule.NthWeekdayOfMonth r -> expandNthWeekday(r, range, provenance);
+      case Rule.RelativeToReference r -> expandRelativeToReference(r, range, provenance);
     };
   }
 
@@ -97,5 +105,24 @@ public class RuleExpander {
     }
 
     return null;
+  }
+
+  private List<Occurrence> expandRelativeToReference(
+          Rule.RelativeToReference rule, DateRange range, String provenance) {
+    if (referenceResolver == null) {
+      throw new IllegalStateException("ReferenceResolver not set");
+    }
+    List<LocalDate> refDates = referenceResolver.getDates(rule.reference());
+    if (refDates.isEmpty()) {
+      throw new IllegalArgumentException("Unknown reference: " + rule.reference());
+    }
+    List<Occurrence> occurrences = new ArrayList<>();
+    for (LocalDate refDate : refDates) {
+      LocalDate date = refDate.plusDays(rule.offsetDays());
+      if (range.contains(date)) {
+        occurrences.add(new Occurrence(rule.key(), date, rule.name(), provenance));
+      }
+    }
+    return occurrences;
   }
 }
