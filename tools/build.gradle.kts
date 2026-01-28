@@ -1,6 +1,7 @@
 plugins {
     java
     application
+    id("com.diffplug.spotless") version "6.25.0"
 }
 
 group = "com.bdc"
@@ -43,4 +44,10 @@ tasks.named<Test>("test") {
 tasks.named<JavaExec>("run") {
     standardInput = System.`in`
     workingDir = rootProject.projectDir
+}
+
+spotless {
+    java {
+        googleJavaFormat()
+    }
 }

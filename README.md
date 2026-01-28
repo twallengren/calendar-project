@@ -26,8 +26,14 @@ cd tools
 
 ### Generate Calendar Events
 
+For local development/testing:
 ```bash
-./gradlew run --args="generate US-MARKET-BASE --from 2024-01-01 --to 2024-12-31 --out build/out/US-MARKET-BASE"
+./gradlew run --args="generate US-MARKET-BASE --from 2024-01-01 --to 2024-12-31 --out generated/US-MARKET-BASE"
+```
+
+To store as a versioned artifact (for bitemporality):
+```bash
+./gradlew run --args="generate US-MARKET-BASE --from 2024-01-01 --to 2024-12-31 --store"
 ```
 
 This produces:
@@ -48,8 +54,9 @@ calendar-project/
 ├── spec/               # YAML specification docs
 ├── calendars/          # Calendar YAML specs
 ├── modules/            # Reusable modules
-├── datasets/           # Lookup datasets
-├── generated/          # Generated artifacts
+├── generated/          # Local development/testing output
+├── blessed/            # Latest published versions (e.g., NYSE:latest)
+├── artifacts/          # Historical versions for bitemporality (e.g., NYSE:<hash>)
 └── docs/               # Additional documentation
 ```
 

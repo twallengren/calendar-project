@@ -9,111 +9,132 @@ import com.bdc.model.BitemporalMeta;
 import com.bdc.model.Event;
 import com.bdc.model.ResolvedSpec;
 import com.bdc.resolver.SpecResolver;
-import picocli.CommandLine.Command;
-import picocli.CommandLine.Option;
-import picocli.CommandLine.Parameters;
-
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.concurrent.Callable;
+import picocli.CommandLine.Command;
+import picocli.CommandLine.Option;
+import picocli.CommandLine.Parameters;
 
-@Command(
-    name = "generate",
-    description = "Generate calendar events for a date range"
-)
+@Command(name = "generate", description = "Generate calendar events for a date range")
 public class GenerateCommand implements Callable<Integer> {
 
-    @Parameters(index = "0", description = "The calendar ID to generate")
-    private String calendarId;
+  @Parameters(index = "0", description = "The calendar ID to generate")
+  private String calendarId;
 
-    @Option(names = {"--from", "-f"}, description = "Start date (ISO format)", required = true)
-    private LocalDate from;
+  @Option(
+      names = {"--from", "-f"},
+      description = "Start date (ISO format)",
+      required = true)
+  private LocalDate from;
 
-    @Option(names = {"--to", "-t"}, description = "End date (ISO format)", required = true)
-    private LocalDate to;
+  @Option(
+      names = {"--to", "-t"},
+      description = "End date (ISO format)",
+      required = true)
+  private LocalDate to;
 
-    @Option(names = {"--out", "-o"}, description = "Output directory (mutually exclusive with --store)")
-    private Path outputDir;
+  @Option(
+      names = {"--out", "-o"},
+      description = "Output directory (mutually exclusive with --store)")
+  private Path outputDir;
 
-    @Option(names = {"--store", "-s"}, description = "Store as a timestamped artifact in artifacts/generated/")
-    private boolean store;
+  @Option(
+      names = {"--store", "-s"},
+      description = "Store as a timestamped artifact in artifacts/generated/")
+  private boolean store;
 
-    @Option(names = {"--artifacts-dir"}, description = "Artifacts directory", defaultValue = "artifacts")
-    private Path artifactsDir;
+  @Option(
+      names = {"--artifacts-dir"},
+      description = "Artifacts directory",
+      defaultValue = "artifacts")
+  private Path artifactsDir;
 
-    @Option(names = {"--calendars-dir"}, description = "Calendars directory", defaultValue = "calendars")
-    private Path calendarsDir;
+  @Option(
+      names = {"--calendars-dir"},
+      description = "Calendars directory",
+      defaultValue = "calendars")
+  private Path calendarsDir;
 
-    @Option(names = {"--modules-dir"}, description = "Modules directory", defaultValue = "modules")
-    private Path modulesDir;
+  @Option(
+      names = {"--modules-dir"},
+      description = "Modules directory",
+      defaultValue = "modules")
+  private Path modulesDir;
 
-    @Option(names = {"--source-version"}, description = "Source version (e.g., git SHA)")
-    private String sourceVersion;
+  @Option(
+      names = {"--source-version"},
+      description = "Source version (e.g., git SHA)")
+  private String sourceVersion;
 
-    @Override
-    public Integer call() {
-        try {
-            if (!store && outputDir == null) {
-                System.err.println("Error: Either --out or --store must be specified");
-                return 1;
-            }
+  @Override
+  public Integer call() {
+    try {
+      if (!store && outputDir == null) {
+        System.err.println("Error: Either --out or --store must be specified");
+        return 1;
+      }
 
-            SpecRegistry registry = new SpecRegistry();
-            registry.loadCalendarsFromDirectory(calendarsDir);
-            registry.loadModulesFromDirectory(modulesDir);
+      SpecRegistry registry = new SpecRegistry();
+      registry.loadCalendarsFromDirectory(calendarsDir);
+      registry.loadModulesFromDirectory(modulesDir);
 
-            SpecResolver resolver = new SpecResolver(registry);
-            ResolvedSpec resolved = resolver.resolve(calendarId);
+      SpecResolver resolver = new SpecResolver(registry);
+      ResolvedSpec resolved = resolver.resolve(calendarId);
 
-            EventGenerator generator = new EventGenerator();
-            List<Event> events = generator.generate(resolved, from, to);
+      EventGenerator generator = new EventGenerator();
+      List<Event> events = generator.generate(resolved, from, to);
 
-            if (store) {
-                // Store as bitemporal artifact
-                BitemporalMeta meta = sourceVersion != null
-                    ? BitemporalMeta.now(sourceVersion, BitemporalMeta.now().toolVersion(), System.getProperty("user.name", "unknown"))
-                    : BitemporalMeta.now();
+      if (store) {
+        // Store as bitemporal artifact
+        BitemporalMeta meta =
+            sourceVersion != null
+                ? BitemporalMeta.now(
+                    sourceVersion,
+                    BitemporalMeta.now().toolVersion(),
+                    System.getProperty("user.name", "unknown"))
+                : BitemporalMeta.now();
 
-                ArtifactStore artifactStore = new ArtifactStore(artifactsDir);
+        ArtifactStore artifactStore = new ArtifactStore(artifactsDir);
 
-                // Also store the resolved spec
-                Path resolvedPath = artifactStore.storeResolvedSpec(resolved, meta);
+        // Also store the resolved spec
+        Path resolvedPath = artifactStore.storeResolvedSpec(resolved, meta);
 
-                // Store generated events
-                Path storedDir = artifactStore.storeGeneratedEvents(
-                    calendarId, from, to, events, resolved, meta);
+        // Store generated events
+        Path storedDir =
+            artifactStore.storeGeneratedEvents(calendarId, from, to, events, resolved, meta);
 
-                System.out.println("Generated " + events.size() + " events");
-                System.out.println("  Resolved spec: " + resolvedPath);
-                System.out.println("  Events stored at: " + storedDir);
-                System.out.println("  Transaction time: " + meta.transactionTime());
-                System.out.println("  Valid range: " + from + " to " + to);
-            } else {
-                // Emit to specified output directory
-                Files.createDirectories(outputDir);
+        System.out.println("Generated " + events.size() + " events");
+        System.out.println("  Resolved spec: " + resolvedPath);
+        System.out.println("  Events stored at: " + storedDir);
+        System.out.println("  Transaction time: " + meta.transactionTime());
+        System.out.println("  Valid range: " + from + " to " + to);
+      } else {
+        // Emit to specified output directory
+        Files.createDirectories(outputDir);
 
-                // Emit CSV
-                CsvEmitter csvEmitter = new CsvEmitter();
-                Path csvPath = outputDir.resolve("events.csv");
-                csvEmitter.emit(events, csvPath);
+        // Emit CSV
+        CsvEmitter csvEmitter = new CsvEmitter();
+        Path csvPath = outputDir.resolve("events.csv");
+        csvEmitter.emit(events, csvPath);
 
-                // Emit metadata
-                MetadataEmitter metadataEmitter = new MetadataEmitter();
-                Path metadataPath = outputDir.resolve("metadata.json");
-                metadataEmitter.emit(resolved, events, from, to, metadataPath);
+        // Emit metadata
+        MetadataEmitter metadataEmitter = new MetadataEmitter();
+        Path metadataPath = outputDir.resolve("metadata.json");
+        metadataEmitter.emit(resolved, events, from, to, metadataPath);
 
-                System.out.println("Generated " + events.size() + " events");
-                System.out.println("  CSV: " + csvPath);
-                System.out.println("  Metadata: " + metadataPath);
-            }
+        System.out.println("Generated " + events.size() + " events");
+        System.out.println("  CSV: " + csvPath);
+        System.out.println("  Metadata: " + metadataPath);
+      }
 
-            return 0;
-        } catch (Exception e) {
-            System.err.println("Generation failed: " + e.getMessage());
-            e.printStackTrace();
-            return 1;
-        }
+      return 0;
+    } catch (Exception e) {
+      System.err.println("Generation failed: " + e.getMessage());
+      e.printStackTrace();
+      return 1;
     }
+  }
 }

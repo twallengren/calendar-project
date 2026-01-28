@@ -5,6 +5,7 @@ on:
     branches: [main]
   pull_request:
     branches: [main]
+    types: [opened, synchronize, reopened, labeled]
 
 permissions:
   contents: read
@@ -89,7 +90,7 @@ jobs:
             --blessed-dir blessed \
             --calendars all \
             --output-format json \
-            --current-sha "${{ github.sha }}" > diff-result.json
+            --current-sha "${{ github.sha }}" > diff-result.json 2> diff-error.log
           EXIT_CODE=$?
           set -e
 
@@ -106,16 +107,25 @@ jobs:
           else
             echo "severity=ERROR" >> $GITHUB_OUTPUT
             echo "has_changes=true" >> $GITHUB_OUTPUT
+            echo "::error::Calendar diff failed with exit code $EXIT_CODE"
+            echo "--- stderr ---"
+            cat diff-error.log
+            echo "--- stdout ---"
             cat diff-result.json
             exit 1
           fi
 
-          # Generate markdown report
+          # Generate markdown report (ignore exit code - we already captured severity above)
           ./tools/build/install/tools/bin/tools ci-diff \
             --blessed-dir blessed \
             --calendars all \
             --output-format markdown \
-            --current-sha "${{ github.sha }}" > diff-report.md
+            --current-sha "${{ github.sha }}" > diff-report.md 2>> diff-error.log || true
+
+          # Always show the report in the logs for visibility
+          echo "::group::Calendar Diff Report"
+          cat diff-report.md
+          echo "::endgroup::"
 
       - name: Upload diff artifacts
         uses: actions/upload-artifact@v4
@@ -173,14 +183,21 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
+            const prNumber = context.payload.pull_request?.number || context.issue?.number;
+            console.log(`Checking PR #${prNumber} for approval label`);
+
             const { data: labels } = await github.rest.issues.listLabelsOnIssue({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              issue_number: context.issue.number
+              issue_number: prNumber
             });
+
+            console.log(`Found labels: ${labels.map(l => l.name).join(', ')}`);
 
             const approvalLabel = labels.find(l => l.name === 'calendar-change-approved');
             const severity = '${{ needs.calendar-diff.outputs.severity }}';
+
+            console.log(`Severity: ${severity}, Has approval label: ${!!approvalLabel}`);
 
             if (severity === 'MAJOR' && !approvalLabel) {
               core.setFailed(

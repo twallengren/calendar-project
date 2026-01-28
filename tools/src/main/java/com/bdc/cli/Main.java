@@ -9,24 +9,23 @@ import picocli.CommandLine.Command;
     mixinStandardHelpOptions = true,
     version = "1.0.0",
     subcommands = {
-        ValidateCommand.class,
-        ResolveCommand.class,
-        GenerateCommand.class,
-        QueryCommand.class,
-        HistoryCommand.class,
-        DiffCommand.class,
-        CiDiffCommand.class
-    }
-)
+      ValidateCommand.class,
+      ResolveCommand.class,
+      GenerateCommand.class,
+      QueryCommand.class,
+      HistoryCommand.class,
+      DiffCommand.class,
+      CiDiffCommand.class
+    })
 public class Main implements Runnable {
 
-    public static void main(String[] args) {
-        int exitCode = new CommandLine(new Main()).execute(args);
-        System.exit(exitCode);
-    }
+  public static void main(String[] args) {
+    int exitCode = new CommandLine(new Main()).execute(args);
+    System.exit(exitCode);
+  }
 
-    @Override
-    public void run() {
-        CommandLine.usage(this, System.out);
-    }
+  @Override
+  public void run() {
+    CommandLine.usage(this, System.out);
+  }
 }
