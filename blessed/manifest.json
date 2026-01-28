@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "blessed_at": "2026-01-22T23:49:59Z",
-  "blessed_by": "initial-setup",
+  "blessed_at": "2026-01-28T01:43:06Z",
+  "blessed_by": "github-actions",
   "calendars": {
     "US-MARKET-BASE": {
       "range_start": "2020-01-01",
@@ -12,8 +12,8 @@
     "US-NYSE": {
       "range_start": "2020-01-01",
       "range_end": "2030-12-31",
-      "event_count": 108,
-      "checksum": "sha256:bbe79bf2715a2f4005a5e956e0af6b60a200f64deeb4b05a98c30a91ec1332f4"
+      "event_count": 112,
+      "checksum": "sha256:8b48b194b1cc8f8d2ddb44e3ab2e41e802331a3feb4d700ee206fddeb7e658cc"
     },
     "US-CORP-IN-VISIBILITY": {
       "range_start": "2020-01-01",
@@ -23,8 +23,8 @@
     }
   },
   "release_version": {
-    "semantic": "1.0.0",
-    "git_sha": "6436a91c71f51ff5a2d59b3dfd3fa69cb50a1033",
-    "generation_date": "2026-01-22"
+    "semantic": "2.0.0",
+    "git_sha": "852fe3e9179702878b86574a1f1abf1aa504f748",
+    "generation_date": "2026-01-28"
   }
 }
