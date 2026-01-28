@@ -89,7 +89,7 @@ jobs:
             --blessed-dir blessed \
             --calendars all \
             --output-format json \
-            --current-sha "${{ github.sha }}" > diff-result.json
+            --current-sha "${{ github.sha }}" > diff-result.json 2> diff-error.log
           EXIT_CODE=$?
           set -e
 
@@ -106,6 +106,10 @@ jobs:
           else
             echo "severity=ERROR" >> $GITHUB_OUTPUT
             echo "has_changes=true" >> $GITHUB_OUTPUT
+            echo "::error::Calendar diff failed with exit code $EXIT_CODE"
+            echo "--- stderr ---"
+            cat diff-error.log
+            echo "--- stdout ---"
             cat diff-result.json
             exit 1
           fi
@@ -115,7 +119,12 @@ jobs:
             --blessed-dir blessed \
             --calendars all \
             --output-format markdown \
-            --current-sha "${{ github.sha }}" > diff-report.md
+            --current-sha "${{ github.sha }}" > diff-report.md 2>> diff-error.log
+
+          # Always show the report in the logs for visibility
+          echo "::group::Calendar Diff Report"
+          cat diff-report.md
+          echo "::endgroup::"
 
       - name: Upload diff artifacts
         uses: actions/upload-artifact@v4
