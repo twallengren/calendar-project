@@ -132,8 +132,7 @@ class RuleExpanderTest {
     refResolver.resolve(List.of(new Reference("easter", "EASTER_WESTERN")), range2024);
     expander.setReferenceResolver(refResolver);
 
-    Rule.RelativeToReference rule =
-        new Rule.RelativeToReference("test", "Test", "nonexistent", -2);
+    Rule.RelativeToReference rule = new Rule.RelativeToReference("test", "Test", "nonexistent", -2);
 
     assertThrows(IllegalArgumentException.class, () -> expander.expand(rule, range2024, "test"));
   }
@@ -142,8 +141,7 @@ class RuleExpanderTest {
   void expandRelativeToReference_narrowRange() {
     // Test that narrow date ranges work correctly - querying just Good Friday
     // should still work even though Easter is outside the range
-    DateRange goodFridayOnly =
-        new DateRange(LocalDate.of(2024, 3, 29), LocalDate.of(2024, 3, 29));
+    DateRange goodFridayOnly = new DateRange(LocalDate.of(2024, 3, 29), LocalDate.of(2024, 3, 29));
 
     ReferenceResolver refResolver = new ReferenceResolver();
     refResolver.resolve(List.of(new Reference("easter", "EASTER_WESTERN")), goodFridayOnly);
