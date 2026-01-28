@@ -3,7 +3,9 @@ package com.bdc.generator;
 import static org.junit.jupiter.api.Assertions.*;
 
 import com.bdc.chronology.DateRange;
+import com.bdc.formula.ReferenceResolver;
 import com.bdc.model.Occurrence;
+import com.bdc.model.Reference;
 import com.bdc.model.Rule;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
@@ -102,5 +104,57 @@ class RuleExpanderTest {
     assertTrue(
         occurrences.stream()
             .anyMatch(o -> o.date().getYear() == 2024 && o.date().getMonthValue() == 4));
+  }
+
+  @Test
+  void expandRelativeToReference_goodFriday() {
+    // Set up reference resolver with Easter
+    ReferenceResolver refResolver = new ReferenceResolver();
+    refResolver.resolve(List.of(new Reference("easter", "EASTER_WESTERN")), range2024);
+    expander.setReferenceResolver(refResolver);
+
+    Rule.RelativeToReference rule =
+        new Rule.RelativeToReference("good_friday", "Good Friday", "easter", -2);
+
+    List<Occurrence> occurrences = expander.expand(rule, range2024, "test");
+
+    assertEquals(1, occurrences.size());
+    // Easter 2024 is March 31, Good Friday is March 29
+    assertEquals(LocalDate.of(2024, 3, 29), occurrences.get(0).date());
+    assertEquals("good_friday", occurrences.get(0).key());
+    assertEquals("Good Friday", occurrences.get(0).name());
+  }
+
+  @Test
+  void expandRelativeToReference_unknownReference() {
+    // Set up reference resolver without the referenced key
+    ReferenceResolver refResolver = new ReferenceResolver();
+    refResolver.resolve(List.of(new Reference("easter", "EASTER_WESTERN")), range2024);
+    expander.setReferenceResolver(refResolver);
+
+    Rule.RelativeToReference rule =
+        new Rule.RelativeToReference("test", "Test", "nonexistent", -2);
+
+    assertThrows(IllegalArgumentException.class, () -> expander.expand(rule, range2024, "test"));
+  }
+
+  @Test
+  void expandRelativeToReference_narrowRange() {
+    // Test that narrow date ranges work correctly - querying just Good Friday
+    // should still work even though Easter is outside the range
+    DateRange goodFridayOnly =
+        new DateRange(LocalDate.of(2024, 3, 29), LocalDate.of(2024, 3, 29));
+
+    ReferenceResolver refResolver = new ReferenceResolver();
+    refResolver.resolve(List.of(new Reference("easter", "EASTER_WESTERN")), goodFridayOnly);
+    expander.setReferenceResolver(refResolver);
+
+    Rule.RelativeToReference rule =
+        new Rule.RelativeToReference("good_friday", "Good Friday", "easter", -2);
+
+    List<Occurrence> occurrences = expander.expand(rule, goodFridayOnly, "test");
+
+    assertEquals(1, occurrences.size());
+    assertEquals(LocalDate.of(2024, 3, 29), occurrences.get(0).date());
   }
 }

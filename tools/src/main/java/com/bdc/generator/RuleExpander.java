@@ -112,10 +112,10 @@ public class RuleExpander {
     if (referenceResolver == null) {
       throw new IllegalStateException("ReferenceResolver not set");
     }
-    List<LocalDate> refDates = referenceResolver.getDates(rule.reference());
-    if (refDates.isEmpty()) {
+    if (!referenceResolver.hasReference(rule.reference())) {
       throw new IllegalArgumentException("Unknown reference: " + rule.reference());
     }
+    List<LocalDate> refDates = referenceResolver.getDates(rule.reference());
     List<Occurrence> occurrences = new ArrayList<>();
     for (LocalDate refDate : refDates) {
       LocalDate date = refDate.plusDays(rule.offsetDays());

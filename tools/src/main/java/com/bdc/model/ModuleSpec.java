@@ -16,6 +16,7 @@ public record ModuleSpec(
       throw new IllegalArgumentException("kind must be 'module', got: " + kind);
     }
     if (uses == null) uses = List.of();
+    if (references == null) references = List.of();
     if (eventSources == null) eventSources = List.of();
   }
 

@@ -16,9 +16,9 @@ tools/build/
 .DS_Store
 Thumbs.db
 
-# Generated files
-generated/*.csv
-generated/*.json
+# Generated files (local development output)
+generated/*
+!generated/.gitkeep
 
 # Local environment
 .env
