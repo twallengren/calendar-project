@@ -11,6 +11,7 @@ import com.bdc.resolver.SpecResolver;
 import java.nio.file.Path;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.function.Predicate;
 import java.util.stream.Stream;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -18,6 +19,9 @@ import org.junit.jupiter.params.provider.*;
 
 /** Edge case tests for calendar generation. Tests boundary conditions and unusual scenarios. */
 class EdgeCaseTests {
+
+  /** Filter to exclude WEEKEND events when testing holiday-specific logic. */
+  private static final Predicate<Event> NON_WEEKEND = e -> e.type() != EventType.WEEKEND;
 
   private static SpecRegistry testRegistry;
   private static SpecRegistry prodRegistry;
@@ -65,12 +69,13 @@ class EdgeCaseTests {
   @DisplayName("Single day range with no event returns empty list")
   void singleDayRangeNoEvent() {
     ResolvedSpec spec = resolver.resolve("SIMPLE");
-    // Test Holiday is June 15, pick a different day
-    LocalDate date = LocalDate.of(2024, 3, 15);
+    // Test Holiday is June 15, pick a different day (Tuesday, not a weekend)
+    LocalDate date = LocalDate.of(2024, 3, 12);
 
     List<Event> events = generator.generate(spec, date, date);
 
-    assertTrue(events.isEmpty());
+    List<Event> nonWeekendEvents = events.stream().filter(NON_WEEKEND).toList();
+    assertTrue(nonWeekendEvents.isEmpty());
   }
 
   @Test
@@ -96,10 +101,11 @@ class EdgeCaseTests {
     LocalDate to = LocalDate.of(year, 12, 31);
 
     List<Event> events = generator.generate(spec, from, to);
+    List<Event> nonWeekendEvents = events.stream().filter(NON_WEEKEND).toList();
 
-    // Should have exactly 1 event (Test Holiday on June 15)
-    assertEquals(1, events.size());
-    assertEquals(LocalDate.of(year, 6, 15), events.get(0).date());
+    // Should have exactly 1 non-weekend event (Test Holiday on June 15)
+    assertEquals(1, nonWeekendEvents.size());
+    assertEquals(LocalDate.of(year, 6, 15), nonWeekendEvents.get(0).date());
   }
 
   @ParameterizedTest
@@ -111,9 +117,10 @@ class EdgeCaseTests {
     LocalDate to = LocalDate.of(year, 12, 31);
 
     List<Event> events = generator.generate(spec, from, to);
+    List<Event> nonWeekendEvents = events.stream().filter(NON_WEEKEND).toList();
 
-    assertEquals(1, events.size());
-    assertEquals(LocalDate.of(year, 6, 15), events.get(0).date());
+    assertEquals(1, nonWeekendEvents.size());
+    assertEquals(LocalDate.of(year, 6, 15), nonWeekendEvents.get(0).date());
   }
 
   // === Leap Year Tests ===
@@ -127,9 +134,10 @@ class EdgeCaseTests {
     LocalDate to = LocalDate.of(year, 12, 31);
 
     List<Event> events = generator.generate(spec, from, to);
+    List<Event> nonWeekendEvents = events.stream().filter(NON_WEEKEND).toList();
 
-    assertEquals(1, events.size());
-    assertEquals(LocalDate.of(year, 2, 29), events.get(0).date());
+    assertEquals(1, nonWeekendEvents.size());
+    assertEquals(LocalDate.of(year, 2, 29), nonWeekendEvents.get(0).date());
   }
 
   @ParameterizedTest
@@ -141,8 +149,10 @@ class EdgeCaseTests {
     LocalDate to = LocalDate.of(year, 12, 31);
 
     List<Event> events = generator.generate(spec, from, to);
+    List<Event> nonWeekendEvents = events.stream().filter(NON_WEEKEND).toList();
 
-    assertTrue(events.isEmpty(), "Non-leap year " + year + " should have no Feb 29 event");
+    assertTrue(
+        nonWeekendEvents.isEmpty(), "Non-leap year " + year + " should have no Feb 29 event");
   }
 
   // === Nth Weekday Edge Cases ===
@@ -170,12 +180,13 @@ class EdgeCaseTests {
     LocalDate to = from.plusMonths(1).minusDays(1);
 
     List<Event> events = generator.generate(spec, from, to);
+    List<Event> nonWeekendEvents = events.stream().filter(NON_WEEKEND).toList();
 
     // Our FIFTH-WEEKDAY calendar uses February, so only Feb months matter
     if (month == 2) {
       assertEquals(
           hasFifthMonday ? 1 : 0,
-          events.size(),
+          nonWeekendEvents.size(),
           String.format(
               "Year %d Feb should %shave 5th Monday", year, hasFifthMonday ? "" : "not "));
     }
@@ -191,13 +202,14 @@ class EdgeCaseTests {
     LocalDate to = LocalDate.of(2025, 1, 15);
 
     List<Event> events = generator.generate(spec, from, to);
+    List<Event> nonWeekendEvents = events.stream().filter(NON_WEEKEND).toList();
 
-    assertEquals(2, events.size());
+    assertEquals(2, nonWeekendEvents.size());
     assertTrue(
-        events.stream().anyMatch(e -> e.date().equals(LocalDate.of(2024, 12, 31))),
+        nonWeekendEvents.stream().anyMatch(e -> e.date().equals(LocalDate.of(2024, 12, 31))),
         "Should have New Year's Eve 2024");
     assertTrue(
-        events.stream().anyMatch(e -> e.date().equals(LocalDate.of(2025, 1, 1))),
+        nonWeekendEvents.stream().anyMatch(e -> e.date().equals(LocalDate.of(2025, 1, 1))),
         "Should have New Year's Day 2025");
   }
 
@@ -209,13 +221,16 @@ class EdgeCaseTests {
     LocalDate to = LocalDate.of(2026, 12, 31);
 
     List<Event> events = generator.generate(spec, from, to);
+    List<Event> nonWeekendEvents = events.stream().filter(NON_WEEKEND).toList();
 
     // 3 years * 2 events/year = 6 events
-    assertEquals(6, events.size());
+    assertEquals(6, nonWeekendEvents.size());
 
     // Verify years
-    assertEquals(3, events.stream().filter(e -> e.description().equals("New Year's Day")).count());
-    assertEquals(3, events.stream().filter(e -> e.description().equals("New Year's Eve")).count());
+    assertEquals(
+        3, nonWeekendEvents.stream().filter(e -> e.description().equals("New Year's Day")).count());
+    assertEquals(
+        3, nonWeekendEvents.stream().filter(e -> e.description().equals("New Year's Eve")).count());
   }
 
   // === Hijri Calendar Tests ===
@@ -261,17 +276,18 @@ class EdgeCaseTests {
     for (int year = 2020; year <= 2030; year++) {
       List<Event> events =
           generator.generate(spec, LocalDate.of(year, 1, 1), LocalDate.of(year, 12, 31));
+      List<Event> nonWeekendEvents = events.stream().filter(NON_WEEKEND).toList();
 
-      // Should have 6 events: New Year's, Memorial Day, Independence Day,
+      // Should have 6 non-weekend events: New Year's, Memorial Day, Independence Day,
       // Labor Day, Thanksgiving, Christmas
-      assertEquals(6, events.size(), "US-MARKET-BASE should have 6 events in " + year);
+      assertEquals(6, nonWeekendEvents.size(), "US-MARKET-BASE should have 6 events in " + year);
 
       // Verify key holidays
       assertTrue(
-          events.stream().anyMatch(e -> e.description().equals("New Year's Day")),
+          nonWeekendEvents.stream().anyMatch(e -> e.description().equals("New Year's Day")),
           "Should have New Year's Day in " + year);
       assertTrue(
-          events.stream().anyMatch(e -> e.description().equals("Christmas Day")),
+          nonWeekendEvents.stream().anyMatch(e -> e.description().equals("Christmas Day")),
           "Should have Christmas Day in " + year);
     }
   }

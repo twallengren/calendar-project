@@ -6,15 +6,20 @@ import com.bdc.emitter.CsvEmitter;
 import com.bdc.generator.EventGenerator;
 import com.bdc.loader.SpecRegistry;
 import com.bdc.model.Event;
+import com.bdc.model.EventType;
 import com.bdc.model.ResolvedSpec;
 import com.bdc.resolver.SpecResolver;
 import java.nio.file.Path;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.function.Predicate;
 import net.jqwik.api.*;
 import net.jqwik.api.constraints.IntRange;
 
 class PropertyBasedTest {
+
+  /** Filter to exclude WEEKEND events when testing holiday-specific logic. */
+  private static final Predicate<Event> NON_WEEKEND = e -> e.type() != EventType.WEEKEND;
 
   private static final Path TEST_CALENDARS_DIR =
       Path.of("tools/src/test/resources/test-calendars/calendars");
@@ -188,7 +193,10 @@ class PropertyBasedTest {
     for (int year = 2020; year <= 2030; year++) {
       List<Event> events =
           generator.generate(spec, LocalDate.of(year, 1, 1), LocalDate.of(year, 12, 31));
-      assertTrue(events.isEmpty(), "Empty calendar should produce no events in year " + year);
+      List<Event> nonWeekendEvents = events.stream().filter(NON_WEEKEND).toList();
+      assertTrue(
+          nonWeekendEvents.isEmpty(),
+          "Empty calendar should produce no non-weekend events in year " + year);
     }
   }
 
@@ -203,13 +211,15 @@ class PropertyBasedTest {
     // Leap years: 2024, 2028
     List<Event> events2024 =
         generator.generate(spec, LocalDate.of(2024, 1, 1), LocalDate.of(2024, 12, 31));
-    assertEquals(1, events2024.size(), "Leap year 2024 should have Feb 29 event");
-    assertEquals(LocalDate.of(2024, 2, 29), events2024.get(0).date());
+    List<Event> nonWeekend2024 = events2024.stream().filter(NON_WEEKEND).toList();
+    assertEquals(1, nonWeekend2024.size(), "Leap year 2024 should have Feb 29 event");
+    assertEquals(LocalDate.of(2024, 2, 29), nonWeekend2024.get(0).date());
 
     // Non-leap years: 2023, 2025
     List<Event> events2023 =
         generator.generate(spec, LocalDate.of(2023, 1, 1), LocalDate.of(2023, 12, 31));
-    assertTrue(events2023.isEmpty(), "Non-leap year 2023 should have no Feb 29 event");
+    List<Event> nonWeekend2023 = events2023.stream().filter(NON_WEEKEND).toList();
+    assertTrue(nonWeekend2023.isEmpty(), "Non-leap year 2023 should have no Feb 29 event");
   }
 
   @Property(tries = 10)
@@ -265,15 +275,17 @@ class PropertyBasedTest {
     // 2024: Feb has 5 Thursdays but only 4 Mondays (starts on Thursday)
     List<Event> events2024 =
         generator.generate(spec, LocalDate.of(2024, 1, 1), LocalDate.of(2024, 12, 31));
+    List<Event> nonWeekend2024 = events2024.stream().filter(NON_WEEKEND).toList();
 
     // The fifth Monday rule for February should produce 0 events in 2024
     assertTrue(
-        events2024.isEmpty(),
+        nonWeekend2024.isEmpty(),
         "Fifth Monday of February 2024 doesn't exist (Feb 2024 starts on Thursday)");
 
     // 2028: February starts on Tuesday, has 5 Tuesdays but only 4 Mondays
     List<Event> events2028 =
         generator.generate(spec, LocalDate.of(2028, 1, 1), LocalDate.of(2028, 12, 31));
-    assertTrue(events2028.isEmpty(), "Fifth Monday of February 2028 doesn't exist");
+    List<Event> nonWeekend2028 = events2028.stream().filter(NON_WEEKEND).toList();
+    assertTrue(nonWeekend2028.isEmpty(), "Fifth Monday of February 2028 doesn't exist");
   }
 }

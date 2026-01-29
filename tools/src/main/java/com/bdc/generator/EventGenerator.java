@@ -4,8 +4,11 @@ import com.bdc.chronology.DateRange;
 import com.bdc.classifier.OccurrenceClassifier;
 import com.bdc.formula.ReferenceResolver;
 import com.bdc.model.*;
+import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.time.format.TextStyle;
 import java.util.*;
+import java.util.Locale;
 import java.util.stream.Collectors;
 
 public class EventGenerator {
@@ -40,9 +43,22 @@ public class EventGenerator {
     occurrences = applyDeltas(occurrences, spec.deltas(), range);
 
     // 3. Classify occurrences to events
-    List<Event> events = classifier.classify(occurrences, spec);
+    List<Event> events = new ArrayList<>(classifier.classify(occurrences, spec));
 
-    // 4. Sort deterministically
+    // 4. Generate weekend events
+    Set<DayOfWeek> weekendDays = spec.weekendPolicy().weekendDays();
+    if (!weekendDays.isEmpty()) {
+      Set<LocalDate> existingDates = events.stream().map(Event::date).collect(Collectors.toSet());
+      for (LocalDate date = from; !date.isAfter(to); date = date.plusDays(1)) {
+        DayOfWeek dow = date.getDayOfWeek();
+        if (weekendDays.contains(dow) && !existingDates.contains(date)) {
+          String dayName = dow.getDisplayName(TextStyle.FULL, Locale.ENGLISH);
+          events.add(new Event(date, EventType.WEEKEND, dayName, "weekend_policy"));
+        }
+      }
+    }
+
+    // 5. Sort deterministically
     return events.stream().sorted().collect(Collectors.toList());
   }
 

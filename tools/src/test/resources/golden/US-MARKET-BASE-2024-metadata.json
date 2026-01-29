@@ -4,9 +4,10 @@
   "generated_at" : "NORMALIZED_TIMESTAMP",
   "range_start" : "2024-01-01",
   "range_end" : "2024-12-31",
-  "event_count" : 6,
+  "event_count" : 110,
   "resolution_chain" : [ "module:weekend_sat_sun", "module:new_years_day", "module:memorial_day", "module:independence_day", "module:labor_day", "module:thanksgiving", "module:christmas", "module:us_market_base", "calendar:US-MARKET-BASE" ],
   "counts_by_type" : {
-    "CLOSED" : 6
+    "CLOSED" : 6,
+    "WEEKEND" : 104
   }
 }
