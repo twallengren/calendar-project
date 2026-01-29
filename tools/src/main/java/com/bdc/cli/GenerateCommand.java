@@ -3,9 +3,11 @@ package com.bdc.cli;
 import com.bdc.artifact.ArtifactStore;
 import com.bdc.emitter.CsvEmitter;
 import com.bdc.emitter.MetadataEmitter;
+import com.bdc.emitter.SpecEmitter;
 import com.bdc.generator.EventGenerator;
 import com.bdc.loader.SpecRegistry;
 import com.bdc.model.BitemporalMeta;
+import com.bdc.model.CalendarSpec;
 import com.bdc.model.Event;
 import com.bdc.model.ResolvedSpec;
 import com.bdc.resolver.SpecResolver;
@@ -69,6 +71,11 @@ public class GenerateCommand implements Callable<Integer> {
       description = "Source version (e.g., git SHA)")
   private String sourceVersion;
 
+  @Option(
+      names = {"--include-specs"},
+      description = "Include calendar.yaml and resolved.yaml in output")
+  private boolean includeSpecs;
+
   @Override
   public Integer call() {
     try {
@@ -128,6 +135,22 @@ public class GenerateCommand implements Callable<Integer> {
         System.out.println("Generated " + events.size() + " events");
         System.out.println("  CSV: " + csvPath);
         System.out.println("  Metadata: " + metadataPath);
+
+        // Emit spec files if requested
+        if (includeSpecs) {
+          SpecEmitter specEmitter = new SpecEmitter();
+          CalendarSpec calendarSpec = registry.getCalendar(calendarId).orElse(null);
+
+          if (calendarSpec != null) {
+            Path calendarPath = outputDir.resolve("calendar.yaml");
+            specEmitter.emitCalendarSpec(calendarSpec, calendarPath);
+            System.out.println("  Calendar spec: " + calendarPath);
+          }
+
+          Path resolvedPath = outputDir.resolve("resolved.yaml");
+          specEmitter.emitResolvedSpec(resolved, resolvedPath);
+          System.out.println("  Resolved spec: " + resolvedPath);
+        }
       }
 
       return 0;

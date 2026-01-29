@@ -6,6 +6,7 @@ on:
     paths:
       - 'calendars/**'
       - 'modules/**'
+      - 'tools/src/main/**'
   workflow_dispatch:
     inputs:
       force_version_type:
@@ -129,6 +130,30 @@ jobs:
       - name: Build tools
         run: ./gradlew :tools:installDist
 
+      - name: Archive current blessed to artifacts
+        run: |
+          NEW_VERSION="${{ needs.check-release-needed.outputs.new_version }}"
+          GIT_SHA="${{ github.sha }}"
+          SHORT_SHA="${GIT_SHA:0:7}"
+          TIMESTAMP=$(date -u +%Y-%m-%dT%H-%M-%SZ)
+          VERSION_ID="${SHORT_SHA}_${TIMESTAMP}_v${NEW_VERSION}"
+
+          echo "Archiving current blessed with version ID: $VERSION_ID"
+
+          # Create artifacts directory structure
+          mkdir -p artifacts
+
+          # Archive each calendar's current blessed state
+          for CAL_DIR in blessed/*/; do
+            if [ -d "$CAL_DIR" ]; then
+              CAL_ID=$(basename "$CAL_DIR")
+              ARCHIVE_DIR="artifacts/$CAL_ID/$VERSION_ID"
+              mkdir -p "$ARCHIVE_DIR"
+              cp -r "$CAL_DIR"/* "$ARCHIVE_DIR/" 2>/dev/null || true
+              echo "  Archived $CAL_ID to $ARCHIVE_DIR"
+            fi
+          done
+
       - name: Generate release artifacts
         id: artifacts
         run: |
@@ -158,7 +183,8 @@ jobs:
               --from "$RANGE_START" \
               --to "$RANGE_END" \
               --out "$CAL_DIR" \
-              --source-version "$GIT_SHA"
+              --source-version "$GIT_SHA" \
+              --include-specs
           done
 
           # Create combined archive
@@ -216,10 +242,10 @@ jobs:
             fi
           done
 
-          # Commit updated blessed artifacts
+          # Commit updated blessed and archived artifacts
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add blessed/
+          git add blessed/ artifacts/
           git commit -m "chore: update blessed artifacts for v${NEW_VERSION}" || echo "No changes to commit"
           git push
 
