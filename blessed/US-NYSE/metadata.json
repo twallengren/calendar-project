@@ -1,13 +1,14 @@
 {
   "calendar_id" : "US-NYSE",
   "calendar_name" : "NYSE Trading Calendar",
-  "generated_at" : "2026-01-28T01:43:06.559289507Z",
+  "generated_at" : "2026-01-29T02:05:30.330039580Z",
   "range_start" : "2020-01-01",
   "range_end" : "2030-12-31",
-  "event_count" : 112,
+  "event_count" : 1247,
   "resolution_chain" : [ "module:weekend_sat_sun", "module:new_years_day", "module:memorial_day", "module:independence_day", "module:labor_day", "module:thanksgiving", "module:christmas", "module:us_market_base", "module:mlk_day", "module:presidents_day", "module:good_friday", "module:juneteenth", "module:us_nyse_holidays", "calendar:US-NYSE" ],
   "counts_by_type" : {
     "CLOSED" : 110,
+    "WEEKEND" : 1135,
     "NOTABLE" : 2
   }
 }
