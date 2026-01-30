@@ -73,7 +73,7 @@ public class GenerateCommand implements Callable<Integer> {
 
   @Option(
       names = {"--include-specs"},
-      description = "Include calendar.yaml and resolved.yaml in output")
+      description = "Include calendar.yaml and resolved.yaml in output (only applies with --out)")
   private boolean includeSpecs;
 
   @Override
@@ -82,6 +82,11 @@ public class GenerateCommand implements Callable<Integer> {
       if (!store && outputDir == null) {
         System.err.println("Error: Either --out or --store must be specified");
         return 1;
+      }
+
+      if (store && includeSpecs) {
+        System.err.println(
+            "Warning: --include-specs is ignored when using --store (specs are stored separately)");
       }
 
       SpecRegistry registry = new SpecRegistry();
@@ -145,6 +150,9 @@ public class GenerateCommand implements Callable<Integer> {
             Path calendarPath = outputDir.resolve("calendar.yaml");
             specEmitter.emitCalendarSpec(calendarSpec, calendarPath);
             System.out.println("  Calendar spec: " + calendarPath);
+          } else {
+            System.err.println(
+                "  Warning: Calendar spec not found in registry, skipping calendar.yaml");
           }
 
           Path resolvedPath = outputDir.resolve("resolved.yaml");

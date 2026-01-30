@@ -6,7 +6,8 @@ on:
     paths:
       - 'calendars/**'
       - 'modules/**'
-      - 'tools/src/main/**'
+  # For tool changes that affect calendar generation (e.g., new event types,
+  # generation logic changes), use manual workflow_dispatch to trigger a release.
   workflow_dispatch:
     inputs:
       force_version_type:
@@ -140,17 +141,72 @@ jobs:
 
           echo "Archiving current blessed with version ID: $VERSION_ID"
 
-          # Create artifacts directory structure
-          mkdir -p artifacts
+          # Check if blessed directory exists and has calendar subdirectories
+          if [ ! -d "blessed" ]; then
+            echo "::warning::blessed directory does not exist, skipping archive"
+            exit 0
+          fi
+
+          CALENDAR_COUNT=$(find blessed -mindepth 1 -maxdepth 1 -type d | wc -l)
+          if [ "$CALENDAR_COUNT" -eq 0 ]; then
+            echo "::warning::No calendar directories found in blessed/, skipping archive"
+            exit 0
+          fi
+
+          # Create release history directory (separate from artifacts/ used by ArtifactStore)
+          mkdir -p release-history
+
+          ARCHIVED_COUNT=0
 
           # Archive each calendar's current blessed state
           for CAL_DIR in blessed/*/; do
             if [ -d "$CAL_DIR" ]; then
               CAL_ID=$(basename "$CAL_DIR")
-              ARCHIVE_DIR="artifacts/$CAL_ID/$VERSION_ID"
+
+              # Check if directory has files to archive
+              FILE_COUNT=$(find "$CAL_DIR" -type f | wc -l)
+              if [ "$FILE_COUNT" -eq 0 ]; then
+                echo "::warning::No files found in $CAL_DIR, skipping"
+                continue
+              fi
+
+              ARCHIVE_DIR="release-history/$CAL_ID/$VERSION_ID"
               mkdir -p "$ARCHIVE_DIR"
-              cp -r "$CAL_DIR"/* "$ARCHIVE_DIR/" 2>/dev/null || true
-              echo "  Archived $CAL_ID to $ARCHIVE_DIR"
+
+              if cp -r "$CAL_DIR"/* "$ARCHIVE_DIR/"; then
+                echo "  Archived $CAL_ID ($FILE_COUNT files) to $ARCHIVE_DIR"
+                ARCHIVED_COUNT=$((ARCHIVED_COUNT + 1))
+              else
+                echo "::error::Failed to archive $CAL_ID"
+                exit 1
+              fi
+            fi
+          done
+
+          echo "Successfully archived $ARCHIVED_COUNT calendars"
+
+          # Retention policy: keep only the last 10 versions per calendar
+          # Older versions remain accessible via git history
+          RETENTION_COUNT=10
+          echo "Applying retention policy (keeping last $RETENTION_COUNT versions)"
+
+          for CAL_DIR in release-history/*/; do
+            if [ -d "$CAL_DIR" ]; then
+              CAL_ID=$(basename "$CAL_DIR")
+              VERSION_COUNT=$(find "$CAL_DIR" -mindepth 1 -maxdepth 1 -type d | wc -l)
+
+              if [ "$VERSION_COUNT" -gt "$RETENTION_COUNT" ]; then
+                # Sort by directory name (which includes timestamp) and remove oldest
+                VERSIONS_TO_REMOVE=$((VERSION_COUNT - RETENTION_COUNT))
+                echo "  $CAL_ID: $VERSION_COUNT versions found, removing $VERSIONS_TO_REMOVE oldest"
+
+                find "$CAL_DIR" -mindepth 1 -maxdepth 1 -type d | sort | head -n "$VERSIONS_TO_REMOVE" | while read OLD_VERSION; do
+                  echo "    Removing $(basename "$OLD_VERSION")"
+                  rm -rf "$OLD_VERSION"
+                done
+              else
+                echo "  $CAL_ID: $VERSION_COUNT versions (within retention limit)"
+              fi
             fi
           done
 
@@ -242,10 +298,10 @@ jobs:
             fi
           done
 
-          # Commit updated blessed and archived artifacts
+          # Commit updated blessed and release history
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add blessed/ artifacts/
+          git add blessed/ release-history/
           git commit -m "chore: update blessed artifacts for v${NEW_VERSION}" || echo "No changes to commit"
           git push
 
