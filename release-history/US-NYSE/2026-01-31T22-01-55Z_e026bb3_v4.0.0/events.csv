@@ -57,8 +57,7 @@ date,type,description
 2020-06-21,WEEKEND,Sunday
 2020-06-27,WEEKEND,Saturday
 2020-06-28,WEEKEND,Sunday
-2020-07-03,CLOSED,Independence Day
-2020-07-04,WEEKEND,Saturday
+2020-07-04,CLOSED,Independence Day
 2020-07-05,WEEKEND,Sunday
 2020-07-11,WEEKEND,Saturday
 2020-07-12,WEEKEND,Sunday
@@ -102,7 +101,6 @@ date,type,description
 2020-11-21,WEEKEND,Saturday
 2020-11-22,WEEKEND,Sunday
 2020-11-26,CLOSED,Thanksgiving Day
-2020-11-27,EARLY_CLOSE,Day After Thanksgiving (Early Close)
 2020-11-28,WEEKEND,Saturday
 2020-11-29,WEEKEND,Sunday
 2020-12-05,WEEKEND,Saturday
@@ -111,7 +109,6 @@ date,type,description
 2020-12-13,WEEKEND,Sunday
 2020-12-19,WEEKEND,Saturday
 2020-12-20,WEEKEND,Sunday
-2020-12-24,EARLY_CLOSE,Christmas Eve (Early Close)
 2020-12-25,CLOSED,Christmas Day
 2020-12-26,WEEKEND,Saturday
 2020-12-27,WEEKEND,Sunday
@@ -168,14 +165,12 @@ date,type,description
 2021-06-06,WEEKEND,Sunday
 2021-06-12,WEEKEND,Saturday
 2021-06-13,WEEKEND,Sunday
-2021-06-18,CLOSED,Juneteenth National Independence Day
-2021-06-19,WEEKEND,Saturday
+2021-06-19,CLOSED,Juneteenth National Independence Day
 2021-06-20,WEEKEND,Sunday
 2021-06-26,WEEKEND,Saturday
 2021-06-27,WEEKEND,Sunday
 2021-07-03,WEEKEND,Saturday
-2021-07-04,WEEKEND,Sunday
-2021-07-05,CLOSED,Independence Day
+2021-07-04,CLOSED,Independence Day
 2021-07-10,WEEKEND,Saturday
 2021-07-11,WEEKEND,Sunday
 2021-07-17,WEEKEND,Saturday
@@ -218,7 +213,6 @@ date,type,description
 2021-11-20,WEEKEND,Saturday
 2021-11-21,WEEKEND,Sunday
 2021-11-25,CLOSED,Thanksgiving Day
-2021-11-26,EARLY_CLOSE,Day After Thanksgiving (Early Close)
 2021-11-27,WEEKEND,Saturday
 2021-11-28,WEEKEND,Sunday
 2021-12-04,WEEKEND,Saturday
@@ -227,12 +221,9 @@ date,type,description
 2021-12-12,WEEKEND,Sunday
 2021-12-18,WEEKEND,Saturday
 2021-12-19,WEEKEND,Sunday
-2021-12-24,CLOSED,Christmas Day
-2021-12-24,EARLY_CLOSE,Christmas Eve (Early Close)
-2021-12-25,WEEKEND,Saturday
+2021-12-25,CLOSED,Christmas Day
 2021-12-26,WEEKEND,Sunday
-2021-12-31,CLOSED,New Year's Day
-2022-01-01,WEEKEND,Saturday
+2022-01-01,CLOSED,New Year's Day
 2022-01-02,WEEKEND,Sunday
 2022-01-08,WEEKEND,Saturday
 2022-01-09,WEEKEND,Sunday
@@ -285,8 +276,7 @@ date,type,description
 2022-06-11,WEEKEND,Saturday
 2022-06-12,WEEKEND,Sunday
 2022-06-18,WEEKEND,Saturday
-2022-06-19,WEEKEND,Sunday
-2022-06-20,CLOSED,Juneteenth National Independence Day
+2022-06-19,CLOSED,Juneteenth National Independence Day
 2022-06-25,WEEKEND,Saturday
 2022-06-26,WEEKEND,Sunday
 2022-07-02,WEEKEND,Saturday
@@ -334,7 +324,6 @@ date,type,description
 2022-11-19,WEEKEND,Saturday
 2022-11-20,WEEKEND,Sunday
 2022-11-24,CLOSED,Thanksgiving Day
-2022-11-25,EARLY_CLOSE,Day After Thanksgiving (Early Close)
 2022-11-26,WEEKEND,Saturday
 2022-11-27,WEEKEND,Sunday
 2022-12-03,WEEKEND,Saturday
@@ -344,11 +333,9 @@ date,type,description
 2022-12-17,WEEKEND,Saturday
 2022-12-18,WEEKEND,Sunday
 2022-12-24,WEEKEND,Saturday
-2022-12-25,WEEKEND,Sunday
-2022-12-26,CLOSED,Christmas Day
+2022-12-25,CLOSED,Christmas Day
 2022-12-31,WEEKEND,Saturday
-2023-01-01,WEEKEND,Sunday
-2023-01-02,CLOSED,New Year's Day
+2023-01-01,CLOSED,New Year's Day
 2023-01-07,WEEKEND,Saturday
 2023-01-08,WEEKEND,Sunday
 2023-01-14,WEEKEND,Saturday
@@ -449,7 +436,6 @@ date,type,description
 2023-11-18,WEEKEND,Saturday
 2023-11-19,WEEKEND,Sunday
 2023-11-23,CLOSED,Thanksgiving Day
-2023-11-24,EARLY_CLOSE,Day After Thanksgiving (Early Close)
 2023-11-25,WEEKEND,Saturday
 2023-11-26,WEEKEND,Sunday
 2023-12-02,WEEKEND,Saturday
@@ -566,7 +552,7 @@ date,type,description
 2024-11-23,WEEKEND,Saturday
 2024-11-24,WEEKEND,Sunday
 2024-11-28,CLOSED,Thanksgiving Day
-2024-11-29,EARLY_CLOSE,Day After Thanksgiving (Early Close)
+2024-11-29,NOTABLE,Day After Thanksgiving (Early Close)
 2024-11-30,WEEKEND,Saturday
 2024-12-01,WEEKEND,Sunday
 2024-12-07,WEEKEND,Saturday
@@ -575,7 +561,7 @@ date,type,description
 2024-12-15,WEEKEND,Sunday
 2024-12-21,WEEKEND,Saturday
 2024-12-22,WEEKEND,Sunday
-2024-12-24,EARLY_CLOSE,Christmas Eve (Early Close)
+2024-12-24,NOTABLE,Christmas Eve (Early Close)
 2024-12-25,CLOSED,Christmas Day
 2024-12-28,WEEKEND,Saturday
 2024-12-29,WEEKEND,Sunday
@@ -682,7 +668,6 @@ date,type,description
 2025-11-22,WEEKEND,Saturday
 2025-11-23,WEEKEND,Sunday
 2025-11-27,CLOSED,Thanksgiving Day
-2025-11-28,EARLY_CLOSE,Day After Thanksgiving (Early Close)
 2025-11-29,WEEKEND,Saturday
 2025-11-30,WEEKEND,Sunday
 2025-12-06,WEEKEND,Saturday
@@ -691,7 +676,6 @@ date,type,description
 2025-12-14,WEEKEND,Sunday
 2025-12-20,WEEKEND,Saturday
 2025-12-21,WEEKEND,Sunday
-2025-12-24,EARLY_CLOSE,Christmas Eve (Early Close)
 2025-12-25,CLOSED,Christmas Day
 2025-12-27,WEEKEND,Saturday
 2025-12-28,WEEKEND,Sunday
@@ -753,8 +737,7 @@ date,type,description
 2026-06-21,WEEKEND,Sunday
 2026-06-27,WEEKEND,Saturday
 2026-06-28,WEEKEND,Sunday
-2026-07-03,CLOSED,Independence Day
-2026-07-04,WEEKEND,Saturday
+2026-07-04,CLOSED,Independence Day
 2026-07-05,WEEKEND,Sunday
 2026-07-11,WEEKEND,Saturday
 2026-07-12,WEEKEND,Sunday
@@ -798,7 +781,6 @@ date,type,description
 2026-11-21,WEEKEND,Saturday
 2026-11-22,WEEKEND,Sunday
 2026-11-26,CLOSED,Thanksgiving Day
-2026-11-27,EARLY_CLOSE,Day After Thanksgiving (Early Close)
 2026-11-28,WEEKEND,Saturday
 2026-11-29,WEEKEND,Sunday
 2026-12-05,WEEKEND,Saturday
@@ -807,7 +789,6 @@ date,type,description
 2026-12-13,WEEKEND,Sunday
 2026-12-19,WEEKEND,Saturday
 2026-12-20,WEEKEND,Sunday
-2026-12-24,EARLY_CLOSE,Christmas Eve (Early Close)
 2026-12-25,CLOSED,Christmas Day
 2026-12-26,WEEKEND,Saturday
 2026-12-27,WEEKEND,Sunday
@@ -864,14 +845,12 @@ date,type,description
 2027-06-06,WEEKEND,Sunday
 2027-06-12,WEEKEND,Saturday
 2027-06-13,WEEKEND,Sunday
-2027-06-18,CLOSED,Juneteenth National Independence Day
-2027-06-19,WEEKEND,Saturday
+2027-06-19,CLOSED,Juneteenth National Independence Day
 2027-06-20,WEEKEND,Sunday
 2027-06-26,WEEKEND,Saturday
 2027-06-27,WEEKEND,Sunday
 2027-07-03,WEEKEND,Saturday
-2027-07-04,WEEKEND,Sunday
-2027-07-05,CLOSED,Independence Day
+2027-07-04,CLOSED,Independence Day
 2027-07-10,WEEKEND,Saturday
 2027-07-11,WEEKEND,Sunday
 2027-07-17,WEEKEND,Saturday
@@ -914,7 +893,6 @@ date,type,description
 2027-11-20,WEEKEND,Saturday
 2027-11-21,WEEKEND,Sunday
 2027-11-25,CLOSED,Thanksgiving Day
-2027-11-26,EARLY_CLOSE,Day After Thanksgiving (Early Close)
 2027-11-27,WEEKEND,Saturday
 2027-11-28,WEEKEND,Sunday
 2027-12-04,WEEKEND,Saturday
@@ -923,12 +901,9 @@ date,type,description
 2027-12-12,WEEKEND,Sunday
 2027-12-18,WEEKEND,Saturday
 2027-12-19,WEEKEND,Sunday
-2027-12-24,CLOSED,Christmas Day
-2027-12-24,EARLY_CLOSE,Christmas Eve (Early Close)
-2027-12-25,WEEKEND,Saturday
+2027-12-25,CLOSED,Christmas Day
 2027-12-26,WEEKEND,Sunday
-2027-12-31,CLOSED,New Year's Day
-2028-01-01,WEEKEND,Saturday
+2028-01-01,CLOSED,New Year's Day
 2028-01-02,WEEKEND,Sunday
 2028-01-08,WEEKEND,Saturday
 2028-01-09,WEEKEND,Sunday
@@ -1030,7 +1005,6 @@ date,type,description
 2028-11-18,WEEKEND,Saturday
 2028-11-19,WEEKEND,Sunday
 2028-11-23,CLOSED,Thanksgiving Day
-2028-11-24,EARLY_CLOSE,Day After Thanksgiving (Early Close)
 2028-11-25,WEEKEND,Saturday
 2028-11-26,WEEKEND,Sunday
 2028-12-02,WEEKEND,Saturday
@@ -1145,7 +1119,6 @@ date,type,description
 2029-11-17,WEEKEND,Saturday
 2029-11-18,WEEKEND,Sunday
 2029-11-22,CLOSED,Thanksgiving Day
-2029-11-23,EARLY_CLOSE,Day After Thanksgiving (Early Close)
 2029-11-24,WEEKEND,Saturday
 2029-11-25,WEEKEND,Sunday
 2029-12-01,WEEKEND,Saturday
@@ -1156,7 +1129,6 @@ date,type,description
 2029-12-16,WEEKEND,Sunday
 2029-12-22,WEEKEND,Saturday
 2029-12-23,WEEKEND,Sunday
-2029-12-24,EARLY_CLOSE,Christmas Eve (Early Close)
 2029-12-25,CLOSED,Christmas Day
 2029-12-29,WEEKEND,Saturday
 2029-12-30,WEEKEND,Sunday
@@ -1263,7 +1235,6 @@ date,type,description
 2030-11-23,WEEKEND,Saturday
 2030-11-24,WEEKEND,Sunday
 2030-11-28,CLOSED,Thanksgiving Day
-2030-11-29,EARLY_CLOSE,Day After Thanksgiving (Early Close)
 2030-11-30,WEEKEND,Saturday
 2030-12-01,WEEKEND,Sunday
 2030-12-07,WEEKEND,Saturday
@@ -1272,7 +1243,6 @@ date,type,description
 2030-12-15,WEEKEND,Sunday
 2030-12-21,WEEKEND,Saturday
 2030-12-22,WEEKEND,Sunday
-2030-12-24,EARLY_CLOSE,Christmas Eve (Early Close)
 2030-12-25,CLOSED,Christmas Day
 2030-12-28,WEEKEND,Saturday
 2030-12-29,WEEKEND,Sunday

@@ -1,0 +1,66 @@
+kind: resolved_calendar
+id: US-MARKET-BASE
+metadata:
+  name: US Market Base Calendar
+  description: Base calendar for US markets with core holidays
+  chronology: ISO
+weekend_policy:
+  days:
+  - SATURDAY
+  - SUNDAY
+resolution_chain:
+- module:weekend_sat_sun
+- module:new_years_day
+- module:memorial_day
+- module:independence_day
+- module:labor_day
+- module:thanksgiving
+- module:christmas
+- module:us_market_base
+- calendar:US-MARKET-BASE
+event_sources:
+- key: new_years_day
+  name: New Year's Day
+  classification: CLOSED
+  rule:
+    type: fixed_month_day
+    month: 1
+    day: 1
+- key: memorial_day
+  name: Memorial Day
+  classification: CLOSED
+  rule:
+    type: nth_weekday_of_month
+    month: 5
+    weekday: MONDAY
+    nth: -1
+- key: independence_day
+  name: Independence Day
+  classification: CLOSED
+  rule:
+    type: fixed_month_day
+    month: 7
+    day: 4
+- key: labor_day
+  name: Labor Day
+  classification: CLOSED
+  rule:
+    type: nth_weekday_of_month
+    month: 9
+    weekday: MONDAY
+    nth: 1
+- key: thanksgiving
+  name: Thanksgiving Day
+  classification: CLOSED
+  rule:
+    type: nth_weekday_of_month
+    month: 11
+    weekday: THURSDAY
+    nth: 4
+- key: christmas
+  name: Christmas Day
+  classification: CLOSED
+  rule:
+    type: fixed_month_day
+    month: 12
+    day: 25
