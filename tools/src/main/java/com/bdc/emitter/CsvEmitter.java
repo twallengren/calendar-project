@@ -12,7 +12,10 @@ public class CsvEmitter {
   private static final String HEADER = "date,type,description";
 
   public void emit(List<Event> events, Path outputPath) throws IOException {
-    Files.createDirectories(outputPath.getParent());
+    Path parent = outputPath.getParent();
+    if (parent != null) {
+      Files.createDirectories(parent);
+    }
 
     try (BufferedWriter writer = Files.newBufferedWriter(outputPath)) {
       writer.write(HEADER);

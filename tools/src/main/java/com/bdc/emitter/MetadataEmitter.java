@@ -29,7 +29,10 @@ public class MetadataEmitter {
   public void emit(
       ResolvedSpec spec, List<Event> events, LocalDate from, LocalDate to, Path outputPath)
       throws IOException {
-    Files.createDirectories(outputPath.getParent());
+    Path parent = outputPath.getParent();
+    if (parent != null) {
+      Files.createDirectories(parent);
+    }
 
     Map<String, Object> metadata = new LinkedHashMap<>();
     metadata.put("calendar_id", spec.id());
