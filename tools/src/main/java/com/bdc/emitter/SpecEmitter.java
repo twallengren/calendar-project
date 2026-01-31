@@ -32,12 +32,18 @@ public class SpecEmitter {
   }
 
   public void emitCalendarSpec(CalendarSpec spec, Path outputPath) throws IOException {
-    Files.createDirectories(outputPath.getParent());
+    Path parent = outputPath.getParent();
+    if (parent != null) {
+      Files.createDirectories(parent);
+    }
     yamlMapper.writeValue(outputPath.toFile(), spec);
   }
 
   public void emitResolvedSpec(ResolvedSpec spec, Path outputPath) throws IOException {
-    Files.createDirectories(outputPath.getParent());
+    Path parent = outputPath.getParent();
+    if (parent != null) {
+      Files.createDirectories(parent);
+    }
 
     Map<String, Object> resolved = new LinkedHashMap<>();
     resolved.put("kind", "resolved_calendar");

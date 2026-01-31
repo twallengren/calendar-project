@@ -137,7 +137,8 @@ jobs:
           GIT_SHA="${{ github.sha }}"
           SHORT_SHA="${GIT_SHA:0:7}"
           TIMESTAMP=$(date -u +%Y-%m-%dT%H-%M-%SZ)
-          VERSION_ID="${SHORT_SHA}_${TIMESTAMP}_v${NEW_VERSION}"
+          # Timestamp first for correct chronological sorting in retention policy
+          VERSION_ID="${TIMESTAMP}_${SHORT_SHA}_v${NEW_VERSION}"
 
           echo "Archiving current blessed with version ID: $VERSION_ID"
 
