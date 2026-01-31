@@ -1,0 +1,14 @@
+kind: module
+id: christmas_eve
+
+event_sources:
+  - key: christmas_eve
+    name: Christmas Eve (Early Close)
+    default_classification: EARLY_CLOSE
+    shiftable: false
+    rule:
+      type: fixed_month_day
+      key: christmas_eve
+      name: Christmas Eve (Early Close)
+      month: 12
+      day: 24

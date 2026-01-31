@@ -28,6 +28,14 @@ public class EventGenerator {
     refResolver.resolve(spec.references(), range);
     ruleExpander.setReferenceResolver(refResolver);
 
+    // Build map of which keys are shiftable
+    Set<String> shiftableKeys = new HashSet<>();
+    for (EventSource source : spec.eventSources()) {
+      if (Boolean.TRUE.equals(source.shiftable())) {
+        shiftableKeys.add(source.key());
+      }
+    }
+
     // 1. Expand all rules to occurrences
     List<Occurrence> occurrences = new ArrayList<>();
     for (EventSource source : spec.eventSources()) {
@@ -39,13 +47,16 @@ public class EventGenerator {
       }
     }
 
-    // 2. Apply deltas
+    // 2. Apply weekend shifts for shiftable holidays
+    occurrences = applyWeekendShifts(occurrences, spec.weekendShiftPolicy(), shiftableKeys, range);
+
+    // 3. Apply deltas
     occurrences = applyDeltas(occurrences, spec.deltas(), range);
 
-    // 3. Classify occurrences to events
+    // 4. Classify occurrences to events
     List<Event> events = new ArrayList<>(classifier.classify(occurrences, spec));
 
-    // 4. Generate weekend events
+    // 5. Generate weekend events
     Set<DayOfWeek> weekendDays = spec.weekendPolicy().weekendDays();
     if (!weekendDays.isEmpty()) {
       Set<LocalDate> existingDates = events.stream().map(Event::date).collect(Collectors.toSet());
@@ -58,8 +69,117 @@ public class EventGenerator {
       }
     }
 
-    // 5. Sort deterministically
+    // 6. Sort deterministically
     return events.stream().sorted().collect(Collectors.toList());
+  }
+
+  private List<Occurrence> applyWeekendShifts(
+      List<Occurrence> occurrences,
+      WeekendShiftPolicy policy,
+      Set<String> shiftableKeys,
+      DateRange range) {
+
+    if (policy == WeekendShiftPolicy.NONE) {
+      return occurrences;
+    }
+
+    // Separate shiftable from non-shiftable occurrences
+    List<Occurrence> shiftable = new ArrayList<>();
+    List<Occurrence> nonShiftable = new ArrayList<>();
+
+    for (Occurrence occ : occurrences) {
+      if (shiftableKeys.contains(occ.key())) {
+        shiftable.add(occ);
+      } else {
+        // Non-shiftable occurrences on weekends are filtered out
+        // (e.g., Christmas Eve on Saturday has no early close)
+        DayOfWeek dow = occ.date().getDayOfWeek();
+        if (dow != DayOfWeek.SATURDAY && dow != DayOfWeek.SUNDAY) {
+          nonShiftable.add(occ);
+        }
+      }
+    }
+
+    // Apply shifts based on policy
+    List<Occurrence> shifted =
+        switch (policy) {
+          case NONE -> shiftable; // Already handled above, but for completeness
+          case NEAREST_WEEKDAY -> applyNearestWeekdayShifts(shiftable, range);
+          case NEXT_AVAILABLE_WEEKDAY -> applyNextAvailableWeekdayShifts(shiftable, range);
+        };
+
+    // Combine results
+    List<Occurrence> result = new ArrayList<>(nonShiftable);
+    result.addAll(shifted);
+    return result;
+  }
+
+  private List<Occurrence> applyNearestWeekdayShifts(
+      List<Occurrence> occurrences, DateRange range) {
+    List<Occurrence> result = new ArrayList<>();
+
+    for (Occurrence occ : occurrences) {
+      DayOfWeek dow = occ.date().getDayOfWeek();
+      LocalDate shiftedDate = occ.date();
+
+      if (dow == DayOfWeek.SATURDAY) {
+        shiftedDate = occ.date().minusDays(1); // Friday
+      } else if (dow == DayOfWeek.SUNDAY) {
+        shiftedDate = occ.date().plusDays(1); // Monday
+      }
+
+      if (range.contains(shiftedDate)) {
+        result.add(new Occurrence(occ.key(), shiftedDate, occ.name(), occ.provenance()));
+      }
+    }
+
+    return result;
+  }
+
+  private List<Occurrence> applyNextAvailableWeekdayShifts(
+      List<Occurrence> occurrences, DateRange range) {
+    // Sort by date to process in chronological order
+    List<Occurrence> sorted = new ArrayList<>(occurrences);
+    sorted.sort(Comparator.comparing(Occurrence::date));
+
+    // Track which dates are already claimed
+    Set<LocalDate> claimedDates = new HashSet<>();
+
+    // First, add all non-weekend dates to claimed set
+    for (Occurrence occ : sorted) {
+      DayOfWeek dow = occ.date().getDayOfWeek();
+      if (dow != DayOfWeek.SATURDAY && dow != DayOfWeek.SUNDAY) {
+        claimedDates.add(occ.date());
+      }
+    }
+
+    List<Occurrence> result = new ArrayList<>();
+
+    for (Occurrence occ : sorted) {
+      DayOfWeek dow = occ.date().getDayOfWeek();
+
+      if (dow != DayOfWeek.SATURDAY && dow != DayOfWeek.SUNDAY) {
+        // Not a weekend, keep as-is
+        result.add(occ);
+      } else {
+        // Find next available weekday
+        LocalDate candidate = occ.date().plusDays(1);
+        while (candidate.getDayOfWeek() == DayOfWeek.SATURDAY
+            || candidate.getDayOfWeek() == DayOfWeek.SUNDAY
+            || claimedDates.contains(candidate)) {
+          candidate = candidate.plusDays(1);
+        }
+
+        // Claim this date
+        claimedDates.add(candidate);
+
+        if (range.contains(candidate)) {
+          result.add(new Occurrence(occ.key(), candidate, occ.name(), occ.provenance()));
+        }
+      }
+    }
+
+    return result;
   }
 
   private List<Occurrence> applyDeltas(

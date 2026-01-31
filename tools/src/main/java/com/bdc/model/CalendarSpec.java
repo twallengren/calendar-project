@@ -12,7 +12,8 @@ public record CalendarSpec(
     List<String> uses,
     @JsonProperty("event_sources") List<EventSource> eventSources,
     Map<String, EventType> classifications,
-    List<Delta> deltas) {
+    List<Delta> deltas,
+    @JsonProperty("weekend_shift_policy") WeekendShiftPolicy weekendShiftPolicy) {
   public CalendarSpec {
     if (!"calendar".equals(kind)) {
       throw new IllegalArgumentException("kind must be 'calendar', got: " + kind);
@@ -22,6 +23,7 @@ public record CalendarSpec(
     if (eventSources == null) eventSources = List.of();
     if (classifications == null) classifications = Map.of();
     if (deltas == null) deltas = List.of();
+    if (weekendShiftPolicy == null) weekendShiftPolicy = WeekendShiftPolicy.NONE;
   }
 
   public record Metadata(String name, String description, String chronology) {
