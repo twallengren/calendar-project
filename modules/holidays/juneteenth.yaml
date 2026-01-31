@@ -6,8 +6,14 @@ event_sources:
     name: Juneteenth National Independence Day
     default_classification: CLOSED
     rule:
-      type: fixed_month_day
+      type: observed_holiday
       key: juneteenth
       name: Juneteenth National Independence Day
-      month: 6
-      day: 19
+      base_rule:
+        type: fixed_month_day
+        key: juneteenth_base
+        name: Juneteenth National Independence Day
+        month: 6
+        day: 19
+      saturday_shift: FRIDAY
+      sunday_shift: MONDAY

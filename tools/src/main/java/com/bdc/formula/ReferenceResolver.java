@@ -2,7 +2,9 @@ package com.bdc.formula;
 
 import com.bdc.chronology.DateRange;
 import com.bdc.model.Reference;
+import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.time.temporal.TemporalAdjusters;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -19,6 +21,7 @@ public class ReferenceResolver {
         LocalDate date =
             switch (ref.formula()) {
               case "EASTER_WESTERN" -> EasterCalculator.westernEaster(year);
+              case "THANKSGIVING_US" -> nthWeekdayOfMonth(year, 11, DayOfWeek.THURSDAY, 4);
               default -> throw new IllegalArgumentException("Unknown formula: " + ref.formula());
             };
         // Don't filter by range here - the reference date (e.g., Easter) may be
@@ -36,5 +39,11 @@ public class ReferenceResolver {
 
   public boolean hasReference(String key) {
     return resolved.containsKey(key);
+  }
+
+  private LocalDate nthWeekdayOfMonth(int year, int month, DayOfWeek weekday, int nth) {
+    LocalDate firstOfMonth = LocalDate.of(year, month, 1);
+    LocalDate firstOccurrence = firstOfMonth.with(TemporalAdjusters.firstInMonth(weekday));
+    return firstOccurrence.plusWeeks(nth - 1);
   }
 }

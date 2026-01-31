@@ -16,6 +16,8 @@ class SpecEmitterTest {
 
   private static SpecRegistry prodRegistry;
   private static SpecResolver prodResolver;
+  private static SpecRegistry testRegistry;
+  private static SpecResolver testResolver;
 
   @TempDir Path tempDir;
 
@@ -25,6 +27,11 @@ class SpecEmitterTest {
     prodRegistry.loadCalendarsFromDirectory(Path.of("calendars"));
     prodRegistry.loadModulesFromDirectory(Path.of("modules"));
     prodResolver = new SpecResolver(prodRegistry);
+
+    testRegistry = new SpecRegistry();
+    testRegistry.loadCalendarsFromDirectory(Path.of("tools/src/test/resources/test-calendars/calendars"));
+    testRegistry.loadModulesFromDirectory(Path.of("tools/src/test/resources/test-calendars/modules"));
+    testResolver = new SpecResolver(testRegistry);
   }
 
   @Test
@@ -111,7 +118,7 @@ class SpecEmitterTest {
 
   @Test
   void emitResolvedSpec_containsDeltas() throws Exception {
-    ResolvedSpec spec = prodResolver.resolve("US-NYSE");
+    ResolvedSpec spec = testResolver.resolve("WITH-DELTAS");
     SpecEmitter emitter = new SpecEmitter();
 
     Path outputPath = tempDir.resolve("resolved.yaml");
@@ -119,7 +126,7 @@ class SpecEmitterTest {
 
     String content = Files.readString(outputPath);
 
-    // US-NYSE has delta for early close days
+    // WITH-DELTAS has deltas for testing
     assertTrue(content.contains("deltas:"), "Should contain deltas section");
     assertTrue(content.contains("action: add"), "Should contain add action");
   }

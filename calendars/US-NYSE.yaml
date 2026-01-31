@@ -9,16 +9,3 @@ metadata:
 uses:
   - weekend_sat_sun
   - us_nyse_holidays
-
-deltas:
-  - action: add
-    key: early_close_thanksgiving
-    name: Day After Thanksgiving (Early Close)
-    date: 2024-11-29
-    classification: NOTABLE
-
-  - action: add
-    key: early_close_christmas_eve
-    name: Christmas Eve (Early Close)
-    date: 2024-12-24
-    classification: NOTABLE

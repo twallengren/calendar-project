@@ -1,0 +1,18 @@
+kind: calendar
+id: WITH-DELTAS
+
+metadata:
+  name: Test Calendar with Deltas
+  description: Test calendar for verifying delta emission
+  chronology: ISO
+
+deltas:
+  - action: add
+    key: special_event
+    name: Special Event
+    date: 2024-07-15
+    classification: NOTABLE
+
+  - action: remove
+    key: some_holiday
+    date: 2024-12-25

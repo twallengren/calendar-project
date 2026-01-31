@@ -1,0 +1,17 @@
+kind: module
+id: day_after_thanksgiving
+
+references:
+  - key: thanksgiving
+    formula: THANKSGIVING_US
+
+event_sources:
+  - key: day_after_thanksgiving
+    name: Day After Thanksgiving (Early Close)
+    default_classification: NOTABLE
+    rule:
+      type: relative_to_reference
+      key: day_after_thanksgiving
+      name: Day After Thanksgiving (Early Close)
+      reference: thanksgiving
+      offset_days: 1
