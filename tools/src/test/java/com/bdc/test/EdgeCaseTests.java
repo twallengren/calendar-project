@@ -289,9 +289,12 @@ class EdgeCaseTests {
         "US-MARKET-BASE should have ~66 events over 11 years, got " + nonWeekendEvents.size());
 
     // Verify each key holiday type appears approximately 11 times
-    long newYears = nonWeekendEvents.stream().filter(e -> e.description().equals("New Year's Day")).count();
-    long christmas = nonWeekendEvents.stream().filter(e -> e.description().equals("Christmas Day")).count();
-    long thanksgiving = nonWeekendEvents.stream().filter(e -> e.description().equals("Thanksgiving Day")).count();
+    long newYears =
+        nonWeekendEvents.stream().filter(e -> e.description().equals("New Year's Day")).count();
+    long christmas =
+        nonWeekendEvents.stream().filter(e -> e.description().equals("Christmas Day")).count();
+    long thanksgiving =
+        nonWeekendEvents.stream().filter(e -> e.description().equals("Thanksgiving Day")).count();
 
     assertEquals(11, newYears, "Should have 11 New Year's Day observations");
     assertEquals(11, christmas, "Should have 11 Christmas Day observations");

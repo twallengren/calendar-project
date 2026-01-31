@@ -29,8 +29,10 @@ class SpecEmitterTest {
     prodResolver = new SpecResolver(prodRegistry);
 
     testRegistry = new SpecRegistry();
-    testRegistry.loadCalendarsFromDirectory(Path.of("tools/src/test/resources/test-calendars/calendars"));
-    testRegistry.loadModulesFromDirectory(Path.of("tools/src/test/resources/test-calendars/modules"));
+    testRegistry.loadCalendarsFromDirectory(
+        Path.of("tools/src/test/resources/test-calendars/calendars"));
+    testRegistry.loadModulesFromDirectory(
+        Path.of("tools/src/test/resources/test-calendars/modules"));
     testResolver = new SpecResolver(testRegistry);
   }
 

@@ -44,7 +44,8 @@ class EventGeneratorTest {
     List<Event> events =
         generator.generate(spec, LocalDate.of(2020, 7, 1), LocalDate.of(2020, 7, 10));
 
-    Event holiday = events.stream().filter(e -> e.type() == EventType.CLOSED).findFirst().orElse(null);
+    Event holiday =
+        events.stream().filter(e -> e.type() == EventType.CLOSED).findFirst().orElse(null);
     assertNotNull(holiday);
     assertEquals(LocalDate.of(2020, 7, 3), holiday.date()); // Friday
     assertEquals("Independence Day", holiday.description());
@@ -76,7 +77,8 @@ class EventGeneratorTest {
     List<Event> events =
         generator.generate(spec, LocalDate.of(2022, 6, 15), LocalDate.of(2022, 6, 25));
 
-    Event holiday = events.stream().filter(e -> e.type() == EventType.CLOSED).findFirst().orElse(null);
+    Event holiday =
+        events.stream().filter(e -> e.type() == EventType.CLOSED).findFirst().orElse(null);
     assertNotNull(holiday);
     assertEquals(LocalDate.of(2022, 6, 20), holiday.date()); // Monday
   }
@@ -107,7 +109,8 @@ class EventGeneratorTest {
     List<Event> events =
         generator.generate(spec, LocalDate.of(2024, 12, 20), LocalDate.of(2024, 12, 31));
 
-    Event holiday = events.stream().filter(e -> e.type() == EventType.CLOSED).findFirst().orElse(null);
+    Event holiday =
+        events.stream().filter(e -> e.type() == EventType.CLOSED).findFirst().orElse(null);
     assertNotNull(holiday);
     assertEquals(LocalDate.of(2024, 12, 25), holiday.date()); // Wednesday, no shift
   }
@@ -140,10 +143,11 @@ class EventGeneratorTest {
         generator.generate(spec, LocalDate.of(2022, 12, 20), LocalDate.of(2022, 12, 31));
 
     // Christmas Eve on Saturday should NOT appear as EARLY_CLOSE - it should be a WEEKEND
-    Event saturday = events.stream()
-        .filter(e -> e.date().equals(LocalDate.of(2022, 12, 24)))
-        .findFirst()
-        .orElse(null);
+    Event saturday =
+        events.stream()
+            .filter(e -> e.date().equals(LocalDate.of(2022, 12, 24)))
+            .findFirst()
+            .orElse(null);
     assertNotNull(saturday);
     assertEquals(EventType.WEEKEND, saturday.type()); // Just a normal weekend day
   }
@@ -186,14 +190,16 @@ class EventGeneratorTest {
     List<Event> holidays = events.stream().filter(e -> e.type() == EventType.CLOSED).toList();
     assertEquals(2, holidays.size());
 
-    Event christmasEvent = holidays.stream()
-        .filter(e -> e.description().equals("Christmas Day"))
-        .findFirst()
-        .orElse(null);
-    Event boxingDayEvent = holidays.stream()
-        .filter(e -> e.description().equals("Boxing Day"))
-        .findFirst()
-        .orElse(null);
+    Event christmasEvent =
+        holidays.stream()
+            .filter(e -> e.description().equals("Christmas Day"))
+            .findFirst()
+            .orElse(null);
+    Event boxingDayEvent =
+        holidays.stream()
+            .filter(e -> e.description().equals("Boxing Day"))
+            .findFirst()
+            .orElse(null);
 
     assertNotNull(christmasEvent);
     assertNotNull(boxingDayEvent);
@@ -239,19 +245,22 @@ class EventGeneratorTest {
     List<Event> holidays = events.stream().filter(e -> e.type() == EventType.CLOSED).toList();
     assertEquals(2, holidays.size());
 
-    Event christmasEvent = holidays.stream()
-        .filter(e -> e.description().equals("Christmas Day"))
-        .findFirst()
-        .orElse(null);
-    Event boxingDayEvent = holidays.stream()
-        .filter(e -> e.description().equals("Boxing Day"))
-        .findFirst()
-        .orElse(null);
+    Event christmasEvent =
+        holidays.stream()
+            .filter(e -> e.description().equals("Christmas Day"))
+            .findFirst()
+            .orElse(null);
+    Event boxingDayEvent =
+        holidays.stream()
+            .filter(e -> e.description().equals("Boxing Day"))
+            .findFirst()
+            .orElse(null);
 
     assertNotNull(christmasEvent);
     assertNotNull(boxingDayEvent);
     assertEquals(LocalDate.of(2022, 12, 26), boxingDayEvent.date()); // Monday (no shift)
-    assertEquals(LocalDate.of(2022, 12, 27), christmasEvent.date()); // Tuesday (shifted past Boxing Day)
+    assertEquals(
+        LocalDate.of(2022, 12, 27), christmasEvent.date()); // Tuesday (shifted past Boxing Day)
   }
 
   @Test
@@ -280,10 +289,8 @@ class EventGeneratorTest {
     List<Event> events =
         generator.generate(spec, LocalDate.of(2020, 7, 1), LocalDate.of(2020, 7, 10));
 
-    Event holiday = events.stream()
-        .filter(e -> e.type() == EventType.CLOSED)
-        .findFirst()
-        .orElse(null);
+    Event holiday =
+        events.stream().filter(e -> e.type() == EventType.CLOSED).findFirst().orElse(null);
     assertNotNull(holiday);
     assertEquals(LocalDate.of(2020, 7, 4), holiday.date()); // Saturday, no shift
   }

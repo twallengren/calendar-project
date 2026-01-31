@@ -48,8 +48,7 @@ public class EventGenerator {
     }
 
     // 2. Apply weekend shifts for shiftable holidays
-    occurrences =
-        applyWeekendShifts(occurrences, spec.weekendShiftPolicy(), shiftableKeys, range);
+    occurrences = applyWeekendShifts(occurrences, spec.weekendShiftPolicy(), shiftableKeys, range);
 
     // 3. Apply deltas
     occurrences = applyDeltas(occurrences, spec.deltas(), range);
