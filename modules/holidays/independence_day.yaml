@@ -6,14 +6,8 @@ event_sources:
     name: Independence Day
     default_classification: CLOSED
     rule:
-      type: observed_holiday
+      type: fixed_month_day
       key: independence_day
       name: Independence Day
-      base_rule:
-        type: fixed_month_day
-        key: independence_day_base
-        name: Independence Day
-        month: 7
-        day: 4
-      saturday_shift: FRIDAY
-      sunday_shift: MONDAY
+      month: 7
+      day: 4

@@ -8,7 +8,7 @@ references:
 event_sources:
   - key: day_after_thanksgiving
     name: Day After Thanksgiving (Early Close)
-    default_classification: NOTABLE
+    default_classification: EARLY_CLOSE
     rule:
       type: relative_to_reference
       key: day_after_thanksgiving

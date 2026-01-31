@@ -7,6 +7,7 @@ public record ResolvedSpec(
     String id,
     CalendarSpec.Metadata metadata,
     WeekendPolicy weekendPolicy,
+    WeekendShiftPolicy weekendShiftPolicy,
     List<Reference> references,
     List<EventSource> eventSources,
     Map<String, EventType> classifications,
@@ -14,6 +15,7 @@ public record ResolvedSpec(
     List<String> resolutionChain) {
   public ResolvedSpec {
     if (weekendPolicy == null) weekendPolicy = WeekendPolicy.SAT_SUN;
+    if (weekendShiftPolicy == null) weekendShiftPolicy = WeekendShiftPolicy.NONE;
     if (references == null) references = List.of();
     if (eventSources == null) eventSources = List.of();
     if (classifications == null) classifications = Map.of();

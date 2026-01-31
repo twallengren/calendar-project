@@ -27,6 +27,7 @@ class ClassifierTest {
             "test",
             null,
             WeekendPolicy.SAT_SUN,
+            WeekendShiftPolicy.NONE,
             List.of(),
             List.of(),
             Map.of("diwali", EventType.NOTABLE),
@@ -44,13 +45,14 @@ class ClassifierTest {
     Occurrence occ =
         new Occurrence("christmas", LocalDate.of(2024, 12, 25), "Christmas Day", "test");
 
-    EventSource source = new EventSource("christmas", "Christmas Day", null, EventType.CLOSED);
+    EventSource source = new EventSource("christmas", "Christmas Day", null, EventType.CLOSED, null);
 
     ResolvedSpec spec =
         new ResolvedSpec(
             "test",
             null,
             WeekendPolicy.SAT_SUN,
+            WeekendShiftPolicy.NONE,
             List.of(),
             List.of(source),
             Map.of(),
@@ -76,6 +78,7 @@ class ClassifierTest {
             "test",
             null,
             WeekendPolicy.SAT_SUN,
+            WeekendShiftPolicy.NONE,
             List.of(),
             List.of(),
             Map.of("christmas", EventType.CLOSED),

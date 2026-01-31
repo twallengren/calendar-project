@@ -6,6 +6,8 @@ metadata:
   description: New York Stock Exchange trading calendar
   chronology: ISO
 
+weekend_shift_policy: NEAREST_WEEKDAY
+
 uses:
   - weekend_sat_sun
   - us_nyse_holidays

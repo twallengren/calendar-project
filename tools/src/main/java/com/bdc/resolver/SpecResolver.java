@@ -44,6 +44,7 @@ public class SpecResolver {
     Set<DayOfWeek> weekendDays = new LinkedHashSet<>();
     List<String> resolutionChain = new ArrayList<>();
     List<Reference> mergedReferences = new ArrayList<>();
+    WeekendShiftPolicy shiftPolicy = WeekendShiftPolicy.NONE;
 
     // 1. Resolve extends (parents) in order
     for (String parentId : spec.extendsList()) {
@@ -54,6 +55,9 @@ public class SpecResolver {
       weekendDays.addAll(parent.weekendPolicy().weekendDays());
       resolutionChain.addAll(parent.resolutionChain());
       mergedReferences.addAll(parent.references());
+      if (parent.weekendShiftPolicy() != WeekendShiftPolicy.NONE) {
+        shiftPolicy = parent.weekendShiftPolicy();
+      }
     }
 
     // 2. Resolve uses (modules) in order - recursively
@@ -69,6 +73,11 @@ public class SpecResolver {
     mergedDeltas.addAll(spec.deltas());
     resolutionChain.add("calendar:" + calendarId);
 
+    // Local shift policy overrides inherited
+    if (spec.weekendShiftPolicy() != WeekendShiftPolicy.NONE) {
+      shiftPolicy = spec.weekendShiftPolicy();
+    }
+
     // Build weekend policy
     WeekendPolicy policy =
         weekendDays.isEmpty() ? WeekendPolicy.SAT_SUN : new WeekendPolicy(weekendDays);
@@ -77,6 +86,7 @@ public class SpecResolver {
         calendarId,
         spec.metadata(),
         policy,
+        shiftPolicy,
         List.copyOf(mergedReferences),
         List.copyOf(mergedSources),
         Map.copyOf(mergedClassifications),

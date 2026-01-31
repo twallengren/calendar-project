@@ -102,7 +102,7 @@ date,type,description
 2024-11-23,WEEKEND,Saturday
 2024-11-24,WEEKEND,Sunday
 2024-11-28,CLOSED,Thanksgiving Day
-2024-11-29,NOTABLE,Day After Thanksgiving (Early Close)
+2024-11-29,EARLY_CLOSE,Day After Thanksgiving (Early Close)
 2024-11-30,WEEKEND,Saturday
 2024-12-01,WEEKEND,Sunday
 2024-12-07,WEEKEND,Saturday
@@ -111,7 +111,7 @@ date,type,description
 2024-12-15,WEEKEND,Sunday
 2024-12-21,WEEKEND,Saturday
 2024-12-22,WEEKEND,Sunday
-2024-12-24,NOTABLE,Christmas Eve (Early Close)
+2024-12-24,EARLY_CLOSE,Christmas Eve (Early Close)
 2024-12-25,CLOSED,Christmas Day
 2024-12-28,WEEKEND,Saturday
 2024-12-29,WEEKEND,Sunday

@@ -26,7 +26,6 @@ public class RuleExpander {
       case Rule.FixedMonthDay r -> expandFixedMonthDay(r, range, provenance);
       case Rule.NthWeekdayOfMonth r -> expandNthWeekday(r, range, provenance);
       case Rule.RelativeToReference r -> expandRelativeToReference(r, range, provenance);
-      case Rule.ObservedHoliday r -> expandObservedHoliday(r, range, provenance);
     };
   }
 
@@ -124,35 +123,6 @@ public class RuleExpander {
         occurrences.add(new Occurrence(rule.key(), date, rule.name(), provenance));
       }
     }
-    return occurrences;
-  }
-
-  private List<Occurrence> expandObservedHoliday(
-      Rule.ObservedHoliday rule, DateRange range, String provenance) {
-    // Expand the base rule to get the actual holiday dates
-    List<Occurrence> baseOccurrences = expand(rule.baseRule(), range, provenance);
-    List<Occurrence> occurrences = new ArrayList<>();
-
-    for (Occurrence base : baseOccurrences) {
-      LocalDate date = base.date();
-      DayOfWeek dow = date.getDayOfWeek();
-
-      LocalDate observedDate = date;
-      if (dow == DayOfWeek.SATURDAY && rule.saturdayShift() == Rule.ShiftPolicy.FRIDAY) {
-        observedDate = date.minusDays(1);
-      } else if (dow == DayOfWeek.SUNDAY && rule.sundayShift() == Rule.ShiftPolicy.MONDAY) {
-        observedDate = date.plusDays(1);
-      } else if (dow == DayOfWeek.SATURDAY && rule.saturdayShift() == Rule.ShiftPolicy.NONE) {
-        continue; // Skip - no observation on weekends
-      } else if (dow == DayOfWeek.SUNDAY && rule.sundayShift() == Rule.ShiftPolicy.NONE) {
-        continue; // Skip - no observation on weekends
-      }
-
-      if (range.contains(observedDate)) {
-        occurrences.add(new Occurrence(rule.key(), observedDate, rule.name(), provenance));
-      }
-    }
-
     return occurrences;
   }
 }

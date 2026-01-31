@@ -294,12 +294,6 @@ public class ArtifactStore {
         map.put("reference", r.reference());
         map.put("offset_days", r.offsetDays());
       }
-      case Rule.ObservedHoliday r -> {
-        map.put("type", "observed_holiday");
-        map.put("base_rule", ruleToMap(r.baseRule()));
-        map.put("saturday_shift", r.saturdayShift().name());
-        map.put("sunday_shift", r.sundayShift().name());
-      }
     }
     return map;
   }

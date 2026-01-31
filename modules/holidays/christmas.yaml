@@ -6,14 +6,8 @@ event_sources:
     name: Christmas Day
     default_classification: CLOSED
     rule:
-      type: observed_holiday
+      type: fixed_month_day
       key: christmas
       name: Christmas Day
-      base_rule:
-        type: fixed_month_day
-        key: christmas_base
-        name: Christmas Day
-        month: 12
-        day: 25
-      saturday_shift: FRIDAY
-      sunday_shift: MONDAY
+      month: 12
+      day: 25
