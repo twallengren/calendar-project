@@ -141,7 +141,25 @@ jobs:
         with:
           script: |
             const fs = require('fs');
-            const report = fs.readFileSync('diff-report.md', 'utf8');
+            let report = fs.readFileSync('diff-report.md', 'utf8');
+
+            // GitHub comment size limit is 65536 characters
+            const MAX_SIZE = 60000;
+            let truncated = false;
+
+            if (report.length > MAX_SIZE) {
+              truncated = true;
+              // Find a good break point (end of a line)
+              let cutoff = report.lastIndexOf('\n', MAX_SIZE);
+              if (cutoff < MAX_SIZE * 0.8) cutoff = MAX_SIZE;
+              report = report.substring(0, cutoff);
+            }
+
+            let body = report;
+            if (truncated) {
+              body += '\n\n---\n⚠️ **Report truncated due to size.** See the full report in the [workflow artifacts](https://github.com/' + context.repo.owner + '/' + context.repo.repo + '/actions/runs/' + context.runId + ').';
+            }
+            body += '\n\n---\n*Generated at: ' + new Date().toISOString() + '*';
 
             // Find existing comment
             const { data: comments } = await github.rest.issues.listComments({
@@ -154,8 +172,6 @@ jobs:
               c.user.type === 'Bot' &&
               c.body.includes('## Calendar Diff Report')
             );
-
-            const body = report + '\n\n---\n*Generated at: ' + new Date().toISOString() + '*';
 
             if (botComment) {
               await github.rest.issues.updateComment({
