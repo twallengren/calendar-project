@@ -29,6 +29,18 @@ public class MetadataEmitter {
   public void emit(
       ResolvedSpec spec, List<Event> events, LocalDate from, LocalDate to, Path outputPath)
       throws IOException {
+    emit(spec, events, from, to, outputPath, null, null);
+  }
+
+  public void emit(
+      ResolvedSpec spec,
+      List<Event> events,
+      LocalDate from,
+      LocalDate to,
+      Path outputPath,
+      String gitSha,
+      String releaseVersion)
+      throws IOException {
     Path parent = outputPath.getParent();
     if (parent != null) {
       Files.createDirectories(parent);
@@ -48,6 +60,17 @@ public class MetadataEmitter {
       countsByType.merge(event.type().name(), 1L, Long::sum);
     }
     metadata.put("counts_by_type", countsByType);
+
+    if (gitSha != null || releaseVersion != null) {
+      Map<String, String> sourceVersion = new LinkedHashMap<>();
+      if (releaseVersion != null) {
+        sourceVersion.put("semantic", releaseVersion);
+      }
+      if (gitSha != null) {
+        sourceVersion.put("git_sha", gitSha);
+      }
+      metadata.put("source_version", sourceVersion);
+    }
 
     mapper.writeValue(outputPath.toFile(), metadata);
   }

@@ -51,3 +51,37 @@ spotless {
         googleJavaFormat()
     }
 }
+
+tasks.register("installGitHooks") {
+    description = "Installs git pre-commit hook for spotlessApply"
+    group = "git hooks"
+
+    doLast {
+        val gitDir = rootProject.projectDir.resolve(".git")
+        val sourceHook = rootProject.projectDir.resolve("scripts/hooks/pre-commit")
+
+        // Check if .git exists and is a directory (not a file, as in worktrees)
+        if (!gitDir.exists()) {
+            throw GradleException("Not a git repository: .git directory not found at ${gitDir.absolutePath}")
+        }
+        if (!gitDir.isDirectory) {
+            throw GradleException("Unsupported git setup: .git is not a directory (possibly a worktree). " +
+                "Please install hooks manually or run from the main repository.")
+        }
+
+        val hooksDir = gitDir.resolve("hooks")
+        if (!hooksDir.exists()) {
+            hooksDir.mkdirs()
+            println("Created hooks directory: ${hooksDir.absolutePath}")
+        }
+
+        if (!sourceHook.exists()) {
+            throw GradleException("Source hook not found: ${sourceHook.absolutePath}")
+        }
+
+        val targetHook = hooksDir.resolve("pre-commit")
+        sourceHook.copyTo(targetHook, overwrite = true)
+        targetHook.setExecutable(true)
+        println("Installed pre-commit hook to ${targetHook.absolutePath}")
+    }
+}

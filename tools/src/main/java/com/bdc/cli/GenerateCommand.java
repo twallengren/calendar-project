@@ -72,6 +72,11 @@ public class GenerateCommand implements Callable<Integer> {
   private String sourceVersion;
 
   @Option(
+      names = {"--release-version"},
+      description = "Release version (e.g., 5.0.0)")
+  private String releaseVersion;
+
+  @Option(
       names = {"--include-specs"},
       description = "Include calendar.yaml and resolved.yaml in output (only applies with --out)")
   private boolean includeSpecs;
@@ -135,7 +140,8 @@ public class GenerateCommand implements Callable<Integer> {
         // Emit metadata
         MetadataEmitter metadataEmitter = new MetadataEmitter();
         Path metadataPath = outputDir.resolve("metadata.json");
-        metadataEmitter.emit(resolved, events, from, to, metadataPath);
+        metadataEmitter.emit(
+            resolved, events, from, to, metadataPath, sourceVersion, releaseVersion);
 
         System.out.println("Generated " + events.size() + " events");
         System.out.println("  CSV: " + csvPath);

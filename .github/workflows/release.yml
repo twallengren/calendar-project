@@ -133,12 +133,13 @@ jobs:
 
       - name: Archive current blessed to artifacts
         run: |
-          NEW_VERSION="${{ needs.check-release-needed.outputs.new_version }}"
-          GIT_SHA="${{ github.sha }}"
-          SHORT_SHA="${GIT_SHA:0:7}"
+          # Read CURRENT version from manifest (before we update to new version)
+          CURRENT_VERSION=$(jq -r '.release_version.semantic // "unknown"' blessed/manifest.json)
+          CURRENT_SHA=$(jq -r '.release_version.git_sha // "unknown"' blessed/manifest.json)
+          SHORT_SHA="${CURRENT_SHA:0:7}"
           TIMESTAMP=$(date -u +%Y-%m-%dT%H-%M-%SZ)
           # Timestamp first for correct chronological sorting in retention policy
-          VERSION_ID="${TIMESTAMP}_${SHORT_SHA}_v${NEW_VERSION}"
+          VERSION_ID="${TIMESTAMP}_${SHORT_SHA}_v${CURRENT_VERSION}"
 
           echo "Archiving current blessed with version ID: $VERSION_ID"
 
@@ -241,6 +242,7 @@ jobs:
               --to "$RANGE_END" \
               --out "$CAL_DIR" \
               --source-version "$GIT_SHA" \
+              --release-version "$NEW_VERSION" \
               --include-specs
           done
 
