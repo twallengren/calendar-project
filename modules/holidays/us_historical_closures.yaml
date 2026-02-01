@@ -1,0 +1,34 @@
+kind: module
+id: us_historical_closures
+
+# One-off historical closures shared across US exchanges
+# These events affected all major US markets (NYSE, NASDAQ, etc.)
+
+event_sources:
+  # September 11, 2001 attacks - all US markets closed for 4 trading days
+  - key: sept_11_closure
+    name: September 11 Closure
+    default_classification: CLOSED
+    rule:
+      type: explicit_dates
+      key: sept_11_closure
+      name: September 11 Closure
+      dates:
+        - 2001-09-11
+        - 2001-09-12
+        - 2001-09-13
+        - 2001-09-14
+
+  # Presidential funerals / National days of mourning
+  - key: national_mourning
+    name: National Day of Mourning
+    default_classification: CLOSED
+    rule:
+      type: explicit_dates
+      key: national_mourning
+      name: National Day of Mourning
+      dates:
+        - date: 2004-06-11
+          comment: Ronald Reagan
+        - date: 2007-01-02
+          comment: Gerald Ford

@@ -79,15 +79,34 @@ class RuleExpanderTest {
             "good_friday",
             "Good Friday",
             List.of(
-                LocalDate.of(2023, 4, 7), // Outside range
-                LocalDate.of(2024, 3, 29), // Inside range
-                LocalDate.of(2025, 4, 18) // Outside range
+                new Rule.AnnotatedDate(LocalDate.of(2023, 4, 7)), // Outside range
+                new Rule.AnnotatedDate(LocalDate.of(2024, 3, 29)), // Inside range
+                new Rule.AnnotatedDate(LocalDate.of(2025, 4, 18)) // Outside range
                 ));
 
     List<Occurrence> occurrences = expander.expand(rule, range2024, "test");
 
     assertEquals(1, occurrences.size());
     assertEquals(LocalDate.of(2024, 3, 29), occurrences.get(0).date());
+    assertEquals("Good Friday", occurrences.get(0).name());
+  }
+
+  @Test
+  void expandExplicitDates_withComments() {
+    Rule.ExplicitDates rule =
+        new Rule.ExplicitDates(
+            "presidential_funeral",
+            "National Day of Mourning",
+            List.of(
+                new Rule.AnnotatedDate(LocalDate.of(2004, 6, 11), "Ronald Reagan"),
+                new Rule.AnnotatedDate(LocalDate.of(2007, 1, 2), "Gerald Ford")));
+
+    DateRange range = new DateRange(LocalDate.of(2000, 1, 1), LocalDate.of(2010, 12, 31));
+    List<Occurrence> occurrences = expander.expand(rule, range, "test");
+
+    assertEquals(2, occurrences.size());
+    assertEquals("National Day of Mourning (Ronald Reagan)", occurrences.get(0).name());
+    assertEquals("National Day of Mourning (Gerald Ford)", occurrences.get(1).name());
   }
 
   @Test

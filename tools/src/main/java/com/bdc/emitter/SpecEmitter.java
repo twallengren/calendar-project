@@ -10,7 +10,6 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -86,6 +85,12 @@ public class SpecEmitter {
         if (source.defaultClassification() != null) {
           sourceMap.put("classification", source.defaultClassification().name());
         }
+        if (source.startDate() != null) {
+          sourceMap.put("start_date", source.startDate().toString());
+        }
+        if (source.endDate() != null) {
+          sourceMap.put("end_date", source.endDate().toString());
+        }
         if (source.rule() != null) {
           sourceMap.put("rule", ruleToMap(source.rule()));
         }
@@ -124,7 +129,20 @@ public class SpecEmitter {
       }
       case com.bdc.model.Rule.ExplicitDates r -> {
         map.put("type", "explicit_dates");
-        map.put("dates", r.dates().stream().map(LocalDate::toString).toList());
+        map.put(
+            "dates",
+            r.dates().stream()
+                .map(
+                    ad -> {
+                      if (ad.comment() != null && !ad.comment().isBlank()) {
+                        Map<String, Object> dateMap = new LinkedHashMap<>();
+                        dateMap.put("date", ad.date().toString());
+                        dateMap.put("comment", ad.comment());
+                        return dateMap;
+                      }
+                      return ad.date().toString();
+                    })
+                .toList());
       }
       case com.bdc.model.Rule.RelativeToReference r -> {
         map.put("type", "relative_to_reference");

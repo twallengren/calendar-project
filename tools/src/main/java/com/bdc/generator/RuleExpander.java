@@ -32,9 +32,11 @@ public class RuleExpander {
   private List<Occurrence> expandExplicitDates(
       Rule.ExplicitDates rule, DateRange range, String provenance) {
     List<Occurrence> occurrences = new ArrayList<>();
-    for (LocalDate date : rule.dates()) {
-      if (range.contains(date)) {
-        occurrences.add(new Occurrence(rule.key(), date, rule.name(), provenance));
+    for (Rule.AnnotatedDate annotatedDate : rule.dates()) {
+      if (range.contains(annotatedDate.date())) {
+        String effectiveName = annotatedDate.effectiveName(rule.name());
+        occurrences.add(
+            new Occurrence(rule.key(), annotatedDate.date(), effectiveName, provenance));
       }
     }
     return occurrences;

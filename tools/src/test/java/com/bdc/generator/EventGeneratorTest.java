@@ -27,7 +27,9 @@ class EventGeneratorTest {
             "Independence Day",
             new Rule.FixedMonthDay("independence_day", "Independence Day", 7, 4, "ISO"),
             EventType.CLOSED,
-            true);
+            true,
+            null,
+            null);
 
     ResolvedSpec spec =
         new ResolvedSpec(
@@ -60,7 +62,9 @@ class EventGeneratorTest {
             "Juneteenth",
             new Rule.FixedMonthDay("juneteenth", "Juneteenth", 6, 19, "ISO"),
             EventType.CLOSED,
-            true);
+            true,
+            null,
+            null);
 
     ResolvedSpec spec =
         new ResolvedSpec(
@@ -92,7 +96,9 @@ class EventGeneratorTest {
             "Christmas Day",
             new Rule.FixedMonthDay("christmas", "Christmas Day", 12, 25, "ISO"),
             EventType.CLOSED,
-            true);
+            true,
+            null,
+            null);
 
     ResolvedSpec spec =
         new ResolvedSpec(
@@ -125,7 +131,9 @@ class EventGeneratorTest {
             "Christmas Eve",
             new Rule.FixedMonthDay("christmas_eve", "Christmas Eve", 12, 24, "ISO"),
             EventType.EARLY_CLOSE,
-            false); // Not shiftable
+            false, // Not shiftable
+            null,
+            null);
 
     ResolvedSpec spec =
         new ResolvedSpec(
@@ -163,14 +171,18 @@ class EventGeneratorTest {
             "Christmas Day",
             new Rule.FixedMonthDay("christmas", "Christmas Day", 12, 25, "ISO"),
             EventType.CLOSED,
-            true);
+            true,
+            null,
+            null);
     EventSource boxingDay =
         new EventSource(
             "boxing_day",
             "Boxing Day",
             new Rule.FixedMonthDay("boxing_day", "Boxing Day", 12, 26, "ISO"),
             EventType.CLOSED,
-            true);
+            true,
+            null,
+            null);
 
     ResolvedSpec spec =
         new ResolvedSpec(
@@ -218,14 +230,18 @@ class EventGeneratorTest {
             "Christmas Day",
             new Rule.FixedMonthDay("christmas", "Christmas Day", 12, 25, "ISO"),
             EventType.CLOSED,
-            true);
+            true,
+            null,
+            null);
     EventSource boxingDay =
         new EventSource(
             "boxing_day",
             "Boxing Day",
             new Rule.FixedMonthDay("boxing_day", "Boxing Day", 12, 26, "ISO"),
             EventType.CLOSED,
-            true);
+            true,
+            null,
+            null);
 
     ResolvedSpec spec =
         new ResolvedSpec(
@@ -272,7 +288,9 @@ class EventGeneratorTest {
             "Independence Day",
             new Rule.FixedMonthDay("independence_day", "Independence Day", 7, 4, "ISO"),
             EventType.CLOSED,
-            true);
+            true,
+            null,
+            null);
 
     ResolvedSpec spec =
         new ResolvedSpec(
@@ -293,5 +311,123 @@ class EventGeneratorTest {
         events.stream().filter(e -> e.type() == EventType.CLOSED).findFirst().orElse(null);
     assertNotNull(holiday);
     assertEquals(LocalDate.of(2020, 7, 4), holiday.date()); // Saturday, no shift
+  }
+
+  @Test
+  void dateConstraint_startDate_filtersEarlyYears() {
+    // Juneteenth started in 2022 - should not appear in 2021
+    EventSource source =
+        new EventSource(
+            "juneteenth",
+            "Juneteenth",
+            new Rule.FixedMonthDay("juneteenth", "Juneteenth", 6, 19, "ISO"),
+            EventType.CLOSED,
+            true,
+            LocalDate.of(2022, 1, 1), // start_date
+            null);
+
+    ResolvedSpec spec =
+        new ResolvedSpec(
+            "test",
+            null,
+            WeekendPolicy.SAT_SUN,
+            WeekendShiftPolicy.NONE,
+            List.of(),
+            List.of(source),
+            Map.of(),
+            List.of(),
+            List.of());
+
+    // Query 2021 - should have no Juneteenth
+    List<Event> events2021 =
+        generator.generate(spec, LocalDate.of(2021, 6, 1), LocalDate.of(2021, 6, 30));
+    Event juneteenth2021 =
+        events2021.stream().filter(e -> e.type() == EventType.CLOSED).findFirst().orElse(null);
+    assertNull(juneteenth2021, "Juneteenth should not appear in 2021");
+
+    // Query 2022 - should have Juneteenth
+    List<Event> events2022 =
+        generator.generate(spec, LocalDate.of(2022, 6, 1), LocalDate.of(2022, 6, 30));
+    Event juneteenth2022 =
+        events2022.stream().filter(e -> e.type() == EventType.CLOSED).findFirst().orElse(null);
+    assertNotNull(juneteenth2022, "Juneteenth should appear in 2022");
+    assertEquals(LocalDate.of(2022, 6, 19), juneteenth2022.date());
+  }
+
+  @Test
+  void dateConstraint_endDate_filtersLateYears() {
+    // Hypothetical holiday that ended in 2020
+    EventSource source =
+        new EventSource(
+            "old_holiday",
+            "Old Holiday",
+            new Rule.FixedMonthDay("old_holiday", "Old Holiday", 3, 15, "ISO"),
+            EventType.CLOSED,
+            true,
+            null,
+            LocalDate.of(2020, 12, 31)); // end_date
+
+    ResolvedSpec spec =
+        new ResolvedSpec(
+            "test",
+            null,
+            WeekendPolicy.SAT_SUN,
+            WeekendShiftPolicy.NONE,
+            List.of(),
+            List.of(source),
+            Map.of(),
+            List.of(),
+            List.of());
+
+    // Query 2020 - should have the holiday
+    List<Event> events2020 =
+        generator.generate(spec, LocalDate.of(2020, 3, 1), LocalDate.of(2020, 3, 31));
+    Event holiday2020 =
+        events2020.stream().filter(e -> e.type() == EventType.CLOSED).findFirst().orElse(null);
+    assertNotNull(holiday2020, "Old Holiday should appear in 2020");
+
+    // Query 2021 - should not have the holiday
+    List<Event> events2021 =
+        generator.generate(spec, LocalDate.of(2021, 3, 1), LocalDate.of(2021, 3, 31));
+    Event holiday2021 =
+        events2021.stream().filter(e -> e.type() == EventType.CLOSED).findFirst().orElse(null);
+    assertNull(holiday2021, "Old Holiday should not appear in 2021");
+  }
+
+  @Test
+  void dateConstraint_rangeConstraint() {
+    // Holiday only active between 2019 and 2021
+    EventSource source =
+        new EventSource(
+            "temp_holiday",
+            "Temporary Holiday",
+            new Rule.FixedMonthDay("temp_holiday", "Temporary Holiday", 8, 10, "ISO"),
+            EventType.CLOSED,
+            true,
+            LocalDate.of(2019, 1, 1),
+            LocalDate.of(2021, 12, 31));
+
+    ResolvedSpec spec =
+        new ResolvedSpec(
+            "test",
+            null,
+            WeekendPolicy.SAT_SUN,
+            WeekendShiftPolicy.NONE,
+            List.of(),
+            List.of(source),
+            Map.of(),
+            List.of(),
+            List.of());
+
+    // Query across multiple years
+    List<Event> events =
+        generator.generate(spec, LocalDate.of(2018, 1, 1), LocalDate.of(2023, 12, 31));
+    List<Event> holidays = events.stream().filter(e -> e.type() == EventType.CLOSED).toList();
+
+    // Should only have 3 occurrences: 2019, 2020, 2021
+    assertEquals(3, holidays.size(), "Should have exactly 3 occurrences within date range");
+    assertTrue(holidays.stream().anyMatch(e -> e.date().getYear() == 2019));
+    assertTrue(holidays.stream().anyMatch(e -> e.date().getYear() == 2020));
+    assertTrue(holidays.stream().anyMatch(e -> e.date().getYear() == 2021));
   }
 }

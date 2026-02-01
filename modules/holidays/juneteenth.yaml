@@ -5,6 +5,7 @@ event_sources:
   - key: juneteenth
     name: Juneteenth National Independence Day
     default_classification: CLOSED
+    start_date: 2022-01-01
     rule:
       type: fixed_month_day
       key: juneteenth

@@ -286,7 +286,20 @@ public class ArtifactStore {
       }
       case com.bdc.model.Rule.ExplicitDates r -> {
         map.put("type", "explicit_dates");
-        map.put("dates", r.dates().stream().map(LocalDate::toString).toList());
+        map.put(
+            "dates",
+            r.dates().stream()
+                .map(
+                    ad -> {
+                      if (ad.comment() != null && !ad.comment().isBlank()) {
+                        Map<String, Object> dateMap = new LinkedHashMap<>();
+                        dateMap.put("date", ad.date().toString());
+                        dateMap.put("comment", ad.comment());
+                        return dateMap;
+                      }
+                      return ad.date().toString();
+                    })
+                .toList());
       }
       case Rule.RelativeToReference r -> {
         map.put("type", "relative_to_reference");

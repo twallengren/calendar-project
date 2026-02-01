@@ -28,7 +28,7 @@ public class EventGenerator {
     refResolver.resolve(spec.references(), range);
     ruleExpander.setReferenceResolver(refResolver);
 
-    // Build map of which keys are shiftable
+    // Build set of which keys are shiftable
     Set<String> shiftableKeys = new HashSet<>();
     for (EventSource source : spec.eventSources()) {
       if (Boolean.TRUE.equals(source.shiftable())) {
@@ -43,7 +43,12 @@ public class EventGenerator {
       if (rule != null) {
         String provenance = spec.id() + ":" + source.key();
         List<Occurrence> expanded = ruleExpander.expand(rule, range, provenance);
-        occurrences.addAll(expanded);
+        // Filter by date constraints
+        for (Occurrence occ : expanded) {
+          if (source.isActiveOn(occ.date())) {
+            occurrences.add(occ);
+          }
+        }
       }
     }
 
