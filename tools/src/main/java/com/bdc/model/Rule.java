@@ -2,6 +2,7 @@ package com.bdc.model;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.List;
@@ -19,7 +20,26 @@ public sealed interface Rule
         Rule.NthWeekdayOfMonth,
         Rule.RelativeToReference {
 
-  record ExplicitDates(String key, String name, List<LocalDate> dates) implements Rule {}
+  /**
+   * A date with an optional comment/annotation. Supports both plain dates ("2024-01-01") and
+   * annotated dates ({date: "2024-01-01", comment: "New Year"}) in YAML.
+   */
+  @JsonDeserialize(using = AnnotatedDateDeserializer.class)
+  record AnnotatedDate(LocalDate date, String comment) {
+    public AnnotatedDate(LocalDate date) {
+      this(date, null);
+    }
+
+    /** Returns the effective name: base name with comment appended if present. */
+    public String effectiveName(String baseName) {
+      if (comment == null || comment.isBlank()) {
+        return baseName;
+      }
+      return baseName + " (" + comment + ")";
+    }
+  }
+
+  record ExplicitDates(String key, String name, List<AnnotatedDate> dates) implements Rule {}
 
   record FixedMonthDay(String key, String name, int month, int day, String chronology)
       implements Rule {

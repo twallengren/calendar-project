@@ -46,7 +46,7 @@ class ClassifierTest {
         new Occurrence("christmas", LocalDate.of(2024, 12, 25), "Christmas Day", "test");
 
     EventSource source =
-        new EventSource("christmas", "Christmas Day", null, EventType.CLOSED, null);
+        new EventSource("christmas", "Christmas Day", null, EventType.CLOSED, null, null, null);
 
     ResolvedSpec spec =
         new ResolvedSpec(

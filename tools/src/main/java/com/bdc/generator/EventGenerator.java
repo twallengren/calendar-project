@@ -28,9 +28,11 @@ public class EventGenerator {
     refResolver.resolve(spec.references(), range);
     ruleExpander.setReferenceResolver(refResolver);
 
-    // Build map of which keys are shiftable
+    // Build map of which keys are shiftable and index EventSources by key
     Set<String> shiftableKeys = new HashSet<>();
+    Map<String, EventSource> sourcesByKey = new HashMap<>();
     for (EventSource source : spec.eventSources()) {
+      sourcesByKey.put(source.key(), source);
       if (Boolean.TRUE.equals(source.shiftable())) {
         shiftableKeys.add(source.key());
       }
@@ -43,7 +45,12 @@ public class EventGenerator {
       if (rule != null) {
         String provenance = spec.id() + ":" + source.key();
         List<Occurrence> expanded = ruleExpander.expand(rule, range, provenance);
-        occurrences.addAll(expanded);
+        // Filter by date constraints
+        for (Occurrence occ : expanded) {
+          if (source.isActiveOn(occ.date())) {
+            occurrences.add(occ);
+          }
+        }
       }
     }
 
