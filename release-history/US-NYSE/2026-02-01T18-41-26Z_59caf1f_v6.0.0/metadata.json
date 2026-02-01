@@ -1,18 +1,18 @@
 {
   "calendar_id" : "US-NYSE",
   "calendar_name" : "NYSE Trading Calendar",
-  "generated_at" : "2026-02-01T18:41:29.025246386Z",
-  "range_start" : "1980-01-01",
+  "generated_at" : "2026-02-01T15:31:36.448373357Z",
+  "range_start" : "1990-01-01",
   "range_end" : "2030-12-31",
-  "event_count" : 5869,
+  "event_count" : 4726,
   "resolution_chain" : [ "module:weekend_sat_sun", "module:new_years_day", "module:memorial_day", "module:independence_day", "module:labor_day", "module:thanksgiving", "module:christmas", "module:us_market_base", "module:mlk_day", "module:presidents_day", "module:good_friday", "module:juneteenth", "module:day_after_thanksgiving", "module:christmas_eve", "module:us_nyse_holidays", "module:us_historical_closures", "calendar:US-NYSE" ],
   "counts_by_type" : {
-    "CLOSED" : 459,
-    "WEEKEND" : 5322,
-    "EARLY_CLOSE" : 88
+    "CLOSED" : 377,
+    "WEEKEND" : 4278,
+    "EARLY_CLOSE" : 71
   },
   "source_version" : {
-    "semantic" : "7.0.0",
-    "git_sha" : "76081bf01e303722cf45ee9ba7f5a6abf411f71c"
+    "semantic" : "6.0.0",
+    "git_sha" : "59caf1fc2e07816daffc86ae305361bd920362d2"
   }
 }

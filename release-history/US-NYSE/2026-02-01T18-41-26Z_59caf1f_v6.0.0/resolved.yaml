@@ -149,19 +149,3 @@ event_sources:
       comment: Ronald Reagan
     - date: 2007-01-02
       comment: Gerald Ford
-- key: weather_closures
-  name: Weather Event
-  classification: CLOSED
-  rule:
-    type: explicit_dates
-    dates:
-    - date: 1985-09-27
-      comment: Hurricane Gloria
-- key: election_day_closures
-  name: Election Day
-  classification: CLOSED
-  rule:
-    type: explicit_dates
-    dates:
-    - date: 1980-11-04
-      comment: Presidential Election
