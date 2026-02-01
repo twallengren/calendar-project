@@ -294,4 +294,162 @@ class DiffReportFormatterTest {
     assertTrue(node.get("calendars").has("CAL1"));
     assertTrue(node.get("calendars").has("CAL2"));
   }
+
+  @Test
+  void constructor_withCustomMaxDiffs_usesCustomValue() {
+    DiffReportFormatter customFormatter = new DiffReportFormatter(5);
+
+    // Create a report with more additions than the custom limit
+    List<EventDiff> additions =
+        List.of(
+            EventDiff.added(LocalDate.of(2027, 1, 1), EventType.CLOSED, "Event 1"),
+            EventDiff.added(LocalDate.of(2027, 1, 2), EventType.CLOSED, "Event 2"),
+            EventDiff.added(LocalDate.of(2027, 1, 3), EventType.CLOSED, "Event 3"),
+            EventDiff.added(LocalDate.of(2027, 1, 4), EventType.CLOSED, "Event 4"),
+            EventDiff.added(LocalDate.of(2027, 1, 5), EventType.CLOSED, "Event 5"),
+            EventDiff.added(LocalDate.of(2027, 1, 6), EventType.CLOSED, "Event 6"),
+            EventDiff.added(LocalDate.of(2027, 1, 7), EventType.CLOSED, "Event 7"),
+            EventDiff.added(LocalDate.of(2027, 1, 8), EventType.CLOSED, "Event 8"));
+
+    Map<String, CalendarDiff> calendars = new LinkedHashMap<>();
+    calendars.put(
+        "TEST",
+        new CalendarDiff("TEST", DiffSeverity.MINOR, additions, List.of(), List.of(), cutoffDate));
+    DiffReport report =
+        new DiffReport(DiffSeverity.MINOR, 1, 1, Instant.now(), "1.0.0", "abc123", calendars);
+
+    String markdown = customFormatter.formatAsMarkdown(report);
+
+    // Should show exactly 5 events and indicate 3 more
+    assertTrue(markdown.contains("Event 1"));
+    assertTrue(markdown.contains("Event 5"));
+    assertFalse(markdown.contains("Event 6"));
+    assertTrue(markdown.contains("...and 3 more added events"));
+  }
+
+  @Test
+  void formatAsMarkdown_truncatesAdditions_showsRemainingCount() {
+    // Use default formatter (15 max per section)
+    List<EventDiff> additions = new java.util.ArrayList<>();
+    for (int i = 1; i <= 20; i++) {
+      additions.add(EventDiff.added(LocalDate.of(2027, 1, i), EventType.CLOSED, "Event " + i));
+    }
+
+    Map<String, CalendarDiff> calendars = new LinkedHashMap<>();
+    calendars.put(
+        "TEST",
+        new CalendarDiff("TEST", DiffSeverity.MINOR, additions, List.of(), List.of(), cutoffDate));
+    DiffReport report =
+        new DiffReport(DiffSeverity.MINOR, 1, 1, Instant.now(), "1.0.0", "abc123", calendars);
+
+    String markdown = formatter.formatAsMarkdown(report);
+
+    // Should show 15 events (default) and indicate 5 more
+    assertTrue(markdown.contains("Event 1"));
+    assertTrue(markdown.contains("Event 15"));
+    assertFalse(markdown.contains("Event 16"));
+    assertTrue(markdown.contains("...and 5 more added events"));
+  }
+
+  @Test
+  void formatAsMarkdown_truncatesRemovals_showsRemainingCount() {
+    DiffReportFormatter customFormatter = new DiffReportFormatter(3);
+
+    List<EventDiff> removals =
+        List.of(
+            EventDiff.removed(LocalDate.of(2025, 1, 1), EventType.CLOSED, "Removed 1"),
+            EventDiff.removed(LocalDate.of(2025, 1, 2), EventType.CLOSED, "Removed 2"),
+            EventDiff.removed(LocalDate.of(2025, 1, 3), EventType.CLOSED, "Removed 3"),
+            EventDiff.removed(LocalDate.of(2025, 1, 4), EventType.CLOSED, "Removed 4"),
+            EventDiff.removed(LocalDate.of(2025, 1, 5), EventType.CLOSED, "Removed 5"));
+
+    Map<String, CalendarDiff> calendars = new LinkedHashMap<>();
+    calendars.put(
+        "TEST",
+        new CalendarDiff("TEST", DiffSeverity.MAJOR, List.of(), removals, List.of(), cutoffDate));
+    DiffReport report =
+        new DiffReport(DiffSeverity.MAJOR, 1, 1, Instant.now(), "1.0.0", "abc123", calendars);
+
+    String markdown = customFormatter.formatAsMarkdown(report);
+
+    assertTrue(markdown.contains("Removed 1"));
+    assertTrue(markdown.contains("Removed 3"));
+    assertFalse(markdown.contains("Removed 4"));
+    assertTrue(markdown.contains("...and 2 more removed events"));
+  }
+
+  @Test
+  void formatAsMarkdown_truncatesModifications_showsRemainingCount() {
+    DiffReportFormatter customFormatter = new DiffReportFormatter(2);
+
+    List<EventDiff> modifications =
+        List.of(
+            EventDiff.modified(
+                LocalDate.of(2025, 1, 1),
+                EventType.CLOSED,
+                EventType.EARLY_CLOSE,
+                "Mod 1",
+                "Mod 1 New"),
+            EventDiff.modified(
+                LocalDate.of(2025, 1, 2),
+                EventType.CLOSED,
+                EventType.EARLY_CLOSE,
+                "Mod 2",
+                "Mod 2 New"),
+            EventDiff.modified(
+                LocalDate.of(2025, 1, 3),
+                EventType.CLOSED,
+                EventType.EARLY_CLOSE,
+                "Mod 3",
+                "Mod 3 New"),
+            EventDiff.modified(
+                LocalDate.of(2025, 1, 4),
+                EventType.CLOSED,
+                EventType.EARLY_CLOSE,
+                "Mod 4",
+                "Mod 4 New"));
+
+    Map<String, CalendarDiff> calendars = new LinkedHashMap<>();
+    calendars.put(
+        "TEST",
+        new CalendarDiff(
+            "TEST", DiffSeverity.MAJOR, List.of(), List.of(), modifications, cutoffDate));
+    DiffReport report =
+        new DiffReport(DiffSeverity.MAJOR, 1, 1, Instant.now(), "1.0.0", "abc123", calendars);
+
+    String markdown = customFormatter.formatAsMarkdown(report);
+
+    assertTrue(markdown.contains("Mod 1"));
+    assertTrue(markdown.contains("Mod 2"));
+    assertFalse(markdown.contains("Mod 3"));
+    assertTrue(markdown.contains("...and 2 more modified events"));
+  }
+
+  @Test
+  void formatAsMarkdown_noTruncation_whenBelowLimit() {
+    DiffReportFormatter customFormatter = new DiffReportFormatter(10);
+
+    List<EventDiff> additions =
+        List.of(
+            EventDiff.added(LocalDate.of(2027, 1, 1), EventType.CLOSED, "Event 1"),
+            EventDiff.added(LocalDate.of(2027, 1, 2), EventType.CLOSED, "Event 2"),
+            EventDiff.added(LocalDate.of(2027, 1, 3), EventType.CLOSED, "Event 3"));
+
+    Map<String, CalendarDiff> calendars = new LinkedHashMap<>();
+    calendars.put(
+        "TEST",
+        new CalendarDiff("TEST", DiffSeverity.MINOR, additions, List.of(), List.of(), cutoffDate));
+    DiffReport report =
+        new DiffReport(DiffSeverity.MINOR, 1, 1, Instant.now(), "1.0.0", "abc123", calendars);
+
+    String markdown = customFormatter.formatAsMarkdown(report);
+
+    // All events should be shown
+    assertTrue(markdown.contains("Event 1"));
+    assertTrue(markdown.contains("Event 2"));
+    assertTrue(markdown.contains("Event 3"));
+    // No truncation message
+    assertFalse(markdown.contains("...and"));
+    assertFalse(markdown.contains("more added events"));
+  }
 }
