@@ -55,17 +55,15 @@ public class DiffCommand implements Callable<Integer> {
   @Override
   public Integer call() {
     try {
-      switch (artifactType.toLowerCase()) {
+      return switch (artifactType.toLowerCase()) {
         case "resolved" -> diffResolved();
         case "generated" -> diffGenerated();
         default -> {
           System.err.println("Unknown artifact type: " + artifactType);
           System.err.println("Use 'resolved' or 'generated'");
-          return 1;
+          yield 1;
         }
-      }
-
-      return 0;
+      };
     } catch (Exception e) {
       System.err.println("Diff failed: " + e.getMessage());
       e.printStackTrace();
@@ -73,17 +71,17 @@ public class DiffCommand implements Callable<Integer> {
     }
   }
 
-  private void diffResolved() throws IOException {
+  private int diffResolved() throws IOException {
     Path path1 = artifactsDir.resolve("resolved").resolve(calendarId).resolve(tx1 + ".yaml");
     Path path2 = artifactsDir.resolve("resolved").resolve(calendarId).resolve(tx2 + ".yaml");
 
     if (!Files.exists(path1)) {
       System.err.println("First artifact not found: " + path1);
-      return;
+      return 1;
     }
     if (!Files.exists(path2)) {
       System.err.println("Second artifact not found: " + path2);
-      return;
+      return 1;
     }
 
     System.out.println("Comparing resolved specs for " + calendarId);
@@ -99,9 +97,10 @@ public class DiffCommand implements Callable<Integer> {
     } else {
       showLineDiff(content1, content2);
     }
+    return 0;
   }
 
-  private void diffGenerated() throws IOException {
+  private int diffGenerated() throws IOException {
     LocalDate from = validFrom;
     LocalDate to = validTo;
 
@@ -113,7 +112,7 @@ public class DiffCommand implements Callable<Integer> {
     if (from == null || to == null) {
       System.err.println(
           "Error: --valid-from and --valid-to (or --valid-range) are required for generated artifacts");
-      return;
+      return 1;
     }
 
     String validRange = from.toString() + "_" + to.toString();
@@ -124,11 +123,11 @@ public class DiffCommand implements Callable<Integer> {
 
     if (!Files.exists(path1)) {
       System.err.println("First artifact not found: " + path1);
-      return;
+      return 1;
     }
     if (!Files.exists(path2)) {
       System.err.println("Second artifact not found: " + path2);
-      return;
+      return 1;
     }
 
     System.out.println("Comparing generated events for " + calendarId);
@@ -171,6 +170,7 @@ public class DiffCommand implements Callable<Integer> {
         added.stream().sorted().forEach(e -> System.out.println("  + " + e));
       }
     }
+    return 0;
   }
 
   private void showLineDiff(String content1, String content2) {

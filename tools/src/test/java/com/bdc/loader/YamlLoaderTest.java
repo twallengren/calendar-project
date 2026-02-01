@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import com.bdc.model.CalendarSpec;
 import com.bdc.model.ModuleSpec;
+import com.fasterxml.jackson.databind.exc.ValueInstantiationException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -61,15 +62,20 @@ class YamlLoaderTest {
   }
 
   @Test
-  void loadCalendar_missingRequiredFields_throwsException() throws Exception {
+  void loadCalendar_invalidKind_throwsValueInstantiationException() throws Exception {
     Path invalid = tempDir.resolve("invalid.yaml");
     Files.writeString(invalid, """
         kind: invalid_kind
         id: TEST
         """);
 
-    // Jackson wraps the IllegalArgumentException in a ValueInstantiationException
-    assertThrows(Exception.class, () -> loader.loadCalendar(invalid));
+    ValueInstantiationException ex =
+        assertThrows(ValueInstantiationException.class, () -> loader.loadCalendar(invalid));
+
+    // Verify the root cause is the validation error from CalendarSpec
+    Throwable cause = ex.getCause();
+    assertInstanceOf(IllegalArgumentException.class, cause);
+    assertTrue(cause.getMessage().contains("kind must be 'calendar'"));
   }
 
   @Test

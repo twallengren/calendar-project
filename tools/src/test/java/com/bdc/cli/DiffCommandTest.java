@@ -125,7 +125,7 @@ class DiffCommandTest {
             "--artifacts-dir",
             tempDir.resolve("artifacts").toString());
 
-    assertEquals(0, exitCode); // Command returns 0 but prints error
+    assertEquals(1, exitCode);
     String errOutput = stderr.toString();
     assertTrue(errOutput.contains("not found"));
   }
@@ -150,7 +150,7 @@ class DiffCommandTest {
             "--artifacts-dir",
             tempDir.resolve("artifacts").toString());
 
-    assertEquals(0, exitCode); // Command returns 0 but prints error
+    assertEquals(1, exitCode);
     String errOutput = stderr.toString();
     assertTrue(errOutput.contains("not found"));
   }
