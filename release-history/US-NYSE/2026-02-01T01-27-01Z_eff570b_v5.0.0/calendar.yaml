@@ -7,7 +7,6 @@ metadata:
 uses:
 - weekend_sat_sun
 - us_nyse_holidays
-- us_historical_closures
 classifications: {}
 deltas: []
 extends: []

@@ -1,8 +1,8 @@
 kind: resolved_calendar
-id: US-CORP-IN-VISIBILITY
+id: US-MARKET-BASE
 metadata:
-  name: US Corporate Calendar with India Visibility
-  description: US corporate calendar with Indian holidays for visibility
+  name: US Market Base Calendar
+  description: Base calendar for US markets with core holidays
   chronology: ISO
 weekend_policy:
   days:
@@ -17,8 +17,7 @@ resolution_chain:
 - module:thanksgiving
 - module:christmas
 - module:us_market_base
-- module:diwali_explicit
-- calendar:US-CORP-IN-VISIBILITY
+- calendar:US-MARKET-BASE
 event_sources:
 - key: new_years_day
   name: New Year's Day
@@ -30,7 +29,6 @@ event_sources:
 - key: memorial_day
   name: Memorial Day
   classification: CLOSED
-  start_date: 1971-01-01
   rule:
     type: nth_weekday_of_month
     month: 5
@@ -46,7 +44,6 @@ event_sources:
 - key: labor_day
   name: Labor Day
   classification: CLOSED
-  start_date: 1887-01-01
   rule:
     type: nth_weekday_of_month
     month: 9
@@ -55,7 +52,6 @@ event_sources:
 - key: thanksgiving
   name: Thanksgiving Day
   classification: CLOSED
-  start_date: 1940-01-01
   rule:
     type: nth_weekday_of_month
     month: 11
@@ -68,16 +64,3 @@ event_sources:
     type: fixed_month_day
     month: 12
     day: 25
-- key: diwali
-  name: Diwali
-  classification: NOTABLE
-  rule:
-    type: explicit_dates
-    dates:
-    - 2024-11-01
-    - 2025-10-20
-    - 2026-11-08
-    - 2027-10-29
-    - 2028-10-17
-    - 2029-11-05
-    - 2030-10-26

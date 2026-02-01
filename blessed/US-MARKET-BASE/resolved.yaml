@@ -29,6 +29,7 @@ event_sources:
 - key: memorial_day
   name: Memorial Day
   classification: CLOSED
+  start_date: 1971-01-01
   rule:
     type: nth_weekday_of_month
     month: 5
@@ -44,6 +45,7 @@ event_sources:
 - key: labor_day
   name: Labor Day
   classification: CLOSED
+  start_date: 1887-01-01
   rule:
     type: nth_weekday_of_month
     month: 9
@@ -52,6 +54,7 @@ event_sources:
 - key: thanksgiving
   name: Thanksgiving Day
   classification: CLOSED
+  start_date: 1940-01-01
   rule:
     type: nth_weekday_of_month
     month: 11
