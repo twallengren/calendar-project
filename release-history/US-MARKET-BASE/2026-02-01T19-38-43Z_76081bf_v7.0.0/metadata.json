@@ -1,17 +1,17 @@
 {
   "calendar_id" : "US-MARKET-BASE",
   "calendar_name" : "US Market Base Calendar",
-  "generated_at" : "2026-02-01T19:38:45.404483212Z",
-  "range_start" : "1970-01-01",
+  "generated_at" : "2026-02-01T18:41:28.370716521Z",
+  "range_start" : "1980-01-01",
   "range_end" : "2030-12-31",
-  "event_count" : 6679,
+  "event_count" : 5585,
   "resolution_chain" : [ "module:weekend_sat_sun", "module:new_years_day", "module:memorial_day", "module:independence_day", "module:labor_day", "module:thanksgiving", "module:christmas", "module:us_market_base", "calendar:US-MARKET-BASE" ],
   "counts_by_type" : {
-    "CLOSED" : 365,
-    "WEEKEND" : 6314
+    "CLOSED" : 306,
+    "WEEKEND" : 5279
   },
   "source_version" : {
-    "semantic" : "8.0.0",
-    "git_sha" : "2a06880860fec4301a2ec40a3e3c1ff751636cb2"
+    "semantic" : "7.0.0",
+    "git_sha" : "76081bf01e303722cf45ee9ba7f5a6abf411f71c"
   }
 }

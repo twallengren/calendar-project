@@ -1,18 +1,18 @@
 {
   "calendar_id" : "US-CORP-IN-VISIBILITY",
   "calendar_name" : "US Corporate Calendar with India Visibility",
-  "generated_at" : "2026-02-01T19:38:44.680895354Z",
-  "range_start" : "1970-01-01",
+  "generated_at" : "2026-02-01T18:41:27.669496612Z",
+  "range_start" : "1980-01-01",
   "range_end" : "2030-12-31",
-  "event_count" : 6684,
+  "event_count" : 5590,
   "resolution_chain" : [ "module:weekend_sat_sun", "module:new_years_day", "module:memorial_day", "module:independence_day", "module:labor_day", "module:thanksgiving", "module:christmas", "module:us_market_base", "module:diwali_explicit", "calendar:US-CORP-IN-VISIBILITY" ],
   "counts_by_type" : {
-    "CLOSED" : 365,
-    "WEEKEND" : 6312,
+    "CLOSED" : 306,
+    "WEEKEND" : 5277,
     "NOTABLE" : 7
   },
   "source_version" : {
-    "semantic" : "8.0.0",
-    "git_sha" : "2a06880860fec4301a2ec40a3e3c1ff751636cb2"
+    "semantic" : "7.0.0",
+    "git_sha" : "76081bf01e303722cf45ee9ba7f5a6abf411f71c"
   }
 }

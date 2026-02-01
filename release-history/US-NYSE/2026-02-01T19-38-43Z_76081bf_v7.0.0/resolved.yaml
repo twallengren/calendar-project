@@ -143,10 +143,6 @@ event_sources:
   rule:
     type: explicit_dates
     dates:
-    - date: 1972-12-28
-      comment: Harry S. Truman
-    - date: 1973-01-25
-      comment: Lyndon B. Johnson
     - date: 1994-04-27
       comment: Richard Nixon
     - date: 2004-06-11
@@ -161,22 +157,11 @@ event_sources:
     dates:
     - date: 1985-09-27
       comment: Hurricane Gloria
-- key: nyc_blackout
-  name: New York City Blackout
-  classification: CLOSED
-  rule:
-    type: explicit_dates
-    dates:
-    - 1977-07-14
 - key: election_day_closures
   name: Election Day
   classification: CLOSED
   rule:
     type: explicit_dates
     dates:
-    - date: 1972-11-07
-      comment: Presidential Election
-    - date: 1976-11-02
-      comment: Presidential Election
     - date: 1980-11-04
       comment: Presidential Election

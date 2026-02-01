@@ -1,0 +1,14 @@
+kind: calendar
+id: US-MARKET-BASE
+metadata:
+  name: US Market Base Calendar
+  description: Base calendar for US markets with core holidays
+  chronology: ISO
+uses:
+- weekend_sat_sun
+- us_market_base
+classifications: {}
+deltas: []
+extends: []
+event_sources: []
+weekend_shift_policy: NONE
