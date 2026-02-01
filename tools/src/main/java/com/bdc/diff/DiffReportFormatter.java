@@ -10,9 +10,17 @@ import java.util.stream.Collectors;
 
 public class DiffReportFormatter {
 
+  private static final int DEFAULT_MAX_DIFFS_PER_SECTION = 15;
+
   private final ObjectMapper mapper;
+  private final int maxDiffsPerSection;
 
   public DiffReportFormatter() {
+    this(DEFAULT_MAX_DIFFS_PER_SECTION);
+  }
+
+  public DiffReportFormatter(int maxDiffsPerSection) {
+    this.maxDiffsPerSection = maxDiffsPerSection;
     this.mapper = new ObjectMapper();
     mapper.registerModule(new JavaTimeModule());
     mapper.enable(SerializationFeature.INDENT_OUTPUT);
@@ -126,7 +134,11 @@ public class DiffReportFormatter {
         sb.append("#### Removed Events :warning:\n");
         sb.append("| Date | Type | Description | Historical? |\n");
         sb.append("|------|------|-------------|-------------|\n");
+        int removalCount = 0;
         for (EventDiff e : diff.removals()) {
+          if (removalCount >= maxDiffsPerSection) {
+            break;
+          }
           sb.append("| ")
               .append(e.date())
               .append(" | ")
@@ -136,6 +148,12 @@ public class DiffReportFormatter {
               .append(" | ")
               .append(e.isHistorical(diff.cutoffDate()) ? "Yes" : "No")
               .append(" |\n");
+          removalCount++;
+        }
+        if (diff.removals().size() > maxDiffsPerSection) {
+          sb.append("\n*...and ")
+              .append(diff.removals().size() - maxDiffsPerSection)
+              .append(" more removed events*\n");
         }
         sb.append("\n");
       }
@@ -144,7 +162,11 @@ public class DiffReportFormatter {
         sb.append("#### Added Events\n");
         sb.append("| Date | Type | Description | Historical? |\n");
         sb.append("|------|------|-------------|-------------|\n");
+        int additionCount = 0;
         for (EventDiff e : diff.additions()) {
+          if (additionCount >= maxDiffsPerSection) {
+            break;
+          }
           sb.append("| ")
               .append(e.date())
               .append(" | ")
@@ -154,6 +176,12 @@ public class DiffReportFormatter {
               .append(" | ")
               .append(e.isHistorical(diff.cutoffDate()) ? "Yes" : "No")
               .append(" |\n");
+          additionCount++;
+        }
+        if (diff.additions().size() > maxDiffsPerSection) {
+          sb.append("\n*...and ")
+              .append(diff.additions().size() - maxDiffsPerSection)
+              .append(" more added events*\n");
         }
         sb.append("\n");
       }
@@ -162,7 +190,11 @@ public class DiffReportFormatter {
         sb.append("#### Modified Events :warning:\n");
         sb.append("| Date | Old Type | New Type | Old Description | New Description |\n");
         sb.append("|------|----------|----------|-----------------|------------------|\n");
+        int modificationCount = 0;
         for (EventDiff e : diff.modifications()) {
+          if (modificationCount >= maxDiffsPerSection) {
+            break;
+          }
           sb.append("| ")
               .append(e.date())
               .append(" | ")
@@ -174,6 +206,12 @@ public class DiffReportFormatter {
               .append(" | ")
               .append(e.newDescription())
               .append(" |\n");
+          modificationCount++;
+        }
+        if (diff.modifications().size() > maxDiffsPerSection) {
+          sb.append("\n*...and ")
+              .append(diff.modifications().size() - maxDiffsPerSection)
+              .append(" more modified events*\n");
         }
         sb.append("\n");
       }

@@ -34,3 +34,28 @@ event_sources:
           comment: Ronald Reagan
         - date: 2007-01-02
           comment: Gerald Ford
+
+  # Weather-related closures
+  - key: weather_closures
+    name: Weather Event
+    default_classification: CLOSED
+    rule:
+      type: explicit_dates
+      key: weather_closures
+      name: Weather Event
+      dates:
+        - date: 1985-09-27
+          comment: Hurricane Gloria
+
+  # Election Day closures (presidential years 1972-1980)
+  # Note: Election Day was closed every year through 1968, then only presidential years 1972-1980
+  - key: election_day_closures
+    name: Election Day
+    default_classification: CLOSED
+    rule:
+      type: explicit_dates
+      key: election_day_closures
+      name: Election Day
+      dates:
+        - date: 1980-11-04
+          comment: Presidential Election
