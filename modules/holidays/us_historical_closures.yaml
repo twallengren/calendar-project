@@ -28,6 +28,8 @@ event_sources:
       key: national_mourning
       name: National Day of Mourning
       dates:
+        - date: 1994-04-27
+          comment: Richard Nixon
         - date: 2004-06-11
           comment: Ronald Reagan
         - date: 2007-01-02

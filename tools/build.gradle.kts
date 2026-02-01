@@ -51,3 +51,22 @@ spotless {
         googleJavaFormat()
     }
 }
+
+tasks.register("installGitHooks") {
+    description = "Installs git pre-commit hook for spotlessApply"
+    group = "git hooks"
+
+    doLast {
+        val hooksDir = rootProject.projectDir.resolve(".git/hooks")
+        val sourceHook = rootProject.projectDir.resolve("scripts/hooks/pre-commit")
+        val targetHook = hooksDir.resolve("pre-commit")
+
+        if (sourceHook.exists()) {
+            sourceHook.copyTo(targetHook, overwrite = true)
+            targetHook.setExecutable(true)
+            println("Installed pre-commit hook to ${targetHook.absolutePath}")
+        } else {
+            throw GradleException("Source hook not found: ${sourceHook.absolutePath}")
+        }
+    }
+}
