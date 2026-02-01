@@ -1,30 +1,30 @@
 {
   "schema_version": "1.0",
-  "blessed_at": "2026-02-01T01:27:03Z",
+  "blessed_at": "2026-02-01T15:31:36Z",
   "blessed_by": "github-actions",
   "calendars": {
     "US-MARKET-BASE": {
       "range_start": "1990-01-01",
       "range_end": "2030-12-31",
-      "event_count": 3397,
-      "checksum": "sha256:fd49a907d64736eaace2fe01fb4987e22d13a87477d00405f51e220c391b8202"
+      "event_count": 4490,
+      "checksum": "sha256:43191fa45f5bedf33480aaa701002981bfe508e7e78a3c09355c8924a57d50d7"
     },
     "US-NYSE": {
       "range_start": "1990-01-01",
       "range_end": "2030-12-31",
-      "event_count": 3582,
-      "checksum": "sha256:74205a1b24606b46cc2059d4e6f8dcfb8d46b4d502d95f756712259ede7725f6"
+      "event_count": 4726,
+      "checksum": "sha256:369f0a0751beefb5f736756332b688500f8c21752ef6da645f457b1d3e069794"
     },
     "US-CORP-IN-VISIBILITY": {
       "range_start": "1990-01-01",
       "range_end": "2030-12-31",
-      "event_count": 3402,
-      "checksum": "sha256:4e64ebc05369cb9b73a003ec9ee04544ec29c0eb477859be0bec2bd21ac6c827"
+      "event_count": 4495,
+      "checksum": "sha256:1019bb44d376478b22ce4b18e35beabf35f80ce731dc73aebc238453b1af9a61"
     }
   },
   "release_version": {
-    "semantic": "5.0.0",
-    "git_sha": "eff570bd4e125923acee098302f0cc3bd6af2024",
+    "semantic": "6.0.0",
+    "git_sha": "59caf1fc2e07816daffc86ae305361bd920362d2",
     "generation_date": "2026-02-01"
   }
 }

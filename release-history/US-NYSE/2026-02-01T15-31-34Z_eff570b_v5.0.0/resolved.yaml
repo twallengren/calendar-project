@@ -143,8 +143,6 @@ event_sources:
   rule:
     type: explicit_dates
     dates:
-    - date: 1994-04-27
-      comment: Richard Nixon
     - date: 2004-06-11
       comment: Ronald Reagan
     - date: 2007-01-02
