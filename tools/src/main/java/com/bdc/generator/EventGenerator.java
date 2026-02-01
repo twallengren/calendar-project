@@ -28,11 +28,9 @@ public class EventGenerator {
     refResolver.resolve(spec.references(), range);
     ruleExpander.setReferenceResolver(refResolver);
 
-    // Build map of which keys are shiftable and index EventSources by key
+    // Build set of which keys are shiftable
     Set<String> shiftableKeys = new HashSet<>();
-    Map<String, EventSource> sourcesByKey = new HashMap<>();
     for (EventSource source : spec.eventSources()) {
-      sourcesByKey.put(source.key(), source);
       if (Boolean.TRUE.equals(source.shiftable())) {
         shiftableKeys.add(source.key());
       }
