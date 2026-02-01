@@ -28,6 +28,10 @@ event_sources:
       key: national_mourning
       name: National Day of Mourning
       dates:
+        - date: 1972-12-28
+          comment: Harry S. Truman
+        - date: 1973-01-25
+          comment: Lyndon B. Johnson
         - date: 1994-04-27
           comment: Richard Nixon
         - date: 2004-06-11
@@ -47,6 +51,17 @@ event_sources:
         - date: 1985-09-27
           comment: Hurricane Gloria
 
+  # NYC Blackout
+  - key: nyc_blackout
+    name: New York City Blackout
+    default_classification: CLOSED
+    rule:
+      type: explicit_dates
+      key: nyc_blackout
+      name: New York City Blackout
+      dates:
+        - 1977-07-14
+
   # Election Day closures (presidential years 1972-1980)
   # Note: Election Day was closed every year through 1968, then only presidential years 1972-1980
   - key: election_day_closures
@@ -57,5 +72,9 @@ event_sources:
       key: election_day_closures
       name: Election Day
       dates:
+        - date: 1972-11-07
+          comment: Presidential Election
+        - date: 1976-11-02
+          comment: Presidential Election
         - date: 1980-11-04
           comment: Presidential Election
