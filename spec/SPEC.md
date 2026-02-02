@@ -58,6 +58,7 @@ event_sources:
     shiftable: true              # Whether to shift on weekends (see below)
     start_date: 2022-01-01       # Optional: first date the event is active
     end_date: 2030-12-31         # Optional: last date the event is active
+    active_years: [...]          # Optional: list of active year ranges (see below)
     rule: {...}                  # Rule definition (see types below)
 ```
 
@@ -79,6 +80,35 @@ Use `start_date` and `end_date` to constrain when an event is active:
     month: 6
     day: 19
 ```
+
+### Active Years
+
+For events with non-contiguous active periods, use `active_years` to specify which years the event applies. Supports:
+
+- Single years: `1972`
+- Open-ended ranges: `[null, 1968]` (from inception through 1968)
+- Closed ranges: `[1990, 2000]` (1990 through 2000 inclusive)
+
+```yaml
+# Election Day: every year through 1968, then only presidential years
+- key: election_day
+  name: Election Day
+  active_years:
+    - [null, 1968]   # Annual through 1968
+    - 1972           # Presidential election
+    - 1976           # Presidential election
+    - 1980           # Presidential election
+  rule:
+    type: relative_to_reference
+    reference_month: 11
+    reference_day: 1
+    offset_weekday:
+      weekday: TUESDAY
+      nth: 1
+      direction: AFTER
+```
+
+Note: `active_years` and `start_date`/`end_date` can be combined; both constraints must be satisfied for an event to be active.
 
 ## Event Source Rule Types
 
@@ -137,6 +167,11 @@ rule:
 ```
 
 ### relative_to_reference
+
+Calculate dates relative to a reference point. Supports two reference types and two offset types.
+
+#### With Named Reference (e.g., Easter)
+
 ```yaml
 rule:
   type: relative_to_reference
@@ -145,6 +180,37 @@ rule:
   reference: easter      # Key of a reference defined in this module
   offset_days: -2        # Days to add (negative = before, positive = after)
 ```
+
+#### With Fixed Month/Day Reference
+
+```yaml
+rule:
+  type: relative_to_reference
+  key: week_after_nov1
+  name: Week After November 1st
+  reference_month: 11
+  reference_day: 1
+  offset_days: 7
+```
+
+#### With Weekday Offset
+
+Find the nth weekday before or after a reference date. Useful for rules like "first Tuesday after November 1st" (Election Day).
+
+```yaml
+rule:
+  type: relative_to_reference
+  key: election_day
+  name: Election Day
+  reference_month: 11
+  reference_day: 1
+  offset_weekday:
+    weekday: TUESDAY     # MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY
+    nth: 1               # 1 = first, 2 = second, etc.
+    direction: AFTER     # AFTER or BEFORE (strictly after/before, not including reference date)
+```
+
+Note: The weekday offset finds occurrences strictly before or after the reference date. If November 1st is a Tuesday and you're looking for the first Tuesday after November 1st, you'll get November 8th (not November 1st).
 
 ## Event Types
 
