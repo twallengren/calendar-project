@@ -172,4 +172,128 @@ class YamlLoaderTest {
   void getMapper_returnsConfiguredMapper() {
     assertNotNull(loader.getMapper());
   }
+
+  @Test
+  void loadModule_withActiveYears_singleYears() throws Exception {
+    Path moduleFile = tempDir.resolve("active-years.yaml");
+    Files.writeString(
+        moduleFile,
+        """
+        kind: module
+        id: test_module
+        event_sources:
+          - key: election_day
+            name: Election Day
+            default_classification: CLOSED
+            active_years:
+              - 1972
+              - 1976
+              - 1980
+            rule:
+              type: fixed_month_day
+              month: 11
+              day: 5
+        """);
+
+    ModuleSpec spec = loader.loadModule(moduleFile);
+
+    assertNotNull(spec);
+    assertEquals(1, spec.eventSources().size());
+    var source = spec.eventSources().get(0);
+    assertNotNull(source.activeYears());
+    assertEquals(3, source.activeYears().size());
+    assertEquals(Integer.valueOf(1972), source.activeYears().get(0).start());
+    assertEquals(Integer.valueOf(1972), source.activeYears().get(0).end());
+    assertEquals(Integer.valueOf(1976), source.activeYears().get(1).start());
+    assertEquals(Integer.valueOf(1980), source.activeYears().get(2).start());
+  }
+
+  @Test
+  void loadModule_withActiveYears_rangesAndYears() throws Exception {
+    Path moduleFile = tempDir.resolve("active-years-mixed.yaml");
+    Files.writeString(
+        moduleFile,
+        """
+        kind: module
+        id: test_module
+        event_sources:
+          - key: election_day
+            name: Election Day
+            default_classification: CLOSED
+            active_years:
+              - [null, 1968]
+              - 1972
+              - 1976
+              - [1990, 2000]
+            rule:
+              type: fixed_month_day
+              month: 11
+              day: 5
+        """);
+
+    ModuleSpec spec = loader.loadModule(moduleFile);
+
+    assertNotNull(spec);
+    var source = spec.eventSources().get(0);
+    assertNotNull(source.activeYears());
+    assertEquals(4, source.activeYears().size());
+
+    // [null, 1968] - from inception through 1968
+    assertNull(source.activeYears().get(0).start());
+    assertEquals(Integer.valueOf(1968), source.activeYears().get(0).end());
+
+    // 1972
+    assertEquals(Integer.valueOf(1972), source.activeYears().get(1).start());
+    assertEquals(Integer.valueOf(1972), source.activeYears().get(1).end());
+
+    // 1976
+    assertEquals(Integer.valueOf(1976), source.activeYears().get(2).start());
+
+    // [1990, 2000]
+    assertEquals(Integer.valueOf(1990), source.activeYears().get(3).start());
+    assertEquals(Integer.valueOf(2000), source.activeYears().get(3).end());
+  }
+
+  @Test
+  void loadModule_withRelativeToReference_weekdayOffset() throws Exception {
+    Path moduleFile = tempDir.resolve("weekday-offset.yaml");
+    Files.writeString(
+        moduleFile,
+        """
+        kind: module
+        id: test_module
+        event_sources:
+          - key: election_day
+            name: Election Day
+            default_classification: CLOSED
+            rule:
+              type: relative_to_reference
+              key: election_day
+              name: Election Day
+              reference_month: 11
+              reference_day: 1
+              offset_weekday:
+                weekday: TUESDAY
+                nth: 1
+                direction: AFTER
+        """);
+
+    ModuleSpec spec = loader.loadModule(moduleFile);
+
+    assertNotNull(spec);
+    var source = spec.eventSources().get(0);
+    assertInstanceOf(com.bdc.model.Rule.RelativeToReference.class, source.rule());
+    var rule = (com.bdc.model.Rule.RelativeToReference) source.rule();
+
+    assertTrue(rule.usesFixedReference());
+    assertFalse(rule.usesNamedReference());
+    assertTrue(rule.usesWeekdayOffset());
+
+    assertEquals(Integer.valueOf(11), rule.referenceMonth());
+    assertEquals(Integer.valueOf(1), rule.referenceDay());
+    assertNotNull(rule.offsetWeekday());
+    assertEquals(java.time.DayOfWeek.TUESDAY, rule.offsetWeekday().weekday());
+    assertEquals(1, rule.offsetWeekday().nth());
+    assertEquals(com.bdc.model.Rule.OffsetDirection.AFTER, rule.offsetWeekday().direction());
+  }
 }
