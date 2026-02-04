@@ -1,5 +1,6 @@
 package com.bdc.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -39,6 +40,18 @@ public sealed interface Rule
     }
   }
 
+  /** Direction for weekday offset calculation. */
+  enum OffsetDirection {
+    BEFORE,
+    AFTER
+  }
+
+  /**
+   * Defines a weekday-based offset from a reference date. For example: "1st Tuesday after November
+   * 1st" would be weekday=TUESDAY, nth=1, direction=AFTER.
+   */
+  record WeekdayOffset(DayOfWeek weekday, int nth, OffsetDirection direction) {}
+
   record ExplicitDates(String key, String name, List<AnnotatedDate> dates) implements Rule {}
 
   record FixedMonthDay(String key, String name, int month, int day, String chronology)
@@ -51,6 +64,61 @@ public sealed interface Rule
   record NthWeekdayOfMonth(String key, String name, int month, DayOfWeek weekday, int nth)
       implements Rule {}
 
-  record RelativeToReference(String key, String name, String reference, int offsetDays)
-      implements Rule {}
+  /**
+   * A rule that calculates dates relative to a reference point.
+   *
+   * <p>The reference can be specified in two ways:
+   *
+   * <ul>
+   *   <li>Named reference (e.g., "easter") - references a pre-defined formula
+   *   <li>Fixed month/day (referenceMonth + referenceDay) - a fixed date in each year
+   * </ul>
+   *
+   * <p>The offset can be specified in two ways:
+   *
+   * <ul>
+   *   <li>offsetDays - simple day offset (e.g., -2 for Good Friday relative to Easter)
+   *   <li>offsetWeekday - nth weekday before/after reference (e.g., 1st Tuesday after Nov 1st)
+   * </ul>
+   */
+  record RelativeToReference(
+      String key,
+      String name,
+      String reference,
+      @JsonProperty("offset_days") Integer offsetDays,
+      @JsonProperty("reference_month") Integer referenceMonth,
+      @JsonProperty("reference_day") Integer referenceDay,
+      @JsonProperty("offset_weekday") WeekdayOffset offsetWeekday)
+      implements Rule {
+
+    /** Legacy constructor for simple day offset with named reference. */
+    public RelativeToReference(String key, String name, String reference, int offsetDays) {
+      this(key, name, reference, offsetDays, null, null, null);
+    }
+
+    /** Constructor for weekday offset with fixed month/day reference. */
+    public RelativeToReference(
+        String key,
+        String name,
+        int referenceMonth,
+        int referenceDay,
+        WeekdayOffset offsetWeekday) {
+      this(key, name, null, null, referenceMonth, referenceDay, offsetWeekday);
+    }
+
+    /** Returns true if this rule uses a named reference (like "easter"). */
+    public boolean usesNamedReference() {
+      return reference != null && !reference.isBlank();
+    }
+
+    /** Returns true if this rule uses a fixed month/day reference. */
+    public boolean usesFixedReference() {
+      return referenceMonth != null && referenceDay != null;
+    }
+
+    /** Returns true if this rule uses a weekday offset. */
+    public boolean usesWeekdayOffset() {
+      return offsetWeekday != null;
+    }
+  }
 }

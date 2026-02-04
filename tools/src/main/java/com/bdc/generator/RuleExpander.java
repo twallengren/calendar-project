@@ -111,20 +111,93 @@ public class RuleExpander {
 
   private List<Occurrence> expandRelativeToReference(
       Rule.RelativeToReference rule, DateRange range, String provenance) {
-    if (referenceResolver == null) {
-      throw new IllegalStateException("ReferenceResolver not set");
+    List<LocalDate> refDates;
+
+    if (rule.usesNamedReference()) {
+      // Named reference (e.g., "easter")
+      if (referenceResolver == null) {
+        throw new IllegalStateException("ReferenceResolver not set");
+      }
+      if (!referenceResolver.hasReference(rule.reference())) {
+        throw new IllegalArgumentException("Unknown reference: " + rule.reference());
+      }
+      refDates = referenceResolver.getDates(rule.reference());
+    } else if (rule.usesFixedReference()) {
+      // Fixed month/day reference - generate for each year in range
+      refDates = new ArrayList<>();
+      int[] years = range.isoYearRange();
+      for (int year = years[0]; year <= years[1]; year++) {
+        try {
+          LocalDate refDate = LocalDate.of(year, rule.referenceMonth(), rule.referenceDay());
+          refDates.add(refDate);
+        } catch (Exception e) {
+          // Skip invalid dates
+        }
+      }
+    } else {
+      throw new IllegalArgumentException(
+          "RelativeToReference must have either a named reference or referenceMonth/referenceDay");
     }
-    if (!referenceResolver.hasReference(rule.reference())) {
-      throw new IllegalArgumentException("Unknown reference: " + rule.reference());
-    }
-    List<LocalDate> refDates = referenceResolver.getDates(rule.reference());
+
     List<Occurrence> occurrences = new ArrayList<>();
     for (LocalDate refDate : refDates) {
-      LocalDate date = refDate.plusDays(rule.offsetDays());
+      LocalDate date;
+      if (rule.usesWeekdayOffset()) {
+        date = calculateWeekdayOffset(refDate, rule.offsetWeekday());
+      } else if (rule.offsetDays() != null) {
+        date = refDate.plusDays(rule.offsetDays());
+      } else {
+        throw new IllegalArgumentException(
+            "RelativeToReference must have either offsetDays or offsetWeekday");
+      }
+
       if (range.contains(date)) {
         occurrences.add(new Occurrence(rule.key(), date, rule.name(), provenance));
       }
     }
     return occurrences;
+  }
+
+  /**
+   * Calculate the nth weekday before or after a reference date.
+   *
+   * <p>For example, "1st Tuesday after November 1st" for Election Day. Note that this finds the
+   * weekday strictly after (or before) the reference date, not including the reference date itself.
+   *
+   * @throws IllegalArgumentException if nth is less than 1
+   */
+  private LocalDate calculateWeekdayOffset(LocalDate refDate, Rule.WeekdayOffset offset) {
+    DayOfWeek targetWeekday = offset.weekday();
+    int nth = offset.nth();
+    Rule.OffsetDirection direction = offset.direction();
+
+    if (nth < 1) {
+      throw new IllegalArgumentException("WeekdayOffset nth must be at least 1, got: " + nth);
+    }
+
+    if (direction == Rule.OffsetDirection.AFTER) {
+      // Find the nth occurrence of weekday strictly after refDate
+      // Start from the day after refDate
+      LocalDate current = refDate.plusDays(1);
+
+      // Find the first occurrence of the weekday after refDate
+      while (current.getDayOfWeek() != targetWeekday) {
+        current = current.plusDays(1);
+      }
+
+      // Then advance by (nth - 1) weeks
+      return current.plusWeeks(nth - 1);
+    } else {
+      // BEFORE: Find the nth occurrence of weekday strictly before refDate
+      LocalDate current = refDate.minusDays(1);
+
+      // Find the first occurrence of the weekday before refDate
+      while (current.getDayOfWeek() != targetWeekday) {
+        current = current.minusDays(1);
+      }
+
+      // Then go back by (nth - 1) weeks
+      return current.minusWeeks(nth - 1);
+    }
   }
 }

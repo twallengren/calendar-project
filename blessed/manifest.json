@@ -4,19 +4,19 @@
   "blessed_by": "github-actions",
   "calendars": {
     "US-MARKET-BASE": {
-      "range_start": "1970-01-01",
+      "range_start": "1960-01-01",
       "range_end": "2030-12-31",
       "event_count": 6679,
       "checksum": "sha256:c2a381e2907f408287963fc7cc145004ac52cf867c97c7cd291467c86ad80ada"
     },
     "US-NYSE": {
-      "range_start": "1970-01-01",
+      "range_start": "1960-01-01",
       "range_end": "2030-12-31",
       "event_count": 7013,
       "checksum": "sha256:a4e18ad47151794a81dab38918a53db9609d7e8ece3d8ab3e0078c979bf5d860"
     },
     "US-CORP-IN-VISIBILITY": {
-      "range_start": "1970-01-01",
+      "range_start": "1960-01-01",
       "range_end": "2030-12-31",
       "event_count": 6684,
       "checksum": "sha256:da6d8b1cc8dee3fb819bfd1fda74e553ec13a10a7bd6da7b22fbd5b2b4c3150e"
