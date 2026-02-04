@@ -143,12 +143,6 @@ event_sources:
   rule:
     type: explicit_dates
     dates:
-    - date: 1963-11-25
-      comment: John F. Kennedy
-    - date: 1968-04-09
-      comment: Martin Luther King Jr.
-    - date: 1969-03-31
-      comment: Dwight D. Eisenhower
     - date: 1972-12-28
       comment: Harry S. Truman
     - date: 1973-01-25
@@ -165,8 +159,6 @@ event_sources:
   rule:
     type: explicit_dates
     dates:
-    - date: 1969-02-10
-      comment: Heavy Snow
     - date: 1985-09-27
       comment: Hurricane Gloria
 - key: nyc_blackout
@@ -180,69 +172,11 @@ event_sources:
   name: Election Day
   classification: CLOSED
   rule:
-    type: relative_to_reference
-    reference: null
-    offset_days: null
-- key: lunar_landing
-  name: First Lunar Landing
-  classification: CLOSED
-  rule:
     type: explicit_dates
     dates:
-    - 1969-07-21
-- key: paperwork_crisis
-  name: Paperwork Crisis
-  classification: CLOSED
-  rule:
-    type: explicit_dates
-    dates:
-    - 1968-06-12
-    - 1968-06-19
-    - 1968-06-26
-    - 1968-07-03
-    - 1968-07-10
-    - 1968-07-17
-    - 1968-07-24
-    - 1968-07-31
-    - 1968-08-07
-    - 1968-08-14
-    - 1968-08-21
-    - 1968-08-28
-    - 1968-09-04
-    - 1968-09-11
-    - 1968-09-18
-    - 1968-09-25
-    - 1968-10-02
-    - 1968-10-09
-    - 1968-10-16
-    - 1968-10-23
-    - 1968-10-30
-    - 1968-11-06
-    - 1968-11-13
-    - 1968-11-20
-    - 1968-11-27
-    - 1968-12-04
-    - 1968-12-11
-    - 1968-12-18
-    - 1968-12-24
-- key: day_after_independence
-  name: Day After Independence Day
-  classification: CLOSED
-  rule:
-    type: explicit_dates
-    dates:
-    - 1968-07-05
-- key: day_before_decoration
-  name: Day Before Decoration Day
-  classification: CLOSED
-  rule:
-    type: explicit_dates
-    dates:
-    - 1961-05-29
-- key: lincolns_birthday_oneoff
-  name: Lincoln's Birthday
-  classification: CLOSED
-  rule:
-    type: explicit_dates
-    dates:
-    - 1968-02-12
+    - date: 1972-11-07
+      comment: Presidential Election
+    - date: 1976-11-02
+      comment: Presidential Election
+    - date: 1980-11-04
+      comment: Presidential Election
