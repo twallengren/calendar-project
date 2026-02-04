@@ -255,6 +255,29 @@ class YamlLoaderTest {
   }
 
   @Test
+  void loadModule_withActiveYears_invalidRange_throws() throws Exception {
+    Path moduleFile = tempDir.resolve("invalid-range.yaml");
+    Files.writeString(
+        moduleFile,
+        """
+        kind: module
+        id: test_module
+        event_sources:
+          - key: test
+            name: Test
+            default_classification: CLOSED
+            active_years:
+              - [2000, 1990]
+            rule:
+              type: fixed_month_day
+              month: 1
+              day: 1
+        """);
+
+    assertThrows(IOException.class, () -> loader.loadModule(moduleFile));
+  }
+
+  @Test
   void loadModule_withRelativeToReference_weekdayOffset() throws Exception {
     Path moduleFile = tempDir.resolve("weekday-offset.yaml");
     Files.writeString(

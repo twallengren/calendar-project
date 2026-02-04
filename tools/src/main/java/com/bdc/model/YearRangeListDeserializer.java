@@ -55,13 +55,29 @@ public class YearRangeListDeserializer extends JsonDeserializer<List<EventSource
       JsonNode startNode = node.get(0);
       JsonNode endNode = node.get(1);
 
-      Integer start = startNode.isNull() ? null : startNode.asInt();
-      Integer end = endNode.isNull() ? null : endNode.asInt();
+      Integer start = parseYearValue(startNode, "start");
+      Integer end = parseYearValue(endNode, "end");
+
+      if (start != null && end != null && start > end) {
+        throw new IOException(
+            "Invalid year range: start (" + start + ") cannot be greater than end (" + end + ")");
+      }
 
       return new EventSource.YearRange(start, end);
     } else {
       throw new IOException(
           "Year range must be an integer or [start, end] array, got: " + node.getNodeType());
+    }
+  }
+
+  private Integer parseYearValue(JsonNode node, String fieldName) throws IOException {
+    if (node.isNull()) {
+      return null;
+    } else if (node.isInt() || node.isNumber()) {
+      return node.asInt();
+    } else {
+      throw new IOException(
+          "Year range " + fieldName + " must be an integer or null, got: " + node.getNodeType());
     }
   }
 }

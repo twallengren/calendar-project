@@ -104,6 +104,7 @@ event_sources:
         - 1969-07-21
 
   # Paperwork Crisis of 1968 - Four day week (closed Wednesdays)
+  # Final week closure was Tuesday Dec 24 since Christmas fell on Wednesday
   - key: paperwork_crisis
     name: Paperwork Crisis
     default_classification: CLOSED
@@ -147,7 +148,7 @@ event_sources:
         - 1968-12-04
         - 1968-12-11
         - 1968-12-18
-        - 1968-12-24
+        - 1968-12-24  # Tuesday - Christmas Eve (Christmas was on Wednesday)
 
   # Day after Independence Day (one-off closures)
   - key: day_after_independence

@@ -303,4 +303,30 @@ class RuleExpanderTest {
 
     assertThrows(IllegalArgumentException.class, () -> expander.expand(rule, range2024, "test"));
   }
+
+  @Test
+  void expandRelativeToReference_weekdayOffset_nthZero_throws() {
+    Rule.WeekdayOffset offset =
+        new Rule.WeekdayOffset(DayOfWeek.TUESDAY, 0, Rule.OffsetDirection.AFTER);
+    Rule.RelativeToReference rule =
+        new Rule.RelativeToReference("bad_rule", "Bad Rule", 11, 1, offset);
+
+    IllegalArgumentException ex =
+        assertThrows(
+            IllegalArgumentException.class, () -> expander.expand(rule, range2024, "test"));
+    assertTrue(ex.getMessage().contains("nth must be at least 1"));
+  }
+
+  @Test
+  void expandRelativeToReference_weekdayOffset_nthNegative_throws() {
+    Rule.WeekdayOffset offset =
+        new Rule.WeekdayOffset(DayOfWeek.TUESDAY, -1, Rule.OffsetDirection.BEFORE);
+    Rule.RelativeToReference rule =
+        new Rule.RelativeToReference("bad_rule", "Bad Rule", 11, 1, offset);
+
+    IllegalArgumentException ex =
+        assertThrows(
+            IllegalArgumentException.class, () -> expander.expand(rule, range2024, "test"));
+    assertTrue(ex.getMessage().contains("nth must be at least 1"));
+  }
 }

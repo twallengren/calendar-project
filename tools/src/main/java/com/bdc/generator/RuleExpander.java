@@ -163,11 +163,17 @@ public class RuleExpander {
    *
    * <p>For example, "1st Tuesday after November 1st" for Election Day. Note that this finds the
    * weekday strictly after (or before) the reference date, not including the reference date itself.
+   *
+   * @throws IllegalArgumentException if nth is less than 1
    */
   private LocalDate calculateWeekdayOffset(LocalDate refDate, Rule.WeekdayOffset offset) {
     DayOfWeek targetWeekday = offset.weekday();
     int nth = offset.nth();
     Rule.OffsetDirection direction = offset.direction();
+
+    if (nth < 1) {
+      throw new IllegalArgumentException("WeekdayOffset nth must be at least 1, got: " + nth);
+    }
 
     if (direction == Rule.OffsetDirection.AFTER) {
       // Find the nth occurrence of weekday strictly after refDate
