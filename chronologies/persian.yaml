@@ -1,0 +1,45 @@
+kind: chronology
+id: PERSIAN
+
+metadata:
+  name: Solar Hijri Calendar
+  description: |
+    The Solar Hijri calendar (Persian: گاه‌شماری هجری خورشیدی) is the official
+    calendar of Iran and Afghanistan. It is a solar calendar with 12 months,
+    beginning on the March equinox.
+
+    The first six months have 31 days, the next five have 30 days, and the
+    last month has 29 days (30 in leap years). This arithmetic version uses
+    a 2820-year cycle approximation for leap years.
+
+structure:
+  epoch_jdn: 1948320  # Farvardin 1, 1 AP (March 22, 622 CE Julian)
+  week:
+    days:
+      - Yekshanbeh    # Sunday
+      - Doshanbeh     # Monday
+      - Seshhanbeh    # Tuesday
+      - Chaharshanbeh # Wednesday
+      - Panjshanbeh   # Thursday
+      - Jomeh         # Friday
+      - Shanbeh       # Saturday
+    first_day: Shanbeh
+  months:
+    - {name: Farvardin, days: 31}
+    - {name: Ordibehesht, days: 31}
+    - {name: Khordad, days: 31}
+    - {name: Tir, days: 31}
+    - {name: Mordad, days: 31}
+    - {name: Shahrivar, days: 31}
+    - {name: Mehr, days: 30}
+    - {name: Aban, days: 30}
+    - {name: Azar, days: 30}
+    - {name: Dey, days: 30}
+    - {name: Bahman, days: 30}
+    - {name: Esfand, days: 29, leap_days: 30}
+
+algorithms:
+  type: FORMULA
+  # 2820-year cycle approximation
+  # Leap years: ((year - 474) % 2820 + 474 + 38) * 682 % 2816 < 682
+  leap_year: "((((year - 474) % 2820) + 474 + 38) * 682 % 2816) < 682"
