@@ -2,8 +2,8 @@ package com.bdc.chronology;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import com.bdc.chronology.ontology.ChronologyDate;
 import java.time.LocalDate;
-import java.time.chrono.HijrahDate;
 import org.junit.jupiter.api.Test;
 
 class ChronologyTranslatorTest {
@@ -65,11 +65,12 @@ class ChronologyTranslatorTest {
   void isoToHijri_knownDate_convertsCorrectly() {
     LocalDate isoDate = LocalDate.of(2024, 7, 7);
 
-    HijrahDate result = ChronologyTranslator.isoToHijri(isoDate);
+    ChronologyDate result = ChronologyTranslator.isoToHijri(isoDate);
 
     assertNotNull(result);
+    assertEquals("HIJRI", result.chronologyId());
     // Should be around Hijri 1446
-    assertTrue(result.get(java.time.temporal.ChronoField.YEAR) >= 1445);
+    assertTrue(result.year() >= 1445);
   }
 
   @Test

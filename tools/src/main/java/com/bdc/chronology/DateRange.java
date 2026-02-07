@@ -1,8 +1,6 @@
 package com.bdc.chronology;
 
 import java.time.LocalDate;
-import java.time.chrono.HijrahDate;
-import java.time.temporal.ChronoField;
 import java.util.stream.Stream;
 
 /**
@@ -56,11 +54,7 @@ public record DateRange(LocalDate start, LocalDate end) {
    */
   @Deprecated
   public int[] hijriYearRange() {
-    HijrahDate startHijri = HijrahDate.from(start);
-    HijrahDate endHijri = HijrahDate.from(end);
-    int startYear = startHijri.get(ChronoField.YEAR);
-    int endYear = endHijri.get(ChronoField.YEAR);
-    return new int[] {startYear, endYear};
+    return yearRange("HIJRI");
   }
 
   /**

@@ -2,7 +2,6 @@ package com.bdc.chronology.ontology;
 
 import com.bdc.chronology.ontology.algorithms.ChronologyAlgorithm;
 import com.bdc.chronology.ontology.algorithms.IsoAlgorithm;
-import com.bdc.chronology.ontology.algorithms.JavaHijriAlgorithm;
 import com.bdc.chronology.ontology.algorithms.JulianAlgorithm;
 import java.time.LocalDate;
 import java.util.Map;
@@ -54,7 +53,6 @@ public class ChronologyRegistry {
   private void registerAlgorithms() {
     // Try to load generated classes first, fallback to built-in implementations
     for (var entry : GENERATED_CLASS_NAMES.entrySet()) {
-      String id = entry.getKey();
       String className = entry.getValue();
       ChronologyAlgorithm algorithm = tryLoadGenerated(className);
       if (algorithm != null) {
@@ -62,9 +60,9 @@ public class ChronologyRegistry {
       }
     }
 
-    // Register fallback implementations for any that weren't loaded
+    // Register fallback implementations for any that weren't loaded from generated classes
+    // Note: HIJRI and PERSIAN have no built-in fallback - they require generated classes
     registerFallbackIfMissing("ISO", IsoAlgorithm::new);
-    registerFallbackIfMissing("HIJRI", JavaHijriAlgorithm::new);
     registerFallbackIfMissing("JULIAN", JulianAlgorithm::new);
   }
 

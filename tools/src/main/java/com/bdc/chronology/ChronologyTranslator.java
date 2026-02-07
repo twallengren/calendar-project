@@ -3,8 +3,6 @@ package com.bdc.chronology;
 import com.bdc.chronology.ontology.ChronologyDate;
 import com.bdc.chronology.ontology.ChronologyRegistry;
 import java.time.LocalDate;
-import java.time.chrono.HijrahDate;
-import java.time.temporal.ChronoField;
 
 /**
  * Facade for converting dates between different chronologies.
@@ -48,14 +46,13 @@ public class ChronologyTranslator {
   }
 
   /**
-   * Converts an ISO LocalDate to a HijrahDate.
+   * Converts an ISO LocalDate to a Hijri ChronologyDate.
    *
    * @param isoDate the ISO date
-   * @return the corresponding HijrahDate
+   * @return the corresponding Hijri date as ChronologyDate
    */
-  public static HijrahDate isoToHijri(LocalDate isoDate) {
-    // Keep using Java's HijrahDate directly for HijrahDate return type
-    return HijrahDate.from(isoDate);
+  public static ChronologyDate isoToHijri(LocalDate isoDate) {
+    return registry.fromIsoDate(isoDate, HIJRI);
   }
 
   /**
@@ -65,7 +62,7 @@ public class ChronologyTranslator {
    * @return the Hijri year
    */
   public static int getHijriYear(LocalDate isoDate) {
-    return isoToHijri(isoDate).get(ChronoField.YEAR);
+    return registry.fromIsoDate(isoDate, HIJRI).year();
   }
 
   /**
@@ -75,7 +72,7 @@ public class ChronologyTranslator {
    * @return the Hijri month (1-12)
    */
   public static int getHijriMonth(LocalDate isoDate) {
-    return isoToHijri(isoDate).get(ChronoField.MONTH_OF_YEAR);
+    return registry.fromIsoDate(isoDate, HIJRI).month();
   }
 
   /**
@@ -85,7 +82,7 @@ public class ChronologyTranslator {
    * @return the Hijri day of month
    */
   public static int getHijriDay(LocalDate isoDate) {
-    return isoToHijri(isoDate).get(ChronoField.DAY_OF_MONTH);
+    return registry.fromIsoDate(isoDate, HIJRI).day();
   }
 
   /**
