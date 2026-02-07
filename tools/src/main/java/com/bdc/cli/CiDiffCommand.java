@@ -115,22 +115,21 @@ public class CiDiffCommand implements Callable<Integer> {
         LocalDate rangeStart = fromOverride != null ? fromOverride : calInfo.rangeStart();
         LocalDate rangeEnd = toOverride != null ? toOverride : calInfo.rangeEnd();
 
-        // Load blessed events
-        List<Event> blessedEvents = loader.loadBlessedEvents(blessedDir, calendarId);
+        // Load blessed events and filter to comparison range
+        List<Event> blessedEvents =
+            loader.loadBlessedEvents(blessedDir, calendarId).stream()
+                .filter(e -> !e.date().isBefore(rangeStart) && !e.date().isAfter(rangeEnd))
+                .toList();
 
         // Generate current events
         ResolvedSpec resolved = resolver.resolve(calendarId);
         List<Event> generatedEvents = generator.generate(resolved, rangeStart, rangeEnd);
 
-        // Compare - use the blessed calendar's original range for severity classification
+        // Compare - use the comparison range for severity classification
+        // (blessed range is now effectively the comparison range after filtering)
         CalendarDiff diff =
             diffEngine.compare(
-                calendarId,
-                generatedEvents,
-                blessedEvents,
-                cutoffDate,
-                calInfo.rangeStart(),
-                calInfo.rangeEnd());
+                calendarId, generatedEvents, blessedEvents, cutoffDate, rangeStart, rangeEnd);
         diffs.put(calendarId, diff);
       }
 
