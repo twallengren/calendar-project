@@ -1,0 +1,19 @@
+kind: module
+id: washingtons_birthday
+
+# Washington's Birthday was observed on February 22nd
+# In 1971, the Uniform Monday Holiday Act moved it to the 3rd Monday of February
+# and it became commonly known as Presidents Day
+
+event_sources:
+  - key: washingtons_birthday
+    name: Washington's Birthday
+    default_classification: CLOSED
+    active_years:
+      - [1900, 1970]
+    rule:
+      type: fixed_month_day
+      key: washingtons_birthday
+      name: Washington's Birthday
+      month: 2
+      day: 22

@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -85,11 +86,18 @@ public class SpecEmitter {
         if (source.defaultClassification() != null) {
           sourceMap.put("classification", source.defaultClassification().name());
         }
-        if (source.startDate() != null) {
-          sourceMap.put("start_date", source.startDate().toString());
-        }
-        if (source.endDate() != null) {
-          sourceMap.put("end_date", source.endDate().toString());
+        if (source.activeYears() != null && !source.activeYears().isEmpty()) {
+          List<Object> yearsOutput = new ArrayList<>();
+          for (var range : source.activeYears()) {
+            if (range.start() != null && range.end() != null && range.start().equals(range.end())) {
+              // Single year
+              yearsOutput.add(range.start());
+            } else {
+              // Range - use Arrays.asList to allow nulls
+              yearsOutput.add(Arrays.asList(range.start(), range.end()));
+            }
+          }
+          sourceMap.put("active_years", yearsOutput);
         }
         if (source.rule() != null) {
           sourceMap.put("rule", ruleToMap(source.rule()));

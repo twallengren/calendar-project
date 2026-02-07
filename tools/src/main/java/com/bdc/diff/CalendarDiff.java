@@ -9,7 +9,9 @@ public record CalendarDiff(
     List<EventDiff> additions,
     List<EventDiff> removals,
     List<EventDiff> modifications,
-    LocalDate cutoffDate) {
+    LocalDate cutoffDate,
+    LocalDate blessedRangeStart,
+    LocalDate blessedRangeEnd) {
   public int totalChanges() {
     return additions.size() + removals.size() + modifications.size();
   }

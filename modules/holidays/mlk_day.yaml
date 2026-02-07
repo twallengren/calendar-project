@@ -5,7 +5,8 @@ event_sources:
   - key: mlk_day
     name: Martin Luther King Jr. Day
     default_classification: CLOSED
-    start_date: 1998-01-01
+    active_years:
+      - [1998, null]
     rule:
       type: nth_weekday_of_month
       key: mlk_day

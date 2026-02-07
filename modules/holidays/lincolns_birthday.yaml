@@ -1,0 +1,18 @@
+kind: module
+id: lincolns_birthday
+
+# Lincoln's Birthday was observed on February 12th
+# NYSE closed for this holiday from 1896 through 1953
+
+event_sources:
+  - key: lincolns_birthday
+    name: Lincoln's Birthday
+    default_classification: CLOSED
+    active_years:
+      - [1896, 1953]
+    rule:
+      type: fixed_month_day
+      key: lincolns_birthday
+      name: Lincoln's Birthday
+      month: 2
+      day: 12

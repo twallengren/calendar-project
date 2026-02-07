@@ -1,0 +1,19 @@
+kind: module
+id: decoration_day
+
+# Decoration Day was observed on May 30th from 1868 until 1970
+# In 1971, the Uniform Monday Holiday Act moved it to the last Monday of May
+# and renamed it Memorial Day
+
+event_sources:
+  - key: decoration_day
+    name: Decoration Day
+    default_classification: CLOSED
+    active_years:
+      - [1900, 1970]
+    rule:
+      type: fixed_month_day
+      key: decoration_day
+      name: Decoration Day
+      month: 5
+      day: 30

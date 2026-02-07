@@ -9,3 +9,4 @@ uses:
   - juneteenth
   - day_after_thanksgiving
   - christmas_eve
+  - us_historical_closures  # One-off historical closures (9/11, funerals, etc.)

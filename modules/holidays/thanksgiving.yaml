@@ -1,11 +1,31 @@
 kind: module
 id: thanksgiving
 
+# Thanksgiving history:
+# - Before 1940: Last Thursday of November
+# - 1940-present: 4th Thursday of November (officially set by Congress in 1941)
+
 event_sources:
+  # Pre-1940: Last Thursday of November
+  - key: thanksgiving_pre1940
+    name: Thanksgiving Day
+    default_classification: CLOSED
+    active_years:
+      - [1900, 1939]
+    rule:
+      type: nth_weekday_of_month
+      key: thanksgiving_pre1940
+      name: Thanksgiving Day
+      month: 11
+      weekday: THURSDAY
+      nth: -1
+
+  # 1940-present: 4th Thursday of November
   - key: thanksgiving
     name: Thanksgiving Day
     default_classification: CLOSED
-    start_date: 1940-01-01
+    active_years:
+      - [1940, null]
     rule:
       type: nth_weekday_of_month
       key: thanksgiving

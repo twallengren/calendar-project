@@ -5,6 +5,78 @@ id: us_historical_closures
 # These events affected all major US markets (NYSE, NASDAQ, etc.)
 
 event_sources:
+  # ==========================================================================
+  # PRESIDENTIAL FUNERALS AND NATIONAL DAYS OF MOURNING
+  # ==========================================================================
+  - key: presidential_funerals
+    name: Presidential Funeral
+    default_classification: CLOSED
+    rule:
+      type: explicit_dates
+      key: presidential_funerals
+      name: Presidential Funeral
+      dates:
+        # 21st Century
+        - date: 2007-01-02
+          comment: Gerald Ford
+        - date: 2004-06-11
+          comment: Ronald Reagan
+        # Late 20th Century
+        - date: 1994-04-27
+          comment: Richard Nixon
+        - date: 1973-01-25
+          comment: Lyndon B. Johnson
+        - date: 1972-12-28
+          comment: Harry S. Truman
+        - date: 1969-03-31
+          comment: Dwight D. Eisenhower
+        - date: 1968-04-09
+          comment: Martin Luther King Jr.
+        - date: 1963-11-25
+          comment: John F. Kennedy
+        # Mid 20th Century
+        - date: 1945-04-14
+          comment: Franklin D. Roosevelt
+        - date: 1933-01-07
+          comment: Calvin Coolidge
+        - date: 1923-08-10
+          comment: Warren G. Harding
+        - date: 1923-08-03
+          comment: Warren G. Harding (death)
+        # Early 20th Century
+        - date: 1912-11-02
+          comment: Vice President James Sherman
+        - date: 1901-09-19
+          comment: William McKinley
+        - date: 1901-09-14
+          comment: William McKinley (assassination)
+
+  # ==========================================================================
+  # WEATHER-RELATED CLOSURES
+  # ==========================================================================
+  - key: weather_closures
+    name: Weather Event
+    default_classification: CLOSED
+    rule:
+      type: explicit_dates
+      key: weather_closures
+      name: Weather Event
+      dates:
+        - date: 1985-09-27
+          comment: Hurricane Gloria
+        - date: 1969-02-10
+          comment: Heavy Snow
+        - date: 1948-01-03
+          comment: Heavy Snow
+        - date: 1917-08-04
+          comment: Heat Wave
+        - date: 1888-03-13
+          comment: Great Blizzard of 1888
+
+  # ==========================================================================
+  # NATIONAL EMERGENCIES AND CRISES
+  # ==========================================================================
+
   # September 11, 2001 attacks - all US markets closed for 4 trading days
   - key: sept_11_closure
     name: September 11 Closure
@@ -19,46 +91,6 @@ event_sources:
         - 2001-09-13
         - 2001-09-14
 
-  # Presidential funerals / National days of mourning
-  - key: national_mourning
-    name: National Day of Mourning
-    default_classification: CLOSED
-    rule:
-      type: explicit_dates
-      key: national_mourning
-      name: National Day of Mourning
-      dates:
-        - date: 1963-11-25
-          comment: John F. Kennedy
-        - date: 1968-04-09
-          comment: Martin Luther King Jr.
-        - date: 1969-03-31
-          comment: Dwight D. Eisenhower
-        - date: 1972-12-28
-          comment: Harry S. Truman
-        - date: 1973-01-25
-          comment: Lyndon B. Johnson
-        - date: 1994-04-27
-          comment: Richard Nixon
-        - date: 2004-06-11
-          comment: Ronald Reagan
-        - date: 2007-01-02
-          comment: Gerald Ford
-
-  # Weather-related closures
-  - key: weather_closures
-    name: Weather Event
-    default_classification: CLOSED
-    rule:
-      type: explicit_dates
-      key: weather_closures
-      name: Weather Event
-      dates:
-        - date: 1969-02-10
-          comment: Heavy Snow
-        - date: 1985-09-27
-          comment: Hurricane Gloria
-
   # NYC Blackout
   - key: nyc_blackout
     name: New York City Blackout
@@ -70,38 +102,33 @@ event_sources:
       dates:
         - 1977-07-14
 
-  # Election Day closures
-  # Election Day is the first Tuesday after November 1st
-  # Closed every year through 1968, then only presidential years 1972-1980
-  - key: election_day_closures
-    name: Election Day
-    default_classification: CLOSED
-    active_years:
-      - [null, 1968]  # Annual closures through 1968
-      - 1972          # Presidential Election
-      - 1976          # Presidential Election
-      - 1980          # Presidential Election
-    rule:
-      type: relative_to_reference
-      key: election_day_closures
-      name: Election Day
-      reference_month: 11
-      reference_day: 1
-      offset_weekday:
-        weekday: TUESDAY
-        nth: 1
-        direction: AFTER
-
-  # First Lunar Landing - National Day of Participation
-  - key: lunar_landing
-    name: First Lunar Landing
+  # National Banking Holiday - 1933 (Great Depression)
+  - key: banking_holiday_1933
+    name: Banking Holiday
     default_classification: CLOSED
     rule:
       type: explicit_dates
-      key: lunar_landing
-      name: First Lunar Landing
+      key: banking_holiday_1933
+      name: Banking Holiday
       dates:
-        - 1969-07-21
+        - date: 1933-03-04
+          comment: State Banking Holiday
+        - date: 1933-03-06
+          comment: National Banking Holiday
+        - date: 1933-03-07
+          comment: National Banking Holiday
+        - date: 1933-03-08
+          comment: National Banking Holiday
+        - date: 1933-03-09
+          comment: National Banking Holiday
+        - date: 1933-03-10
+          comment: National Banking Holiday
+        - date: 1933-03-11
+          comment: National Banking Holiday
+        - date: 1933-03-13
+          comment: National Banking Holiday
+        - date: 1933-03-14
+          comment: National Banking Holiday
 
   # Paperwork Crisis of 1968 - Four day week (closed Wednesdays)
   # Final week closure was Tuesday Dec 24 since Christmas fell on Wednesday
@@ -150,27 +177,270 @@ event_sources:
         - 1968-12-18
         - 1968-12-24  # Tuesday - Christmas Eve (Christmas was on Wednesday)
 
-  # Day after Independence Day (one-off closures)
-  - key: day_after_independence
-    name: Day After Independence Day
-    default_classification: CLOSED
-    rule:
-      type: explicit_dates
-      key: day_after_independence
-      name: Day After Independence Day
-      dates:
-        - 1968-07-05
+  # ==========================================================================
+  # WORLD WAR I RELATED CLOSURES
+  # ==========================================================================
 
-  # Day before Decoration Day (one-off closures)
-  - key: day_before_decoration
-    name: Day Before Decoration Day
+  # World War I closures - Exchange closed from July 31 to December 11, 1914
+  - key: wwi_closure
+    name: World War I Closure
     default_classification: CLOSED
     rule:
       type: explicit_dates
-      key: day_before_decoration
-      name: Day Before Decoration Day
+      key: wwi_closure
+      name: World War I Closure
       dates:
-        - 1961-05-29
+        - 1914-07-31
+        - 1914-08-01
+        - 1914-08-03
+        - 1914-08-04
+        - 1914-08-05
+        - 1914-08-06
+        - 1914-08-07
+        - 1914-08-08
+        - 1914-08-10
+        - 1914-08-11
+        - 1914-08-12
+        - 1914-08-13
+        - 1914-08-14
+        - 1914-08-15
+        - 1914-08-17
+        - 1914-08-18
+        - 1914-08-19
+        - 1914-08-20
+        - 1914-08-21
+        - 1914-08-22
+        - 1914-08-24
+        - 1914-08-25
+        - 1914-08-26
+        - 1914-08-27
+        - 1914-08-28
+        - 1914-08-29
+        - 1914-08-31
+        - 1914-09-01
+        - 1914-09-02
+        - 1914-09-03
+        - 1914-09-04
+        - 1914-09-05
+        - 1914-09-07
+        - 1914-09-08
+        - 1914-09-09
+        - 1914-09-10
+        - 1914-09-11
+        - 1914-09-12
+        - 1914-09-14
+        - 1914-09-15
+        - 1914-09-16
+        - 1914-09-17
+        - 1914-09-18
+        - 1914-09-19
+        - 1914-09-21
+        - 1914-09-22
+        - 1914-09-23
+        - 1914-09-24
+        - 1914-09-25
+        - 1914-09-26
+        - 1914-09-28
+        - 1914-09-29
+        - 1914-09-30
+        - 1914-10-01
+        - 1914-10-02
+        - 1914-10-03
+        - 1914-10-05
+        - 1914-10-06
+        - 1914-10-07
+        - 1914-10-08
+        - 1914-10-09
+        - 1914-10-10
+        - 1914-10-13
+        - 1914-10-14
+        - 1914-10-15
+        - 1914-10-16
+        - 1914-10-17
+        - 1914-10-19
+        - 1914-10-20
+        - 1914-10-21
+        - 1914-10-22
+        - 1914-10-23
+        - 1914-10-24
+        - 1914-10-26
+        - 1914-10-27
+        - 1914-10-28
+        - 1914-10-29
+        - 1914-10-30
+        - 1914-10-31
+        - 1914-11-02
+        - 1914-11-04
+        - 1914-11-05
+        - 1914-11-06
+        - 1914-11-07
+        - 1914-11-09
+        - 1914-11-10
+        - 1914-11-12
+        - 1914-11-13
+        - 1914-11-14
+        - 1914-11-16
+        - 1914-11-17
+        - 1914-11-18
+        - 1914-11-19
+        - 1914-11-20
+        - 1914-11-21
+        - 1914-11-23
+        - 1914-11-24
+        - 1914-11-25
+        - 1914-11-27
+        - 1914-11-28
+        - 1914-11-30
+        - 1914-12-01
+        - 1914-12-02
+        - 1914-12-03
+        - 1914-12-04
+        - 1914-12-05
+        - 1914-12-07
+        - 1914-12-08
+        - 1914-12-09
+        - 1914-12-10
+        - 1914-12-11
+
+  # Other WWI-related closures (excluding Armistice Day which is in armistice_veterans_day module)
+  - key: wwi_related
+    name: WWI Related
+    default_classification: CLOSED
+    rule:
+      type: explicit_dates
+      key: wwi_related
+      name: WWI Related
+      dates:
+        - date: 1918-09-12
+          comment: Draft Registration Day
+        - date: 1918-01-28
+          comment: Heatless Day
+        - date: 1918-02-04
+          comment: Heatless Day
+        - date: 1918-02-11
+          comment: Heatless Day
+        - date: 1917-06-05
+          comment: Draft Registration Day
+
+  # ==========================================================================
+  # WORLD WAR II RELATED CLOSURES
+  # ==========================================================================
+
+  # Victory over Japan Day - 1945
+  - key: vj_day
+    name: Victory Over Japan Day
+    default_classification: CLOSED
+    rule:
+      type: explicit_dates
+      key: vj_day
+      name: Victory Over Japan Day
+      dates:
+        - 1945-08-15
+        - 1945-08-16
+
+  # ==========================================================================
+  # ELECTION DAY CLOSURES
+  # ==========================================================================
+
+  # Election Day is the first Tuesday after November 1st
+  # Closed every year through 1968, then only presidential years 1972-1980
+  - key: election_day_closures
+    name: Election Day
+    default_classification: CLOSED
+    active_years:
+      - [null, 1968]  # Annual closures through 1968
+      - 1972          # Presidential Election
+      - 1976          # Presidential Election
+      - 1980          # Presidential Election
+    rule:
+      type: relative_to_reference
+      key: election_day_closures
+      name: Election Day
+      reference_month: 11
+      reference_day: 1
+      offset_weekday:
+        weekday: TUESDAY
+        nth: 1
+        direction: AFTER
+
+  # ==========================================================================
+  # SPECIAL EVENTS AND CELEBRATIONS
+  # ==========================================================================
+
+  # First Lunar Landing - National Day of Participation
+  - key: lunar_landing
+    name: First Lunar Landing
+    default_classification: CLOSED
+    rule:
+      type: explicit_dates
+      key: lunar_landing
+      name: First Lunar Landing
+      dates:
+        - 1969-07-21
+
+  # Various historical special events
+  - key: special_events
+    name: Special Event
+    default_classification: CLOSED
+    rule:
+      type: explicit_dates
+      key: special_events
+      name: Special Event
+      dates:
+        - date: 1946-05-25
+          comment: Railroad Strike
+        - date: 1945-10-27
+          comment: Navy Day
+        - date: 1927-06-13
+          comment: Lindbergh Parade
+        - date: 1919-09-10
+          comment: Return of General Pershing
+        - date: 1919-05-06
+          comment: Parade
+        - date: 1919-03-25
+          comment: Homecoming of 27th Division
+        - date: 1920-05-01
+          comment: Relocation of Brokerage Offices
+        - date: 1909-09-25
+          comment: Hudson-Fulton Celebration
+        - date: 1903-04-22
+          comment: New NYSE Building Opened
+        - date: 1902-08-09
+          comment: Coronation of King Edward VII
+        - date: 1901-02-02
+          comment: Funeral of Queen Victoria
+        - date: 1901-04-27
+          comment: Move to Temporary Quarters
+        - date: 1901-05-11
+          comment: Enlargement of Temporary Quarters
+        - date: 1899-09-29
+          comment: Admiral Dewey Celebration
+        - date: 1899-09-30
+          comment: Admiral Dewey Celebration
+        - date: 1898-05-04
+          comment: Charter Day
+        - date: 1898-08-20
+          comment: Welcome of Naval Commanders
+        - date: 1897-04-27
+          comment: Presidential Birthday (Grant)
+        - date: 1893-04-27
+          comment: Columbian Celebration
+        - date: 1892-10-12
+          comment: Columbian Celebration
+        - date: 1892-10-21
+          comment: Columbian Celebration
+        - date: 1892-10-22
+          comment: Columbian Celebration
+        - date: 1889-04-29
+          comment: Centennial of Washington's Inauguration
+        - date: 1889-04-30
+          comment: Centennial of Washington's Inauguration
+        - date: 1889-05-01
+          comment: Centennial of Washington's Inauguration
+
+  # ==========================================================================
+  # ONE-OFF HOLIDAY EXTENSIONS
+  # ==========================================================================
 
   # Lincoln's Birthday (one-off after regular observance ended in 1953)
   - key: lincolns_birthday_oneoff
@@ -182,3 +452,27 @@ event_sources:
       name: Lincoln's Birthday
       dates:
         - 1968-02-12
+
+  # Day before/after holidays (one-off closures)
+  - key: holiday_extensions
+    name: Holiday Extension
+    default_classification: CLOSED
+    rule:
+      type: explicit_dates
+      key: holiday_extensions
+      name: Holiday Extension
+      dates:
+        - date: 1968-07-05
+          comment: Day After Independence Day
+        - date: 1961-05-29
+          comment: Day Before Decoration Day
+        - date: 1958-12-26
+          comment: Day After Christmas
+        - date: 1901-07-05
+          comment: Day After Independence Day
+        - date: 1899-07-03
+          comment: Day Before Independence Day
+        - date: 1899-05-29
+          comment: Day Before Decoration Day
+        - date: 1888-11-30
+          comment: Day After Thanksgiving
