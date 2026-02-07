@@ -1,0 +1,20 @@
+kind: module
+id: armistice_veterans_day
+
+# Armistice Day (later Veterans Day) was observed on November 11th
+# Originally commemorating the WWI armistice signed November 11, 1918
+# Renamed to Veterans Day in 1954
+# NYSE closed for this holiday from 1918 through 1953
+
+event_sources:
+  - key: armistice_veterans_day
+    name: Armistice Day
+    default_classification: CLOSED
+    active_years:
+      - [1918, 1953]
+    rule:
+      type: fixed_month_day
+      key: armistice_veterans_day
+      name: Armistice Day
+      month: 11
+      day: 11

@@ -8,7 +8,12 @@ import java.util.stream.Collectors;
 public class CalendarDiffEngine {
 
   public CalendarDiff compare(
-      String calendarId, List<Event> generated, List<Event> blessed, LocalDate cutoffDate) {
+      String calendarId,
+      List<Event> generated,
+      List<Event> blessed,
+      LocalDate cutoffDate,
+      LocalDate blessedRangeStart,
+      LocalDate blessedRangeEnd) {
     // Create maps keyed by date for comparison
     // Events are keyed by date since there should be at most one event per date
     Map<LocalDate, Event> generatedByDate =
@@ -50,7 +55,8 @@ public class CalendarDiffEngine {
     removals.sort(Comparator.comparing(EventDiff::date));
     modifications.sort(Comparator.comparing(EventDiff::date));
 
-    DiffSeverity severity = classifySeverity(additions, removals, modifications, cutoffDate);
+    DiffSeverity severity =
+        classifySeverity(additions, removals, modifications, blessedRangeStart, blessedRangeEnd);
 
     return new CalendarDiff(
         calendarId,
@@ -58,14 +64,22 @@ public class CalendarDiffEngine {
         Collections.unmodifiableList(additions),
         Collections.unmodifiableList(removals),
         Collections.unmodifiableList(modifications),
-        cutoffDate);
+        cutoffDate,
+        blessedRangeStart,
+        blessedRangeEnd);
   }
 
+  /**
+   * Classify the severity of changes: - MAJOR: Any removal, modification, or addition within the
+   * existing blessed range - MINOR: Additions outside the blessed range (backfilling or future
+   * extensions) - NONE: No changes
+   */
   public DiffSeverity classifySeverity(
       List<EventDiff> additions,
       List<EventDiff> removals,
       List<EventDiff> modifications,
-      LocalDate cutoffDate) {
+      LocalDate blessedRangeStart,
+      LocalDate blessedRangeEnd) {
     // Any removal = MAJOR
     if (!removals.isEmpty()) {
       return DiffSeverity.MAJOR;
@@ -76,18 +90,24 @@ public class CalendarDiffEngine {
       return DiffSeverity.MAJOR;
     }
 
-    // Historical additions = MAJOR (shouldn't add past events)
-    boolean hasHistoricalAdditions = additions.stream().anyMatch(e -> e.isHistorical(cutoffDate));
-    if (hasHistoricalAdditions) {
+    // Check additions - only MAJOR if within the blessed calendar's existing range
+    boolean hasAdditionsWithinExistingRange =
+        additions.stream()
+            .anyMatch(e -> isWithinRange(e.date(), blessedRangeStart, blessedRangeEnd));
+    if (hasAdditionsWithinExistingRange) {
       return DiffSeverity.MAJOR;
     }
 
-    // Future additions only = MINOR
+    // Additions outside the existing range (backfilling or future) = MINOR
     if (!additions.isEmpty()) {
       return DiffSeverity.MINOR;
     }
 
     return DiffSeverity.NONE;
+  }
+
+  private boolean isWithinRange(LocalDate date, LocalDate rangeStart, LocalDate rangeEnd) {
+    return !date.isBefore(rangeStart) && !date.isAfter(rangeEnd);
   }
 
   public DiffSeverity aggregateSeverity(Collection<CalendarDiff> diffs) {

@@ -1,0 +1,18 @@
+kind: module
+id: flag_day
+
+# Flag Day was observed on June 14th
+# NYSE closed for this holiday from 1916 through 1953
+
+event_sources:
+  - key: flag_day
+    name: Flag Day
+    default_classification: CLOSED
+    active_years:
+      - [1916, 1953]
+    rule:
+      type: fixed_month_day
+      key: flag_day
+      name: Flag Day
+      month: 6
+      day: 14

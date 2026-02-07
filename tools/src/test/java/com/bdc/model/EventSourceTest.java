@@ -17,8 +17,6 @@ class EventSourceTest {
             null,
             EventType.CLOSED,
             false,
-            null,
-            null,
             List.of(new EventSource.YearRange(2020, 2020)));
 
     assertTrue(source.isActiveOn(LocalDate.of(2020, 6, 15)));
@@ -36,8 +34,6 @@ class EventSourceTest {
             null,
             EventType.CLOSED,
             false,
-            null,
-            null,
             List.of(
                 new EventSource.YearRange(1972, 1972),
                 new EventSource.YearRange(1976, 1976),
@@ -60,8 +56,6 @@ class EventSourceTest {
             null,
             EventType.CLOSED,
             false,
-            null,
-            null,
             List.of(new EventSource.YearRange(null, 1968)));
 
     assertTrue(source.isActiveOn(LocalDate.of(1960, 11, 8)));
@@ -81,8 +75,6 @@ class EventSourceTest {
             null,
             EventType.CLOSED,
             false,
-            null,
-            null,
             List.of(new EventSource.YearRange(2020, null)));
 
     assertFalse(source.isActiveOn(LocalDate.of(2019, 6, 15)));
@@ -102,8 +94,6 @@ class EventSourceTest {
             null,
             EventType.CLOSED,
             false,
-            null,
-            null,
             List.of(
                 new EventSource.YearRange(null, 1968),
                 new EventSource.YearRange(1972, 1972),
@@ -135,8 +125,6 @@ class EventSourceTest {
             null,
             EventType.CLOSED,
             false,
-            null,
-            null,
             List.of(new EventSource.YearRange(1990, 2000)));
 
     assertFalse(source.isActiveOn(LocalDate.of(1989, 6, 15)));
@@ -147,43 +135,8 @@ class EventSourceTest {
   }
 
   @Test
-  void isActiveOn_withActiveYears_andStartDate_bothApplied() {
-    // Both active_years and start_date - both must be satisfied
-    EventSource source =
-        new EventSource(
-            "test",
-            "Test",
-            null,
-            EventType.CLOSED,
-            false,
-            LocalDate.of(2020, 6, 1), // start_date
-            null,
-            List.of(new EventSource.YearRange(2020, 2022)));
-
-    // 2020 but before start_date
-    assertFalse(source.isActiveOn(LocalDate.of(2020, 5, 15)));
-    // 2020 after start_date
-    assertTrue(source.isActiveOn(LocalDate.of(2020, 7, 15)));
-    // 2023 - outside active_years
-    assertFalse(source.isActiveOn(LocalDate.of(2023, 7, 15)));
-  }
-
-  @Test
-  void isActiveOn_withoutActiveYears_usesStartEndDate() {
-    // Legacy behavior without active_years
-    EventSource source =
-        new EventSource(
-            "test", "Test", null, EventType.CLOSED, false, LocalDate.of(2020, 1, 1), null, null);
-
-    assertFalse(source.isActiveOn(LocalDate.of(2019, 12, 31)));
-    assertTrue(source.isActiveOn(LocalDate.of(2020, 1, 1)));
-    assertTrue(source.isActiveOn(LocalDate.of(2025, 6, 15)));
-  }
-
-  @Test
   void isActiveOn_noConstraints_alwaysActive() {
-    EventSource source =
-        new EventSource("test", "Test", null, EventType.CLOSED, false, null, null, null);
+    EventSource source = new EventSource("test", "Test", null, EventType.CLOSED, false, null);
 
     assertTrue(source.isActiveOn(LocalDate.of(1900, 1, 1)));
     assertTrue(source.isActiveOn(LocalDate.of(2024, 6, 15)));

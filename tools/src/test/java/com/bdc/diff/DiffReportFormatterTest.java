@@ -18,19 +18,31 @@ class DiffReportFormatterTest {
   private DiffReportFormatter formatter;
   private ObjectMapper mapper;
   private LocalDate cutoffDate;
+  private LocalDate blessedRangeStart;
+  private LocalDate blessedRangeEnd;
 
   @BeforeEach
   void setUp() {
     formatter = new DiffReportFormatter();
     mapper = new ObjectMapper();
     cutoffDate = LocalDate.of(2026, 1, 22);
+    blessedRangeStart = LocalDate.of(2020, 1, 1);
+    blessedRangeEnd = LocalDate.of(2026, 12, 31);
   }
 
   private DiffReport createEmptyReport() {
     Map<String, CalendarDiff> calendars = new LinkedHashMap<>();
     calendars.put(
         "TEST",
-        new CalendarDiff("TEST", DiffSeverity.NONE, List.of(), List.of(), List.of(), cutoffDate));
+        new CalendarDiff(
+            "TEST",
+            DiffSeverity.NONE,
+            List.of(),
+            List.of(),
+            List.of(),
+            cutoffDate,
+            blessedRangeStart,
+            blessedRangeEnd));
     return new DiffReport(DiffSeverity.NONE, 1, 0, Instant.now(), "1.0.0", "abc123", calendars);
   }
 
@@ -50,7 +62,9 @@ class DiffReportFormatterTest {
                     EventType.EARLY_CLOSE,
                     "Christmas",
                     "Christmas (Early Close)")),
-            cutoffDate);
+            cutoffDate,
+            blessedRangeStart,
+            blessedRangeEnd);
     calendars.put("TEST-CAL", diff);
     return new DiffReport(DiffSeverity.MAJOR, 1, 1, Instant.now(), "1.0.0", "abc123", calendars);
   }
@@ -95,7 +109,9 @@ class DiffReportFormatterTest {
             List.of(EventDiff.added(LocalDate.of(2027, 1, 1), EventType.CLOSED, "Added")),
             List.of(),
             List.of(),
-            cutoffDate));
+            cutoffDate,
+            blessedRangeStart,
+            blessedRangeEnd));
     DiffReport report =
         new DiffReport(DiffSeverity.MINOR, 1, 1, Instant.now(), "1.0.0", "abc123", calendars);
 
@@ -118,7 +134,9 @@ class DiffReportFormatterTest {
             List.of(),
             List.of(EventDiff.removed(LocalDate.of(2025, 1, 1), EventType.CLOSED, "Removed")),
             List.of(),
-            cutoffDate));
+            cutoffDate,
+            blessedRangeStart,
+            blessedRangeEnd));
     DiffReport report =
         new DiffReport(DiffSeverity.MAJOR, 1, 1, Instant.now(), "1.0.0", "abc123", calendars);
 
@@ -170,7 +188,9 @@ class DiffReportFormatterTest {
             List.of(EventDiff.added(LocalDate.of(2027, 1, 1), EventType.CLOSED, "Future")),
             List.of(),
             List.of(),
-            cutoffDate));
+            cutoffDate,
+            blessedRangeStart,
+            blessedRangeEnd));
     DiffReport minorReport =
         new DiffReport(DiffSeverity.MINOR, 1, 1, Instant.now(), "1.0.0", "abc123", minorCalendars);
     String minorMarkdown = formatter.formatAsMarkdown(minorReport);
@@ -203,7 +223,9 @@ class DiffReportFormatterTest {
             List.of(EventDiff.added(LocalDate.of(2027, 1, 1), EventType.CLOSED, "Future Event")),
             List.of(),
             List.of(),
-            cutoffDate));
+            cutoffDate,
+            blessedRangeStart,
+            blessedRangeEnd));
     DiffReport report =
         new DiffReport(DiffSeverity.MINOR, 1, 1, Instant.now(), "1.0.0", "abc123", calendars);
 
@@ -225,7 +247,9 @@ class DiffReportFormatterTest {
             List.of(EventDiff.added(LocalDate.of(2025, 1, 1), EventType.CLOSED, "Historical")),
             List.of(),
             List.of(),
-            cutoffDate));
+            cutoffDate,
+            blessedRangeStart,
+            blessedRangeEnd));
     DiffReport report =
         new DiffReport(DiffSeverity.MAJOR, 1, 1, Instant.now(), "1.0.0", "abc123", calendars);
 
@@ -246,7 +270,9 @@ class DiffReportFormatterTest {
             List.of(),
             List.of(EventDiff.removed(LocalDate.of(2025, 1, 1), EventType.CLOSED, "Removed")),
             List.of(),
-            cutoffDate));
+            cutoffDate,
+            blessedRangeStart,
+            blessedRangeEnd));
     DiffReport report =
         new DiffReport(DiffSeverity.MAJOR, 1, 1, Instant.now(), "1.0.0", "abc123", calendars);
 
@@ -273,7 +299,15 @@ class DiffReportFormatterTest {
     Map<String, CalendarDiff> calendars = new LinkedHashMap<>();
     calendars.put(
         "CAL1",
-        new CalendarDiff("CAL1", DiffSeverity.NONE, List.of(), List.of(), List.of(), cutoffDate));
+        new CalendarDiff(
+            "CAL1",
+            DiffSeverity.NONE,
+            List.of(),
+            List.of(),
+            List.of(),
+            cutoffDate,
+            blessedRangeStart,
+            blessedRangeEnd));
     calendars.put(
         "CAL2",
         new CalendarDiff(
@@ -282,7 +316,9 @@ class DiffReportFormatterTest {
             List.of(EventDiff.added(LocalDate.of(2027, 1, 1), EventType.CLOSED, "Event")),
             List.of(),
             List.of(),
-            cutoffDate));
+            cutoffDate,
+            blessedRangeStart,
+            blessedRangeEnd));
     DiffReport report =
         new DiffReport(DiffSeverity.MINOR, 2, 1, Instant.now(), "1.0.0", "abc123", calendars);
 
@@ -314,7 +350,15 @@ class DiffReportFormatterTest {
     Map<String, CalendarDiff> calendars = new LinkedHashMap<>();
     calendars.put(
         "TEST",
-        new CalendarDiff("TEST", DiffSeverity.MINOR, additions, List.of(), List.of(), cutoffDate));
+        new CalendarDiff(
+            "TEST",
+            DiffSeverity.MINOR,
+            additions,
+            List.of(),
+            List.of(),
+            cutoffDate,
+            blessedRangeStart,
+            blessedRangeEnd));
     DiffReport report =
         new DiffReport(DiffSeverity.MINOR, 1, 1, Instant.now(), "1.0.0", "abc123", calendars);
 
@@ -338,7 +382,15 @@ class DiffReportFormatterTest {
     Map<String, CalendarDiff> calendars = new LinkedHashMap<>();
     calendars.put(
         "TEST",
-        new CalendarDiff("TEST", DiffSeverity.MINOR, additions, List.of(), List.of(), cutoffDate));
+        new CalendarDiff(
+            "TEST",
+            DiffSeverity.MINOR,
+            additions,
+            List.of(),
+            List.of(),
+            cutoffDate,
+            blessedRangeStart,
+            blessedRangeEnd));
     DiffReport report =
         new DiffReport(DiffSeverity.MINOR, 1, 1, Instant.now(), "1.0.0", "abc123", calendars);
 
@@ -366,7 +418,15 @@ class DiffReportFormatterTest {
     Map<String, CalendarDiff> calendars = new LinkedHashMap<>();
     calendars.put(
         "TEST",
-        new CalendarDiff("TEST", DiffSeverity.MAJOR, List.of(), removals, List.of(), cutoffDate));
+        new CalendarDiff(
+            "TEST",
+            DiffSeverity.MAJOR,
+            List.of(),
+            removals,
+            List.of(),
+            cutoffDate,
+            blessedRangeStart,
+            blessedRangeEnd));
     DiffReport report =
         new DiffReport(DiffSeverity.MAJOR, 1, 1, Instant.now(), "1.0.0", "abc123", calendars);
 
@@ -413,7 +473,14 @@ class DiffReportFormatterTest {
     calendars.put(
         "TEST",
         new CalendarDiff(
-            "TEST", DiffSeverity.MAJOR, List.of(), List.of(), modifications, cutoffDate));
+            "TEST",
+            DiffSeverity.MAJOR,
+            List.of(),
+            List.of(),
+            modifications,
+            cutoffDate,
+            blessedRangeStart,
+            blessedRangeEnd));
     DiffReport report =
         new DiffReport(DiffSeverity.MAJOR, 1, 1, Instant.now(), "1.0.0", "abc123", calendars);
 
@@ -438,7 +505,15 @@ class DiffReportFormatterTest {
     Map<String, CalendarDiff> calendars = new LinkedHashMap<>();
     calendars.put(
         "TEST",
-        new CalendarDiff("TEST", DiffSeverity.MINOR, additions, List.of(), List.of(), cutoffDate));
+        new CalendarDiff(
+            "TEST",
+            DiffSeverity.MINOR,
+            additions,
+            List.of(),
+            List.of(),
+            cutoffDate,
+            blessedRangeStart,
+            blessedRangeEnd));
     DiffReport report =
         new DiffReport(DiffSeverity.MINOR, 1, 1, Instant.now(), "1.0.0", "abc123", calendars);
 

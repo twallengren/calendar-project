@@ -56,8 +56,6 @@ event_sources:
     name: string                 # Display name
     default_classification: CLOSED  # Event type (default: CLOSED)
     shiftable: true              # Whether to shift on weekends (see below)
-    start_date: 2022-01-01       # Optional: first date the event is active
-    end_date: 2030-12-31         # Optional: last date the event is active
     active_years: [...]          # Optional: list of active year ranges (see below)
     rule: {...}                  # Rule definition (see types below)
 ```
@@ -66,28 +64,27 @@ event_sources:
 
 Controls whether this event shifts when it falls on a weekend (per the calendar's `weekend_shift_policy`). Defaults to `true` for `fixed_month_day` rules, `false` for others.
 
-### Date Constraints (Timebox)
+### Active Years
 
-Use `start_date` and `end_date` to constrain when an event is active:
+Use `active_years` to specify which years the event is active. Supports:
+
+- Single years: `1972`
+- Open-ended ranges: `[null, 1968]` (from inception through 1968) or `[2022, null]` (from 2022 onwards)
+- Closed ranges: `[1990, 2000]` (1990 through 2000 inclusive)
+
+If `active_years` is omitted, the event is active for all years.
 
 ```yaml
 # Juneteenth became a federal holiday in 2021
 - key: juneteenth
   name: Juneteenth National Independence Day
-  start_date: 2022-01-01
+  active_years:
+    - [2022, null]   # Active from 2022 onwards
   rule:
     type: fixed_month_day
     month: 6
     day: 19
 ```
-
-### Active Years
-
-For events with non-contiguous active periods, use `active_years` to specify which years the event applies. Supports:
-
-- Single years: `1972`
-- Open-ended ranges: `[null, 1968]` (from inception through 1968)
-- Closed ranges: `[1990, 2000]` (1990 through 2000 inclusive)
 
 ```yaml
 # Election Day: every year through 1968, then only presidential years
@@ -107,8 +104,6 @@ For events with non-contiguous active periods, use `active_years` to specify whi
       nth: 1
       direction: AFTER
 ```
-
-Note: `active_years` and `start_date`/`end_date` can be combined; both constraints must be satisfied for an event to be active.
 
 ## Event Source Rule Types
 

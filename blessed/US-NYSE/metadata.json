@@ -1,18 +1,14 @@
 {
   "calendar_id" : "US-NYSE",
   "calendar_name" : "NYSE Trading Calendar",
-  "generated_at" : "2026-02-04T23:21:34.260259062Z",
-  "range_start" : "1960-01-01",
+  "generated_at" : "2026-02-07T01:50:31.017097Z",
+  "range_start" : "1900-01-01",
   "range_end" : "2030-12-31",
-  "event_count" : 8179,
-  "resolution_chain" : [ "module:weekend_sat_sun", "module:new_years_day", "module:memorial_day", "module:independence_day", "module:labor_day", "module:thanksgiving", "module:christmas", "module:us_market_base", "module:mlk_day", "module:presidents_day", "module:good_friday", "module:juneteenth", "module:day_after_thanksgiving", "module:christmas_eve", "module:us_nyse_holidays", "module:us_historical_closures", "calendar:US-NYSE" ],
+  "event_count" : 15394,
+  "resolution_chain" : [ "module:weekend_sat_sun", "module:new_years_day", "module:memorial_day", "module:independence_day", "module:labor_day", "module:thanksgiving", "module:christmas", "module:decoration_day", "module:washingtons_birthday", "module:lincolns_birthday", "module:flag_day", "module:armistice_veterans_day", "module:columbus_day", "module:us_market_base", "module:mlk_day", "module:presidents_day", "module:good_friday", "module:juneteenth", "module:day_after_thanksgiving", "module:christmas_eve", "module:us_historical_closures", "module:us_nyse_holidays", "calendar:US-NYSE" ],
   "counts_by_type" : {
-    "CLOSED" : 648,
-    "WEEKEND" : 7410,
-    "EARLY_CLOSE" : 121
-  },
-  "source_version" : {
-    "semantic" : "9.0.0",
-    "git_sha" : "7984ae662792fb14045372fde56861cde38b4fd4"
+    "CLOSED" : 1499,
+    "WEEKEND" : 13670,
+    "EARLY_CLOSE" : 225
   }
 }

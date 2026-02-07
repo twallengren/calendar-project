@@ -122,9 +122,15 @@ public class CiDiffCommand implements Callable<Integer> {
         ResolvedSpec resolved = resolver.resolve(calendarId);
         List<Event> generatedEvents = generator.generate(resolved, rangeStart, rangeEnd);
 
-        // Compare
+        // Compare - use the blessed calendar's original range for severity classification
         CalendarDiff diff =
-            diffEngine.compare(calendarId, generatedEvents, blessedEvents, cutoffDate);
+            diffEngine.compare(
+                calendarId,
+                generatedEvents,
+                blessedEvents,
+                cutoffDate,
+                calInfo.rangeStart(),
+                calInfo.rangeEnd());
         diffs.put(calendarId, diff);
       }
 

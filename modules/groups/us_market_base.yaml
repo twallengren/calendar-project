@@ -1,10 +1,21 @@
 kind: module
 id: us_market_base
 
+# Core US market holidays, including historical holidays that are no longer observed
+
 uses:
+  # Current holidays
   - new_years_day
   - memorial_day
   - independence_day
   - labor_day
   - thanksgiving
   - christmas
+
+  # Historical holidays (no longer observed)
+  - decoration_day         # May 30, 1900-1970 (replaced by Memorial Day)
+  - washingtons_birthday   # Feb 22, 1900-1970 (replaced by Presidents Day)
+  - lincolns_birthday      # Feb 12, 1896-1953
+  - flag_day               # June 14, 1916-1953
+  - armistice_veterans_day # Nov 11, 1918-1953
+  - columbus_day           # Oct 12, 1909-1953

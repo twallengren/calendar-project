@@ -5,7 +5,8 @@ event_sources:
   - key: labor_day
     name: Labor Day
     default_classification: CLOSED
-    start_date: 1887-01-01
+    active_years:
+      - [1887, null]
     rule:
       type: nth_weekday_of_month
       key: labor_day

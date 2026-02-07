@@ -28,7 +28,6 @@ class EventGeneratorTest {
             new Rule.FixedMonthDay("independence_day", "Independence Day", 7, 4, "ISO"),
             EventType.CLOSED,
             true,
-            null,
             null);
 
     ResolvedSpec spec =
@@ -63,7 +62,6 @@ class EventGeneratorTest {
             new Rule.FixedMonthDay("juneteenth", "Juneteenth", 6, 19, "ISO"),
             EventType.CLOSED,
             true,
-            null,
             null);
 
     ResolvedSpec spec =
@@ -97,7 +95,6 @@ class EventGeneratorTest {
             new Rule.FixedMonthDay("christmas", "Christmas Day", 12, 25, "ISO"),
             EventType.CLOSED,
             true,
-            null,
             null);
 
     ResolvedSpec spec =
@@ -132,7 +129,6 @@ class EventGeneratorTest {
             new Rule.FixedMonthDay("christmas_eve", "Christmas Eve", 12, 24, "ISO"),
             EventType.EARLY_CLOSE,
             false, // Not shiftable
-            null,
             null);
 
     ResolvedSpec spec =
@@ -172,7 +168,6 @@ class EventGeneratorTest {
             new Rule.FixedMonthDay("christmas", "Christmas Day", 12, 25, "ISO"),
             EventType.CLOSED,
             true,
-            null,
             null);
     EventSource boxingDay =
         new EventSource(
@@ -181,7 +176,6 @@ class EventGeneratorTest {
             new Rule.FixedMonthDay("boxing_day", "Boxing Day", 12, 26, "ISO"),
             EventType.CLOSED,
             true,
-            null,
             null);
 
     ResolvedSpec spec =
@@ -231,7 +225,6 @@ class EventGeneratorTest {
             new Rule.FixedMonthDay("christmas", "Christmas Day", 12, 25, "ISO"),
             EventType.CLOSED,
             true,
-            null,
             null);
     EventSource boxingDay =
         new EventSource(
@@ -240,7 +233,6 @@ class EventGeneratorTest {
             new Rule.FixedMonthDay("boxing_day", "Boxing Day", 12, 26, "ISO"),
             EventType.CLOSED,
             true,
-            null,
             null);
 
     ResolvedSpec spec =
@@ -289,7 +281,6 @@ class EventGeneratorTest {
             new Rule.FixedMonthDay("independence_day", "Independence Day", 7, 4, "ISO"),
             EventType.CLOSED,
             true,
-            null,
             null);
 
     ResolvedSpec spec =
@@ -314,7 +305,7 @@ class EventGeneratorTest {
   }
 
   @Test
-  void dateConstraint_startDate_filtersEarlyYears() {
+  void activeYears_filtersEarlyYears() {
     // Juneteenth started in 2022 - should not appear in 2021
     EventSource source =
         new EventSource(
@@ -323,8 +314,7 @@ class EventGeneratorTest {
             new Rule.FixedMonthDay("juneteenth", "Juneteenth", 6, 19, "ISO"),
             EventType.CLOSED,
             true,
-            LocalDate.of(2022, 1, 1), // start_date
-            null);
+            List.of(new EventSource.YearRange(2022, null))); // active from 2022 onwards
 
     ResolvedSpec spec =
         new ResolvedSpec(
@@ -355,7 +345,7 @@ class EventGeneratorTest {
   }
 
   @Test
-  void dateConstraint_endDate_filtersLateYears() {
+  void activeYears_filtersLateYears() {
     // Hypothetical holiday that ended in 2020
     EventSource source =
         new EventSource(
@@ -364,8 +354,7 @@ class EventGeneratorTest {
             new Rule.FixedMonthDay("old_holiday", "Old Holiday", 3, 15, "ISO"),
             EventType.CLOSED,
             true,
-            null,
-            LocalDate.of(2020, 12, 31)); // end_date
+            List.of(new EventSource.YearRange(null, 2020))); // active through 2020
 
     ResolvedSpec spec =
         new ResolvedSpec(
@@ -395,7 +384,7 @@ class EventGeneratorTest {
   }
 
   @Test
-  void dateConstraint_rangeConstraint() {
+  void activeYears_rangeConstraint() {
     // Holiday only active between 2019 and 2021
     EventSource source =
         new EventSource(
@@ -404,8 +393,7 @@ class EventGeneratorTest {
             new Rule.FixedMonthDay("temp_holiday", "Temporary Holiday", 8, 10, "ISO"),
             EventType.CLOSED,
             true,
-            LocalDate.of(2019, 1, 1),
-            LocalDate.of(2021, 12, 31));
+            List.of(new EventSource.YearRange(2019, 2021))); // active 2019-2021
 
     ResolvedSpec spec =
         new ResolvedSpec(
