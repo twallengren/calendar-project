@@ -16,7 +16,7 @@
       "checksum": "sha256:ddaf7773629d1d161a052e575e749f1140ac0af504cbe8eb3bec589f56c6c10c"
     },
     "US-CORP-IN-VISIBILITY": {
-      "range_start": "1960-01-01",
+      "range_start": "1900-01-01",
       "range_end": "2030-12-31",
       "event_count": 7770,
       "checksum": "sha256:1d770ca7ffb79b6dbb0f84a5d8c11e5214bd0b84f0608bbb5f433cc4311471df"
