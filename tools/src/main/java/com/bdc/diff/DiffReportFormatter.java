@@ -223,7 +223,8 @@ public class DiffReportFormatter {
       sb.append(":information_source: **MAJOR changes require explicit approval.** ")
           .append("Add the `calendar-change-approved` label to proceed.\n");
     } else if (report.overallSeverity() == DiffSeverity.MINOR) {
-      sb.append(":information_source: **MINOR changes detected (future events only).** ")
+      sb.append(
+              ":information_source: **MINOR changes detected (additions outside existing range).** ")
           .append("Consider adding the `calendar-change-approved` label.\n");
     }
 
