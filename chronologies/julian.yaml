@@ -7,28 +7,36 @@ metadata:
     The Julian calendar was introduced by Julius Caesar in 45 BCE as a reform
     of the Roman calendar. It is a solar calendar with a simpler leap year
     rule than the Gregorian calendar: every year divisible by 4 is a leap year.
+
     The Julian calendar was the predominant calendar in the Western world until
     the Gregorian reform in 1582. It is still used by some Eastern Orthodox
     churches for calculating the date of Easter.
 
 structure:
-  epoch_jdn: 1721424  # JDN of January 1, 1 CE (Julian calendar)
+  epoch_jdn: 1721424  # January 1, 1 CE (Julian calendar)
   week:
-    days_per_week: 7
-    first_day: MONDAY
+    days:
+      - Sunday
+      - Monday
+      - Tuesday
+      - Wednesday
+      - Thursday
+      - Friday
+      - Saturday
+    first_day: Monday
   months:
-    - {name: January,   days: 31}
-    - {name: February,  days: 28, leap_days: 29}
-    - {name: March,     days: 31}
-    - {name: April,     days: 30}
-    - {name: May,       days: 31}
-    - {name: June,      days: 30}
-    - {name: July,      days: 31}
-    - {name: August,    days: 31}
+    - {name: January, days: 31}
+    - {name: February, days: 28, leap_days: 29}
+    - {name: March, days: 31}
+    - {name: April, days: 30}
+    - {name: May, days: 31}
+    - {name: June, days: 30}
+    - {name: July, days: 31}
+    - {name: August, days: 31}
     - {name: September, days: 30}
-    - {name: October,   days: 31}
-    - {name: November,  days: 30}
-    - {name: December,  days: 31}
+    - {name: October, days: 31}
+    - {name: November, days: 30}
+    - {name: December, days: 31}
 
 algorithms:
   type: FORMULA

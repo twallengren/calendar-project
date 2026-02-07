@@ -7,7 +7,8 @@ A tool for defining and generating business-day calendars with YAML-based specif
 - YAML-based calendar specifications (source of truth)
 - Deterministic compilation to static artifacts (CSV/JSON)
 - Calendar inheritance and module composition
-- Support for Gregorian and Hijri (Islamic) chronologies
+- Multi-chronology support: ISO (Gregorian), HIJRI (Islamic), JULIAN, and extensible via YAML
+- Julian Day Number (JDN) pivot for cross-calendar translation
 
 ## Quick Start
 
@@ -54,6 +55,7 @@ calendar-project/
 ├── spec/               # YAML specification docs
 ├── calendars/          # Calendar YAML specs
 ├── modules/            # Reusable modules
+├── chronologies/       # Chronology definitions (ISO, Julian, Persian, etc.)
 ├── generated/          # Local development/testing output
 ├── blessed/            # Latest published versions (e.g., NYSE:latest)
 ├── artifacts/          # Historical versions for bitemporality (e.g., NYSE:<hash>)
@@ -103,4 +105,46 @@ date,type,description
     "CLOSED": 6
   }
 }
+```
+
+## Chronology Support
+
+The system supports multiple calendar systems through a YAML-based ontology:
+
+| Chronology | Description |
+|------------|-------------|
+| `ISO` | Gregorian calendar (default) |
+| `HIJRI` | Islamic calendar (Umm al-Qura) |
+| `JULIAN` | Julian calendar |
+
+### Using Non-ISO Chronologies
+
+```yaml
+event_sources:
+  - key: eid_al_fitr
+    name: Eid al-Fitr
+    rule:
+      type: fixed_month_day
+      month: 10      # Shawwal
+      day: 1
+      chronology: HIJRI
+```
+
+### Adding Custom Chronologies
+
+New calendars can be defined in YAML without code changes. See `chronologies/` directory for examples and `spec/SPEC.md` for the full schema.
+
+```yaml
+kind: chronology
+id: MY_CALENDAR
+metadata:
+  name: My Custom Calendar
+structure:
+  epoch_jdn: 1721424
+  months:
+    - {name: Month1, days: 30}
+    - {name: Month2, days: 29, leap_days: 30}
+algorithms:
+  type: FORMULA
+  leap_year: "year % 4 == 0"
 ```

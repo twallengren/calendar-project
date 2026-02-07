@@ -16,29 +16,74 @@ import java.util.concurrent.ConcurrentHashMap;
  * a central access point for converting dates between different calendar systems using Julian Day
  * Number as a universal pivot.
  *
- * <p>Built-in algorithms are registered automatically:
+ * <p>Chronologies are loaded from generated classes when available, with fallback to built-in
+ * implementations. Generated classes come from YAML specifications in the chronologies/ directory.
+ *
+ * <p>Built-in chronologies:
  *
  * <ul>
  *   <li>ISO - Gregorian/ISO calendar
- *   <li>HIJRI - Islamic (Hijri) calendar via Java's HijrahChronology
+ *   <li>HIJRI - Islamic (Hijri) calendar
  *   <li>JULIAN - Julian calendar
+ *   <li>PERSIAN - Solar Hijri calendar
  * </ul>
  */
 public class ChronologyRegistry {
 
+  /** Package where generated chronology classes are located. */
+  private static final String GENERATED_PACKAGE = "com.bdc.chronology.generated";
+
+  /** Mapping of chronology ID to generated class name suffix. */
+  private static final Map<String, String> GENERATED_CLASS_NAMES =
+      Map.of(
+          "ISO", "IsoChronology",
+          "HIJRI", "HijriChronology",
+          "JULIAN", "JulianChronology",
+          "PERSIAN", "PersianChronology");
+
+  // INSTANCE must be declared after GENERATED_CLASS_NAMES to ensure correct initialization order
   private static final ChronologyRegistry INSTANCE = new ChronologyRegistry();
 
   private final Map<String, ChronologyAlgorithm> algorithms = new ConcurrentHashMap<>();
 
   private ChronologyRegistry() {
-    // Register built-in algorithms
-    registerBuiltInAlgorithms();
+    // Register algorithms - prefer generated, fallback to built-in
+    registerAlgorithms();
   }
 
-  private void registerBuiltInAlgorithms() {
-    register(new IsoAlgorithm());
-    register(new JavaHijriAlgorithm());
-    register(new JulianAlgorithm());
+  private void registerAlgorithms() {
+    // Try to load generated classes first, fallback to built-in implementations
+    for (var entry : GENERATED_CLASS_NAMES.entrySet()) {
+      String id = entry.getKey();
+      String className = entry.getValue();
+      ChronologyAlgorithm algorithm = tryLoadGenerated(className);
+      if (algorithm != null) {
+        register(algorithm);
+      }
+    }
+
+    // Register fallback implementations for any that weren't loaded
+    registerFallbackIfMissing("ISO", IsoAlgorithm::new);
+    registerFallbackIfMissing("HIJRI", JavaHijriAlgorithm::new);
+    registerFallbackIfMissing("JULIAN", JulianAlgorithm::new);
+  }
+
+  private ChronologyAlgorithm tryLoadGenerated(String className) {
+    try {
+      String fullClassName = GENERATED_PACKAGE + "." + className;
+      Class<?> clazz = Class.forName(fullClassName);
+      return (ChronologyAlgorithm) clazz.getDeclaredConstructor().newInstance();
+    } catch (Exception e) {
+      // Generated class not available, will use fallback
+      return null;
+    }
+  }
+
+  private void registerFallbackIfMissing(
+      String id, java.util.function.Supplier<ChronologyAlgorithm> supplier) {
+    if (!hasChronology(id)) {
+      register(supplier.get());
+    }
   }
 
   /**
@@ -195,6 +240,6 @@ public class ChronologyRegistry {
    */
   public void reset() {
     algorithms.clear();
-    registerBuiltInAlgorithms();
+    registerAlgorithms();
   }
 }

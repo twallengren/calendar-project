@@ -273,15 +273,19 @@ uses:
 
 ## Chronology Support
 
-### ISO (Gregorian)
+The calendar system supports multiple chronologies (calendar systems) through a YAML-based ontology. All chronologies use Julian Day Number (JDN) as a universal pivot for cross-calendar translation.
 
-Default chronology. Uses standard ISO dates (YYYY-MM-DD).
+### Built-in Chronologies
 
-### HIJRI (Islamic)
+| ID | Name | Description |
+|----|------|-------------|
+| `ISO` | Gregorian Calendar | Default. Standard ISO dates (YYYY-MM-DD) |
+| `HIJRI` | Islamic Calendar | Umm al-Qura variant via Java's HijrahChronology |
+| `JULIAN` | Julian Calendar | Historical Julian calendar (every 4th year is leap) |
 
-Uses the Islamic civil/tabular calendar. Dates specified as Hijri month/day are automatically converted to ISO dates for the relevant years in the generation range.
+### Using Chronologies in Rules
 
-Example - Eid al-Fitr (Shawwal 1):
+Specify a chronology in `fixed_month_day` rules:
 
 ```yaml
 rule:
@@ -291,4 +295,232 @@ rule:
   month: 10        # Shawwal
   day: 1
   chronology: HIJRI
+```
+
+The date is automatically converted to ISO dates for each relevant year in the generation range.
+
+### Year Ranges
+
+When working with non-ISO chronologies, year ranges are automatically translated:
+
+```java
+DateRange range = new DateRange(LocalDate.of(2024, 1, 1), LocalDate.of(2025, 12, 31));
+int[] hijriYears = range.yearRange("HIJRI");  // Returns [1445, 1447] approximately
+int[] julianYears = range.yearRange("JULIAN"); // Returns [2023, 2025]
+```
+
+## Chronology Ontology
+
+New chronologies can be added without code changes using YAML definitions.
+
+### Chronology Spec Schema
+
+```yaml
+kind: chronology
+id: string                    # Unique identifier (e.g., JULIAN, PERSIAN)
+
+metadata:
+  name: string                # Human-readable name
+  description: string         # Description of the calendar
+
+structure:
+  epoch_jdn: number           # Julian Day Number of the epoch (year 1, month 1, day 1)
+  week:
+    days_per_week: 7
+    first_day: MONDAY         # First day of the week
+  months:
+    - name: string            # Month name
+      days: number            # Days in common year
+      leap_days: number       # Days in leap year (optional, if different)
+
+algorithms:
+  type: FORMULA | LOOKUP_TABLE | METONIC_CYCLE
+  leap_year: string           # Leap year formula (for FORMULA type)
+  table: string               # Table ID (for LOOKUP_TABLE type)
+  fallback: string            # Fallback algorithm ID (for LOOKUP_TABLE type)
+```
+
+### Algorithm Types
+
+**FORMULA** - Simple algorithmic calendars with a leap year formula:
+
+```yaml
+kind: chronology
+id: JULIAN
+metadata:
+  name: Julian Calendar
+  description: Calendar introduced by Julius Caesar
+
+structure:
+  epoch_jdn: 1721424
+  months:
+    - {name: January, days: 31}
+    - {name: February, days: 28, leap_days: 29}
+    - {name: March, days: 31}
+    # ... etc
+
+algorithms:
+  type: FORMULA
+  leap_year: "year % 4 == 0"
+```
+
+**Supported leap year formula expressions:**
+- Variables: `year`
+- Operators: `%` (modulo), `==`, `!=`, `&&`, `||`
+- Parentheses for grouping
+- Boolean literals: `true`, `false`
+
+Examples:
+- Julian: `"year % 4 == 0"`
+- Gregorian: `"(year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)"`
+
+**LOOKUP_TABLE** - Observation-based calendars (e.g., Islamic Hijri):
+
+```yaml
+kind: chronology
+id: HIJRI_UAQ
+metadata:
+  name: Islamic Calendar (Umm al-Qura)
+
+algorithms:
+  type: LOOKUP_TABLE
+  table: HIJRI_UAQ_TABLE
+  fallback: HIJRI_TABULAR
+```
+
+**METONIC_CYCLE** - Calendars with 19-year cycles (e.g., Hebrew):
+
+```yaml
+kind: chronology
+id: HEBREW
+metadata:
+  name: Hebrew Calendar
+
+algorithms:
+  type: METONIC_CYCLE
+  cycle_length: 19
+  leap_years: [3, 6, 8, 11, 14, 17, 19]
+```
+
+### Chronology Table Schema
+
+For lookup-based calendars:
+
+```yaml
+kind: chronology_table
+id: string                    # Unique identifier
+
+metadata:
+  name: string
+  description: string
+  source: string              # Data source or authority
+  valid_from: string          # Earliest valid date
+  valid_to: string            # Latest valid date
+
+entries:
+  - year: number              # Year in the chronology
+    month: number             # Month (1-based, optional for year tables)
+    jdn: number               # Julian Day Number of first day
+    length: number            # Number of days (for month tables)
+```
+
+### Code Generation
+
+Chronologies are compiled from YAML to Java source code at build time:
+
+```bash
+./gradlew generateChronologies
+```
+
+This reads YAML files from `chronologies/` and generates Java classes in `tools/build/generated/sources/chronology/`. The generated classes are self-contained with all conversion logic and data embedded - no runtime YAML parsing or external dependencies.
+
+**Example generated class structure:**
+- Formula calendars: Contains leap year logic and month definitions
+- Lookup table calendars: Contains embedded JDN/length arrays for all months
+
+### Extracting Calendar Data
+
+For observation-based calendars, data can be extracted from external sources:
+
+```bash
+# Extract Umm al-Qura Hijri data from Java's built-in HijrahChronology
+./gradlew extractHijriData
+```
+
+This generates a complete YAML spec with embedded lookup table data.
+
+### Directory Structure
+
+```
+chronologies/
+  iso.yaml
+  julian.yaml
+  persian.yaml
+  hebrew.yaml
+  hijri/
+    hijri_tabular.yaml
+    hijri_umm_al_qura.yaml
+    tables/
+      umm_al_qura_data.yaml
+```
+
+## Julian Day Number
+
+Julian Day Number (JDN) is a continuous count of days since the beginning of the Julian Period (January 1, 4713 BCE). It serves as a universal pivot for converting between calendar systems.
+
+### Key Epochs
+
+| Calendar | Epoch Date | JDN |
+|----------|------------|-----|
+| Gregorian | January 1, 1 CE | 1721426 |
+| Julian | January 1, 1 CE | 1721424 |
+| Hijri | July 16, 622 CE (Julian) | 1948440 |
+
+### Cross-Calendar Conversion
+
+All conversions go through JDN:
+
+```
+Source Calendar → JDN → Target Calendar
+```
+
+Example: Convert Hijri 1446-06-15 to ISO date:
+
+```java
+ChronologyRegistry registry = ChronologyRegistry.getInstance();
+
+// Hijri to JDN
+long jdn = registry.getAlgorithm("HIJRI").toJdn(1446, 6, 15);
+
+// JDN to ISO
+ChronologyDate isoDate = registry.fromJdn(jdn, "ISO");
+LocalDate localDate = isoDate.toIsoDate();
+```
+
+Or using the facade:
+
+```java
+LocalDate isoDate = ChronologyTranslator.toIsoDate(1446, 6, 15, "HIJRI");
+```
+
+### ChronologyDate Record
+
+A chronology-agnostic date representation:
+
+```java
+// Create a date
+ChronologyDate date = new ChronologyDate("HIJRI", 1446, 6, 15);
+
+// Convert to JDN
+long jdn = date.toJdn();
+
+// Convert to ISO LocalDate
+LocalDate isoDate = date.toIsoDate();
+
+// Convert to another chronology
+ChronologyDate julianDate = date.toChronology("JULIAN");
+
+// Factory methods
+ChronologyDate isoDate = ChronologyDate.iso(2025, 6, 15);
+ChronologyDate fromIso = ChronologyDate.fromIsoDate(LocalDate.now(), "HIJRI");
 ```

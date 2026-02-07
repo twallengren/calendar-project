@@ -143,7 +143,16 @@ class FormulaAlgorithmTest {
             new ChronologySpec.Metadata("Test Calendar", "A test calendar"),
             new ChronologySpec.Structure(
                 JulianDayNumber.JULIAN_EPOCH,
-                new ChronologySpec.Week(7, "MONDAY"),
+                new ChronologySpec.Week(
+                    List.of(
+                        "Sunday",
+                        "Monday",
+                        "Tuesday",
+                        "Wednesday",
+                        "Thursday",
+                        "Friday",
+                        "Saturday"),
+                    "Monday"),
                 List.of(
                     new ChronologySpec.Month("January", 31, null),
                     new ChronologySpec.Month("February", 28, 29),
@@ -158,7 +167,7 @@ class FormulaAlgorithmTest {
                     new ChronologySpec.Month("November", 30, null),
                     new ChronologySpec.Month("December", 31, null))),
             new ChronologySpec.Algorithms(
-                "FORMULA", "year % 4 == 0", null, null, null, null, null));
+                "FORMULA", "year % 4 == 0", null, null, null, null, null, null));
 
     FormulaAlgorithm algorithm = new FormulaAlgorithm(spec);
 
@@ -176,7 +185,7 @@ class FormulaAlgorithmTest {
             new ChronologySpec.Metadata("My Calendar", ""),
             new ChronologySpec.Structure(
                 0L, null, List.of(new ChronologySpec.Month("Month1", 30, null))),
-            new ChronologySpec.Algorithms("FORMULA", "false", null, null, null, null, null));
+            new ChronologySpec.Algorithms("FORMULA", "false", null, null, null, null, null, null));
 
     FormulaAlgorithm algorithm = new FormulaAlgorithm(spec);
     assertEquals("MY_CALENDAR", algorithm.getChronologyId());

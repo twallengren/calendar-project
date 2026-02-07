@@ -40,12 +40,16 @@ public record ChronologySpec(
   /**
    * Week configuration.
    *
-   * @param daysPerWeek number of days in a week
-   * @param firstDay the first day of the week
+   * @param days list of day names in order (e.g., ["Sunday", "Monday", ...])
+   * @param firstDay the first day of the week (must be one of the day names)
    */
-  public record Week(
-      @JsonProperty("days_per_week") Integer daysPerWeek,
-      @JsonProperty("first_day") String firstDay) {}
+  public record Week(List<String> days, @JsonProperty("first_day") String firstDay) {
+
+    /** Returns the number of days in the week. */
+    public int daysPerWeek() {
+      return days != null ? days.size() : 7;
+    }
+  }
 
   /**
    * Month definition.
@@ -79,6 +83,7 @@ public record ChronologySpec(
    * @param fallback the fallback algorithm ID (for LOOKUP_TABLE type)
    * @param cycleLength the cycle length in years (for METONIC_CYCLE type)
    * @param leapYears list of leap years within the cycle (for METONIC_CYCLE type)
+   * @param months lookup table entries for LOOKUP_TABLE type
    * @param extraParams additional algorithm-specific parameters
    */
   public record Algorithms(
@@ -88,5 +93,16 @@ public record ChronologySpec(
       String fallback,
       @JsonProperty("cycle_length") Integer cycleLength,
       @JsonProperty("leap_years") List<Integer> leapYears,
+      List<MonthEntry> months,
       @JsonProperty("extra") Map<String, Object> extraParams) {}
+
+  /**
+   * Lookup table entry for a specific month.
+   *
+   * @param year the year in the chronology
+   * @param month the month (1-based)
+   * @param jdn the Julian Day Number of the first day of this month
+   * @param length the number of days in this month
+   */
+  public record MonthEntry(int year, int month, long jdn, int length) {}
 }
