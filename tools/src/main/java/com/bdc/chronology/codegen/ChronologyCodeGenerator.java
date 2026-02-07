@@ -131,6 +131,18 @@ public class ChronologyCodeGenerator {
         .append(className)
         .append(" implements ChronologyAlgorithm {\n\n");
 
+    // Generate Month enum if months are defined
+    if (spec.structure() != null && spec.structure().months() != null) {
+      generateMonthEnum(sb, spec);
+    }
+
+    // Generate Day enum if week days are defined
+    if (spec.structure() != null
+        && spec.structure().week() != null
+        && spec.structure().week().days() != null) {
+      generateDayEnum(sb, spec);
+    }
+
     // Constants
     sb.append("  public static final String ID = \"").append(spec.id()).append("\";\n");
     if (spec.structure() != null && spec.structure().epochJdn() != null) {
@@ -418,6 +430,162 @@ public class ChronologyCodeGenerator {
     sb.append(
         "    throw new IllegalArgumentException(\"JDN \" + jdn + \" outside supported range\");\n");
     sb.append("  }\n");
+  }
+
+  private void generateMonthEnum(StringBuilder sb, ChronologySpec spec) {
+    var months = spec.structure().months();
+
+    sb.append("  /** Months of the ").append(spec.metadata().name()).append(". */\n");
+    sb.append("  public enum Month {\n");
+
+    for (int i = 0; i < months.size(); i++) {
+      var month = months.get(i);
+      String enumName = toEnumName(month.name());
+      int number = i + 1;
+      int days = month.days();
+      int leapDays = month.leapDays() != null ? month.leapDays() : days;
+
+      sb.append("    ")
+          .append(enumName)
+          .append("(")
+          .append(number)
+          .append(", \"")
+          .append(escapeString(month.name()))
+          .append("\", ")
+          .append(days)
+          .append(", ")
+          .append(leapDays)
+          .append(")");
+      if (i < months.size() - 1) {
+        sb.append(",\n");
+      } else {
+        sb.append(";\n");
+      }
+    }
+
+    sb.append("\n");
+    sb.append("    private final int number;\n");
+    sb.append("    private final String displayName;\n");
+    sb.append("    private final int days;\n");
+    sb.append("    private final int leapDays;\n\n");
+
+    sb.append("    Month(int number, String displayName, int days, int leapDays) {\n");
+    sb.append("      this.number = number;\n");
+    sb.append("      this.displayName = displayName;\n");
+    sb.append("      this.days = days;\n");
+    sb.append("      this.leapDays = leapDays;\n");
+    sb.append("    }\n\n");
+
+    sb.append("    /** Returns the month number (1-based). */\n");
+    sb.append("    public int number() { return number; }\n\n");
+
+    sb.append("    /** Returns the display name of the month. */\n");
+    sb.append("    public String displayName() { return displayName; }\n\n");
+
+    sb.append("    /** Returns the number of days in this month for a common year. */\n");
+    sb.append("    public int days() { return days; }\n\n");
+
+    sb.append("    /** Returns the number of days in this month for a leap year. */\n");
+    sb.append("    public int leapDays() { return leapDays; }\n\n");
+
+    sb.append("    /** Returns the number of days in this month for the given year type. */\n");
+    sb.append("    public int days(boolean isLeapYear) {\n");
+    sb.append("      return isLeapYear ? leapDays : days;\n");
+    sb.append("    }\n\n");
+
+    sb.append("    /** Returns the Month for the given number (1-based). */\n");
+    sb.append("    public static Month of(int month) {\n");
+    sb.append("      if (month < 1 || month > values().length) {\n");
+    sb.append("        throw new IllegalArgumentException(\"Invalid month: \" + month);\n");
+    sb.append("      }\n");
+    sb.append("      return values()[month - 1];\n");
+    sb.append("    }\n");
+    sb.append("  }\n\n");
+  }
+
+  private void generateDayEnum(StringBuilder sb, ChronologySpec spec) {
+    var week = spec.structure().week();
+    var days = week.days();
+    String firstDay = week.firstDay();
+
+    // Find the index of the first day
+    int firstDayIndex = 0;
+    for (int i = 0; i < days.size(); i++) {
+      if (days.get(i).equals(firstDay)) {
+        firstDayIndex = i;
+        break;
+      }
+    }
+
+    sb.append("  /** Days of the week in the ").append(spec.metadata().name()).append(". */\n");
+    sb.append("  public enum Day {\n");
+
+    // Generate enum values starting from first_day
+    for (int i = 0; i < days.size(); i++) {
+      int actualIndex = (firstDayIndex + i) % days.size();
+      String dayName = days.get(actualIndex);
+      String enumName = toEnumName(dayName);
+
+      sb.append("    ").append(enumName).append("(").append(i).append(", \"");
+      sb.append(escapeString(dayName)).append("\")");
+
+      if (i < days.size() - 1) {
+        sb.append(",\n");
+      } else {
+        sb.append(";\n");
+      }
+    }
+
+    sb.append("\n");
+    sb.append("    private final int ordinal;\n");
+    sb.append("    private final String displayName;\n\n");
+
+    sb.append("    Day(int ordinal, String displayName) {\n");
+    sb.append("      this.ordinal = ordinal;\n");
+    sb.append("      this.displayName = displayName;\n");
+    sb.append("    }\n\n");
+
+    sb.append(
+        "    /** Returns the day ordinal (0-based, starting from the first day of the week). */\n");
+    sb.append("    public int dayOrdinal() { return ordinal; }\n\n");
+
+    sb.append("    /** Returns the display name of the day. */\n");
+    sb.append("    public String displayName() { return displayName; }\n\n");
+
+    sb.append("    /** Returns the Day for the given ordinal (0-based). */\n");
+    sb.append("    public static Day of(int dayOrdinal) {\n");
+    sb.append("      if (dayOrdinal < 0 || dayOrdinal >= values().length) {\n");
+    sb.append(
+        "        throw new IllegalArgumentException(\"Invalid day ordinal: \" + dayOrdinal);\n");
+    sb.append("      }\n");
+    sb.append("      return values()[dayOrdinal];\n");
+    sb.append("    }\n");
+    sb.append("  }\n\n");
+  }
+
+  private String toEnumName(String name) {
+    // Convert a name like "Rabi' al-Awwal" to "RABI_AL_AWWAL"
+    StringBuilder sb = new StringBuilder();
+    boolean lastWasLetter = false;
+    for (char c : name.toCharArray()) {
+      if (Character.isLetterOrDigit(c)) {
+        sb.append(Character.toUpperCase(c));
+        lastWasLetter = true;
+      } else if (lastWasLetter) {
+        sb.append('_');
+        lastWasLetter = false;
+      }
+    }
+    // Remove trailing underscore if present
+    String result = sb.toString();
+    if (result.endsWith("_")) {
+      result = result.substring(0, result.length() - 1);
+    }
+    return result;
+  }
+
+  private String escapeString(String s) {
+    return s.replace("\\", "\\\\").replace("\"", "\\\"");
   }
 
   /** Main method for command-line usage. */

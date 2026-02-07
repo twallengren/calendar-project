@@ -14,6 +14,104 @@ import com.bdc.chronology.ontology.algorithms.ChronologyAlgorithm;
  */
 public final class IsoChronology implements ChronologyAlgorithm {
 
+  /** Months of the Gregorian Calendar. */
+  public enum Month {
+    JANUARY(1, "January", 31, 31),
+    FEBRUARY(2, "February", 28, 29),
+    MARCH(3, "March", 31, 31),
+    APRIL(4, "April", 30, 30),
+    MAY(5, "May", 31, 31),
+    JUNE(6, "June", 30, 30),
+    JULY(7, "July", 31, 31),
+    AUGUST(8, "August", 31, 31),
+    SEPTEMBER(9, "September", 30, 30),
+    OCTOBER(10, "October", 31, 31),
+    NOVEMBER(11, "November", 30, 30),
+    DECEMBER(12, "December", 31, 31);
+
+    private final int number;
+    private final String displayName;
+    private final int days;
+    private final int leapDays;
+
+    Month(int number, String displayName, int days, int leapDays) {
+      this.number = number;
+      this.displayName = displayName;
+      this.days = days;
+      this.leapDays = leapDays;
+    }
+
+    /** Returns the month number (1-based). */
+    public int number() {
+      return number;
+    }
+
+    /** Returns the display name of the month. */
+    public String displayName() {
+      return displayName;
+    }
+
+    /** Returns the number of days in this month for a common year. */
+    public int days() {
+      return days;
+    }
+
+    /** Returns the number of days in this month for a leap year. */
+    public int leapDays() {
+      return leapDays;
+    }
+
+    /** Returns the number of days in this month for the given year type. */
+    public int days(boolean isLeapYear) {
+      return isLeapYear ? leapDays : days;
+    }
+
+    /** Returns the Month for the given number (1-based). */
+    public static Month of(int month) {
+      if (month < 1 || month > values().length) {
+        throw new IllegalArgumentException("Invalid month: " + month);
+      }
+      return values()[month - 1];
+    }
+  }
+
+  /** Days of the week in the Gregorian Calendar. */
+  public enum Day {
+    MONDAY(0, "Monday"),
+    TUESDAY(1, "Tuesday"),
+    WEDNESDAY(2, "Wednesday"),
+    THURSDAY(3, "Thursday"),
+    FRIDAY(4, "Friday"),
+    SATURDAY(5, "Saturday"),
+    SUNDAY(6, "Sunday");
+
+    private final int ordinal;
+    private final String displayName;
+
+    Day(int ordinal, String displayName) {
+      this.ordinal = ordinal;
+      this.displayName = displayName;
+    }
+
+    /** Returns the day ordinal (0-based, starting from the first day of the week). */
+    public int dayOrdinal() {
+      return ordinal;
+    }
+
+    /** Returns the display name of the day. */
+    public String displayName() {
+      return displayName;
+    }
+
+    /** Returns the Day for the given ordinal (0-based). */
+    public static Day of(int dayOrdinal) {
+      if (dayOrdinal < 0 || dayOrdinal >= values().length) {
+        throw new IllegalArgumentException("Invalid day ordinal: " + dayOrdinal);
+      }
+      return values()[dayOrdinal];
+    }
+  }
+
   public static final String ID = "ISO";
   private static final long EPOCH_JDN = 1721426L;
 

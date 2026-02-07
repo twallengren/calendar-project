@@ -16,6 +16,104 @@ import com.bdc.chronology.ontology.algorithms.ChronologyAlgorithm;
  */
 public final class PersianChronology implements ChronologyAlgorithm {
 
+  /** Months of the Solar Hijri Calendar. */
+  public enum Month {
+    FARVARDIN(1, "Farvardin", 31, 31),
+    ORDIBEHESHT(2, "Ordibehesht", 31, 31),
+    KHORDAD(3, "Khordad", 31, 31),
+    TIR(4, "Tir", 31, 31),
+    MORDAD(5, "Mordad", 31, 31),
+    SHAHRIVAR(6, "Shahrivar", 31, 31),
+    MEHR(7, "Mehr", 30, 30),
+    ABAN(8, "Aban", 30, 30),
+    AZAR(9, "Azar", 30, 30),
+    DEY(10, "Dey", 30, 30),
+    BAHMAN(11, "Bahman", 30, 30),
+    ESFAND(12, "Esfand", 29, 30);
+
+    private final int number;
+    private final String displayName;
+    private final int days;
+    private final int leapDays;
+
+    Month(int number, String displayName, int days, int leapDays) {
+      this.number = number;
+      this.displayName = displayName;
+      this.days = days;
+      this.leapDays = leapDays;
+    }
+
+    /** Returns the month number (1-based). */
+    public int number() {
+      return number;
+    }
+
+    /** Returns the display name of the month. */
+    public String displayName() {
+      return displayName;
+    }
+
+    /** Returns the number of days in this month for a common year. */
+    public int days() {
+      return days;
+    }
+
+    /** Returns the number of days in this month for a leap year. */
+    public int leapDays() {
+      return leapDays;
+    }
+
+    /** Returns the number of days in this month for the given year type. */
+    public int days(boolean isLeapYear) {
+      return isLeapYear ? leapDays : days;
+    }
+
+    /** Returns the Month for the given number (1-based). */
+    public static Month of(int month) {
+      if (month < 1 || month > values().length) {
+        throw new IllegalArgumentException("Invalid month: " + month);
+      }
+      return values()[month - 1];
+    }
+  }
+
+  /** Days of the week in the Solar Hijri Calendar. */
+  public enum Day {
+    SHANBEH(0, "Shanbeh"),
+    YEKSHANBEH(1, "Yekshanbeh"),
+    DOSHANBEH(2, "Doshanbeh"),
+    SESHHANBEH(3, "Seshhanbeh"),
+    CHAHARSHANBEH(4, "Chaharshanbeh"),
+    PANJSHANBEH(5, "Panjshanbeh"),
+    JOMEH(6, "Jomeh");
+
+    private final int ordinal;
+    private final String displayName;
+
+    Day(int ordinal, String displayName) {
+      this.ordinal = ordinal;
+      this.displayName = displayName;
+    }
+
+    /** Returns the day ordinal (0-based, starting from the first day of the week). */
+    public int dayOrdinal() {
+      return ordinal;
+    }
+
+    /** Returns the display name of the day. */
+    public String displayName() {
+      return displayName;
+    }
+
+    /** Returns the Day for the given ordinal (0-based). */
+    public static Day of(int dayOrdinal) {
+      if (dayOrdinal < 0 || dayOrdinal >= values().length) {
+        throw new IllegalArgumentException("Invalid day ordinal: " + dayOrdinal);
+      }
+      return values()[dayOrdinal];
+    }
+  }
+
   public static final String ID = "PERSIAN";
   private static final long EPOCH_JDN = 1948320L;
 

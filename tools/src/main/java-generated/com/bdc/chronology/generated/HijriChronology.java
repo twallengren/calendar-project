@@ -17,6 +17,104 @@ import com.bdc.chronology.ontology.algorithms.ChronologyAlgorithm;
  */
 public final class HijriChronology implements ChronologyAlgorithm {
 
+  /** Months of the Islamic Calendar (Tabular). */
+  public enum Month {
+    MUHARRAM(1, "Muharram", 30, 30),
+    SAFAR(2, "Safar", 29, 29),
+    RABI_AL_AWWAL(3, "Rabi' al-Awwal", 30, 30),
+    RABI_AL_THANI(4, "Rabi' al-Thani", 29, 29),
+    JUMADA_AL_AWWAL(5, "Jumada al-Awwal", 30, 30),
+    JUMADA_AL_THANI(6, "Jumada al-Thani", 29, 29),
+    RAJAB(7, "Rajab", 30, 30),
+    SHA_BAN(8, "Sha'ban", 29, 29),
+    RAMADAN(9, "Ramadan", 30, 30),
+    SHAWWAL(10, "Shawwal", 29, 29),
+    DHU_AL_QI_DAH(11, "Dhu al-Qi'dah", 30, 30),
+    DHU_AL_HIJJAH(12, "Dhu al-Hijjah", 29, 30);
+
+    private final int number;
+    private final String displayName;
+    private final int days;
+    private final int leapDays;
+
+    Month(int number, String displayName, int days, int leapDays) {
+      this.number = number;
+      this.displayName = displayName;
+      this.days = days;
+      this.leapDays = leapDays;
+    }
+
+    /** Returns the month number (1-based). */
+    public int number() {
+      return number;
+    }
+
+    /** Returns the display name of the month. */
+    public String displayName() {
+      return displayName;
+    }
+
+    /** Returns the number of days in this month for a common year. */
+    public int days() {
+      return days;
+    }
+
+    /** Returns the number of days in this month for a leap year. */
+    public int leapDays() {
+      return leapDays;
+    }
+
+    /** Returns the number of days in this month for the given year type. */
+    public int days(boolean isLeapYear) {
+      return isLeapYear ? leapDays : days;
+    }
+
+    /** Returns the Month for the given number (1-based). */
+    public static Month of(int month) {
+      if (month < 1 || month > values().length) {
+        throw new IllegalArgumentException("Invalid month: " + month);
+      }
+      return values()[month - 1];
+    }
+  }
+
+  /** Days of the week in the Islamic Calendar (Tabular). */
+  public enum Day {
+    AL_SABT(0, "Al-Sabt"),
+    AL_AHAD(1, "Al-Ahad"),
+    AL_ITHNAYN(2, "Al-Ithnayn"),
+    AL_THULATHA(3, "Al-Thulatha"),
+    AL_ARBIA(4, "Al-Arbia"),
+    AL_KHAMIS(5, "Al-Khamis"),
+    AL_JUMAH(6, "Al-Jumah");
+
+    private final int ordinal;
+    private final String displayName;
+
+    Day(int ordinal, String displayName) {
+      this.ordinal = ordinal;
+      this.displayName = displayName;
+    }
+
+    /** Returns the day ordinal (0-based, starting from the first day of the week). */
+    public int dayOrdinal() {
+      return ordinal;
+    }
+
+    /** Returns the display name of the day. */
+    public String displayName() {
+      return displayName;
+    }
+
+    /** Returns the Day for the given ordinal (0-based). */
+    public static Day of(int dayOrdinal) {
+      if (dayOrdinal < 0 || dayOrdinal >= values().length) {
+        throw new IllegalArgumentException("Invalid day ordinal: " + dayOrdinal);
+      }
+      return values()[dayOrdinal];
+    }
+  }
+
   public static final String ID = "HIJRI";
   private static final long EPOCH_JDN = 1948440L;
 
