@@ -1,17 +1,17 @@
 {
   "calendar_id" : "US-MARKET-BASE",
   "calendar_name" : "US Market Base Calendar",
-  "generated_at" : "2026-02-04T23:21:33.560906979Z",
-  "range_start" : "1960-01-01",
+  "generated_at" : "2026-02-07T03:30:56.198314664Z",
+  "range_start" : "1900-01-01",
   "range_end" : "2030-12-31",
-  "event_count" : 7765,
-  "resolution_chain" : [ "module:weekend_sat_sun", "module:new_years_day", "module:memorial_day", "module:independence_day", "module:labor_day", "module:thanksgiving", "module:christmas", "module:us_market_base", "calendar:US-MARKET-BASE" ],
+  "event_count" : 14502,
+  "resolution_chain" : [ "module:weekend_sat_sun", "module:new_years_day", "module:memorial_day", "module:independence_day", "module:labor_day", "module:thanksgiving", "module:christmas", "module:decoration_day", "module:washingtons_birthday", "module:lincolns_birthday", "module:flag_day", "module:armistice_veterans_day", "module:columbus_day", "module:us_market_base", "calendar:US-MARKET-BASE" ],
   "counts_by_type" : {
-    "CLOSED" : 415,
-    "WEEKEND" : 7350
+    "CLOSED" : 1030,
+    "WEEKEND" : 13472
   },
   "source_version" : {
-    "semantic" : "9.0.0",
-    "git_sha" : "7984ae662792fb14045372fde56861cde38b4fd4"
+    "semantic" : "10.0.0",
+    "git_sha" : "27b9cf4d1c9e294c4265ac6b9ac8cb4f9ed22664"
   }
 }
