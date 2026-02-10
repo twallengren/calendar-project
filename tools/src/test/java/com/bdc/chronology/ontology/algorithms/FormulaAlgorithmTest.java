@@ -59,9 +59,9 @@ class FormulaAlgorithmTest {
     "((11 * year + 14) % 30) < 11, 2, true",
     "((11 * year + 14) % 30) < 11, 3, false",
     "((11 * year + 14) % 30) < 11, 5, true",
-    // Persian formula (2820-year cycle)
-    "((((year - 474) % 2820) + 474 + 38) * 682 % 2816) < 682, 1403, true",
-    "((((year - 474) % 2820) + 474 + 38) * 682 % 2816) < 682, 1404, false",
+    // Persian formula (33-year cycle)
+    "((25 * year + 11) % 33) < 8, 1403, true",
+    "((25 * year + 11) % 33) < 8, 1404, false",
     // Additional operator tests
     "year > 2000, 2001, true",
     "year > 2000, 2000, false",
