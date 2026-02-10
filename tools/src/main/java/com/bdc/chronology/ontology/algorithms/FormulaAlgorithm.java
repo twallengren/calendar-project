@@ -63,6 +63,11 @@ public class FormulaAlgorithm implements ChronologyAlgorithm {
 
   @Override
   public long toJdn(int year, int month, int day) {
+    if (!isValidDate(year, month, day)) {
+      throw new IllegalArgumentException(
+          "Invalid date: " + year + "-" + month + "-" + day + " in " + chronologyId);
+    }
+
     // Calculate days from epoch to start of year
     long days = daysBeforeYear(year);
 
@@ -79,6 +84,11 @@ public class FormulaAlgorithm implements ChronologyAlgorithm {
 
   @Override
   public ChronologyDate fromJdn(long jdn) {
+    if (jdn < epochJdn) {
+      throw new IllegalArgumentException(
+          "JDN " + jdn + " is before epoch (" + epochJdn + ") for " + chronologyId);
+    }
+
     long daysSinceEpoch = jdn - epochJdn;
 
     // Estimate year (may need adjustment)
@@ -215,7 +225,16 @@ public class FormulaAlgorithm implements ChronologyAlgorithm {
   /**
    * Simple expression parser for leap year formulas.
    *
-   * <p>Supports: year, integers, %, ==, !=, &&, ||, (), and basic arithmetic.
+   * <p>Supports:
+   *
+   * <ul>
+   *   <li>Variable: year
+   *   <li>Literals: integers, true, false
+   *   <li>Arithmetic: +, -, *, %
+   *   <li>Comparison: ==, !=, <, >, <=, >=
+   *   <li>Logical: &&, ||
+   *   <li>Grouping: ()
+   * </ul>
    */
   private static class FormulaParser {
     private final String formula;
@@ -231,38 +250,58 @@ public class FormulaAlgorithm implements ChronologyAlgorithm {
     private boolean evaluateExpression(String expr) {
       expr = expr.trim();
 
-      // Handle parentheses first
-      while (expr.contains("(")) {
-        int start = expr.lastIndexOf('(');
-        int end = expr.indexOf(')', start);
-        if (end == -1) {
-          throw new IllegalArgumentException("Unmatched parenthesis in: " + formula);
+      // Handle parentheses - if entire expr is wrapped in matching parens, unwrap
+      if (expr.startsWith("(")) {
+        int closePos = findMatchingClose(expr, 0);
+        if (closePos == expr.length() - 1) {
+          return evaluateExpression(expr.substring(1, expr.length() - 1));
         }
-        String inner = expr.substring(start + 1, end);
-        String result = String.valueOf(evaluateExpression(inner));
-        expr = expr.substring(0, start) + result + expr.substring(end + 1);
       }
 
-      // Handle || (lowest precedence)
-      if (expr.contains("||")) {
-        String[] parts = expr.split("\\|\\|", 2);
-        return evaluateExpression(parts[0]) || evaluateExpression(parts[1]);
+      // Handle || (lowest precedence) - find outside of parentheses
+      int idx = findOperatorOutsideParens(expr, "||");
+      if (idx >= 0) {
+        return evaluateExpression(expr.substring(0, idx))
+            || evaluateExpression(expr.substring(idx + 2));
       }
 
       // Handle &&
-      if (expr.contains("&&")) {
-        String[] parts = expr.split("&&", 2);
-        return evaluateExpression(parts[0]) && evaluateExpression(parts[1]);
+      idx = findOperatorOutsideParens(expr, "&&");
+      if (idx >= 0) {
+        return evaluateExpression(expr.substring(0, idx))
+            && evaluateExpression(expr.substring(idx + 2));
       }
 
-      // Handle comparisons
-      if (expr.contains("==")) {
-        String[] parts = expr.split("==", 2);
-        return evaluateArithmetic(parts[0]) == evaluateArithmetic(parts[1]);
+      // Handle comparisons (check multi-char operators first)
+      idx = findOperatorOutsideParens(expr, "==");
+      if (idx >= 0) {
+        return evaluateArithmetic(expr.substring(0, idx))
+            == evaluateArithmetic(expr.substring(idx + 2));
       }
-      if (expr.contains("!=")) {
-        String[] parts = expr.split("!=", 2);
-        return evaluateArithmetic(parts[0]) != evaluateArithmetic(parts[1]);
+      idx = findOperatorOutsideParens(expr, "!=");
+      if (idx >= 0) {
+        return evaluateArithmetic(expr.substring(0, idx))
+            != evaluateArithmetic(expr.substring(idx + 2));
+      }
+      idx = findOperatorOutsideParens(expr, "<=");
+      if (idx >= 0) {
+        return evaluateArithmetic(expr.substring(0, idx))
+            <= evaluateArithmetic(expr.substring(idx + 2));
+      }
+      idx = findOperatorOutsideParens(expr, ">=");
+      if (idx >= 0) {
+        return evaluateArithmetic(expr.substring(0, idx))
+            >= evaluateArithmetic(expr.substring(idx + 2));
+      }
+      idx = findOperatorOutsideParens(expr, "<");
+      if (idx >= 0) {
+        return evaluateArithmetic(expr.substring(0, idx))
+            < evaluateArithmetic(expr.substring(idx + 1));
+      }
+      idx = findOperatorOutsideParens(expr, ">");
+      if (idx >= 0) {
+        return evaluateArithmetic(expr.substring(0, idx))
+            > evaluateArithmetic(expr.substring(idx + 1));
       }
 
       // Handle boolean literal
@@ -274,20 +313,92 @@ public class FormulaAlgorithm implements ChronologyAlgorithm {
         return false;
       }
 
-      throw new IllegalArgumentException("Cannot parse expression: " + expr);
+      throw new IllegalArgumentException("Cannot parse boolean expression: " + expr);
+    }
+
+    private int findOperatorOutsideParens(String expr, String op) {
+      int depth = 0;
+      for (int i = 0; i <= expr.length() - op.length(); i++) {
+        char c = expr.charAt(i);
+        if (c == '(') depth++;
+        else if (c == ')') depth--;
+        else if (depth == 0 && expr.startsWith(op, i)) {
+          // For < and >, make sure we're not matching <= or >=
+          if (op.equals("<") && i + 1 < expr.length() && expr.charAt(i + 1) == '=') continue;
+          if (op.equals(">") && i + 1 < expr.length() && expr.charAt(i + 1) == '=') continue;
+          return i;
+        }
+      }
+      return -1;
     }
 
     private long evaluateArithmetic(String expr) {
       expr = expr.trim();
 
-      // Handle modulo
-      if (expr.contains("%")) {
-        String[] parts = expr.split("%", 2);
-        return evaluateArithmetic(parts[0]) % evaluateArithmetic(parts[1]);
+      // Handle parentheses - if entire expr is wrapped in matching parens, unwrap
+      if (expr.startsWith("(")) {
+        int closePos = findMatchingClose(expr, 0);
+        if (closePos == expr.length() - 1) {
+          return evaluateArithmetic(expr.substring(1, expr.length() - 1));
+        }
+      }
+
+      // Handle addition and subtraction (lowest precedence)
+      // Find the rightmost + or - that's not inside parentheses
+      int depth = 0;
+      int lastAddSub = -1;
+      for (int i = expr.length() - 1; i >= 0; i--) {
+        char c = expr.charAt(i);
+        if (c == ')') depth++;
+        else if (c == '(') depth--;
+        else if (depth == 0 && (c == '+' || c == '-')) {
+          // Make sure it's not a unary minus at the start
+          if (i > 0) {
+            lastAddSub = i;
+            break;
+          }
+        }
+      }
+      if (lastAddSub > 0) {
+        char op = expr.charAt(lastAddSub);
+        long left = evaluateArithmetic(expr.substring(0, lastAddSub));
+        long right = evaluateArithmetic(expr.substring(lastAddSub + 1));
+        return op == '+' ? left + right : left - right;
+      }
+
+      // Handle multiplication and modulo (higher precedence)
+      int lastMulMod = -1;
+      depth = 0;
+      for (int i = expr.length() - 1; i >= 0; i--) {
+        char c = expr.charAt(i);
+        if (c == ')') depth++;
+        else if (c == '(') depth--;
+        else if (depth == 0 && (c == '*' || c == '%')) {
+          lastMulMod = i;
+          break;
+        }
+      }
+      if (lastMulMod > 0) {
+        char op = expr.charAt(lastMulMod);
+        long left = evaluateArithmetic(expr.substring(0, lastMulMod));
+        long right = evaluateArithmetic(expr.substring(lastMulMod + 1));
+        return op == '*' ? left * right : left % right;
       }
 
       // Parse as integer
       return Long.parseLong(expr.trim());
+    }
+
+    private int findMatchingClose(String expr, int openPos) {
+      int depth = 0;
+      for (int i = openPos; i < expr.length(); i++) {
+        if (expr.charAt(i) == '(') depth++;
+        else if (expr.charAt(i) == ')') {
+          depth--;
+          if (depth == 0) return i;
+        }
+      }
+      return -1;
     }
   }
 }

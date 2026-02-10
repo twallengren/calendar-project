@@ -7,7 +7,7 @@ A tool for defining and generating business-day calendars with YAML-based specif
 - YAML-based calendar specifications (source of truth)
 - Deterministic compilation to static artifacts (CSV/JSON)
 - Calendar inheritance and module composition
-- Multi-chronology support: ISO (Gregorian), HIJRI (Islamic), JULIAN, and extensible via YAML
+- Multi-chronology support: ISO (Gregorian), HIJRI (Islamic), JULIAN, PERSIAN, and extensible via YAML
 - Julian Day Number (JDN) pivot for cross-calendar translation
 
 ## Quick Start
@@ -114,8 +114,9 @@ The system supports multiple calendar systems through a YAML-based ontology:
 | Chronology | Description |
 |------------|-------------|
 | `ISO` | Gregorian calendar (default) |
-| `HIJRI` | Islamic calendar (Umm al-Qura) |
+| `HIJRI` | Islamic calendar (tabular arithmetic approximation) |
 | `JULIAN` | Julian calendar |
+| `PERSIAN` | Solar Hijri calendar (Iranian) |
 
 ### Using Non-ISO Chronologies
 

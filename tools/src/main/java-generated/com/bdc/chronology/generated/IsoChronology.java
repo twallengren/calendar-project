@@ -147,6 +147,9 @@ public final class IsoChronology implements ChronologyAlgorithm {
 
   @Override
   public long toJdn(int year, int month, int day) {
+    if (!isValidDate(year, month, day)) {
+      throw new IllegalArgumentException("Invalid date: " + year + "-" + month + "-" + day);
+    }
     long days = daysBeforeYear(year);
     for (int m = 1; m < month; m++) {
       days += getDaysInMonth(year, m);
@@ -157,6 +160,9 @@ public final class IsoChronology implements ChronologyAlgorithm {
 
   @Override
   public ChronologyDate fromJdn(long jdn) {
+    if (jdn < EPOCH_JDN) {
+      throw new IllegalArgumentException("JDN " + jdn + " is before epoch (" + EPOCH_JDN + ")");
+    }
     long daysSinceEpoch = jdn - EPOCH_JDN;
     int year = estimateYear(daysSinceEpoch);
     while (daysBeforeYear(year + 1) <= daysSinceEpoch) year++;

@@ -55,6 +55,21 @@ class FormulaAlgorithmTest {
     "(year % 4 == 0 && year % 100 != 0) || (year % 400 == 0), 2004, true",
     "false, 2000, false",
     "true, 2001, true",
+    // Tabular Hijri formula
+    "((11 * year + 14) % 30) < 11, 2, true",
+    "((11 * year + 14) % 30) < 11, 3, false",
+    "((11 * year + 14) % 30) < 11, 5, true",
+    // Persian formula (2820-year cycle)
+    "((((year - 474) % 2820) + 474 + 38) * 682 % 2816) < 682, 1403, true",
+    "((((year - 474) % 2820) + 474 + 38) * 682 % 2816) < 682, 1404, false",
+    // Additional operator tests
+    "year > 2000, 2001, true",
+    "year > 2000, 2000, false",
+    "year <= 2000, 2000, true",
+    "year >= 2000, 2000, true",
+    "year + 1 == 2001, 2000, true",
+    "year - 1 == 1999, 2000, true",
+    "year * 2 == 4000, 2000, true",
   })
   void leapYearFormula_variousFormulas_correctResult(String formula, int year, boolean expected) {
     List<ChronologySpec.Month> months = List.of(new ChronologySpec.Month("M1", 30, null));

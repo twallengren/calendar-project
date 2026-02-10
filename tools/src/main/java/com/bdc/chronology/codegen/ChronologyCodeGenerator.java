@@ -249,6 +249,10 @@ public class ChronologyCodeGenerator {
     // toJdn
     sb.append("  @Override\n");
     sb.append("  public long toJdn(int year, int month, int day) {\n");
+    sb.append("    if (!isValidDate(year, month, day)) {\n");
+    sb.append(
+        "      throw new IllegalArgumentException(\"Invalid date: \" + year + \"-\" + month + \"-\" + day);\n");
+    sb.append("    }\n");
     sb.append("    long days = daysBeforeYear(year);\n");
     sb.append("    for (int m = 1; m < month; m++) {\n");
     sb.append("      days += getDaysInMonth(year, m);\n");
@@ -260,6 +264,10 @@ public class ChronologyCodeGenerator {
     // fromJdn
     sb.append("  @Override\n");
     sb.append("  public ChronologyDate fromJdn(long jdn) {\n");
+    sb.append("    if (jdn < EPOCH_JDN) {\n");
+    sb.append(
+        "      throw new IllegalArgumentException(\"JDN \" + jdn + \" is before epoch (\" + EPOCH_JDN + \")\");\n");
+    sb.append("    }\n");
     sb.append("    long daysSinceEpoch = jdn - EPOCH_JDN;\n");
     sb.append("    int year = estimateYear(daysSinceEpoch);\n");
     sb.append("    while (daysBeforeYear(year + 1) <= daysSinceEpoch) year++;\n");
@@ -401,9 +409,9 @@ public class ChronologyCodeGenerator {
     // toJdn
     sb.append("  @Override\n");
     sb.append("  public long toJdn(int year, int month, int day) {\n");
-    sb.append("    if (year < MIN_YEAR || year > MAX_YEAR) {\n");
+    sb.append("    if (!isValidDate(year, month, day)) {\n");
     sb.append(
-        "      throw new IllegalArgumentException(\"Year \" + year + \" outside supported range\");\n");
+        "      throw new IllegalArgumentException(\"Invalid date: \" + year + \"-\" + month + \"-\" + day);\n");
     sb.append("    }\n");
     sb.append("    return MONTH_JDN[idx(year, month)] + day - 1;\n");
     sb.append("  }\n\n");
@@ -411,6 +419,10 @@ public class ChronologyCodeGenerator {
     // fromJdn
     sb.append("  @Override\n");
     sb.append("  public ChronologyDate fromJdn(long jdn) {\n");
+    sb.append("    if (jdn < MONTH_JDN[0]) {\n");
+    sb.append(
+        "      throw new IllegalArgumentException(\"JDN \" + jdn + \" is before supported range\");\n");
+    sb.append("    }\n");
     sb.append("    // Binary search for year\n");
     sb.append("    int year = MIN_YEAR;\n");
     sb.append("    for (int y = MIN_YEAR; y <= MAX_YEAR; y++) {\n");

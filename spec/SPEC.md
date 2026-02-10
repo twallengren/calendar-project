@@ -280,8 +280,9 @@ The calendar system supports multiple chronologies (calendar systems) through a 
 | ID | Name | Description |
 |----|------|-------------|
 | `ISO` | Gregorian Calendar | Default. Standard ISO dates (YYYY-MM-DD) |
-| `HIJRI` | Islamic Calendar | Umm al-Qura variant via Java's HijrahChronology |
+| `HIJRI` | Islamic Calendar | Tabular arithmetic approximation (30-year cycle) |
 | `JULIAN` | Julian Calendar | Historical Julian calendar (every 4th year is leap) |
+| `PERSIAN` | Solar Hijri Calendar | Iranian calendar (2820-year cycle) |
 
 ### Using Chronologies in Rules
 
@@ -366,27 +367,42 @@ algorithms:
 
 **Supported leap year formula expressions:**
 - Variables: `year`
-- Operators: `%` (modulo), `==`, `!=`, `&&`, `||`
-- Parentheses for grouping
-- Boolean literals: `true`, `false`
+- Arithmetic: `+`, `-`, `*`, `%` (modulo)
+- Comparison: `==`, `!=`, `<`, `>`, `<=`, `>=`
+- Logical: `&&`, `||`
+- Grouping: `()`
+- Literals: integers, `true`, `false`
 
 Examples:
 - Julian: `"year % 4 == 0"`
 - Gregorian: `"(year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)"`
+- Tabular Hijri: `"((11 * year + 14) % 30) < 11"` (30-year cycle with 11 leap years)
+- Persian: `"((((year - 474) % 2820) + 474 + 38) * 682 % 2816) < 682"` (2820-year cycle)
 
-**LOOKUP_TABLE** - Observation-based calendars (e.g., Islamic Hijri):
+**LOOKUP_TABLE** - Observation-based calendars requiring precomputed data:
+
+For calendars that cannot be computed algorithmically (e.g., Umm al-Qura Islamic
+calendar based on moon sighting), lookup tables provide month boundaries:
 
 ```yaml
 kind: chronology
 id: HIJRI_UAQ
 metadata:
   name: Islamic Calendar (Umm al-Qura)
+  description: |
+    Observation-based Islamic calendar used in Saudi Arabia.
+    Requires lookup table data as it cannot be computed algorithmically.
 
 algorithms:
   type: LOOKUP_TABLE
-  table: HIJRI_UAQ_TABLE
-  fallback: HIJRI_TABULAR
+  months:
+    - {year: 1400, month: 1, jdn: 2444240, length: 30}
+    - {year: 1400, month: 2, jdn: 2444270, length: 29}
+    # ... complete table of month boundaries
 ```
+
+Note: The built-in `HIJRI` chronology uses the tabular (arithmetic) approximation,
+which may differ from observation-based calendars by 1-2 days.
 
 **METONIC_CYCLE** - Calendars with 19-year cycles (e.g., Hebrew):
 
@@ -432,36 +448,32 @@ Chronologies are compiled from YAML to Java source code at build time:
 ./gradlew generateChronologies
 ```
 
-This reads YAML files from `chronologies/` and generates Java classes in `tools/build/generated/sources/chronology/`. The generated classes are self-contained with all conversion logic and data embedded - no runtime YAML parsing or external dependencies.
+This reads YAML files from `chronologies/` and generates Java classes in `tools/src/main/java-generated/`. The generated classes are self-contained with all conversion logic and data embedded - no runtime YAML parsing or external dependencies.
 
 **Example generated class structure:**
 - Formula calendars: Contains leap year logic and month definitions
 - Lookup table calendars: Contains embedded JDN/length arrays for all months
 
-### Extracting Calendar Data
+### Adding New Calendars
 
-For observation-based calendars, data can be extracted from external sources:
+New calendars are defined in YAML and compiled to self-contained Java classes:
 
 ```bash
-# Extract Umm al-Qura Hijri data from Java's built-in HijrahChronology
-./gradlew extractHijriData
+# Generate Java classes from YAML chronology definitions
+./gradlew generateChronologies
 ```
 
-This generates a complete YAML spec with embedded lookup table data.
+For observation-based calendars (e.g., Umm al-Qura), the YAML spec would include
+embedded lookup table data with JDN values for each month boundary.
 
 ### Directory Structure
 
 ```
 chronologies/
-  iso.yaml
-  julian.yaml
-  persian.yaml
-  hebrew.yaml
-  hijri/
-    hijri_tabular.yaml
-    hijri_umm_al_qura.yaml
-    tables/
-      umm_al_qura_data.yaml
+  iso.yaml          # Gregorian calendar
+  julian.yaml       # Julian calendar
+  persian.yaml      # Solar Hijri (Iranian) calendar
+  hijri.yaml        # Tabular Islamic calendar
 ```
 
 ## Julian Day Number

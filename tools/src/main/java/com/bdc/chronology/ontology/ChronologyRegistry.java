@@ -96,8 +96,9 @@ public class ChronologyRegistry {
   /**
    * Registers a chronology algorithm.
    *
+   * <p>If an algorithm with the same ID is already registered, it will be replaced.
+   *
    * @param algorithm the algorithm to register
-   * @throws IllegalArgumentException if an algorithm with the same ID is already registered
    */
   public void register(ChronologyAlgorithm algorithm) {
     String id = algorithm.getChronologyId().toUpperCase();

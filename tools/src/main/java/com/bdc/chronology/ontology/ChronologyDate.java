@@ -86,14 +86,15 @@ public record ChronologyDate(String chronologyId, int year, int month, int day) 
   /**
    * Converts this date to another chronology.
    *
-   * @param targetChronologyId the target chronology identifier
+   * @param targetChronologyId the target chronology identifier (null defaults to ISO)
    * @return the ChronologyDate in the target chronology
    */
   public ChronologyDate toChronology(String targetChronologyId) {
-    if (chronologyId.equals(targetChronologyId)) {
+    String target = targetChronologyId == null ? "ISO" : targetChronologyId;
+    if (chronologyId.equalsIgnoreCase(target)) {
       return this;
     }
-    return fromJdn(toJdn(), targetChronologyId);
+    return fromJdn(toJdn(), target);
   }
 
   @Override
