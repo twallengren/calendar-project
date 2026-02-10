@@ -47,30 +47,18 @@ public class RuleExpander {
     List<Occurrence> occurrences = new ArrayList<>();
     String chronology = rule.chronology();
 
-    if (ChronologyTranslator.HIJRI.equalsIgnoreCase(chronology)) {
-      int[] hijriYears = range.hijriYearRange();
-      for (int year = hijriYears[0]; year <= hijriYears[1]; year++) {
-        try {
-          LocalDate isoDate = ChronologyTranslator.hijriToIso(year, rule.month(), rule.day());
-          if (range.contains(isoDate)) {
-            occurrences.add(new Occurrence(rule.key(), isoDate, rule.name(), provenance));
-          }
-        } catch (Exception e) {
-          // Skip invalid dates (e.g., month 12 day 30 in some Hijri years)
+    // Get the year range in the target chronology
+    int[] years = range.yearRange(chronology);
+    for (int year = years[0]; year <= years[1]; year++) {
+      try {
+        // Convert from target chronology to ISO date
+        LocalDate isoDate =
+            ChronologyTranslator.toIsoDate(year, rule.month(), rule.day(), chronology);
+        if (range.contains(isoDate)) {
+          occurrences.add(new Occurrence(rule.key(), isoDate, rule.name(), provenance));
         }
-      }
-    } else {
-      // ISO chronology
-      int[] isoYears = range.isoYearRange();
-      for (int year = isoYears[0]; year <= isoYears[1]; year++) {
-        try {
-          LocalDate date = LocalDate.of(year, rule.month(), rule.day());
-          if (range.contains(date)) {
-            occurrences.add(new Occurrence(rule.key(), date, rule.name(), provenance));
-          }
-        } catch (Exception e) {
-          // Skip invalid dates (e.g., Feb 29 in non-leap years)
-        }
+      } catch (Exception e) {
+        // Skip invalid dates (e.g., Feb 29 in non-leap years, or day 30 in short Hijri months)
       }
     }
 

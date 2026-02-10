@@ -52,6 +52,42 @@ spotless {
     }
 }
 
+// Chronology code generation - generated sources go to src/main/java-generated
+// This directory is committed to version control so the code is always available
+val generatedSourcesDir = projectDir.resolve("src/main/java-generated")
+
+sourceSets {
+    main {
+        java {
+            srcDir(generatedSourcesDir)
+        }
+    }
+}
+
+tasks.register<JavaExec>("generateChronologies") {
+    description = "Generates Java chronology classes from YAML specifications"
+    group = "build"
+
+    classpath = sourceSets.main.get().runtimeClasspath
+    mainClass.set("com.bdc.chronology.codegen.ChronologyCodeGenerator")
+
+    val chronologiesDir = rootProject.projectDir.resolve("chronologies")
+    val outputDir = generatedSourcesDir.resolve("com/bdc/chronology/generated")
+
+    args = listOf(chronologiesDir.absolutePath, outputDir.absolutePath)
+
+    inputs.dir(chronologiesDir)
+    outputs.dir(generatedSourcesDir)
+
+    doFirst {
+        outputDir.mkdirs()
+    }
+}
+
+// Note: For bootstrap, run 'gradle compileJava' first without generated sources,
+// then 'gradle generateChronologies', then 'gradle compileJava' again.
+// After initial setup, generateChronologies can be wired to run before compileJava.
+
 tasks.register("installGitHooks") {
     description = "Installs git pre-commit hook for spotlessApply"
     group = "git hooks"

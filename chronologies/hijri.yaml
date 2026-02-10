@@ -1,0 +1,46 @@
+kind: chronology
+id: HIJRI
+
+metadata:
+  name: Islamic Calendar (Tabular)
+  description: |
+    The tabular Islamic calendar is an arithmetic approximation of the lunar
+    Hijri calendar. It uses a 30-year cycle with 11 leap years to approximate
+    the lunar month cycle. Months alternate between 30 and 29 days, with the
+    12th month (Dhu al-Hijjah) having 30 days in leap years.
+
+    This is suitable for civil and computational purposes. For religious
+    observances, the actual Hijri calendar based on moon sighting may differ
+    by 1-2 days.
+
+structure:
+  epoch_jdn: 1948440  # July 19, 622 CE (Gregorian) / July 16, 622 CE (Julian)
+  week:
+    days:
+      - Al-Ahad       # Sunday
+      - Al-Ithnayn    # Monday
+      - Al-Thulatha   # Tuesday
+      - Al-Arbia      # Wednesday
+      - Al-Khamis     # Thursday
+      - Al-Jumah      # Friday
+      - Al-Sabt       # Saturday
+    first_day: Al-Sabt
+  months:
+    - {name: Muharram, days: 30}
+    - {name: Safar, days: 29}
+    - {name: "Rabi' al-Awwal", days: 30}
+    - {name: "Rabi' al-Thani", days: 29}
+    - {name: "Jumada al-Awwal", days: 30}
+    - {name: "Jumada al-Thani", days: 29}
+    - {name: Rajab, days: 30}
+    - {name: "Sha'ban", days: 29}
+    - {name: Ramadan, days: 30}
+    - {name: Shawwal, days: 29}
+    - {name: "Dhu al-Qi'dah", days: 30}
+    - {name: "Dhu al-Hijjah", days: 29, leap_days: 30}
+
+algorithms:
+  type: FORMULA
+  # 30-year cycle with leap years at positions 2, 5, 7, 10, 13, 16, 18, 21, 24, 26, 29
+  # Formula: ((11 * year + 14) % 30) < 11
+  leap_year: "((11 * year + 14) % 30) < 11"

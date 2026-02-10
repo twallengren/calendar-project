@@ -2,8 +2,8 @@ package com.bdc.chronology;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import com.bdc.chronology.ontology.ChronologyDate;
 import java.time.LocalDate;
-import java.time.chrono.HijrahDate;
 import org.junit.jupiter.api.Test;
 
 class ChronologyTranslatorTest {
@@ -28,11 +28,10 @@ class ChronologyTranslatorTest {
     LocalDate result = ChronologyTranslator.toIsoDate(1446, 6, 15, "HIJRI");
 
     assertNotNull(result);
-    // Verify by converting back
-    HijrahDate hijri = ChronologyTranslator.isoToHijri(result);
-    assertEquals(1446, hijri.get(java.time.temporal.ChronoField.YEAR));
-    assertEquals(6, hijri.get(java.time.temporal.ChronoField.MONTH_OF_YEAR));
-    assertEquals(15, hijri.get(java.time.temporal.ChronoField.DAY_OF_MONTH));
+    // Verify by converting back using our consistent tabular implementation
+    assertEquals(1446, ChronologyTranslator.getYear(result, "HIJRI"));
+    assertEquals(6, ChronologyTranslator.getMonth(result, "HIJRI"));
+    assertEquals(15, ChronologyTranslator.getDay(result, "HIJRI"));
   }
 
   @Test
@@ -66,21 +65,22 @@ class ChronologyTranslatorTest {
   void isoToHijri_knownDate_convertsCorrectly() {
     LocalDate isoDate = LocalDate.of(2024, 7, 7);
 
-    HijrahDate result = ChronologyTranslator.isoToHijri(isoDate);
+    ChronologyDate result = ChronologyTranslator.isoToHijri(isoDate);
 
     assertNotNull(result);
+    assertEquals("HIJRI", result.chronologyId());
     // Should be around Hijri 1446
-    assertTrue(result.get(java.time.temporal.ChronoField.YEAR) >= 1445);
+    assertTrue(result.year() >= 1445);
   }
 
   @Test
   void roundTrip_isoToHijriToIso_preservesDate() {
     LocalDate original = LocalDate.of(2025, 6, 15);
 
-    HijrahDate hijri = ChronologyTranslator.isoToHijri(original);
-    int hijriYear = hijri.get(java.time.temporal.ChronoField.YEAR);
-    int hijriMonth = hijri.get(java.time.temporal.ChronoField.MONTH_OF_YEAR);
-    int hijriDay = hijri.get(java.time.temporal.ChronoField.DAY_OF_MONTH);
+    // Use our consistent tabular implementation for the round trip
+    int hijriYear = ChronologyTranslator.getYear(original, "HIJRI");
+    int hijriMonth = ChronologyTranslator.getMonth(original, "HIJRI");
+    int hijriDay = ChronologyTranslator.getDay(original, "HIJRI");
 
     LocalDate roundTripped = ChronologyTranslator.hijriToIso(hijriYear, hijriMonth, hijriDay);
 

@@ -274,7 +274,7 @@ public class ArtifactStore {
         map.put("type", "fixed_month_day");
         map.put("month", r.month());
         map.put("day", r.day());
-        if (r.chronology() != null && !"ISO".equals(r.chronology())) {
+        if (r.chronology() != null && !"ISO".equalsIgnoreCase(r.chronology())) {
           map.put("chronology", r.chronology());
         }
       }
