@@ -1,0 +1,8 @@
+kind: module
+id: tadawul_holidays
+
+uses:
+  - saudi_founding_day
+  - saudi_national_day
+  - eid_al_fitr
+  - eid_al_adha

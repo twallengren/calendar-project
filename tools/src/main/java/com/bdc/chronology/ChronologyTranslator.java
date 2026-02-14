@@ -16,6 +16,7 @@ public class ChronologyTranslator {
   public static final String ISO = "ISO";
   public static final String HIJRI = "HIJRI";
   public static final String JULIAN = "JULIAN";
+  public static final String UMM_AL_QURA = "UMM_AL_QURA";
 
   private static final ChronologyRegistry registry = ChronologyRegistry.getInstance();
 

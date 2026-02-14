@@ -134,7 +134,7 @@ class ChronologyLoaderTest {
   }
 
   @Test
-  void createAlgorithm_lookupTableType_throwsUnsupported() throws IOException {
+  void createAlgorithm_lookupTableType_createsLookupTableAlgorithm() throws IOException {
     String yaml =
         """
         kind: chronology
@@ -148,13 +148,28 @@ class ChronologyLoaderTest {
             - {name: Month1, days: 30}
         algorithms:
           type: LOOKUP_TABLE
-          table: SOME_TABLE
+          months:
+            - {year: 1400, month: 1, jdn: 2000000, length: 30}
+            - {year: 1400, month: 2, jdn: 2000030, length: 29}
+            - {year: 1400, month: 3, jdn: 2000059, length: 30}
+            - {year: 1400, month: 4, jdn: 2000089, length: 29}
+            - {year: 1400, month: 5, jdn: 2000118, length: 30}
+            - {year: 1400, month: 6, jdn: 2000148, length: 29}
+            - {year: 1400, month: 7, jdn: 2000177, length: 30}
+            - {year: 1400, month: 8, jdn: 2000207, length: 29}
+            - {year: 1400, month: 9, jdn: 2000236, length: 30}
+            - {year: 1400, month: 10, jdn: 2000266, length: 29}
+            - {year: 1400, month: 11, jdn: 2000295, length: 30}
+            - {year: 1400, month: 12, jdn: 2000325, length: 29}
         """;
 
     InputStream is = new ByteArrayInputStream(yaml.getBytes(StandardCharsets.UTF_8));
     ChronologySpec spec = loader.loadSpec(is);
+    ChronologyAlgorithm algorithm = loader.createAlgorithm(spec);
 
-    assertThrows(UnsupportedOperationException.class, () -> loader.createAlgorithm(spec));
+    assertEquals("LOOKUP_TEST", algorithm.getChronologyId());
+    assertEquals(30, algorithm.getDaysInMonth(1400, 1));
+    assertEquals(29, algorithm.getDaysInMonth(1400, 2));
   }
 
   @Test

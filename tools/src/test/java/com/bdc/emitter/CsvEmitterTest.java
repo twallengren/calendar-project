@@ -151,4 +151,41 @@ class CsvEmitterTest {
 
     assertEquals(3, lines.length); // header + 2 events
   }
+
+  @Test
+  void emitToString_withOutputChronology_addsAltDateColumn() {
+    List<Event> events =
+        List.of(new Event(LocalDate.of(2025, 3, 30), EventType.CLOSED, "Eid al-Fitr", "test"));
+
+    String result = emitter.emitToString(events, "UMM_AL_QURA");
+
+    assertTrue(result.startsWith("date,umm_al_qura_date,type,description\n"));
+    // 2025-03-30 is Shawwal 1, 1446
+    assertTrue(result.contains("2025-03-30,1446-10-01,CLOSED,Eid al-Fitr"));
+  }
+
+  @Test
+  void emit_withOutputChronology_writesAltDateColumn() throws Exception {
+    List<Event> events =
+        List.of(new Event(LocalDate.of(2025, 1, 1), EventType.CLOSED, "New Year's Day", "test"));
+    Path outputPath = tempDir.resolve("dual.csv");
+
+    emitter.emit(events, outputPath, "UMM_AL_QURA");
+
+    String content = Files.readString(outputPath);
+    assertTrue(content.contains("date,umm_al_qura_date,type,description"));
+    // 2025-01-01 is Jumada al-Thani 30, 1446 (1446-06-30)
+    assertTrue(
+        content.contains("2025-01-01,1446-07-01,") || content.contains("2025-01-01,1446-06-30,"));
+  }
+
+  @Test
+  void emitToString_withNullChronology_noAltDateColumn() {
+    List<Event> events =
+        List.of(new Event(LocalDate.of(2025, 1, 1), EventType.CLOSED, "Test", "test"));
+
+    String result = emitter.emitToString(events, null);
+
+    assertTrue(result.startsWith("date,type,description\n"));
+  }
 }

@@ -101,6 +101,78 @@ class GeneratorGoldenTest {
   }
 
   @Test
+  void generateSATadawulCalendar2025() {
+    ResolvedSpec spec = resolver.resolve("SA-TADAWUL");
+    List<Event> events =
+        generator.generate(spec, LocalDate.of(2025, 1, 1), LocalDate.of(2025, 12, 31));
+    List<Event> nonWeekendEvents = events.stream().filter(NON_WEEKEND).toList();
+
+    // SA-TADAWUL should have 12 non-weekend events in 2025:
+    // Saudi Founding Day (1), Eid al-Fitr (6), Eid al-Adha (4), Saudi National Day (1)
+    assertEquals(12, nonWeekendEvents.size());
+
+    // Saudi Founding Day (Feb 22)
+    assertTrue(
+        nonWeekendEvents.stream()
+            .anyMatch(
+                e ->
+                    e.date().equals(LocalDate.of(2025, 2, 22))
+                        && e.description().equals("Saudi Founding Day")));
+
+    // Eid al-Fitr starts on Mar 30 (Shawwal 1, 1446)
+    assertTrue(
+        nonWeekendEvents.stream()
+            .anyMatch(
+                e ->
+                    e.date().equals(LocalDate.of(2025, 3, 30))
+                        && e.description().equals("Eid al-Fitr")));
+
+    // Eid al-Adha starts on Jun 6 (Dhul Hijjah 10, 1446)
+    assertTrue(
+        nonWeekendEvents.stream()
+            .anyMatch(
+                e ->
+                    e.date().equals(LocalDate.of(2025, 6, 6))
+                        && e.description().equals("Eid al-Adha")));
+
+    // Saudi National Day (Sep 23)
+    assertTrue(
+        nonWeekendEvents.stream()
+            .anyMatch(
+                e ->
+                    e.date().equals(LocalDate.of(2025, 9, 23))
+                        && e.description().equals("Saudi National Day")));
+  }
+
+  @Test
+  void generateSATadawulCalendar_weekendsAreFridaySaturday() {
+    ResolvedSpec spec = resolver.resolve("SA-TADAWUL");
+    List<Event> events =
+        generator.generate(spec, LocalDate.of(2025, 1, 1), LocalDate.of(2025, 1, 31));
+    List<Event> weekendEvents = events.stream().filter(e -> e.type() == EventType.WEEKEND).toList();
+
+    // All weekend events should be on Friday or Saturday
+    for (Event e : weekendEvents) {
+      java.time.DayOfWeek dow = e.date().getDayOfWeek();
+      assertTrue(
+          dow == java.time.DayOfWeek.FRIDAY || dow == java.time.DayOfWeek.SATURDAY,
+          "Weekend event on unexpected day: " + e.date() + " (" + dow + ")");
+    }
+  }
+
+  @Test
+  void generateSATadawulCalendar_dualChronologyOutput() {
+    ResolvedSpec spec = resolver.resolve("SA-TADAWUL");
+    List<Event> events =
+        generator.generate(spec, LocalDate.of(2025, 3, 28), LocalDate.of(2025, 4, 5));
+
+    String csv = emitter.emitToString(events, "UMM_AL_QURA");
+
+    // Eid al-Fitr (Mar 30 = Shawwal 1) should show the UMM_AL_QURA date
+    assertTrue(csv.contains("2025-03-30,1446-10-01,CLOSED,Eid al-Fitr"));
+  }
+
+  @Test
   void generateNYSECalendar() {
     ResolvedSpec spec = resolver.resolve("US-NYSE");
     List<Event> events =

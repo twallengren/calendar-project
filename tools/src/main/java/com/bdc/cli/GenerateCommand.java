@@ -77,6 +77,11 @@ public class GenerateCommand implements Callable<Integer> {
   private String releaseVersion;
 
   @Option(
+      names = {"--output-chronology"},
+      description = "Add an alternate date column in the specified chronology (e.g., UMM_AL_QURA)")
+  private String outputChronology;
+
+  @Option(
       names = {"--include-specs"},
       description = "Include calendar.yaml and resolved.yaml in output (only applies with --out)")
   private boolean includeSpecs;
@@ -135,7 +140,7 @@ public class GenerateCommand implements Callable<Integer> {
         // Emit CSV
         CsvEmitter csvEmitter = new CsvEmitter();
         Path csvPath = outputDir.resolve("events.csv");
-        csvEmitter.emit(events, csvPath);
+        csvEmitter.emit(events, csvPath, outputChronology);
 
         // Emit metadata
         MetadataEmitter metadataEmitter = new MetadataEmitter();

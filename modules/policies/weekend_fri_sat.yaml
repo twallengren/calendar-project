@@ -1,0 +1,7 @@
+kind: module
+id: weekend_fri_sat
+
+policies:
+  weekends:
+    - FRIDAY
+    - SATURDAY

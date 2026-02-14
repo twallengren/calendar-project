@@ -2,6 +2,7 @@ package com.bdc.chronology.ontology;
 
 import com.bdc.chronology.ontology.algorithms.ChronologyAlgorithm;
 import com.bdc.chronology.ontology.algorithms.FormulaAlgorithm;
+import com.bdc.chronology.ontology.algorithms.LookupTableAlgorithm;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
@@ -93,8 +94,7 @@ public class ChronologyLoader {
 
     return switch (type.toUpperCase()) {
       case "FORMULA" -> new FormulaAlgorithm(spec);
-      case "LOOKUP_TABLE" ->
-          throw new UnsupportedOperationException("LOOKUP_TABLE algorithm not yet implemented");
+      case "LOOKUP_TABLE" -> new LookupTableAlgorithm(spec);
       case "METONIC_CYCLE" ->
           throw new UnsupportedOperationException("METONIC_CYCLE algorithm not yet implemented");
       default -> throw new IllegalArgumentException("Unknown algorithm type: " + type);

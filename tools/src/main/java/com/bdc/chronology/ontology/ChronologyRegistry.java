@@ -38,7 +38,8 @@ public class ChronologyRegistry {
           "ISO", "IsoChronology",
           "HIJRI", "HijriChronology",
           "JULIAN", "JulianChronology",
-          "PERSIAN", "PersianChronology");
+          "PERSIAN", "PersianChronology",
+          "UMM_AL_QURA", "UmmAlQuraChronology");
 
   // INSTANCE must be declared after GENERATED_CLASS_NAMES to ensure correct initialization order
   private static final ChronologyRegistry INSTANCE = new ChronologyRegistry();

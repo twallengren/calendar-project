@@ -1,0 +1,73 @@
+kind: module
+id: eid_al_fitr
+
+# Eid al-Fitr holiday (Shawwal 1-6 in Umm al-Qura calendar)
+# The Saudi Exchange typically closes for 6 days around Eid al-Fitr.
+# Dates are defined in the Umm al-Qura chronology and are not shifted for weekends.
+event_sources:
+  - key: eid_al_fitr_1
+    name: Eid al-Fitr
+    default_classification: CLOSED
+    shiftable: false
+    rule:
+      type: fixed_month_day
+      key: eid_al_fitr_1
+      name: Eid al-Fitr
+      month: 10
+      day: 1
+      chronology: UMM_AL_QURA
+  - key: eid_al_fitr_2
+    name: Eid al-Fitr
+    default_classification: CLOSED
+    shiftable: false
+    rule:
+      type: fixed_month_day
+      key: eid_al_fitr_2
+      name: Eid al-Fitr
+      month: 10
+      day: 2
+      chronology: UMM_AL_QURA
+  - key: eid_al_fitr_3
+    name: Eid al-Fitr
+    default_classification: CLOSED
+    shiftable: false
+    rule:
+      type: fixed_month_day
+      key: eid_al_fitr_3
+      name: Eid al-Fitr
+      month: 10
+      day: 3
+      chronology: UMM_AL_QURA
+  - key: eid_al_fitr_4
+    name: Eid al-Fitr
+    default_classification: CLOSED
+    shiftable: false
+    rule:
+      type: fixed_month_day
+      key: eid_al_fitr_4
+      name: Eid al-Fitr
+      month: 10
+      day: 4
+      chronology: UMM_AL_QURA
+  - key: eid_al_fitr_5
+    name: Eid al-Fitr
+    default_classification: CLOSED
+    shiftable: false
+    rule:
+      type: fixed_month_day
+      key: eid_al_fitr_5
+      name: Eid al-Fitr
+      month: 10
+      day: 5
+      chronology: UMM_AL_QURA
+  - key: eid_al_fitr_6
+    name: Eid al-Fitr
+    default_classification: CLOSED
+    shiftable: false
+    rule:
+      type: fixed_month_day
+      key: eid_al_fitr_6
+      name: Eid al-Fitr
+      month: 10
+      day: 6
+      chronology: UMM_AL_QURA

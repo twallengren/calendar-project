@@ -20,6 +20,12 @@
       "range_end": "2030-12-31",
       "event_count": 14507,
       "checksum": "sha256:c544b57cd781077abbb5cd6af390eaf86aa475514ebfd995027f9a91f9d9464a"
+    },
+    "SA-TADAWUL": {
+      "range_start": "2020-01-01",
+      "range_end": "2030-12-31",
+      "event_count": 0,
+      "checksum": ""
     }
   },
   "release_version": {
