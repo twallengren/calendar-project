@@ -151,4 +151,51 @@ class CsvEmitterTest {
 
     assertEquals(3, lines.length); // header + 2 events
   }
+
+  @Test
+  void emitToString_withOutputChronology_addsAltDateColumn() {
+    List<Event> events =
+        List.of(new Event(LocalDate.of(2025, 3, 30), EventType.CLOSED, "Eid al-Fitr", "test"));
+
+    String result = emitter.emitToString(events, "UMM_AL_QURA");
+
+    assertTrue(result.startsWith("date,umm_al_qura_date,type,description\n"));
+    // 2025-03-30 is Shawwal 1, 1446
+    assertTrue(result.contains("2025-03-30,1446-10-01,CLOSED,Eid al-Fitr"));
+  }
+
+  @Test
+  void emit_withOutputChronology_writesAltDateColumn() throws Exception {
+    List<Event> events =
+        List.of(new Event(LocalDate.of(2025, 1, 1), EventType.CLOSED, "New Year's Day", "test"));
+    Path outputPath = tempDir.resolve("dual.csv");
+
+    emitter.emit(events, outputPath, "UMM_AL_QURA");
+
+    String content = Files.readString(outputPath);
+    assertTrue(content.contains("date,umm_al_qura_date,type,description"));
+    // 2025-01-01 is Rajab 1, 1446 (verified against java.time.chrono.HijrahChronology)
+    assertTrue(content.contains("2025-01-01,1446-07-01,"));
+  }
+
+  @Test
+  void emitToString_withNullChronology_noAltDateColumn() {
+    List<Event> events =
+        List.of(new Event(LocalDate.of(2025, 1, 1), EventType.CLOSED, "Test", "test"));
+
+    String result = emitter.emitToString(events, null);
+
+    assertTrue(result.startsWith("date,type,description\n"));
+  }
+
+  @Test
+  void emitToString_withOutputChronology_outOfRange_emitsEmptyAltDate() {
+    // 1900-01-01 is outside Umm al-Qura range (AH 1356-1500 / ~1937-2076 CE)
+    List<Event> events =
+        List.of(new Event(LocalDate.of(1900, 1, 1), EventType.CLOSED, "Old Event", "test"));
+
+    String result = emitter.emitToString(events, "UMM_AL_QURA");
+
+    assertTrue(result.contains("1900-01-01,,CLOSED,Old Event"));
+  }
 }

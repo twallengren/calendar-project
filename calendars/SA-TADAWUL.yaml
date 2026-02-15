@@ -1,0 +1,13 @@
+kind: calendar
+id: SA-TADAWUL
+
+metadata:
+  name: Tadawul (Saudi Exchange) Trading Calendar
+  description: Saudi Stock Exchange (Tadawul) trading calendar with Fri-Sat weekends and Islamic holidays
+  chronology: UMM_AL_QURA
+
+weekend_shift_policy: NONE
+
+uses:
+  - weekend_fri_sat
+  - tadawul_holidays

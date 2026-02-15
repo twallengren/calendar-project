@@ -66,7 +66,8 @@ public class BlessedArtifactLoader {
   public List<Event> loadBlessedEvents(Path blessedDir, String calendarId) throws IOException {
     Path csvPath = blessedDir.resolve(calendarId).resolve("events.csv");
     if (!Files.exists(csvPath)) {
-      throw new IOException("Blessed CSV not found: " + csvPath);
+      // New calendar with no blessed artifacts yet — treat as empty baseline
+      return List.of();
     }
 
     List<Event> events = new ArrayList<>();

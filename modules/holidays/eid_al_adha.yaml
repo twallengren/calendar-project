@@ -1,0 +1,51 @@
+kind: module
+id: eid_al_adha
+
+# Eid al-Adha holiday (Dhul Hijjah 10-13 in Umm al-Qura calendar)
+# The Saudi Exchange typically closes for 4 days around Eid al-Adha.
+# Dates are defined in the Umm al-Qura chronology and are not shifted for weekends.
+event_sources:
+  - key: eid_al_adha_1
+    name: Eid al-Adha
+    default_classification: CLOSED
+    shiftable: false
+    rule:
+      type: fixed_month_day
+      key: eid_al_adha_1
+      name: Eid al-Adha
+      month: 12
+      day: 10
+      chronology: UMM_AL_QURA
+  - key: eid_al_adha_2
+    name: Eid al-Adha
+    default_classification: CLOSED
+    shiftable: false
+    rule:
+      type: fixed_month_day
+      key: eid_al_adha_2
+      name: Eid al-Adha
+      month: 12
+      day: 11
+      chronology: UMM_AL_QURA
+  - key: eid_al_adha_3
+    name: Eid al-Adha
+    default_classification: CLOSED
+    shiftable: false
+    rule:
+      type: fixed_month_day
+      key: eid_al_adha_3
+      name: Eid al-Adha
+      month: 12
+      day: 12
+      chronology: UMM_AL_QURA
+  - key: eid_al_adha_4
+    name: Eid al-Adha
+    default_classification: CLOSED
+    shiftable: false
+    rule:
+      type: fixed_month_day
+      key: eid_al_adha_4
+      name: Eid al-Adha
+      month: 12
+      day: 13
+      chronology: UMM_AL_QURA

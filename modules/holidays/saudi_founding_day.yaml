@@ -1,0 +1,17 @@
+kind: module
+id: saudi_founding_day
+
+# Saudi Founding Day, established by Royal Decree in 2022
+# Source: https://www.my.gov.sa/wps/portal/snp/aboutksa/foundingDay
+event_sources:
+  - key: saudi_founding_day
+    name: Saudi Founding Day
+    default_classification: CLOSED
+    active_years:
+      - [2022, null]
+    rule:
+      type: fixed_month_day
+      key: saudi_founding_day
+      name: Saudi Founding Day
+      month: 2
+      day: 22
