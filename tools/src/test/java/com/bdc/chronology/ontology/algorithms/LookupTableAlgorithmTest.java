@@ -181,4 +181,30 @@ class LookupTableAlgorithmTest {
 
     assertThrows(IllegalArgumentException.class, () -> new LookupTableAlgorithm(spec));
   }
+
+  @Test
+  void constructor_missingMonthEntry_throwsException() {
+    // Only provide 11 of 12 months for year 1400
+    List<ChronologySpec.MonthEntry> entries = new ArrayList<>();
+    long jdn = 2000000L;
+    int[] lengths = {30, 29, 30, 29, 30, 29, 30, 29, 30, 29, 30};
+    for (int m = 1; m <= 11; m++) {
+      entries.add(new ChronologySpec.MonthEntry(1400, m, jdn, lengths[m - 1]));
+      jdn += lengths[m - 1];
+    }
+    // Intentionally omit month 12
+
+    ChronologySpec spec =
+        new ChronologySpec(
+            "chronology",
+            "INCOMPLETE",
+            new ChronologySpec.Metadata("Incomplete", "Missing month 12"),
+            new ChronologySpec.Structure(null, null, null),
+            new ChronologySpec.Algorithms(
+                "LOOKUP_TABLE", null, null, null, null, null, entries, null));
+
+    IllegalArgumentException ex =
+        assertThrows(IllegalArgumentException.class, () -> new LookupTableAlgorithm(spec));
+    assertTrue(ex.getMessage().contains("year 1400 month 12"));
+  }
 }

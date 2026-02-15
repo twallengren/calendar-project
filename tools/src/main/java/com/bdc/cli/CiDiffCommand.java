@@ -6,6 +6,7 @@ import com.bdc.loader.SpecRegistry;
 import com.bdc.model.Event;
 import com.bdc.model.ResolvedSpec;
 import com.bdc.resolver.SpecResolver;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.LocalDate;
 import java.util.*;
@@ -124,6 +125,28 @@ public class CiDiffCommand implements Callable<Integer> {
         // Generate current events
         ResolvedSpec resolved = resolver.resolve(calendarId);
         List<Event> generatedEvents = generator.generate(resolved, rangeStart, rangeEnd);
+
+        // For new calendars with no blessed baseline, classify as MINOR —
+        // no existing consumers means no breaking changes
+        if (blessedEvents.isEmpty()
+            && !Files.exists(blessedDir.resolve(calendarId).resolve("events.csv"))) {
+          List<EventDiff> additions =
+              generatedEvents.stream()
+                  .map(e -> EventDiff.added(e.date(), e.type(), e.description()))
+                  .toList();
+          CalendarDiff diff =
+              new CalendarDiff(
+                  calendarId,
+                  DiffSeverity.MINOR,
+                  additions,
+                  List.of(),
+                  List.of(),
+                  cutoffDate,
+                  rangeStart,
+                  rangeEnd);
+          diffs.put(calendarId, diff);
+          continue;
+        }
 
         // Compare - use the comparison range for severity classification
         // (blessed range is now effectively the comparison range after filtering)

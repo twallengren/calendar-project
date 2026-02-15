@@ -174,9 +174,8 @@ class CsvEmitterTest {
 
     String content = Files.readString(outputPath);
     assertTrue(content.contains("date,umm_al_qura_date,type,description"));
-    // 2025-01-01 is Jumada al-Thani 30, 1446 (1446-06-30)
-    assertTrue(
-        content.contains("2025-01-01,1446-07-01,") || content.contains("2025-01-01,1446-06-30,"));
+    // 2025-01-01 is Rajab 1, 1446 (verified against java.time.chrono.HijrahChronology)
+    assertTrue(content.contains("2025-01-01,1446-07-01,"));
   }
 
   @Test
@@ -187,5 +186,16 @@ class CsvEmitterTest {
     String result = emitter.emitToString(events, null);
 
     assertTrue(result.startsWith("date,type,description\n"));
+  }
+
+  @Test
+  void emitToString_withOutputChronology_outOfRange_emitsEmptyAltDate() {
+    // 1900-01-01 is outside Umm al-Qura range (AH 1356-1500 / ~1937-2076 CE)
+    List<Event> events =
+        List.of(new Event(LocalDate.of(1900, 1, 1), EventType.CLOSED, "Old Event", "test"));
+
+    String result = emitter.emitToString(events, "UMM_AL_QURA");
+
+    assertTrue(result.contains("1900-01-01,,CLOSED,Old Event"));
   }
 }

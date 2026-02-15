@@ -59,16 +59,18 @@ public class CsvEmitter {
 
   private String formatRow(Event event, String outputChronology) {
     if (outputChronology != null) {
-      ChronologyDate altDate =
-          ChronologyRegistry.getInstance().fromIsoDate(event.date(), outputChronology);
+      String altDateStr;
+      try {
+        ChronologyDate altDate =
+            ChronologyRegistry.getInstance().fromIsoDate(event.date(), outputChronology);
+        altDateStr =
+            String.format("%04d-%02d-%02d", altDate.year(), altDate.month(), altDate.day());
+      } catch (IllegalArgumentException e) {
+        altDateStr = "";
+      }
       return String.format(
-          "%s,%04d-%02d-%02d,%s,%s",
-          event.date().toString(),
-          altDate.year(),
-          altDate.month(),
-          altDate.day(),
-          event.type().name(),
-          escapeCsv(event.description()));
+          "%s,%s,%s,%s",
+          event.date().toString(), altDateStr, event.type().name(), escapeCsv(event.description()));
     }
     return String.format(
         "%s,%s,%s", event.date().toString(), event.type().name(), escapeCsv(event.description()));

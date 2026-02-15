@@ -42,10 +42,22 @@ public class LookupTableAlgorithm implements ChronologyAlgorithm {
     this.monthJdn = new long[yearCount * 12];
     this.monthLen = new int[yearCount * 12];
 
+    boolean[] populated = new boolean[yearCount * 12];
     for (ChronologySpec.MonthEntry entry : months) {
       int idx = idx(entry.year(), entry.month());
       monthJdn[idx] = entry.jdn();
       monthLen[idx] = entry.length();
+      populated[idx] = true;
+    }
+
+    // Validate that every year-month slot has data
+    for (int y = minYear; y <= maxYear; y++) {
+      for (int m = 1; m <= 12; m++) {
+        if (!populated[idx(y, m)]) {
+          throw new IllegalArgumentException(
+              "Missing month entry for " + spec.id() + " year " + y + " month " + m);
+        }
+      }
     }
   }
 
