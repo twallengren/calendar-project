@@ -1,7 +1,7 @@
 {
   "calendar_id" : "US-NYSE",
   "calendar_name" : "NYSE Trading Calendar",
-  "generated_at" : "2026-02-15T14:42:08.246026765Z",
+  "generated_at" : "2026-02-07T03:30:56.972693461Z",
   "range_start" : "1900-01-01",
   "range_end" : "2030-12-31",
   "event_count" : 15394,
@@ -12,7 +12,7 @@
     "EARLY_CLOSE" : 225
   },
   "source_version" : {
-    "semantic" : "10.1.0",
-    "git_sha" : "98bac4f099b9c6cffe09776b3ecade5af1e8b115"
+    "semantic" : "10.0.0",
+    "git_sha" : "27b9cf4d1c9e294c4265ac6b9ac8cb4f9ed22664"
   }
 }

@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "blessed_at": "2026-02-07T03:30:57Z",
+  "blessed_at": "2026-02-15T14:42:08Z",
   "blessed_by": "github-actions",
   "calendars": {
     "US-MARKET-BASE": {
@@ -24,13 +24,13 @@
     "SA-TADAWUL": {
       "range_start": "2020-01-01",
       "range_end": "2030-12-31",
-      "event_count": 0,
-      "checksum": ""
+      "event_count": 1240,
+      "checksum": "sha256:37e029abe472297494b07d2949c7d4264b355bbb5331de8382956eb91bb8aa41"
     }
   },
   "release_version": {
-    "semantic": "10.0.0",
-    "git_sha": "27b9cf4d1c9e294c4265ac6b9ac8cb4f9ed22664",
-    "generation_date": "2026-02-07"
+    "semantic": "10.1.0",
+    "git_sha": "98bac4f099b9c6cffe09776b3ecade5af1e8b115",
+    "generation_date": "2026-02-15"
   }
 }

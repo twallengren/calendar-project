@@ -1,0 +1,17 @@
+{
+  "calendar_id" : "SA-TADAWUL",
+  "calendar_name" : "Tadawul (Saudi Exchange) Trading Calendar",
+  "generated_at" : "2026-02-15T14:42:05.951526958Z",
+  "range_start" : "2020-01-01",
+  "range_end" : "2030-12-31",
+  "event_count" : 1240,
+  "resolution_chain" : [ "module:weekend_fri_sat", "module:saudi_founding_day", "module:saudi_national_day", "module:eid_al_fitr", "module:eid_al_adha", "module:tadawul_holidays", "calendar:SA-TADAWUL" ],
+  "counts_by_type" : {
+    "WEEKEND" : 1110,
+    "CLOSED" : 130
+  },
+  "source_version" : {
+    "semantic" : "10.1.0",
+    "git_sha" : "98bac4f099b9c6cffe09776b3ecade5af1e8b115"
+  }
+}
