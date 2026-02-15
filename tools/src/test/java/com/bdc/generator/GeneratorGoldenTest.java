@@ -107,32 +107,32 @@ class GeneratorGoldenTest {
         generator.generate(spec, LocalDate.of(2025, 1, 1), LocalDate.of(2025, 12, 31));
     List<Event> nonWeekendEvents = events.stream().filter(NON_WEEKEND).toList();
 
-    // SA-TADAWUL should have 12 non-weekend events in 2025:
-    // Saudi Founding Day (1), Eid al-Fitr (6), Eid al-Adha (4), Saudi National Day (1)
-    assertEquals(12, nonWeekendEvents.size());
+    // SA-TADAWUL should have 14 non-weekend (by EventType) events in 2025:
+    // Saudi Founding Day (1), Eid al-Fitr (6), Eid al-Adha (6), Saudi National Day (1)
+    assertEquals(14, nonWeekendEvents.size());
 
-    // Saudi Founding Day (Feb 22)
+    // Saudi Founding Day (Feb 22 is Saturday; observed Feb 23)
     assertTrue(
         nonWeekendEvents.stream()
             .anyMatch(
                 e ->
-                    e.date().equals(LocalDate.of(2025, 2, 22))
+                    e.date().equals(LocalDate.of(2025, 2, 23))
                         && e.description().equals("Saudi Founding Day")));
 
-    // Eid al-Fitr starts on Mar 30 (Shawwal 1, 1446)
+    // Eid al-Fitr: Mar 28 - Apr 2 (from Saudi Exchange announcement)
     assertTrue(
         nonWeekendEvents.stream()
             .anyMatch(
                 e ->
-                    e.date().equals(LocalDate.of(2025, 3, 30))
+                    e.date().equals(LocalDate.of(2025, 3, 28))
                         && e.description().equals("Eid al-Fitr")));
 
-    // Eid al-Adha starts on Jun 6 (Dhul Hijjah 10, 1446)
+    // Eid al-Adha: Jun 5 - Jun 10 (from Saudi Exchange announcement)
     assertTrue(
         nonWeekendEvents.stream()
             .anyMatch(
                 e ->
-                    e.date().equals(LocalDate.of(2025, 6, 6))
+                    e.date().equals(LocalDate.of(2025, 6, 5))
                         && e.description().equals("Eid al-Adha")));
 
     // Saudi National Day (Sep 23)
