@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "blessed_at": "2026-02-15T14:42:08Z",
+  "blessed_at": "2026-02-16T21:43:21Z",
   "blessed_by": "github-actions",
   "calendars": {
     "US-MARKET-BASE": {
@@ -13,7 +13,7 @@
       "range_start": "1900-01-01",
       "range_end": "2030-12-31",
       "event_count": 15394,
-      "checksum": "sha256:f968871803998116c9098ed1822c849ac9ac89c0fda4cff9faa2452dfb3582b6"
+      "checksum": "sha256:250f4f74b9ca8af8f11f0f8287a141497ce3489b48c35cf6eccb71dcf2a625e6"
     },
     "US-CORP-IN-VISIBILITY": {
       "range_start": "1900-01-01",
@@ -24,13 +24,13 @@
     "SA-TADAWUL": {
       "range_start": "2020-01-01",
       "range_end": "2030-12-31",
-      "event_count": 1240,
-      "checksum": "sha256:37e029abe472297494b07d2949c7d4264b355bbb5331de8382956eb91bb8aa41"
+      "event_count": 1255,
+      "checksum": "sha256:760aa7c94acd65266d3caf48774c95cad8528ce575c5cfb5b672931206552ab4"
     }
   },
   "release_version": {
-    "semantic": "10.1.0",
-    "git_sha": "98bac4f099b9c6cffe09776b3ecade5af1e8b115",
-    "generation_date": "2026-02-15"
+    "semantic": "11.0.0",
+    "git_sha": "3765bcb10d3ebcb7cfc338bcebf94505af25ec1e",
+    "generation_date": "2026-02-16"
   }
 }

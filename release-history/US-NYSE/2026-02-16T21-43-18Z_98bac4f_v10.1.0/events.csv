@@ -124,7 +124,7 @@ date,type,description
 1901-01-20,WEEKEND,Sunday
 1901-01-26,WEEKEND,Saturday
 1901-01-27,WEEKEND,Sunday
-1901-02-02,CLOSED,Special Event (Funeral of Queen Victoria)
+1901-02-02,WEEKEND,Saturday
 1901-02-03,WEEKEND,Sunday
 1901-02-09,WEEKEND,Saturday
 1901-02-10,WEEKEND,Sunday
@@ -151,11 +151,11 @@ date,type,description
 1901-04-14,WEEKEND,Sunday
 1901-04-20,WEEKEND,Saturday
 1901-04-21,WEEKEND,Sunday
-1901-04-27,CLOSED,Special Event (Move to Temporary Quarters)
+1901-04-27,WEEKEND,Saturday
 1901-04-28,WEEKEND,Sunday
 1901-05-04,WEEKEND,Saturday
 1901-05-05,WEEKEND,Sunday
-1901-05-11,CLOSED,Special Event (Enlargement of Temporary Quarters)
+1901-05-11,WEEKEND,Saturday
 1901-05-12,WEEKEND,Sunday
 1901-05-18,WEEKEND,Saturday
 1901-05-19,WEEKEND,Sunday
@@ -195,7 +195,7 @@ date,type,description
 1901-09-02,CLOSED,Labor Day
 1901-09-07,WEEKEND,Saturday
 1901-09-08,WEEKEND,Sunday
-1901-09-14,CLOSED,Presidential Funeral (William McKinley (assassination))
+1901-09-14,WEEKEND,Saturday
 1901-09-15,WEEKEND,Sunday
 1901-09-19,CLOSED,Presidential Funeral (William McKinley)
 1901-09-21,WEEKEND,Saturday
@@ -301,7 +301,7 @@ date,type,description
 1902-07-27,WEEKEND,Sunday
 1902-08-02,WEEKEND,Saturday
 1902-08-03,WEEKEND,Sunday
-1902-08-09,CLOSED,Special Event (Coronation of King Edward VII)
+1902-08-09,WEEKEND,Saturday
 1902-08-10,WEEKEND,Sunday
 1902-08-16,WEEKEND,Saturday
 1902-08-17,WEEKEND,Sunday
@@ -1129,7 +1129,7 @@ date,type,description
 1909-09-12,WEEKEND,Sunday
 1909-09-18,WEEKEND,Saturday
 1909-09-19,WEEKEND,Sunday
-1909-09-25,CLOSED,Special Event (Hudson-Fulton Celebration)
+1909-09-25,WEEKEND,Saturday
 1909-09-26,WEEKEND,Sunday
 1909-10-02,WEEKEND,Saturday
 1909-10-03,WEEKEND,Sunday
@@ -1491,7 +1491,7 @@ date,type,description
 1912-10-20,WEEKEND,Sunday
 1912-10-26,WEEKEND,Saturday
 1912-10-27,WEEKEND,Sunday
-1912-11-02,CLOSED,Presidential Funeral (Vice President James Sherman)
+1912-11-02,WEEKEND,Saturday
 1912-11-03,WEEKEND,Sunday
 1912-11-05,CLOSED,Election Day
 1912-11-09,WEEKEND,Saturday
@@ -1698,42 +1698,42 @@ date,type,description
 1914-07-25,WEEKEND,Saturday
 1914-07-26,WEEKEND,Sunday
 1914-07-31,CLOSED,World War I Closure
-1914-08-01,CLOSED,World War I Closure
+1914-08-01,WEEKEND,Saturday
 1914-08-02,WEEKEND,Sunday
 1914-08-03,CLOSED,World War I Closure
 1914-08-04,CLOSED,World War I Closure
 1914-08-05,CLOSED,World War I Closure
 1914-08-06,CLOSED,World War I Closure
 1914-08-07,CLOSED,World War I Closure
-1914-08-08,CLOSED,World War I Closure
+1914-08-08,WEEKEND,Saturday
 1914-08-09,WEEKEND,Sunday
 1914-08-10,CLOSED,World War I Closure
 1914-08-11,CLOSED,World War I Closure
 1914-08-12,CLOSED,World War I Closure
 1914-08-13,CLOSED,World War I Closure
 1914-08-14,CLOSED,World War I Closure
-1914-08-15,CLOSED,World War I Closure
+1914-08-15,WEEKEND,Saturday
 1914-08-16,WEEKEND,Sunday
 1914-08-17,CLOSED,World War I Closure
 1914-08-18,CLOSED,World War I Closure
 1914-08-19,CLOSED,World War I Closure
 1914-08-20,CLOSED,World War I Closure
 1914-08-21,CLOSED,World War I Closure
-1914-08-22,CLOSED,World War I Closure
+1914-08-22,WEEKEND,Saturday
 1914-08-23,WEEKEND,Sunday
 1914-08-24,CLOSED,World War I Closure
 1914-08-25,CLOSED,World War I Closure
 1914-08-26,CLOSED,World War I Closure
 1914-08-27,CLOSED,World War I Closure
 1914-08-28,CLOSED,World War I Closure
-1914-08-29,CLOSED,World War I Closure
+1914-08-29,WEEKEND,Saturday
 1914-08-30,WEEKEND,Sunday
 1914-08-31,CLOSED,World War I Closure
 1914-09-01,CLOSED,World War I Closure
 1914-09-02,CLOSED,World War I Closure
 1914-09-03,CLOSED,World War I Closure
 1914-09-04,CLOSED,World War I Closure
-1914-09-05,CLOSED,World War I Closure
+1914-09-05,WEEKEND,Saturday
 1914-09-06,WEEKEND,Sunday
 1914-09-07,CLOSED,Labor Day
 1914-09-07,CLOSED,World War I Closure
@@ -1741,76 +1741,76 @@ date,type,description
 1914-09-09,CLOSED,World War I Closure
 1914-09-10,CLOSED,World War I Closure
 1914-09-11,CLOSED,World War I Closure
-1914-09-12,CLOSED,World War I Closure
+1914-09-12,WEEKEND,Saturday
 1914-09-13,WEEKEND,Sunday
 1914-09-14,CLOSED,World War I Closure
 1914-09-15,CLOSED,World War I Closure
 1914-09-16,CLOSED,World War I Closure
 1914-09-17,CLOSED,World War I Closure
 1914-09-18,CLOSED,World War I Closure
-1914-09-19,CLOSED,World War I Closure
+1914-09-19,WEEKEND,Saturday
 1914-09-20,WEEKEND,Sunday
 1914-09-21,CLOSED,World War I Closure
 1914-09-22,CLOSED,World War I Closure
 1914-09-23,CLOSED,World War I Closure
 1914-09-24,CLOSED,World War I Closure
 1914-09-25,CLOSED,World War I Closure
-1914-09-26,CLOSED,World War I Closure
+1914-09-26,WEEKEND,Saturday
 1914-09-27,WEEKEND,Sunday
 1914-09-28,CLOSED,World War I Closure
 1914-09-29,CLOSED,World War I Closure
 1914-09-30,CLOSED,World War I Closure
 1914-10-01,CLOSED,World War I Closure
 1914-10-02,CLOSED,World War I Closure
-1914-10-03,CLOSED,World War I Closure
+1914-10-03,WEEKEND,Saturday
 1914-10-04,WEEKEND,Sunday
 1914-10-05,CLOSED,World War I Closure
 1914-10-06,CLOSED,World War I Closure
 1914-10-07,CLOSED,World War I Closure
 1914-10-08,CLOSED,World War I Closure
 1914-10-09,CLOSED,World War I Closure
-1914-10-10,CLOSED,World War I Closure
+1914-10-10,WEEKEND,Saturday
 1914-10-11,WEEKEND,Sunday
 1914-10-12,CLOSED,Columbus Day
 1914-10-13,CLOSED,World War I Closure
 1914-10-14,CLOSED,World War I Closure
 1914-10-15,CLOSED,World War I Closure
 1914-10-16,CLOSED,World War I Closure
-1914-10-17,CLOSED,World War I Closure
+1914-10-17,WEEKEND,Saturday
 1914-10-18,WEEKEND,Sunday
 1914-10-19,CLOSED,World War I Closure
 1914-10-20,CLOSED,World War I Closure
 1914-10-21,CLOSED,World War I Closure
 1914-10-22,CLOSED,World War I Closure
 1914-10-23,CLOSED,World War I Closure
-1914-10-24,CLOSED,World War I Closure
+1914-10-24,WEEKEND,Saturday
 1914-10-25,WEEKEND,Sunday
 1914-10-26,CLOSED,World War I Closure
 1914-10-27,CLOSED,World War I Closure
 1914-10-28,CLOSED,World War I Closure
 1914-10-29,CLOSED,World War I Closure
 1914-10-30,CLOSED,World War I Closure
-1914-10-31,CLOSED,World War I Closure
+1914-10-31,WEEKEND,Saturday
 1914-11-01,WEEKEND,Sunday
 1914-11-02,CLOSED,World War I Closure
 1914-11-03,CLOSED,Election Day
 1914-11-04,CLOSED,World War I Closure
 1914-11-05,CLOSED,World War I Closure
 1914-11-06,CLOSED,World War I Closure
-1914-11-07,CLOSED,World War I Closure
+1914-11-07,WEEKEND,Saturday
 1914-11-08,WEEKEND,Sunday
 1914-11-09,CLOSED,World War I Closure
 1914-11-10,CLOSED,World War I Closure
 1914-11-12,CLOSED,World War I Closure
 1914-11-13,CLOSED,World War I Closure
-1914-11-14,CLOSED,World War I Closure
+1914-11-14,WEEKEND,Saturday
 1914-11-15,WEEKEND,Sunday
 1914-11-16,CLOSED,World War I Closure
 1914-11-17,CLOSED,World War I Closure
 1914-11-18,CLOSED,World War I Closure
 1914-11-19,CLOSED,World War I Closure
 1914-11-20,CLOSED,World War I Closure
-1914-11-21,CLOSED,World War I Closure
+1914-11-21,WEEKEND,Saturday
 1914-11-22,WEEKEND,Sunday
 1914-11-23,CLOSED,World War I Closure
 1914-11-24,CLOSED,World War I Closure
@@ -1818,14 +1818,14 @@ date,type,description
 1914-11-26,CLOSED,Thanksgiving Day
 1914-11-27,CLOSED,World War I Closure
 1914-11-27,EARLY_CLOSE,Day After Thanksgiving (Early Close)
-1914-11-28,CLOSED,World War I Closure
+1914-11-28,WEEKEND,Saturday
 1914-11-29,WEEKEND,Sunday
 1914-11-30,CLOSED,World War I Closure
 1914-12-01,CLOSED,World War I Closure
 1914-12-02,CLOSED,World War I Closure
 1914-12-03,CLOSED,World War I Closure
 1914-12-04,CLOSED,World War I Closure
-1914-12-05,CLOSED,World War I Closure
+1914-12-05,WEEKEND,Saturday
 1914-12-06,WEEKEND,Sunday
 1914-12-07,CLOSED,World War I Closure
 1914-12-08,CLOSED,World War I Closure
@@ -2144,7 +2144,7 @@ date,type,description
 1917-07-22,WEEKEND,Sunday
 1917-07-28,WEEKEND,Saturday
 1917-07-29,WEEKEND,Sunday
-1917-08-04,CLOSED,Weather Event (Heat Wave)
+1917-08-04,WEEKEND,Saturday
 1917-08-05,WEEKEND,Sunday
 1917-08-11,WEEKEND,Saturday
 1917-08-12,WEEKEND,Sunday
@@ -2478,7 +2478,7 @@ date,type,description
 1920-04-18,WEEKEND,Sunday
 1920-04-24,WEEKEND,Saturday
 1920-04-25,WEEKEND,Sunday
-1920-05-01,CLOSED,Special Event (Relocation of Brokerage Offices)
+1920-05-01,WEEKEND,Saturday
 1920-05-02,WEEKEND,Sunday
 1920-05-08,WEEKEND,Saturday
 1920-05-09,WEEKEND,Sunday
@@ -3993,7 +3993,7 @@ date,type,description
 1932-12-31,WEEKEND,Saturday
 1933-01-01,WEEKEND,Sunday
 1933-01-02,CLOSED,New Year's Day
-1933-01-07,CLOSED,Presidential Funeral (Calvin Coolidge)
+1933-01-07,WEEKEND,Saturday
 1933-01-08,WEEKEND,Sunday
 1933-01-14,WEEKEND,Saturday
 1933-01-15,WEEKEND,Sunday
@@ -4011,14 +4011,14 @@ date,type,description
 1933-02-22,CLOSED,Washington's Birthday
 1933-02-25,WEEKEND,Saturday
 1933-02-26,WEEKEND,Sunday
-1933-03-04,CLOSED,Banking Holiday (State Banking Holiday)
+1933-03-04,WEEKEND,Saturday
 1933-03-05,WEEKEND,Sunday
 1933-03-06,CLOSED,Banking Holiday (National Banking Holiday)
 1933-03-07,CLOSED,Banking Holiday (National Banking Holiday)
 1933-03-08,CLOSED,Banking Holiday (National Banking Holiday)
 1933-03-09,CLOSED,Banking Holiday (National Banking Holiday)
 1933-03-10,CLOSED,Banking Holiday (National Banking Holiday)
-1933-03-11,CLOSED,Banking Holiday (National Banking Holiday)
+1933-03-11,WEEKEND,Saturday
 1933-03-12,WEEKEND,Sunday
 1933-03-13,CLOSED,Banking Holiday (National Banking Holiday)
 1933-03-14,CLOSED,Banking Holiday (National Banking Holiday)
@@ -5459,7 +5459,7 @@ date,type,description
 1945-04-01,WEEKEND,Sunday
 1945-04-07,WEEKEND,Saturday
 1945-04-08,WEEKEND,Sunday
-1945-04-14,CLOSED,Presidential Funeral (Franklin D. Roosevelt)
+1945-04-14,WEEKEND,Saturday
 1945-04-15,WEEKEND,Sunday
 1945-04-21,WEEKEND,Saturday
 1945-04-22,WEEKEND,Sunday
@@ -5522,7 +5522,7 @@ date,type,description
 1945-10-14,WEEKEND,Sunday
 1945-10-20,WEEKEND,Saturday
 1945-10-21,WEEKEND,Sunday
-1945-10-27,CLOSED,Special Event (Navy Day)
+1945-10-27,WEEKEND,Saturday
 1945-10-28,WEEKEND,Sunday
 1945-11-03,WEEKEND,Saturday
 1945-11-04,WEEKEND,Sunday
@@ -5592,7 +5592,7 @@ date,type,description
 1946-05-12,WEEKEND,Sunday
 1946-05-18,WEEKEND,Saturday
 1946-05-19,WEEKEND,Sunday
-1946-05-25,CLOSED,Special Event (Railroad Strike)
+1946-05-25,WEEKEND,Saturday
 1946-05-26,WEEKEND,Sunday
 1946-05-30,CLOSED,Decoration Day
 1946-06-01,WEEKEND,Saturday
@@ -5787,7 +5787,7 @@ date,type,description
 1947-12-27,WEEKEND,Saturday
 1947-12-28,WEEKEND,Sunday
 1948-01-01,CLOSED,New Year's Day
-1948-01-03,CLOSED,Weather Event (Heavy Snow)
+1948-01-03,WEEKEND,Saturday
 1948-01-04,WEEKEND,Sunday
 1948-01-10,WEEKEND,Saturday
 1948-01-11,WEEKEND,Sunday

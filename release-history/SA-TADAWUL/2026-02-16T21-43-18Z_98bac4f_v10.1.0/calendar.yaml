@@ -12,4 +12,4 @@ classifications: {}
 deltas: []
 extends: []
 event_sources: []
-weekend_shift_policy: NEAREST_WEEKDAY
+weekend_shift_policy: NONE

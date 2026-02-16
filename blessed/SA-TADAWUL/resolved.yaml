@@ -35,81 +35,213 @@ event_sources:
     type: fixed_month_day
     month: 9
     day: 23
-- key: eid_al_fitr_1
+- key: eid_al_fitr_historical
   name: Eid al-Fitr
   classification: CLOSED
+  rule:
+    type: explicit_dates
+    dates:
+    - 2020-05-22
+    - 2020-05-23
+    - 2020-05-24
+    - 2020-05-25
+    - 2020-05-26
+    - 2020-05-27
+    - 2020-05-28
+    - 2020-05-29
+    - 2020-05-30
+    - 2021-05-13
+    - 2021-05-14
+    - 2021-05-15
+    - 2021-05-16
+    - 2022-04-28
+    - 2022-04-29
+    - 2022-04-30
+    - 2022-05-01
+    - 2022-05-02
+    - 2022-05-03
+    - 2022-05-04
+    - 2022-05-05
+    - 2022-05-06
+    - 2022-05-07
+    - 2022-05-08
+    - 2023-04-18
+    - 2023-04-19
+    - 2023-04-20
+    - 2023-04-21
+    - 2023-04-22
+    - 2023-04-23
+    - 2023-04-24
+    - 2024-04-05
+    - 2024-04-06
+    - 2024-04-07
+    - 2024-04-08
+    - 2024-04-09
+    - 2024-04-10
+    - 2024-04-11
+    - 2024-04-12
+    - 2024-04-13
+    - 2025-03-28
+    - 2025-03-29
+    - 2025-03-30
+    - 2025-03-31
+    - 2025-04-01
+    - 2025-04-02
+    - 2026-03-17
+    - 2026-03-18
+    - 2026-03-19
+    - 2026-03-20
+    - 2026-03-21
+    - 2026-03-22
+    - 2026-03-23
+- key: eid_al_fitr_projected_1
+  name: Eid al-Fitr
+  classification: CLOSED
+  active_years:
+  - - 2027
+    - null
   rule:
     type: fixed_month_day
     month: 10
     day: 1
     chronology: UMM_AL_QURA
-- key: eid_al_fitr_2
+- key: eid_al_fitr_projected_2
   name: Eid al-Fitr
   classification: CLOSED
+  active_years:
+  - - 2027
+    - null
   rule:
     type: fixed_month_day
     month: 10
     day: 2
     chronology: UMM_AL_QURA
-- key: eid_al_fitr_3
+- key: eid_al_fitr_projected_3
   name: Eid al-Fitr
   classification: CLOSED
+  active_years:
+  - - 2027
+    - null
   rule:
     type: fixed_month_day
     month: 10
     day: 3
     chronology: UMM_AL_QURA
-- key: eid_al_fitr_4
+- key: eid_al_fitr_projected_4
   name: Eid al-Fitr
   classification: CLOSED
+  active_years:
+  - - 2027
+    - null
   rule:
     type: fixed_month_day
     month: 10
     day: 4
     chronology: UMM_AL_QURA
-- key: eid_al_fitr_5
-  name: Eid al-Fitr
-  classification: CLOSED
-  rule:
-    type: fixed_month_day
-    month: 10
-    day: 5
-    chronology: UMM_AL_QURA
-- key: eid_al_fitr_6
-  name: Eid al-Fitr
-  classification: CLOSED
-  rule:
-    type: fixed_month_day
-    month: 10
-    day: 6
-    chronology: UMM_AL_QURA
-- key: eid_al_adha_1
+- key: eid_al_adha_historical
   name: Eid al-Adha
   classification: CLOSED
+  rule:
+    type: explicit_dates
+    dates:
+    - 2021-07-16
+    - 2021-07-17
+    - 2021-07-18
+    - 2021-07-19
+    - 2021-07-20
+    - 2021-07-21
+    - 2021-07-22
+    - 2021-07-23
+    - 2021-07-24
+    - 2022-07-07
+    - 2022-07-08
+    - 2022-07-09
+    - 2022-07-10
+    - 2022-07-11
+    - 2022-07-12
+    - 2023-06-23
+    - 2023-06-24
+    - 2023-06-25
+    - 2023-06-26
+    - 2023-06-27
+    - 2023-06-28
+    - 2023-06-29
+    - 2023-06-30
+    - 2023-07-01
+    - 2024-06-14
+    - 2024-06-15
+    - 2024-06-16
+    - 2024-06-17
+    - 2024-06-18
+    - 2024-06-19
+    - 2024-06-20
+    - 2024-06-21
+    - 2024-06-22
+    - 2025-06-05
+    - 2025-06-06
+    - 2025-06-07
+    - 2025-06-08
+    - 2025-06-09
+    - 2025-06-10
+    - 2026-05-22
+    - 2026-05-23
+    - 2026-05-24
+    - 2026-05-25
+    - 2026-05-26
+    - 2026-05-27
+    - 2026-05-28
+    - 2026-05-29
+    - 2026-05-30
+- key: arafat_day_projected
+  name: Arafat Day
+  classification: CLOSED
+  active_years:
+  - - 2027
+    - null
+  rule:
+    type: fixed_month_day
+    month: 12
+    day: 9
+    chronology: UMM_AL_QURA
+- key: eid_al_adha_projected_1
+  name: Eid al-Adha
+  classification: CLOSED
+  active_years:
+  - - 2027
+    - null
   rule:
     type: fixed_month_day
     month: 12
     day: 10
     chronology: UMM_AL_QURA
-- key: eid_al_adha_2
+- key: eid_al_adha_projected_2
   name: Eid al-Adha
   classification: CLOSED
+  active_years:
+  - - 2027
+    - null
   rule:
     type: fixed_month_day
     month: 12
     day: 11
     chronology: UMM_AL_QURA
-- key: eid_al_adha_3
+- key: eid_al_adha_projected_3
   name: Eid al-Adha
   classification: CLOSED
+  active_years:
+  - - 2027
+    - null
   rule:
     type: fixed_month_day
     month: 12
     day: 12
     chronology: UMM_AL_QURA
-- key: eid_al_adha_4
+- key: eid_al_adha_projected_4
   name: Eid al-Adha
   classification: CLOSED
+  active_years:
+  - - 2027
+    - null
   rule:
     type: fixed_month_day
     month: 12
