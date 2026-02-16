@@ -1,12 +1,15 @@
 kind: module
 id: saudi_founding_day
 
-# Saudi Founding Day, established by Royal Decree in 2022
-# Source: https://www.my.gov.sa/wps/portal/snp/aboutksa/foundingDay
+# Saudi Founding Day (February 22), established by Royal Decree in 2022.
+# When Feb 22 falls on a weekend (Fri/Sat), the exchange observes it on the
+# nearest working day via the calendar's NEAREST_WEEKDAY shift policy.
+# Source: Saudi Exchange holiday calendar
 event_sources:
   - key: saudi_founding_day
     name: Saudi Founding Day
     default_classification: CLOSED
+    shiftable: true
     active_years:
       - [2022, null]
     rule:

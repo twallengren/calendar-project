@@ -1,73 +1,131 @@
 kind: module
 id: eid_al_fitr
 
-# Eid al-Fitr holiday (Shawwal 1-6 in Umm al-Qura calendar)
-# The Saudi Exchange typically closes for 6 days around Eid al-Fitr.
-# Dates are defined in the Umm al-Qura chronology and are not shifted for weekends.
+# Eid al-Fitr holiday for the Saudi Exchange (Tadawul).
+# Historical closure dates are sourced from official Saudi Exchange announcements.
+# Future dates use Shawwal 1-4 (Umm al-Qura) as a projection.
+# Source: Saudi Exchange holiday calendar
 event_sources:
-  - key: eid_al_fitr_1
+  # Historical closures (explicit dates from Saudi Exchange announcements)
+  - key: eid_al_fitr_historical
     name: Eid al-Fitr
     default_classification: CLOSED
     shiftable: false
     rule:
+      type: explicit_dates
+      key: eid_al_fitr_historical
+      name: Eid al-Fitr
+      dates:
+        # 2020: close after May 21, resume May 31
+        - {date: "2020-05-22"}
+        - {date: "2020-05-23"}
+        - {date: "2020-05-24"}
+        - {date: "2020-05-25"}
+        - {date: "2020-05-26"}
+        - {date: "2020-05-27"}
+        - {date: "2020-05-28"}
+        - {date: "2020-05-29"}
+        - {date: "2020-05-30"}
+        # 2021: first day May 13, last day May 16
+        - {date: "2021-05-13"}
+        - {date: "2021-05-14"}
+        - {date: "2021-05-15"}
+        - {date: "2021-05-16"}
+        # 2022: first day Apr 28, last day May 8
+        - {date: "2022-04-28"}
+        - {date: "2022-04-29"}
+        - {date: "2022-04-30"}
+        - {date: "2022-05-01"}
+        - {date: "2022-05-02"}
+        - {date: "2022-05-03"}
+        - {date: "2022-05-04"}
+        - {date: "2022-05-05"}
+        - {date: "2022-05-06"}
+        - {date: "2022-05-07"}
+        - {date: "2022-05-08"}
+        # 2023: close after Apr 17, resume Apr 25
+        - {date: "2023-04-18"}
+        - {date: "2023-04-19"}
+        - {date: "2023-04-20"}
+        - {date: "2023-04-21"}
+        - {date: "2023-04-22"}
+        - {date: "2023-04-23"}
+        - {date: "2023-04-24"}
+        # 2024: close after Apr 4, resume Apr 14
+        - {date: "2024-04-05"}
+        - {date: "2024-04-06"}
+        - {date: "2024-04-07"}
+        - {date: "2024-04-08"}
+        - {date: "2024-04-09"}
+        - {date: "2024-04-10"}
+        - {date: "2024-04-11"}
+        - {date: "2024-04-12"}
+        - {date: "2024-04-13"}
+        # 2025: close after Mar 27, resume Apr 3
+        - {date: "2025-03-28"}
+        - {date: "2025-03-29"}
+        - {date: "2025-03-30"}
+        - {date: "2025-03-31"}
+        - {date: "2025-04-01"}
+        - {date: "2025-04-02"}
+        # 2026: close after Mar 16, resume Mar 24
+        - {date: "2026-03-17"}
+        - {date: "2026-03-18"}
+        - {date: "2026-03-19"}
+        - {date: "2026-03-20"}
+        - {date: "2026-03-21"}
+        - {date: "2026-03-22"}
+        - {date: "2026-03-23"}
+  # Future projected closures (Shawwal 1-4, Umm al-Qura)
+  - key: eid_al_fitr_projected_1
+    name: Eid al-Fitr
+    default_classification: CLOSED
+    shiftable: false
+    active_years:
+      - [2027, null]
+    rule:
       type: fixed_month_day
-      key: eid_al_fitr_1
+      key: eid_al_fitr_projected_1
       name: Eid al-Fitr
       month: 10
       day: 1
       chronology: UMM_AL_QURA
-  - key: eid_al_fitr_2
+  - key: eid_al_fitr_projected_2
     name: Eid al-Fitr
     default_classification: CLOSED
     shiftable: false
+    active_years:
+      - [2027, null]
     rule:
       type: fixed_month_day
-      key: eid_al_fitr_2
+      key: eid_al_fitr_projected_2
       name: Eid al-Fitr
       month: 10
       day: 2
       chronology: UMM_AL_QURA
-  - key: eid_al_fitr_3
+  - key: eid_al_fitr_projected_3
     name: Eid al-Fitr
     default_classification: CLOSED
     shiftable: false
+    active_years:
+      - [2027, null]
     rule:
       type: fixed_month_day
-      key: eid_al_fitr_3
+      key: eid_al_fitr_projected_3
       name: Eid al-Fitr
       month: 10
       day: 3
       chronology: UMM_AL_QURA
-  - key: eid_al_fitr_4
+  - key: eid_al_fitr_projected_4
     name: Eid al-Fitr
     default_classification: CLOSED
     shiftable: false
+    active_years:
+      - [2027, null]
     rule:
       type: fixed_month_day
-      key: eid_al_fitr_4
+      key: eid_al_fitr_projected_4
       name: Eid al-Fitr
       month: 10
       day: 4
-      chronology: UMM_AL_QURA
-  - key: eid_al_fitr_5
-    name: Eid al-Fitr
-    default_classification: CLOSED
-    shiftable: false
-    rule:
-      type: fixed_month_day
-      key: eid_al_fitr_5
-      name: Eid al-Fitr
-      month: 10
-      day: 5
-      chronology: UMM_AL_QURA
-  - key: eid_al_fitr_6
-    name: Eid al-Fitr
-    default_classification: CLOSED
-    shiftable: false
-    rule:
-      type: fixed_month_day
-      key: eid_al_fitr_6
-      name: Eid al-Fitr
-      month: 10
-      day: 6
       chronology: UMM_AL_QURA
