@@ -3,38 +3,16 @@ id: saudi_national_day
 
 # Saudi National Day (September 23).
 # When Sep 23 falls on a weekend (Fri/Sat), the exchange observes it on the
-# nearest working day.  Historical dates are from official Saudi Exchange
-# announcements; future dates use the statutory Sep 23 as a projection.
+# nearest working day via the calendar's NEAREST_WEEKDAY shift policy.
 # Source: Saudi Exchange holiday calendar
 event_sources:
-  # Historical observed dates from Saudi Exchange announcements
-  - key: saudi_national_day_historical
+  - key: saudi_national_day
     name: Saudi National Day
     default_classification: CLOSED
-    shiftable: false
-    rule:
-      type: explicit_dates
-      key: saudi_national_day_historical
-      name: Saudi National Day
-      dates:
-        - {date: "2021-09-23"}
-        # 2022: Sep 23 is Friday (weekend); observed Thursday Sep 22
-        - {date: "2022-09-22"}
-        # 2023: Sep 23 is Saturday (weekend); observed Sunday Sep 24
-        - {date: "2023-09-24"}
-        - {date: "2024-09-23"}
-        - {date: "2025-09-23"}
-        - {date: "2026-09-23"}
-  # Future projected (statutory date; may shift if it falls on Fri/Sat)
-  - key: saudi_national_day_projected
-    name: Saudi National Day
-    default_classification: CLOSED
-    shiftable: false
-    active_years:
-      - [2027, null]
+    shiftable: true
     rule:
       type: fixed_month_day
-      key: saudi_national_day_projected
+      key: saudi_national_day
       name: Saudi National Day
       month: 9
       day: 23

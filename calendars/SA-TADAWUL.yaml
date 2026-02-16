@@ -6,7 +6,7 @@ metadata:
   description: Saudi Stock Exchange (Tadawul) trading calendar with Fri-Sat weekends and Islamic holidays
   chronology: UMM_AL_QURA
 
-weekend_shift_policy: NONE
+weekend_shift_policy: NEAREST_WEEKDAY
 
 uses:
   - weekend_fri_sat
