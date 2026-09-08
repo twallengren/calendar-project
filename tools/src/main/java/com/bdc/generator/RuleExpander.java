@@ -1,10 +1,13 @@
 package com.bdc.generator;
 
 import com.bdc.chronology.ChronologyTranslator;
+import com.bdc.chronology.DateArithmetic;
 import com.bdc.chronology.DateRange;
+import com.bdc.chronology.ontology.ChronologyRegistry;
 import com.bdc.formula.ReferenceResolver;
 import com.bdc.model.Occurrence;
 import com.bdc.model.Rule;
+import java.time.DateTimeException;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.YearMonth;
@@ -21,12 +24,17 @@ public class RuleExpander {
   }
 
   public List<Occurrence> expand(Rule rule, DateRange range, String provenance) {
-    return switch (rule) {
-      case Rule.ExplicitDates r -> expandExplicitDates(r, range, provenance);
-      case Rule.FixedMonthDay r -> expandFixedMonthDay(r, range, provenance);
-      case Rule.NthWeekdayOfMonth r -> expandNthWeekday(r, range, provenance);
-      case Rule.RelativeToReference r -> expandRelativeToReference(r, range, provenance);
-    };
+    try {
+      return switch (rule) {
+        case Rule.ExplicitDates r -> expandExplicitDates(r, range, provenance);
+        case Rule.FixedMonthDay r -> expandFixedMonthDay(r, range, provenance);
+        case Rule.NthWeekdayOfMonth r -> expandNthWeekday(r, range, provenance);
+        case Rule.RelativeToReference r -> expandRelativeToReference(r, range, provenance);
+      };
+    } catch (DateTimeException | ArithmeticException e) {
+      throw new IllegalArgumentException(
+          provenance + ": required rule date outside representable range for " + range, e);
+    }
   }
 
   private List<Occurrence> expandExplicitDates(
@@ -48,17 +56,30 @@ public class RuleExpander {
     String chronology = rule.chronology();
 
     // Get the year range in the target chronology
-    int[] years = range.yearRange(chronology);
+    int[] years;
+    try {
+      years =
+          "ISO".equalsIgnoreCase(chronology) ? range.isoYearRange() : range.yearRange(chronology);
+    } catch (RuntimeException e) {
+      throw new IllegalArgumentException(
+          provenance
+              + ": required dependency range "
+              + range
+              + " outside supported chronology "
+              + chronology,
+          e);
+    }
     for (int year = years[0]; year <= years[1]; year++) {
-      try {
+      // Invalid month days (e.g. February 29) are absent; conversion failures are errors.
+      if (ChronologyRegistry.getInstance()
+          .getAlgorithm(chronology)
+          .isValidDate(year, rule.month(), rule.day())) {
         // Convert from target chronology to ISO date
         LocalDate isoDate =
             ChronologyTranslator.toIsoDate(year, rule.month(), rule.day(), chronology);
         if (range.contains(isoDate)) {
           occurrences.add(new Occurrence(rule.key(), isoDate, rule.name(), provenance));
         }
-      } catch (Exception e) {
-        // Skip invalid dates (e.g., Feb 29 in non-leap years, or day 30 in short Hijri months)
       }
     }
 
@@ -99,6 +120,31 @@ public class RuleExpander {
 
   private List<Occurrence> expandRelativeToReference(
       Rule.RelativeToReference rule, DateRange range, String provenance) {
+    long minOffset;
+    long maxOffset;
+    if (rule.usesWeekdayOffset()) {
+      Rule.WeekdayOffset offset = rule.offsetWeekday();
+      if (offset.nth() < 1) {
+        throw new IllegalArgumentException(
+            "WeekdayOffset nth must be at least 1, got: " + offset.nth());
+      }
+      minOffset = 7L * (offset.nth() - 1) + 1;
+      maxOffset = 7L * offset.nth();
+      if (offset.direction() == Rule.OffsetDirection.BEFORE) {
+        long oldMin = minOffset;
+        minOffset = -maxOffset;
+        maxOffset = -oldMin;
+      }
+    } else if (rule.offsetDays() != null) {
+      minOffset = maxOffset = rule.offsetDays();
+    } else {
+      throw new IllegalArgumentException(
+          "RelativeToReference must have either offsetDays or offsetWeekday");
+    }
+    DateRange referenceRange =
+        new DateRange(
+            DateArithmetic.plusDays(range.start(), -maxOffset, provenance),
+            DateArithmetic.plusDays(range.end(), -minOffset, provenance));
     List<LocalDate> refDates;
 
     if (rule.usesNamedReference()) {
@@ -109,17 +155,15 @@ public class RuleExpander {
       if (!referenceResolver.hasReference(rule.reference())) {
         throw new IllegalArgumentException("Unknown reference: " + rule.reference());
       }
-      refDates = referenceResolver.getDates(rule.reference());
+      refDates = referenceResolver.getDates(rule.reference(), referenceRange);
     } else if (rule.usesFixedReference()) {
       // Fixed month/day reference - generate for each year in range
       refDates = new ArrayList<>();
-      int[] years = range.isoYearRange();
+      int[] years = referenceRange.isoYearRange();
       for (int year = years[0]; year <= years[1]; year++) {
-        try {
+        if (YearMonth.of(year, rule.referenceMonth()).isValidDay(rule.referenceDay())) {
           LocalDate refDate = LocalDate.of(year, rule.referenceMonth(), rule.referenceDay());
-          refDates.add(refDate);
-        } catch (Exception e) {
-          // Skip invalid dates
+          if (referenceRange.contains(refDate)) refDates.add(refDate);
         }
       }
     } else {
@@ -133,7 +177,7 @@ public class RuleExpander {
       if (rule.usesWeekdayOffset()) {
         date = calculateWeekdayOffset(refDate, rule.offsetWeekday());
       } else if (rule.offsetDays() != null) {
-        date = refDate.plusDays(rule.offsetDays());
+        date = DateArithmetic.plusDays(refDate, rule.offsetDays(), provenance);
       } else {
         throw new IllegalArgumentException(
             "RelativeToReference must have either offsetDays or offsetWeekday");
@@ -163,29 +207,11 @@ public class RuleExpander {
       throw new IllegalArgumentException("WeekdayOffset nth must be at least 1, got: " + nth);
     }
 
-    if (direction == Rule.OffsetDirection.AFTER) {
-      // Find the nth occurrence of weekday strictly after refDate
-      // Start from the day after refDate
-      LocalDate current = refDate.plusDays(1);
-
-      // Find the first occurrence of the weekday after refDate
-      while (current.getDayOfWeek() != targetWeekday) {
-        current = current.plusDays(1);
-      }
-
-      // Then advance by (nth - 1) weeks
-      return current.plusWeeks(nth - 1);
-    } else {
-      // BEFORE: Find the nth occurrence of weekday strictly before refDate
-      LocalDate current = refDate.minusDays(1);
-
-      // Find the first occurrence of the weekday before refDate
-      while (current.getDayOfWeek() != targetWeekday) {
-        current = current.minusDays(1);
-      }
-
-      // Then go back by (nth - 1) weeks
-      return current.minusWeeks(nth - 1);
-    }
+    int sign = direction == Rule.OffsetDirection.AFTER ? 1 : -1;
+    int distance =
+        Math.floorMod(sign * (targetWeekday.getValue() - refDate.getDayOfWeek().getValue()), 7);
+    if (distance == 0) distance = 7;
+    return DateArithmetic.plusDays(
+        refDate, sign * (distance + 7L * (nth - 1)), "Weekday reference offset");
   }
 }

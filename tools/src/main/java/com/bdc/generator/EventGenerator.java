@@ -1,5 +1,6 @@
 package com.bdc.generator;
 
+import com.bdc.chronology.DateArithmetic;
 import com.bdc.chronology.DateRange;
 import com.bdc.classifier.OccurrenceClassifier;
 import com.bdc.formula.ReferenceResolver;
@@ -13,19 +14,17 @@ import java.util.stream.Collectors;
 
 public class EventGenerator {
 
-  private final RuleExpander ruleExpander;
   private final OccurrenceClassifier classifier;
 
   public EventGenerator() {
-    this.ruleExpander = new RuleExpander();
     this.classifier = new OccurrenceClassifier();
   }
 
   public List<Event> generate(ResolvedSpec spec, LocalDate from, LocalDate to) {
     DateRange range = new DateRange(from, to);
 
-    ReferenceResolver refResolver = new ReferenceResolver();
-    refResolver.resolve(spec.references(), range);
+    RuleExpander ruleExpander = new RuleExpander();
+    ReferenceResolver refResolver = new ReferenceResolver(spec.references());
     ruleExpander.setReferenceResolver(refResolver);
 
     // Build set of which keys are shiftable, and which are CLOSED (kept on weekends)
@@ -40,13 +39,28 @@ public class EventGenerator {
       }
     }
 
-    // 1. Expand all rules to occurrences
+    Set<DayOfWeek> weekendDays = spec.weekendPolicy().weekendDays();
+    CascadingPlacement cascading =
+        spec.weekendShiftPolicy() == WeekendShiftPolicy.NEXT_AVAILABLE_WEEKDAY
+            ? new CascadingPlacement(spec, ruleExpander, shiftableKeys)
+            : null;
+
+    // 1. Expand calculation dependencies, filtering active years on original dates.
     List<Occurrence> occurrences = new ArrayList<>();
     for (EventSource source : spec.eventSources()) {
       Rule rule = source.rule();
-      if (rule != null) {
+      if (rule != null && !(cascading != null && shiftableKeys.contains(source.key()))) {
         String provenance = spec.id() + ":" + source.key();
-        List<Occurrence> expanded = ruleExpander.expand(rule, range, provenance);
+        DateRange dependencies = range;
+        if (spec.weekendShiftPolicy() == WeekendShiftPolicy.NEAREST_WEEKDAY
+            && shiftableKeys.contains(source.key())
+            && !weekendDays.isEmpty()) {
+          dependencies =
+              new DateRange(
+                  DateArithmetic.plusDays(from, -1, provenance),
+                  DateArithmetic.plusDays(to, 1, provenance));
+        }
+        List<Occurrence> expanded = ruleExpander.expand(rule, dependencies, provenance);
         // Filter by date constraints
         for (Occurrence occ : expanded) {
           if (source.isActiveOn(occ.date())) {
@@ -57,10 +71,17 @@ public class EventGenerator {
     }
 
     // 2. Apply weekend shifts for shiftable holidays
-    Set<DayOfWeek> weekendDays = spec.weekendPolicy().weekendDays();
     occurrences =
         applyWeekendShifts(
-            occurrences, spec.weekendShiftPolicy(), shiftableKeys, closedKeys, weekendDays, range);
+            occurrences,
+            spec.weekendShiftPolicy(),
+            shiftableKeys,
+            closedKeys,
+            weekendDays,
+            range,
+            cascading);
+
+    occurrences = occurrences.stream().filter(o -> range.contains(o.date())).toList();
 
     // 3. Apply deltas
     occurrences = applyDeltas(occurrences, spec.deltas(), range);
@@ -71,17 +92,22 @@ public class EventGenerator {
     // 5. Generate weekend events
     if (!weekendDays.isEmpty()) {
       Set<LocalDate> existingDates = events.stream().map(Event::date).collect(Collectors.toSet());
-      for (LocalDate date = from; !date.isAfter(to); date = date.plusDays(1)) {
+      for (LocalDate date = from; ; date = date.plusDays(1)) {
         DayOfWeek dow = date.getDayOfWeek();
         if (weekendDays.contains(dow) && !existingDates.contains(date)) {
           String dayName = dow.getDisplayName(TextStyle.FULL, Locale.ENGLISH);
           events.add(new Event(date, EventType.WEEKEND, dayName, "weekend_policy"));
         }
+        if (date.equals(to)) break;
       }
     }
 
-    // 6. Sort deterministically
-    return events.stream().sorted().collect(Collectors.toList());
+    // 6. Provenance breaks otherwise equal ties independently of range-dependent key insertion.
+    return events.stream()
+        .sorted(
+            Comparator.<Event>naturalOrder()
+                .thenComparing(Event::provenance, Comparator.nullsFirst(Comparator.naturalOrder())))
+        .collect(Collectors.toList());
   }
 
   private List<Occurrence> applyWeekendShifts(
@@ -90,7 +116,8 @@ public class EventGenerator {
       Set<String> shiftableKeys,
       Set<String> closedKeys,
       Set<DayOfWeek> weekendDays,
-      DateRange range) {
+      DateRange range,
+      CascadingPlacement cascading) {
 
     if (policy == WeekendShiftPolicy.NONE) {
       return occurrences;
@@ -119,8 +146,7 @@ public class EventGenerator {
         switch (policy) {
           case NONE -> shiftable; // Already handled above, but for completeness
           case NEAREST_WEEKDAY -> applyNearestWeekdayShifts(shiftable, weekendDays, range);
-          case NEXT_AVAILABLE_WEEKDAY ->
-              applyNextAvailableWeekdayShifts(shiftable, weekendDays, range);
+          case NEXT_AVAILABLE_WEEKDAY -> cascading.observedIn(range);
         };
 
     // Combine results
@@ -143,58 +169,14 @@ public class EventGenerator {
         // e.g., Fri-Sat weekend: Fri→Thu (back), Sat→Sun (forward)
         // e.g., Sat-Sun weekend: Sat→Fri (back), Sun→Mon (forward)
         if (weekendDays.contains(dow.plus(1))) {
-          shiftedDate = occ.date().minusDays(1);
+          shiftedDate = DateArithmetic.plusDays(occ.date(), -1, occ.provenance());
         } else {
-          shiftedDate = occ.date().plusDays(1);
+          shiftedDate = DateArithmetic.plusDays(occ.date(), 1, occ.provenance());
         }
       }
 
       if (range.contains(shiftedDate)) {
         result.add(new Occurrence(occ.key(), shiftedDate, occ.name(), occ.provenance()));
-      }
-    }
-
-    return result;
-  }
-
-  private List<Occurrence> applyNextAvailableWeekdayShifts(
-      List<Occurrence> occurrences, Set<DayOfWeek> weekendDays, DateRange range) {
-    // Sort by date to process in chronological order
-    List<Occurrence> sorted = new ArrayList<>(occurrences);
-    sorted.sort(Comparator.comparing(Occurrence::date));
-
-    // Track which dates are already claimed
-    Set<LocalDate> claimedDates = new HashSet<>();
-
-    // First, add all non-weekend dates to claimed set
-    for (Occurrence occ : sorted) {
-      DayOfWeek dow = occ.date().getDayOfWeek();
-      if (!weekendDays.contains(dow)) {
-        claimedDates.add(occ.date());
-      }
-    }
-
-    List<Occurrence> result = new ArrayList<>();
-
-    for (Occurrence occ : sorted) {
-      DayOfWeek dow = occ.date().getDayOfWeek();
-
-      if (!weekendDays.contains(dow)) {
-        // Not a weekend, keep as-is
-        result.add(occ);
-      } else {
-        // Find next available weekday
-        LocalDate candidate = occ.date().plusDays(1);
-        while (weekendDays.contains(candidate.getDayOfWeek()) || claimedDates.contains(candidate)) {
-          candidate = candidate.plusDays(1);
-        }
-
-        // Claim this date
-        claimedDates.add(candidate);
-
-        if (range.contains(candidate)) {
-          result.add(new Occurrence(occ.key(), candidate, occ.name(), occ.provenance()));
-        }
       }
     }
 

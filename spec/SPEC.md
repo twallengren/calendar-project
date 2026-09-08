@@ -223,6 +223,49 @@ Controls how holidays that fall on weekends are observed. Set at the calendar le
 - `NEAREST_WEEKDAY` - US-style: Saturday shifts to Friday, Sunday shifts to Monday (independent)
 - `NEXT_AVAILABLE_WEEKDAY` - UK-style: Weekend holidays shift to next available weekday (cascading)
 
+### Date range consistency
+
+Generation uses inclusive output ranges. Whenever both requests succeed, generating a narrower
+range returns exactly the events from a wider generation filtered to that narrower range,
+including event types, descriptions, duplicate rows, and provenance. Exports, single-day queries,
+business-day counts, and date navigation use the same generation engine.
+
+Rules expand calculation dependencies outside the output range when necessary. `NONE` uses the
+requested dates; `NEAREST_WEEKDAY` includes one day on either side for shiftable sources. Nearest
+observation retains the configured weekend behavior: a weekend day followed by another weekend
+day shifts back one day; otherwise it shifts forward one day (for example, Friday–Saturday
+weekends shift Friday to Thursday and Saturday to Sunday).
+
+For `NEXT_AVAILABLE_WEEKDAY`, unshifted weekday occurrences from shiftable sources reserve their
+dates. Weekend occurrences are placed in order of original date, resolved source order, then
+occurrence order within the source. Each claims its first available weekday, reserving that date
+for later occurrences. Non-shiftable sources and delta additions do not reserve observation dates.
+Dependencies can extend earlier than the initial lookback; a fixed padding window is insufficient
+for cascading collisions.
+
+Cascading observation has two implementation limits, without additional YAML configuration:
+
+- An occurrence can be observed at most **366 calendar days** after its original date, inclusive.
+- Each root placement can calculate at most **10,000 distinct uncached occurrence placements**,
+  including itself and its dependencies. Placements cached during the same generation call are
+  reusable across roots. No dependency cache is shared between generation calls.
+
+Exceeding either limit fails the entire generation with a diagnostic identifying the calendar,
+event, original date, and limit. Cascading observation with no available weekdays is rejected.
+
+Active years are evaluated on each occurrence's original, unshifted ISO date. After observation,
+occurrences are filtered to the output range, deltas are applied, occurrences are classified, and
+weekend rows are added. Removing a reserved or observed event with a delta therefore does not
+free its date for another observation.
+
+Reference rules look up the dates that can produce the output interval. A day offset `d` uses
+reference dates from `[start − d, end − d]`. The nth weekday strictly after a reference has a
+displacement of `7(n−1)+1` through `7n` days; weekday-before rules use the mirrored interval.
+These intervals determine reference years, including offsets across years or longer than a year.
+Required dependencies outside supported chronology coverage or representable dates cause an
+explicit error; they are never silently truncated or treated as absent. Invalid recurring month
+days, such as February 29 in a non-leap year, remain absent.
+
 Example:
 
 ```yaml
