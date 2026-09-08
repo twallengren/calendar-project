@@ -1,11 +1,33 @@
 package com.bdc.diff;
 
 import com.bdc.model.Event;
+import com.bdc.model.EventType;
 import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
 
 public class CalendarDiffEngine {
+
+  // Published artifacts contain these fields, but do not retain source keys or provenance.
+  private record EventValue(EventType type, String description) {}
+
+  private static final Comparator<EventDiff> DIFF_ORDER =
+      Comparator.comparing(EventDiff::date)
+          .thenComparing(EventDiff::oldType, Comparator.nullsFirst(Comparator.naturalOrder()))
+          .thenComparing(EventDiff::newType, Comparator.nullsFirst(Comparator.naturalOrder()))
+          .thenComparing(
+              EventDiff::oldDescription, Comparator.nullsFirst(Comparator.naturalOrder()))
+          .thenComparing(
+              EventDiff::newDescription, Comparator.nullsFirst(Comparator.naturalOrder()));
+
+  private Map<LocalDate, List<EventValue>> byDate(List<Event> events) {
+    return events.stream()
+        .collect(
+            Collectors.groupingBy(
+                Event::date,
+                Collectors.mapping(
+                    e -> new EventValue(e.type(), e.description()), Collectors.toList())));
+  }
 
   public CalendarDiff compare(
       String calendarId,
@@ -14,46 +36,41 @@ public class CalendarDiffEngine {
       LocalDate cutoffDate,
       LocalDate blessedRangeStart,
       LocalDate blessedRangeEnd) {
-    // Create maps keyed by date for comparison
-    // Events are keyed by date since there should be at most one event per date
-    Map<LocalDate, Event> generatedByDate =
-        generated.stream().collect(Collectors.toMap(Event::date, e -> e, (a, b) -> a));
-
-    Map<LocalDate, Event> blessedByDate =
-        blessed.stream().collect(Collectors.toMap(Event::date, e -> e, (a, b) -> a));
-
-    Set<LocalDate> allDates = new HashSet<>();
-    allDates.addAll(generatedByDate.keySet());
+    Map<LocalDate, List<EventValue>> generatedByDate = byDate(generated);
+    Map<LocalDate, List<EventValue>> blessedByDate = byDate(blessed);
+    Set<LocalDate> allDates = new HashSet<>(generatedByDate.keySet());
     allDates.addAll(blessedByDate.keySet());
 
     List<EventDiff> additions = new ArrayList<>();
     List<EventDiff> removals = new ArrayList<>();
     List<EventDiff> modifications = new ArrayList<>();
-
     for (LocalDate date : allDates) {
-      Event gen = generatedByDate.get(date);
-      Event ref = blessedByDate.get(date);
-
-      if (gen != null && ref == null) {
-        // Event was added
-        additions.add(EventDiff.added(date, gen.type(), gen.description()));
-      } else if (gen == null && ref != null) {
-        // Event was removed
-        removals.add(EventDiff.removed(date, ref.type(), ref.description()));
-      } else if (gen != null && ref != null) {
-        // Check for modifications
-        if (!gen.type().equals(ref.type()) || !gen.description().equals(ref.description())) {
-          modifications.add(
-              EventDiff.modified(
-                  date, ref.type(), gen.type(), ref.description(), gen.description()));
+      MultisetDiff<EventValue> unmatched =
+          MultisetDiff.compare(
+              blessedByDate.getOrDefault(date, List.of()),
+              generatedByDate.getOrDefault(date, List.of()));
+      if (unmatched.removals().size() == 1 && unmatched.additions().size() == 1) {
+        EventValue oldEvent = unmatched.removals().getFirst();
+        EventValue newEvent = unmatched.additions().getFirst();
+        modifications.add(
+            EventDiff.modified(
+                date,
+                oldEvent.type(),
+                newEvent.type(),
+                oldEvent.description(),
+                newEvent.description()));
+      } else {
+        for (EventValue value : unmatched.additions()) {
+          additions.add(EventDiff.added(date, value.type(), value.description()));
+        }
+        for (EventValue value : unmatched.removals()) {
+          removals.add(EventDiff.removed(date, value.type(), value.description()));
         }
       }
     }
-
-    // Sort by date
-    additions.sort(Comparator.comparing(EventDiff::date));
-    removals.sort(Comparator.comparing(EventDiff::date));
-    modifications.sort(Comparator.comparing(EventDiff::date));
+    additions.sort(DIFF_ORDER);
+    removals.sort(DIFF_ORDER);
+    modifications.sort(DIFF_ORDER);
 
     DiffSeverity severity =
         classifySeverity(additions, removals, modifications, blessedRangeStart, blessedRangeEnd);

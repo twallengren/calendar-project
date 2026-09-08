@@ -579,3 +579,44 @@ ChronologyDate julianDate = date.toChronology("JULIAN");
 ChronologyDate isoDate = ChronologyDate.iso(2025, 6, 15);
 ChronologyDate fromIso = ChronologyDate.fromIsoDate(LocalDate.now(), "HIJRI");
 ```
+
+## Artifact Comparison
+
+`ci-diff` compares every occurrence by ISO date, event type, and description, including duplicate
+counts. Provenance and alternate-date columns are excluded from this comparison because the
+published baseline does not retain source identities. Input order and equivalent CSV quoting do
+not affect the result.
+
+On each date, exact matches are cancelled one occurrence at a time. If exactly one old and one new
+occurrence remain, the pair is reported as a modification. Otherwise all remaining occurrences
+are reported individually as removals and additions; similar names or types are not used to infer
+pairings. An event moving to another date is a removal and an addition. For example:
+
+| Old occurrences on a date | New occurrences on that date | Report |
+|---|---|---|
+| A | A, B | Add B |
+| A, A, A | A | Remove A twice |
+| A, A | A, B | Modify one A to B |
+| A, A | B, B | Remove A twice; add B twice |
+
+Reports retain repeated entries for repeated changes and sort deterministically by date, old/new
+type (in event-type enum order), and old/new description. Removals and modifications remain MAJOR;
+additions within the comparison's supplied blessed range are MAJOR, while additions exclusively
+outside that range are MINOR. JSON includes all changes. Markdown summary counts include all
+occurrences even when detail sections are truncated; multiline descriptions are escaped for tables.
+
+`diff generated` compares complete decoded CSV records, including alternate-date values and
+duplicate counts. It requires matching ordered headers and retains its additions/removals display;
+changed records are shown as removals and additions. Record counts and repeated output entries
+reflect multiplicity. `diff resolved` is unchanged.
+
+Both commands use a shared CSV reader supporting UTF-8 (with an optional leading BOM), LF/CRLF,
+quoted commas, escaped quotes, embedded newlines, empty fields, and blank lines outside quoted
+records. Field whitespace is preserved. Headers must be nonempty and unique and contain `date`,
+`type`, and `description`; additional columns are retained. Record widths must match the header.
+Malformed CSV, invalid ISO dates, and unknown event types fail with file and logical record context
+instead of being skipped. The header is logical record 1; ignored blank lines do not count.
+
+Command exit codes are unchanged: `ci-diff` returns 0 for NONE, 1 for MINOR, 2 for MAJOR, and 3 for
+errors; `diff generated` returns 0 after a successful comparison (including differences), or 1
+for errors.

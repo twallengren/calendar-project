@@ -1,5 +1,7 @@
 package com.bdc.cli;
 
+import com.bdc.csv.EventCsvReader;
+import com.bdc.diff.MultisetDiff;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -136,25 +138,32 @@ public class DiffCommand implements Callable<Integer> {
     System.out.println("  Version 2: " + tx2);
     System.out.println();
 
-    List<String> lines1 = Files.readAllLines(path1);
-    List<String> lines2 = Files.readAllLines(path2);
-
-    // Skip header for comparison
-    Set<String> events1 = new HashSet<>(lines1.subList(1, lines1.size()));
-    Set<String> events2 = new HashSet<>(lines2.subList(1, lines2.size()));
-
-    Set<String> added = new HashSet<>(events2);
-    added.removeAll(events1);
-
-    Set<String> removed = new HashSet<>(events1);
-    removed.removeAll(events2);
+    EventCsvReader reader = new EventCsvReader();
+    EventCsvReader.Table events1 = reader.read(path1);
+    EventCsvReader.Table events2 = reader.read(path2);
+    if (!events1.header().equals(events2.header())) {
+      throw new IOException(
+          "Incompatible CSV headers: "
+              + path1
+              + " "
+              + events1.header()
+              + " and "
+              + path2
+              + " "
+              + events2.header());
+    }
+    MultisetDiff<List<String>> diff = MultisetDiff.compare(events1.records(), events2.records());
+    List<String> added = new ArrayList<>();
+    List<String> removed = new ArrayList<>();
+    for (List<String> row : diff.additions()) added.add(reader.formatRecord(row));
+    for (List<String> row : diff.removals()) removed.add(reader.formatRecord(row));
 
     if (added.isEmpty() && removed.isEmpty()) {
       System.out.println("No differences found.");
     } else {
       System.out.println("Summary:");
-      System.out.println("  Events in version 1: " + events1.size());
-      System.out.println("  Events in version 2: " + events2.size());
+      System.out.println("  Events in version 1: " + events1.records().size());
+      System.out.println("  Events in version 2: " + events2.records().size());
       System.out.println("  Added: " + added.size());
       System.out.println("  Removed: " + removed.size());
       System.out.println();
