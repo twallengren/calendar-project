@@ -1,0 +1,29 @@
+{
+  "calendar_id" : "CA-TSX",
+  "calendar_name" : "Toronto Stock Exchange",
+  "kind" : "market",
+  "generated_at" : "2026-02-16T21:43:21Z",
+  "range_start" : "2000-01-01",
+  "range_end" : "2030-12-31",
+  "timezone" : "America/Toronto",
+  "coverage" : {
+    "from" : "2000-01-01",
+    "to" : "2030-12-31",
+    "verified_through" : "2026-12-31"
+  },
+  "event_count" : 3546,
+  "resolution_chain" : [ "module:weekend_sat_sun", "module:ca_new_years_day", "module:ca_family_day", "module:ca_good_friday", "module:ca_victoria_day", "module:ca_canada_day", "module:ca_civic_holiday", "module:ca_labour_day", "module:ca_thanksgiving", "module:ca_christmas", "module:ca_boxing_day", "module:ca_tsx_holidays", "calendar:CA-TSX" ],
+  "counts_by_type" : {
+    "WEEKEND" : 3236,
+    "CLOSED" : 302,
+    "EARLY_CLOSE" : 8
+  },
+  "counts_by_status" : {
+    "CONFIRMED" : 3542,
+    "PROJECTED" : 4
+  },
+  "source_version" : {
+    "semantic" : "11.0.0",
+    "git_sha" : "3765bcb10d3ebcb7cfc338bcebf94505af25ec1e"
+  }
+}

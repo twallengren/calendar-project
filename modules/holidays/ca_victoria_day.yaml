@@ -1,0 +1,26 @@
+kind: module
+id: ca_victoria_day
+
+# Victoria Day: the federal Holidays Act defines it as "the first Monday immediately
+# preceding the twenty-fifth day of May". TSX's published schedule confirms May 18, 2026
+# (May 25, 2026 is itself a Monday, so the holiday is the Monday strictly before it) and
+# May 19, 2025.
+
+source:
+  - id: holidays-act-canada
+    ref: "Monday immediately preceding May 25"
+  - id: tsx-calendar-page
+    ref: "Victoria Day: May 18, 2026; May 19, 2025"
+
+event_sources:
+  - key: ca_victoria_day
+    name: Victoria Day
+    default_classification: CLOSED
+    rule:
+      type: relative_to_reference
+      reference_month: 5
+      reference_day: 25
+      offset_weekday:
+        weekday: MONDAY
+        nth: 1
+        direction: BEFORE

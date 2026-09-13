@@ -1,0 +1,38 @@
+# Known differences between our CA-TSX data and the reference datasets.
+# source,side,date,type,reason
+#
+# QuantLib's Canada(TSX) calendar (quantlib-tsx.csv) matches our data exactly across
+# 2000-2030 with zero differences, including every weekend-shift cascade date. The
+# differences below are all against exchange_calendars' XTSE calendar, which models a couple
+# of things we deliberately do not:
+#
+# 1) The September 11, 2001 closure. Contemporary reporting (e.g. CBC's "NYSE, Nasdaq to open
+#    late; TSX to open at usual time") indicates TSX opened and traded for roughly 71 minutes
+#    on September 11, 2001 before halting, then stayed closed through September 12, reopening
+#    September 13. That means neither day was a clean full-day closure the way the U.S.
+#    markets were, and we could not find a primary TMX/TSX publication (only secondary news
+#    coverage) giving the exact hours. This holiday pack only covers the ten recurring
+#    holidays TMX currently publishes; per "do not invent dates" we leave this one-off
+#    historical closure unmodelled rather than guess which day(s) qualify as CLOSED.
+exchange_calendars-XTSE,theirs,2001-09-11,CLOSED,TSX opened and traded about 71 minutes on Sep 11 2001 before halting per contemporary news reports (not a primary TMX source); not a full closure like the US markets and out of scope for this holiday pack (one-off historical closure not one of TMX's ten recurring holidays)
+exchange_calendars-XTSE,theirs,2001-09-12,CLOSED,TSX remained closed following Sep 11 2001 reopening Sep 13; plausible but only supported by secondary news reporting not a primary TMX/TSX publication so left unmodelled rather than guessed (one-off historical closure out of scope for this holiday pack)
+#
+# 2) Christmas Eve early close, years before 2015. exchange_calendars models a Dec 24 early
+#    close in every weekday year from 2010 onward. We independently corroborated the practice
+#    for 2012 via a search result quoting a TMX Group Holiday Operating Schedule, but could
+#    not locate and directly review a primary TMX document for 2010, 2012, 2013 or 2014 within
+#    the scope of this contribution, so ca_christmas.yaml's active_years for the early close
+#    starts at 2015, the first year we reviewed a primary document directly. See
+#    sources/CA-TSX/README.md.
+exchange_calendars-XTSE,theirs,2010-12-24,EARLY_CLOSE,Plausible (exchange_calendars models this rule from 2010) but no primary TMX document reviewed for this year; narrowed our active_years to 2015-2026 rather than guess
+exchange_calendars-XTSE,theirs,2012-12-24,EARLY_CLOSE,Corroborated by a search result quoting a TMX Group Holiday Operating Schedule but not directly reviewed as a primary document; narrowed our active_years to 2015-2026 rather than guess
+exchange_calendars-XTSE,theirs,2013-12-24,EARLY_CLOSE,Plausible (exchange_calendars models this rule from 2010) but no primary TMX document reviewed for this year; narrowed our active_years to 2015-2026 rather than guess
+exchange_calendars-XTSE,theirs,2014-12-24,EARLY_CLOSE,Plausible (exchange_calendars models this rule from 2010) but no primary TMX document reviewed for this year; narrowed our active_years to 2015-2026 rather than guess
+#
+# 3) Christmas Eve early close, years after coverage.verified_through (2026). TMX announces
+#    this closure annually (each schedule notice is its own press release); it is not a
+#    standing rule we can project forward without an announcement. exchange_calendars projects
+#    it indefinitely; we intentionally do not.
+exchange_calendars-XTSE,theirs,2027-12-24,EARLY_CLOSE,Beyond coverage.verified_through (2026); TMX announces the Dec 24 early close annually rather than fixing it by rule so it is not projected into unannounced future years
+exchange_calendars-XTSE,theirs,2029-12-24,EARLY_CLOSE,Beyond coverage.verified_through (2026); TMX announces the Dec 24 early close annually rather than fixing it by rule so it is not projected into unannounced future years
+exchange_calendars-XTSE,theirs,2030-12-24,EARLY_CLOSE,Beyond coverage.verified_through (2026); TMX announces the Dec 24 early close annually rather than fixing it by rule so it is not projected into unannounced future years

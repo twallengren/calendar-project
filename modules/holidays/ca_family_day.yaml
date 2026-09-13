@@ -1,0 +1,23 @@
+kind: module
+id: ca_family_day
+
+# Family Day: third Monday of February. Ontario statutory holiday since 2008
+# (Employment Standards Amendment Act (Family Day), 2007; first observed 2008-02-18).
+# TSX's currently published schedule closes for it (tsx-calendar-page, 2025 and 2026).
+
+source:
+  - id: ontario-family-day-2007
+  - id: tsx-calendar-page
+    ref: "Family Day: Feb 16, 2026; Feb 17, 2025"
+
+event_sources:
+  - key: ca_family_day
+    name: Family Day
+    default_classification: CLOSED
+    active_years:
+      - [2008, null]
+    rule:
+      type: nth_weekday_of_month
+      month: 2
+      weekday: MONDAY
+      nth: 3

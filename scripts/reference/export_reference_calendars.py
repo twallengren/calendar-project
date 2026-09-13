@@ -36,6 +36,7 @@ EXPORTS = [
     # would only report the ad-hoc closures it happens to know about.
     ("US-NYSE", "XNYS", "1971-01-01", "2030-12-31"),
     ("SA-TADAWUL", "XSAU", "2020-01-01", "2030-12-31"),
+    ("CA-TSX", "XTSE", "2000-01-01", "2030-12-31"),
 ]
 
 
@@ -130,11 +131,38 @@ def export_quantlib_nyse(start: str, end: str) -> None:
     print(f"wrote {path} ({len(rows)} rows)")
 
 
+def export_quantlib_canada_tsx(start: str, end: str) -> None:
+    if ql is None:
+        print("QuantLib not installed; skipping")
+        return
+    cal = ql.Canada(ql.Canada.TSX)
+    s = dt.date.fromisoformat(start)
+    e = dt.date.fromisoformat(end)
+    rows = []
+    day = s
+    while day <= e:
+        if day.weekday() < 5:
+            qd = ql.Date(day.day, day.month, day.year)
+            if not cal.isBusinessDay(qd):
+                rows.append(day)
+        day += dt.timedelta(days=1)
+    path = os.path.join(OUT, "CA-TSX", "quantlib-tsx.csv")
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "w") as f:
+        f.write(header("QuantLib", ql.__version__))
+        f.write("# types: CLOSED  (QuantLib models full closures only)\n")
+        f.write("date,type,close_time\n")
+        for day in rows:
+            f.write(f"{day.isoformat()},CLOSED,\n")
+    print(f"wrote {path} ({len(rows)} rows)")
+
+
 def main() -> int:
     for cal_id, code, start, end in EXPORTS:
         export_exchange_calendars(cal_id, code, start, end)
     # QuantLib's NYSE calendar is documented from 1980 onward
     export_quantlib_nyse("1980-01-01", "2030-12-31")
+    export_quantlib_canada_tsx("2000-01-01", "2030-12-31")
     return 0
 
 

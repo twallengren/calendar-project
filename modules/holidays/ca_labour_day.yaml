@@ -1,0 +1,20 @@
+kind: module
+id: ca_labour_day
+
+# Labour Day: first Monday of September, fixed by the federal Holidays Act. tsx-calendar-page
+# confirms Sep 7, 2026 and Sep 1, 2025.
+
+source:
+  - id: holidays-act-canada
+  - id: tsx-calendar-page
+    ref: "Labour Day: Sep 7, 2026; Sep 1, 2025"
+
+event_sources:
+  - key: ca_labour_day
+    name: Labour Day
+    default_classification: CLOSED
+    rule:
+      type: nth_weekday_of_month
+      month: 9
+      weekday: MONDAY
+      nth: 1

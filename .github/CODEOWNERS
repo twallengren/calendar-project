@@ -14,3 +14,9 @@
 /modules/holidays/saudi_*          @twallengren
 /modules/policies/saudi_weekends.yaml  @twallengren
 /sources/SA-TADAWUL/               @twallengren
+
+# CA-TSX
+/calendars/CA-TSX.yaml              @twallengren
+/modules/groups/ca_tsx_holidays.yaml  @twallengren
+/modules/holidays/ca_*              @twallengren
+/sources/CA-TSX/                    @twallengren

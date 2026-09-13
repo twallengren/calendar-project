@@ -1,0 +1,84 @@
+kind: calendar
+id: CA-TSX
+metadata:
+  name: Toronto Stock Exchange
+  description: "Toronto Stock Exchange (TSX, MIC XTSE) trading calendar"
+  chronology: ISO
+  timezone: America/Toronto
+  coverage:
+    from: 2000-01-01
+    to: 2030-12-31
+    verified_through: 2026-12-31
+  kind: market
+uses:
+- weekend_sat_sun
+- ca_tsx_holidays
+classifications: {}
+deltas:
+- action: remove
+  key: ca_christmas
+  date: 2005-12-27
+- action: add
+  key: ca_christmas
+  name: Christmas Day
+  date: 2005-12-26
+  classification: CLOSED
+- action: remove
+  key: ca_boxing_day
+  date: 2005-12-26
+- action: add
+  key: ca_boxing_day
+  name: Boxing Day
+  date: 2005-12-27
+  classification: CLOSED
+- action: remove
+  key: ca_christmas
+  date: 2011-12-27
+- action: add
+  key: ca_christmas
+  name: Christmas Day
+  date: 2011-12-26
+  classification: CLOSED
+- action: remove
+  key: ca_boxing_day
+  date: 2011-12-26
+- action: add
+  key: ca_boxing_day
+  name: Boxing Day
+  date: 2011-12-27
+  classification: CLOSED
+- action: remove
+  key: ca_christmas
+  date: 2016-12-27
+- action: add
+  key: ca_christmas
+  name: Christmas Day
+  date: 2016-12-26
+  classification: CLOSED
+- action: remove
+  key: ca_boxing_day
+  date: 2016-12-26
+- action: add
+  key: ca_boxing_day
+  name: Boxing Day
+  date: 2016-12-27
+  classification: CLOSED
+- action: remove
+  key: ca_christmas
+  date: 2022-12-27
+- action: add
+  key: ca_christmas
+  name: Christmas Day
+  date: 2022-12-26
+  classification: CLOSED
+- action: remove
+  key: ca_boxing_day
+  date: 2022-12-26
+- action: add
+  key: ca_boxing_day
+  name: Boxing Day
+  date: 2022-12-27
+  classification: CLOSED
+extends: []
+event_sources: []
+weekend_shift_policy: NEXT_AVAILABLE_WEEKDAY
