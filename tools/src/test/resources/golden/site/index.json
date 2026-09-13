@@ -40,25 +40,6 @@
     "years" : [ 1900, 2030 ],
     "href" : "/v1/calendars/US-CORP-IN-VISIBILITY/manifest.json"
   }, {
-    "id" : "US-MARKET-BASE",
-    "name" : "US Market Base Calendar",
-    "timezone" : "America/New_York",
-    "coverage" : {
-      "from" : "1900-01-01",
-      "to" : "2030-12-31",
-      "verified_through" : "2026-12-31"
-    },
-    "counts_by_type" : {
-      "CLOSED" : 938,
-      "WEEKEND" : 13670
-    },
-    "counts_by_status" : {
-      "CONFIRMED" : 14608
-    },
-    "checksum" : "sha256:65c615ae26d7226e020992eae8bcce81303e243f17a961bdf43188252f3ac285",
-    "years" : [ 1900, 2030 ],
-    "href" : "/v1/calendars/US-MARKET-BASE/manifest.json"
-  }, {
     "id" : "US-NYSE",
     "name" : "NYSE Trading Calendar",
     "timezone" : "America/New_York",

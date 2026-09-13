@@ -99,6 +99,10 @@ class ApiEmitterTest {
 
     List<String> expectedIds = new ArrayList<>();
     manifest.path("calendars").fieldNames().forEachRemaining(expectedIds::add);
+    // No calendar currently has an explicit "kind" field (a sibling package is adding it), so
+    // every id defaults to "market" except the naming-convention fallback for "-BASE" ids (see
+    // ApiEmitter#kindOf) — US-MARKET-BASE is a foundational calendar, not a published market.
+    expectedIds.removeIf(id -> id.endsWith("-BASE"));
     java.util.Collections.sort(expectedIds);
 
     List<String> actualIds =
@@ -107,12 +111,54 @@ class ApiEmitterTest {
             .sorted()
             .collect(Collectors.toList());
 
-    // Every calendar in blessed/manifest.json currently has no explicit "kind", which per the
-    // compatibility contract defaults to "market" — so all of them should appear.
     assertEquals(expectedIds, actualIds);
     assertEquals("1.0", index.path("schema_version").asText());
     assertEquals("v1", index.path("api_version").asText());
     assertTrue(index.has("release"));
+  }
+
+  @Test
+  void noCalendarDirectoryForCalendarsNotListedInIndexByDefault() throws Exception {
+    // A consumer must never find a calendar directory that index.json does not advertise.
+    JsonNode index = mapper.readTree(v1.resolve("index.json").toFile());
+    List<String> advertisedIds =
+        java.util.stream.StreamSupport.stream(index.path("calendars").spliterator(), false)
+            .map(n -> n.path("id").asText())
+            .collect(Collectors.toList());
+    assertFalse(advertisedIds.contains("US-MARKET-BASE"));
+
+    assertFalse(
+        Files.exists(v1.resolve("calendars/US-MARKET-BASE")),
+        "US-MARKET-BASE is a base calendar and must have no v1/calendars/ directory without"
+            + " --include-base");
+    assertFalse(Files.exists(v1.resolve("releases/10.1.0/calendars/US-MARKET-BASE")));
+  }
+
+  @Test
+  void calendarDirectoryPresentAndAdvertisedWithIncludeBase(@TempDir Path includeBaseOutDir)
+      throws Exception {
+    ApiEmitter emitter =
+        new ApiEmitter(
+            Path.of("blessed"),
+            Path.of("release-history"),
+            includeBaseOutDir,
+            true,
+            FIXED_GENERATED_AT);
+    emitter.emit();
+
+    Path v1WithBase = includeBaseOutDir.resolve("v1");
+    JsonNode index = mapper.readTree(v1WithBase.resolve("index.json").toFile());
+    List<String> advertisedIds =
+        java.util.stream.StreamSupport.stream(index.path("calendars").spliterator(), false)
+            .map(n -> n.path("id").asText())
+            .collect(Collectors.toList());
+    assertTrue(advertisedIds.contains("US-MARKET-BASE"));
+
+    Path calDir = v1WithBase.resolve("calendars/US-MARKET-BASE");
+    assertTrue(Files.exists(calDir.resolve("manifest.json")));
+    assertTrue(Files.exists(calDir.resolve("all.json")));
+    assertTrue(Files.exists(calDir.resolve("holidays.json")));
+    assertTrue(Files.exists(calDir.resolve("holidays.ics")));
   }
 
   @Test

@@ -103,8 +103,11 @@ public class ApiEmitter {
         continue;
       }
       JsonNode metadataNode = json.readTree(metadataFile.toFile());
-      String kind = kindOf(metadataNode, manifest.path("calendars").path(id));
+      String kind = kindOf(id, metadataNode, manifest.path("calendars").path(id));
       if (!includeBase && !DEFAULT_KIND.equals(kind)) {
+        // Not published: no directory, no manifest, no year/all/holidays files, no .ics, no
+        // pinned releases. index.json must be the definitive list of what a consumer can find
+        // under v1/calendars/ — a calendar it doesn't advertise must not have a directory.
         continue;
       }
 
@@ -272,13 +275,25 @@ public class ApiEmitter {
     return toObject(weekendPolicy);
   }
 
-  private static String kindOf(JsonNode metadataNode, JsonNode manifestEntry) {
+  /**
+   * A calendar's {@code kind} decides whether it is published: {@code metadata.json}'s {@code kind}
+   * field wins, falling back to {@code manifest.json}'s per-calendar entry. Neither field exists
+   * yet anywhere (a sibling package is adding it), so until it lands we fall back to a naming
+   * convention already used in this repo: an id ending in {@code -BASE} (e.g. US-MARKET-BASE, "Base
+   * calendar for US markets with core holidays" per its own metadata) is a foundational calendar
+   * meant to be composed, not published as a market in its own right. Once the real {@code kind}
+   * field is present anywhere, it always takes precedence over this fallback.
+   */
+  private static String kindOf(String id, JsonNode metadataNode, JsonNode manifestEntry) {
     String kind = textOrNull(metadataNode, "kind");
     if (kind != null) {
       return kind;
     }
     kind = textOrNull(manifestEntry, "kind");
-    return kind != null ? kind : DEFAULT_KIND;
+    if (kind != null) {
+      return kind;
+    }
+    return id.endsWith("-BASE") ? "base" : DEFAULT_KIND;
   }
 
   private Map<String, Object> document(
