@@ -27,3 +27,12 @@ generated/*
 # jqwik property-based test database
 .jqwik-database
 tools/.jqwik-database
+
+# Python package (python/)
+.venv*/
+__pycache__/
+*.py[cod]
+python/build/
+python/dist/
+python/*.egg-info/
+.pytest_cache/

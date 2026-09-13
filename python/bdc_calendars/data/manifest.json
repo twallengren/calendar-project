@@ -1,0 +1,35 @@
+{
+  "aliases": {
+    "NYSE": "US-NYSE",
+    "TADAWUL": "SA-TADAWUL",
+    "XNYS": "US-NYSE",
+    "XSAU": "SA-TADAWUL"
+  },
+  "blessed_at": "2026-02-16T21:43:21Z",
+  "calendars": {
+    "SA-TADAWUL": {
+      "kind": "market",
+      "range_end": "2030-12-31",
+      "range_start": "2020-01-01"
+    },
+    "US-CORP-IN-VISIBILITY": {
+      "kind": "base",
+      "range_end": "2030-12-31",
+      "range_start": "1900-01-01"
+    },
+    "US-MARKET-BASE": {
+      "kind": "base",
+      "range_end": "2030-12-31",
+      "range_start": "1900-01-01"
+    },
+    "US-NYSE": {
+      "kind": "market",
+      "range_end": "2030-12-31",
+      "range_start": "1900-01-01"
+    }
+  },
+  "data_git_sha": "3765bcb10d3ebcb7cfc338bcebf94505af25ec1e",
+  "data_version": "11.0.0",
+  "generation_date": "2026-02-16",
+  "schema_version": "1.0"
+}

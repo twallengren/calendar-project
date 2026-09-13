@@ -27,6 +27,15 @@ scripts/bless.sh                     # regenerate blessed/ reproducibly (no-op l
 
 **Golden tests:** Update expected outputs with `./gradlew :tools:test -DupdateGoldens=true`
 
+**Python package (`python/`):** `bdc-calendars` ships the blessed data inside its wheel and mirrors the Query API (`spec/SPEC.md`) with zero runtime dependencies.
+```bash
+python -m venv .venv && .venv/bin/pip install -e "python/[test]"
+.venv/bin/python -m pytest python/ -q     # API tests + parity against the Java query API
+python python/scripts/sync_data.py        # re-copy blessed/ into python/bdc_calendars/data/ (also run by the release workflow)
+python python/scripts/sync_data.py --check   # CI guard: bundled data still re-derives from blessed/
+python/scripts/generate_parity_fixture.sh    # refresh python/tests/fixtures/ from the Java toolchain (jshell)
+```
+
 **Onboarding a new market:** `./gradlew :tools:run --args="scaffold --market GB-LSE --name \"London Stock Exchange\" --timezone Europe/London --mic XLON"` generates the calendar YAML, a holiday group and one example holiday module, and a `sources/<MARKET>/README.md` citation table for a new market; it reuses the `weekend_sat_sun`/`weekend_fri_sat` policy modules or writes a new one with `--weekend custom`, appends the calendar's `blessed/manifest.json` and `scripts/reference/export_reference_calendars.py` entries, and prints the golden test stub and next steps (validate, generate, update goldens, cross-validation allowlist) referenced in `CONTRIBUTING.md`. It refuses to overwrite existing files unless `--force`, and `--dry-run` previews the plan without writing anything.
 
 ## Architecture
@@ -90,6 +99,11 @@ Chronology YAML files in `chronologies/` are compiled to Java classes in `tools/
 - `blessed/` — latest published calendar artifacts (committed)
 - `release-history/` — historical versions for bitemporality (committed)
 - `generated/` — local dev output (gitignored)
+- `python/bdc_calendars/data/` — the same blessed data, minus weekend rows (rebuilt from `weekend_policy` at query time), bundled into the `bdc-calendars` wheel; `__version__` is `0.<data major>.<data minor>`
+
+### Python bindings
+
+`python/` holds `bdc-calendars`: a dependency-free port of the Query API (`BusinessCalendar`, `get_calendar`/`get_joint_calendar`, the same out-of-range and status contract, exchange_calendars-style aliases). The Java `DateStream`/`JointDateStream` remain the reference implementation — `python/tests/test_parity.py` replays fixtures dumped from them, so port any semantic change to both. Release publishing to PyPI (Trusted Publishing) is in `release.yml`, guarded by the `PYPI_PUBLISH` repository variable.
 
 ## Testing conventions
 
