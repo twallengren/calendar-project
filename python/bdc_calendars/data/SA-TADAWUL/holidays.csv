@@ -1,0 +1,188 @@
+date,type,description,key,source_module,observed_from,close_time,status
+2020-05-22,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2020-05-23,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2020-05-24,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2020-05-25,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2020-05-26,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2020-05-27,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2020-05-28,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2020-05-29,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2020-05-30,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2020-09-23,CLOSED,Saudi National Day,saudi_national_day,module:saudi_national_day,,,CONFIRMED
+2021-05-13,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2021-05-14,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2021-05-15,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2021-05-16,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2021-07-16,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2021-07-17,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2021-07-18,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2021-07-19,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2021-07-20,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2021-07-21,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2021-07-22,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2021-07-23,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2021-07-24,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2021-09-23,CLOSED,Saudi National Day,saudi_national_day,module:saudi_national_day,,,CONFIRMED
+2022-02-22,CLOSED,Saudi Founding Day,saudi_founding_day,module:saudi_founding_day,,,CONFIRMED
+2022-04-28,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2022-04-29,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2022-04-30,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2022-05-01,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2022-05-02,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2022-05-03,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2022-05-04,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2022-05-05,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2022-05-06,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2022-05-07,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2022-05-08,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2022-07-07,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2022-07-08,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2022-07-09,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2022-07-10,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2022-07-11,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2022-07-12,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2022-09-22,CLOSED,Saudi National Day,saudi_national_day,module:saudi_national_day,2022-09-23,,CONFIRMED
+2023-02-22,CLOSED,Saudi Founding Day,saudi_founding_day,module:saudi_founding_day,,,CONFIRMED
+2023-04-18,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2023-04-19,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2023-04-20,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2023-04-21,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2023-04-22,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2023-04-23,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2023-04-24,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2023-06-23,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2023-06-24,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2023-06-25,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2023-06-26,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2023-06-27,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2023-06-28,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2023-06-29,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2023-06-30,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2023-07-01,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2023-09-24,CLOSED,Saudi National Day,saudi_national_day,module:saudi_national_day,2023-09-23,,CONFIRMED
+2024-02-22,CLOSED,Saudi Founding Day,saudi_founding_day,module:saudi_founding_day,,,CONFIRMED
+2024-04-05,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2024-04-06,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2024-04-07,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2024-04-08,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2024-04-09,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2024-04-10,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2024-04-11,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2024-04-12,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2024-04-13,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2024-06-14,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2024-06-15,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2024-06-16,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2024-06-17,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2024-06-18,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2024-06-19,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2024-06-20,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2024-06-21,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2024-06-22,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2024-09-23,CLOSED,Saudi National Day,saudi_national_day,module:saudi_national_day,,,CONFIRMED
+2025-02-23,CLOSED,Saudi Founding Day,saudi_founding_day,module:saudi_founding_day,2025-02-22,,CONFIRMED
+2025-03-28,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2025-03-29,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2025-03-30,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2025-03-31,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2025-04-01,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2025-04-02,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2025-06-05,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2025-06-06,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2025-06-07,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2025-06-08,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2025-06-09,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2025-06-10,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2025-09-23,CLOSED,Saudi National Day,saudi_national_day,module:saudi_national_day,,,CONFIRMED
+2026-02-22,CLOSED,Saudi Founding Day,saudi_founding_day,module:saudi_founding_day,,,CONFIRMED
+2026-03-17,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2026-03-18,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2026-03-19,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2026-03-20,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2026-03-21,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2026-03-22,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2026-03-23,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2026-05-22,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2026-05-23,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2026-05-24,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2026-05-25,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2026-05-26,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2026-05-27,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2026-05-28,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2026-05-29,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2026-05-30,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2026-09-23,CLOSED,Saudi National Day,saudi_national_day,module:saudi_national_day,,,CONFIRMED
+2027-02-22,CLOSED,Saudi Founding Day,saudi_founding_day,module:saudi_founding_day,,,CONFIRMED
+2027-03-05,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2027-03-06,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2027-03-07,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2027-03-08,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2027-03-09,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2027-03-10,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2027-03-11,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2027-03-12,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2027-03-13,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2027-05-14,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2027-05-15,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2027-05-16,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2027-05-17,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2027-05-18,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2027-05-19,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2027-05-20,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2027-05-21,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2027-05-22,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2027-09-23,CLOSED,Saudi National Day,saudi_national_day,module:saudi_national_day,,,CONFIRMED
+2028-02-22,CLOSED,Saudi Founding Day,saudi_founding_day,module:saudi_founding_day,,,CONFIRMED
+2028-02-25,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2028-02-26,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2028-02-27,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2028-02-28,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2028-02-29,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2028-03-01,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2028-03-02,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2028-03-03,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2028-03-04,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2028-05-03,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2028-05-04,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2028-05-05,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2028-05-06,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2028-05-07,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2028-05-08,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2028-05-09,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2028-09-24,CLOSED,Saudi National Day,saudi_national_day,module:saudi_national_day,2028-09-23,,CONFIRMED
+2029-02-12,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2029-02-13,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2029-02-14,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2029-02-15,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2029-02-16,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2029-02-17,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2029-02-18,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2029-02-22,CLOSED,Saudi Founding Day,saudi_founding_day,module:saudi_founding_day,,,CONFIRMED
+2029-04-20,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2029-04-21,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2029-04-22,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2029-04-23,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2029-04-24,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2029-04-25,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2029-04-26,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2029-04-27,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2029-04-28,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2029-09-23,CLOSED,Saudi National Day,saudi_national_day,module:saudi_national_day,,,CONFIRMED
+2030-02-01,CLOSED,Eid al-Fitr,eid_al_fitr_projected,module:eid_al_fitr,,,PROJECTED
+2030-02-02,CLOSED,Eid al-Fitr,eid_al_fitr_projected,module:eid_al_fitr,,,PROJECTED
+2030-02-03,CLOSED,Eid al-Fitr,eid_al_fitr_projected,module:eid_al_fitr,,,PROJECTED
+2030-02-04,CLOSED,Eid al-Fitr,eid_al_fitr_projected,module:eid_al_fitr,,,PROJECTED
+2030-02-05,CLOSED,Eid al-Fitr,eid_al_fitr_projected,module:eid_al_fitr,,,PROJECTED
+2030-02-06,CLOSED,Eid al-Fitr,eid_al_fitr_projected,module:eid_al_fitr,,,PROJECTED
+2030-02-07,CLOSED,Eid al-Fitr,eid_al_fitr_projected,module:eid_al_fitr,,,PROJECTED
+2030-02-21,CLOSED,Saudi Founding Day,saudi_founding_day,module:saudi_founding_day,2030-02-22,,CONFIRMED
+2030-04-08,CLOSED,Eid al-Adha,eid_al_adha_projected,module:eid_al_adha,,,PROJECTED
+2030-04-09,CLOSED,Eid al-Adha,eid_al_adha_projected,module:eid_al_adha,,,PROJECTED
+2030-04-10,CLOSED,Eid al-Adha,eid_al_adha_projected,module:eid_al_adha,,,PROJECTED
+2030-04-11,CLOSED,Eid al-Adha,eid_al_adha_projected,module:eid_al_adha,,,PROJECTED
+2030-04-12,CLOSED,Eid al-Adha,eid_al_adha_projected,module:eid_al_adha,,,PROJECTED
+2030-04-13,CLOSED,Eid al-Adha,eid_al_adha_projected,module:eid_al_adha,,,PROJECTED
+2030-04-14,CLOSED,Eid al-Adha,eid_al_adha_projected,module:eid_al_adha,,,PROJECTED
+2030-04-15,CLOSED,Eid al-Adha,eid_al_adha_projected,module:eid_al_adha,,,PROJECTED
+2030-04-16,CLOSED,Eid al-Adha,eid_al_adha_projected,module:eid_al_adha,,,PROJECTED
+2030-09-23,CLOSED,Saudi National Day,saudi_national_day,module:saudi_national_day,,,CONFIRMED

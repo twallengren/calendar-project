@@ -122,6 +122,18 @@ date,type,description,key,source_module,observed_from,close_time,status
 }
 ```
 
+## Get the data
+
+Every release publishes the generated artifacts three ways: `blessed/` in this repository (the
+current release, with previous ones under `release-history/`), a `tar.gz`/`zip` attached to the
+[GitHub release](https://github.com/twallengren/calendar-project/releases), and the
+[`bdc-calendars`](python/README.md) Python package, which ships the same data inside its wheel and
+answers the [Query API](spec/SPEC.md#query-api) offline with **zero runtime dependencies**
+(`pip install bdc-calendars`, then `bdc_calendars.get_calendar("XNYS")` — exchange_calendars MICs
+are accepted as aliases). Its version is `0.<data major>.<data minor>`, so it tracks the data
+release; see [`python/README.md`](python/README.md) for the API, the migration notes from
+exchange_calendars and the coverage/status caveats.
+
 ## Chronology Support
 
 The system supports multiple calendar systems through a YAML-based ontology:
