@@ -1,5 +1,26 @@
 {
   "calendars" : [ {
+    "id" : "CA-TSX",
+    "name" : "Toronto Stock Exchange",
+    "timezone" : "America/Toronto",
+    "coverage" : {
+      "from" : "2000-01-01",
+      "to" : "2030-12-31",
+      "verified_through" : "2026-12-31"
+    },
+    "counts_by_type" : {
+      "WEEKEND" : 3236,
+      "CLOSED" : 302,
+      "EARLY_CLOSE" : 8
+    },
+    "counts_by_status" : {
+      "CONFIRMED" : 3542,
+      "PROJECTED" : 4
+    },
+    "checksum" : "sha256:b564e7081e93534cd4dded70927e8b3e4a114e634ee70387cca0c7650d16b8da",
+    "years" : [ 2000, 2030 ],
+    "href" : "/v1/calendars/CA-TSX/manifest.json"
+  }, {
     "id" : "DE-XETRA",
     "name" : "Deutsche Börse Xetra",
     "timezone" : "Europe/Berlin",

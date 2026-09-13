@@ -1,0 +1,33 @@
+{
+  "calendar_id" : "CA-TSX",
+  "status" : "ok",
+  "results" : [ {
+    "source" : "exchange_calendars-XTSE",
+    "library_version" : "exchange_calendars 4.11, python 3.13.12, 2026-09-14",
+    "from" : "2000-01-04",
+    "to" : "2030-12-31",
+    "compared_types" : [ "CLOSED", "EARLY_CLOSE" ],
+    "counts" : {
+      "matched" : 309,
+      "allowlisted" : 9,
+      "unexplained" : 0
+    },
+    "unexplained_rows" : [ ],
+    "stale_allowlist_rows" : [ ],
+    "status" : "ok"
+  }, {
+    "source" : "quantlib-tsx",
+    "library_version" : "QuantLib 1.43, python 3.13.12, 2026-09-14",
+    "from" : "2000-01-03",
+    "to" : "2030-12-26",
+    "compared_types" : [ "CLOSED" ],
+    "counts" : {
+      "matched" : 302,
+      "allowlisted" : 0,
+      "unexplained" : 0
+    },
+    "unexplained_rows" : [ ],
+    "stale_allowlist_rows" : [ ],
+    "status" : "ok"
+  } ]
+}
