@@ -1,0 +1,506 @@
+package com.bdc.cli;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Locale;
+import java.util.concurrent.Callable;
+import picocli.CommandLine.Command;
+import picocli.CommandLine.Option;
+
+/**
+ * Scaffolds the files a new market needs: a calendar spec, a weekend policy (reused or new), a
+ * holiday group and one example holiday, a sources README, and the {@code blessed/manifest.json}
+ * and {@code scripts/reference/export_reference_calendars.py} entries that reference it.
+ *
+ * <p>Refuses to overwrite anything that already exists unless {@code --force} is given; {@code
+ * --dry-run} reports the plan without writing anything.
+ */
+@Command(name = "scaffold", description = "Scaffold the files needed to onboard a new market")
+public class ScaffoldCommand implements Callable<Integer> {
+
+  @Option(
+      names = {"--market"},
+      required = true,
+      description = "Calendar id for the new market, e.g. GB-LSE")
+  private String market;
+
+  @Option(
+      names = {"--name"},
+      required = true,
+      description = "Human-readable market name, e.g. \"London Stock Exchange\"")
+  private String name;
+
+  @Option(
+      names = {"--timezone"},
+      required = true,
+      description = "IANA timezone id, e.g. Europe/London")
+  private String timezone;
+
+  @Option(
+      names = {"--mic"},
+      required = true,
+      description = "Market Identifier Code, e.g. XLON")
+  private String mic;
+
+  @Option(
+      names = {"--weekend"},
+      defaultValue = "SAT_SUN",
+      description = "SAT_SUN, FRI_SAT, or custom (writes a new weekend policy module)")
+  private String weekend;
+
+  @Option(
+      names = {"--from"},
+      defaultValue = "2020-01-01",
+      description = "Coverage start date")
+  private LocalDate from;
+
+  @Option(
+      names = {"--to"},
+      defaultValue = "2030-12-31",
+      description = "Coverage end date")
+  private LocalDate to;
+
+  @Option(
+      names = {"--root"},
+      defaultValue = ".",
+      description = "Repository root")
+  private Path root;
+
+  @Option(
+      names = {"--dry-run"},
+      description = "Print the plan without writing or modifying any files")
+  private boolean dryRun;
+
+  @Option(
+      names = {"--force"},
+      description = "Overwrite existing files and entries")
+  private boolean force;
+
+  private static final ObjectMapper JSON_MAPPER = new ObjectMapper();
+
+  @Override
+  public Integer call() {
+    try {
+      String weekendMode = weekend.toUpperCase(Locale.ROOT);
+      if (!weekendMode.equals("SAT_SUN")
+          && !weekendMode.equals("FRI_SAT")
+          && !weekendMode.equals("CUSTOM")) {
+        System.err.println("Error: --weekend must be one of SAT_SUN, FRI_SAT, custom");
+        return 1;
+      }
+      if (from.isAfter(to)) {
+        System.err.println("Error: --from must not be after --to");
+        return 1;
+      }
+
+      String id = market;
+      String slug = id.toLowerCase(Locale.ROOT).replace('-', '_');
+      boolean customWeekend = weekendMode.equals("CUSTOM");
+      String weekendModuleId =
+          customWeekend ? slug + "_weekends" : defaultWeekendModule(weekendMode);
+      String groupModuleId = slug + "_holidays";
+      String holidayModuleId = slug + "_new_years_day";
+      String sourceId = "TODO-" + slug + "-primary";
+
+      Path calendarsDir = root.resolve("calendars");
+      Path modulesDir = root.resolve("modules");
+      Path sourcesDir = root.resolve("sources");
+      Path blessedManifest = root.resolve("blessed").resolve("manifest.json");
+      Path exportScript =
+          root.resolve("scripts").resolve("reference").resolve("export_reference_calendars.py");
+
+      Path calendarPath = calendarsDir.resolve(id + ".yaml");
+      Path groupPath = modulesDir.resolve("groups").resolve(groupModuleId + ".yaml");
+      Path holidayPath = modulesDir.resolve("holidays").resolve(holidayModuleId + ".yaml");
+      Path weekendPath = modulesDir.resolve("policies").resolve(weekendModuleId + ".yaml");
+      Path sourcesReadme = sourcesDir.resolve(id).resolve("README.md");
+
+      List<Path> newFiles = new ArrayList<>();
+      newFiles.add(calendarPath);
+      newFiles.add(groupPath);
+      newFiles.add(holidayPath);
+      newFiles.add(sourcesReadme);
+      if (customWeekend) {
+        newFiles.add(weekendPath);
+      }
+
+      List<String> conflicts = new ArrayList<>();
+      for (Path p : newFiles) {
+        if (Files.exists(p)) {
+          conflicts.add(root.relativize(p) + " (already exists)");
+        }
+      }
+      boolean manifestExists = Files.exists(blessedManifest);
+      if (manifestExists && !force) {
+        ObjectNode manifestRoot = (ObjectNode) JSON_MAPPER.readTree(blessedManifest.toFile());
+        JsonNode calendars = manifestRoot.get("calendars");
+        if (calendars != null && calendars.has(id)) {
+          conflicts.add(
+              root.relativize(blessedManifest) + " (already has an entry for " + id + ")");
+        }
+      }
+      boolean exportScriptExists = Files.exists(exportScript);
+      if (exportScriptExists && !force) {
+        List<String> lines = Files.readAllLines(exportScript);
+        for (String line : lines) {
+          if (line.contains("\"" + id + "\"")) {
+            conflicts.add(root.relativize(exportScript) + " (already has an entry for " + id + ")");
+            break;
+          }
+        }
+      }
+
+      if (!conflicts.isEmpty() && !force) {
+        System.err.println("Refusing to overwrite existing files:");
+        for (String c : conflicts) {
+          System.err.println("  " + c);
+        }
+        System.err.println("Pass --force to overwrite.");
+        return 1;
+      }
+
+      if (dryRun) {
+        System.out.println("[dry-run] Would write:");
+        for (Path p : newFiles) {
+          System.out.println("  " + root.relativize(p));
+        }
+        if (manifestExists) {
+          System.out.println("[dry-run] Would update: " + root.relativize(blessedManifest));
+        }
+        if (exportScriptExists) {
+          System.out.println("[dry-run] Would update: " + root.relativize(exportScript));
+        }
+        printNextSteps(id, slug, groupModuleId);
+        return 0;
+      }
+
+      Files.createDirectories(calendarPath.getParent());
+      Files.writeString(calendarPath, calendarYaml(id, weekendModuleId, groupModuleId));
+
+      Files.createDirectories(groupPath.getParent());
+      Files.writeString(groupPath, groupYaml(groupModuleId, holidayModuleId));
+
+      Files.createDirectories(holidayPath.getParent());
+      Files.writeString(holidayPath, holidayYaml(holidayModuleId, sourceId));
+
+      if (customWeekend) {
+        Files.createDirectories(weekendPath.getParent());
+        Files.writeString(weekendPath, weekendYaml(weekendModuleId, sourceId));
+      }
+
+      Files.createDirectories(sourcesReadme.getParent());
+      Files.writeString(sourcesReadme, sourcesReadme(id, sourceId));
+
+      if (manifestExists) {
+        updateManifest(blessedManifest, id);
+      } else {
+        System.out.println("Note: " + root.relativize(blessedManifest) + " not found; skipping.");
+      }
+
+      if (exportScriptExists) {
+        updateExportScript(exportScript, id, mic);
+      } else {
+        System.out.println("Note: " + root.relativize(exportScript) + " not found; skipping.");
+      }
+
+      System.out.println("Scaffolded " + id + ":");
+      for (Path p : newFiles) {
+        System.out.println("  " + root.relativize(p));
+      }
+      if (manifestExists) {
+        System.out.println("  (updated) " + root.relativize(blessedManifest));
+      }
+      if (exportScriptExists) {
+        System.out.println("  (updated) " + root.relativize(exportScript));
+      }
+      System.out.println();
+      printNextSteps(id, slug, groupModuleId);
+
+      return 0;
+    } catch (Exception e) {
+      System.err.println("Scaffold failed: " + e.getMessage());
+      return 1;
+    }
+  }
+
+  private static String defaultWeekendModule(String weekendMode) {
+    return weekendMode.equals("FRI_SAT") ? "weekend_fri_sat" : "weekend_sat_sun";
+  }
+
+  private String calendarYaml(String id, String weekendModuleId, String groupModuleId) {
+    return """
+        kind: calendar
+        id: %s
+
+        metadata:
+          name: %s
+          description: "TODO: describe this market's trading calendar"
+          chronology: ISO
+          timezone: %s
+          coverage:
+            from: %s
+            to: %s
+            verified_through: %s  # TODO: update once these dates are checked against a source
+
+        # NONE | NEAREST_WEEKDAY | NEXT_AVAILABLE_WEEKDAY | FORWARD_ONLY
+        weekend_shift_policy: NONE
+
+        uses:
+          - %s
+          - %s
+        """
+        .formatted(id, name, timezone, from, to, from, weekendModuleId, groupModuleId);
+  }
+
+  private String weekendYaml(String weekendModuleId, String sourceId) {
+    return """
+        kind: module
+        id: %s
+
+        # TODO: describe this market's weekend definition (and any historical change of weekend
+        # days) and cite the authoritative source, following the pattern in
+        # modules/policies/saudi_weekends.yaml.
+
+        source:
+          - id: %s
+
+        policies:
+          weekends:
+            - {days: [SATURDAY, SUNDAY], to: %s}    # TODO: replace with the real effective-dated weekend periods
+            - {days: [SATURDAY, SUNDAY], from: %s}
+        """
+        .formatted(weekendModuleId, sourceId, from, from);
+  }
+
+  private String groupYaml(String groupModuleId, String holidayModuleId) {
+    return """
+        kind: module
+        id: %s
+
+        uses:
+          - %s
+          # TODO: add the rest of this market's holiday modules here
+        """
+        .formatted(groupModuleId, holidayModuleId);
+  }
+
+  private String holidayYaml(String holidayModuleId, String sourceId) {
+    return """
+        kind: module
+        id: %s
+
+        # TODO: New Year's Day is a placeholder to get this market validating end to end. Replace
+        # it with the market's real holidays, and cite the authoritative source for each in
+        # sources/<MARKET>/README.md.
+
+        event_sources:
+          - key: %s
+            name: New Year's Day
+            default_classification: CLOSED
+            # shift_policy: NONE  # TODO: set NEAREST_WEEKDAY | NEXT_AVAILABLE_WEEKDAY | FORWARD_ONLY if this holiday is observed when it falls on a weekend
+            source: {id: %s}
+            rule:
+              type: fixed_month_day
+              month: 1
+              day: 1
+        """
+        .formatted(holidayModuleId, holidayModuleId, sourceId);
+  }
+
+  private String sourcesReadme(String id, String sourceId) {
+    return """
+        # %s sources
+
+        | id | title | publisher | url / file | retrieved | covers | notes |
+        |----|-------|-----------|------------|-----------|--------|-------|
+        | `%s` | TODO: title | TODO: publisher | TODO: url or file | TODO: YYYY-MM-DD | TODO: date range covered | TODO: notes |
+
+        ## Modelling decisions recorded against these sources
+
+        - TODO: record modelling decisions (weekend definition, holiday observance rules, special
+          closures) and the source each is based on, following the pattern in
+          `sources/US-NYSE/README.md`.
+        """
+        .formatted(id, sourceId);
+  }
+
+  private void printNextSteps(String id, String slug, String groupModuleId) {
+    String testName = camelCase(id);
+    int year = LocalDate.now().getYear();
+    System.out.println("Paste this into tools/src/test/java/com/bdc/test/GoldenTests.java:");
+    System.out.println();
+    System.out.println("  @Test");
+    System.out.println("  void " + testName + year + "() throws IOException {");
+    System.out.println(
+        "    productionCalendarRunner.assertCsvGoldenMatch(\"" + id + "\", " + year + ");");
+    System.out.println("  }");
+    System.out.println();
+    System.out.println("Next steps (see CONTRIBUTING.md):");
+    System.out.println(
+        "  1. Replace the TODO placeholders: cite real sources in sources/"
+            + id
+            + "/README.md, fill in modules/holidays/"
+            + slug
+            + "_new_years_day.yaml, and add the market's real holidays to modules/groups/"
+            + groupModuleId
+            + ".yaml.");
+    System.out.println(
+        "  2. Validate:   ./gradlew :tools:run --args=\"validate " + id + " --strict\"");
+    System.out.println(
+        "  3. Generate:   ./gradlew :tools:run --args=\"generate "
+            + id
+            + " --from "
+            + from
+            + " --to "
+            + to
+            + " --out generated/"
+            + id
+            + "\"");
+    System.out.println(
+        "  4. Add the golden test above, then run ./gradlew :tools:test -DupdateGoldens=true and"
+            + " review the diff before committing.");
+    System.out.println(
+        "  5. Cross-validation: regenerate tools/src/test/resources/reference/"
+            + id
+            + "/*.csv with scripts/reference/export_reference_calendars.py and add an"
+            + " allowlist.csv for any explained differences (see"
+            + " tools/src/test/resources/reference/README.md).");
+  }
+
+  private static String camelCase(String id) {
+    StringBuilder sb = new StringBuilder();
+    String[] parts = id.split("-");
+    for (int i = 0; i < parts.length; i++) {
+      String lower = parts[i].toLowerCase(Locale.ROOT);
+      if (i == 0) {
+        sb.append(lower);
+      } else {
+        sb.append(Character.toUpperCase(lower.charAt(0))).append(lower.substring(1));
+      }
+    }
+    return sb.toString();
+  }
+
+  private void updateManifest(Path manifestPath, String id) throws IOException {
+    ObjectNode root = (ObjectNode) JSON_MAPPER.readTree(manifestPath.toFile());
+    JsonNode calendarsNode = root.get("calendars");
+    ObjectNode calendars;
+    if (calendarsNode instanceof ObjectNode on) {
+      calendars = on;
+    } else {
+      calendars = JSON_MAPPER.createObjectNode();
+      root.set("calendars", calendars);
+    }
+    ObjectNode entry = JSON_MAPPER.createObjectNode();
+    entry.put("range_start", from.toString());
+    entry.put("range_end", to.toString());
+    entry.put("event_count", 0);
+    entry.put("checksum", "");
+    entry.put("kind", "market");
+    calendars.set(id, entry);
+    Files.writeString(manifestPath, toJqStyle(root));
+  }
+
+  private void updateExportScript(Path scriptPath, String id, String mic) throws IOException {
+    List<String> lines = new ArrayList<>(Files.readAllLines(scriptPath));
+    int start = -1;
+    for (int i = 0; i < lines.size(); i++) {
+      if (lines.get(i).equals("EXPORTS = [")) {
+        start = i;
+        break;
+      }
+    }
+    if (start < 0) {
+      System.out.println("Note: could not find 'EXPORTS = [' in " + scriptPath + "; skipping.");
+      return;
+    }
+    int end = -1;
+    for (int i = start + 1; i < lines.size(); i++) {
+      if (lines.get(i).equals("]")) {
+        end = i;
+        break;
+      }
+    }
+    if (end < 0) {
+      System.out.println(
+          "Note: could not find closing ']' for EXPORTS in " + scriptPath + "; skipping.");
+      return;
+    }
+    // Remove any existing entry for this id (force re-run case) before appending the new one.
+    for (int i = end - 1; i > start; i--) {
+      if (lines.get(i).contains("\"" + id + "\"")) {
+        lines.remove(i);
+        end--;
+      }
+    }
+    lines.add(end, "    (\"" + id + "\", \"" + mic + "\", \"" + from + "\", \"" + to + "\"),");
+    Files.write(scriptPath, lines, java.nio.charset.StandardCharsets.UTF_8);
+    // Preserve a trailing newline if the original file had one.
+  }
+
+  /** Renders a JsonNode tree in jq's default style (2-space indent, no space before ':'). */
+  private static String toJqStyle(JsonNode node) {
+    StringBuilder sb = new StringBuilder();
+    writeNode(sb, node, 0);
+    sb.append('\n');
+    return sb.toString();
+  }
+
+  private static void writeNode(StringBuilder sb, JsonNode node, int depth) {
+    String pad = "  ".repeat(depth);
+    String padIn = "  ".repeat(depth + 1);
+    if (node.isObject()) {
+      if (node.isEmpty()) {
+        sb.append("{}");
+        return;
+      }
+      sb.append("{\n");
+      List<String> keys = new ArrayList<>();
+      Iterator<String> names = node.fieldNames();
+      names.forEachRemaining(keys::add);
+      for (int i = 0; i < keys.size(); i++) {
+        String key = keys.get(i);
+        sb.append(padIn).append(jsonString(key)).append(": ");
+        writeNode(sb, node.get(key), depth + 1);
+        if (i < keys.size() - 1) sb.append(',');
+        sb.append('\n');
+      }
+      sb.append(pad).append('}');
+    } else if (node.isArray()) {
+      if (node.isEmpty()) {
+        sb.append("[]");
+        return;
+      }
+      sb.append("[\n");
+      for (int i = 0; i < node.size(); i++) {
+        sb.append(padIn);
+        writeNode(sb, node.get(i), depth + 1);
+        if (i < node.size() - 1) sb.append(',');
+        sb.append('\n');
+      }
+      sb.append(pad).append(']');
+    } else if (node.isTextual()) {
+      sb.append(jsonString(node.asText()));
+    } else if (node.isNull()) {
+      sb.append("null");
+    } else {
+      sb.append(node.toString());
+    }
+  }
+
+  private static String jsonString(String s) {
+    try {
+      return JSON_MAPPER.writeValueAsString(s);
+    } catch (IOException e) {
+      throw new RuntimeException(e);
+    }
+  }
+}
