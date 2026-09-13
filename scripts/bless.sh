@@ -45,4 +45,8 @@ for CAL_ID in $(jq -r '.calendars | keys[]' blessed/manifest.json); do
      blessed/manifest.json > blessed/manifest.json.tmp
   mv blessed/manifest.json.tmp blessed/manifest.json
 done
+
+echo "Cross-validating against reference data"
+"$TOOLS" crossvalidate --all --out blessed || true
+
 echo "Done. Review with: git status --short blessed/"

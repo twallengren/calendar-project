@@ -387,6 +387,64 @@ generating over the coverage range, same-date CLOSED/EARLY_CLOSE conflicts, rule
 nothing, and PROJECTED events before `verified_through`. Exit code 1 on errors, 2 on warnings
 under `--strict`.
 
+## Status and cross-validation artifacts
+
+`crossvalidate [<ID>|--all] [--reference-dir <dir>] [--format text|json] [--out <dir>]` runs the
+comparison in `CrossValidator` (also used by `ReferenceCrossValidationTest`) against every
+`<reference-dir>/<ID>/*.csv` file for the selected calendar(s) (default reference dir:
+`tools/src/test/resources/reference`). With `--out <dir>` it writes `<dir>/<ID>/cross_validation.json`
+for every cross-validated calendar:
+
+```json
+{
+  "calendar_id": "US-NYSE",
+  "status": "ok",          // "ok" | "discrepancies" | "no-reference"
+  "results": [
+    {
+      "source": "exchange_calendars-XNYS",
+      "library_version": "exchange_calendars 4.11, python 3.13.12, 2026-09-12",
+      "from": "1971-01-01",
+      "to": "2030-12-31",
+      "compared_types": ["CLOSED", "EARLY_CLOSE"],
+      "counts": { "matched": 620, "allowlisted": 9, "unexplained": 0 },
+      "unexplained_rows": [],
+      "stale_allowlist_rows": [],
+      "status": "ok"        // "ok" | "discrepancies"
+    }
+  ]
+}
+```
+
+Exit code 1 when any result has unexplained rows or a stale allowlist entry. `scripts/bless.sh`
+runs `crossvalidate --all --out blessed` after generating every calendar; the release workflow
+does the same before committing.
+
+`status [--format markdown|json] [--blessed-dir blessed] [--sources-dir sources]` builds a
+scorecard, one row per calendar in `blessed/manifest.json` (markets first, then base,
+alphabetically within each group), from `blessed/<ID>/metadata.json`, `sources/<ID>/README.md`
+(counting cited source ids) and `blessed/<ID>/cross_validation.json` (`"none"` when absent). JSON
+shape, one entry per calendar:
+
+```json
+{
+  "id": "US-NYSE",
+  "name": "NYSE Trading Calendar",
+  "kind": "market",
+  "timezone": "America/New_York",
+  "coverage": { "from": "1900-01-01", "to": "2030-12-31", "verified_through": "2026-12-31" },
+  "counts": { "closures": 1649, "early_closes": 126, "projected": 0 },
+  "sources": { "ids": ["nyse-history-2008", "nyse-legacy-model-2022", "nyse-hours"], "count": 3 },
+  "cross_validation": {
+    "exchange_calendars-XNYS": { "status": "ok", "allowlisted": 9 },
+    "quantlib-nyse": { "status": "ok", "allowlisted": 0 }
+  },
+  "release_version": "11.0.0"
+}
+```
+
+`--format markdown` renders the same data as a table (see the "Market status" section of
+`README.md`), one column per field above.
+
 ## Published artifacts and as-of queries
 
 `blessed/` holds the current release and `release-history/<CAL>/<timestamp>_<sha>_v<version>/`

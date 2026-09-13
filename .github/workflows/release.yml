@@ -330,6 +330,11 @@ jobs:
             fi
           done
 
+          # Cross-validate against reference data (committed under
+          # tools/src/test/resources/reference/, so no extra checkout is needed); writes
+          # blessed/<ID>/cross_validation.json for every calendar that has reference data.
+          ./tools/build/install/tools/bin/tools crossvalidate --all --out blessed
+
           # Commit updated blessed and release history
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"

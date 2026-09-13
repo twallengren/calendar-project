@@ -23,6 +23,7 @@ All Gradle commands run from the repo root (the `tools/` build uses `workingDir 
 ./gradlew :tools:run --args="resolve US-MARKET-BASE --out build/resolved/US-MARKET-BASE.yaml"
 ./gradlew :tools:run --args="query US-NYSE --as-of v10.1.0 --is-business-day 2021-12-31"
 scripts/bless.sh                     # regenerate blessed/ reproducibly (no-op leaves git clean)
+./gradlew :tools:run --args="crossvalidate --all --out blessed"   # writes blessed/<ID>/cross_validation.json; ./gradlew :tools:run --args="status --format markdown" renders the Market status table in README.md
 ```
 
 **Golden tests:** Update expected outputs with `./gradlew :tools:test -DupdateGoldens=true`
