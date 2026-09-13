@@ -190,9 +190,9 @@ jobs:
 
           echo "Successfully archived $ARCHIVED_COUNT calendars"
 
-          # Retention policy: keep only the last 10 versions per calendar
+          # Retention policy: keep only the last 30 versions per calendar
           # Older versions remain accessible via git history
-          RETENTION_COUNT=10
+          RETENTION_COUNT=30
           echo "Applying retention policy (keeping last $RETENTION_COUNT versions)"
 
           for CAL_DIR in release-history/*/; do
