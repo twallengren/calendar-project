@@ -166,6 +166,20 @@ algorithms:
   leap_year: "year % 4 == 0"
 ```
 
+## Market status
+
+One row per blessed calendar: coverage, closure/early-close/projected counts, cited sources, and
+cross-validation results against third-party reference data. Regenerate with
+`tools status --format markdown` after `scripts/bless.sh` (see `spec/SPEC.md` for the JSON shape
+and `tools crossvalidate`, which produces the cross-validation column).
+
+| ID | Name | Kind | Timezone | Coverage | Verified Through | Closures | Early Closes | Projected | Sources | Cross-validation | Release |
+|----|------|------|----------|----------|-------------------|----------|---------------|-----------|---------|-------------------|---------|
+| SA-TADAWUL | Tadawul (Saudi Exchange) Trading Calendar | market | Asia/Riyadh | 2020-01-01 to 2030-12-31 | 2029-12-31 | 187 | 0 | 16 | 2 | exchange_calendars-XSAU: ok (allowlisted=19) | 11.0.0 |
+| US-NYSE | NYSE Trading Calendar | market | America/New_York | 1900-01-01 to 2030-12-31 | 2026-12-31 | 1649 | 126 | 0 | 3 | exchange_calendars-XNYS: ok (allowlisted=9); quantlib-nyse: ok (allowlisted=0) | 11.0.0 |
+| US-CORP-IN-VISIBILITY | US Corporate Calendar with India Visibility | base | America/New_York | 1900-01-01 to 2030-12-31 | 2026-12-31 | 938 | 0 | 0 | 0 | none | 11.0.0 |
+| US-MARKET-BASE | US Market Base Calendar | base | America/New_York | 1900-01-01 to 2030-12-31 | 2026-12-31 | 938 | 0 | 0 | 0 | none | 11.0.0 |
+
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for the full walkthrough of adding a market, correcting
