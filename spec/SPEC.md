@@ -10,6 +10,7 @@ id: string                    # Unique identifier
 metadata:
   name: string                # Human-readable name
   description: string         # Optional description
+  kind: market                # market (a tradable venue, the default) or base (a building block)
   chronology: ISO             # Informational: the market's civil calendar (ISO, HIJRI, UMM_AL_QURA, ...)
   timezone: America/New_York  # IANA zone id; required when any event source has a close_time
   coverage:                   # The range this calendar is maintained for
@@ -391,6 +392,134 @@ under `--strict`.
 `blessed/` holds the current release and `release-history/<CAL>/<timestamp>_<sha>_v<version>/`
 the previous ones. `query <CAL> --as-of <blessed|vX.Y.Z|date>` answers from a published
 artifact instead of the current YAML; `history releases <CAL>` lists them.
+
+## Query API
+
+Every distribution channel — the `query` CLI, the published JSON artifacts, language bindings, the
+MCP server — answers from the same API, described here precisely enough to be reimplemented in
+another language without reading the Java.
+
+A **stream** is one calendar made queryable. Two implementations exist and behave identically:
+a lazy stream over the current YAML (events generated on demand) and a materialized stream over a
+published artifact's `events.csv` (used by `--as-of`). A stream exposes:
+
+| Property | Meaning |
+|----------|---------|
+| `calendar_id` | the calendar this stream answers for |
+| `range` | the window the stream can answer in: `metadata.coverage` (`from`..`to`) for a YAML-backed stream, `range_start`..`range_end` for an artifact-backed one. A calendar with no `coverage` block is unbounded |
+| `verified_through` | `coverage.verified_through`, when declared |
+
+### Definitions
+
+- A date is a **business day** when the market trades on it: it is not a weekend under the
+  calendar's (effective-dated) weekend policy and carries no `CLOSED` event. An `EARLY_CLOSE` day
+  **is** a business day. In an artifact-backed stream the same test reads as: the date carries
+  neither a `WEEKEND` nor a `CLOSED` row.
+- An **early close** is a date carrying an `EARLY_CLOSE` event with a `close_time`. `CLOSED` beats
+  `EARLY_CLOSE` on the same date (see *Same-date precedence*), so a date is never both.
+- All dates are ISO (Gregorian) civil dates in the market's own timezone; `close_time` is a local
+  time in `metadata.timezone`.
+
+### Operations
+
+| Operation | Result |
+|-----------|--------|
+| `events_in_range(from, to)` | every event with `from <= date <= to`, ordered by date. Errors if `from > to` |
+| `events_on(date)` | every event on that date, possibly empty |
+| `event_on(date)` | the first of `events_on(date)`, or none |
+| `is_business_day(date)` | as defined above |
+| `next_business_day(from)` | the first business day **strictly after** `from` |
+| `prev_business_day(from)` | the last business day **strictly before** `from` |
+| `nth_business_day(from, n)` | walk day by day from `from`, counting business days, `n` forward (`n > 0`) or backward (`n < 0`); `n = 0` returns `from` unchanged whether or not it is a business day. The starting date is never counted, so T+1 from a Friday is the following Monday |
+| `business_days_in_range(from, to)` | count of business days with **both endpoints included** |
+| `event_count_in_range(from, to)` | count of events in the range, endpoints included, weekend rows included where the stream carries them |
+| `is_early_close(date)` | whether `close_time(date)` has a value |
+| `close_time(date)` | the local close time of a shortened session; where several apply, the earliest |
+| `status(date)` | `CONFIRMED`, `PROJECTED` or `UNKNOWN` (see below) |
+
+Searches are bounded so a mis-specified calendar cannot loop forever: `next_business_day` and
+`prev_business_day` scan at most **366** days and then fail; `nth_business_day` walks at most
+`366 * |n| + 366` days.
+
+### Status
+
+`status(date)` says how much the answer can be trusted. It is evaluated in this order and **never
+raises**:
+
+1. `UNKNOWN` — the date lies outside `range`.
+2. `PROJECTED` — the date is after `verified_through`. This wins over whatever the rows say: a
+   `CONFIRMED` row past the verified horizon has not been checked against a source, so it is
+   reported as projected.
+3. `PROJECTED` — any event on the date carries `status: PROJECTED` (rule-derived dates in
+   observation-based calendars, for example).
+4. `CONFIRMED` — otherwise.
+
+### Out-of-range contract
+
+Outside a stream's `range` the absence of a closure row means "not known", never "open". Therefore:
+
+- `status(date)` returns `UNKNOWN`; it is the safe way to probe an unfamiliar date first.
+- **Every other operation raises** an out-of-range error (`OutsideCoverageException` in Java; ports
+  should raise their own equivalent, an invalid-argument error) carrying the calendar id, the
+  offending date and the range. This includes navigation whose bounded search would step past the
+  edge of the range: `next_business_day(2030-12-31)` on a calendar covered through 2030-12-31
+  fails rather than guessing.
+- A YAML-backed stream enforces this only when the calendar declares `coverage`; without one it is
+  unbounded and never raises for being out of range. Artifact-backed streams are always bounded by
+  the generated range.
+- The CLI turns the error into a one-line message on stderr and exit code 1.
+
+### Joint calendars (several calendars at once)
+
+Several calendars can be queried as one **joint** stream: a date is a business day only when
+**every** member trades on it. The two ways of naming this — "intersection of trading days" and
+"union of closures" / "closed in any" — are the same predicate (`open(A) and open(B)` is the
+negation of `closed(A) or closed(B)`), so the API offers exactly **one** constructor for it rather
+than two names for one behaviour. A different predicate (for example "open in any member") would be
+a different constructor; none is defined. The joint of a single calendar is that calendar itself.
+
+Composition rules:
+
+| Property | Joint value |
+|----------|-------------|
+| `calendar_id` | member ids joined with `+`, in the order given (`US-NYSE+SA-TADAWUL`) |
+| `is_business_day` | true only when true for every member |
+| `events_on` / `events_in_range` | every member's events concatenated in member order (range queries then sorted by date, stably), each with its `source_module` prefixed by the member id: `US-NYSE/module:christmas`. A member event with no source module gets the bare member id |
+| `range` | the intersection of the member ranges; members whose ranges do not overlap are an error |
+| `verified_through` | the earliest value among the members that declare one; members that declare none do not constrain it; absent when no member declares one |
+| `status` | `UNKNOWN` if any member is `UNKNOWN`, else `PROJECTED` if any member is `PROJECTED`, else `CONFIRMED` — the joint answer is only as good as its worst member |
+| `close_time` | the earliest early close declared by any member that day. A joint date can carry an early close and still not be a business day (another member is closed), so check `is_business_day` first |
+
+Every derived operation (navigation, counting, settlement) follows from the joint `is_business_day`,
+which is what makes T+N settlement across markets correct: a trade settles only on a day both
+markets are open.
+
+### CLI surface
+
+```
+query <CAL[,CAL...]> [options]
+  --is-business-day <date>       business-day test, with the reason when closed
+  --events-on <date>             events on a date
+  --next-business-day <date>     first business day after
+  --prev-business-day <date>     last business day before
+  --nth-business-day <n> --from <date>
+  --business-days-from <date> --business-days-to <date>
+  --settlement T+N --from <trade date>
+                                 settlement date on the joint calendar, listing which member
+                                 calendars are closed on each intervening day
+  --open-in <cals> --closed-in <cals> --from <date> --to <date>
+                                 dates open in one calendar (or joint group) and closed in another
+  --is-early-close <date>        shortened session test
+  --close-time <date>            early close time, "regular session" or "closed"
+  --status <date>                CONFIRMED | PROJECTED | UNKNOWN
+  --verified-through             covered range and verified-through date
+  --as-of <blessed|vX.Y.Z|date>  answer from a published artifact instead of the current YAML
+```
+
+The positional argument takes a comma-separated list of calendar ids, which is queried jointly
+(`query US-NYSE,SA-TADAWUL --settlement T+2 --from 2026-02-25`). With `--as-of`, every member is
+resolved independently through the release history and the joint stream is built from the resulting
+artifacts, so a joint as-of query is answered entirely from published data.
 
 ## Chronology Support
 

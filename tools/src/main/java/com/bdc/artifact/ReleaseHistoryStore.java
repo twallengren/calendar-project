@@ -3,6 +3,7 @@ package com.bdc.artifact;
 import com.bdc.chronology.DateRange;
 import com.bdc.emitter.EventsCsvReader;
 import com.bdc.model.Event;
+import com.bdc.stream.CsvDateStream;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
@@ -156,15 +157,36 @@ public class ReleaseHistoryStore {
     return new EventsCsvReader().read(csv, "release:" + snapshot.id());
   }
 
+  /** A queryable stream over the snapshot: its events, range and verified_through. */
+  public CsvDateStream stream(Snapshot snapshot) throws IOException {
+    return new CsvDateStream(
+        snapshot.calendarId(),
+        loadEvents(snapshot),
+        range(snapshot),
+        verifiedThrough(snapshot).orElse(null));
+  }
+
+  /** The {@code coverage.verified_through} recorded in the snapshot's metadata.json, if any. */
+  public Optional<LocalDate> verifiedThrough(Snapshot snapshot) throws IOException {
+    JsonNode verified = metadata(snapshot).path("coverage").path("verified_through");
+    return verified.isMissingNode() || verified.isNull()
+        ? Optional.empty()
+        : Optional.of(LocalDate.parse(verified.asText()));
+  }
+
   /** The date range the snapshot was generated for, from its metadata.json. */
   public DateRange range(Snapshot snapshot) throws IOException {
+    JsonNode root = metadata(snapshot);
+    return new DateRange(
+        LocalDate.parse(root.path("range_start").asText()),
+        LocalDate.parse(root.path("range_end").asText()));
+  }
+
+  private JsonNode metadata(Snapshot snapshot) throws IOException {
     Path metadata = snapshot.dir().resolve("metadata.json");
     if (!Files.exists(metadata)) {
       throw new IOException("Snapshot has no metadata.json: " + snapshot.dir());
     }
-    JsonNode root = mapper.readTree(metadata.toFile());
-    return new DateRange(
-        LocalDate.parse(root.path("range_start").asText()),
-        LocalDate.parse(root.path("range_end").asText()));
+    return mapper.readTree(metadata.toFile());
   }
 }

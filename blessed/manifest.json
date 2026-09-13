@@ -4,24 +4,28 @@
   "blessed_by": "github-actions",
   "calendars": {
     "US-MARKET-BASE": {
+      "kind": "base",
       "range_start": "1900-01-01",
       "range_end": "2030-12-31",
       "event_count": 14608,
       "checksum": "sha256:65c615ae26d7226e020992eae8bcce81303e243f17a961bdf43188252f3ac285"
     },
     "US-NYSE": {
+      "kind": "market",
       "range_start": "1900-01-01",
       "range_end": "2030-12-31",
       "event_count": 12836,
       "checksum": "sha256:1c9c599763a4a964592dcce6dbca29b940a02ece883fd4937dcdf408199e5763"
     },
     "US-CORP-IN-VISIBILITY": {
+      "kind": "base",
       "range_start": "1900-01-01",
       "range_end": "2030-12-31",
       "event_count": 14615,
       "checksum": "sha256:8aabf506cf8db5a01a72b37c72e08050c6bc9989454a26f8fec1fd272392c7e4"
     },
     "SA-TADAWUL": {
+      "kind": "market",
       "range_start": "2020-01-01",
       "range_end": "2030-12-31",
       "event_count": 1271,

@@ -318,10 +318,13 @@ jobs:
             if [ -f "$CAL_DIR/events.csv" ]; then
               CHECKSUM=$(sha256sum "$CAL_DIR/events.csv" | cut -d' ' -f1)
               EVENT_COUNT=$(tail -n +2 "$CAL_DIR/events.csv" | grep -c . || echo 0)
+              # kind (market | base) comes from the calendar's metadata, which comes from its YAML
+              KIND=$(jq -r '.kind // "market"' "$CAL_DIR/metadata.json")
               jq --arg cal "$CAL_ID" \
                  --arg checksum "sha256:$CHECKSUM" \
                  --arg count "$EVENT_COUNT" \
-                 '.calendars[$cal].checksum = $checksum | .calendars[$cal].event_count = ($count | tonumber)' \
+                 --arg kind "$KIND" \
+                 '.calendars[$cal].kind = $kind | .calendars[$cal].checksum = $checksum | .calendars[$cal].event_count = ($count | tonumber)' \
                  blessed/manifest.json > blessed/manifest.json.tmp
               mv blessed/manifest.json.tmp blessed/manifest.json
             fi

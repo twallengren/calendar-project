@@ -10,6 +10,7 @@ metadata:
     from: 2020-01-01
     to: 2030-12-31
     verified_through: 2029-12-31
+  kind: market
 uses:
 - saudi_weekends
 - tadawul_holidays

@@ -1,6 +1,7 @@
 {
   "calendar_id" : "US-MARKET-BASE",
   "calendar_name" : "US Market Base Calendar",
+  "kind" : "base",
   "generated_at" : "NORMALIZED_TIMESTAMP",
   "range_start" : "2024-01-01",
   "range_end" : "2024-12-31",
