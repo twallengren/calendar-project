@@ -14,3 +14,9 @@
 /modules/holidays/saudi_*          @twallengren
 /modules/policies/saudi_weekends.yaml  @twallengren
 /sources/SA-TADAWUL/               @twallengren
+
+# DE-XETRA
+/calendars/DE-XETRA.yaml           @twallengren
+/modules/holidays/de_xetra_*       @twallengren
+/modules/groups/de_xetra_*         @twallengren
+/sources/DE-XETRA/                 @twallengren

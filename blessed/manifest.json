@@ -30,6 +30,13 @@
       "range_end": "2030-12-31",
       "event_count": 1271,
       "checksum": "sha256:7abe60d0b866382dae15d4ab78bab9286fdceb737781776c08abcf3972a4bbe1"
+    },
+    "DE-XETRA": {
+      "range_start": "2003-01-01",
+      "range_end": "2030-12-31",
+      "event_count": 3112,
+      "checksum": "sha256:3dcda6443c0f21e5a8dfa8650f46de6af60ff7bb654e28b9022c11d4c03d876b",
+      "kind": "market"
     }
   },
   "release_version": {

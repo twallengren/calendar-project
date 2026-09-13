@@ -154,4 +154,17 @@ class GoldenTests {
   void usMarketBase2024Metadata() throws IOException {
     productionCalendarRunner.assertMetadataGoldenMatch("US-MARKET-BASE", 2024);
   }
+
+  // DE-XETRA years: 2017 exercises the discretionary Whit Monday and German Unity Day
+  // closures plus the one-off 2017 Reformation Day; 2021 has Christmas Day on a Saturday
+  // (weekend_shift_policy: NONE means it is not observed on an adjacent weekday).
+  @Test
+  void deXetra2017() throws IOException {
+    productionCalendarRunner.assertCsvGoldenMatch("DE-XETRA", 2017);
+  }
+
+  @Test
+  void deXetra2021() throws IOException {
+    productionCalendarRunner.assertCsvGoldenMatch("DE-XETRA", 2021);
+  }
 }

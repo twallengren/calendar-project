@@ -1,0 +1,22 @@
+kind: module
+id: de_xetra_reformation_day_2017
+
+# Reformation Day (31 October 2017 only). 2017 marked the 500th anniversary of the Reformation
+# and was declared a one-time nationwide public holiday across all of Germany (in other years
+# Reformation Day is a regional holiday observed by only some German states, and Xetra does not
+# close for it). xetra-trading-calendar-2017 lists 31 October 2017 as a settlement day alongside
+# Whit Monday and German Unity Day; no other sourced year (2003-2026) repeats it.
+
+source:
+  - id: xetra-trading-calendar-2017
+    ref: "exceptions sentence: 31 October (settlement day)"
+
+event_sources:
+  - key: de_xetra_reformation_day_2017
+    name: Reformation Day (500th anniversary)
+    default_classification: CLOSED
+    shift_policy: NONE
+    rule:
+      type: explicit_dates
+      dates:
+        - 2017-10-31
