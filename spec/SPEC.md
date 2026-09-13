@@ -673,17 +673,18 @@ minified JSON and RFC 5545 `.ics` files, suitable for serving as-is (e.g. from G
 ```
 v1/index.json                                       one entry per published calendar, plus release info
 v1/calendars/<ID>/manifest.json                      metadata.json content + weekend_policy + years + links
-v1/calendars/<ID>/<year>.json                        all rows for that year (CLOSED/EARLY_CLOSE/NOTABLE/PERIOD_MARKER/WEEKEND)
+v1/calendars/<ID>/<year>.json                        all rows for that year, one file per year in the calendar's full coverage range
 v1/calendars/<ID>/holidays.json                      non-WEEKEND rows, full coverage range
-v1/calendars/<ID>/all.json                           all rows, granular window (see below)
+v1/calendars/<ID>/all.json                           all rows, full coverage range
 v1/calendars/<ID>/holidays.ics                       one VEVENT per CLOSED/EARLY_CLOSE row, all years
 v1/calendars/<ID>/holidays-recent.ics                same, 2020 onward only
-v1/releases/<semver>/calendars/<ID>/<year>.json      pinned copy of <year>.json as published in that release
+v1/releases/<semver>/calendars/<ID>/<year>.json      pinned copy of <year>.json as published in that release, 2020 onward only (see below)
 ```
 
 `index.json` lists each calendar's `id`, `name`, `timezone`, `coverage` (`from`/`to`/
 `verified_through`), `counts_by_type`, `counts_by_status`, `checksum` (from `blessed/manifest.json`),
-`years` (`[first, last]`) and `href` (its manifest), plus a top-level `release`
+`years` (`[first, last]` of the calendar's full coverage range — every one of those years has a
+`<year>.json` file) and `href` (its manifest), plus a top-level `release`
 (`semantic`/`git_sha`/`generation_date`, from `blessed/manifest.json`'s `release_version`),
 `generated_at`, `schema_version` (`"1.0"`) and `api_version` (`"v1"`).
 
@@ -701,19 +702,25 @@ A calendar's `kind` (`metadata.json`'s `kind` field, falling back to `manifest.j
 entry) controls whether it is published; `kind` is optional and defaults to `market`.
 
 `v1/calendars/<ID>/manifest.json` is `blessed/<ID>/metadata.json`'s content plus `weekend_policy`
-(the `days`/`periods` block from `blessed/<ID>/resolved.yaml`), `years` (the years with a
-`<year>.json` file) and `links` (`year_template`, `holidays`, `all`, `ics`, `ics_recent`).
+(the `days`/`periods` block from `blessed/<ID>/resolved.yaml`), `years` (every year in the
+calendar's coverage range, each with a `<year>.json` file) and `links` (`year_template`,
+`holidays`, `all`, `ics`, `ics_recent`).
 
-### The granular window
+### Pinned release files cover 2020 onward
 
-`blessed/<ID>/events.json` already publishes a calendar's full multi-century history in one file;
-duplicating that across per-year chunks, a whole-history `all.json` and pinned copies for every
-retained release does not fit a reasonably sized static site (minified, the four current market
-calendars' full history alone totals several megabytes *per copy*). `<year>.json`, `all.json` and
-the pinned `v1/releases/` files therefore only cover 2020-01-01 onward (the same cutoff as
-`holidays-recent.ics`); `holidays.json` has no such limit since excluding WEEKEND rows already
-keeps it small. Full historical detail remains available from `blessed/<ID>/events.json` and
-`events.csv`.
+`<year>.json`, `holidays.json` and `all.json` under `v1/calendars/<ID>/` cover the calendar's
+*full* blessed coverage range (e.g. US-NYSE 1900-2030) — the HTML site generator (a sibling
+package) renders one page per year in coverage, so every year needs a file, and the row data for a
+single calendar minified is a manageable size (single digits of MB).
+
+Pinning that same full range for *every retained release* is what does not fit: nine retained
+versions across the four current market calendars measured out to roughly 56 MB. Pinned copies
+under `v1/releases/<semver>/calendars/<ID>/<year>.json` are therefore limited to **2020-01-01
+onward** — the same cutoff as `holidays-recent.ics` — for every retained version, including
+blessed. A consumer who needs a pinned copy of a year before 2020 should read the historical
+`events.csv`/`events.json` directly from the matching `release-history/<CAL>/` snapshot (or
+`blessed/<CAL>/` for the current release); those pre-2020 years essentially never change between
+releases in practice, since holiday data that far back is already settled.
 
 ### Compatibility contract
 

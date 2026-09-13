@@ -37,7 +37,7 @@
       "CONFIRMED" : 14615
     },
     "checksum" : "sha256:8aabf506cf8db5a01a72b37c72e08050c6bc9989454a26f8fec1fd272392c7e4",
-    "years" : [ 2020, 2030 ],
+    "years" : [ 1900, 2030 ],
     "href" : "/v1/calendars/US-CORP-IN-VISIBILITY/manifest.json"
   }, {
     "id" : "US-MARKET-BASE",
@@ -56,7 +56,7 @@
       "CONFIRMED" : 14608
     },
     "checksum" : "sha256:65c615ae26d7226e020992eae8bcce81303e243f17a961bdf43188252f3ac285",
-    "years" : [ 2020, 2030 ],
+    "years" : [ 1900, 2030 ],
     "href" : "/v1/calendars/US-MARKET-BASE/manifest.json"
   }, {
     "id" : "US-NYSE",
@@ -76,7 +76,7 @@
       "CONFIRMED" : 12836
     },
     "checksum" : "sha256:1c9c599763a4a964592dcce6dbca29b940a02ece883fd4937dcdf408199e5763",
-    "years" : [ 2020, 2030 ],
+    "years" : [ 1900, 2030 ],
     "href" : "/v1/calendars/US-NYSE/manifest.json"
   } ],
   "release" : {

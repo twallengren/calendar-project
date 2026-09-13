@@ -39,15 +39,14 @@ public class ApiEmitter {
   private static final String DEFAULT_KIND = "market";
 
   /**
-   * Lower bound for the granular per-year/{@code all.json}/pinned-release JSON files. A calendar's
-   * full multi-century history (e.g. US-NYSE back to 1900) is already published in full at {@code
-   * blessed/<ID>/events.json}; duplicating that across per-year chunks, a whole-history {@code
-   * all.json}, and pinned copies for every retained release would put the site well over budget
-   * (measured: minified full-history events for the four current market calendars already total
-   * ~7.3 MB for a single copy, before any duplication). The granular v1 endpoints instead cover the
-   * actively-relevant window from here through each calendar's coverage end, matching the cutoff
-   * already used for {@code holidays-recent.ics}. {@code holidays.json} is the exception: it
-   * excludes WEEKEND rows so full history is cheap and is kept complete.
+   * Lower bound for pinned release files under {@code v1/releases/<semver>/}. The site generator (a
+   * sibling package) renders one page per year in a calendar's full coverage range (e.g. US-NYSE
+   * 1900-2030), so {@code <year>.json} and {@code all.json} must cover the full range. Duplicating
+   * that full range across every retained release, though, is what pushed the site well over budget
+   * (measured: ~56 MB for nine retained versions across four calendars). Pinned historical copies
+   * are therefore limited to the actively-relevant window from here onward, matching the cutoff
+   * already used for {@code holidays-recent.ics}; consumers who need a pinned copy of older data
+   * can still read the historical {@code events.csv} directly from {@code release-history/}.
    */
   private static final LocalDate GRANULAR_FROM = LocalDate.of(2020, 1, 1);
 
@@ -119,16 +118,11 @@ public class ApiEmitter {
 
       Path calOutDir = v1Dir.resolve("calendars").resolve(id);
 
-      List<Event> granularEvents =
-          events.stream().filter(e -> !e.date().isBefore(GRANULAR_FROM)).toList();
-      Map<Integer, List<Event>> byYear = groupByYear(granularEvents);
+      // <year>.json and all.json cover the calendar's full blessed range: the site generator
+      // renders one page per year in coverage, so every year needs a file.
+      Map<Integer, List<Event>> byYear = groupByYear(events);
       List<Integer> years = new ArrayList<>(byYear.keySet());
       Map<String, String> fullRange = fullRangeOf(metadataNode);
-      LocalDate granularFrom =
-          GRANULAR_FROM.isAfter(LocalDate.parse(fullRange.get("from")))
-              ? GRANULAR_FROM
-              : LocalDate.parse(fullRange.get("from"));
-      LocalDate granularTo = LocalDate.parse(fullRange.get("to"));
 
       for (Integer year : years) {
         writeJson(
@@ -160,9 +154,9 @@ public class ApiEmitter {
               id,
               releaseSemantic,
               releaseGitSha,
-              granularEvents,
-              granularFrom,
-              granularTo,
+              events,
+              LocalDate.parse(fullRange.get("from")),
+              LocalDate.parse(fullRange.get("to")),
               coverage));
 
       writeText(
@@ -207,6 +201,10 @@ public class ApiEmitter {
     writeJson(v1Dir.resolve("index.json"), index);
   }
 
+  /**
+   * Writes pinned {@code <year>.json} files under {@code v1/releases/<semver>/} for every retained
+   * release (including blessed), limited to {@link #GRANULAR_FROM} onward.
+   */
   private void writePinnedReleases(
       ReleaseHistoryStore historyStore, String id, Map<String, String> coverage, Path v1Dir)
       throws IOException {

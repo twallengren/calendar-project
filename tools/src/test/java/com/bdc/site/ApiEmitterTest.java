@@ -59,6 +59,40 @@ class ApiEmitterTest {
   }
 
   @Test
+  void yearFilesCoverTheCalendarsFullBlessedRange() {
+    // US-NYSE's blessed coverage is 1900-01-01..2030-12-31; the site generator (a sibling
+    // package) renders one page per year in coverage, so every year needs a file — not just a
+    // recent window.
+    Path calDir = v1.resolve("calendars/US-NYSE");
+    for (int year : new int[] {1900, 1952, 1968, 2000, 2026, 2030}) {
+      assertTrue(Files.exists(calDir.resolve(year + ".json")), "missing year file for " + year);
+    }
+  }
+
+  @Test
+  void indexJsonYearsSpanTheFullCoverageRange() throws Exception {
+    JsonNode index = mapper.readTree(v1.resolve("index.json").toFile());
+    JsonNode nyseEntry = null;
+    for (JsonNode entry : index.path("calendars")) {
+      if (entry.path("id").asText().equals("US-NYSE")) {
+        nyseEntry = entry;
+      }
+    }
+    assertTrue(nyseEntry != null, "expected an index.json entry for US-NYSE");
+    assertEquals(1900, nyseEntry.path("years").get(0).asInt());
+    assertEquals(2030, nyseEntry.path("years").get(1).asInt());
+  }
+
+  @Test
+  void allJsonCoversTheFullRange() throws Exception {
+    List<Event> blessedEvents = new EventsCsvReader().read(Path.of("blessed/US-NYSE/events.csv"));
+    JsonNode doc = mapper.readTree(v1.resolve("calendars/US-NYSE/all.json").toFile());
+    assertEquals(blessedEvents.size(), doc.path("event_count").asInt());
+    assertEquals("1900-01-01", doc.path("range").path("from").asText());
+    assertEquals("2030-12-31", doc.path("range").path("to").asText());
+  }
+
+  @Test
   void indexJsonListsExactlyTheMarketCalendars() throws Exception {
     JsonNode index = mapper.readTree(v1.resolve("index.json").toFile());
     JsonNode manifest = mapper.readTree(Path.of("blessed/manifest.json").toFile());
@@ -115,6 +149,16 @@ class ApiEmitterTest {
   void pinnedReleaseFileExistsForV10_1_0() {
     Path pinned = v1.resolve("releases/10.1.0/calendars/US-NYSE/2026.json");
     assertTrue(Files.exists(pinned), "expected a pinned v10.1.0 file at " + pinned);
+  }
+
+  @Test
+  void pinnedReleaseFilesAreLimitedTo2020Onward() {
+    // Unlike <year>.json/all.json (full range), pinned v1/releases/ copies are limited to 2020
+    // onward for every retained version — this is what keeps the site's total size manageable.
+    Path oldYear = v1.resolve("releases/10.1.0/calendars/US-NYSE/2019.json");
+    assertFalse(Files.exists(oldYear), "did not expect a pre-2020 pinned file at " + oldYear);
+    Path recentYear = v1.resolve("releases/10.1.0/calendars/US-NYSE/2020.json");
+    assertTrue(Files.exists(recentYear), "expected a pinned 2020 file at " + recentYear);
   }
 
   @Test
