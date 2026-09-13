@@ -391,7 +391,10 @@ under `--strict`.
 
 `blessed/` holds the current release and `release-history/<CAL>/<timestamp>_<sha>_v<version>/`
 the previous ones. `query <CAL> --as-of <blessed|vX.Y.Z|date>` answers from a published
-artifact instead of the current YAML; `history releases <CAL>` lists them.
+artifact instead of the current YAML; `history releases <CAL>` lists them. The release workflow
+retains only the most recent 30 versions per calendar in `release-history/`, so pinned release
+files (and `--as-of` lookups by version or date) are only available for retained versions; older
+releases remain accessible via git history.
 
 ## Query API
 

@@ -15,7 +15,8 @@ import picocli.CommandLine.Command;
       QueryCommand.class,
       HistoryCommand.class,
       CiDiffCommand.class,
-      ScaffoldCommand.class
+      ScaffoldCommand.class,
+      ChangelogCommand.class
     })
 public class Main implements Runnable {
 
