@@ -1,0 +1,19 @@
+kind: module
+id: de_xetra_holidays
+
+# Everything Deutsche Börse Xetra (and Börse Frankfurt) close for. See sources/DE-XETRA/README.md
+# for the yearly trading-calendar PDFs this is transcribed from and the modelling decisions
+# behind the two exchange-discretionary holidays and the 2017 one-off.
+
+uses:
+  - de_xetra_new_years_day
+  - de_xetra_good_friday
+  - de_xetra_easter_monday
+  - de_xetra_labour_day
+  - de_xetra_whit_monday          # Exchange-discretionary: 2007, 2015-2021 only
+  - de_xetra_german_unity_day     # Exchange-discretionary: 2014, 2016-2021 only
+  - de_xetra_reformation_day_2017 # One-off: 500th anniversary of the Reformation
+  - de_xetra_christmas_eve
+  - de_xetra_christmas_day
+  - de_xetra_boxing_day
+  - de_xetra_new_years_eve

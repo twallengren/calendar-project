@@ -1,0 +1,37 @@
+kind: module
+id: de_xetra_german_unity_day
+
+# Day of German Unity / Tag der Deutschen Einheit (October 3). Like Whit Monday, this is an
+# annual, exchange-discretionary closure rather than a standing rule: reading every trading
+# calendar Deutsche Börse has published from 2003 through 2026 (sources/DE-XETRA/README.md)
+# shows it is a listed non-trading ("settlement") day only in 2014 and 2016-2021 inclusive; it
+# is an ordinary trading day in 2003-2013 and every year from 2022 onward. (3 October 2015 fell
+# on a Saturday, so that year's status cannot be confirmed from the source and is omitted below;
+# it makes no output difference since Saturday is already non-trading under the weekend policy.)
+# Modelled as an explicit list of confirmed closure dates rather than a fixed_month_day rule
+# with guessed active_years. Nothing is projected for years after 2021.
+# Always shift_policy: NONE.
+
+source:
+  - id: xetra-trading-calendar-2014
+    ref: "exceptions sentence: 3 October (settlement day); first occurrence in the sourced range"
+  - id: xetra-trading-calendar-2021
+    ref: "exceptions sentence: 3 October (settlement day); last confirmed occurrence"
+  - id: xetra-trading-calendar-2022
+    ref: "exceptions sentence omits 3 October (a Monday); confirms no closure from 2022"
+
+event_sources:
+  - key: de_xetra_german_unity_day
+    name: Day of German Unity
+    default_classification: CLOSED
+    shift_policy: NONE
+    rule:
+      type: explicit_dates
+      dates:
+        - 2014-10-03
+        - 2016-10-03
+        - 2017-10-03
+        - 2018-10-03
+        - 2019-10-03
+        - 2020-10-03
+        - 2021-10-03

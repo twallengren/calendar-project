@@ -1,0 +1,20 @@
+kind: calendar
+id: DE-XETRA
+
+metadata:
+  name: Deutsche Börse Xetra
+  description: Deutsche Börse Xetra / Börse Frankfurt cash market trading calendar (MIC XETR)
+  chronology: ISO
+  timezone: Europe/Berlin
+  coverage:
+    from: 2003-01-01
+    to: 2030-12-31
+    verified_through: 2026-12-31
+
+# German exchanges do not observe weekend holidays on weekdays: a holiday that falls on a
+# Saturday or Sunday is simply not traded around. See sources/DE-XETRA/README.md.
+weekend_shift_policy: NONE
+
+uses:
+  - weekend_sat_sun
+  - de_xetra_holidays

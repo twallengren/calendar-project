@@ -37,6 +37,7 @@ EXPORTS = [
     ("US-NYSE", "XNYS", "1971-01-01", "2030-12-31"),
     ("SA-TADAWUL", "XSAU", "2020-01-01", "2030-12-31"),
     ("GB-LSE", "XLON", "2000-01-01", "2030-12-31"),
+    ("DE-XETRA", "XETR", "2003-01-01", "2030-12-31"),
 ]
 
 
@@ -136,6 +137,11 @@ def export_quantlib_uk_exchange(start: str, end: str) -> None:
         print("QuantLib not installed; skipping")
         return
     cal = ql.UnitedKingdom(ql.UnitedKingdom.Exchange)
+def export_quantlib_germany(start: str, end: str) -> None:
+    if ql is None:
+        print("QuantLib not installed; skipping")
+        return
+    cal = ql.Germany(ql.Germany.Xetra)
     s = dt.date.fromisoformat(start)
     e = dt.date.fromisoformat(end)
     rows = []
@@ -147,6 +153,7 @@ def export_quantlib_uk_exchange(start: str, end: str) -> None:
                 rows.append(day)
         day += dt.timedelta(days=1)
     path = os.path.join(OUT, "GB-LSE", "quantlib-uk-exchange.csv")
+    path = os.path.join(OUT, "DE-XETRA", "quantlib-germany-xetra.csv")
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w") as f:
         f.write(header("QuantLib", ql.__version__))
@@ -163,6 +170,7 @@ def main() -> int:
     # QuantLib's NYSE calendar is documented from 1980 onward
     export_quantlib_nyse("1980-01-01", "2030-12-31")
     export_quantlib_uk_exchange("2000-01-01", "2030-12-31")
+    export_quantlib_germany("2003-01-01", "2030-12-31")
     return 0
 
 

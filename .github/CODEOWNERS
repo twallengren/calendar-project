@@ -21,3 +21,8 @@
 /modules/holidays/gb_lse_*          @twallengren
 /modules/holidays/uk_*              @twallengren
 /sources/GB-LSE/                    @twallengren
+# DE-XETRA
+/calendars/DE-XETRA.yaml           @twallengren
+/modules/holidays/de_xetra_*       @twallengren
+/modules/groups/de_xetra_*         @twallengren
+/sources/DE-XETRA/                 @twallengren

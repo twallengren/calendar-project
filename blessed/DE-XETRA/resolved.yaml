@@ -1,0 +1,221 @@
+kind: resolved_calendar
+id: DE-XETRA
+metadata:
+  name: Deutsche Börse Xetra
+  description: Deutsche Börse Xetra / Börse Frankfurt cash market trading calendar
+    (MIC XETR)
+  chronology: ISO
+  timezone: Europe/Berlin
+  coverage:
+    from: 2003-01-01
+    to: 2030-12-31
+    verified_through: 2026-12-31
+weekend_policy:
+  days:
+  - SATURDAY
+  - SUNDAY
+weekend_shift_policy: NONE
+resolution_chain:
+- module:weekend_sat_sun
+- module:de_xetra_new_years_day
+- module:de_xetra_good_friday
+- module:de_xetra_easter_monday
+- module:de_xetra_labour_day
+- module:de_xetra_whit_monday
+- module:de_xetra_german_unity_day
+- module:de_xetra_reformation_day_2017
+- module:de_xetra_christmas_eve
+- module:de_xetra_christmas_day
+- module:de_xetra_boxing_day
+- module:de_xetra_new_years_eve
+- module:de_xetra_holidays
+- calendar:DE-XETRA
+references:
+- key: easter
+  formula: EASTER_WESTERN
+event_sources:
+- key: de_xetra_new_years_day
+  name: New Year's Day
+  origin: module:de_xetra_new_years_day
+  classification: CLOSED
+  shift_policy: NONE
+  status: CONFIRMED
+  source:
+  - id: xetra-trading-calendar-2003
+    ref: "exceptions sentence: 1 January"
+  - id: xetra-trading-calendar-2026
+    ref: "exceptions sentence: 1 January"
+  rule:
+    type: fixed_month_day
+    month: 1
+    day: 1
+- key: de_xetra_good_friday
+  name: Good Friday
+  origin: module:de_xetra_good_friday
+  classification: CLOSED
+  shift_policy: NONE
+  status: CONFIRMED
+  source:
+  - id: xetra-trading-calendar-2003
+    ref: "exceptions sentence: Good Friday date"
+  - id: xetra-trading-calendar-2026
+    ref: "exceptions sentence: Good Friday date"
+  rule:
+    type: relative_to_reference
+    reference: easter
+    offset_days: -2
+- key: de_xetra_easter_monday
+  name: Easter Monday
+  origin: module:de_xetra_easter_monday
+  classification: CLOSED
+  shift_policy: NONE
+  status: CONFIRMED
+  source:
+  - id: xetra-trading-calendar-2003
+    ref: "exceptions sentence: Easter Monday date"
+  - id: xetra-trading-calendar-2026
+    ref: "exceptions sentence: Easter Monday date"
+  rule:
+    type: relative_to_reference
+    reference: easter
+    offset_days: 1
+- key: de_xetra_labour_day
+  name: Labour Day
+  origin: module:de_xetra_labour_day
+  classification: CLOSED
+  shift_policy: NONE
+  status: CONFIRMED
+  source:
+  - id: xetra-trading-calendar-2003
+    ref: "exceptions sentence: 1 May"
+  - id: xetra-trading-calendar-2026
+    ref: "exceptions sentence: 1 May"
+  rule:
+    type: fixed_month_day
+    month: 5
+    day: 1
+- key: de_xetra_whit_monday
+  name: Whit Monday
+  origin: module:de_xetra_whit_monday
+  classification: CLOSED
+  shift_policy: NONE
+  status: CONFIRMED
+  source:
+  - id: xetra-trading-calendar-2007
+    ref: "exceptions sentence: 28 May (only 2003-2013 occurrence)"
+  - id: xetra-trading-calendar-2015
+    ref: "exceptions sentence: 25 May (settlement day); first year of the 2015-2021\
+      \ run"
+  - id: xetra-trading-calendar-2021
+    ref: "exceptions sentence: 24 May (settlement day); last confirmed occurrence"
+  - id: xetra-trading-calendar-2022
+    ref: exceptions sentence omits 6 June (a Monday); confirms no closure from 2022
+  rule:
+    type: explicit_dates
+    dates:
+    - 2007-05-28
+    - 2015-05-25
+    - 2016-05-16
+    - 2017-06-05
+    - 2018-05-21
+    - 2019-06-10
+    - 2020-06-01
+    - 2021-05-24
+- key: de_xetra_german_unity_day
+  name: Day of German Unity
+  origin: module:de_xetra_german_unity_day
+  classification: CLOSED
+  shift_policy: NONE
+  status: CONFIRMED
+  source:
+  - id: xetra-trading-calendar-2014
+    ref: "exceptions sentence: 3 October (settlement day); first occurrence in the\
+      \ sourced range"
+  - id: xetra-trading-calendar-2021
+    ref: "exceptions sentence: 3 October (settlement day); last confirmed occurrence"
+  - id: xetra-trading-calendar-2022
+    ref: exceptions sentence omits 3 October (a Monday); confirms no closure from
+      2022
+  rule:
+    type: explicit_dates
+    dates:
+    - 2014-10-03
+    - 2016-10-03
+    - 2017-10-03
+    - 2018-10-03
+    - 2019-10-03
+    - 2020-10-03
+    - 2021-10-03
+- key: de_xetra_reformation_day_2017
+  name: Reformation Day (500th anniversary)
+  origin: module:de_xetra_reformation_day_2017
+  classification: CLOSED
+  shift_policy: NONE
+  status: CONFIRMED
+  source:
+  - id: xetra-trading-calendar-2017
+    ref: "exceptions sentence: 31 October (settlement day)"
+  rule:
+    type: explicit_dates
+    dates:
+    - 2017-10-31
+- key: de_xetra_christmas_eve
+  name: Christmas Eve
+  origin: module:de_xetra_christmas_eve
+  classification: CLOSED
+  shift_policy: NONE
+  status: CONFIRMED
+  source:
+  - id: xetra-trading-calendar-2003
+    ref: "exceptions sentence: 24 December"
+  - id: xetra-trading-calendar-2026
+    ref: "exceptions sentence: 24 December (settlement day)"
+  rule:
+    type: fixed_month_day
+    month: 12
+    day: 24
+- key: de_xetra_christmas_day
+  name: Christmas Day
+  origin: module:de_xetra_christmas_day
+  classification: CLOSED
+  shift_policy: NONE
+  status: CONFIRMED
+  source:
+  - id: xetra-trading-calendar-2003
+    ref: "exceptions sentence: 24-26 December"
+  - id: xetra-trading-calendar-2026
+    ref: "exceptions sentence: 25 December"
+  rule:
+    type: fixed_month_day
+    month: 12
+    day: 25
+- key: de_xetra_boxing_day
+  name: Boxing Day
+  origin: module:de_xetra_boxing_day
+  classification: CLOSED
+  shift_policy: NONE
+  status: CONFIRMED
+  source:
+  - id: xetra-trading-calendar-2003
+    ref: "exceptions sentence: 24-26 December"
+  - id: xetra-trading-calendar-2024
+    ref: "exceptions sentence: 26 December"
+  rule:
+    type: fixed_month_day
+    month: 12
+    day: 26
+- key: de_xetra_new_years_eve
+  name: New Year's Eve
+  origin: module:de_xetra_new_years_eve
+  classification: CLOSED
+  shift_policy: NONE
+  status: CONFIRMED
+  source:
+  - id: xetra-trading-calendar-2003
+    ref: "exceptions sentence: 31 December"
+  - id: xetra-trading-calendar-2026
+    ref: "exceptions sentence: 31 December (settlement day)"
+  rule:
+    type: fixed_month_day
+    month: 12
+    day: 31
