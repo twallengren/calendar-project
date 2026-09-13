@@ -1,0 +1,286 @@
+kind: resolved_calendar
+id: CA-TSX
+metadata:
+  name: Toronto Stock Exchange
+  description: "Toronto Stock Exchange (TSX, MIC XTSE) trading calendar"
+  chronology: ISO
+  timezone: America/Toronto
+  coverage:
+    from: 2000-01-01
+    to: 2030-12-31
+    verified_through: 2026-12-31
+weekend_policy:
+  days:
+  - SATURDAY
+  - SUNDAY
+weekend_shift_policy: NEXT_AVAILABLE_WEEKDAY
+resolution_chain:
+- module:weekend_sat_sun
+- module:ca_new_years_day
+- module:ca_family_day
+- module:ca_good_friday
+- module:ca_victoria_day
+- module:ca_canada_day
+- module:ca_civic_holiday
+- module:ca_labour_day
+- module:ca_thanksgiving
+- module:ca_christmas
+- module:ca_boxing_day
+- module:ca_tsx_holidays
+- calendar:CA-TSX
+references:
+- key: easter
+  formula: EASTER_WESTERN
+event_sources:
+- key: ca_new_years_day
+  name: New Year's Day
+  origin: module:ca_new_years_day
+  classification: CLOSED
+  shiftable: true
+  status: CONFIRMED
+  source:
+  - id: holidays-act-canada
+  - id: tmx-holiday-schedule-2021
+    ref: "Sat Jan 1, 2022 observed Mon Jan 3, 2022"
+  rule:
+    type: fixed_month_day
+    month: 1
+    day: 1
+- key: ca_family_day
+  name: Family Day
+  origin: module:ca_family_day
+  classification: CLOSED
+  status: CONFIRMED
+  active_years:
+  - - 2008
+    - null
+  source:
+  - id: ontario-family-day-2007
+  - id: tsx-calendar-page
+    ref: "Family Day: Feb 16, 2026; Feb 17, 2025"
+  rule:
+    type: nth_weekday_of_month
+    month: 2
+    weekday: MONDAY
+    nth: 3
+- key: ca_good_friday
+  name: Good Friday
+  origin: module:ca_good_friday
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: holidays-act-canada
+  - id: tsx-calendar-page
+    ref: "Good Friday: Apr 3, 2026; Apr 18, 2025"
+  rule:
+    type: relative_to_reference
+    reference: easter
+    offset_days: -2
+- key: ca_victoria_day
+  name: Victoria Day
+  origin: module:ca_victoria_day
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: holidays-act-canada
+    ref: Monday immediately preceding May 25
+  - id: tsx-calendar-page
+    ref: "Victoria Day: May 18, 2026; May 19, 2025"
+  rule:
+    type: relative_to_reference
+    reference_month: 5
+    reference_day: 25
+    offset_weekday:
+      weekday: MONDAY
+      nth: 1
+      direction: BEFORE
+- key: ca_canada_day
+  name: Canada Day
+  origin: module:ca_canada_day
+  classification: CLOSED
+  shiftable: true
+  status: CONFIRMED
+  source:
+  - id: holidays-act-canada
+  - id: tmx-canada-day-2017
+  - id: tmx-canada-day-2023
+  rule:
+    type: fixed_month_day
+    month: 7
+    day: 1
+- key: ca_civic_holiday
+  name: Civic Holiday
+  origin: module:ca_civic_holiday
+  classification: CLOSED
+  status: CONFIRMED
+  active_years:
+  - - null
+    - 2026
+  source:
+  - id: tsx-calendar-page
+    ref: "Civic Holiday: Aug 3, 2026; Aug 4, 2025"
+  rule:
+    type: nth_weekday_of_month
+    month: 8
+    weekday: MONDAY
+    nth: 1
+- key: ca_civic_holiday_projected
+  name: Civic Holiday
+  origin: module:ca_civic_holiday
+  classification: CLOSED
+  status: PROJECTED
+  active_years:
+  - - 2027
+    - null
+  source:
+  - id: tsx-calendar-page
+    ref: "Civic Holiday: Aug 3, 2026; Aug 4, 2025"
+  rule:
+    type: nth_weekday_of_month
+    month: 8
+    weekday: MONDAY
+    nth: 1
+- key: ca_labour_day
+  name: Labour Day
+  origin: module:ca_labour_day
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: holidays-act-canada
+  - id: tsx-calendar-page
+    ref: "Labour Day: Sep 7, 2026; Sep 1, 2025"
+  rule:
+    type: nth_weekday_of_month
+    month: 9
+    weekday: MONDAY
+    nth: 1
+- key: ca_thanksgiving
+  name: Thanksgiving Day
+  origin: module:ca_thanksgiving
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: holidays-act-canada
+  - id: tsx-calendar-page
+    ref: "Thanksgiving Day: Oct 12, 2026; Oct 13, 2025"
+  rule:
+    type: nth_weekday_of_month
+    month: 10
+    weekday: MONDAY
+    nth: 2
+- key: ca_christmas
+  name: Christmas Day
+  origin: module:ca_christmas
+  classification: CLOSED
+  shiftable: true
+  status: CONFIRMED
+  source:
+  - id: holidays-act-canada
+  - id: tmx-holiday-schedule-2021
+  - id: tmx-holiday-schedule-2023
+  - id: tmx-holiday-schedule-2025
+  - id: tsx-calendar-page
+  rule:
+    type: fixed_month_day
+    month: 12
+    day: 25
+- key: ca_christmas_eve_early_close
+  name: Christmas Eve
+  origin: module:ca_christmas
+  classification: EARLY_CLOSE
+  shiftable: true
+  close_time: 13:00
+  status: CONFIRMED
+  active_years:
+  - - 2015
+    - 2026
+  source:
+  - id: holidays-act-canada
+  - id: tmx-holiday-schedule-2021
+  - id: tmx-holiday-schedule-2023
+  - id: tmx-holiday-schedule-2025
+  - id: tsx-calendar-page
+  rule:
+    type: fixed_month_day
+    month: 12
+    day: 24
+- key: ca_boxing_day
+  name: Boxing Day
+  origin: module:ca_boxing_day
+  classification: CLOSED
+  shiftable: true
+  status: CONFIRMED
+  source:
+  - id: tsx-calendar-page
+    ref: "In Lieu of Boxing Day: Dec 28, 2026"
+  - id: tmx-holiday-schedule-2021
+    ref: "Boxing Day (nominal Sun Dec 26, 2021) observed Tue Dec 28, 2021"
+  rule:
+    type: fixed_month_day
+    month: 12
+    day: 26
+deltas:
+- action: remove
+  key: ca_christmas
+  date: 2005-12-27
+- action: add
+  key: ca_christmas
+  name: Christmas Day
+  date: 2005-12-26
+  classification: CLOSED
+- action: remove
+  key: ca_boxing_day
+  date: 2005-12-26
+- action: add
+  key: ca_boxing_day
+  name: Boxing Day
+  date: 2005-12-27
+  classification: CLOSED
+- action: remove
+  key: ca_christmas
+  date: 2011-12-27
+- action: add
+  key: ca_christmas
+  name: Christmas Day
+  date: 2011-12-26
+  classification: CLOSED
+- action: remove
+  key: ca_boxing_day
+  date: 2011-12-26
+- action: add
+  key: ca_boxing_day
+  name: Boxing Day
+  date: 2011-12-27
+  classification: CLOSED
+- action: remove
+  key: ca_christmas
+  date: 2016-12-27
+- action: add
+  key: ca_christmas
+  name: Christmas Day
+  date: 2016-12-26
+  classification: CLOSED
+- action: remove
+  key: ca_boxing_day
+  date: 2016-12-26
+- action: add
+  key: ca_boxing_day
+  name: Boxing Day
+  date: 2016-12-27
+  classification: CLOSED
+- action: remove
+  key: ca_christmas
+  date: 2022-12-27
+- action: add
+  key: ca_christmas
+  name: Christmas Day
+  date: 2022-12-26
+  classification: CLOSED
+- action: remove
+  key: ca_boxing_day
+  date: 2022-12-26
+- action: add
+  key: ca_boxing_day
+  name: Boxing Day
+  date: 2022-12-27
+  classification: CLOSED

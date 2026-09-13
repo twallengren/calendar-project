@@ -182,4 +182,22 @@ class GoldenTests {
   void deXetra2021() throws IOException {
     productionCalendarRunner.assertCsvGoldenMatch("DE-XETRA", 2021);
   }
+
+  // CA-TSX golden tests
+  // 2026: ordinary year exercising every rule type (Family Day, Good Friday, Victoria Day,
+  // Canada Day, Civic Holiday, Labour Day, Thanksgiving, Christmas Eve early close, Christmas
+  // Day, Boxing Day) with no weekend shifting needed.
+  // 2021: Christmas Day falls on Saturday, exercising the weekend-cascade case: Christmas
+  // observed Monday Dec 27, Boxing Day (nominal Sunday) observed Tuesday Dec 28, plus the
+  // Dec 24 early close.
+
+  @Test
+  void caTsx2026() throws IOException {
+    productionCalendarRunner.assertCsvGoldenMatch("CA-TSX", 2026);
+  }
+
+  @Test
+  void caTsx2021() throws IOException {
+    productionCalendarRunner.assertCsvGoldenMatch("CA-TSX", 2021);
+  }
 }

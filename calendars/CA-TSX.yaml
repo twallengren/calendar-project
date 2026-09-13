@@ -1,0 +1,105 @@
+kind: calendar
+id: CA-TSX
+
+metadata:
+  name: Toronto Stock Exchange
+  description: Toronto Stock Exchange (TSX, MIC XTSE) trading calendar
+  chronology: ISO
+  timezone: America/Toronto
+  coverage:
+    from: 2000-01-01
+    to: 2030-12-31
+    verified_through: 2026-12-31
+
+# UK/Canadian-style cascading observance: a holiday on a weekend moves to the next
+# available weekday (see sources/CA-TSX/README.md, tmx-holiday-schedule-2021).
+weekend_shift_policy: NEXT_AVAILABLE_WEEKDAY
+
+uses:
+  - weekend_sat_sun
+  - ca_tsx_holidays
+
+# Christmas/Boxing Day ordering correction for years when Christmas Day (Dec 25) falls on a
+# Sunday: Boxing Day's own nominal date (Mon Dec 26) is a weekday, so the generic engine
+# places it there directly before Christmas's own shift is resolved; Christmas (whose nominal
+# Sunday needs shifting) then cascades past that occupied Monday onto Tuesday Dec 27. TMX's
+# actual practice does the opposite: Christmas (the chronologically earlier holiday) takes the
+# first available weekday (Mon Dec 26) "in lieu of Christmas Day", and Boxing Day cascades to
+# Tue Dec 27 "in lieu of Boxing Day" -- confirmed directly by tmx-holiday-schedule-2016 (closed
+# Mon Dec 26, 2016 "in lieu of Christmas Day on Sunday, December 25, 2016" and Tue Dec 27, 2016
+# "in lieu of Boxing Day on Monday, December 26, 2016") and corroborated for 2022 by
+# tmx-canada-holiday-2022. The rule model has no way to express "an earlier holiday's shift
+# takes priority over a later holiday's fixed weekday date" (shifting is decided solely by
+# whether an event's own nominal date is a weekend day), so this is corrected here with deltas
+# for every Sunday-Christmas year in coverage (2005, 2011, 2016, 2022; the next is 2033, after
+# coverage.to). 2005 and 2011 are not independently confirmed against a primary TMX document,
+# but follow the same statutory "in lieu" mechanism verified for 2016 and 2022. See
+# sources/CA-TSX/README.md ("Christmas/Boxing Day ordering when Christmas is a Sunday").
+deltas:
+  - action: remove
+    key: ca_christmas
+    date: 2005-12-27
+  - action: add
+    key: ca_christmas
+    name: Christmas Day
+    date: 2005-12-26
+    classification: CLOSED
+  - action: remove
+    key: ca_boxing_day
+    date: 2005-12-26
+  - action: add
+    key: ca_boxing_day
+    name: Boxing Day
+    date: 2005-12-27
+    classification: CLOSED
+
+  - action: remove
+    key: ca_christmas
+    date: 2011-12-27
+  - action: add
+    key: ca_christmas
+    name: Christmas Day
+    date: 2011-12-26
+    classification: CLOSED
+  - action: remove
+    key: ca_boxing_day
+    date: 2011-12-26
+  - action: add
+    key: ca_boxing_day
+    name: Boxing Day
+    date: 2011-12-27
+    classification: CLOSED
+
+  - action: remove
+    key: ca_christmas
+    date: 2016-12-27
+  - action: add
+    key: ca_christmas
+    name: Christmas Day
+    date: 2016-12-26
+    classification: CLOSED
+  - action: remove
+    key: ca_boxing_day
+    date: 2016-12-26
+  - action: add
+    key: ca_boxing_day
+    name: Boxing Day
+    date: 2016-12-27
+    classification: CLOSED
+
+  - action: remove
+    key: ca_christmas
+    date: 2022-12-27
+  - action: add
+    key: ca_christmas
+    name: Christmas Day
+    date: 2022-12-26
+    classification: CLOSED
+  - action: remove
+    key: ca_boxing_day
+    date: 2022-12-26
+  - action: add
+    key: ca_boxing_day
+    name: Boxing Day
+    date: 2022-12-27
+    classification: CLOSED

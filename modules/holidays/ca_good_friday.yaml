@@ -1,0 +1,24 @@
+kind: module
+id: ca_good_friday
+
+# Good Friday, fixed by the federal Holidays Act. Never shifted (it is not on a weekend
+# by construction). TSX's published schedule confirms Apr 3, 2026 and Apr 18, 2025, which
+# match the Western Easter computation used here.
+
+source:
+  - id: holidays-act-canada
+  - id: tsx-calendar-page
+    ref: "Good Friday: Apr 3, 2026; Apr 18, 2025"
+
+references:
+  - key: easter
+    formula: EASTER_WESTERN
+
+event_sources:
+  - key: ca_good_friday
+    name: Good Friday
+    default_classification: CLOSED
+    rule:
+      type: relative_to_reference
+      reference: easter
+      offset_days: -2

@@ -38,6 +38,7 @@ EXPORTS = [
     ("SA-TADAWUL", "XSAU", "2020-01-01", "2030-12-31"),
     ("GB-LSE", "XLON", "2000-01-01", "2030-12-31"),
     ("DE-XETRA", "XETR", "2003-01-01", "2030-12-31"),
+    ("CA-TSX", "XTSE", "2000-01-01", "2030-12-31"),
 ]
 
 
@@ -137,6 +138,26 @@ def export_quantlib_uk_exchange(start: str, end: str) -> None:
         print("QuantLib not installed; skipping")
         return
     cal = ql.UnitedKingdom(ql.UnitedKingdom.Exchange)
+    s = dt.date.fromisoformat(start)
+    e = dt.date.fromisoformat(end)
+    rows = []
+    day = s
+    while day <= e:
+        if day.weekday() < 5:
+            qd = ql.Date(day.day, day.month, day.year)
+            if not cal.isBusinessDay(qd):
+                rows.append(day)
+        day += dt.timedelta(days=1)
+    path = os.path.join(OUT, "GB-LSE", "quantlib-uk-exchange.csv")
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "w") as f:
+        f.write(header("QuantLib", ql.__version__))
+        f.write("# types: CLOSED  (QuantLib models full closures only)\n")
+        f.write("date,type,close_time\n")
+        for day in rows:
+            f.write(f"{day.isoformat()},CLOSED,\n")
+    print(f"wrote {path} ({len(rows)} rows)")
+
 def export_quantlib_germany(start: str, end: str) -> None:
     if ql is None:
         print("QuantLib not installed; skipping")
@@ -152,7 +173,6 @@ def export_quantlib_germany(start: str, end: str) -> None:
             if not cal.isBusinessDay(qd):
                 rows.append(day)
         day += dt.timedelta(days=1)
-    path = os.path.join(OUT, "GB-LSE", "quantlib-uk-exchange.csv")
     path = os.path.join(OUT, "DE-XETRA", "quantlib-germany-xetra.csv")
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w") as f:
@@ -163,6 +183,30 @@ def export_quantlib_germany(start: str, end: str) -> None:
             f.write(f"{day.isoformat()},CLOSED,\n")
     print(f"wrote {path} ({len(rows)} rows)")
 
+def export_quantlib_canada_tsx(start: str, end: str) -> None:
+    if ql is None:
+        print("QuantLib not installed; skipping")
+        return
+    cal = ql.Canada(ql.Canada.TSX)
+    s = dt.date.fromisoformat(start)
+    e = dt.date.fromisoformat(end)
+    rows = []
+    day = s
+    while day <= e:
+        if day.weekday() < 5:
+            qd = ql.Date(day.day, day.month, day.year)
+            if not cal.isBusinessDay(qd):
+                rows.append(day)
+        day += dt.timedelta(days=1)
+    path = os.path.join(OUT, "CA-TSX", "quantlib-tsx.csv")
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "w") as f:
+        f.write(header("QuantLib", ql.__version__))
+        f.write("# types: CLOSED  (QuantLib models full closures only)\n")
+        f.write("date,type,close_time\n")
+        for day in rows:
+            f.write(f"{day.isoformat()},CLOSED,\n")
+    print(f"wrote {path} ({len(rows)} rows)")
 
 def main() -> int:
     for cal_id, code, start, end in EXPORTS:
@@ -171,6 +215,7 @@ def main() -> int:
     export_quantlib_nyse("1980-01-01", "2030-12-31")
     export_quantlib_uk_exchange("2000-01-01", "2030-12-31")
     export_quantlib_germany("2003-01-01", "2030-12-31")
+    export_quantlib_canada_tsx("2000-01-01", "2030-12-31")
     return 0
 
 

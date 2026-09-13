@@ -44,6 +44,13 @@
       "event_count": 3112,
       "checksum": "sha256:3dcda6443c0f21e5a8dfa8650f46de6af60ff7bb654e28b9022c11d4c03d876b",
       "kind": "market"
+    },
+    "CA-TSX": {
+      "range_start": "2000-01-01",
+      "range_end": "2030-12-31",
+      "event_count": 3546,
+      "checksum": "sha256:b564e7081e93534cd4dded70927e8b3e4a114e634ee70387cca0c7650d16b8da",
+      "kind": "market"
     }
   },
   "release_version": {

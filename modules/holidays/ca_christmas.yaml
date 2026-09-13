@@ -1,0 +1,39 @@
+kind: module
+id: ca_christmas
+
+# Christmas Day, December 25, fixed by the federal Holidays Act. Shifts to the next
+# available weekday when it falls on a weekend (tmx-holiday-schedule-2021: Sat Dec 25, 2021
+# -> Mon Dec 27, 2021), which is the calendar's default NEXT_AVAILABLE_WEEKDAY policy.
+#
+# Christmas Eve (Dec 24) gets a 1:00 p.m. early close in years TMX has announced one:
+# confirmed for 2015, 2018, 2019, 2021, 2024, 2025 and 2026 (see sources/CA-TSX/README.md).
+# Not modelled before 2015 (unchecked) or after coverage.verified_through (2026): TMX treats
+# it as an annual announcement, not a standing rule, so it is not projected forward. When
+# Dec 24 itself falls on a weekend the engine drops the early close automatically.
+
+source:
+  - id: holidays-act-canada
+  - id: tmx-holiday-schedule-2021
+  - id: tmx-holiday-schedule-2023
+  - id: tmx-holiday-schedule-2025
+  - id: tsx-calendar-page
+
+event_sources:
+  - key: ca_christmas
+    name: Christmas Day
+    default_classification: CLOSED
+    rule:
+      type: fixed_month_day
+      month: 12
+      day: 25
+
+  - key: ca_christmas_eve_early_close
+    name: Christmas Eve
+    default_classification: EARLY_CLOSE
+    close_time: "13:00"
+    active_years:
+      - [2015, 2026]
+    rule:
+      type: fixed_month_day
+      month: 12
+      day: 24

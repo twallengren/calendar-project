@@ -1,0 +1,14 @@
+kind: module
+id: ca_tsx_holidays
+
+uses:
+  - ca_new_years_day
+  - ca_family_day
+  - ca_good_friday
+  - ca_victoria_day
+  - ca_canada_day
+  - ca_civic_holiday
+  - ca_labour_day
+  - ca_thanksgiving
+  - ca_christmas
+  - ca_boxing_day
