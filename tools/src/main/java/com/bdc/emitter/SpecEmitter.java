@@ -65,7 +65,7 @@ public class SpecEmitter {
     return yamlMapper.writeValueAsString(resolvedToMap(spec));
   }
 
-  /** Builds the resolved-calendar document; shared with {@code ArtifactStore}. */
+  /** Builds the resolved-calendar document. */
   public static Map<String, Object> resolvedToMap(ResolvedSpec spec) {
     Map<String, Object> resolved = new LinkedHashMap<>();
     resolved.put("kind", "resolved_calendar");

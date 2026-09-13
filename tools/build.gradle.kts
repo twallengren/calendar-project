@@ -41,9 +41,25 @@ tasks.named<Test>("test") {
     systemProperty("updateGoldens", System.getProperty("updateGoldens", "false"))
 }
 
+tasks.register<Test>("fastTest") {
+    description = "Runs tests excluding slow (jqwik) and cross-validation tests"
+    group = "verification"
+
+    testClassesDirs = sourceSets.test.get().output.classesDirs
+    classpath = sourceSets.test.get().runtimeClasspath
+
+    useJUnitPlatform {
+        excludeTags("slow", "cross-validation")
+    }
+    workingDir = rootProject.projectDir
+    // Pass system properties to tests
+    systemProperty("updateGoldens", System.getProperty("updateGoldens", "false"))
+}
+
 tasks.named<JavaExec>("run") {
     standardInput = System.`in`
     workingDir = rootProject.projectDir
+    notCompatibleWithConfigurationCache("uses System.in for interactive input")
 }
 
 spotless {
@@ -82,6 +98,8 @@ tasks.register<JavaExec>("generateChronologies") {
     doFirst {
         outputDir.mkdirs()
     }
+
+    notCompatibleWithConfigurationCache("JavaExec task that regenerates committed sources")
 }
 
 // Note: For bootstrap, run 'gradle compileJava' first without generated sources,

@@ -15,6 +15,7 @@ import java.nio.file.Path;
 import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Stream;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
@@ -31,6 +32,7 @@ import org.junit.jupiter.params.provider.MethodSource;
  * <p>Weekend days are excluded on both sides (reference files omit them; our weekend definition may
  * legitimately differ from a library that only models Monday-Friday sessions).
  */
+@Tag("cross-validation")
 class ReferenceCrossValidationTest {
 
   private static final Path REFERENCE_DIR = Path.of("tools/src/test/resources/reference");

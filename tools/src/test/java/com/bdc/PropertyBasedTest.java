@@ -16,6 +16,7 @@ import java.util.function.Predicate;
 import net.jqwik.api.*;
 import net.jqwik.api.constraints.IntRange;
 
+@Tag("slow")
 class PropertyBasedTest {
 
   /** Filter to exclude WEEKEND events when testing holiday-specific logic. */
