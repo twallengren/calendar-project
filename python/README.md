@@ -149,6 +149,56 @@ bdc.data_generation_date
 A major bump in the data version means a *past* date changed (a correction); a minor bump means
 only future dates moved. Pin the package if you need byte-stable answers.
 
+## MCP server
+
+`bdc-calendars` ships an optional [MCP](https://modelcontextprotocol.io) server so an AI agent can
+query calendars directly, over stdio:
+
+```bash
+pip install "bdc-calendars[mcp]"
+```
+
+**Claude Desktop** — add to `claude_desktop_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "bdc-calendars": {
+      "command": "bdc-calendars-mcp"
+    }
+  }
+}
+```
+
+**Claude Code**:
+
+```bash
+claude mcp add bdc-calendars -- bdc-calendars-mcp
+```
+
+Every tool result is JSON carrying `calendar_id` and `data_version` (and, where a specific date is
+involved, `status` and `verified_through`); errors (`CalendarNotFoundError`, `OutsideCoverageError`,
+a malformed date) come back as `{"error": ..., "message": ...}` instead of raising, so the agent can
+recover — e.g. calling `list_calendars` for a valid id, or `status` to probe a date first.
+
+| Tool | Example question |
+|------|-------------------|
+| `list_calendars()` | "What calendars are available, and which ones cover Saudi Arabia?" |
+| `calendar_info(calendar)` | "What weekend policy does US-NYSE use, and has it ever changed?" |
+| `is_business_day(calendar, date)` | "Does the US-NYSE trade on 2021-12-31?" |
+| `next_business_day(calendar, date)` | "What's the next US-NYSE trading day after 2025-12-25?" |
+| `previous_business_day(calendar, date)` | "What was the last US-NYSE trading day before 2026-01-01?" |
+| `add_business_days(calendar, date, n)` | "If a US-NYSE trade happens on 2025-11-26, what date is T+2 settlement?" |
+| `business_days_between(calendar, start, end)` | "How many US-NYSE trading days were there in March 2026?" |
+| `holidays_in_range(calendar, start, end, include_early_closes=True)` | "What holidays and early closes does US-NYSE observe in 2026?" |
+| `is_early_close(calendar, date)` | "Does the US-NYSE close early on 2027-11-26, and if so, at what time?" |
+| `joint_settlement_date(calendars, trade_date, t_plus)` | "A trade between US-NYSE and SA-TADAWUL happens on 2026-02-25; what date does it settle on at T+2, and which market was closed on the days in between?" |
+| `status(calendar, date)` | "How reliable is the SA-TADAWUL data for 2028-01-01?" |
+
+The server (`python/bdc_calendars/mcp/server.py`) is a thin wrapper over the same `BusinessCalendar`
+API described above; `mcp` is an optional dependency imported lazily, so the base `bdc-calendars`
+package stays dependency-free unless you install the `mcp` extra.
+
 ## Data provenance and licence
 
 Calendar data is generated from the YAML specs in
@@ -160,7 +210,7 @@ source. The code is Apache-2.0; the calendar data is CC0.
 From the repository root:
 
 ```bash
-python -m venv .venv && .venv/bin/pip install -e "python/[test]"
+python -m venv .venv && .venv/bin/pip install -e "python/[test,mcp]"
 .venv/bin/python -m pytest python/ -q
 
 python python/scripts/sync_data.py            # re-copy data from blessed/

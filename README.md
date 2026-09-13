@@ -132,7 +132,8 @@ answers the [Query API](spec/SPEC.md#query-api) offline with **zero runtime depe
 (`pip install bdc-calendars`, then `bdc_calendars.get_calendar("XNYS")` — exchange_calendars MICs
 are accepted as aliases). Its version is `0.<data major>.<data minor>`, so it tracks the data
 release; see [`python/README.md`](python/README.md) for the API, the migration notes from
-exchange_calendars and the coverage/status caveats.
+exchange_calendars and the coverage/status caveats. An optional `bdc-calendars-mcp` MCP server
+(`pip install "bdc-calendars[mcp]"`) exposes the same Query API to AI agents over stdio.
 
 ## Chronology Support
 
