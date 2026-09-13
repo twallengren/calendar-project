@@ -849,3 +849,81 @@ ChronologyDate julianDate = date.toChronology("JULIAN");
 ChronologyDate isoDate = ChronologyDate.iso(2025, 6, 15);
 ChronologyDate fromIso = ChronologyDate.fromIsoDate(LocalDate.now(), "HIJRI");
 ```
+
+## JSON API v1
+
+`tools site --api-only --blessed-dir blessed --release-history-dir release-history --out site/
+[--include-base]` reads `blessed/` and `release-history/` and writes a static `/v1/` tree of
+minified JSON and RFC 5545 `.ics` files, suitable for serving as-is (e.g. from GitHub Pages).
+`--include-base` also emits calendars whose `kind` is not `market` (see below); by default only
+`market`-kind calendars are published.
+
+### URL layout
+
+```
+v1/index.json                                       one entry per published calendar, plus release info
+v1/calendars/<ID>/manifest.json                      metadata.json content + weekend_policy + years + links
+v1/calendars/<ID>/<year>.json                        all rows for that year, one file per year in the calendar's full coverage range
+v1/calendars/<ID>/holidays.json                      non-WEEKEND rows, full coverage range
+v1/calendars/<ID>/all.json                           all rows, full coverage range
+v1/calendars/<ID>/holidays.ics                       one VEVENT per CLOSED/EARLY_CLOSE row, all years
+v1/calendars/<ID>/holidays-recent.ics                same, 2020 onward only
+v1/releases/<semver>/calendars/<ID>/<year>.json      pinned copy of <year>.json as published in that release, 2020 onward only (see below)
+```
+
+`index.json` lists each calendar's `id`, `name`, `timezone`, `coverage` (`from`/`to`/
+`verified_through`), `counts_by_type`, `counts_by_status`, `checksum` (from `blessed/manifest.json`),
+`years` (`[first, last]` of the calendar's full coverage range — every one of those years has a
+`<year>.json` file) and `href` (its manifest), plus a top-level `release`
+(`semantic`/`git_sha`/`generation_date`, from `blessed/manifest.json`'s `release_version`),
+`generated_at`, `schema_version` (`"1.0"`) and `api_version` (`"v1"`).
+
+Every per-calendar JSON document (`<year>.json`, `holidays.json`, `all.json`, and the pinned
+release files) carries `calendar_id`, `version` (`{semantic, git_sha}` of the release that
+produced it), `range` (`{from, to}` covered by that document), `coverage` (the calendar's
+published coverage, from `metadata.json` — the same for every document of a calendar, including
+pinned historical ones, since older `metadata.json` formats predate the `coverage` field), and
+`event_count`. Rows use the same fields as `JsonEventsEmitter`: `date`, `type`, `description`,
+`key`, `source_module`, `observed_from`, `close_time`, `status`; `observed_from` and `close_time`
+are omitted (rather than written as `null`) when not applicable, to keep the minified files a
+reasonable size — a missing key means the same thing as an explicit `null`.
+
+A calendar's `kind` (`metadata.json`'s `kind` field, falling back to `manifest.json`'s per-calendar
+entry) controls whether it is published; `kind` is optional and defaults to `market`. Neither field
+exists yet anywhere (a sibling package is adding it); until it does, an id ending in `-BASE` (e.g.
+`US-MARKET-BASE`) is treated as `base` rather than `market` by naming convention, since it exists
+to be composed into other calendars rather than published in its own right. `--include-base`
+publishes `base`-kind calendars too. A calendar that is not published has **no** entry under
+`v1/calendars/<ID>/` or `v1/releases/<semver>/calendars/<ID>/` at all — `index.json` is the
+definitive list of what exists under `v1/calendars/`.
+
+`v1/calendars/<ID>/manifest.json` is `blessed/<ID>/metadata.json`'s content plus `weekend_policy`
+(the `days`/`periods` block from `blessed/<ID>/resolved.yaml`), `years` (every year in the
+calendar's coverage range, each with a `<year>.json` file) and `links` (`year_template`,
+`holidays`, `all`, `ics`, `ics_recent`).
+
+### Pinned release files cover 2020 onward
+
+`<year>.json`, `holidays.json` and `all.json` under `v1/calendars/<ID>/` cover the calendar's
+*full* blessed coverage range (e.g. US-NYSE 1900-2030) — the HTML site generator (a sibling
+package) renders one page per year in coverage, so every year needs a file, and the row data for a
+single calendar minified is a manageable size (single digits of MB).
+
+Pinning that same full range for *every retained release* is what does not fit: nine retained
+versions across the four current market calendars measured out to roughly 56 MB. Pinned copies
+under `v1/releases/<semver>/calendars/<ID>/<year>.json` are therefore limited to **2020-01-01
+onward** — the same cutoff as `holidays-recent.ics` — for every retained version, including
+blessed. A consumer who needs a pinned copy of a year before 2020 should read the historical
+`events.csv`/`events.json` directly from the matching `release-history/<CAL>/` snapshot (or
+`blessed/<CAL>/` for the current release); those pre-2020 years essentially never change between
+releases in practice, since holiday data that far back is already settled.
+
+### Compatibility contract
+
+- Fields are never removed or retyped within `v1`; new optional fields may be added.
+- An unknown `type` means "not a business day"; an unknown `status` means `PROJECTED`.
+- A date after `coverage.verified_through` is projected regardless of the row's own `status`.
+- `/v1/releases/<semver>/` files are immutable but exist only for versions still retained in
+  `release-history/`.
+- Consumers should poll `index.json` and compare `checksum` to detect changes rather than
+  re-fetching every file on a schedule.

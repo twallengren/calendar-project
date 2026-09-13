@@ -18,7 +18,8 @@ import picocli.CommandLine.Command;
       ScaffoldCommand.class,
       ChangelogCommand.class,
       CrossvalidateCommand.class,
-      StatusCommand.class
+      StatusCommand.class,
+      SiteCommand.class
     })
 public class Main implements Runnable {
 
