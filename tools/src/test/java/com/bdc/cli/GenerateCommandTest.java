@@ -67,7 +67,7 @@ class GenerateCommandTest {
 
     assertEquals(1, exitCode);
     String errOutput = stderr.toString();
-    assertTrue(errOutput.contains("--out") || errOutput.contains("--store"));
+    assertTrue(errOutput.contains("--out"));
   }
 
   @Test

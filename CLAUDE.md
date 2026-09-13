@@ -9,6 +9,7 @@ All Gradle commands run from the repo root (the `tools/` build uses `workingDir 
 ```bash
 ./gradlew :tools:build              # Build everything
 ./gradlew :tools:test               # Run all tests
+./gradlew :tools:fastTest           # Run all tests except @Tag("slow")/@Tag("cross-validation") (fast local loop)
 ./gradlew :tools:test --tests "ClassName"  # Run a single test class
 ./gradlew :tools:spotlessApply      # Format code (Google Java Format)
 ./gradlew generateChronologies      # Regenerate Java classes from chronologies/*.yaml
@@ -44,7 +45,7 @@ YAML specs (calendars/, modules/, chronologies/)
 
 | Package | Role |
 |---------|------|
-| `cli` | PicoCLI commands: validate, resolve, generate, query, diff, ci-diff, history |
+| `cli` | PicoCLI commands: validate, resolve, generate, query, ci-diff, history |
 | `loader` | YAML parsing into model objects, SpecRegistry for lookups |
 | `resolver` | Calendar inheritance resolution and module merging |
 | `generator` | Expands event rules into dated events (RuleExpander, ReferenceResolver) |
@@ -52,7 +53,7 @@ YAML specs (calendars/, modules/, chronologies/)
 | `emitter` | Output formatters (CSV, JSON, YAML) |
 | `diff` | CalendarDiffEngine for comparing calendar outputs |
 | `model` | Data records for specs, events, rules |
-| `artifact` | Bitemporality: `ReleaseHistoryStore` reads blessed/ and release-history/ for as-of queries; `ArtifactStore` is the older local store |
+| `artifact` | Bitemporality: `ReleaseHistoryStore` reads blessed/ and release-history/ for as-of queries |
 | `validation` | `SpecValidator` (structural) and `GeneratedOutputValidator` (post-generation) behind `validate` |
 | `formula` | Reference date computation (e.g., Easter) |
 | `classifier` | Event classification logic (CLOSED, NOTABLE, PERIOD_MARKER) |

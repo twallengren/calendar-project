@@ -20,15 +20,45 @@ class HistoryCommandTest {
   private ByteArrayOutputStream stderr;
   private PrintStream originalOut;
   private PrintStream originalErr;
+  private Path blessedDir;
+  private Path releaseHistoryDir;
+
+  private void snapshot(Path base, String rangeStart, String rangeEnd) throws Exception {
+    Files.createDirectories(base);
+    Files.writeString(base.resolve("events.csv"), "date,type,description\n");
+    Files.writeString(
+        base.resolve("metadata.json"),
+        "{\"calendar_id\":\"TEST-CAL\",\"range_start\":\""
+            + rangeStart
+            + "\",\"range_end\":\""
+            + rangeEnd
+            + "\"}");
+  }
 
   @BeforeEach
-  void setUp() {
+  void setUp() throws Exception {
     stdout = new ByteArrayOutputStream();
     stderr = new ByteArrayOutputStream();
     originalOut = System.out;
     originalErr = System.err;
     System.setOut(new PrintStream(stdout));
     System.setErr(new PrintStream(stderr));
+
+    blessedDir = tempDir.resolve("blessed");
+    releaseHistoryDir = tempDir.resolve("release-history");
+
+    snapshot(
+        releaseHistoryDir.resolve("TEST-CAL/2024-01-01T00-00-00Z_abc1234_v1.0.0"),
+        "2024-01-01",
+        "2024-12-31");
+
+    snapshot(blessedDir.resolve("TEST-CAL"), "2024-01-01", "2024-12-31");
+    Files.writeString(
+        blessedDir.resolve("manifest.json"),
+        """
+        {"blessed_at":"2024-06-01T00:00:00Z","calendars":{"TEST-CAL":{"range_start":"2024-01-01","range_end":"2024-12-31"}},
+         "release_version":{"semantic":"2.0.0","git_sha":"def5678"}}
+        """);
   }
 
   @AfterEach
@@ -38,143 +68,66 @@ class HistoryCommandTest {
   }
 
   @Test
-  void call_withArtifacts_listsHistory() throws Exception {
-    // Create resolved artifacts
-    Path resolvedDir = tempDir.resolve("artifacts/resolved/TEST-CAL");
-    Files.createDirectories(resolvedDir);
-    Files.writeString(resolvedDir.resolve("2024-01-01T00:00:00Z.yaml"), "id: TEST\n");
-    Files.writeString(resolvedDir.resolve("2024-01-02T00:00:00Z.yaml"), "id: TEST\n");
-
+  void call_releases_listsPublishedVersionsNewestFirst() {
     HistoryCommand cmd = new HistoryCommand();
     CommandLine cmdLine = new CommandLine(cmd);
 
     int exitCode =
         cmdLine.execute(
-            "resolved", "TEST-CAL", "--artifacts-dir", tempDir.resolve("artifacts").toString());
+            "releases",
+            "TEST-CAL",
+            "--blessed-dir",
+            blessedDir.toString(),
+            "--release-history-dir",
+            releaseHistoryDir.toString());
 
     assertEquals(0, exitCode);
     String output = stdout.toString();
-    assertTrue(output.contains("history") || output.contains("versions"));
     assertTrue(output.contains("TEST-CAL"));
+    assertTrue(output.contains("v2.0.0"));
+    assertTrue(output.contains("v1.0.0"));
+    assertTrue(output.contains("(blessed)"));
+    assertTrue(output.indexOf("v2.0.0") < output.indexOf("v1.0.0"));
   }
 
   @Test
-  void call_emptyArtifacts_printsNone() throws Exception {
-    // Create artifacts directory but no resolved artifacts for this calendar
-    Path resolvedDir = tempDir.resolve("artifacts/resolved/NONEXISTENT");
-    Files.createDirectories(resolvedDir.getParent());
-
+  void call_releases_noSnapshots_printsNone() {
     HistoryCommand cmd = new HistoryCommand();
     CommandLine cmdLine = new CommandLine(cmd);
 
     int exitCode =
         cmdLine.execute(
-            "resolved", "NONEXISTENT", "--artifacts-dir", tempDir.resolve("artifacts").toString());
+            "releases",
+            "NONEXISTENT",
+            "--blessed-dir",
+            blessedDir.toString(),
+            "--release-history-dir",
+            releaseHistoryDir.toString());
 
     assertEquals(0, exitCode);
     String output = stdout.toString();
-    assertTrue(output.contains("No") || output.contains("not found"));
+    assertTrue(output.contains("No published releases found for NONEXISTENT"));
   }
 
   @Test
-  void call_limitOption_limitsOutput() throws Exception {
-    // Create multiple resolved artifacts
-    Path resolvedDir = tempDir.resolve("artifacts/resolved/TEST-CAL");
-    Files.createDirectories(resolvedDir);
-    for (int i = 1; i <= 20; i++) {
-      Files.writeString(
-          resolvedDir.resolve(String.format("2024-01-%02dT00:00:00Z.yaml", i)), "id: TEST\n");
-    }
-
+  void call_releases_limitOption_limitsOutput() {
     HistoryCommand cmd = new HistoryCommand();
     CommandLine cmdLine = new CommandLine(cmd);
 
     int exitCode =
         cmdLine.execute(
-            "resolved",
+            "releases",
             "TEST-CAL",
-            "--artifacts-dir",
-            tempDir.resolve("artifacts").toString(),
+            "--blessed-dir",
+            blessedDir.toString(),
+            "--release-history-dir",
+            releaseHistoryDir.toString(),
             "--limit",
-            "5");
+            "1");
 
     assertEquals(0, exitCode);
     String output = stdout.toString();
-    assertTrue(output.contains("5 of 20") || output.contains("showing"));
-  }
-
-  @Test
-  void call_generatedWithoutValidRange_showsAllRanges() throws Exception {
-    // Create generated artifacts with multiple ranges
-    Path generatedDir1 = tempDir.resolve("artifacts/generated/TEST-CAL/2024-01-01_2024-12-31");
-    Path generatedDir2 = tempDir.resolve("artifacts/generated/TEST-CAL/2025-01-01_2025-12-31");
-    Files.createDirectories(generatedDir1.resolve("version1"));
-    Files.createDirectories(generatedDir2.resolve("version1"));
-
-    HistoryCommand cmd = new HistoryCommand();
-    CommandLine cmdLine = new CommandLine(cmd);
-
-    int exitCode =
-        cmdLine.execute(
-            "generated", "TEST-CAL", "--artifacts-dir", tempDir.resolve("artifacts").toString());
-
-    assertEquals(0, exitCode);
-    String output = stdout.toString();
-    assertTrue(output.contains("ranges") || output.contains("2024") || output.contains("2025"));
-  }
-
-  @Test
-  void call_generatedWithValidRange_showsVersions() throws Exception {
-    // Create generated artifacts
-    Path generatedDir =
-        tempDir.resolve("artifacts/generated/TEST-CAL/2024-01-01_2024-12-31/2024-01-01T00:00:00Z");
-    Files.createDirectories(generatedDir);
-    Files.writeString(generatedDir.resolve("events.csv"), "date,type,description\n");
-
-    HistoryCommand cmd = new HistoryCommand();
-    CommandLine cmdLine = new CommandLine(cmd);
-
-    int exitCode =
-        cmdLine.execute(
-            "generated",
-            "TEST-CAL",
-            "--artifacts-dir",
-            tempDir.resolve("artifacts").toString(),
-            "--valid-from",
-            "2024-01-01",
-            "--valid-to",
-            "2024-12-31");
-
-    assertEquals(0, exitCode);
-    String output = stdout.toString();
-    assertTrue(
-        output.contains("history") || output.contains("versions") || output.contains("2024"));
-  }
-
-  @Test
-  void call_generatedWithValidRangeYear_usesYearShortcut() throws Exception {
-    // Create generated artifacts
-    Path generatedDir =
-        tempDir.resolve("artifacts/generated/TEST-CAL/2024-01-01_2024-12-31/2024-01-01T00:00:00Z");
-    Files.createDirectories(generatedDir);
-    Files.writeString(generatedDir.resolve("events.csv"), "date,type,description\n");
-
-    HistoryCommand cmd = new HistoryCommand();
-    CommandLine cmdLine = new CommandLine(cmd);
-
-    int exitCode =
-        cmdLine.execute(
-            "generated",
-            "TEST-CAL",
-            "--artifacts-dir",
-            tempDir.resolve("artifacts").toString(),
-            "--valid-range",
-            "2024");
-
-    assertEquals(0, exitCode);
-    String output = stdout.toString();
-    assertTrue(
-        output.contains("2024-01-01") || output.contains("history") || output.contains("versions"));
+    assertTrue(output.contains("showing 1 of 2"));
   }
 
   @Test
@@ -182,12 +135,11 @@ class HistoryCommandTest {
     HistoryCommand cmd = new HistoryCommand();
     CommandLine cmdLine = new CommandLine(cmd);
 
-    int exitCode =
-        cmdLine.execute(
-            "invalid-type", "TEST-CAL", "--artifacts-dir", tempDir.resolve("artifacts").toString());
+    int exitCode = cmdLine.execute("invalid-type", "TEST-CAL");
 
     assertEquals(1, exitCode);
     String errOutput = stderr.toString();
-    assertTrue(errOutput.contains("Unknown artifact type") || errOutput.contains("resolved"));
+    assertTrue(errOutput.contains("Unknown artifact type"));
+    assertTrue(errOutput.contains("releases"));
   }
 }

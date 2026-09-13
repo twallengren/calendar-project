@@ -23,3 +23,7 @@ generated/*
 # Local environment
 .env
 .env.local
+
+# jqwik property-based test database
+.jqwik-database
+tools/.jqwik-database
