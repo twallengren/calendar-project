@@ -63,6 +63,9 @@ tasks.named<JavaExec>("run") {
 }
 
 spotless {
+    // Fixed line endings: the default git-attributes policy cannot be serialized by the
+    // configuration cache and fails with "Error while evaluating property 'lineEndingsPolicy'".
+    lineEndings = com.diffplug.spotless.LineEnding.UNIX
     java {
         googleJavaFormat()
     }
