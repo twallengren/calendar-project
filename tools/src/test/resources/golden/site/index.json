@@ -1,5 +1,44 @@
 {
   "calendars" : [ {
+    "id" : "DE-XETRA",
+    "name" : "Deutsche Börse Xetra",
+    "timezone" : "Europe/Berlin",
+    "coverage" : {
+      "from" : "2003-01-01",
+      "to" : "2030-12-31",
+      "verified_through" : "2026-12-31"
+    },
+    "counts_by_type" : {
+      "CLOSED" : 240,
+      "WEEKEND" : 2872
+    },
+    "counts_by_status" : {
+      "CONFIRMED" : 3112
+    },
+    "checksum" : "sha256:3dcda6443c0f21e5a8dfa8650f46de6af60ff7bb654e28b9022c11d4c03d876b",
+    "years" : [ 2003, 2030 ],
+    "href" : "/v1/calendars/DE-XETRA/manifest.json"
+  }, {
+    "id" : "GB-LSE",
+    "name" : "London Stock Exchange",
+    "timezone" : "Europe/London",
+    "coverage" : {
+      "from" : "2000-01-01",
+      "to" : "2030-12-31",
+      "verified_through" : "2028-12-31"
+    },
+    "counts_by_type" : {
+      "WEEKEND" : 3236,
+      "CLOSED" : 254,
+      "EARLY_CLOSE" : 62
+    },
+    "counts_by_status" : {
+      "CONFIRMED" : 3552
+    },
+    "checksum" : "sha256:d63d64d090ae86800da9d926cc58dce3db7ef27859034c789b989c60acb9fba4",
+    "years" : [ 2000, 2030 ],
+    "href" : "/v1/calendars/GB-LSE/manifest.json"
+  }, {
     "id" : "SA-TADAWUL",
     "name" : "Tadawul (Saudi Exchange) Trading Calendar",
     "timezone" : "Asia/Riyadh",
