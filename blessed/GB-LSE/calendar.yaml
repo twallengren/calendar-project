@@ -1,0 +1,20 @@
+kind: calendar
+id: GB-LSE
+metadata:
+  name: London Stock Exchange
+  description: London Stock Exchange (LSE) trading calendar (MIC XLON)
+  chronology: ISO
+  timezone: Europe/London
+  coverage:
+    from: 2000-01-01
+    to: 2030-12-31
+    verified_through: 2028-12-31
+  kind: market
+uses:
+- weekend_sat_sun
+- gb_lse_holidays
+classifications: {}
+deltas: []
+extends: []
+event_sources: []
+weekend_shift_policy: NEXT_AVAILABLE_WEEKDAY

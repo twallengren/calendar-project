@@ -154,4 +154,19 @@ class GoldenTests {
   void usMarketBase2024Metadata() throws IOException {
     productionCalendarRunner.assertMetadataGoldenMatch("US-MARKET-BASE", 2024);
   }
+
+  // GB-LSE years that exercise UK weekend observance and early-close rules:
+  // 2022 Sat Christmas -> Mon 27 Dec (cascade with Sun Boxing Day -> Tue 28 Dec), Sat 1 Jan not
+  // observed until 3 Jan, Spring bank holiday moved for the Platinum Jubilee plus the extra
+  // Jubilee day, and the State Funeral of Queen Elizabeth II; 2028 Sun Dec 24/31 shifted
+  // half-day closes (Fri 22 Dec, Fri 29 Dec) and Sun 1 Jan 2028 -> Mon 3 Jan.
+  @Test
+  void gbLse2022() throws IOException {
+    productionCalendarRunner.assertCsvGoldenMatch("GB-LSE", 2022);
+  }
+
+  @Test
+  void gbLse2028() throws IOException {
+    productionCalendarRunner.assertCsvGoldenMatch("GB-LSE", 2028);
+  }
 }

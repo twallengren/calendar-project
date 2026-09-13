@@ -1,0 +1,32 @@
+kind: module
+id: uk_jubilee_bank_holiday
+
+# One-off extra bank holiday granted by Royal Proclamation for each of Queen Elizabeth II's
+# Golden and Diamond Jubilees and the Platinum Jubilee, always the day after the (moved) Spring
+# Bank Holiday (see uk_spring_bank_holiday.yaml):
+#   - Tuesday 4 June 2002 (Golden Jubilee)
+#   - Tuesday 5 June 2012 (Diamond Jubilee)
+#   - Friday 3 June 2022 (Platinum Jubilee)
+# Source: dcms-diamond-jubilee-ia (2002, 2012), govuk-bank-holidays (2022).
+
+source:
+  - id: dcms-diamond-jubilee-ia
+    ref: "extra bank holiday Tuesday 4 June 2002 (Golden Jubilee) and Tuesday 5 June 2012 (Diamond Jubilee)"
+
+event_sources:
+  - key: uk_jubilee_bank_holiday
+    name: Jubilee Bank Holiday
+    default_classification: CLOSED
+    source:
+      - id: dcms-diamond-jubilee-ia
+      - id: govuk-bank-holidays
+        ref: "2022-06-03 Platinum Jubilee bank holiday"
+    rule:
+      type: explicit_dates
+      dates:
+        - date: 2002-06-04
+          comment: Golden Jubilee
+        - date: 2012-06-05
+          comment: Diamond Jubilee
+        - date: 2022-06-03
+          comment: Platinum Jubilee

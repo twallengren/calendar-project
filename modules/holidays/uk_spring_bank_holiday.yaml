@@ -1,0 +1,47 @@
+kind: module
+id: uk_spring_bank_holiday
+
+# Spring Bank Holiday: last Monday in May, established by the Banking and Financial Dealings Act
+# 1971 (dcms-mayday-preconsultation, section 2.1 table). Moved three times within this
+# calendar's coverage to make way for an extra Jubilee bank holiday (see
+# uk_jubilee_bank_holiday.yaml for the extra day itself):
+#   - 2002: moved to Monday 3 June (Golden Jubilee)
+#   - 2012: moved to Monday 4 June (Diamond Jubilee)
+#   - 2022: moved to Thursday 2 June (Platinum Jubilee)
+# Source: dcms-diamond-jubilee-ia (2002, 2012), govuk-bank-holidays (2022 and observed dates).
+
+source:
+  - id: govuk-bank-holidays
+
+event_sources:
+  - key: uk_spring_bank_holiday
+    name: Spring Bank Holiday
+    default_classification: CLOSED
+    active_years:
+      - [2000, 2001]
+      - [2003, 2011]
+      - [2013, 2021]
+      - [2023, null]
+    rule:
+      type: nth_weekday_of_month
+      month: 5
+      weekday: MONDAY
+      nth: -1
+
+  - key: uk_spring_bank_holiday_moved
+    name: Spring Bank Holiday
+    default_classification: CLOSED
+    source:
+      - id: dcms-diamond-jubilee-ia
+        ref: "spring bank holiday moved to Monday 3 June 2002 and Monday 4 June 2012"
+      - id: govuk-bank-holidays
+        ref: "2022-06-02 Spring bank holiday"
+    rule:
+      type: explicit_dates
+      dates:
+        - date: 2002-06-03
+          comment: Moved for the Golden Jubilee
+        - date: 2012-06-04
+          comment: Moved for the Diamond Jubilee
+        - date: 2022-06-02
+          comment: Moved for the Platinum Jubilee

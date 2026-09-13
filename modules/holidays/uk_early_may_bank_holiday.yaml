@@ -1,0 +1,41 @@
+kind: module
+id: uk_early_may_bank_holiday
+
+# Early May Bank Holiday: first Monday in May, established by Royal Proclamation under the 1971
+# Act (dcms-mayday-preconsultation, section 2.1 table). Moved once within this calendar's
+# coverage, to mark the VE Day 75th anniversary:
+#   - 2020: moved to Friday 8 May (the ordinary first-Monday date, 4 May, is NOT also observed)
+# 2023 is different: the ordinary Early May Bank Holiday stayed on its normal date (Monday 1 May)
+# and the Coronation of King Charles III added a separate, additional bank holiday on Monday
+# 8 May -- confirmed by govuk-bank-holidays (which lists both "2023-05-01 Early May bank
+# holiday" and "2023-05-08 Bank holiday for the coronation of King Charles III" as distinct
+# entries) and by both cross-validation references (exchange_calendars, QuantLib), which both
+# show 2023-05-01 as closed. See uk_one_off_bank_holidays.yaml for the Coronation day itself.
+# The 1995 move to 8 May (VE Day 50th anniversary) predates this calendar's 2000-01-01 coverage
+# and is not modeled; see sources/GB-LSE/README.md.
+# Source: govuk-bank-holidays.
+
+source:
+  - id: govuk-bank-holidays
+
+event_sources:
+  - key: uk_early_may_bank_holiday
+    name: Early May Bank Holiday
+    default_classification: CLOSED
+    active_years:
+      - [2000, 2019]
+      - [2021, null]
+    rule:
+      type: nth_weekday_of_month
+      month: 5
+      weekday: MONDAY
+      nth: 1
+
+  - key: uk_early_may_bank_holiday_moved
+    name: Early May Bank Holiday
+    default_classification: CLOSED
+    rule:
+      type: explicit_dates
+      dates:
+        - date: 2020-05-08
+          comment: VE Day 75th anniversary

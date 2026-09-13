@@ -14,3 +14,10 @@
 /modules/holidays/saudi_*          @twallengren
 /modules/policies/saudi_weekends.yaml  @twallengren
 /sources/SA-TADAWUL/               @twallengren
+
+# GB-LSE
+/calendars/GB-LSE.yaml              @twallengren
+/modules/groups/gb_lse_holidays.yaml @twallengren
+/modules/holidays/gb_lse_*          @twallengren
+/modules/holidays/uk_*              @twallengren
+/sources/GB-LSE/                    @twallengren

@@ -1,0 +1,114 @@
+kind: module
+id: gb_lse_early_closes
+
+# Christmas Eve and New Year's Eve early closes (12:30 local), London Stock Exchange.
+# lse-business-days shows a recurring half-day close on 24 and 31 December whenever they fall on
+# a trading day (Monday-Friday) -- this applies even when Christmas Day/New Year's Day itself is
+# later observed on a different date because of a weekend shift (confirmed in the live table:
+# Friday 24 December 2027 is a half day even though Christmas Day is observed on the substitute
+# date Monday 27 December 2027).
+#
+# When 24 or 31 December itself falls on a Saturday or Sunday, lse-business-days shows the
+# half-day close moving to the preceding business day instead of being dropped (its live table
+# covers 2028: half day Friday 22 December, Friday 29 December). This calendar model's
+# weekend-shift mechanisms (shift_policy / weekend_shift_policy) only move CLOSED events, not
+# EARLY_CLOSE events, so the shift cannot be expressed as a general rule; each occurrence is
+# listed explicitly below instead. The same 24/31-December-on-weekend collision recurs, within
+# this calendar's coverage, in 2000, 2005, 2006, 2011, 2016, 2017, 2022 and 2023. LSE's own
+# published table does not reach back that far, but this project's exchange_calendars
+# cross-validation reference (xcal-xlon-crossval, see sources/GB-LSE/README.md) independently
+# computes the same preceding-business-day shift for all eight of those years with the same
+# 12:30 close time, corroborating the single directly observed instance (2028), so those eight
+# years are modeled explicitly here too rather than left as an unexplained cross-validation
+# difference.
+#
+# Source: lse-business-days (recurring rule, 2028 instance); xcal-xlon-crossval (2000, 2005,
+# 2006, 2011, 2016, 2017, 2022, 2023 instances).
+
+source:
+  - id: lse-business-days
+
+event_sources:
+  - key: gb_lse_christmas_eve_early_close
+    name: Christmas Eve (Early Close)
+    default_classification: EARLY_CLOSE
+    close_time: "12:30"
+    shiftable: false
+    only_if_weekday: [MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY]
+    rule:
+      type: fixed_month_day
+      month: 12
+      day: 24
+
+  - key: gb_lse_new_years_eve_early_close
+    name: New Year's Eve (Early Close)
+    default_classification: EARLY_CLOSE
+    close_time: "12:30"
+    shiftable: false
+    only_if_weekday: [MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY]
+    rule:
+      type: fixed_month_day
+      month: 12
+      day: 31
+
+  - key: gb_lse_christmas_eve_early_close_shifted
+    name: Christmas Eve (Early Close)
+    default_classification: EARLY_CLOSE
+    close_time: "12:30"
+    source:
+      - id: lse-business-days
+        ref: "2028 half day observed Friday 22 December"
+      - id: xcal-xlon-crossval
+        ref: "2000, 2005, 2006, 2011, 2016, 2017, 2022, 2023 half days computed on the preceding Friday"
+    rule:
+      type: explicit_dates
+      dates:
+        - date: 2000-12-22
+          comment: 24 December 2000 is a Sunday; half day observed the preceding Friday
+        - date: 2005-12-23
+          comment: 24 December 2005 is a Saturday; half day observed the preceding Friday
+        - date: 2006-12-22
+          comment: 24 December 2006 is a Sunday; half day observed the preceding Friday
+        - date: 2011-12-23
+          comment: 24 December 2011 is a Saturday; half day observed the preceding Friday
+        - date: 2016-12-23
+          comment: 24 December 2016 is a Saturday; half day observed the preceding Friday
+        - date: 2017-12-22
+          comment: 24 December 2017 is a Sunday; half day observed the preceding Friday
+        - date: 2022-12-23
+          comment: 24 December 2022 is a Saturday; half day observed the preceding Friday
+        - date: 2023-12-22
+          comment: 24 December 2023 is a Sunday; half day observed the preceding Friday
+        - date: 2028-12-22
+          comment: 24 December 2028 is a Sunday; half day observed the preceding Friday
+
+  - key: gb_lse_new_years_eve_early_close_shifted
+    name: New Year's Eve (Early Close)
+    default_classification: EARLY_CLOSE
+    close_time: "12:30"
+    source:
+      - id: lse-business-days
+        ref: "2028 half day observed Friday 29 December"
+      - id: xcal-xlon-crossval
+        ref: "2000, 2005, 2006, 2011, 2016, 2017, 2022, 2023 half days computed on the preceding Friday"
+    rule:
+      type: explicit_dates
+      dates:
+        - date: 2000-12-29
+          comment: 31 December 2000 is a Sunday; half day observed the preceding Friday
+        - date: 2005-12-30
+          comment: 31 December 2005 is a Saturday; half day observed the preceding Friday
+        - date: 2006-12-29
+          comment: 31 December 2006 is a Sunday; half day observed the preceding Friday
+        - date: 2011-12-30
+          comment: 31 December 2011 is a Saturday; half day observed the preceding Friday
+        - date: 2016-12-30
+          comment: 31 December 2016 is a Saturday; half day observed the preceding Friday
+        - date: 2017-12-29
+          comment: 31 December 2017 is a Sunday; half day observed the preceding Friday
+        - date: 2022-12-30
+          comment: 31 December 2022 is a Saturday; half day observed the preceding Friday
+        - date: 2023-12-29
+          comment: 31 December 2023 is a Sunday; half day observed the preceding Friday
+        - date: 2028-12-29
+          comment: 31 December 2028 is a Sunday; half day observed the preceding Friday

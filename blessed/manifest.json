@@ -30,6 +30,13 @@
       "range_end": "2030-12-31",
       "event_count": 1271,
       "checksum": "sha256:7abe60d0b866382dae15d4ab78bab9286fdceb737781776c08abcf3972a4bbe1"
+    },
+    "GB-LSE": {
+      "range_start": "2000-01-01",
+      "range_end": "2030-12-31",
+      "event_count": 3552,
+      "checksum": "sha256:d63d64d090ae86800da9d926cc58dce3db7ef27859034c789b989c60acb9fba4",
+      "kind": "market"
     }
   },
   "release_version": {
