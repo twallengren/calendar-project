@@ -3,6 +3,7 @@ package com.bdc.artifact;
 import static org.junit.jupiter.api.Assertions.*;
 
 import com.bdc.model.Event;
+import com.bdc.model.EventStatus;
 import com.bdc.stream.CsvDateStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -99,5 +100,33 @@ class ReleaseHistoryStoreTest {
     assertThrows(
         IllegalArgumentException.class,
         () -> currentStream.isBusinessDay(LocalDate.of(2030, 1, 1)));
+  }
+
+  @Test
+  void streamCarriesVerifiedThroughAndStatusFromMetadata() throws Exception {
+    Path base = history.resolve("CAL/2026-02-20T10-00-00Z_abc1234_v10.2.0");
+    Files.createDirectories(base);
+    Files.writeString(
+        base.resolve("events.csv"), "date,type,description\n2022-01-01,WEEKEND,Saturday\n");
+    Files.writeString(
+        base.resolve("metadata.json"),
+        "{\"calendar_id\":\"CAL\",\"range_start\":\"2021-01-01\",\"range_end\":\"2022-12-31\","
+            + "\"coverage\":{\"from\":\"2021-01-01\",\"to\":\"2022-12-31\","
+            + "\"verified_through\":\"2021-12-31\"}}");
+
+    ReleaseHistoryStore store = new ReleaseHistoryStore(history, blessed);
+    CsvDateStream stream = store.stream(store.resolve("CAL", "v10.2.0").orElseThrow());
+
+    assertEquals(LocalDate.of(2021, 12, 31), stream.verifiedThrough().orElseThrow());
+    assertEquals(EventStatus.CONFIRMED, stream.status(LocalDate.of(2021, 6, 1)));
+    assertEquals(EventStatus.PROJECTED, stream.status(LocalDate.of(2022, 6, 1)));
+    assertEquals(EventStatus.UNKNOWN, stream.status(LocalDate.of(2030, 1, 1)));
+  }
+
+  @Test
+  void snapshotWithoutCoverageHasNoVerifiedThrough() throws Exception {
+    ReleaseHistoryStore store = new ReleaseHistoryStore(history, blessed);
+    assertTrue(
+        store.stream(store.resolve("CAL", "blessed").orElseThrow()).verifiedThrough().isEmpty());
   }
 }

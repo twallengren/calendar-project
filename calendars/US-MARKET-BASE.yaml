@@ -4,6 +4,7 @@ id: US-MARKET-BASE
 metadata:
   name: US Market Base Calendar
   description: Base calendar for US markets with core holidays
+  kind: base
   chronology: ISO
   timezone: America/New_York
   coverage:

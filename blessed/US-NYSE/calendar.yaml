@@ -9,6 +9,7 @@ metadata:
     from: 1900-01-01
     to: 2030-12-31
     verified_through: 2026-12-31
+  kind: market
 uses:
 - nyse_weekends
 - us_nyse_holidays

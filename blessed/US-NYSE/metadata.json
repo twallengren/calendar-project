@@ -1,6 +1,7 @@
 {
   "calendar_id" : "US-NYSE",
   "calendar_name" : "NYSE Trading Calendar",
+  "kind" : "market",
   "generated_at" : "2026-02-16T21:43:21Z",
   "range_start" : "1900-01-01",
   "range_end" : "2030-12-31",

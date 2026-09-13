@@ -35,9 +35,23 @@ public record CalendarSpec(
    * @param timezone IANA zone id of the market (e.g. America/New_York); required when any event
    *     source declares a close_time
    * @param coverage the date range this calendar is maintained for, and how far it is verified
+   * @param kind what the calendar is for: {@code market} (a tradable venue, the default) or {@code
+   *     base} (a building block that composes into market calendars and is not itself a venue)
    */
   public record Metadata(
-      String name, String description, String chronology, String timezone, Coverage coverage) {
+      String name,
+      String description,
+      String chronology,
+      String timezone,
+      Coverage coverage,
+      String kind) {
+
+    /** The default {@link #kind()} when a calendar declares none. */
+    public static final String KIND_MARKET = "market";
+
+    /** A composition building block rather than a tradable venue. */
+    public static final String KIND_BASE = "base";
+
     public Metadata {
       if (chronology == null) chronology = "ISO";
       if (timezone != null) {
@@ -47,11 +61,22 @@ public record CalendarSpec(
           throw new IllegalArgumentException("Invalid timezone: " + timezone, e);
         }
       }
+      if (kind == null) kind = KIND_MARKET;
+      if (!KIND_MARKET.equals(kind) && !KIND_BASE.equals(kind)) {
+        throw new IllegalArgumentException(
+            "metadata.kind must be '" + KIND_MARKET + "' or '" + KIND_BASE + "', got: " + kind);
+      }
     }
 
-    /** Legacy constructor without timezone and coverage. */
+    /** Legacy constructor without kind. */
+    public Metadata(
+        String name, String description, String chronology, String timezone, Coverage coverage) {
+      this(name, description, chronology, timezone, coverage, null);
+    }
+
+    /** Legacy constructor without timezone, coverage and kind. */
     public Metadata(String name, String description, String chronology) {
-      this(name, description, chronology, null, null);
+      this(name, description, chronology, null, null, null);
     }
   }
 

@@ -4,6 +4,7 @@ id: US-CORP-IN-VISIBILITY
 metadata:
   name: US Corporate Calendar with India Visibility
   description: US corporate calendar with Indian holidays for visibility
+  kind: base
   chronology: ISO
   timezone: America/New_York
   coverage:
