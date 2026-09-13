@@ -29,10 +29,10 @@ scripts/bless.sh                     # regenerate blessed/ reproducibly (no-op l
 
 **Golden tests:** Update expected outputs with `./gradlew :tools:test -DupdateGoldens=true`
 
-**Python package (`python/`):** `bdc-calendars` ships the blessed data inside its wheel and mirrors the Query API (`spec/SPEC.md`) with zero runtime dependencies.
+**Python package (`python/`):** `bdc-calendars` ships the blessed data inside its wheel and mirrors the Query API (`spec/SPEC.md`) with zero runtime dependencies. An optional `mcp` extra adds a `bdc-calendars-mcp` stdio MCP server (`python/bdc_calendars/mcp/`) exposing that same API to AI agents.
 ```bash
-python -m venv .venv && .venv/bin/pip install -e "python/[test]"
-.venv/bin/python -m pytest python/ -q     # API tests + parity against the Java query API
+python -m venv .venv && .venv/bin/pip install -e "python/[test,mcp]"
+.venv/bin/python -m pytest python/ -q     # API tests + parity against the Java query API + the MCP server (skipped if `mcp` isn't installed)
 python python/scripts/sync_data.py        # re-copy blessed/ into python/bdc_calendars/data/ (also run by the release workflow)
 python python/scripts/sync_data.py --check   # CI guard: bundled data still re-derives from blessed/
 python/scripts/generate_parity_fixture.sh    # refresh python/tests/fixtures/ from the Java toolchain (jshell)
