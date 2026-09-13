@@ -165,3 +165,14 @@ algorithms:
   type: FORMULA
   leap_year: "year % 4 == 0"
 ```
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the full walkthrough of adding a market, correcting
+data, or contributing code. In short: cite your sources under `sources/<MARKET>/README.md`,
+write the calendar and module YAML, run `validate --all --strict`, update goldens, and add the
+calendar to `blessed/manifest.json` before opening a PR.
+
+A [`justfile`](justfile) wraps the longer Gradle commands (`just build`, `just test`,
+`just validate GB-LSE`, and so on) if you have [`just`](https://github.com/casey/just) installed.
+It is optional; every recipe is a thin wrapper around a `./gradlew` command documented above.

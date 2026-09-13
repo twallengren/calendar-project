@@ -1,0 +1,16 @@
+# See GOVERNANCE.md ("Adopt a market") for what ownership means here.
+# Owners are requested for review on PRs touching their market's files; maintainers
+# still make the final merge decision.
+
+# US-NYSE
+/calendars/US-NYSE.yaml            @twallengren
+/modules/**/nyse*                  @twallengren
+/modules/holidays/us_*             @twallengren
+/sources/US-NYSE/                  @twallengren
+
+# SA-TADAWUL
+/calendars/SA-TADAWUL.yaml         @twallengren
+/modules/holidays/eid_*            @twallengren
+/modules/holidays/saudi_*          @twallengren
+/modules/policies/saudi_weekends.yaml  @twallengren
+/sources/SA-TADAWUL/               @twallengren

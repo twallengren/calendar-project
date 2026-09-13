@@ -361,4 +361,10 @@ These are good ideas but don't have a clear slot yet:
 
 ## How to get involved
 
-If any of this resonates, look at the open issues, pick a market you know well, or propose a chronology. The best contributions come from people with domain knowledge of the calendars they're adding. See [CONTRIBUTING.md](CONTRIBUTING.md) for mechanics.
+If any of this resonates, look at the open issues, pick a market you know well, or propose a chronology. The best contributions come from people with domain knowledge of the calendars they're adding.
+
+- **Adding a market**: [CONTRIBUTING.md](CONTRIBUTING.md) walks through adding a market in an afternoon, from directory conventions and source citation through validation, goldens, cross-validation, and the release process.
+- **Reporting a wrong date or a source change**: open an issue with [.github/ISSUE_TEMPLATE/data-correction.yml](.github/ISSUE_TEMPLATE/data-correction.yml) or [.github/ISSUE_TEMPLATE/source-update.yml](.github/ISSUE_TEMPLATE/source-update.yml).
+- **Proposing a new market**: open an issue with [.github/ISSUE_TEMPLATE/new-market.yml](.github/ISSUE_TEMPLATE/new-market.yml) before writing YAML, especially for a market with unusual rules (lunar closures, ad-hoc government declarations) that might need a spec change first.
+- **Adopting a market**: markets can have a named owner who reviews data PRs for that market, per [GOVERNANCE.md](GOVERNANCE.md#adopt-a-market). Say so on a new-market or data-correction issue if you want to take on ownership.
+- **Code contributions**: see the "Code contributions" section of [CONTRIBUTING.md](CONTRIBUTING.md) for the Java toolchain conventions.
