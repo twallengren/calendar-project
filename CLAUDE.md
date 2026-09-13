@@ -22,6 +22,7 @@ All Gradle commands run from the repo root (the `tools/` build uses `workingDir 
 ./gradlew :tools:run --args="generate US-MARKET-BASE --from 2024-01-01 --to 2024-12-31 --out generated/US-MARKET-BASE"
 ./gradlew :tools:run --args="resolve US-MARKET-BASE --out build/resolved/US-MARKET-BASE.yaml"
 ./gradlew :tools:run --args="query US-NYSE --as-of v10.1.0 --is-business-day 2021-12-31"
+./gradlew :tools:run --args="site --api-only --out site"  # write the /v1/ JSON API + .ics files from blessed/ (see spec/SPEC.md#json-api-v1)
 scripts/bless.sh                     # regenerate blessed/ reproducibly (no-op leaves git clean)
 ```
 

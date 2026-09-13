@@ -1,0 +1,90 @@
+{
+  "calendars" : [ {
+    "id" : "SA-TADAWUL",
+    "name" : "Tadawul (Saudi Exchange) Trading Calendar",
+    "timezone" : "Asia/Riyadh",
+    "coverage" : {
+      "from" : "2020-01-01",
+      "to" : "2030-12-31",
+      "verified_through" : "2029-12-31"
+    },
+    "counts_by_type" : {
+      "WEEKEND" : 1084,
+      "CLOSED" : 187
+    },
+    "counts_by_status" : {
+      "CONFIRMED" : 1255,
+      "PROJECTED" : 16
+    },
+    "checksum" : "sha256:7abe60d0b866382dae15d4ab78bab9286fdceb737781776c08abcf3972a4bbe1",
+    "years" : [ 2020, 2030 ],
+    "href" : "/v1/calendars/SA-TADAWUL/manifest.json"
+  }, {
+    "id" : "US-CORP-IN-VISIBILITY",
+    "name" : "US Corporate Calendar with India Visibility",
+    "timezone" : "America/New_York",
+    "coverage" : {
+      "from" : "1900-01-01",
+      "to" : "2030-12-31",
+      "verified_through" : "2026-12-31"
+    },
+    "counts_by_type" : {
+      "CLOSED" : 938,
+      "WEEKEND" : 13670,
+      "NOTABLE" : 7
+    },
+    "counts_by_status" : {
+      "CONFIRMED" : 14615
+    },
+    "checksum" : "sha256:8aabf506cf8db5a01a72b37c72e08050c6bc9989454a26f8fec1fd272392c7e4",
+    "years" : [ 2020, 2030 ],
+    "href" : "/v1/calendars/US-CORP-IN-VISIBILITY/manifest.json"
+  }, {
+    "id" : "US-MARKET-BASE",
+    "name" : "US Market Base Calendar",
+    "timezone" : "America/New_York",
+    "coverage" : {
+      "from" : "1900-01-01",
+      "to" : "2030-12-31",
+      "verified_through" : "2026-12-31"
+    },
+    "counts_by_type" : {
+      "CLOSED" : 938,
+      "WEEKEND" : 13670
+    },
+    "counts_by_status" : {
+      "CONFIRMED" : 14608
+    },
+    "checksum" : "sha256:65c615ae26d7226e020992eae8bcce81303e243f17a961bdf43188252f3ac285",
+    "years" : [ 2020, 2030 ],
+    "href" : "/v1/calendars/US-MARKET-BASE/manifest.json"
+  }, {
+    "id" : "US-NYSE",
+    "name" : "NYSE Trading Calendar",
+    "timezone" : "America/New_York",
+    "coverage" : {
+      "from" : "1900-01-01",
+      "to" : "2030-12-31",
+      "verified_through" : "2026-12-31"
+    },
+    "counts_by_type" : {
+      "CLOSED" : 1649,
+      "WEEKEND" : 11061,
+      "EARLY_CLOSE" : 126
+    },
+    "counts_by_status" : {
+      "CONFIRMED" : 12836
+    },
+    "checksum" : "sha256:1c9c599763a4a964592dcce6dbca29b940a02ece883fd4937dcdf408199e5763",
+    "years" : [ 2020, 2030 ],
+    "href" : "/v1/calendars/US-NYSE/manifest.json"
+  } ],
+  "release" : {
+    "semantic" : "11.0.0",
+    "git_sha" : "3765bcb10d3ebcb7cfc338bcebf94505af25ec1e",
+    "generation_date" : "2026-02-16"
+  },
+  "generated_at" : "2026-06-01T00:00:00Z",
+  "schema_version" : "1.0",
+  "api_version" : "v1"
+}
