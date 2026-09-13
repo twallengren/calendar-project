@@ -98,11 +98,16 @@ class ApiEmitterTest {
     JsonNode manifest = mapper.readTree(Path.of("blessed/manifest.json").toFile());
 
     List<String> expectedIds = new ArrayList<>();
-    manifest.path("calendars").fieldNames().forEachRemaining(expectedIds::add);
-    // No calendar currently has an explicit "kind" field (a sibling package is adding it), so
-    // every id defaults to "market" except the naming-convention fallback for "-BASE" ids (see
-    // ApiEmitter#kindOf) — US-MARKET-BASE is a foundational calendar, not a published market.
-    expectedIds.removeIf(id -> id.endsWith("-BASE"));
+    manifest
+        .path("calendars")
+        .fields()
+        .forEachRemaining(
+            e -> {
+              // Only calendars whose manifest kind is "market" (the default) are published
+              if ("market".equals(e.getValue().path("kind").asText("market"))) {
+                expectedIds.add(e.getKey());
+              }
+            });
     java.util.Collections.sort(expectedIds);
 
     List<String> actualIds =

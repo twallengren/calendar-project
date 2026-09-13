@@ -20,26 +20,6 @@
     "years" : [ 2020, 2030 ],
     "href" : "/v1/calendars/SA-TADAWUL/manifest.json"
   }, {
-    "id" : "US-CORP-IN-VISIBILITY",
-    "name" : "US Corporate Calendar with India Visibility",
-    "timezone" : "America/New_York",
-    "coverage" : {
-      "from" : "1900-01-01",
-      "to" : "2030-12-31",
-      "verified_through" : "2026-12-31"
-    },
-    "counts_by_type" : {
-      "CLOSED" : 938,
-      "WEEKEND" : 13670,
-      "NOTABLE" : 7
-    },
-    "counts_by_status" : {
-      "CONFIRMED" : 14615
-    },
-    "checksum" : "sha256:8aabf506cf8db5a01a72b37c72e08050c6bc9989454a26f8fec1fd272392c7e4",
-    "years" : [ 1900, 2030 ],
-    "href" : "/v1/calendars/US-CORP-IN-VISIBILITY/manifest.json"
-  }, {
     "id" : "US-NYSE",
     "name" : "NYSE Trading Calendar",
     "timezone" : "America/New_York",

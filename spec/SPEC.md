@@ -889,13 +889,11 @@ are omitted (rather than written as `null`) when not applicable, to keep the min
 reasonable size — a missing key means the same thing as an explicit `null`.
 
 A calendar's `kind` (`metadata.json`'s `kind` field, falling back to `manifest.json`'s per-calendar
-entry) controls whether it is published; `kind` is optional and defaults to `market`. Neither field
-exists yet anywhere (a sibling package is adding it); until it does, an id ending in `-BASE` (e.g.
-`US-MARKET-BASE`) is treated as `base` rather than `market` by naming convention, since it exists
-to be composed into other calendars rather than published in its own right. `--include-base`
-publishes `base`-kind calendars too. A calendar that is not published has **no** entry under
-`v1/calendars/<ID>/` or `v1/releases/<semver>/calendars/<ID>/` at all — `index.json` is the
-definitive list of what exists under `v1/calendars/`.
+entry) controls whether it is published; `kind` is optional and defaults to `market`. Only
+`market` calendars are published by default; `--include-base` publishes `base`-kind calendars too.
+A calendar that is not published has **no** entry under `v1/calendars/<ID>/` or
+`v1/releases/<semver>/calendars/<ID>/` at all: `index.json` is the definitive list of what exists
+under `v1/calendars/`.
 
 `v1/calendars/<ID>/manifest.json` is `blessed/<ID>/metadata.json`'s content plus `weekend_policy`
 (the `days`/`periods` block from `blessed/<ID>/resolved.yaml`), `years` (every year in the
