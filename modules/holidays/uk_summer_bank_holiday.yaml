@@ -1,0 +1,19 @@
+kind: module
+id: uk_summer_bank_holiday
+
+# Summer Bank Holiday: last Monday in August (England & Wales), established by the Banking and
+# Financial Dealings Act 1971. No one-off moves within this calendar's coverage.
+# Source: govuk-bank-holidays.
+
+source:
+  - id: govuk-bank-holidays
+
+event_sources:
+  - key: uk_summer_bank_holiday
+    name: Summer Bank Holiday
+    default_classification: CLOSED
+    rule:
+      type: nth_weekday_of_month
+      month: 8
+      weekday: MONDAY
+      nth: -1

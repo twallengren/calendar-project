@@ -1,0 +1,28 @@
+kind: module
+id: uk_easter_monday
+
+# Easter Monday. England & Wales: closed every year; established by the Banking and Financial
+# Dealings Act 1971 (dcms-mayday-preconsultation, section 2.1 table). Always a Monday, so it
+# never requires weekend shifting.
+# Source: dcms-mayday-preconsultation (legal basis), govuk-bank-holidays (observed dates).
+
+source:
+  - id: dcms-mayday-preconsultation
+    ref: "section 2.1 table: Easter Monday established by the Banking and Financial Dealings Act 1971"
+
+references:
+  - key: easter
+    formula: EASTER_WESTERN
+
+event_sources:
+  - key: easter_monday
+    name: Easter Monday
+    default_classification: CLOSED
+    source:
+      - id: govuk-bank-holidays
+    rule:
+      type: relative_to_reference
+      key: easter_monday
+      name: Easter Monday
+      reference: easter
+      offset_days: 1
