@@ -1,0 +1,14 @@
+kind: module
+id: saudi_weekends
+
+# Saudi Arabia moved its weekend from Thursday-Friday to Friday-Saturday by Royal Decree with
+# effect from 29 June 2013 (the Saudi Stock Exchange's first Friday-Saturday weekend).
+# Source: saudi-exchange-announcements (weekend change notice, June 2013).
+
+source:
+  - id: saudi-weekend-change-2013
+
+policies:
+  weekends:
+    - {days: [THURSDAY, FRIDAY], to: 2013-06-28}
+    - {days: [FRIDAY, SATURDAY], from: 2013-06-29}

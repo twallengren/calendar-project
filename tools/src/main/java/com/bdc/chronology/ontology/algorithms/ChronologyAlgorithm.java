@@ -112,4 +112,14 @@ public interface ChronologyAlgorithm {
    * @return true if it's a leap year
    */
   boolean isLeapYear(int year);
+
+  /**
+   * Returns the inclusive year range this algorithm can convert, if bounded (lookup tables). An
+   * empty result means the algorithm is formula-based and unbounded.
+   *
+   * @return [minYear, maxYear], or empty when unbounded
+   */
+  default java.util.Optional<int[]> supportedYearRange() {
+    return java.util.Optional.empty();
+  }
 }

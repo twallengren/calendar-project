@@ -1,6 +1,10 @@
 kind: module
 id: weekend_fri_sat
 
+source:
+  - id: convention
+    note: Standard weekend definition, no external source
+
 policies:
   weekends:
     - FRIDAY

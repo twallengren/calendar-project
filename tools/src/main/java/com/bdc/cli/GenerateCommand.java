@@ -2,6 +2,7 @@ package com.bdc.cli;
 
 import com.bdc.artifact.ArtifactStore;
 import com.bdc.emitter.CsvEmitter;
+import com.bdc.emitter.JsonEventsEmitter;
 import com.bdc.emitter.MetadataEmitter;
 import com.bdc.emitter.SpecEmitter;
 import com.bdc.generator.EventGenerator;
@@ -13,6 +14,7 @@ import com.bdc.model.ResolvedSpec;
 import com.bdc.resolver.SpecResolver;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.time.Instant;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.concurrent.Callable;
@@ -82,6 +84,13 @@ public class GenerateCommand implements Callable<Integer> {
   private String outputChronology;
 
   @Option(
+      names = {"--generated-at"},
+      description =
+          "Timestamp to record as generated_at (ISO instant). Pass a fixed value to make"
+              + " metadata.json reproducible")
+  private Instant generatedAt;
+
+  @Option(
       names = {"--include-specs"},
       description = "Include calendar.yaml and resolved.yaml in output (only applies with --out)")
   private boolean includeSpecs;
@@ -102,6 +111,7 @@ public class GenerateCommand implements Callable<Integer> {
       SpecRegistry registry = new SpecRegistry();
       registry.loadCalendarsFromDirectory(calendarsDir);
       registry.loadModulesFromDirectory(modulesDir);
+      registry.assertNoLoadErrors();
 
       SpecResolver resolver = new SpecResolver(registry);
       ResolvedSpec resolved = resolver.resolve(calendarId);
@@ -142,14 +152,20 @@ public class GenerateCommand implements Callable<Integer> {
         Path csvPath = outputDir.resolve("events.csv");
         csvEmitter.emit(events, csvPath, outputChronology);
 
+        // Emit JSON events
+        JsonEventsEmitter jsonEmitter = new JsonEventsEmitter();
+        Path jsonPath = outputDir.resolve("events.json");
+        jsonEmitter.emit(resolved, events, from, to, jsonPath);
+
         // Emit metadata
-        MetadataEmitter metadataEmitter = new MetadataEmitter();
+        MetadataEmitter metadataEmitter = new MetadataEmitter(generatedAt);
         Path metadataPath = outputDir.resolve("metadata.json");
         metadataEmitter.emit(
             resolved, events, from, to, metadataPath, sourceVersion, releaseVersion);
 
         System.out.println("Generated " + events.size() + " events");
         System.out.println("  CSV: " + csvPath);
+        System.out.println("  JSON: " + jsonPath);
         System.out.println("  Metadata: " + metadataPath);
 
         // Emit spec files if requested

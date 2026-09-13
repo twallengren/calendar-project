@@ -866,6 +866,11 @@ public final class UmmAlQuraChronology implements ChronologyAlgorithm {
   }
 
   @Override
+  public java.util.Optional<int[]> supportedYearRange() {
+    return java.util.Optional.of(new int[] {MIN_YEAR, MAX_YEAR});
+  }
+
+  @Override
   public boolean isLeapYear(int year) {
     if (year < MIN_YEAR || year > MAX_YEAR) return false;
     int total = 0;

@@ -1,17 +1,37 @@
 kind: module
 id: day_after_thanksgiving
 
+# Day after Thanksgiving early close, NYSE. First observed in 1992 (2:00 pm); 1:00 pm from 1993.
+# Source: nyse-history-2008 (special closings 1992-2007), nyse-hours (2008 onward).
+
+source:
+  - id: nyse-history-2008
+    ref: special closings 1992-2007
+  - id: nyse-hours
+
 references:
   - key: thanksgiving
     formula: THANKSGIVING_US
 
 event_sources:
+  - key: day_after_thanksgiving_2pm
+    name: Day After Thanksgiving (Early Close)
+    default_classification: EARLY_CLOSE
+    close_time: "14:00"
+    active_years:
+      - 1992
+    rule:
+      type: relative_to_reference
+      reference: thanksgiving
+      offset_days: 1
+
   - key: day_after_thanksgiving
     name: Day After Thanksgiving (Early Close)
     default_classification: EARLY_CLOSE
+    close_time: "13:00"
+    active_years:
+      - [1993, null]
     rule:
       type: relative_to_reference
-      key: day_after_thanksgiving
-      name: Day After Thanksgiving (Early Close)
       reference: thanksgiving
       offset_days: 1

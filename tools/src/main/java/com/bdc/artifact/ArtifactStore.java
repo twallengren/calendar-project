@@ -4,7 +4,6 @@ import com.bdc.emitter.CsvEmitter;
 import com.bdc.model.BitemporalMeta;
 import com.bdc.model.Event;
 import com.bdc.model.ResolvedSpec;
-import com.bdc.model.Rule;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
@@ -73,47 +72,12 @@ public class ArtifactStore {
     metaSection.put("resolution_chain", spec.resolutionChain());
     artifact.put("_meta", metaSection);
 
-    // metadata section
-    if (spec.metadata() != null) {
-      Map<String, Object> metadata = new LinkedHashMap<>();
-      metadata.put("name", spec.metadata().name());
-      metadata.put("description", spec.metadata().description());
-      metadata.put("chronology", spec.metadata().chronology());
-      artifact.put("metadata", metadata);
-    }
-
-    // weekend_policy section
-    if (spec.weekendPolicy() != null && !spec.weekendPolicy().weekendDays().isEmpty()) {
-      Map<String, Object> weekendPolicy = new LinkedHashMap<>();
-      weekendPolicy.put(
-          "days", spec.weekendPolicy().weekendDays().stream().map(Enum::name).toList());
-      artifact.put("weekend_policy", weekendPolicy);
-    }
-
-    // event_sources section
-    List<Map<String, Object>> eventSources = new ArrayList<>();
-    for (var source : spec.eventSources()) {
-      Map<String, Object> sourceMap = new LinkedHashMap<>();
-      sourceMap.put("key", source.key());
-      sourceMap.put("name", source.name());
-      if (source.defaultClassification() != null) {
-        sourceMap.put("classification", source.defaultClassification().name());
-      }
-      if (source.rule() != null) {
-        sourceMap.put("rule", ruleToMap(source.rule()));
-      }
-      eventSources.add(sourceMap);
-    }
-    artifact.put("event_sources", eventSources);
-
-    // deltas section
-    if (!spec.deltas().isEmpty()) {
-      List<Map<String, Object>> deltas = new ArrayList<>();
-      for (var delta : spec.deltas()) {
-        deltas.add(deltaToMap(delta));
-      }
-      artifact.put("deltas", deltas);
-    }
+    // The resolved document is the same faithful form the SpecEmitter produces
+    Map<String, Object> resolvedDoc = com.bdc.emitter.SpecEmitter.resolvedToMap(spec);
+    resolvedDoc.remove("kind");
+    resolvedDoc.remove("id");
+    resolvedDoc.remove("resolution_chain");
+    artifact.putAll(resolvedDoc);
 
     yamlMapper.writeValue(outputPath.toFile(), artifact);
 
@@ -265,75 +229,6 @@ public class ArtifactStore {
     }
 
     jsonMapper.writeValue(indexPath.toFile(), index);
-  }
-
-  private Map<String, Object> ruleToMap(com.bdc.model.Rule rule) {
-    Map<String, Object> map = new LinkedHashMap<>();
-    switch (rule) {
-      case com.bdc.model.Rule.FixedMonthDay r -> {
-        map.put("type", "fixed_month_day");
-        map.put("month", r.month());
-        map.put("day", r.day());
-        if (r.chronology() != null && !"ISO".equalsIgnoreCase(r.chronology())) {
-          map.put("chronology", r.chronology());
-        }
-      }
-      case com.bdc.model.Rule.NthWeekdayOfMonth r -> {
-        map.put("type", "nth_weekday_of_month");
-        map.put("month", r.month());
-        map.put("weekday", r.weekday().name());
-        map.put("nth", r.nth());
-      }
-      case com.bdc.model.Rule.ExplicitDates r -> {
-        map.put("type", "explicit_dates");
-        map.put(
-            "dates",
-            r.dates().stream()
-                .map(
-                    ad -> {
-                      if (ad.comment() != null && !ad.comment().isBlank()) {
-                        Map<String, Object> dateMap = new LinkedHashMap<>();
-                        dateMap.put("date", ad.date().toString());
-                        dateMap.put("comment", ad.comment());
-                        return dateMap;
-                      }
-                      return ad.date().toString();
-                    })
-                .toList());
-      }
-      case Rule.RelativeToReference r -> {
-        map.put("type", "relative_to_reference");
-        map.put("name", r.name());
-        map.put("reference", r.reference());
-        map.put("offset_days", r.offsetDays());
-      }
-    }
-    return map;
-  }
-
-  private Map<String, Object> deltaToMap(com.bdc.model.Delta delta) {
-    Map<String, Object> map = new LinkedHashMap<>();
-    switch (delta) {
-      case com.bdc.model.Delta.Add d -> {
-        map.put("action", "add");
-        map.put("key", d.key());
-        map.put("name", d.name());
-        map.put("date", d.date().toString());
-        map.put("classification", d.classification().name());
-      }
-      case com.bdc.model.Delta.Remove d -> {
-        map.put("action", "remove");
-        map.put("key", d.key());
-        map.put("date", d.date().toString());
-      }
-      case com.bdc.model.Delta.Reclassify d -> {
-        map.put("action", "reclassify");
-        map.put("key", d.key());
-        map.put("date", d.date().toString());
-        map.put("new_classification", d.newClassification().name());
-      }
-    }
-    return map;
   }
 
   private String sha256(String content) {

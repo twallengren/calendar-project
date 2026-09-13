@@ -3,8 +3,16 @@ package com.bdc.diff;
 import com.bdc.model.Event;
 import java.time.LocalDate;
 import java.util.*;
-import java.util.stream.Collectors;
 
+/**
+ * Compares generated events against a blessed baseline.
+ *
+ * <p>Events are matched by identity. When the baseline carries event keys (any artifact produced
+ * after the key column was introduced) the identity is {@code (date, key)}, so several events on
+ * one date are compared individually and a changed description or type is reported as a
+ * modification. Legacy baselines without keys fall back to date-only identity, pairing events on
+ * the same date in order.
+ */
 public class CalendarDiffEngine {
 
   public CalendarDiff compare(
@@ -14,46 +22,53 @@ public class CalendarDiffEngine {
       LocalDate cutoffDate,
       LocalDate blessedRangeStart,
       LocalDate blessedRangeEnd) {
-    // Create maps keyed by date for comparison
-    // Events are keyed by date since there should be at most one event per date
-    Map<LocalDate, Event> generatedByDate =
-        generated.stream().collect(Collectors.toMap(Event::date, e -> e, (a, b) -> a));
+    boolean useKeys =
+        !blessed.isEmpty()
+            && blessed.stream().allMatch(e -> e.key() != null)
+            && generated.stream().allMatch(e -> e.key() != null);
 
-    Map<LocalDate, Event> blessedByDate =
-        blessed.stream().collect(Collectors.toMap(Event::date, e -> e, (a, b) -> a));
+    Map<String, List<Event>> generatedById = index(generated, useKeys);
+    Map<String, List<Event>> blessedById = index(blessed, useKeys);
 
-    Set<LocalDate> allDates = new HashSet<>();
-    allDates.addAll(generatedByDate.keySet());
-    allDates.addAll(blessedByDate.keySet());
+    Set<String> allIds = new LinkedHashSet<>();
+    allIds.addAll(blessedById.keySet());
+    allIds.addAll(generatedById.keySet());
 
     List<EventDiff> additions = new ArrayList<>();
     List<EventDiff> removals = new ArrayList<>();
     List<EventDiff> modifications = new ArrayList<>();
 
-    for (LocalDate date : allDates) {
-      Event gen = generatedByDate.get(date);
-      Event ref = blessedByDate.get(date);
-
-      if (gen != null && ref == null) {
-        // Event was added
-        additions.add(EventDiff.added(date, gen.type(), gen.description()));
-      } else if (gen == null && ref != null) {
-        // Event was removed
-        removals.add(EventDiff.removed(date, ref.type(), ref.description()));
-      } else if (gen != null && ref != null) {
-        // Check for modifications
-        if (!gen.type().equals(ref.type()) || !gen.description().equals(ref.description())) {
-          modifications.add(
-              EventDiff.modified(
-                  date, ref.type(), gen.type(), ref.description(), gen.description()));
+    for (String id : allIds) {
+      List<Event> gens = generatedById.getOrDefault(id, List.of());
+      List<Event> refs = blessedById.getOrDefault(id, List.of());
+      int n = Math.max(gens.size(), refs.size());
+      for (int i = 0; i < n; i++) {
+        Event gen = i < gens.size() ? gens.get(i) : null;
+        Event ref = i < refs.size() ? refs.get(i) : null;
+        if (gen != null && ref == null) {
+          additions.add(EventDiff.added(gen.date(), gen.type(), gen.description(), gen.key()));
+        } else if (gen == null && ref != null) {
+          removals.add(EventDiff.removed(ref.date(), ref.type(), ref.description(), ref.key()));
+        } else if (gen != null) {
+          if (!gen.type().equals(ref.type()) || !gen.description().equals(ref.description())) {
+            modifications.add(
+                EventDiff.modified(
+                    gen.date(),
+                    ref.type(),
+                    gen.type(),
+                    ref.description(),
+                    gen.description(),
+                    gen.key()));
+          }
         }
       }
     }
 
-    // Sort by date
-    additions.sort(Comparator.comparing(EventDiff::date));
-    removals.sort(Comparator.comparing(EventDiff::date));
-    modifications.sort(Comparator.comparing(EventDiff::date));
+    Comparator<EventDiff> order =
+        Comparator.comparing(EventDiff::date).thenComparing(d -> d.key() == null ? "" : d.key());
+    additions.sort(order);
+    removals.sort(order);
+    modifications.sort(order);
 
     DiffSeverity severity =
         classifySeverity(additions, removals, modifications, blessedRangeStart, blessedRangeEnd);
@@ -69,6 +84,15 @@ public class CalendarDiffEngine {
         blessedRangeEnd);
   }
 
+  private static Map<String, List<Event>> index(List<Event> events, boolean useKeys) {
+    Map<String, List<Event>> byId = new LinkedHashMap<>();
+    for (Event e : events) {
+      String id = useKeys ? e.date() + "|" + e.key() : e.date().toString();
+      byId.computeIfAbsent(id, k -> new ArrayList<>()).add(e);
+    }
+    return byId;
+  }
+
   /**
    * Classify the severity of changes: - MAJOR: Any removal, modification, or addition within the
    * existing blessed range - MINOR: Additions outside the blessed range (backfilling or future
@@ -80,29 +104,21 @@ public class CalendarDiffEngine {
       List<EventDiff> modifications,
       LocalDate blessedRangeStart,
       LocalDate blessedRangeEnd) {
-    // Any removal = MAJOR
     if (!removals.isEmpty()) {
       return DiffSeverity.MAJOR;
     }
-
-    // Any modification = MAJOR
     if (!modifications.isEmpty()) {
       return DiffSeverity.MAJOR;
     }
-
-    // Check additions - only MAJOR if within the blessed calendar's existing range
     boolean hasAdditionsWithinExistingRange =
         additions.stream()
             .anyMatch(e -> isWithinRange(e.date(), blessedRangeStart, blessedRangeEnd));
     if (hasAdditionsWithinExistingRange) {
       return DiffSeverity.MAJOR;
     }
-
-    // Additions outside the existing range (backfilling or future) = MINOR
     if (!additions.isEmpty()) {
       return DiffSeverity.MINOR;
     }
-
     return DiffSeverity.NONE;
   }
 

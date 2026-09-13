@@ -1,6 +1,7 @@
 package com.bdc.cli;
 
 import com.bdc.artifact.ArtifactStore;
+import com.bdc.artifact.ReleaseHistoryStore;
 import java.nio.file.Path;
 import java.time.LocalDate;
 import java.util.List;
@@ -12,7 +13,10 @@ import picocli.CommandLine.Parameters;
 @Command(name = "history", description = "View history of stored artifacts")
 public class HistoryCommand implements Callable<Integer> {
 
-  @Parameters(index = "0", description = "Type of artifact: 'resolved' or 'generated'")
+  @Parameters(
+      index = "0",
+      description =
+          "Type of artifact: 'resolved', 'generated' (local artifact store) or 'releases'")
   private String artifactType;
 
   @Parameters(index = "1", description = "The calendar ID")
@@ -40,6 +44,18 @@ public class HistoryCommand implements Callable<Integer> {
   private Path artifactsDir;
 
   @Option(
+      names = {"--blessed-dir"},
+      description = "Blessed artifacts directory (for 'releases')",
+      defaultValue = "blessed")
+  private Path blessedDir;
+
+  @Option(
+      names = {"--release-history-dir"},
+      description = "Release history directory (for 'releases')",
+      defaultValue = "release-history")
+  private Path releaseHistoryDir;
+
+  @Option(
       names = {"--limit", "-n"},
       description = "Limit number of results",
       defaultValue = "10")
@@ -53,9 +69,10 @@ public class HistoryCommand implements Callable<Integer> {
       switch (artifactType.toLowerCase()) {
         case "resolved" -> showResolvedHistory(store);
         case "generated" -> showGeneratedHistory(store);
+        case "releases" -> showReleases();
         default -> {
           System.err.println("Unknown artifact type: " + artifactType);
-          System.err.println("Use 'resolved' or 'generated'");
+          System.err.println("Use 'resolved', 'generated' or 'releases'");
           return 1;
         }
       }
@@ -66,6 +83,47 @@ public class HistoryCommand implements Callable<Integer> {
       e.printStackTrace();
       return 1;
     }
+  }
+
+  private void showReleases() throws Exception {
+    ReleaseHistoryStore store = new ReleaseHistoryStore(releaseHistoryDir, blessedDir);
+    List<ReleaseHistoryStore.Snapshot> snapshots = store.list(calendarId);
+    if (snapshots.isEmpty()) {
+      System.out.println("No published releases found for " + calendarId);
+      return;
+    }
+    System.out.println("Published releases for " + calendarId + " (newest first):");
+    System.out.println(
+        "  (showing "
+            + Math.min(limit, snapshots.size())
+            + " of "
+            + snapshots.size()
+            + " versions)");
+    System.out.println();
+    int count = 0;
+    for (ReleaseHistoryStore.Snapshot s : snapshots) {
+      if (count >= limit) break;
+      String range;
+      try {
+        var r = store.range(s);
+        range = r.start() + " to " + r.end();
+      } catch (Exception e) {
+        range = "range unknown";
+      }
+      System.out.println(
+          "  v"
+              + s.version()
+              + "  "
+              + s.archivedAt()
+              + "  "
+              + s.gitSha()
+              + "  "
+              + range
+              + (s.isBlessed() ? "  (blessed)" : ""));
+      count++;
+    }
+    System.out.println();
+    System.out.println("Query a release with: query " + calendarId + " --as-of v<version>");
   }
 
   private void showResolvedHistory(ArtifactStore store) throws Exception {

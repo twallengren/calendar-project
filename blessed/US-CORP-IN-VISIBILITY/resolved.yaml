@@ -4,10 +4,16 @@ metadata:
   name: US Corporate Calendar with India Visibility
   description: US corporate calendar with Indian holidays for visibility
   chronology: ISO
+  timezone: America/New_York
+  coverage:
+    from: 1900-01-01
+    to: 2030-12-31
+    verified_through: 2026-12-31
 weekend_policy:
   days:
   - SATURDAY
   - SUNDAY
+weekend_shift_policy: NEAREST_WEEKDAY
 resolution_chain:
 - module:weekend_sat_sun
 - module:new_years_day
@@ -28,17 +34,28 @@ resolution_chain:
 event_sources:
 - key: new_years_day
   name: New Year's Day
+  origin: module:new_years_day
   classification: CLOSED
+  shift_policy: FORWARD_ONLY
+  status: CONFIRMED
+  source:
+  - id: nyse-history-2008
+    ref: New Year's Day; Rule 51 note
   rule:
     type: fixed_month_day
     month: 1
     day: 1
 - key: memorial_day
   name: Memorial Day
+  origin: module:memorial_day
   classification: CLOSED
+  status: CONFIRMED
   active_years:
   - - 1971
     - null
+  source:
+  - id: nyse-history-2008
+    ref: "Decoration/Memorial Day: observed on Mondays since 1971"
   rule:
     type: nth_weekday_of_month
     month: 5
@@ -46,17 +63,47 @@ event_sources:
     nth: -1
 - key: independence_day
   name: Independence Day
+  origin: module:independence_day
   classification: CLOSED
+  shift_policy: NEAREST_WEEKDAY
+  status: CONFIRMED
+  active_years:
+  - - 1959
+    - null
+  source:
+  - id: nyse-history-2008
+    ref: Independence Day; Rule 51 note
+  rule:
+    type: fixed_month_day
+    month: 7
+    day: 4
+- key: independence_day_pre1959
+  name: Independence Day
+  origin: module:independence_day
+  classification: CLOSED
+  shift_policy: FORWARD_ONLY
+  status: CONFIRMED
+  active_years:
+  - - null
+    - 1958
+  source:
+  - id: nyse-history-2008
+    ref: Independence Day; Rule 51 note
   rule:
     type: fixed_month_day
     month: 7
     day: 4
 - key: labor_day
   name: Labor Day
+  origin: module:labor_day
   classification: CLOSED
+  status: CONFIRMED
   active_years:
   - - 1887
     - null
+  source:
+  - id: nyse-history-2008
+    ref: "Labor Day: closed every year, 1887-date"
   rule:
     type: nth_weekday_of_month
     month: 9
@@ -64,10 +111,15 @@ event_sources:
     nth: 1
 - key: thanksgiving_pre1940
   name: Thanksgiving Day
+  origin: module:thanksgiving
   classification: CLOSED
+  status: CONFIRMED
   active_years:
   - - 1900
     - 1939
+  source:
+  - id: nyse-history-2008
+    ref: "Thanksgiving Day: closed every year"
   rule:
     type: nth_weekday_of_month
     month: 11
@@ -75,10 +127,15 @@ event_sources:
     nth: -1
 - key: thanksgiving
   name: Thanksgiving Day
+  origin: module:thanksgiving
   classification: CLOSED
+  status: CONFIRMED
   active_years:
   - - 1940
     - null
+  source:
+  - id: nyse-history-2008
+    ref: "Thanksgiving Day: closed every year"
   rule:
     type: nth_weekday_of_month
     month: 11
@@ -86,74 +143,141 @@ event_sources:
     nth: 4
 - key: christmas
   name: Christmas Day
+  origin: module:christmas
   classification: CLOSED
+  shift_policy: NEAREST_WEEKDAY
+  status: CONFIRMED
+  active_years:
+  - - 1959
+    - null
+  source:
+  - id: nyse-history-2008
+    ref: Christmas Day; Rule 51 note
+  rule:
+    type: fixed_month_day
+    month: 12
+    day: 25
+- key: christmas_pre1959
+  name: Christmas Day
+  origin: module:christmas
+  classification: CLOSED
+  shift_policy: FORWARD_ONLY
+  status: CONFIRMED
+  active_years:
+  - - null
+    - 1958
+  source:
+  - id: nyse-history-2008
+    ref: Christmas Day; Rule 51 note
   rule:
     type: fixed_month_day
     month: 12
     day: 25
 - key: decoration_day
   name: Decoration Day
+  origin: module:decoration_day
   classification: CLOSED
+  shift_policy: FORWARD_ONLY
+  status: CONFIRMED
   active_years:
   - - 1900
     - 1970
+  source:
+  - id: nyse-history-2008
+    ref: Decoration/Memorial Day
   rule:
     type: fixed_month_day
     month: 5
     day: 30
 - key: washingtons_birthday
   name: Washington's Birthday
+  origin: module:washingtons_birthday
   classification: CLOSED
+  shift_policy: FORWARD_ONLY
+  status: CONFIRMED
   active_years:
   - - 1900
     - 1970
+  source:
+  - id: nyse-history-2008
+    ref: Washington's Birthday
   rule:
     type: fixed_month_day
     month: 2
     day: 22
 - key: lincolns_birthday
   name: Lincoln's Birthday
+  origin: module:lincolns_birthday
   classification: CLOSED
+  shift_policy: FORWARD_ONLY
+  status: CONFIRMED
   active_years:
   - - 1896
     - 1953
+  source:
+  - id: nyse-history-2008
+    ref: Lincoln's Birthday
   rule:
     type: fixed_month_day
     month: 2
     day: 12
 - key: flag_day
   name: Flag Day
+  origin: module:flag_day
   classification: CLOSED
+  shift_policy: FORWARD_ONLY
+  status: CONFIRMED
   active_years:
   - - 1916
     - 1953
+  source:
+  - id: nyse-history-2008
+    ref: Flag Day
   rule:
     type: fixed_month_day
     month: 6
     day: 14
 - key: armistice_veterans_day
   name: Armistice Day
+  origin: module:armistice_veterans_day
   classification: CLOSED
+  shift_policy: FORWARD_ONLY
+  status: CONFIRMED
   active_years:
-  - - 1918
+  - 1918
+  - 1921
+  - - 1934
     - 1953
+  source:
+  - id: nyse-history-2008
+    ref: Armistice/Veteran's Day
   rule:
     type: fixed_month_day
     month: 11
     day: 11
 - key: columbus_day
   name: Columbus Day
+  origin: module:columbus_day
   classification: CLOSED
+  shift_policy: FORWARD_ONLY
+  status: CONFIRMED
   active_years:
   - - 1909
     - 1953
+  source:
+  - id: nyse-history-2008
+    ref: Columbus Day
   rule:
     type: fixed_month_day
     month: 10
     day: 12
 - key: diwali
   name: Diwali
+  origin: module:diwali_explicit
   classification: NOTABLE
+  status: CONFIRMED
+  source:
+  - id: india-gazette-holidays
   rule:
     type: explicit_dates
     dates:

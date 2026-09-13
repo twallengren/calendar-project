@@ -7,44 +7,57 @@ A tool for defining and generating business-day calendars with YAML-based specif
 - YAML-based calendar specifications (source of truth)
 - Deterministic compilation to static artifacts (CSV/JSON)
 - Calendar inheritance and module composition
-- Multi-chronology support: ISO (Gregorian), HIJRI (Islamic), JULIAN, PERSIAN, and extensible via YAML
+- Multi-chronology support: ISO (Gregorian), HIJRI (tabular Islamic), UMM_AL_QURA (Saudi lookup table), JULIAN, PERSIAN, and extensible via YAML
 - Julian Day Number (JDN) pivot for cross-calendar translation
+- Effective-dated weekends, per-holiday observance rules, early-close times, confirmed/projected status
+- Every holiday cites its source (`sources/`); cross-validated against exchange_calendars and QuantLib
 
 ## Quick Start
+
+All commands run from the repository root.
 
 ### Build
 
 ```bash
-cd tools
-./gradlew build
+./gradlew :tools:build
 ```
 
-### Validate a Calendar
+### Validate
 
 ```bash
-./gradlew run --args="validate US-MARKET-BASE"
+./gradlew :tools:run --args="validate --all --strict"
+./gradlew :tools:run --args="validate US-NYSE"
 ```
 
 ### Generate Calendar Events
 
-For local development/testing:
 ```bash
-./gradlew run --args="generate US-MARKET-BASE --from 2024-01-01 --to 2024-12-31 --out generated/US-MARKET-BASE"
-```
-
-To store as a versioned artifact (for bitemporality):
-```bash
-./gradlew run --args="generate US-MARKET-BASE --from 2024-01-01 --to 2024-12-31 --store"
+./gradlew :tools:run --args="generate US-NYSE --from 2024-01-01 --to 2024-12-31 --out generated/US-NYSE"
 ```
 
 This produces:
-- `events.csv` - All events in the date range
+- `events.csv` - All events in the date range (`date,type,description,key,source_module,observed_from,close_time,status`)
+- `events.json` - The same events with calendar id, timezone, range and coverage
 - `metadata.json` - Calendar metadata and statistics
+
+### Query
+
+```bash
+./gradlew :tools:run --args="query US-NYSE --is-business-day 2021-12-31"
+./gradlew :tools:run --args="query US-NYSE --as-of v10.1.0 --is-business-day 2021-12-31"   # from a published release
+./gradlew :tools:run --args="history releases US-NYSE"
+```
 
 ### Resolve a Calendar
 
 ```bash
-./gradlew run --args="resolve US-MARKET-BASE --out build/resolved/US-MARKET-BASE.yaml"
+./gradlew :tools:run --args="resolve US-MARKET-BASE --out build/resolved/US-MARKET-BASE.yaml"
+```
+
+### Re-bless
+
+```bash
+scripts/bless.sh            # regenerates blessed/ from the manifest ranges; a no-op leaves git clean
 ```
 
 ## Directory Structure
@@ -56,10 +69,11 @@ calendar-project/
 ├── calendars/          # Calendar YAML specs
 ├── modules/            # Reusable modules
 ├── chronologies/       # Chronology definitions (ISO, Julian, Persian, etc.)
-├── generated/          # Local development/testing output
-├── blessed/            # Latest published versions (e.g., NYSE:latest)
-├── artifacts/          # Historical versions for bitemporality (e.g., NYSE:<hash>)
-└── docs/               # Additional documentation
+├── sources/            # Authoritative source documents and citation tables per market
+├── generated/          # Local development/testing output (gitignored)
+├── blessed/            # Latest published release artifacts
+├── release-history/    # Previous releases, for as-of queries and audit
+└── scripts/            # bless.sh, reference-data export, git hooks
 ```
 
 ## Example Calendar
@@ -90,9 +104,10 @@ event_sources:
 ### events.csv
 
 ```csv
-date,type,description
-2024-01-01,CLOSED,New Year's Day
-2024-07-04,CLOSED,Independence Day
+date,type,description,key,source_module,observed_from,close_time,status
+2024-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+2024-07-03,EARLY_CLOSE,Independence Day Eve (Early Close),independence_day_eve,module:independence_day_eve,,13:00,CONFIRMED
+2024-07-04,CLOSED,Independence Day,independence_day,module:independence_day,,,CONFIRMED
 ```
 
 ### metadata.json
@@ -115,6 +130,7 @@ The system supports multiple calendar systems through a YAML-based ontology:
 |------------|-------------|
 | `ISO` | Gregorian calendar (default) |
 | `HIJRI` | Islamic calendar (tabular arithmetic approximation) |
+| `UMM_AL_QURA` | Umm al-Qura calendar (Saudi Arabia, lookup table AH 1356-1500) |
 | `JULIAN` | Julian calendar |
 | `PERSIAN` | Solar Hijri calendar (Iranian) |
 

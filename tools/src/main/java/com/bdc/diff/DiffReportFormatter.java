@@ -66,6 +66,7 @@ public class DiffReportFormatter {
             d -> {
               Map<String, Object> map = new LinkedHashMap<>();
               map.put("date", d.date().toString());
+              if (d.key() != null) map.put("key", d.key());
               if (d.oldType() != null) map.put("old_type", d.oldType().name());
               if (d.newType() != null) map.put("new_type", d.newType().name());
               if (d.oldDescription() != null) map.put("old_description", d.oldDescription());

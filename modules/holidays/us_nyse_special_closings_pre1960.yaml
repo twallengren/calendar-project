@@ -1,0 +1,339 @@
+kind: module
+id: us_nyse_special_closings_pre1960
+
+# Special closings of the New York Stock Exchange, 1900-1959, that the holiday rules do not
+# produce: Saturday closings adjacent to holidays (Saturday was a trading session until May
+# 1952), Friday observances of Saturday holidays, clerical-backlog closings in 1928-1930, and
+# other one-off closings.
+#
+# Every date appears in the NYSE's own "History of New York Stock Exchange Holidays" (special
+# closings list, revised November 2008); the dates were extracted through the structured 2022
+# rule model derived from that document. See sources/US-NYSE/README.md.
+#
+# Modelling note: when a holiday fell on a Saturday before July 1959 the Exchange was closed on
+# the Saturday itself (a session day) and, in the years listed under "... (observed)", also on
+# the preceding Friday. Both days are emitted as CLOSED.
+
+source:
+  - id: nyse-history-2008
+    ref: special closings list
+  - id: nyse-legacy-model-2022
+
+event_sources:
+  - key: special_saturday_before_christmas
+    name: Saturday Before Christmas
+    default_classification: CLOSED
+    shiftable: false
+    rule:
+      type: explicit_dates
+      dates:
+        - 1904-12-24
+        - 1910-12-24
+        - 1911-12-23
+        - 1922-12-23
+  - key: special_saturday_after_christmas
+    name: Saturday After Christmas
+    default_classification: CLOSED
+    shiftable: false
+    rule:
+      type: explicit_dates
+      dates:
+        - 1903-12-26
+        - 1908-12-26
+        - 1925-12-26
+        - 1931-12-26
+        - 1936-12-26
+  - key: special_christmas_eve
+    name: Christmas Eve
+    default_classification: CLOSED
+    shiftable: false
+    rule:
+      type: explicit_dates
+      dates:
+        - 1900-12-24
+        - 1945-12-24
+        - 1949-12-24
+        - 1956-12-24
+  - key: special_christmas_observed
+    name: Christmas (observed)
+    default_classification: CLOSED
+    shiftable: false
+    rule:
+      type: explicit_dates
+      dates:
+        - 1909-12-24
+        - 1915-12-24
+        - 1920-12-24
+        - 1926-12-24
+        - 1937-12-24
+        - 1943-12-24
+        - 1948-12-24
+  - key: special_veterans_day_observed
+    name: Veterans Day (observed)
+    default_classification: CLOSED
+    shiftable: false
+    rule:
+      type: explicit_dates
+      dates:
+        - 1939-11-10
+        - 1944-11-10
+        - 1950-11-10
+  - key: special_saturday_before_christmas_eve
+    name: Saturday Before Christmas Eve
+    default_classification: CLOSED
+    shiftable: false
+    rule:
+      type: explicit_dates
+      dates:
+        - 1950-12-23
+  - key: special_new_years_day_observed
+    name: New Years Day (observed)
+    default_classification: CLOSED
+    shiftable: false
+    rule:
+      type: explicit_dates
+      dates:
+        - 1909-12-31
+        - 1915-12-31
+        - 1920-12-31
+        - 1926-12-31
+        - 1937-12-31
+        - 1943-12-31
+        - 1948-12-31
+  - key: special_lincolns_birthday_observed
+    name: Lincoln's Birthday (observed)
+    default_classification: CLOSED
+    shiftable: false
+    rule:
+      type: explicit_dates
+      dates:
+        - 1910-02-11
+        - 1916-02-11
+        - 1921-02-11
+        - 1927-02-11
+        - 1938-02-11
+        - 1944-02-11
+        - 1949-02-11
+  - key: special_washingtons_birthday_observed
+    name: Washington's Birthday (observed)
+    default_classification: CLOSED
+    shiftable: false
+    rule:
+      type: explicit_dates
+      dates:
+        - 1902-02-21
+        - 1903-02-21
+        - 1908-02-21
+        - 1913-02-21
+        - 1919-02-21
+        - 1930-02-21
+        - 1936-02-21
+        - 1941-02-21
+        - 1947-02-21
+  - key: special_saturday_after_washingtons_birthday
+    name: Saturday After Washington's Birthday
+    default_classification: CLOSED
+    shiftable: false
+    rule:
+      type: explicit_dates
+      dates:
+        - 1907-02-23
+        - 1929-02-23
+        - 1946-02-23
+  - key: special_columbus_day_observed
+    name: Columbus Day (observed)
+    default_classification: CLOSED
+    shiftable: false
+    rule:
+      type: explicit_dates
+      dates:
+        - 1912-10-11
+        - 1918-10-11
+        - 1929-10-11
+        - 1935-10-11
+        - 1940-10-11
+        - 1946-10-11
+  - key: special_saturday_after_columbus_day
+    name: Saturday After Columbus Day
+    default_classification: CLOSED
+    shiftable: false
+    rule:
+      type: explicit_dates
+      dates:
+        - 1917-10-13
+        - 1945-10-13
+  - key: special_memorial_day_observed
+    name: Memorial Day (observed)
+    default_classification: CLOSED
+    shiftable: false
+    rule:
+      type: explicit_dates
+      dates:
+        - 1903-05-29
+        - 1908-05-29
+        - 1914-05-29
+        - 1925-05-29
+        - 1931-05-29
+        - 1936-05-29
+        - 1942-05-29
+  - key: special_independence_day_observed
+    name: Independence Day (observed)
+    default_classification: CLOSED
+    shiftable: false
+    rule:
+      type: explicit_dates
+      dates:
+        - 1903-07-03
+        - 1908-07-03
+        - 1914-07-03
+        - 1925-07-03
+        - 1931-07-03
+        - 1936-07-03
+        - 1942-07-03
+  - key: special_flag_day_observed
+    name: Flag Day (observed)
+    default_classification: CLOSED
+    shiftable: false
+    rule:
+      type: explicit_dates
+      dates:
+        - 1919-06-13
+        - 1924-06-13
+        - 1930-06-13
+        - 1941-06-13
+  - key: special_saturday_before_decoration_day
+    name: Saturday Before Decoration Day
+    default_classification: CLOSED
+    shiftable: false
+    rule:
+      type: explicit_dates
+      dates:
+        - 1904-05-28
+        - 1909-05-29
+        - 1910-05-28
+        - 1921-05-28
+        - 1926-05-29
+        - 1937-05-29
+  - key: special_saturday_after_decoration_day
+    name: Saturday After Decoration Day
+    default_classification: CLOSED
+    shiftable: false
+    rule:
+      type: explicit_dates
+      dates:
+        - 1902-05-31
+        - 1913-05-31
+        - 1919-05-31
+        - 1924-05-31
+        - 1930-05-31
+  - key: special_saturday_before_independence_day
+    name: Saturday Before Independence Day
+    default_classification: CLOSED
+    shiftable: false
+    rule:
+      type: explicit_dates
+      dates:
+        - 1904-07-02
+        - 1909-07-03
+        - 1910-07-02
+        - 1920-07-03
+        - 1921-07-02
+        - 1926-07-03
+        - 1932-07-02
+        - 1937-07-03
+  - key: special_saturday_after_independence_day
+    name: Saturday After Independence Day
+    default_classification: CLOSED
+    shiftable: false
+    rule:
+      type: explicit_dates
+      dates:
+        - 1901-07-06
+        - 1902-07-05
+        - 1913-07-05
+        - 1930-07-05
+  - key: special_saturday_before_labor_day
+    name: Saturday Before Labor Day
+    default_classification: CLOSED
+    shiftable: false
+    rule:
+      type: explicit_dates
+      dates:
+        - 1900-09-01
+        - 1901-08-31
+        - 1902-08-30
+        - 1903-09-05
+        - 1904-09-03
+        - 1907-08-31
+        - 1908-09-05
+        - 1909-09-04
+        - 1910-09-03
+        - 1911-09-02
+        - 1912-08-31
+        - 1913-08-30
+        - 1917-09-01
+        - 1919-08-30
+        - 1920-09-04
+        - 1921-09-03
+        - 1926-09-04
+        - 1929-08-31
+        - 1930-08-30
+        - 1931-09-05
+  - key: special_saturday_after_good_friday
+    name: Saturday After Good Friday
+    default_classification: CLOSED
+    shiftable: false
+    rule:
+      type: explicit_dates
+      dates:
+        - 1900-04-14
+        - 1901-04-06
+        - 1902-03-29
+        - 1903-04-11
+        - 1905-04-22
+        - 1907-03-30
+        - 1908-04-18
+        - 1909-04-10
+        - 1911-04-15
+        - 1913-03-22
+        - 1920-04-03
+        - 1929-03-30
+        - 1930-04-19
+  - key: special_clerical_backlog_relief
+    name: Clerical Backlog Relief
+    default_classification: CLOSED
+    shiftable: false
+    rule:
+      type: explicit_dates
+      dates:
+        - 1928-04-07
+        - 1928-04-21
+        - 1928-05-05
+        - 1928-05-12
+        - 1928-05-19
+        - 1928-05-26
+        - 1928-11-24
+        - 1929-02-09
+        - 1929-11-01
+        - 1929-11-02
+        - 1929-11-09
+        - 1929-11-16
+        - 1929-11-23
+        - 1929-11-30
+        - 1930-11-29
+  - key: special_saturday_before_new_years_day
+    name: Saturday Before New Years Day
+    default_classification: CLOSED
+    shiftable: false
+    rule:
+      type: explicit_dates
+      dates:
+        - 1916-12-30
+  - key: special_saturday_after_lincolns_birthday
+    name: Saturday After Lincoln's Birthday
+    default_classification: CLOSED
+    shiftable: false
+    rule:
+      type: explicit_dates
+      dates:
+        - 1909-02-13

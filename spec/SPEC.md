@@ -10,15 +10,22 @@ id: string                    # Unique identifier
 metadata:
   name: string                # Human-readable name
   description: string         # Optional description
-  chronology: ISO             # ISO (default) or HIJRI
+  chronology: ISO             # Informational: the market's civil calendar (ISO, HIJRI, UMM_AL_QURA, ...)
+  timezone: America/New_York  # IANA zone id; required when any event source has a close_time
+  coverage:                   # The range this calendar is maintained for
+    from: 1900-01-01
+    to: 2030-12-31
+    verified_through: 2026-12-31   # Dates up to here have been checked against sources
 extends: [calendar-ids]       # Parent calendars to inherit from
 uses: [module-ids]            # Modules to include
-weekend_shift_policy: NONE    # How to handle holidays on weekends (see below)
+weekend_shift_policy: NONE    # Default shift policy for shiftable events (see below); omit to inherit
 event_sources: [...]          # Event source definitions
 classifications:
   event-key: CLOSED | NOTABLE | PERIOD_MARKER
 deltas: [...]                 # Modifications
 ```
+
+Unknown fields are rejected when loading (a misspelled field is an error, not a silent no-op).
 
 ## Module Spec
 
@@ -26,13 +33,19 @@ deltas: [...]                 # Modifications
 kind: module
 id: string
 uses: [module-ids]            # Other modules to include (for composing groups)
+source: {...}                 # Default citation for every event source in this module (see Sources)
 references:
   - key: string               # Unique identifier for this reference
-    formula: string           # Formula to compute dates (e.g., EASTER_WESTERN)
+    formula: string           # EASTER_WESTERN or THANKSGIVING_US
 policies:
-  weekends: [SATURDAY, SUNDAY]
+  weekends: [SATURDAY, SUNDAY]          # or effective-dated periods, see Weekend Policy
 event_sources: [...]
 ```
+
+When two modules (or a module and the calendar) declare an event source with the same `key`,
+the later declaration in resolution order (parents, then modules in `uses` order, then the
+calendar's own sources) replaces the earlier one. `validate` reports such overrides as a
+`KEY_OVERRIDE` warning so accidental collisions are visible.
 
 Modules can compose other modules using `uses` to create holiday groups:
 
@@ -56,13 +69,37 @@ event_sources:
     name: string                 # Display name
     default_classification: CLOSED  # Event type (default: CLOSED)
     shiftable: true              # Whether to shift on weekends (see below)
+    shift_policy: FORWARD_ONLY   # Optional per-event override of the calendar's policy
+    only_if_weekday: [MONDAY, TUESDAY, THURSDAY]  # Optional: drop occurrences on other weekdays
+    close_time: "13:00"          # Local close time for EARLY_CLOSE events (quote it in YAML)
+    status: CONFIRMED            # CONFIRMED (default) or PROJECTED
     active_years: [...]          # Optional: list of active year ranges (see below)
+    source: {...}                # Citation (see Sources); inherits the module's source if omitted
     rule: {...}                  # Rule definition (see types below)
 ```
 
-### Shiftable
+The rule's own `key`/`name` are optional and default to the event source's; if both are given
+they must agree.
 
-Controls whether this event shifts when it falls on a weekend (per the calendar's `weekend_shift_policy`). Defaults to `true` for `fixed_month_day` rules, `false` for others.
+### Shiftable and shift_policy
+
+`shiftable` controls whether this event follows the calendar's `weekend_shift_policy` when it
+falls on a weekend. Defaults to `true` for `fixed_month_day` rules, `false` for others.
+`shift_policy` sets the policy for this event regardless of the calendar default (NYSE New
+Year's Day is `FORWARD_ONLY` while Christmas is `NEAREST_WEEKDAY`).
+
+### only_if_weekday
+
+Keeps only occurrences that fall on the listed weekdays (evaluated on the nominal date, before
+shifting). Used for rules such as "the NYSE closes early on July 3 when it is a Monday, Tuesday
+or Thursday".
+
+### close_time and status
+
+`close_time` is the local wall-clock close for `EARLY_CLOSE` events and is emitted in the
+output; the calendar's `metadata.timezone` says which wall clock. `status` marks whether the
+dates come from an authoritative announcement (`CONFIRMED`) or are computed from a rule and may
+change once announced (`PROJECTED`, typical for observation-based lunar calendars).
 
 ### Active Years
 
@@ -142,12 +179,28 @@ The comment is appended to the event name in output: "National Day of Mourning (
 ```yaml
 rule:
   type: fixed_month_day
-  key: christmas
-  name: Christmas Day
   month: 12
   day: 25
-  chronology: ISO    # or HIJRI
+  chronology: ISO    # or HIJRI, UMM_AL_QURA, JULIAN, PERSIAN
 ```
+
+A rule may span several days, emitting one occurrence per day under the same key:
+
+```yaml
+rule:
+  type: fixed_month_day
+  chronology: UMM_AL_QURA
+  month: 9        # 28 Ramadan ...
+  day: 28
+  end_month: 10   # ... through 4 Shawwal (inclusive; wraps to the next year if before the start)
+  end_day: 4
+```
+
+`duration_days: N` is the alternative form (N consecutive days from the start date) and is
+also accepted by `nth_weekday_of_month` and `relative_to_reference`. Dates that do not exist in
+a given year (Feb 29, the 30th of a 29-day lunar month) are skipped. For table-based
+chronologies the generation range is clamped to the table's coverage; `validate` reports a
+calendar whose `coverage` exceeds the table.
 
 ### nth_weekday_of_month
 
@@ -215,13 +268,48 @@ Note: The weekday offset finds occurrences strictly before or after the referenc
 - `PERIOD_MARKER` - Period boundary marker
 - `WEEKEND` - Weekend day (generated automatically based on weekend policy)
 
+## Weekend Policy
+
+`policies.weekends` in a module is either a flat list of weekdays (one open-ended period) or a
+list of effective-dated periods. For a given date the last period covering it decides the
+weekend days; a date covered by no period has no weekend.
+
+```yaml
+policies:
+  weekends:
+    - {days: [SUNDAY], to: 1952-05-30}                         # NYSE traded Saturdays until 1952
+    - {days: [SATURDAY, SUNDAY], from: 1945-07-07, to: 1945-09-01}   # summer Saturday closings
+    - {days: [SATURDAY, SUNDAY], from: 1952-05-31}
+```
+
+Periods from different modules that overlap with different days are a resolution error;
+identical periods reached twice (diamond dependencies) are deduplicated.
+
 ## Weekend Shift Policy
 
-Controls how holidays that fall on weekends are observed. Set at the calendar level.
+Controls how a CLOSED holiday that falls on a weekend is observed. The calendar's
+`weekend_shift_policy` is the default for shiftable events; `shift_policy` on an event source
+overrides it.
 
-- `NONE` - No shifting; weekend holidays stay on weekends (default)
-- `NEAREST_WEEKDAY` - US-style: Saturday shifts to Friday, Sunday shifts to Monday (independent)
-- `NEXT_AVAILABLE_WEEKDAY` - UK-style: Weekend holidays shift to next available weekday (cascading)
+- `NONE` - No shifting; the holiday stays on the weekend day (emitted as CLOSED)
+- `NEAREST_WEEKDAY` - US-style: first day of a two-day weekend shifts back, last day shifts
+  forward (Saturday to Friday, Sunday to Monday); ties on longer weekends go forward. Does not
+  cascade.
+- `NEXT_AVAILABLE_WEEKDAY` - UK-style: shifts to the next weekday that is not already a
+  closure (cascading: Christmas Saturday to Monday, Boxing Day Sunday to Tuesday)
+- `FORWARD_ONLY` - shifts forward only when the holiday is on the last day of the weekend
+  block (Sunday to Monday); on any other weekend day it is not observed. NYSE New Year's Day.
+
+Shifting only moves CLOSED events. Observed events carry `observed_from` (the nominal date) in
+the output.
+
+### Same-date precedence
+
+A date can carry at most one of CLOSED or EARLY_CLOSE: a full closure suppresses an early close
+on the same date (Christmas observed on Friday December 24 removes the Christmas Eve early
+close). EARLY_CLOSE is also dropped on weekend days. NOTABLE and PERIOD_MARKER events are
+informational and are always kept; a weekend day with only informational events still gets its
+WEEKEND row. `validate` reports two CLOSED events on one date as a warning.
 
 Example:
 
@@ -266,10 +354,43 @@ uses:
 ## Resolution Order
 
 1. Resolve `extends` (parent calendars) in order
-2. Resolve `uses` (modules) in order
-3. Merge local content
-4. Apply deltas in order
-5. Normalize output
+2. Resolve `uses` (modules) in order (depth-first)
+3. Merge local content (event sources by key, later wins; an explicit `weekend_shift_policy`,
+   including `NONE`, overrides the inherited one)
+4. Expand rules over a padded range, filter `active_years` (on the nominal year) and
+   `only_if_weekday`, place CLOSED events with weekend shifting, apply precedence
+5. Apply deltas against observed dates
+6. Emit WEEKEND rows, sort
+
+## Sources
+
+Every event source should cite where its dates come from. A citation is an object
+`{id, title, publisher, url, file, retrieved, ref, note}` or a bare id string; `id` refers to a
+row in `sources/<MARKET>/README.md`. A module-level `source:` applies to all of its event
+sources. `validate --strict` fails on an event source without a resolvable citation.
+
+## Output
+
+`events.csv` columns: `date[,<chronology>_date],type,description,key,source_module,observed_from,close_time,status`.
+`events.json` carries the same rows with the calendar id, timezone, range and coverage.
+`metadata.json` adds `timezone`, `coverage` and `counts_by_status`.
+
+## Validation
+
+`validate [<id> | --all] [--strict] [--format text|json]` checks, per calendar: unknown or
+duplicate ids, unknown modules/references/formulas/chronologies, rule sanity (`nth`, month/day
+ranges, empty or duplicate explicit dates), rule/event-source identity mismatches, weekend
+period conflicts, missing `source`, `coverage`, `timezone` or `close_time`, redundant `uses`,
+classifications and deltas that match nothing, lookup-table chronology coverage, and, after
+generating over the coverage range, same-date CLOSED/EARLY_CLOSE conflicts, rules that produce
+nothing, and PROJECTED events before `verified_through`. Exit code 1 on errors, 2 on warnings
+under `--strict`.
+
+## Published artifacts and as-of queries
+
+`blessed/` holds the current release and `release-history/<CAL>/<timestamp>_<sha>_v<version>/`
+the previous ones. `query <CAL> --as-of <blessed|vX.Y.Z|date>` answers from a published
+artifact instead of the current YAML; `history releases <CAL>` lists them.
 
 ## Chronology Support
 
@@ -281,6 +402,7 @@ The calendar system supports multiple chronologies (calendar systems) through a 
 |----|------|-------------|
 | `ISO` | Gregorian Calendar | Default. Standard ISO dates (YYYY-MM-DD) |
 | `HIJRI` | Islamic Calendar | Tabular arithmetic approximation (30-year cycle) |
+| `UMM_AL_QURA` | Umm al-Qura Calendar | Saudi civil calendar, lookup table AH 1356-1500 (~1937-2076) |
 | `JULIAN` | Julian Calendar | Historical Julian calendar (every 4th year is leap) |
 | `PERSIAN` | Solar Hijri Calendar | Iranian calendar (2820-year cycle) |
 
@@ -386,7 +508,7 @@ calendar based on moon sighting), lookup tables provide month boundaries:
 
 ```yaml
 kind: chronology
-id: HIJRI_UAQ
+id: UMM_AL_QURA
 metadata:
   name: Islamic Calendar (Umm al-Qura)
   description: |
@@ -404,7 +526,7 @@ algorithms:
 Note: The built-in `HIJRI` chronology uses the tabular (arithmetic) approximation,
 which may differ from observation-based calendars by 1-2 days.
 
-**METONIC_CYCLE** - Calendars with 19-year cycles (e.g., Hebrew):
+**METONIC_CYCLE** (planned, not yet implemented) - Calendars with 19-year cycles (e.g., Hebrew):
 
 ```yaml
 kind: chronology
@@ -474,6 +596,7 @@ chronologies/
   julian.yaml       # Julian calendar
   persian.yaml      # Solar Hijri (Iranian) calendar
   hijri.yaml        # Tabular Islamic calendar
+  umm_al_qura.yaml  # Umm al-Qura lookup table (Saudi Arabia)
 ```
 
 ## Julian Day Number

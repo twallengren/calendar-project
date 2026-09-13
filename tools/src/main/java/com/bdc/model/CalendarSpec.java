@@ -1,6 +1,8 @@
 package com.bdc.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.List;
 import java.util.Map;
 
@@ -23,12 +25,59 @@ public record CalendarSpec(
     if (eventSources == null) eventSources = List.of();
     if (classifications == null) classifications = Map.of();
     if (deltas == null) deltas = List.of();
-    if (weekendShiftPolicy == null) weekendShiftPolicy = WeekendShiftPolicy.NONE;
+    // weekendShiftPolicy stays null when omitted so that a child can explicitly reset an
+    // inherited policy to NONE; the resolver applies the default.
   }
 
-  public record Metadata(String name, String description, String chronology) {
+  /**
+   * Calendar metadata.
+   *
+   * @param timezone IANA zone id of the market (e.g. America/New_York); required when any event
+   *     source declares a close_time
+   * @param coverage the date range this calendar is maintained for, and how far it is verified
+   */
+  public record Metadata(
+      String name, String description, String chronology, String timezone, Coverage coverage) {
     public Metadata {
       if (chronology == null) chronology = "ISO";
+      if (timezone != null) {
+        try {
+          ZoneId.of(timezone);
+        } catch (Exception e) {
+          throw new IllegalArgumentException("Invalid timezone: " + timezone, e);
+        }
+      }
+    }
+
+    /** Legacy constructor without timezone and coverage. */
+    public Metadata(String name, String description, String chronology) {
+      this(name, description, chronology, null, null);
+    }
+  }
+
+  /**
+   * Declares the range a calendar is maintained for.
+   *
+   * @param from first date covered (inclusive)
+   * @param to last date covered (inclusive)
+   * @param verifiedThrough last date up to which the data has been checked against sources
+   */
+  public record Coverage(
+      LocalDate from, LocalDate to, @JsonProperty("verified_through") LocalDate verifiedThrough) {
+    public Coverage {
+      if (from != null && to != null && from.isAfter(to)) {
+        throw new IllegalArgumentException("coverage.from must not be after coverage.to");
+      }
+      if (verifiedThrough != null && to != null && verifiedThrough.isAfter(to)) {
+        throw new IllegalArgumentException(
+            "coverage.verified_through must not be after coverage.to");
+      }
+    }
+
+    public boolean contains(LocalDate date) {
+      if (from != null && date.isBefore(from)) return false;
+      if (to != null && date.isAfter(to)) return false;
+      return true;
     }
   }
 }

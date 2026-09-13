@@ -1,6 +1,10 @@
 kind: module
 id: good_friday
 
+source:
+  - id: nyse-history-2008
+    ref: "Good Friday: closed every year except 1898, 1906 and 1907"
+
 references:
   - key: easter
     formula: EASTER_WESTERN

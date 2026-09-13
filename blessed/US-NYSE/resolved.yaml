@@ -4,12 +4,71 @@ metadata:
   name: NYSE Trading Calendar
   description: New York Stock Exchange trading calendar
   chronology: ISO
+  timezone: America/New_York
+  coverage:
+    from: 1900-01-01
+    to: 2030-12-31
+    verified_through: 2026-12-31
 weekend_policy:
   days:
   - SATURDAY
   - SUNDAY
+  periods:
+  - days:
+    - SUNDAY
+    to: 1952-05-30
+  - days:
+    - SATURDAY
+    - SUNDAY
+    from: 1933-07-29
+    to: 1933-08-26
+  - days:
+    - SATURDAY
+    - SUNDAY
+    from: 1944-08-19
+    to: 1944-09-02
+  - days:
+    - SATURDAY
+    - SUNDAY
+    from: 1945-07-07
+    to: 1945-09-01
+  - days:
+    - SATURDAY
+    - SUNDAY
+    from: 1946-06-01
+    to: 1946-09-28
+  - days:
+    - SATURDAY
+    - SUNDAY
+    from: 1947-05-31
+    to: 1947-09-27
+  - days:
+    - SATURDAY
+    - SUNDAY
+    from: 1948-05-29
+    to: 1948-09-25
+  - days:
+    - SATURDAY
+    - SUNDAY
+    from: 1949-05-28
+    to: 1949-09-24
+  - days:
+    - SATURDAY
+    - SUNDAY
+    from: 1950-06-03
+    to: 1950-09-30
+  - days:
+    - SATURDAY
+    - SUNDAY
+    from: 1951-06-02
+    to: 1951-09-29
+  - days:
+    - SATURDAY
+    - SUNDAY
+    from: 1952-05-31
+weekend_shift_policy: NEAREST_WEEKDAY
 resolution_chain:
-- module:weekend_sat_sun
+- module:nyse_weekends
 - module:new_years_day
 - module:memorial_day
 - module:independence_day
@@ -29,7 +88,10 @@ resolution_chain:
 - module:juneteenth
 - module:day_after_thanksgiving
 - module:christmas_eve
+- module:independence_day_eve
 - module:us_historical_closures
+- module:us_nyse_special_closings_pre1960
+- module:us_nyse_historical_early_closes
 - module:us_nyse_holidays
 - calendar:US-NYSE
 references:
@@ -40,17 +102,28 @@ references:
 event_sources:
 - key: new_years_day
   name: New Year's Day
+  origin: module:new_years_day
   classification: CLOSED
+  shift_policy: FORWARD_ONLY
+  status: CONFIRMED
+  source:
+  - id: nyse-history-2008
+    ref: New Year's Day; Rule 51 note
   rule:
     type: fixed_month_day
     month: 1
     day: 1
 - key: memorial_day
   name: Memorial Day
+  origin: module:memorial_day
   classification: CLOSED
+  status: CONFIRMED
   active_years:
   - - 1971
     - null
+  source:
+  - id: nyse-history-2008
+    ref: "Decoration/Memorial Day: observed on Mondays since 1971"
   rule:
     type: nth_weekday_of_month
     month: 5
@@ -58,17 +131,47 @@ event_sources:
     nth: -1
 - key: independence_day
   name: Independence Day
+  origin: module:independence_day
   classification: CLOSED
+  shift_policy: NEAREST_WEEKDAY
+  status: CONFIRMED
+  active_years:
+  - - 1959
+    - null
+  source:
+  - id: nyse-history-2008
+    ref: Independence Day; Rule 51 note
+  rule:
+    type: fixed_month_day
+    month: 7
+    day: 4
+- key: independence_day_pre1959
+  name: Independence Day
+  origin: module:independence_day
+  classification: CLOSED
+  shift_policy: FORWARD_ONLY
+  status: CONFIRMED
+  active_years:
+  - - null
+    - 1958
+  source:
+  - id: nyse-history-2008
+    ref: Independence Day; Rule 51 note
   rule:
     type: fixed_month_day
     month: 7
     day: 4
 - key: labor_day
   name: Labor Day
+  origin: module:labor_day
   classification: CLOSED
+  status: CONFIRMED
   active_years:
   - - 1887
     - null
+  source:
+  - id: nyse-history-2008
+    ref: "Labor Day: closed every year, 1887-date"
   rule:
     type: nth_weekday_of_month
     month: 9
@@ -76,10 +179,15 @@ event_sources:
     nth: 1
 - key: thanksgiving_pre1940
   name: Thanksgiving Day
+  origin: module:thanksgiving
   classification: CLOSED
+  status: CONFIRMED
   active_years:
   - - 1900
     - 1939
+  source:
+  - id: nyse-history-2008
+    ref: "Thanksgiving Day: closed every year"
   rule:
     type: nth_weekday_of_month
     month: 11
@@ -87,10 +195,15 @@ event_sources:
     nth: -1
 - key: thanksgiving
   name: Thanksgiving Day
+  origin: module:thanksgiving
   classification: CLOSED
+  status: CONFIRMED
   active_years:
   - - 1940
     - null
+  source:
+  - id: nyse-history-2008
+    ref: "Thanksgiving Day: closed every year"
   rule:
     type: nth_weekday_of_month
     month: 11
@@ -98,77 +211,145 @@ event_sources:
     nth: 4
 - key: christmas
   name: Christmas Day
+  origin: module:christmas
   classification: CLOSED
+  shift_policy: NEAREST_WEEKDAY
+  status: CONFIRMED
+  active_years:
+  - - 1959
+    - null
+  source:
+  - id: nyse-history-2008
+    ref: Christmas Day; Rule 51 note
+  rule:
+    type: fixed_month_day
+    month: 12
+    day: 25
+- key: christmas_pre1959
+  name: Christmas Day
+  origin: module:christmas
+  classification: CLOSED
+  shift_policy: FORWARD_ONLY
+  status: CONFIRMED
+  active_years:
+  - - null
+    - 1958
+  source:
+  - id: nyse-history-2008
+    ref: Christmas Day; Rule 51 note
   rule:
     type: fixed_month_day
     month: 12
     day: 25
 - key: decoration_day
   name: Decoration Day
+  origin: module:decoration_day
   classification: CLOSED
+  shift_policy: FORWARD_ONLY
+  status: CONFIRMED
   active_years:
   - - 1900
     - 1970
+  source:
+  - id: nyse-history-2008
+    ref: Decoration/Memorial Day
   rule:
     type: fixed_month_day
     month: 5
     day: 30
 - key: washingtons_birthday
   name: Washington's Birthday
+  origin: module:washingtons_birthday
   classification: CLOSED
+  shift_policy: FORWARD_ONLY
+  status: CONFIRMED
   active_years:
   - - 1900
     - 1970
+  source:
+  - id: nyse-history-2008
+    ref: Washington's Birthday
   rule:
     type: fixed_month_day
     month: 2
     day: 22
 - key: lincolns_birthday
   name: Lincoln's Birthday
+  origin: module:lincolns_birthday
   classification: CLOSED
+  shift_policy: FORWARD_ONLY
+  status: CONFIRMED
   active_years:
   - - 1896
     - 1953
+  source:
+  - id: nyse-history-2008
+    ref: Lincoln's Birthday
   rule:
     type: fixed_month_day
     month: 2
     day: 12
 - key: flag_day
   name: Flag Day
+  origin: module:flag_day
   classification: CLOSED
+  shift_policy: FORWARD_ONLY
+  status: CONFIRMED
   active_years:
   - - 1916
     - 1953
+  source:
+  - id: nyse-history-2008
+    ref: Flag Day
   rule:
     type: fixed_month_day
     month: 6
     day: 14
 - key: armistice_veterans_day
   name: Armistice Day
+  origin: module:armistice_veterans_day
   classification: CLOSED
+  shift_policy: FORWARD_ONLY
+  status: CONFIRMED
   active_years:
-  - - 1918
+  - 1918
+  - 1921
+  - - 1934
     - 1953
+  source:
+  - id: nyse-history-2008
+    ref: Armistice/Veteran's Day
   rule:
     type: fixed_month_day
     month: 11
     day: 11
 - key: columbus_day
   name: Columbus Day
+  origin: module:columbus_day
   classification: CLOSED
+  shift_policy: FORWARD_ONLY
+  status: CONFIRMED
   active_years:
   - - 1909
     - 1953
+  source:
+  - id: nyse-history-2008
+    ref: Columbus Day
   rule:
     type: fixed_month_day
     month: 10
     day: 12
 - key: mlk_day
   name: Martin Luther King Jr. Day
+  origin: module:mlk_day
   classification: CLOSED
+  status: CONFIRMED
   active_years:
   - - 1998
     - null
+  source:
+  - id: nyse-history-2008
+    ref: "Martin Luther King, Jr. Day: closed all day beginning in 1998"
   rule:
     type: nth_weekday_of_month
     month: 1
@@ -176,10 +357,15 @@ event_sources:
     nth: 3
 - key: presidents_day
   name: Presidents Day
+  origin: module:presidents_day
   classification: CLOSED
+  status: CONFIRMED
   active_years:
   - - 1971
     - null
+  source:
+  - id: nyse-history-2008
+    ref: "Washington's Birthday: observed on Mondays since 1971"
   rule:
     type: nth_weekday_of_month
     month: 2
@@ -187,90 +373,248 @@ event_sources:
     nth: 3
 - key: good_friday
   name: Good Friday
+  origin: module:good_friday
   classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: nyse-history-2008
+    ref: "Good Friday: closed every year except 1898, 1906 and 1907"
   rule:
     type: relative_to_reference
     reference: easter
     offset_days: -2
 - key: juneteenth
   name: Juneteenth National Independence Day
+  origin: module:juneteenth
   classification: CLOSED
+  shift_policy: NEAREST_WEEKDAY
+  status: CONFIRMED
   active_years:
   - - 2022
     - null
+  source:
+  - id: nyse-hours
   rule:
     type: fixed_month_day
     month: 6
     day: 19
-- key: day_after_thanksgiving
+- key: day_after_thanksgiving_2pm
   name: Day After Thanksgiving (Early Close)
+  origin: module:day_after_thanksgiving
   classification: EARLY_CLOSE
+  close_time: 14:00
+  status: CONFIRMED
+  active_years:
+  - 1992
+  source:
+  - id: nyse-history-2008
+    ref: special closings 1992-2007
+  - id: nyse-hours
   rule:
     type: relative_to_reference
     reference: thanksgiving
     offset_days: 1
-- key: christmas_eve
-  name: Christmas Eve (Early Close)
+- key: day_after_thanksgiving
+  name: Day After Thanksgiving (Early Close)
+  origin: module:day_after_thanksgiving
   classification: EARLY_CLOSE
+  close_time: 13:00
+  status: CONFIRMED
+  active_years:
+  - - 1993
+    - null
+  source:
+  - id: nyse-history-2008
+    ref: special closings 1992-2007
+  - id: nyse-hours
+  rule:
+    type: relative_to_reference
+    reference: thanksgiving
+    offset_days: 1
+- key: christmas_eve_2pm
+  name: Christmas Eve (Early Close)
+  origin: module:christmas_eve
+  classification: EARLY_CLOSE
+  only_if_weekday:
+  - MONDAY
+  - TUESDAY
+  - WEDNESDAY
+  - THURSDAY
+  close_time: 14:00
+  status: CONFIRMED
+  active_years:
+  - - 1990
+    - 1992
+  source:
+  - id: nyse-history-2008
+    ref: special closings 1990-2007
+  - id: nyse-hours
   rule:
     type: fixed_month_day
     month: 12
     day: 24
+- key: christmas_eve
+  name: Christmas Eve (Early Close)
+  origin: module:christmas_eve
+  classification: EARLY_CLOSE
+  only_if_weekday:
+  - MONDAY
+  - TUESDAY
+  - WEDNESDAY
+  - THURSDAY
+  close_time: 13:00
+  status: CONFIRMED
+  active_years:
+  - - 1993
+    - null
+  source:
+  - id: nyse-history-2008
+    ref: special closings 1990-2007
+  - id: nyse-hours
+  rule:
+    type: fixed_month_day
+    month: 12
+    day: 24
+- key: independence_day_eve
+  name: Independence Day Eve (Early Close)
+  origin: module:independence_day_eve
+  classification: EARLY_CLOSE
+  only_if_weekday:
+  - MONDAY
+  - TUESDAY
+  - THURSDAY
+  close_time: 13:00
+  status: CONFIRMED
+  active_years:
+  - - 1995
+    - null
+  source:
+  - id: nyse-history-2008
+    ref: special closings 1995-2007
+  - id: nyse-hours
+  rule:
+    type: fixed_month_day
+    month: 7
+    day: 3
+- key: independence_day_eve_wednesday
+  name: Independence Day Eve (Early Close)
+  origin: module:independence_day_eve
+  classification: EARLY_CLOSE
+  only_if_weekday:
+  - WEDNESDAY
+  close_time: 13:00
+  status: CONFIRMED
+  active_years:
+  - - 2013
+    - null
+  source:
+  - id: nyse-history-2008
+    ref: special closings 1995-2007
+  - id: nyse-hours
+  rule:
+    type: fixed_month_day
+    month: 7
+    day: 3
+- key: day_after_independence_day_early_close
+  name: Day After Independence Day (Early Close)
+  origin: module:independence_day_eve
+  classification: EARLY_CLOSE
+  only_if_weekday:
+  - FRIDAY
+  close_time: 13:00
+  status: CONFIRMED
+  active_years:
+  - - 1995
+    - 2012
+  source:
+  - id: nyse-history-2008
+    ref: special closings 1995-2007
+  - id: nyse-hours
+  rule:
+    type: fixed_month_day
+    month: 7
+    day: 5
 - key: presidential_funerals
   name: Presidential Funeral
+  origin: module:us_historical_closures
   classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: nyse-history-2008
+    ref: special closings list
+  - id: nyse-hours
   rule:
     type: explicit_dates
     dates:
-    - date: 2007-01-02
-      comment: Gerald Ford
-    - date: 2004-06-11
-      comment: Ronald Reagan
-    - date: 1994-04-27
-      comment: Richard Nixon
-    - date: 1973-01-25
-      comment: Lyndon B. Johnson
-    - date: 1972-12-28
-      comment: Harry S. Truman
-    - date: 1969-03-31
-      comment: Dwight D. Eisenhower
-    - date: 1968-04-09
-      comment: Martin Luther King Jr.
-    - date: 1963-11-25
-      comment: John F. Kennedy
-    - date: 1945-04-14
-      comment: Franklin D. Roosevelt
-    - date: 1933-01-07
-      comment: Calvin Coolidge
-    - date: 1923-08-10
-      comment: Warren G. Harding
-    - date: 1923-08-03
-      comment: Warren G. Harding (death)
-    - date: 1912-11-02
-      comment: Vice President James Sherman
-    - date: 1901-09-19
-      comment: William McKinley
     - date: 1901-09-14
       comment: William McKinley (assassination)
+    - date: 1901-09-19
+      comment: William McKinley
+    - date: 1912-11-02
+      comment: Vice President James Sherman
+    - date: 1923-08-03
+      comment: Warren G. Harding (death)
+    - date: 1923-08-10
+      comment: Warren G. Harding
+    - date: 1933-01-07
+      comment: Calvin Coolidge
+    - date: 1945-04-14
+      comment: Franklin D. Roosevelt
+    - date: 1963-11-25
+      comment: John F. Kennedy
+    - date: 1968-04-09
+      comment: Martin Luther King Jr.
+    - date: 1969-03-31
+      comment: Dwight D. Eisenhower
+    - date: 1972-12-28
+      comment: Harry S. Truman
+    - date: 1973-01-25
+      comment: Lyndon B. Johnson
+    - date: 1994-04-27
+      comment: Richard Nixon
+    - date: 2004-06-11
+      comment: Ronald Reagan
+    - date: 2007-01-02
+      comment: Gerald Ford
+    - date: 2018-12-05
+      comment: George H. W. Bush
+    - date: 2025-01-09
+      comment: Jimmy Carter
 - key: weather_closures
   name: Weather Event
+  origin: module:us_historical_closures
   classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: nyse-history-2008
+    ref: special closings list
+  - id: nyse-hours
   rule:
     type: explicit_dates
     dates:
-    - date: 1985-09-27
-      comment: Hurricane Gloria
-    - date: 1969-02-10
-      comment: Heavy Snow
-    - date: 1948-01-03
-      comment: Heavy Snow
-    - date: 1917-08-04
-      comment: Heat Wave
     - date: 1888-03-13
       comment: Great Blizzard of 1888
+    - date: 1917-08-04
+      comment: Heat Wave
+    - date: 1948-01-03
+      comment: Heavy Snow
+    - date: 1969-02-10
+      comment: Heavy Snow
+    - date: 1985-09-27
+      comment: Hurricane Gloria
+    - date: 2012-10-29
+      comment: Hurricane Sandy
+    - date: 2012-10-30
+      comment: Hurricane Sandy
 - key: sept_11_closure
   name: September 11 Closure
+  origin: module:us_historical_closures
   classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: nyse-history-2008
+    ref: special closings list
+  - id: nyse-hours
   rule:
     type: explicit_dates
     dates:
@@ -280,14 +624,26 @@ event_sources:
     - 2001-09-14
 - key: nyc_blackout
   name: New York City Blackout
+  origin: module:us_historical_closures
   classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: nyse-history-2008
+    ref: special closings list
+  - id: nyse-hours
   rule:
     type: explicit_dates
     dates:
     - 1977-07-14
 - key: banking_holiday_1933
   name: Banking Holiday
+  origin: module:us_historical_closures
   classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: nyse-history-2008
+    ref: special closings list
+  - id: nyse-hours
   rule:
     type: explicit_dates
     dates:
@@ -311,7 +667,13 @@ event_sources:
       comment: National Banking Holiday
 - key: paperwork_crisis
   name: Paperwork Crisis
+  origin: module:us_historical_closures
   classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: nyse-history-2008
+    ref: special closings list
+  - id: nyse-hours
   rule:
     type: explicit_dates
     dates:
@@ -346,7 +708,13 @@ event_sources:
     - 1968-12-24
 - key: wwi_closure
   name: World War I Closure
+  origin: module:us_historical_closures
   classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: nyse-history-2008
+    ref: special closings list
+  - id: nyse-hours
   rule:
     type: explicit_dates
     dates:
@@ -382,7 +750,6 @@ event_sources:
     - 1914-09-03
     - 1914-09-04
     - 1914-09-05
-    - 1914-09-07
     - 1914-09-08
     - 1914-09-09
     - 1914-09-10
@@ -436,6 +803,7 @@ event_sources:
     - 1914-11-07
     - 1914-11-09
     - 1914-11-10
+    - 1914-11-11
     - 1914-11-12
     - 1914-11-13
     - 1914-11-14
@@ -463,11 +831,17 @@ event_sources:
     - 1914-12-11
 - key: wwi_related
   name: WWI Related
+  origin: module:us_historical_closures
   classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: nyse-history-2008
+    ref: special closings list
+  - id: nyse-hours
   rule:
     type: explicit_dates
     dates:
-    - date: 1918-09-12
+    - date: 1917-06-05
       comment: Draft Registration Day
     - date: 1918-01-28
       comment: Heatless Day
@@ -475,11 +849,17 @@ event_sources:
       comment: Heatless Day
     - date: 1918-02-11
       comment: Heatless Day
-    - date: 1917-06-05
+    - date: 1918-09-12
       comment: Draft Registration Day
 - key: vj_day
   name: Victory Over Japan Day
+  origin: module:us_historical_closures
   classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: nyse-history-2008
+    ref: special closings list
+  - id: nyse-hours
   rule:
     type: explicit_dates
     dates:
@@ -487,104 +867,739 @@ event_sources:
     - 1945-08-16
 - key: election_day_closures
   name: Election Day
+  origin: module:us_historical_closures
   classification: CLOSED
+  status: CONFIRMED
   active_years:
   - - null
     - 1968
   - 1972
   - 1976
   - 1980
+  source:
+  - id: nyse-history-2008
+    ref: special closings list
+  - id: nyse-hours
   rule:
     type: relative_to_reference
-    reference: null
-    offset_days: null
+    reference_month: 11
+    reference_day: 1
+    offset_weekday:
+      weekday: TUESDAY
+      nth: 1
+      direction: AFTER
 - key: lunar_landing
   name: First Lunar Landing
+  origin: module:us_historical_closures
   classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: nyse-history-2008
+    ref: special closings list
+  - id: nyse-hours
   rule:
     type: explicit_dates
     dates:
     - 1969-07-21
 - key: special_events
   name: Special Event
+  origin: module:us_historical_closures
   classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: nyse-history-2008
+    ref: special closings list
+  - id: nyse-hours
   rule:
     type: explicit_dates
     dates:
-    - date: 1946-05-25
-      comment: Railroad Strike
-    - date: 1945-10-27
-      comment: Navy Day
-    - date: 1927-06-13
-      comment: Lindbergh Parade
-    - date: 1919-09-10
-      comment: Return of General Pershing
-    - date: 1919-05-06
-      comment: Parade
-    - date: 1919-03-25
-      comment: Homecoming of 27th Division
-    - date: 1920-05-01
-      comment: Relocation of Brokerage Offices
-    - date: 1909-09-25
-      comment: Hudson-Fulton Celebration
-    - date: 1903-04-22
-      comment: New NYSE Building Opened
-    - date: 1902-08-09
-      comment: Coronation of King Edward VII
-    - date: 1901-02-02
-      comment: Funeral of Queen Victoria
-    - date: 1901-04-27
-      comment: Move to Temporary Quarters
-    - date: 1901-05-11
-      comment: Enlargement of Temporary Quarters
-    - date: 1899-09-29
-      comment: Admiral Dewey Celebration
-    - date: 1899-09-30
-      comment: Admiral Dewey Celebration
-    - date: 1898-05-04
-      comment: Charter Day
-    - date: 1898-08-20
-      comment: Welcome of Naval Commanders
-    - date: 1897-04-27
-      comment: Presidential Birthday (Grant)
-    - date: 1893-04-27
-      comment: Columbian Celebration
-    - date: 1892-10-12
-      comment: Columbian Celebration
-    - date: 1892-10-21
-      comment: Columbian Celebration
-    - date: 1892-10-22
-      comment: Columbian Celebration
     - date: 1889-04-29
       comment: Centennial of Washington's Inauguration
     - date: 1889-04-30
       comment: Centennial of Washington's Inauguration
     - date: 1889-05-01
       comment: Centennial of Washington's Inauguration
+    - date: 1892-10-12
+      comment: Columbian Celebration
+    - date: 1892-10-21
+      comment: Columbian Celebration
+    - date: 1892-10-22
+      comment: Columbian Celebration
+    - date: 1893-04-27
+      comment: Columbian Celebration
+    - date: 1897-04-27
+      comment: Presidential Birthday (Grant)
+    - date: 1898-05-04
+      comment: Charter Day
+    - date: 1898-08-20
+      comment: Welcome of Naval Commanders
+    - date: 1899-09-29
+      comment: Admiral Dewey Celebration
+    - date: 1899-09-30
+      comment: Admiral Dewey Celebration
+    - date: 1901-02-02
+      comment: Funeral of Queen Victoria
+    - date: 1901-04-27
+      comment: Move to Temporary Quarters
+    - date: 1901-05-11
+      comment: Enlargement of Temporary Quarters
+    - date: 1902-08-09
+      comment: Coronation of King Edward VII
+    - date: 1903-04-22
+      comment: New NYSE Building Opened
+    - date: 1909-09-25
+      comment: Hudson-Fulton Celebration
+    - date: 1919-03-25
+      comment: Homecoming of 27th Division
+    - date: 1919-05-06
+      comment: Parade
+    - date: 1919-09-10
+      comment: Return of General Pershing
+    - date: 1920-05-01
+      comment: Relocation of Brokerage Offices
+    - date: 1927-06-13
+      comment: Lindbergh Parade
+    - date: 1945-10-27
+      comment: Navy Day
+    - date: 1946-05-25
+      comment: Railroad Strike
 - key: lincolns_birthday_oneoff
   name: Lincoln's Birthday
+  origin: module:us_historical_closures
   classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: nyse-history-2008
+    ref: special closings list
+  - id: nyse-hours
   rule:
     type: explicit_dates
     dates:
     - 1968-02-12
 - key: holiday_extensions
   name: Holiday Extension
+  origin: module:us_historical_closures
   classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: nyse-history-2008
+    ref: special closings list
+  - id: nyse-hours
   rule:
     type: explicit_dates
     dates:
-    - date: 1968-07-05
-      comment: Day After Independence Day
-    - date: 1961-05-29
-      comment: Day Before Decoration Day
-    - date: 1958-12-26
-      comment: Day After Christmas
-    - date: 1901-07-05
-      comment: Day After Independence Day
-    - date: 1899-07-03
-      comment: Day Before Independence Day
-    - date: 1899-05-29
-      comment: Day Before Decoration Day
     - date: 1888-11-30
       comment: Day After Thanksgiving
+    - date: 1899-05-29
+      comment: Day Before Decoration Day
+    - date: 1899-07-03
+      comment: Day Before Independence Day
+    - date: 1901-07-05
+      comment: Day After Independence Day
+    - date: 1958-12-26
+      comment: Day After Christmas
+    - date: 1961-05-29
+      comment: Day Before Decoration Day
+    - date: 1968-07-05
+      comment: Day After Independence Day
+- key: special_saturday_before_christmas
+  name: Saturday Before Christmas
+  origin: module:us_nyse_special_closings_pre1960
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: nyse-history-2008
+    ref: special closings list
+  - id: nyse-legacy-model-2022
+  rule:
+    type: explicit_dates
+    dates:
+    - 1904-12-24
+    - 1910-12-24
+    - 1911-12-23
+    - 1922-12-23
+- key: special_saturday_after_christmas
+  name: Saturday After Christmas
+  origin: module:us_nyse_special_closings_pre1960
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: nyse-history-2008
+    ref: special closings list
+  - id: nyse-legacy-model-2022
+  rule:
+    type: explicit_dates
+    dates:
+    - 1903-12-26
+    - 1908-12-26
+    - 1925-12-26
+    - 1931-12-26
+    - 1936-12-26
+- key: special_christmas_eve
+  name: Christmas Eve
+  origin: module:us_nyse_special_closings_pre1960
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: nyse-history-2008
+    ref: special closings list
+  - id: nyse-legacy-model-2022
+  rule:
+    type: explicit_dates
+    dates:
+    - 1900-12-24
+    - 1945-12-24
+    - 1949-12-24
+    - 1956-12-24
+- key: special_christmas_observed
+  name: Christmas (observed)
+  origin: module:us_nyse_special_closings_pre1960
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: nyse-history-2008
+    ref: special closings list
+  - id: nyse-legacy-model-2022
+  rule:
+    type: explicit_dates
+    dates:
+    - 1909-12-24
+    - 1915-12-24
+    - 1920-12-24
+    - 1926-12-24
+    - 1937-12-24
+    - 1943-12-24
+    - 1948-12-24
+- key: special_veterans_day_observed
+  name: Veterans Day (observed)
+  origin: module:us_nyse_special_closings_pre1960
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: nyse-history-2008
+    ref: special closings list
+  - id: nyse-legacy-model-2022
+  rule:
+    type: explicit_dates
+    dates:
+    - 1939-11-10
+    - 1944-11-10
+    - 1950-11-10
+- key: special_saturday_before_christmas_eve
+  name: Saturday Before Christmas Eve
+  origin: module:us_nyse_special_closings_pre1960
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: nyse-history-2008
+    ref: special closings list
+  - id: nyse-legacy-model-2022
+  rule:
+    type: explicit_dates
+    dates:
+    - 1950-12-23
+- key: special_new_years_day_observed
+  name: New Years Day (observed)
+  origin: module:us_nyse_special_closings_pre1960
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: nyse-history-2008
+    ref: special closings list
+  - id: nyse-legacy-model-2022
+  rule:
+    type: explicit_dates
+    dates:
+    - 1909-12-31
+    - 1915-12-31
+    - 1920-12-31
+    - 1926-12-31
+    - 1937-12-31
+    - 1943-12-31
+    - 1948-12-31
+- key: special_lincolns_birthday_observed
+  name: Lincoln's Birthday (observed)
+  origin: module:us_nyse_special_closings_pre1960
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: nyse-history-2008
+    ref: special closings list
+  - id: nyse-legacy-model-2022
+  rule:
+    type: explicit_dates
+    dates:
+    - 1910-02-11
+    - 1916-02-11
+    - 1921-02-11
+    - 1927-02-11
+    - 1938-02-11
+    - 1944-02-11
+    - 1949-02-11
+- key: special_washingtons_birthday_observed
+  name: Washington's Birthday (observed)
+  origin: module:us_nyse_special_closings_pre1960
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: nyse-history-2008
+    ref: special closings list
+  - id: nyse-legacy-model-2022
+  rule:
+    type: explicit_dates
+    dates:
+    - 1902-02-21
+    - 1903-02-21
+    - 1908-02-21
+    - 1913-02-21
+    - 1919-02-21
+    - 1930-02-21
+    - 1936-02-21
+    - 1941-02-21
+    - 1947-02-21
+- key: special_saturday_after_washingtons_birthday
+  name: Saturday After Washington's Birthday
+  origin: module:us_nyse_special_closings_pre1960
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: nyse-history-2008
+    ref: special closings list
+  - id: nyse-legacy-model-2022
+  rule:
+    type: explicit_dates
+    dates:
+    - 1907-02-23
+    - 1929-02-23
+    - 1946-02-23
+- key: special_columbus_day_observed
+  name: Columbus Day (observed)
+  origin: module:us_nyse_special_closings_pre1960
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: nyse-history-2008
+    ref: special closings list
+  - id: nyse-legacy-model-2022
+  rule:
+    type: explicit_dates
+    dates:
+    - 1912-10-11
+    - 1918-10-11
+    - 1929-10-11
+    - 1935-10-11
+    - 1940-10-11
+    - 1946-10-11
+- key: special_saturday_after_columbus_day
+  name: Saturday After Columbus Day
+  origin: module:us_nyse_special_closings_pre1960
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: nyse-history-2008
+    ref: special closings list
+  - id: nyse-legacy-model-2022
+  rule:
+    type: explicit_dates
+    dates:
+    - 1917-10-13
+    - 1945-10-13
+- key: special_memorial_day_observed
+  name: Memorial Day (observed)
+  origin: module:us_nyse_special_closings_pre1960
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: nyse-history-2008
+    ref: special closings list
+  - id: nyse-legacy-model-2022
+  rule:
+    type: explicit_dates
+    dates:
+    - 1903-05-29
+    - 1908-05-29
+    - 1914-05-29
+    - 1925-05-29
+    - 1931-05-29
+    - 1936-05-29
+    - 1942-05-29
+- key: special_independence_day_observed
+  name: Independence Day (observed)
+  origin: module:us_nyse_special_closings_pre1960
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: nyse-history-2008
+    ref: special closings list
+  - id: nyse-legacy-model-2022
+  rule:
+    type: explicit_dates
+    dates:
+    - 1903-07-03
+    - 1908-07-03
+    - 1914-07-03
+    - 1925-07-03
+    - 1931-07-03
+    - 1936-07-03
+    - 1942-07-03
+- key: special_flag_day_observed
+  name: Flag Day (observed)
+  origin: module:us_nyse_special_closings_pre1960
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: nyse-history-2008
+    ref: special closings list
+  - id: nyse-legacy-model-2022
+  rule:
+    type: explicit_dates
+    dates:
+    - 1919-06-13
+    - 1924-06-13
+    - 1930-06-13
+    - 1941-06-13
+- key: special_saturday_before_decoration_day
+  name: Saturday Before Decoration Day
+  origin: module:us_nyse_special_closings_pre1960
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: nyse-history-2008
+    ref: special closings list
+  - id: nyse-legacy-model-2022
+  rule:
+    type: explicit_dates
+    dates:
+    - 1904-05-28
+    - 1909-05-29
+    - 1910-05-28
+    - 1921-05-28
+    - 1926-05-29
+    - 1937-05-29
+- key: special_saturday_after_decoration_day
+  name: Saturday After Decoration Day
+  origin: module:us_nyse_special_closings_pre1960
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: nyse-history-2008
+    ref: special closings list
+  - id: nyse-legacy-model-2022
+  rule:
+    type: explicit_dates
+    dates:
+    - 1902-05-31
+    - 1913-05-31
+    - 1919-05-31
+    - 1924-05-31
+    - 1930-05-31
+- key: special_saturday_before_independence_day
+  name: Saturday Before Independence Day
+  origin: module:us_nyse_special_closings_pre1960
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: nyse-history-2008
+    ref: special closings list
+  - id: nyse-legacy-model-2022
+  rule:
+    type: explicit_dates
+    dates:
+    - 1904-07-02
+    - 1909-07-03
+    - 1910-07-02
+    - 1920-07-03
+    - 1921-07-02
+    - 1926-07-03
+    - 1932-07-02
+    - 1937-07-03
+- key: special_saturday_after_independence_day
+  name: Saturday After Independence Day
+  origin: module:us_nyse_special_closings_pre1960
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: nyse-history-2008
+    ref: special closings list
+  - id: nyse-legacy-model-2022
+  rule:
+    type: explicit_dates
+    dates:
+    - 1901-07-06
+    - 1902-07-05
+    - 1913-07-05
+    - 1930-07-05
+- key: special_saturday_before_labor_day
+  name: Saturday Before Labor Day
+  origin: module:us_nyse_special_closings_pre1960
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: nyse-history-2008
+    ref: special closings list
+  - id: nyse-legacy-model-2022
+  rule:
+    type: explicit_dates
+    dates:
+    - 1900-09-01
+    - 1901-08-31
+    - 1902-08-30
+    - 1903-09-05
+    - 1904-09-03
+    - 1907-08-31
+    - 1908-09-05
+    - 1909-09-04
+    - 1910-09-03
+    - 1911-09-02
+    - 1912-08-31
+    - 1913-08-30
+    - 1917-09-01
+    - 1919-08-30
+    - 1920-09-04
+    - 1921-09-03
+    - 1926-09-04
+    - 1929-08-31
+    - 1930-08-30
+    - 1931-09-05
+- key: special_saturday_after_good_friday
+  name: Saturday After Good Friday
+  origin: module:us_nyse_special_closings_pre1960
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: nyse-history-2008
+    ref: special closings list
+  - id: nyse-legacy-model-2022
+  rule:
+    type: explicit_dates
+    dates:
+    - 1900-04-14
+    - 1901-04-06
+    - 1902-03-29
+    - 1903-04-11
+    - 1905-04-22
+    - 1907-03-30
+    - 1908-04-18
+    - 1909-04-10
+    - 1911-04-15
+    - 1913-03-22
+    - 1920-04-03
+    - 1929-03-30
+    - 1930-04-19
+- key: special_clerical_backlog_relief
+  name: Clerical Backlog Relief
+  origin: module:us_nyse_special_closings_pre1960
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: nyse-history-2008
+    ref: special closings list
+  - id: nyse-legacy-model-2022
+  rule:
+    type: explicit_dates
+    dates:
+    - 1928-04-07
+    - 1928-04-21
+    - 1928-05-05
+    - 1928-05-12
+    - 1928-05-19
+    - 1928-05-26
+    - 1928-11-24
+    - 1929-02-09
+    - 1929-11-01
+    - 1929-11-02
+    - 1929-11-09
+    - 1929-11-16
+    - 1929-11-23
+    - 1929-11-30
+    - 1930-11-29
+- key: special_saturday_before_new_years_day
+  name: Saturday Before New Years Day
+  origin: module:us_nyse_special_closings_pre1960
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: nyse-history-2008
+    ref: special closings list
+  - id: nyse-legacy-model-2022
+  rule:
+    type: explicit_dates
+    dates:
+    - 1916-12-30
+- key: special_saturday_after_lincolns_birthday
+  name: Saturday After Lincoln's Birthday
+  origin: module:us_nyse_special_closings_pre1960
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: nyse-history-2008
+    ref: special closings list
+  - id: nyse-legacy-model-2022
+  rule:
+    type: explicit_dates
+    dates:
+    - 1909-02-13
+- key: nyse_early_close_oneoff_1300
+  name: Early Close
+  origin: module:us_nyse_historical_early_closes
+  classification: EARLY_CLOSE
+  close_time: 13:00
+  status: CONFIRMED
+  source:
+  - id: nyse-history-2008
+    ref: "special closings list, \"Closed at\" entries"
+  rule:
+    type: explicit_dates
+    dates:
+    - date: 1908-06-26
+      comment: Funeral of former President Grover Cleveland
+    - date: 1929-11-06
+      comment: Member firm clerical backlog
+    - date: 1929-11-07
+      comment: Member firm clerical backlog
+    - date: 1929-11-08
+      comment: Member firm clerical backlog
+    - date: 1929-11-11
+      comment: Member firm clerical backlog
+    - date: 1929-11-12
+      comment: Member firm clerical backlog
+    - date: 1929-11-13
+      comment: Member firm clerical backlog
+    - date: 1929-11-14
+      comment: Member firm clerical backlog
+    - date: 1929-11-15
+      comment: Member firm clerical backlog
+    - date: 1929-11-18
+      comment: Member firm clerical backlog
+    - date: 1929-11-19
+      comment: Member firm clerical backlog
+    - date: 1929-11-20
+      comment: Member firm clerical backlog
+    - date: 1929-11-21
+      comment: Member firm clerical backlog
+    - date: 1929-11-22
+      comment: Member firm clerical backlog
+    - date: 1951-12-24
+      comment: Christmas Eve
+    - date: 1997-12-26
+      comment: Friday after Christmas
+    - date: 1999-12-31
+      comment: New Year's Eve
+    - date: 2003-12-26
+      comment: Friday after Christmas
+- key: nyse_early_close_oneoff_1400
+  name: Early Close
+  origin: module:us_nyse_historical_early_closes
+  classification: EARLY_CLOSE
+  close_time: 14:00
+  status: CONFIRMED
+  source:
+  - id: nyse-history-2008
+    ref: "special closings list, \"Closed at\" entries"
+  rule:
+    type: explicit_dates
+    dates:
+    - date: 1928-05-21
+      comment: Member firm clerical backlog
+    - date: 1928-05-22
+      comment: Member firm clerical backlog
+    - date: 1928-05-23
+      comment: Member firm clerical backlog
+    - date: 1928-05-24
+      comment: Member firm clerical backlog
+    - date: 1928-05-25
+      comment: Member firm clerical backlog
+    - date: 1933-07-26
+      comment: Volume activity (also opened late)
+    - date: 1933-07-27
+      comment: Volume activity (also opened late)
+    - date: 1933-07-28
+      comment: Volume activity (also opened late)
+    - date: 1964-10-23
+      comment: Funeral of former President Herbert Hoover
+    - date: 1967-02-07
+      comment: Snowstorm (also opened late)
+    - date: 1974-12-24
+      comment: Christmas Eve
+- key: nyse_early_close_oneoff_1407
+  name: Early Close
+  origin: module:us_nyse_historical_early_closes
+  classification: EARLY_CLOSE
+  close_time: 14:07
+  status: CONFIRMED
+  source:
+  - id: nyse-history-2008
+    ref: "special closings list, \"Closed at\" entries"
+  rule:
+    type: explicit_dates
+    dates:
+    - date: 1963-11-22
+      comment: Assassination of President John F. Kennedy
+- key: nyse_early_close_oneoff_1430
+  name: Early Close
+  origin: module:us_nyse_historical_early_closes
+  classification: EARLY_CLOSE
+  close_time: 14:30
+  status: CONFIRMED
+  source:
+  - id: nyse-history-2008
+    ref: "special closings list, \"Closed at\" entries"
+  rule:
+    type: explicit_dates
+    dates:
+    - date: 1918-11-07
+      comment: False armistice report
+    - date: 1925-09-18
+      comment: Funeral of Seymour L. Cromwell
+- key: nyse_early_close_oneoff_1230
+  name: Early Close
+  origin: module:us_nyse_historical_early_closes
+  classification: EARLY_CLOSE
+  close_time: 12:30
+  status: CONFIRMED
+  source:
+  - id: nyse-history-2008
+    ref: "special closings list, \"Closed at\" entries"
+  rule:
+    type: explicit_dates
+    dates:
+    - date: 1919-01-07
+      comment: Funeral of former President Theodore Roosevelt
+    - date: 1924-02-06
+      comment: Funeral of former President Woodrow Wilson
+    - date: 1930-03-11
+      comment: Funeral of former President William Howard Taft
+    - date: 1933-08-04
+      comment: Gas fumes on trading floor (closed shortly after 12:30 pm)
+- key: nyse_early_close_oneoff_1200
+  name: Early Close
+  origin: module:us_nyse_historical_early_closes
+  classification: EARLY_CLOSE
+  close_time: 12:00
+  status: CONFIRMED
+  source:
+  - id: nyse-history-2008
+    ref: "special closings list, \"Closed at\" entries"
+  rule:
+    type: explicit_dates
+    dates:
+    - date: 1917-08-29
+      comment: Parade of National Guard
+    - date: 1917-10-24
+      comment: Liberty Day
+    - date: 1918-04-26
+      comment: Liberty Day
+    - date: 1920-09-16
+      comment: Wall Street explosion
+    - date: 1933-09-13
+      comment: NRA demonstration
+deltas:
+- action: remove
+  key: good_friday
+  date: 1898-04-08
+- action: remove
+  key: good_friday
+  date: 1906-04-13
+- action: remove
+  key: good_friday
+  date: 1907-03-29

@@ -17,9 +17,11 @@ All Gradle commands run from the repo root (the `tools/` build uses `workingDir 
 
 **Running the CLI:**
 ```bash
-./gradlew :tools:run --args="validate US-MARKET-BASE"
+./gradlew :tools:run --args="validate --all --strict"     # CI runs this; warnings fail under --strict
 ./gradlew :tools:run --args="generate US-MARKET-BASE --from 2024-01-01 --to 2024-12-31 --out generated/US-MARKET-BASE"
 ./gradlew :tools:run --args="resolve US-MARKET-BASE --out build/resolved/US-MARKET-BASE.yaml"
+./gradlew :tools:run --args="query US-NYSE --as-of v10.1.0 --is-business-day 2021-12-31"
+scripts/bless.sh                     # regenerate blessed/ reproducibly (no-op leaves git clean)
 ```
 
 **Golden tests:** Update expected outputs with `./gradlew :tools:test -DupdateGoldens=true`
@@ -50,7 +52,8 @@ YAML specs (calendars/, modules/, chronologies/)
 | `emitter` | Output formatters (CSV, JSON, YAML) |
 | `diff` | CalendarDiffEngine for comparing calendar outputs |
 | `model` | Data records for specs, events, rules |
-| `artifact` | Bitemporality: versioned artifact storage and retrieval |
+| `artifact` | Bitemporality: `ReleaseHistoryStore` reads blessed/ and release-history/ for as-of queries; `ArtifactStore` is the older local store |
+| `validation` | `SpecValidator` (structural) and `GeneratedOutputValidator` (post-generation) behind `validate` |
 | `formula` | Reference date computation (e.g., Easter) |
 | `classifier` | Event classification logic (CLOSED, NOTABLE, PERIOD_MARKER) |
 
@@ -62,7 +65,9 @@ Rules define how holidays are computed. Defined in `spec/SPEC.md`:
 - `relative_to_reference` — offset from a computed reference like Easter
 - `explicit_dates` — hard-coded date list
 
-Rules can specify a `chronology` field (HIJRI, JULIAN, PERSIAN) to use non-Gregorian dates. All cross-chronology translation goes through Julian Day Number (JDN).
+Rules can specify a `chronology` field (HIJRI, UMM_AL_QURA, JULIAN, PERSIAN) to use non-Gregorian dates, and `end_month`/`end_day` or `duration_days` for multi-day spans. All cross-chronology translation goes through Julian Day Number (JDN).
+
+Event sources also carry `shift_policy` (per-holiday weekend observance, e.g. `FORWARD_ONLY` for NYSE New Year's Day), `only_if_weekday`, `close_time` (EARLY_CLOSE), `status` (CONFIRMED/PROJECTED) and `source` (citation into `sources/<MARKET>/README.md`).
 
 ### Calendar composition model
 
@@ -70,7 +75,8 @@ Rules can specify a `chronology` field (HIJRI, JULIAN, PERSIAN) to use non-Grego
 - **Modules** (`modules/holidays/`) define individual holidays or policies; can compose other modules via `uses`
 - **Groups** (`modules/groups/`) aggregate modules into reusable sets (e.g., `us_nyse_holidays`)
 - **Deltas** allow add/remove/reclassify of inherited events
-- **Weekend shift policies**: NONE, NEAREST_WEEKDAY, NEXT_AVAILABLE_WEEKDAY
+- **Weekend policies** are effective-dated (`{days, from, to}` periods); `nyse_weekends` models Saturday sessions before 1952
+- **Weekend shift policies**: NONE, NEAREST_WEEKDAY, NEXT_AVAILABLE_WEEKDAY, FORWARD_ONLY; CLOSED beats EARLY_CLOSE on the same date
 
 ### Chronology codegen
 
@@ -87,7 +93,8 @@ Chronology YAML files in `chronologies/` are compiled to Java classes in `tools/
 - **Golden tests**: compare generated output against checked-in expected files in `tools/src/test/resources/golden/`
 - **Property-based tests**: JQwik for randomized edge-case testing (chronology conversions, etc.)
 - **Test calendars**: `tools/src/test/resources/test-calendars/` contains YAML fixtures
+- **Cross-validation**: `ReferenceCrossValidationTest` diffs generated output against `tools/src/test/resources/reference/` (exchange_calendars, QuantLib exports); explained differences live in `allowlist.csv` and stale rows fail
 
 ## Data contributions
 
-When adding or modifying calendar data, cite authoritative sources for holiday dates and include provenance in comments.
+When adding or modifying calendar data, cite the source with a `source:` field (an id from `sources/<MARKET>/README.md`); `validate --strict` rejects uncited event sources. The NYSE's own holiday history PDF under `sources/US-NYSE/` outranks third-party libraries when they disagree.

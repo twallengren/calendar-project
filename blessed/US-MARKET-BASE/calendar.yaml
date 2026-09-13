@@ -4,6 +4,11 @@ metadata:
   name: US Market Base Calendar
   description: Base calendar for US markets with core holidays
   chronology: ISO
+  timezone: America/New_York
+  coverage:
+    from: 1900-01-01
+    to: 2030-12-31
+    verified_through: 2026-12-31
 uses:
 - weekend_sat_sun
 - us_market_base
@@ -11,4 +16,4 @@ classifications: {}
 deltas: []
 extends: []
 event_sources: []
-weekend_shift_policy: NONE
+weekend_shift_policy: NEAREST_WEEKDAY

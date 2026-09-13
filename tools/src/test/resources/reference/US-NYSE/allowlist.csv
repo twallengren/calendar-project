@@ -1,0 +1,15 @@
+# Known differences between our US-NYSE data and the reference datasets.
+# source,side,date,type,reason
+# exchange_calendars applies a 2:00 pm Christmas Eve early close to every year before 1993.
+# The NYSE's own "History of New York Stock Exchange Holidays" (special closings list) records
+# Christmas Eve early closes before 1990 only in 1951 (1:00 pm) and 1974 (2:00 pm), and the
+# regular 2:00 pm closes from 1990. We follow the NYSE document.
+exchange_calendars-XNYS,theirs,1973-12-24,EARLY_CLOSE,Not in NYSE special closings list
+exchange_calendars-XNYS,theirs,1975-12-24,EARLY_CLOSE,Not in NYSE special closings list
+exchange_calendars-XNYS,theirs,1979-12-24,EARLY_CLOSE,Not in NYSE special closings list
+exchange_calendars-XNYS,theirs,1980-12-24,EARLY_CLOSE,Not in NYSE special closings list
+exchange_calendars-XNYS,theirs,1981-12-24,EARLY_CLOSE,Not in NYSE special closings list
+exchange_calendars-XNYS,theirs,1984-12-24,EARLY_CLOSE,Not in NYSE special closings list
+exchange_calendars-XNYS,theirs,1985-12-24,EARLY_CLOSE,Not in NYSE special closings list
+exchange_calendars-XNYS,theirs,1986-12-24,EARLY_CLOSE,Not in NYSE special closings list
+exchange_calendars-XNYS,theirs,1987-12-24,EARLY_CLOSE,Not in NYSE special closings list

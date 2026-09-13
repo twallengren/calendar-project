@@ -23,7 +23,3 @@ generated/*
 # Local environment
 .env
 .env.local
-
-reference.json
-reference.pdf
-saudi-reference.md

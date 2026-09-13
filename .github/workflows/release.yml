@@ -6,8 +6,11 @@ on:
     paths:
       - 'calendars/**'
       - 'modules/**'
-  # For tool changes that affect calendar generation (e.g., new event types,
-  # generation logic changes), use manual workflow_dispatch to trigger a release.
+      - 'chronologies/**'
+      - 'tools/src/main/**'
+  # A push that touches these paths but produces no change in generated output
+  # exits early (ci-diff returns 0), so tool-only refactors do not cut releases.
+  # Use workflow_dispatch to force a release for anything else.
   workflow_dispatch:
     inputs:
       force_version_type:
@@ -220,6 +223,10 @@ jobs:
           SHORT_SHA="${GIT_SHA:0:7}"
           GEN_DATE=$(date -u +%Y-%m-%d)
 
+          # One timestamp for every calendar so a no-op re-bless is byte-identical
+          GENERATED_AT=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+          echo "generated_at=$GENERATED_AT" >> $GITHUB_OUTPUT
+
           # Create release directory
           RELEASE_DIR="release-artifacts"
           mkdir -p "$RELEASE_DIR"
@@ -243,8 +250,27 @@ jobs:
               --out "$CAL_DIR" \
               --source-version "$GIT_SHA" \
               --release-version "$NEW_VERSION" \
+              --generated-at "$GENERATED_AT" \
               --include-specs
           done
+
+          # Release notes from the manifest (calendars and their ranges)
+          {
+            echo "## Calendar Release v${NEW_VERSION}"
+            echo
+            echo "**Version Info:**"
+            echo "- Semantic Version: \`${NEW_VERSION}\`"
+            echo "- Git SHA: \`${GIT_SHA}\`"
+            echo "- Generation Date: \`${GEN_DATE}\`"
+            echo "- Release Type: \`${{ needs.check-release-needed.outputs.version_type }}\`"
+            echo
+            echo "**Included Calendars:**"
+            jq -r '.calendars | to_entries[] | "- \(.key) (\(.value.range_start) to \(.value.range_end))"' blessed/manifest.json
+            echo
+            echo "**Downloads:**"
+            echo "- \`*.tar.gz\` / \`*.zip\` - Per-calendar events.csv, events.json, metadata.json and specs"
+            echo "- See \`checksums.txt\` for SHA-256 verification"
+          } > release-notes.md
 
           # Create combined archive
           ARCHIVE_NAME="bdc-calendars-${NEW_VERSION}+${SHORT_SHA}.${GEN_DATE}"
@@ -281,7 +307,7 @@ jobs:
              '.release_version.semantic = $version |
               .release_version.git_sha = $sha |
               .release_version.generation_date = $date |
-              .blessed_at = $timestamp |
+              .blessed_at = "${{ steps.artifacts.outputs.generated_at }}" |
               .blessed_by = "github-actions"' \
              blessed/manifest.json > blessed/manifest.json.tmp
           mv blessed/manifest.json.tmp blessed/manifest.json
@@ -313,23 +339,7 @@ jobs:
         with:
           tag_name: v${{ needs.check-release-needed.outputs.new_version }}
           name: Calendar Release v${{ needs.check-release-needed.outputs.new_version }}
-          body: |
-            ## Calendar Release v${{ needs.check-release-needed.outputs.new_version }}
-
-            **Version Info:**
-            - Semantic Version: `${{ needs.check-release-needed.outputs.new_version }}`
-            - Git SHA: `${{ github.sha }}`
-            - Generation Date: `${{ steps.artifacts.outputs.gen_date }}`
-            - Release Type: `${{ needs.check-release-needed.outputs.version_type }}`
-
-            **Included Calendars:**
-            - US-MARKET-BASE (2020-01-01 to 2030-12-31)
-            - US-NYSE (2020-01-01 to 2030-12-31)
-            - US-CORP-IN-VISIBILITY (2020-01-01 to 2030-12-31)
-
-            **Downloads:**
-            - `*.tar.gz` / `*.zip` - Individual calendar CSV files with metadata
-            - See `checksums.txt` for SHA-256 verification
+          body_path: release-notes.md
           files: |
             ${{ steps.artifacts.outputs.archive_name }}.tar.gz
             ${{ steps.artifacts.outputs.archive_name }}.zip

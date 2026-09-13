@@ -6,26 +6,26 @@
     "US-MARKET-BASE": {
       "range_start": "1900-01-01",
       "range_end": "2030-12-31",
-      "event_count": 14502,
-      "checksum": "sha256:4af9d43ef4c49acb80ba3833be1e4b4c188fdd37db3fa53b96f9200f075b3fcd"
+      "event_count": 14608,
+      "checksum": "sha256:65c615ae26d7226e020992eae8bcce81303e243f17a961bdf43188252f3ac285"
     },
     "US-NYSE": {
       "range_start": "1900-01-01",
       "range_end": "2030-12-31",
-      "event_count": 15394,
-      "checksum": "sha256:250f4f74b9ca8af8f11f0f8287a141497ce3489b48c35cf6eccb71dcf2a625e6"
+      "event_count": 12836,
+      "checksum": "sha256:1c9c599763a4a964592dcce6dbca29b940a02ece883fd4937dcdf408199e5763"
     },
     "US-CORP-IN-VISIBILITY": {
       "range_start": "1900-01-01",
       "range_end": "2030-12-31",
-      "event_count": 14507,
-      "checksum": "sha256:c544b57cd781077abbb5cd6af390eaf86aa475514ebfd995027f9a91f9d9464a"
+      "event_count": 14615,
+      "checksum": "sha256:8aabf506cf8db5a01a72b37c72e08050c6bc9989454a26f8fec1fd272392c7e4"
     },
     "SA-TADAWUL": {
       "range_start": "2020-01-01",
       "range_end": "2030-12-31",
-      "event_count": 1255,
-      "checksum": "sha256:760aa7c94acd65266d3caf48774c95cad8528ce575c5cfb5b672931206552ab4"
+      "event_count": 1271,
+      "checksum": "sha256:7abe60d0b866382dae15d4ab78bab9286fdceb737781776c08abcf3972a4bbe1"
     }
   },
   "release_version": {

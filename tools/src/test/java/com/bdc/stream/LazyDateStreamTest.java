@@ -236,4 +236,24 @@ class LazyDateStreamTest {
     List<Event> events = stream.eventsOn(LocalDate.of(2025, 6, 15));
     assertNotNull(events);
   }
+
+  @org.junit.jupiter.api.Test
+  void eventsOn_seesHolidayShiftedFromAdjacentYear() throws Exception {
+    com.bdc.loader.SpecRegistry registry = new com.bdc.loader.SpecRegistry();
+    registry.loadCalendarsFromDirectory(java.nio.file.Path.of("calendars"));
+    registry.loadModulesFromDirectory(java.nio.file.Path.of("modules"));
+    com.bdc.model.ResolvedSpec nyse =
+        new com.bdc.resolver.SpecResolver(registry).resolve("US-NYSE");
+    LazyDateStream nyseStream = new LazyDateStream(nyse);
+    // Christmas 2021 observed Friday Dec 24: a single-day lookup must see it
+    java.util.List<com.bdc.model.Event> events =
+        nyseStream.eventsOn(java.time.LocalDate.of(2021, 12, 24));
+    org.junit.jupiter.api.Assertions.assertEquals(1, events.size(), events.toString());
+    org.junit.jupiter.api.Assertions.assertEquals(
+        com.bdc.model.EventType.CLOSED, events.get(0).type());
+    org.junit.jupiter.api.Assertions.assertFalse(
+        nyseStream.isBusinessDay(java.time.LocalDate.of(2021, 12, 24)));
+    org.junit.jupiter.api.Assertions.assertTrue(
+        nyseStream.isBusinessDay(java.time.LocalDate.of(2021, 12, 31)));
+  }
 }

@@ -1,6 +1,10 @@
 kind: module
 id: labor_day
 
+source:
+  - id: nyse-history-2008
+    ref: "Labor Day: closed every year, 1887-date"
+
 event_sources:
   - key: labor_day
     name: Labor Day

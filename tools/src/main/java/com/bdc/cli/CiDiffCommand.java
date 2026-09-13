@@ -98,6 +98,7 @@ public class CiDiffCommand implements Callable<Integer> {
       SpecRegistry registry = new SpecRegistry();
       registry.loadCalendarsFromDirectory(calendarsDir);
       registry.loadModulesFromDirectory(modulesDir);
+      registry.assertNoLoadErrors();
 
       SpecResolver resolver = new SpecResolver(registry);
       EventGenerator generator = new EventGenerator();

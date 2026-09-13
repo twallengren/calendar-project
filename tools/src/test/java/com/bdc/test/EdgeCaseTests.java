@@ -62,7 +62,11 @@ class EdgeCaseTests {
     // Should find the New Year's Day event
     assertEquals(1, events.size());
     Event newYearsDay = events.getFirst();
-    assertEquals(expectedEvent, newYearsDay);
+    assertEquals(expectedEvent.date(), newYearsDay.date());
+    assertEquals(expectedEvent.type(), newYearsDay.type());
+    assertEquals(expectedEvent.description(), newYearsDay.description());
+    assertEquals(expectedEvent.provenance(), newYearsDay.provenance());
+    assertEquals("new_years_day", newYearsDay.key());
   }
 
   @Test
@@ -272,23 +276,20 @@ class EdgeCaseTests {
     SpecResolver prodResolver = new SpecResolver(prodRegistry);
     ResolvedSpec spec = prodResolver.resolve("US-MARKET-BASE");
 
-    // Core US holidays should exist every year, but observed holidays can shift across
-    // year boundaries (e.g., New Year's Day on Saturday shifts to Fri Dec 31 of previous year).
-    // Instead of checking exact count per calendar year, verify we have the right total
-    // events over a multi-year period and that key holidays appear.
-
-    // Generate over the full range
+    // Six core holidays every year over 2020-2030. Observed holidays can move across a year
+    // boundary only when Christmas or New Year's Day is observed on the other side of Dec 31;
+    // New Year's Day is FORWARD_ONLY (a Saturday Jan 1 is not observed) and a Sunday Jan 1 is
+    // observed on Jan 2, so the per-year count is exact.
     List<Event> allEvents =
         generator.generate(spec, LocalDate.of(2020, 1, 1), LocalDate.of(2030, 12, 31));
     List<Event> nonWeekendEvents = allEvents.stream().filter(NON_WEEKEND).toList();
 
-    // Over 11 years, we should have roughly 66 events (6 holidays * 11 years)
-    // Some years may have ±1 due to observed holiday shifts across year boundaries
-    assertTrue(
-        nonWeekendEvents.size() >= 64 && nonWeekendEvents.size() <= 68,
-        "US-MARKET-BASE should have ~66 events over 11 years, got " + nonWeekendEvents.size());
+    assertEquals(
+        64,
+        nonWeekendEvents.size(),
+        "6 holidays x 11 years minus the two unobserved Saturday New Year's Days, got "
+            + nonWeekendEvents);
 
-    // Verify each key holiday type appears approximately 11 times
     long newYears =
         nonWeekendEvents.stream().filter(e -> e.description().equals("New Year's Day")).count();
     long christmas =
@@ -296,9 +297,38 @@ class EdgeCaseTests {
     long thanksgiving =
         nonWeekendEvents.stream().filter(e -> e.description().equals("Thanksgiving Day")).count();
 
-    assertEquals(11, newYears, "Should have 11 New Year's Day observations");
+    // Jan 1 falls on a Saturday in 2022 and 2028 and is not observed those years
+    assertEquals(9, newYears, "Should have 9 New Year's Day observations (2022, 2028 skipped)");
     assertEquals(11, christmas, "Should have 11 Christmas Day observations");
     assertEquals(11, thanksgiving, "Should have 11 Thanksgiving Day observations");
+  }
+
+  @Test
+  @DisplayName("US-NYSE does not observe a Saturday New Year's Day on Friday Dec 31")
+  void usNyseSaturdayNewYear() {
+    SpecResolver prodResolver = new SpecResolver(prodRegistry);
+    ResolvedSpec spec = prodResolver.resolve("US-NYSE");
+    List<Event> events =
+        generator.generate(spec, LocalDate.of(2021, 12, 20), LocalDate.of(2028, 1, 10));
+
+    for (LocalDate friday : List.of(LocalDate.of(2021, 12, 31), LocalDate.of(2027, 12, 31))) {
+      assertTrue(
+          events.stream().noneMatch(e -> e.date().equals(friday) && e.type() == EventType.CLOSED),
+          "NYSE must be open on " + friday);
+    }
+    for (LocalDate saturday : List.of(LocalDate.of(2022, 1, 1), LocalDate.of(2028, 1, 1))) {
+      assertTrue(
+          events.stream()
+              .filter(e -> e.date().equals(saturday))
+              .allMatch(e -> e.type() == EventType.WEEKEND),
+          "Only a weekend row expected on " + saturday);
+    }
+    // Christmas 2021 (Saturday) is observed Friday Dec 24 with no competing early close
+    List<Event> dec24 =
+        events.stream().filter(e -> e.date().equals(LocalDate.of(2021, 12, 24))).toList();
+    assertEquals(1, dec24.size(), dec24.toString());
+    assertEquals(EventType.CLOSED, dec24.get(0).type());
+    assertEquals(LocalDate.of(2021, 12, 25), dec24.get(0).observedFrom());
   }
 
   // === Inverted Range Test ===

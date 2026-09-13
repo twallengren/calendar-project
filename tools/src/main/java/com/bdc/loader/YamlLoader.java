@@ -20,7 +20,7 @@ public class YamlLoader {
         new ObjectMapper(new YAMLFactory())
             .registerModule(new JavaTimeModule())
             .setPropertyNamingStrategy(PropertyNamingStrategies.SNAKE_CASE)
-            .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+            .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
   }
 
   public CalendarSpec loadCalendar(Path path) throws IOException {

@@ -1,0 +1,25 @@
+# Known differences between our SA-TADAWUL data and the reference datasets.
+# source,side,date,type,reason
+# exchange_calendars XSAU does not shift National Day / Founding Day off the weekend; the Saudi
+# Exchange announcements do (2022-09-22, 2023-09-24, 2025-02-23 are the announced observed days).
+exchange_calendars-XSAU,ours,2022-09-22,CLOSED,National Day observed Thursday per Saudi Exchange announcement (Sep 23 was a Friday)
+exchange_calendars-XSAU,ours,2023-09-24,CLOSED,National Day observed Sunday per Saudi Exchange announcement (Sep 23 was a Saturday)
+exchange_calendars-XSAU,ours,2025-02-23,CLOSED,Founding Day observed Sunday per Saudi Exchange announcement (Feb 22 was a Saturday)
+exchange_calendars-XSAU,theirs,2021-02-22,CLOSED,Founding Day was established in 2022; no 2021 closure in the exchange announcements
+# Eid boundaries: our dates are the exchange's announced "trading discontinues after X / resumes on Y";
+# exchange_calendars hard-codes different boundaries for these years.
+exchange_calendars-XSAU,ours,2023-06-25,CLOSED,Eid al-Adha 2023 closure Jun 23 - Jul 1 per announcement
+exchange_calendars-XSAU,ours,2023-06-26,CLOSED,Eid al-Adha 2023 closure Jun 23 - Jul 1 per announcement
+exchange_calendars-XSAU,theirs,2023-07-02,CLOSED,Trading resumed Sunday Jul 2 2023 per announcement
+exchange_calendars-XSAU,theirs,2022-07-13,CLOSED,Trading resumed Jul 13 2022 per announcement
+exchange_calendars-XSAU,theirs,2023-04-25,CLOSED,Trading resumed Apr 25 2023 per announcement
+exchange_calendars-XSAU,theirs,2024-04-14,CLOSED,Trading resumed Apr 14 2024 per announcement
+exchange_calendars-XSAU,theirs,2024-04-15,CLOSED,Trading resumed Apr 14 2024 per announcement
+exchange_calendars-XSAU,theirs,2024-06-13,CLOSED,Jun 13 2024 was the last trading day before Eid al-Adha per announcement
+exchange_calendars-XSAU,theirs,2024-06-23,CLOSED,Trading resumed Jun 23 2024 per announcement
+exchange_calendars-XSAU,ours,2025-03-30,CLOSED,Eid al-Fitr 2025 closure Mar 28 - Apr 2 per announcement
+exchange_calendars-XSAU,ours,2025-03-31,CLOSED,Eid al-Fitr 2025 closure Mar 28 - Apr 2 per announcement
+exchange_calendars-XSAU,ours,2025-04-01,CLOSED,Eid al-Fitr 2025 closure Mar 28 - Apr 2 per announcement
+exchange_calendars-XSAU,ours,2025-04-02,CLOSED,Eid al-Fitr 2025 closure Mar 28 - Apr 2 per announcement
+exchange_calendars-XSAU,theirs,2025-06-04,CLOSED,Jun 4 2025 was the last trading day before Eid al-Adha per announcement
+exchange_calendars-XSAU,ours,2025-06-10,CLOSED,Eid al-Adha 2025 closure Jun 5 - Jun 10 per announcement

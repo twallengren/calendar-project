@@ -1,9 +1,11 @@
 package com.bdc.cli;
 
+import com.bdc.artifact.ReleaseHistoryStore;
 import com.bdc.loader.SpecRegistry;
 import com.bdc.model.Event;
 import com.bdc.model.ResolvedSpec;
 import com.bdc.resolver.SpecResolver;
+import com.bdc.stream.CsvDateStream;
 import com.bdc.stream.DateStream;
 import com.bdc.stream.LazyDateStream;
 import java.nio.file.Path;
@@ -61,6 +63,25 @@ public class QueryCommand implements Callable<Integer> {
   private LocalDate from;
 
   @Option(
+      names = {"--as-of"},
+      description =
+          "Answer from a published artifact instead of the current YAML: 'blessed', a release"
+              + " version (v10.1.0), or an ISO date/instant (the release current at that time)")
+  private String asOf;
+
+  @Option(
+      names = {"--blessed-dir"},
+      description = "Blessed artifacts directory (for --as-of)",
+      defaultValue = "blessed")
+  private Path blessedDir;
+
+  @Option(
+      names = {"--release-history-dir"},
+      description = "Release history directory (for --as-of)",
+      defaultValue = "release-history")
+  private Path releaseHistoryDir;
+
+  @Option(
       names = {"--calendars-dir"},
       description = "Calendars directory",
       defaultValue = "calendars")
@@ -75,13 +96,35 @@ public class QueryCommand implements Callable<Integer> {
   @Override
   public Integer call() {
     try {
-      SpecRegistry registry = new SpecRegistry();
-      registry.loadCalendarsFromDirectory(calendarsDir);
-      registry.loadModulesFromDirectory(modulesDir);
+      DateStream stream;
+      if (asOf != null) {
+        ReleaseHistoryStore store = new ReleaseHistoryStore(releaseHistoryDir, blessedDir);
+        ReleaseHistoryStore.Snapshot snapshot =
+            store
+                .resolve(calendarId, asOf)
+                .orElseThrow(
+                    () ->
+                        new IllegalArgumentException(
+                            "No published artifact of " + calendarId + " matches '" + asOf + "'"));
+        stream = new CsvDateStream(calendarId, store.loadEvents(snapshot), store.range(snapshot));
+        System.out.println(
+            "Using artifact "
+                + snapshot.id()
+                + " (v"
+                + snapshot.version()
+                + ", archived "
+                + snapshot.archivedAt()
+                + ")");
+      } else {
+        SpecRegistry registry = new SpecRegistry();
+        registry.loadCalendarsFromDirectory(calendarsDir);
+        registry.loadModulesFromDirectory(modulesDir);
+        registry.assertNoLoadErrors();
 
-      SpecResolver resolver = new SpecResolver(registry);
-      ResolvedSpec spec = resolver.resolve(calendarId);
-      DateStream stream = new LazyDateStream(spec);
+        SpecResolver resolver = new SpecResolver(registry);
+        ResolvedSpec spec = resolver.resolve(calendarId);
+        stream = new LazyDateStream(spec);
+      }
 
       boolean anyQuery = false;
 
@@ -153,6 +196,7 @@ public class QueryCommand implements Callable<Integer> {
         System.out.println(
             "  --business-days-from <date> --business-days-to <date>  Count business days");
         System.out.println("  --nth-business-day <n> --from <date>  Find nth business day");
+        System.out.println("  --as-of <blessed|vX.Y.Z|date>  Answer from a published artifact");
       }
 
       return 0;

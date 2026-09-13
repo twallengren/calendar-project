@@ -1,0 +1,30 @@
+kind: module
+id: nyse_weekends
+
+# Effective-dated weekend definition for the New York Stock Exchange.
+#
+# The Exchange held Saturday sessions (10:00-12:00) until 1952. It closed on Saturdays from
+# May 31 through September 27, 1952 and moved to a five-day week from September 29, 1952,
+# so Saturday has been a weekend day since May 31, 1952. Summer Saturday closings in 1933 and
+# 1944-1951 are modelled as weekend periods so that those Saturdays carry a WEEKEND row and
+# holiday shifting treats them as non-trading days.
+#
+# Source: nyse-history-2008 (special closings list: "Closed Saturdays" entries).
+
+source:
+  - id: nyse-history-2008
+    ref: special closings list, "Closed Saturdays" entries 1933-1952
+
+policies:
+  weekends:
+    - {days: [SUNDAY], to: 1952-05-30}
+    - {days: [SATURDAY, SUNDAY], from: 1933-07-29, to: 1933-08-26}
+    - {days: [SATURDAY, SUNDAY], from: 1944-08-19, to: 1944-09-02}
+    - {days: [SATURDAY, SUNDAY], from: 1945-07-07, to: 1945-09-01}
+    - {days: [SATURDAY, SUNDAY], from: 1946-06-01, to: 1946-09-28}
+    - {days: [SATURDAY, SUNDAY], from: 1947-05-31, to: 1947-09-27}
+    - {days: [SATURDAY, SUNDAY], from: 1948-05-29, to: 1948-09-25}
+    - {days: [SATURDAY, SUNDAY], from: 1949-05-28, to: 1949-09-24}
+    - {days: [SATURDAY, SUNDAY], from: 1950-06-03, to: 1950-09-30}
+    - {days: [SATURDAY, SUNDAY], from: 1951-06-02, to: 1951-09-29}
+    - {days: [SATURDAY, SUNDAY], from: 1952-05-31}

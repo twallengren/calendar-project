@@ -1,0 +1,118 @@
+date,type,description,key,source_module,observed_from,close_time,status
+2018-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+2018-01-06,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2018-01-07,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2018-01-13,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2018-01-14,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2018-01-15,CLOSED,Martin Luther King Jr. Day,mlk_day,module:mlk_day,,,CONFIRMED
+2018-01-20,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2018-01-21,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2018-01-27,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2018-01-28,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2018-02-03,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2018-02-04,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2018-02-10,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2018-02-11,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2018-02-17,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2018-02-18,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2018-02-19,CLOSED,Presidents Day,presidents_day,module:presidents_day,,,CONFIRMED
+2018-02-24,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2018-02-25,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2018-03-03,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2018-03-04,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2018-03-10,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2018-03-11,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2018-03-17,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2018-03-18,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2018-03-24,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2018-03-25,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2018-03-30,CLOSED,Good Friday,good_friday,module:good_friday,,,CONFIRMED
+2018-03-31,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2018-04-01,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2018-04-07,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2018-04-08,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2018-04-14,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2018-04-15,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2018-04-21,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2018-04-22,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2018-04-28,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2018-04-29,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2018-05-05,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2018-05-06,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2018-05-12,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2018-05-13,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2018-05-19,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2018-05-20,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2018-05-26,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2018-05-27,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2018-05-28,CLOSED,Memorial Day,memorial_day,module:memorial_day,,,CONFIRMED
+2018-06-02,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2018-06-03,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2018-06-09,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2018-06-10,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2018-06-16,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2018-06-17,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2018-06-23,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2018-06-24,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2018-06-30,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2018-07-01,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2018-07-03,EARLY_CLOSE,Independence Day Eve (Early Close),independence_day_eve,module:independence_day_eve,,13:00,CONFIRMED
+2018-07-04,CLOSED,Independence Day,independence_day,module:independence_day,,,CONFIRMED
+2018-07-07,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2018-07-08,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2018-07-14,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2018-07-15,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2018-07-21,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2018-07-22,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2018-07-28,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2018-07-29,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2018-08-04,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2018-08-05,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2018-08-11,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2018-08-12,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2018-08-18,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2018-08-19,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2018-08-25,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2018-08-26,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2018-09-01,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2018-09-02,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2018-09-03,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+2018-09-08,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2018-09-09,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2018-09-15,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2018-09-16,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2018-09-22,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2018-09-23,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2018-09-29,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2018-09-30,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2018-10-06,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2018-10-07,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2018-10-13,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2018-10-14,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2018-10-20,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2018-10-21,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2018-10-27,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2018-10-28,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2018-11-03,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2018-11-04,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2018-11-10,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2018-11-11,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2018-11-17,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2018-11-18,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2018-11-22,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+2018-11-23,EARLY_CLOSE,Day After Thanksgiving (Early Close),day_after_thanksgiving,module:day_after_thanksgiving,,13:00,CONFIRMED
+2018-11-24,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2018-11-25,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2018-12-01,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2018-12-02,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2018-12-05,CLOSED,Presidential Funeral (George H. W. Bush),presidential_funerals,module:us_historical_closures,,,CONFIRMED
+2018-12-08,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2018-12-09,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2018-12-15,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2018-12-16,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2018-12-22,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2018-12-23,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2018-12-24,EARLY_CLOSE,Christmas Eve (Early Close),christmas_eve,module:christmas_eve,,13:00,CONFIRMED
+2018-12-25,CLOSED,Christmas Day,christmas,module:christmas,,,CONFIRMED
+2018-12-29,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2018-12-30,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED

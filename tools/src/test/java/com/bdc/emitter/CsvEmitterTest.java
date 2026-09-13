@@ -59,7 +59,8 @@ class CsvEmitterTest {
 
     List<String> lines = Files.readAllLines(outputPath);
     assertEquals(1, lines.size());
-    assertEquals("date,type,description", lines.get(0));
+    assertEquals(
+        "date,type,description,key,source_module,observed_from,close_time,status", lines.get(0));
   }
 
   @Test
@@ -68,7 +69,9 @@ class CsvEmitterTest {
 
     String result = emitter.emitToString(List.of(event));
 
-    assertTrue(result.startsWith("date,type,description\n"));
+    assertTrue(
+        result.startsWith(
+            "date,type,description,key,source_module,observed_from,close_time,status\n"));
     assertTrue(result.contains("2025-01-01,CLOSED,Test Holiday"));
   }
 
@@ -159,7 +162,9 @@ class CsvEmitterTest {
 
     String result = emitter.emitToString(events, "UMM_AL_QURA");
 
-    assertTrue(result.startsWith("date,umm_al_qura_date,type,description\n"));
+    assertTrue(
+        result.startsWith(
+            "date,umm_al_qura_date,type,description,key,source_module,observed_from,close_time,status\n"));
     // 2025-03-30 is Shawwal 1, 1446
     assertTrue(result.contains("2025-03-30,1446-10-01,CLOSED,Eid al-Fitr"));
   }
@@ -185,7 +190,9 @@ class CsvEmitterTest {
 
     String result = emitter.emitToString(events, null);
 
-    assertTrue(result.startsWith("date,type,description\n"));
+    assertTrue(
+        result.startsWith(
+            "date,type,description,key,source_module,observed_from,close_time,status\n"));
   }
 
   @Test
