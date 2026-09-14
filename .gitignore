@@ -36,5 +36,5 @@ python/build/
 python/dist/
 python/*.egg-info/
 .pytest_cache/
-site/
-site-preview/
+/site/
+/site-preview/
