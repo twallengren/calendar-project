@@ -85,7 +85,7 @@ jobs:
               '^(calendars/|modules/|chronologies/|sources/|tools/src/|data/|scripts/bless\.sh|scripts/release/)'; then
               echo "candidate=dataset" >> "$GITHUB_OUTPUT"
             elif git diff --name-only "HEAD^" HEAD | grep -Eq \
-              '^(core/src/|python/bdc_calendars/|python/pyproject\.toml|release/versions\.json)'; then
+              '^(core/src/|core/build\.gradle\.kts|python/bdc_calendars/|python/pyproject\.toml|release/versions\.json)'; then
               echo "candidate=software" >> "$GITHUB_OUTPUT"
             else
               echo "candidate=dataset" >> "$GITHUB_OUTPUT"

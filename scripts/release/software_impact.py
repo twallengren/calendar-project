@@ -28,6 +28,32 @@ def previous_versions(revision):
     return json.loads(payload)
 
 
+def changed_paths(revision):
+    return subprocess.check_output(
+        ["git", "diff", "--name-only", revision, "HEAD"], text=True
+    ).splitlines()
+
+
+def validate_source_bumps(paths, changes):
+    core_changed = any(
+        path.startswith("core/src/") or path == "core/build.gradle.kts" for path in paths
+    )
+    python_changed = any(
+        path == "python/pyproject.toml"
+        or (
+            path.startswith("python/bdc_calendars/")
+            and not path.startswith("python/bdc_calendars/data/")
+            and not path.startswith("python/bdc_calendars/licenses/")
+            and path != "python/bdc_calendars/_version.py"
+        )
+        for path in paths
+    )
+    if core_changed and "java_core" not in changes:
+        raise ValueError("core runtime changes require a new java_core version")
+    if python_changed and "python" not in changes:
+        raise ValueError("Python runtime changes require a new python version")
+
+
 def published_files(root, manifest):
     paths = ["manifest.json"]
     for calendar_id in sorted(manifest["calendars"]):
@@ -109,6 +135,7 @@ def main():
         with open(args.versions, encoding="utf-8") as handle:
             current = json.load(handle)
         result = impact(current, previous_versions(args.previous_revision), baseline_version)
+        validate_source_bumps(changed_paths(args.previous_revision), result["software_changes"])
         with open(args.output, "w", encoding="utf-8") as handle:
             json.dump(result, handle, indent=2, sort_keys=True)
             handle.write("\n")

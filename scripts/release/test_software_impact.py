@@ -40,6 +40,16 @@ class SoftwareImpactTest(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "explicit"):
             software_impact.impact(self.versions(), self.versions(), "12.0.0")
 
+    def test_each_changed_runtime_requires_its_own_version(self):
+        with self.assertRaisesRegex(ValueError, "java_core"):
+            software_impact.validate_source_bumps(
+                ["core/build.gradle.kts"], {"python": {"to": "0.13.0"}}
+            )
+        with self.assertRaisesRegex(ValueError, "python version"):
+            software_impact.validate_source_bumps(
+                ["python/bdc_calendars/calendar.py"], {"java_core": {"to": "12.0.1"}}
+            )
+
     def test_software_release_requires_byte_identical_published_dataset(self):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)

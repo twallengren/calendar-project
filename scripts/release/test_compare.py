@@ -226,6 +226,20 @@ class ReleaseCompareTest(unittest.TestCase):
         report = compare.compare(self.old, self.new, old_sources, new_sources)
         self.assertEqual("PATCH", report["severity"])
 
+    def test_non_utf8_source_originals_are_compared_as_bytes(self):
+        self.write_dataset(self.old, {"CAL": {}})
+        self.write_dataset(self.new, {"CAL": {}})
+        old_sources = os.path.join(self.temporary.name, "old-sources")
+        new_sources = os.path.join(self.temporary.name, "new-sources")
+        os.makedirs(old_sources)
+        os.makedirs(new_sources)
+        with open(os.path.join(old_sources, "hko.txt"), "wb") as handle:
+            handle.write(b"\xa1\x40Big5\r\n")
+        with open(os.path.join(new_sources, "hko.txt"), "wb") as handle:
+            handle.write(b"\xa1\x40Big5 changed\r\n")
+        report = compare.compare(self.old, self.new, old_sources, new_sources)
+        self.assertEqual("PATCH", report["severity"])
+
 
 if __name__ == "__main__":
     unittest.main()

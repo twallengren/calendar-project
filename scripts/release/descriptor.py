@@ -159,6 +159,13 @@ def read_versions(path: str) -> Dict[str, Any]:
     return versions
 
 
+def validate_source_binding(release_kind: str, source_sha: str, data_source_sha: str, evidence):
+    if release_kind == "DATASET" and data_source_sha != source_sha:
+        raise ValueError("dataset release data source must equal its source commit")
+    if release_kind == "SOFTWARE" and data_source_sha != evidence.get("source_sha"):
+        raise ValueError("software release data source must equal the authenticated baseline")
+
+
 def build(args: argparse.Namespace) -> Dict[str, Any]:
     if (
         not SHA.fullmatch(args.baseline_commit)
@@ -184,6 +191,7 @@ def build(args: argparse.Namespace) -> Dict[str, Any]:
     release_tag = impact.get("release_tag", "v" + args.data_version)
     if release_kind not in ("DATASET", "SOFTWARE"):
         raise ValueError("release impact has invalid release kind")
+    validate_source_binding(release_kind, args.source_sha, args.data_source_sha, evidence)
     if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._-]*", release_tag):
         raise ValueError("release impact has invalid release tag")
     if impact["severity"] == "NONE":
@@ -280,6 +288,12 @@ def verify(path: str, artifacts: str, impact: str) -> None:
         or evidence_value.get("data_version") != baseline.get("data_version")
     ):
         raise ValueError("release descriptor baseline fields do not match authenticated evidence")
+    validate_source_binding(
+        release_kind,
+        descriptor["source_sha"],
+        descriptor["data_source_sha"],
+        evidence_value,
+    )
     tagged = subprocess.check_output(
         ["git", "rev-parse", "{}^{{commit}}".format(baseline["ref"])], text=True
     ).strip()

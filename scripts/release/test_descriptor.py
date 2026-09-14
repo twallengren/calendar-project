@@ -7,6 +7,16 @@ import descriptor
 
 
 class DescriptorVerificationTest(unittest.TestCase):
+    def test_release_kind_binds_the_data_source(self):
+        source = "a" * 40
+        baseline = "b" * 40
+        descriptor.validate_source_binding("DATASET", source, source, {"source_sha": baseline})
+        descriptor.validate_source_binding("SOFTWARE", source, baseline, {"source_sha": baseline})
+        with self.assertRaisesRegex(ValueError, "source commit"):
+            descriptor.validate_source_binding("DATASET", source, baseline, {"source_sha": baseline})
+        with self.assertRaisesRegex(ValueError, "authenticated baseline"):
+            descriptor.validate_source_binding("SOFTWARE", source, source, {"source_sha": baseline})
+
     def test_descriptor_version_drift_is_rejected_before_publication(self):
         with tempfile.TemporaryDirectory() as temporary:
             path = os.path.join(temporary, "release.json")

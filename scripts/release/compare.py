@@ -192,8 +192,15 @@ def _source_snapshot(root: str | None) -> Dict[str, str]:
             with open(path, "rb") as handle:
                 raw = handle.read()
             if name.endswith((".md", ".txt", ".json", ".yaml", ".yml", ".csv")):
-                text = raw.decode("utf-8").replace("\r\n", "\n")
-                raw = ("\n".join(line.rstrip() for line in text.splitlines()) + "\n").encode()
+                try:
+                    text = raw.decode("utf-8").replace("\r\n", "\n")
+                except UnicodeDecodeError:
+                    # Authoritative originals may intentionally retain their
+                    # published encoding (for example, HKO Big5 tables).
+                    # Their semantic identity is therefore their exact bytes.
+                    pass
+                else:
+                    raw = ("\n".join(line.rstrip() for line in text.splitlines()) + "\n").encode()
             result[relative] = hashlib.sha256(raw).hexdigest()
     return result
 
