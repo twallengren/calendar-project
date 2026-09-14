@@ -6,6 +6,7 @@ metadata:
   description: Toronto Stock Exchange (TSX, MIC XTSE) trading calendar
   chronology: ISO
   timezone: America/Toronto
+  mic: XTSE
   coverage:
     from: 2000-01-01
     to: 2030-12-31

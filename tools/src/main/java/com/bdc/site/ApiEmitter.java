@@ -178,6 +178,8 @@ public class ApiEmitter {
       entry.put("id", id);
       entry.put("name", name);
       entry.put("timezone", timezone);
+      entry.put("mic", textOrNull(metadataNode, "mic"));
+      entry.put("aliases", aliasesOf(metadataNode));
       entry.put("coverage", coverage);
       entry.put("counts_by_type", toObject(metadataNode.path("counts_by_type")));
       entry.put("counts_by_status", toObject(metadataNode.path("counts_by_status")));
@@ -360,6 +362,18 @@ public class ApiEmitter {
       byYear.computeIfAbsent(event.date().getYear(), k -> new ArrayList<>()).add(event);
     }
     return byYear;
+  }
+
+  private static List<String> aliasesOf(JsonNode metadataNode) {
+    JsonNode aliases = metadataNode.path("aliases");
+    if (!aliases.isArray()) {
+      return List.of();
+    }
+    List<String> result = new ArrayList<>();
+    for (JsonNode alias : aliases) {
+      result.add(alias.asText());
+    }
+    return result;
   }
 
   private static Map<String, String> coverageOf(JsonNode metadataNode) {

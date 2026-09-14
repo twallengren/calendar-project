@@ -5,6 +5,7 @@ metadata:
   description: Euronext Brussels (XBRU) cash market trading calendar
   chronology: ISO
   timezone: Europe/Brussels
+  mic: XBRU
   coverage:
     from: 2010-01-01
     to: 2030-12-31

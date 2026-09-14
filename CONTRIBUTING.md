@@ -65,6 +65,8 @@ Start with the calendar's own metadata. The fields a market needs:
 | Field | Purpose |
 |-------|---------|
 | `metadata.timezone` | IANA zone id. Required if any event has a `close_time`. |
+| `metadata.mic` | The market's ISO 10383 Market Identifier Code (e.g. `XLON`). `validate --strict` warns when a market-kind calendar has none, and errors on a malformed or duplicate one. |
+| `metadata.aliases` | Other spellings this calendar should resolve under (legacy exchange_calendars ids, a segment MIC distinct from the primary `mic`, ...). |
 | `metadata.coverage.from` / `to` | The date range you maintain this calendar for. |
 | `metadata.coverage.verified_through` | Dates up to here have been checked against sources. Anything after that should be `status: PROJECTED`. |
 | `weekend_shift_policy` | Default shift policy for weekend holidays: `NONE`, `NEAREST_WEEKDAY`, `NEXT_AVAILABLE_WEEKDAY`, or `FORWARD_ONLY`. |
@@ -78,6 +80,7 @@ metadata:
   name: London Stock Exchange Trading Calendar
   chronology: ISO
   timezone: Europe/London
+  mic: XLON
   coverage:
     from: 2000-01-01
     to: 2030-12-31
@@ -186,8 +189,9 @@ missing from it is invisible to `scripts/bless.sh` and the release workflow. Add
 }
 ```
 
-Run `scripts/bless.sh` locally to populate `checksum` and `event_count` and to generate
-`blessed/GB-LSE/`. Review the output with `git status --short blessed/`.
+Run `scripts/bless.sh` locally to populate `checksum` and `event_count`, generate
+`blessed/GB-LSE/`, and recompute `blessed/manifest.json`'s `aliases` map from every calendar's
+`metadata.mic`/`metadata.aliases`. Review the output with `git status --short blessed/`.
 
 ### Preview your change
 

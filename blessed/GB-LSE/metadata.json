@@ -2,6 +2,7 @@
   "calendar_id" : "GB-LSE",
   "calendar_name" : "London Stock Exchange",
   "kind" : "market",
+  "mic" : "XLON",
   "generated_at" : "2026-02-16T21:43:21Z",
   "range_start" : "2000-01-01",
   "range_end" : "2030-12-31",

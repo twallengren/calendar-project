@@ -16,6 +16,7 @@
   "event_count": 3112,
   "generated_at": "2026-02-16T21:43:21Z",
   "kind": "market",
+  "mic": "XETR",
   "range_end": "2030-12-31",
   "range_start": "2003-01-01",
   "resolution_chain": [

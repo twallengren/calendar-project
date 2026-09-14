@@ -23,6 +23,8 @@ metadata:
     to: 2027-12-31
     verified_through: 2027-12-31
   kind: market
+  mic: XHKG
+  aliases: []
 uses:
 - weekend_sat_sun
 - hk_hkex_holidays

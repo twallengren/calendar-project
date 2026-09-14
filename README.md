@@ -159,7 +159,8 @@ dependencies**:
 ```
 pip install bdc-calendars
 ```
-then `bdc_calendars.get_calendar("XNYS")` (exchange_calendars MICs are accepted as aliases). Its
+then `bdc_calendars.get_calendar("XLON")` (ISO 10383 MICs and exchange_calendars-style aliases are
+accepted for every bundled market). Its
 version is `0.<data major>.<data minor>`, so it tracks the data release; see
 [`python/README.md`](python/README.md) for the API, the migration notes from exchange_calendars
 and the coverage/status caveats. An optional `bdc-calendars-mcp` MCP server

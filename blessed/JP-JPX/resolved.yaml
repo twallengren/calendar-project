@@ -8,6 +8,9 @@ metadata:
     \ January 2-3)."
   chronology: ISO
   timezone: Asia/Tokyo
+  mic: XTKS
+  aliases:
+  - XJPX
   coverage:
     from: 2010-01-01
     to: 2030-12-31

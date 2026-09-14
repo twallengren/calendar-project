@@ -210,6 +210,157 @@ class SpecValidatorTest {
   }
 
   @Test
+  void marketCalendarWithoutMicIsAWarning() throws Exception {
+    ValidationResult r =
+        validate(
+            """
+            kind: calendar
+            id: CAL
+            metadata:
+              name: X
+              coverage: {from: 2020-01-01, to: 2030-12-31}
+            uses: [m]
+            """,
+            """
+            kind: module
+            id: m
+            source: doc
+            event_sources:
+              - key: a
+                name: A
+                rule: {type: fixed_month_day, month: 1, day: 1}
+            """);
+    assertTrue(codes(r).contains("MISSING_MIC"), r.issues().toString());
+  }
+
+  @Test
+  void baseCalendarWithoutMicIsNotWarned() throws Exception {
+    ValidationResult r =
+        validate(
+            """
+            kind: calendar
+            id: CAL
+            metadata:
+              name: X
+              kind: base
+              coverage: {from: 2020-01-01, to: 2030-12-31}
+            uses: [m]
+            """,
+            """
+            kind: module
+            id: m
+            source: doc
+            event_sources:
+              - key: a
+                name: A
+                rule: {type: fixed_month_day, month: 1, day: 1}
+            """);
+    assertFalse(codes(r).contains("MISSING_MIC"), r.issues().toString());
+  }
+
+  @Test
+  void malformedMicIsAnError() throws Exception {
+    ValidationResult r =
+        validate(
+            """
+            kind: calendar
+            id: CAL
+            metadata:
+              name: X
+              mic: not-a-mic
+              coverage: {from: 2020-01-01, to: 2030-12-31}
+            uses: [m]
+            """,
+            """
+            kind: module
+            id: m
+            source: doc
+            event_sources:
+              - key: a
+                name: A
+                rule: {type: fixed_month_day, month: 1, day: 1}
+            """);
+    assertTrue(codes(r).contains("INVALID_MIC"), r.issues().toString());
+    assertTrue(r.hasErrors());
+  }
+
+  @Test
+  void duplicateMicAcrossCalendarsIsAnError() throws Exception {
+    Path cal = dir.resolve("calendars");
+    Path mod = dir.resolve("modules");
+    Files.createDirectories(cal);
+    Files.createDirectories(mod);
+    Files.writeString(
+        cal.resolve("cal1.yaml"),
+        """
+        kind: calendar
+        id: CAL1
+        metadata:
+          name: One
+          mic: XABC
+          coverage: {from: 2020-01-01, to: 2030-12-31}
+        uses: [m]
+        """);
+    Files.writeString(
+        cal.resolve("cal2.yaml"),
+        """
+        kind: calendar
+        id: CAL2
+        metadata:
+          name: Two
+          mic: XABC
+          aliases: [ABCX]
+          coverage: {from: 2020-01-01, to: 2030-12-31}
+        uses: [m]
+        """);
+    Files.writeString(
+        mod.resolve("m.yaml"),
+        """
+        kind: module
+        id: m
+        source: doc
+        event_sources:
+          - key: a
+            name: A
+            rule: {type: fixed_month_day, month: 1, day: 1}
+        """);
+    SpecRegistry registry = new SpecRegistry();
+    registry.loadCalendarsFromDirectory(cal);
+    registry.loadModulesFromDirectory(mod);
+    SpecValidator validator = new SpecValidator(registry);
+    ValidationResult r1 = validator.validate("CAL1");
+    ValidationResult r2 = validator.validate("CAL2");
+    assertTrue(codes(r1).contains("DUPLICATE_MIC"), r1.issues().toString());
+    assertTrue(codes(r2).contains("DUPLICATE_MIC"), r2.issues().toString());
+  }
+
+  @Test
+  void duplicateAliasWithinOneCalendarIsAnError() throws Exception {
+    ValidationResult r =
+        validate(
+            """
+            kind: calendar
+            id: CAL
+            metadata:
+              name: X
+              mic: XABC
+              aliases: [ABC, abc]
+              coverage: {from: 2020-01-01, to: 2030-12-31}
+            uses: [m]
+            """,
+            """
+            kind: module
+            id: m
+            source: doc
+            event_sources:
+              - key: a
+                name: A
+                rule: {type: fixed_month_day, month: 1, day: 1}
+            """);
+    assertTrue(codes(r).contains("DUPLICATE_ALIAS"), r.issues().toString());
+  }
+
+  @Test
   void chronologyTableRangeIsChecked() throws Exception {
     ValidationResult r =
         validate(

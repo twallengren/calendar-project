@@ -2,6 +2,7 @@
   "calendar_id" : "PT-EURONEXT-LISBON",
   "calendar_name" : "Euronext Lisbon Trading Calendar",
   "kind" : "market",
+  "mic" : "XLIS",
   "generated_at" : "2026-02-16T21:43:21Z",
   "range_start" : "2010-01-01",
   "range_end" : "2030-12-31",

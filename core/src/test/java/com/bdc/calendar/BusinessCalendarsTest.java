@@ -67,6 +67,12 @@ class BusinessCalendarsTest {
     assertEquals("US-NYSE", BusinessCalendars.of("xnys").calendarId());
     assertEquals("SA-TADAWUL", BusinessCalendars.of("XSAU").calendarId());
     assertEquals("US-NYSE", BusinessCalendars.of("us_nyse").calendarId());
+    assertEquals("GB-LSE", BusinessCalendars.of("XLON").calendarId());
+    assertEquals("HK-HKEX", BusinessCalendars.of("xhkg").calendarId());
+    assertEquals("JP-JPX", BusinessCalendars.of("XTKS").calendarId());
+    assertEquals("JP-JPX", BusinessCalendars.of("XJPX").calendarId(), "segment MIC alias");
+    assertEquals("US-NYSE", BusinessCalendars.of("NYSE").calendarId());
+    assertEquals("SA-TADAWUL", BusinessCalendars.of("TADAWUL").calendarId());
   }
 
   @Test

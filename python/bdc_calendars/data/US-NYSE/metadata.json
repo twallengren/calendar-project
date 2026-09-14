@@ -1,4 +1,7 @@
 {
+  "aliases": [
+    "NYSE"
+  ],
   "calendar_id": "US-NYSE",
   "calendar_name": "NYSE Trading Calendar",
   "counts_by_status": {
@@ -17,6 +20,7 @@
   "event_count": 12836,
   "generated_at": "2026-02-16T21:43:21Z",
   "kind": "market",
+  "mic": "XNYS",
   "range_end": "2030-12-31",
   "range_start": "1900-01-01",
   "resolution_chain": [

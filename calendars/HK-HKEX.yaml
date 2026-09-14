@@ -18,6 +18,7 @@ metadata:
     (HKEX moved to trading through severe weather on 23 September 2024).
   chronology: ISO
   timezone: Asia/Hong_Kong
+  mic: XHKG
   coverage:
     from: 2018-01-01
     to: 2027-12-31

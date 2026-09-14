@@ -11,6 +11,7 @@ metadata:
     to: 2030-12-31
     verified_through: 2026-12-31
   kind: base
+  aliases: []
 uses:
 - weekend_sat_sun
 - euronext_holidays

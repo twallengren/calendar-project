@@ -81,6 +81,14 @@ public class MetadataEmitter {
     metadata.put(
         "kind",
         spec.metadata() != null ? spec.metadata().kind() : CalendarSpec.Metadata.KIND_MARKET);
+    if (spec.metadata() != null && spec.metadata().mic() != null) {
+      metadata.put("mic", spec.metadata().mic());
+    }
+    if (spec.metadata() != null
+        && spec.metadata().aliases() != null
+        && !spec.metadata().aliases().isEmpty()) {
+      metadata.put("aliases", spec.metadata().aliases());
+    }
     metadata.put(
         "generated_at", (fixedGeneratedAt != null ? fixedGeneratedAt : Instant.now()).toString());
     metadata.put("range_start", from.toString());

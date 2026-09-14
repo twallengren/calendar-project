@@ -10,6 +10,8 @@ metadata:
     to: 2030-12-31
     verified_through: 2028-12-31
   kind: market
+  mic: XLON
+  aliases: []
 uses:
 - weekend_sat_sun
 - gb_lse_holidays

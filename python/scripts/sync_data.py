@@ -46,16 +46,6 @@ PACKAGE_DIR = os.path.join(REPO_ROOT, "python", "bdc_calendars")
 DATA_DIR = os.path.join(PACKAGE_DIR, "data")
 BLESSED_DIR = os.path.join(REPO_ROOT, "blessed")
 
-# exchange_calendars (and ISO 10383 MIC) spellings callers may already have in
-# their code. Kept here, published in data/manifest.json, resolved by
-# bdc_calendars.get_calendar().
-ALIASES: Dict[str, str] = {
-    "XNYS": "US-NYSE",
-    "NYSE": "US-NYSE",
-    "XSAU": "SA-TADAWUL",
-    "TADAWUL": "SA-TADAWUL",
-}
-
 DAY_NAMES = (
     "MONDAY",
     "TUESDAY",
@@ -323,6 +313,10 @@ def sync_calendar(calendar_id: str) -> Tuple[int, int]:
 
 def write_manifest(blessed_manifest: Dict, calendars: List[str]) -> Dict:
     release = blessed_manifest["release_version"]
+    # blessed/manifest.json's own "aliases" map (written by `tools manifest`, derived from every
+    # calendar's metadata.json: mic plus any aliases) is the one source of truth for exchange-code
+    # spellings; this package just republishes it rather than hand-maintaining a copy.
+    aliases = blessed_manifest.get("aliases", {})
     manifest = {
         "schema_version": "1.0",
         "data_version": release["semantic"],
@@ -337,7 +331,7 @@ def write_manifest(blessed_manifest: Dict, calendars: List[str]) -> Dict:
             }
             for cal in calendars
         },
-        "aliases": dict(sorted(ALIASES.items())),
+        "aliases": dict(sorted(aliases.items())),
     }
     with open(os.path.join(DATA_DIR, "manifest.json"), "w", encoding="utf-8") as handle:
         json.dump(manifest, handle, indent=2, sort_keys=True)
@@ -386,7 +380,7 @@ def main(argv: Optional[List[str]] = None) -> int:
         blessed_manifest = json.load(handle)
 
     calendars = sorted(blessed_manifest["calendars"])
-    for alias, target in ALIASES.items():
+    for alias, target in blessed_manifest.get("aliases", {}).items():
         if target not in calendars:
             raise SystemExit("Alias {} points at unknown calendar {}".format(alias, target))
 

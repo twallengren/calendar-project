@@ -139,3 +139,5 @@ Chronology YAML files in `chronologies/` are compiled to Java classes in `tools/
 ## Data contributions
 
 When adding or modifying calendar data, cite the source with a `source:` field (an id from `sources/<MARKET>/README.md`); `validate --strict` rejects uncited event sources. The NYSE's own holiday history PDF under `sources/US-NYSE/` outranks third-party libraries when they disagree.
+
+A market-kind calendar's `metadata.mic` (ISO 10383) and `metadata.aliases` are the one source of truth for exchange-code lookups: `validate --strict` warns when a market has no `mic` and errors on a malformed or duplicate mic/alias; `tools manifest` (run by `scripts/bless.sh`) derives `blessed/manifest.json`'s `aliases` map from them, and `python/scripts/sync_data.py`/`data/build.gradle.kts` read that map rather than hand-maintaining their own.

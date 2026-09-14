@@ -8,7 +8,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.Callable;
@@ -183,7 +182,7 @@ public class ScaffoldCommand implements Callable<Integer> {
       }
 
       Files.createDirectories(calendarPath.getParent());
-      Files.writeString(calendarPath, calendarYaml(id, weekendModuleId, groupModuleId));
+      Files.writeString(calendarPath, calendarYaml(id, weekendModuleId, groupModuleId, mic));
 
       Files.createDirectories(groupPath.getParent());
       Files.writeString(groupPath, groupYaml(groupModuleId, holidayModuleId));
@@ -235,7 +234,7 @@ public class ScaffoldCommand implements Callable<Integer> {
     return weekendMode.equals("FRI_SAT") ? "weekend_fri_sat" : "weekend_sat_sun";
   }
 
-  private String calendarYaml(String id, String weekendModuleId, String groupModuleId) {
+  private String calendarYaml(String id, String weekendModuleId, String groupModuleId, String mic) {
     return """
         kind: calendar
         id: %s
@@ -245,6 +244,7 @@ public class ScaffoldCommand implements Callable<Integer> {
           description: "TODO: describe this market's trading calendar"
           chronology: ISO
           timezone: %s
+          mic: %s
           coverage:
             from: %s
             to: %s
@@ -257,7 +257,7 @@ public class ScaffoldCommand implements Callable<Integer> {
           - %s
           - %s
         """
-        .formatted(id, name, timezone, from, to, from, weekendModuleId, groupModuleId);
+        .formatted(id, name, timezone, mic, from, to, from, weekendModuleId, groupModuleId);
   }
 
   private String weekendYaml(String weekendModuleId, String sourceId) {
@@ -406,7 +406,7 @@ public class ScaffoldCommand implements Callable<Integer> {
     entry.put("checksum", "");
     entry.put("kind", "market");
     calendars.set(id, entry);
-    Files.writeString(manifestPath, toJqStyle(root));
+    Files.writeString(manifestPath, JqStyleJson.render(root));
   }
 
   private void updateExportScript(Path scriptPath, String id, String mic) throws IOException {
@@ -444,63 +444,5 @@ public class ScaffoldCommand implements Callable<Integer> {
     lines.add(end, "    (\"" + id + "\", \"" + mic + "\", \"" + from + "\", \"" + to + "\"),");
     Files.write(scriptPath, lines, java.nio.charset.StandardCharsets.UTF_8);
     // Preserve a trailing newline if the original file had one.
-  }
-
-  /** Renders a JsonNode tree in jq's default style (2-space indent, no space before ':'). */
-  private static String toJqStyle(JsonNode node) {
-    StringBuilder sb = new StringBuilder();
-    writeNode(sb, node, 0);
-    sb.append('\n');
-    return sb.toString();
-  }
-
-  private static void writeNode(StringBuilder sb, JsonNode node, int depth) {
-    String pad = "  ".repeat(depth);
-    String padIn = "  ".repeat(depth + 1);
-    if (node.isObject()) {
-      if (node.isEmpty()) {
-        sb.append("{}");
-        return;
-      }
-      sb.append("{\n");
-      List<String> keys = new ArrayList<>();
-      Iterator<String> names = node.fieldNames();
-      names.forEachRemaining(keys::add);
-      for (int i = 0; i < keys.size(); i++) {
-        String key = keys.get(i);
-        sb.append(padIn).append(jsonString(key)).append(": ");
-        writeNode(sb, node.get(key), depth + 1);
-        if (i < keys.size() - 1) sb.append(',');
-        sb.append('\n');
-      }
-      sb.append(pad).append('}');
-    } else if (node.isArray()) {
-      if (node.isEmpty()) {
-        sb.append("[]");
-        return;
-      }
-      sb.append("[\n");
-      for (int i = 0; i < node.size(); i++) {
-        sb.append(padIn);
-        writeNode(sb, node.get(i), depth + 1);
-        if (i < node.size() - 1) sb.append(',');
-        sb.append('\n');
-      }
-      sb.append(pad).append(']');
-    } else if (node.isTextual()) {
-      sb.append(jsonString(node.asText()));
-    } else if (node.isNull()) {
-      sb.append("null");
-    } else {
-      sb.append(node.toString());
-    }
-  }
-
-  private static String jsonString(String s) {
-    try {
-      return JSON_MAPPER.writeValueAsString(s);
-    } catch (IOException e) {
-      throw new RuntimeException(e);
-    }
   }
 }

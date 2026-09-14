@@ -46,6 +46,9 @@ for CAL_ID in $(jq -r '.calendars | keys[]' blessed/manifest.json); do
   mv blessed/manifest.json.tmp blessed/manifest.json
 done
 
+echo "Recomputing MIC/alias table"
+"$TOOLS" manifest --blessed-dir blessed
+
 echo "Cross-validating against reference data"
 "$TOOLS" crossvalidate --all --out blessed || true
 
