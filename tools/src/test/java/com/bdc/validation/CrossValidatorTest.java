@@ -132,6 +132,31 @@ class CrossValidatorTest {
   }
 
   @Test
+  void legacyAllowlistCannotExcuseCloseTimeDifferences() throws Exception {
+    Path referenceFile = writeReference("2024-01-01,EARLY_CLOSE,14:00");
+    writeAllowlist(
+        "test-source,ours,2024-01-01,EARLY_CLOSE,broad old exception",
+        "test-source,theirs,2024-01-01,EARLY_CLOSE,broad old exception");
+    Event event =
+        new Event(
+            LocalDate.parse("2024-01-01"),
+            EventType.EARLY_CLOSE,
+            "close",
+            "test",
+            "close",
+            "test",
+            null,
+            java.time.LocalTime.of(13, 0),
+            null);
+    var result =
+        new CrossValidator()
+            .compare("TEST-CAL", List.of(event), WeekendPolicy.SAT_SUN, referenceFile);
+    assertEquals(0, result.allowlistedCount());
+    assertEquals(2, result.unexplainedRows().size());
+    assertEquals(2, result.staleAllowlistRows().size());
+  }
+
+  @Test
   void closeTimesCompareExactlyAndInputOrderDoesNotMatter() throws Exception {
     Path referenceFile =
         writeReference(

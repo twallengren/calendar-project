@@ -178,7 +178,7 @@ public class CrossValidator {
     String legacyKey = side + "|" + id.substring(0, id.lastIndexOf('|'));
     int exact = Math.min(count, allow.getOrDefault(exactKey, 0));
     allow.computeIfPresent(exactKey, (k, remaining) -> remaining - exact);
-    int legacy = Math.min(count - exact, allow.getOrDefault(legacyKey, 0));
+    int legacy = id.endsWith("|") ? Math.min(count - exact, allow.getOrDefault(legacyKey, 0)) : 0;
     allow.computeIfPresent(legacyKey, (k, remaining) -> remaining - legacy);
     int used = exact + legacy;
     for (int i = used; i < count; i++) {

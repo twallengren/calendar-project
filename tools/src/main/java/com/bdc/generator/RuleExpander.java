@@ -49,7 +49,8 @@ public class RuleExpander {
       var date =
           com.bdc.chronology.ChronologyProviders.get(nativeDate.chronologyId()).toIso(nativeDate);
       if (range.contains(date))
-        result.add(new Occurrence(rule.key(), date, rule.name(), provenance));
+        result.add(
+            new Occurrence(rule.key(), date, rule.name(), provenance).withNativeDate(nativeDate));
     }
     return result;
   }
@@ -91,7 +92,17 @@ public class RuleExpander {
                   : date.with(TemporalAdjusters.nextOrSame(r.weekday())).plusWeeks(r.nth() - 1);
           if (date.isAfter(end)) continue;
         }
-        addSpan(result, rule, date, date.plusDays(rule.spanDays() - 1), range, provenance);
+        List<Occurrence> span = new ArrayList<>();
+        addSpan(span, rule, date, date.plusDays(rule.spanDays() - 1), range, provenance);
+        for (Occurrence occurrence : span) {
+          // Padding can include parts of boundary years outside the profile. Such rows cannot
+          // be returned by generate(), whose dependency bounds are checked before expansion.
+          if (!occurrence.date().isBefore(descriptor.supportedFrom())
+              && !occurrence.date().isAfter(descriptor.supportedTo())) {
+            occurrence = occurrence.withNativeDate(provider.fromIso(occurrence.date()));
+          }
+          result.add(occurrence);
+        }
       }
     }
     return result;

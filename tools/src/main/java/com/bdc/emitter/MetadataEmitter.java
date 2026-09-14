@@ -63,6 +63,28 @@ public class MetadataEmitter {
     mapper.writeValue(outputPath.toFile(), build(spec, events, from, to, gitSha, releaseVersion));
   }
 
+  public void emitWithDetails(
+      ResolvedSpec spec,
+      List<com.bdc.generator.CompiledEvent> details,
+      LocalDate from,
+      LocalDate to,
+      Path outputPath,
+      String gitSha,
+      String releaseVersion)
+      throws IOException {
+    Map<String, Object> metadata =
+        build(
+            spec,
+            details.stream().map(com.bdc.generator.CompiledEvent::event).toList(),
+            from,
+            to,
+            gitSha,
+            releaseVersion);
+    metadata.put("event_details", EventDetailsEmitter.rows(details));
+    if (outputPath.getParent() != null) Files.createDirectories(outputPath.getParent());
+    mapper.writeValue(outputPath.toFile(), metadata);
+  }
+
   public String emitToString(ResolvedSpec spec, List<Event> events, LocalDate from, LocalDate to)
       throws IOException {
     return mapper.writeValueAsString(build(spec, events, from, to, null, null));

@@ -99,7 +99,8 @@ public class GenerateCommand implements Callable<Integer> {
       ResolvedSpec resolved = resolver.resolve(calendarId);
 
       EventGenerator generator = new EventGenerator();
-      List<Event> events = generator.generate(resolved, from, to);
+      var details = generator.generateWithDetails(resolved, from, to);
+      List<Event> events = details.stream().map(com.bdc.generator.CompiledEvent::event).toList();
 
       // Emit to specified output directory
       Files.createDirectories(outputDir);
@@ -117,7 +118,8 @@ public class GenerateCommand implements Callable<Integer> {
       // Emit metadata
       MetadataEmitter metadataEmitter = new MetadataEmitter(generatedAt);
       Path metadataPath = outputDir.resolve("metadata.json");
-      metadataEmitter.emit(resolved, events, from, to, metadataPath, sourceVersion, releaseVersion);
+      metadataEmitter.emitWithDetails(
+          resolved, details, from, to, metadataPath, sourceVersion, releaseVersion);
 
       System.out.println("Generated " + events.size() + " events");
       System.out.println("  CSV: " + csvPath);
