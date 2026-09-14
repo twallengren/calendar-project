@@ -7,6 +7,11 @@
   },
   "blessed_at": "2026-02-16T21:43:21Z",
   "calendars": {
+    "BE-EURONEXT-BRUSSELS": {
+      "kind": "market",
+      "range_end": "2030-12-31",
+      "range_start": "2010-01-01"
+    },
     "CA-TSX": {
       "kind": "market",
       "range_end": "2030-12-31",
@@ -17,10 +22,30 @@
       "range_end": "2030-12-31",
       "range_start": "2003-01-01"
     },
+    "EU-EURONEXT": {
+      "kind": "base",
+      "range_end": "2030-12-31",
+      "range_start": "2010-01-01"
+    },
+    "FR-EURONEXT-PARIS": {
+      "kind": "market",
+      "range_end": "2030-12-31",
+      "range_start": "2010-01-01"
+    },
     "GB-LSE": {
       "kind": "market",
       "range_end": "2030-12-31",
       "range_start": "2000-01-01"
+    },
+    "NL-EURONEXT-AMSTERDAM": {
+      "kind": "market",
+      "range_end": "2030-12-31",
+      "range_start": "2010-01-01"
+    },
+    "PT-EURONEXT-LISBON": {
+      "kind": "market",
+      "range_end": "2030-12-31",
+      "range_start": "2010-01-01"
     },
     "SA-TADAWUL": {
       "kind": "market",

@@ -1,5 +1,25 @@
 {
   "calendars" : [ {
+    "id" : "BE-EURONEXT-BRUSSELS",
+    "name" : "Euronext Brussels Trading Calendar",
+    "timezone" : "Europe/Brussels",
+    "coverage" : {
+      "from" : "2010-01-01",
+      "to" : "2030-12-31",
+      "verified_through" : "2026-12-31"
+    },
+    "counts_by_type" : {
+      "CLOSED" : 127,
+      "WEEKEND" : 2168,
+      "EARLY_CLOSE" : 29
+    },
+    "counts_by_status" : {
+      "CONFIRMED" : 2324
+    },
+    "checksum" : "sha256:2911e892195b38a6e9b53785ee42e6edcea6d5b11915ef44ef0f42684d8ec79d",
+    "years" : [ 2010, 2030 ],
+    "href" : "/v1/calendars/BE-EURONEXT-BRUSSELS/manifest.json"
+  }, {
     "id" : "CA-TSX",
     "name" : "Toronto Stock Exchange",
     "timezone" : "America/Toronto",
@@ -40,6 +60,26 @@
     "years" : [ 2003, 2030 ],
     "href" : "/v1/calendars/DE-XETRA/manifest.json"
   }, {
+    "id" : "FR-EURONEXT-PARIS",
+    "name" : "Euronext Paris Trading Calendar",
+    "timezone" : "Europe/Paris",
+    "coverage" : {
+      "from" : "2010-01-01",
+      "to" : "2030-12-31",
+      "verified_through" : "2026-12-31"
+    },
+    "counts_by_type" : {
+      "CLOSED" : 127,
+      "WEEKEND" : 2168,
+      "EARLY_CLOSE" : 29
+    },
+    "counts_by_status" : {
+      "CONFIRMED" : 2324
+    },
+    "checksum" : "sha256:2911e892195b38a6e9b53785ee42e6edcea6d5b11915ef44ef0f42684d8ec79d",
+    "years" : [ 2010, 2030 ],
+    "href" : "/v1/calendars/FR-EURONEXT-PARIS/manifest.json"
+  }, {
     "id" : "GB-LSE",
     "name" : "London Stock Exchange",
     "timezone" : "Europe/London",
@@ -59,6 +99,46 @@
     "checksum" : "sha256:d63d64d090ae86800da9d926cc58dce3db7ef27859034c789b989c60acb9fba4",
     "years" : [ 2000, 2030 ],
     "href" : "/v1/calendars/GB-LSE/manifest.json"
+  }, {
+    "id" : "NL-EURONEXT-AMSTERDAM",
+    "name" : "Euronext Amsterdam Trading Calendar",
+    "timezone" : "Europe/Amsterdam",
+    "coverage" : {
+      "from" : "2010-01-01",
+      "to" : "2030-12-31",
+      "verified_through" : "2026-12-31"
+    },
+    "counts_by_type" : {
+      "CLOSED" : 127,
+      "WEEKEND" : 2168,
+      "EARLY_CLOSE" : 29
+    },
+    "counts_by_status" : {
+      "CONFIRMED" : 2324
+    },
+    "checksum" : "sha256:2911e892195b38a6e9b53785ee42e6edcea6d5b11915ef44ef0f42684d8ec79d",
+    "years" : [ 2010, 2030 ],
+    "href" : "/v1/calendars/NL-EURONEXT-AMSTERDAM/manifest.json"
+  }, {
+    "id" : "PT-EURONEXT-LISBON",
+    "name" : "Euronext Lisbon Trading Calendar",
+    "timezone" : "Europe/Lisbon",
+    "coverage" : {
+      "from" : "2010-01-01",
+      "to" : "2030-12-31",
+      "verified_through" : "2026-12-31"
+    },
+    "counts_by_type" : {
+      "CLOSED" : 127,
+      "WEEKEND" : 2168,
+      "EARLY_CLOSE" : 29
+    },
+    "counts_by_status" : {
+      "CONFIRMED" : 2324
+    },
+    "checksum" : "sha256:5f1f1df0a89a74e2108aa4c765f35bfde3a3b6c6d2510ad2935b4af49a65d2dc",
+    "years" : [ 2010, 2030 ],
+    "href" : "/v1/calendars/PT-EURONEXT-LISBON/manifest.json"
   }, {
     "id" : "SA-TADAWUL",
     "name" : "Tadawul (Saudi Exchange) Trading Calendar",
