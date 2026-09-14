@@ -28,6 +28,10 @@ java {
     toolchain {
         languageVersion.set(JavaLanguageVersion.of(21))
     }
+    // The artifact has no sources, but Maven Central requires a sources and a javadoc jar on
+    // every release upload; with no sources these are (accepted) empty jars.
+    withSourcesJar()
+    withJavadocJar()
 }
 
 /**
@@ -291,4 +295,10 @@ signing {
         useInMemoryPgpKeys(signingKey, signingPassword)
         sign(publishing.publications["maven"])
     }
+}
+
+// The sources jar would otherwise repackage the generated resources; keep it an empty stub.
+tasks.named<Jar>("sourcesJar") {
+    dependsOn("generateCalendarData")
+    exclude("bdc/**")
 }
