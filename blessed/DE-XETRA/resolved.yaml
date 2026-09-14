@@ -131,8 +131,11 @@ event_sources:
   - id: xetra-trading-calendar-2014
     ref: "exceptions sentence: 3 October (settlement day); first occurrence in the\
       \ sourced range"
-  - id: xetra-trading-calendar-2021
+  - id: xetra-trading-calendar-2019
     ref: "exceptions sentence: 3 October (settlement day); last confirmed occurrence"
+  - id: xetra-trading-calendar-2021
+    ref: "exceptions sentence omits 3 October (a Sunday in 2021); status unconfirmable,\
+      \ not assumed"
   - id: xetra-trading-calendar-2022
     ref: exceptions sentence omits 3 October (a Monday); confirms no closure from
       2022
@@ -144,8 +147,6 @@ event_sources:
     - 2017-10-03
     - 2018-10-03
     - 2019-10-03
-    - 2020-10-03
-    - 2021-10-03
 - key: de_xetra_reformation_day_2017
   name: Reformation Day (500th anniversary)
   origin: module:de_xetra_reformation_day_2017

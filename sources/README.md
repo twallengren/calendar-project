@@ -9,6 +9,9 @@ without one).
 |-----------|--------|
 | `US-NYSE/` | New York Stock Exchange (also backs `US-MARKET-BASE` and `US-CORP-IN-VISIBILITY`) |
 | `SA-TADAWUL/` | Saudi Exchange (Tadawul) |
+| `GB-LSE/` | London Stock Exchange |
+| `DE-XETRA/` | Deutsche Börse Xetra / Börse Frankfurt |
+| `CA-TSX/` | Toronto Stock Exchange (TMX Group) |
 
 Citation shape in YAML:
 

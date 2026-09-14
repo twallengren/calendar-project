@@ -50,13 +50,13 @@
       "verified_through" : "2026-12-31"
     },
     "counts_by_type" : {
-      "CLOSED" : 240,
-      "WEEKEND" : 2872
+      "CLOSED" : 238,
+      "WEEKEND" : 2874
     },
     "counts_by_status" : {
       "CONFIRMED" : 3112
     },
-    "checksum" : "sha256:3dcda6443c0f21e5a8dfa8650f46de6af60ff7bb654e28b9022c11d4c03d876b",
+    "checksum" : "sha256:7cb017d87e960494675fdc1caaff4363a8f05c96301331781dc94ad38f777677",
     "years" : [ 2003, 2030 ],
     "href" : "/v1/calendars/DE-XETRA/manifest.json"
   }, {

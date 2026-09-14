@@ -240,6 +240,10 @@ event_sources:
   status: CONFIRMED
   source:
   - id: lse-business-days
+    ref: "Christmas Holiday half day, 12:30 (2026 and 2027 rows)"
+  - id: lse-trading-calendar-2021
+    ref: "LSE column: Early Close Friday 24 December 2021; LSE early-closing time\
+      \ 12:30"
   rule:
     type: fixed_month_day
     month: 12
@@ -258,6 +262,10 @@ event_sources:
   status: CONFIRMED
   source:
   - id: lse-business-days
+    ref: "New Year's Holiday half day, 12:30 (2026 and 2027 rows)"
+  - id: lse-trading-calendar-2021
+    ref: "LSE column: Early Close Friday 31 December 2021; LSE early-closing time\
+      \ 12:30"
   rule:
     type: fixed_month_day
     month: 12
@@ -269,11 +277,12 @@ event_sources:
   close_time: 12:30
   status: CONFIRMED
   source:
+  - id: lse-trading-calendar-2022
+    ref: "LSE column: Early Close Friday 23 December 2022"
+  - id: lse-trading-calendar-2023
+    ref: "LSE column: early close Friday 22 December 2023"
   - id: lse-business-days
     ref: 2028 half day observed Friday 22 December
-  - id: xcal-xlon-crossval
-    ref: "2000, 2005, 2006, 2011, 2016, 2017, 2022, 2023 half days computed on the\
-      \ preceding Friday"
   rule:
     type: explicit_dates
     dates:
@@ -302,11 +311,12 @@ event_sources:
   close_time: 12:30
   status: CONFIRMED
   source:
+  - id: lse-trading-calendar-2022
+    ref: "LSE column: Early Close Friday 30 December 2022"
+  - id: lse-trading-calendar-2023
+    ref: "LSE column: early close Friday 29 December 2023"
   - id: lse-business-days
     ref: 2028 half day observed Friday 29 December
-  - id: xcal-xlon-crossval
-    ref: "2000, 2005, 2006, 2011, 2016, 2017, 2022, 2023 half days computed on the\
-      \ preceding Friday"
   rule:
     type: explicit_dates
     dates:

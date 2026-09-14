@@ -14,8 +14,8 @@
   "event_count" : 3112,
   "resolution_chain" : [ "module:weekend_sat_sun", "module:de_xetra_new_years_day", "module:de_xetra_good_friday", "module:de_xetra_easter_monday", "module:de_xetra_labour_day", "module:de_xetra_whit_monday", "module:de_xetra_german_unity_day", "module:de_xetra_reformation_day_2017", "module:de_xetra_christmas_eve", "module:de_xetra_christmas_day", "module:de_xetra_boxing_day", "module:de_xetra_new_years_eve", "module:de_xetra_holidays", "calendar:DE-XETRA" ],
   "counts_by_type" : {
-    "CLOSED" : 240,
-    "WEEKEND" : 2872
+    "CLOSED" : 238,
+    "WEEKEND" : 2874
   },
   "counts_by_status" : {
     "CONFIRMED" : 3112
