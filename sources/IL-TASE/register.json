@@ -5,7 +5,7 @@
       "id": "tase-vacation-schedule-2025",
       "title": "Vacation Schedule 2025 (Hebrew)",
       "publisher": "Tel Aviv Stock Exchange",
-      "location": "sources/IL-TASE/tase-vacation-schedule-2025-he.pdf",
+      "location": "[Original PDF](https://content.tase.co.il/media/iexfczjb/file_0010_vacation_schedule_2025_heb.pdf) · `sources/IL-TASE/tase-vacation-schedule-2025-he.pdf`",
       "retrieved": "2026-09-14",
       "covers": "2025 scheduled closures and shortened-session date ranges",
       "notes": "The complete one-page TASE table states Sunday-Thursday trading, lists every 2025 vacation date, and identifies 14-17 April and 8-12 October as shortened trading days.",
@@ -16,33 +16,30 @@
         }
       ],
       "support_intervals": [
-        {"from": "2025-01-01", "to": "2025-12-31", "scope": "SCHEDULED_CLOSURES"},
-        {"from": "2025-01-01", "to": "2025-12-31", "scope": "EARLY_CLOSES"}
+        {"from": "2025-01-01", "to": "2025-12-31", "scope": "SCHEDULED_CLOSURES"}
       ]
     },
     {
       "id": "tase-board-trading-hours-2024",
       "title": "TASE Board Resolutions of 15 February 2024",
       "publisher": "Tel Aviv Stock Exchange",
-      "location": "sources/IL-TASE/tase-board-trading-hours-2024-02-15-he.pdf",
+      "location": "[Original PDF](https://mayafiles.tase.co.il/reports/1574001-1575000/E1574791.pdf) · `sources/IL-TASE/tase-board-trading-hours-2024-02-15-he.pdf`",
       "retrieved": "2026-09-14",
-      "covers": "equity trading hours, including intermediate Passover and Sukkot sessions",
-      "notes": "Page 17 gives 14:30 as the end of the TAL closing-price phase on Passover and Sukkot intermediate trading days.",
+      "covers": "proposed equity trading hours for intermediate Passover and Sukkot sessions",
+      "notes": "Page 17 proposes a 14:30 end to the TAL closing-price phase, but page 1 says the amendments require ISA approval and that their effective date will be announced separately. This record does not establish an operative 2025 close time.",
       "local_files": [
         {
           "path": "IL-TASE/tase-board-trading-hours-2024-02-15-he.pdf",
           "sha256": "30b9c41cc1461d872befcf52b8e75a4b2eaa7f1c4596efeeef4e7a5474a57a4f"
         }
       ],
-      "support_intervals": [
-        {"from": "2025-01-01", "to": "2025-12-31", "scope": "EARLY_CLOSES"}
-      ]
+      "support_intervals": []
     },
     {
       "id": "isa-trading-week-2026",
       "title": "Modification of Tel Aviv Stock Exchange Trading Days Guide",
       "publisher": "Israel Securities Authority",
-      "location": "sources/IL-TASE/isa-modification-trading-days-2026-en.pdf",
+      "location": "[Original PDF](https://www.new.isa.gov.il/images/Fittings/isa/asset_library_pic/al_lobby/al_lobby-65d5b849b3af3/Modification_TradingDays.pdf) · `sources/IL-TASE/isa-modification-trading-days-2026-en.pdf`",
       "retrieved": "2026-09-14",
       "covers": "new Monday-Friday trading week effective 5 January 2026 and Friday hours",
       "notes": "Pages 7 and 30 set the effective date and Monday-Friday week; pages 17-19 and 30 set every Friday equity session to 10:00-13:50.",
@@ -53,14 +50,25 @@
         }
       ],
       "support_intervals": [
-        {"from": "2026-01-05", "to": "2027-12-31", "scope": "EARLY_CLOSES"}
+        {"from": "2026-01-09", "to": "2026-01-09", "scope": "EARLY_CLOSES"},
+        {"from": "2026-01-16", "to": "2026-01-16", "scope": "EARLY_CLOSES"},
+        {"from": "2026-01-23", "to": "2026-01-23", "scope": "EARLY_CLOSES"},
+        {"from": "2026-01-30", "to": "2026-01-30", "scope": "EARLY_CLOSES"},
+        {"from": "2026-02-06", "to": "2026-02-06", "scope": "EARLY_CLOSES"},
+        {"from": "2026-02-13", "to": "2026-02-13", "scope": "EARLY_CLOSES"},
+        {"from": "2026-02-20", "to": "2026-02-20", "scope": "EARLY_CLOSES"},
+        {"from": "2026-02-27", "to": "2026-02-27", "scope": "EARLY_CLOSES"},
+        {"from": "2026-03-06", "to": "2026-03-06", "scope": "EARLY_CLOSES"},
+        {"from": "2026-03-13", "to": "2026-03-13", "scope": "EARLY_CLOSES"},
+        {"from": "2026-03-20", "to": "2026-03-20", "scope": "EARLY_CLOSES"},
+        {"from": "2026-03-27", "to": "2026-03-27", "scope": "EARLY_CLOSES"}
       ]
     },
     {
       "id": "tase-weekly-review-2026-04-20",
       "title": "Overview of the Trading Week on TASE - 20 April 2026",
       "publisher": "Tel Aviv Stock Exchange Research Unit",
-      "location": "sources/IL-TASE/tase-weekly-review-2026-04-20-en.pdf",
+      "location": "[Original PDF](https://content.tase.co.il/media/22uhu2p0/stat_111_wrev_eng_20260420.pdf) · `sources/IL-TASE/tase-weekly-review-2026-04-20-en.pdf`",
       "retrieved": "2026-09-14",
       "covers": "21-22 April 2026",
       "notes": "States that there will be no trading Tuesday and Wednesday due to Memorial Day and Independence Day, and that trading resumes Thursday.",
@@ -78,7 +86,7 @@
       "id": "tase-q1-2026-report",
       "title": "TASE Interim Report for the Period Ended 31 March 2026",
       "publisher": "Tel Aviv Stock Exchange",
-      "location": "sources/IL-TASE/tase-q1-2026-report-en.pdf",
+      "location": "[Original PDF](https://content.tase.co.il/media/pnbmjog2/tase-ltd-interim-report-for-the-period-ended-march-31-2026.pdf) · `sources/IL-TASE/tase-q1-2026-report-en.pdf`",
       "retrieved": "2026-09-14",
       "covers": "Q1 2026 aggregate trading-day count",
       "notes": "Page 3 reports 62 actual trading days in Q1 2026. This corroborates an aggregate only and is not treated as evidence for individual closure dates.",
