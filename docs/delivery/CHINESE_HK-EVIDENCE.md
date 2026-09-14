@@ -7,8 +7,9 @@ months use exact `M01`–`M12` / `MxxL` identities. Every supported ISO date is 
 
 The conversion fixtures retain original annual text tables from the [Hong Kong
 Observatory](https://www.hko.gov.hk/en/gts/time/conversion.htm), with file hashes in
-`sources/HK-HKEX/register.json`. They cover the two support edges, 2023 leap month two, 2025 leap
-month six, the 2033/2034 transition, and HKO's 2057/2089/2097 uncertainty examples. HKO and ICU
+`sources/HK-HKEX/register.json`. They include every 2016–2029 table used by `QINGMING_HK`, both
+support edges, 2023 leap month two, 2025 leap month six, the 2033/2034 transition, and HKO's
+2057/2089/2097 uncertainty examples. HKO and ICU
 differ at 2057-09-28/29 as documented in the profile guide. They also differ at the near-midnight
 2027 new moon: [HKO's original 2027 table](https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2027e.txt)
 starts month one on 6 February, while ICU starts it on 7 February.
