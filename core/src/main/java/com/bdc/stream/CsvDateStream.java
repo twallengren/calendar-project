@@ -7,6 +7,7 @@ import com.bdc.trust.CoverageInterval;
 import com.bdc.trust.EventDetails;
 import com.bdc.trust.PublishedEventDetails;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.*;
 
 /**
@@ -22,6 +23,7 @@ public class CsvDateStream implements DateStream {
   private final DateRange range;
   private final LocalDate verifiedThrough;
   private final List<CoverageInterval> coverageIntervals;
+  private final ZoneId timezone;
   private final Map<LocalDate, List<EventDetails>> detailsByDate = new TreeMap<>();
   private final NavigableMap<LocalDate, List<Event>> byDate = new TreeMap<>();
 
@@ -54,10 +56,22 @@ public class CsvDateStream implements DateStream {
       LocalDate verifiedThrough,
       List<CoverageInterval> coverageIntervals,
       List<EventDetails> publishedDetails) {
+    this(calendarId, events, range, verifiedThrough, coverageIntervals, publishedDetails, null);
+  }
+
+  public CsvDateStream(
+      String calendarId,
+      List<Event> events,
+      DateRange range,
+      LocalDate verifiedThrough,
+      List<CoverageInterval> coverageIntervals,
+      List<EventDetails> publishedDetails,
+      ZoneId timezone) {
     this.calendarId = calendarId;
     this.range = range;
     this.verifiedThrough = verifiedThrough;
     this.coverageIntervals = coverageIntervals == null ? List.of() : List.copyOf(coverageIntervals);
+    this.timezone = timezone;
     for (Event e : events) {
       byDate.computeIfAbsent(e.date(), d -> new ArrayList<>()).add(e);
     }
@@ -132,6 +146,11 @@ public class CsvDateStream implements DateStream {
   @Override
   public List<CoverageInterval> coverageIntervals() {
     return coverageIntervals;
+  }
+
+  @Override
+  public Optional<ZoneId> timezone() {
+    return Optional.ofNullable(timezone);
   }
 
   private void checkRange(LocalDate date) {

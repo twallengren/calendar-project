@@ -32,8 +32,8 @@ import java.util.Optional;
  * predicate (for example "open in any member") would be a different class with a different name;
  * none is provided.
  *
- * <p>This is the settlement/operations semantic: a trade between two markets can only settle on a
- * day both are open, so T+N is counted on the joint stream.
+ * <p>Date offsets on this stream count only days when every member is open. They do not establish
+ * instrument-specific settlement eligibility, operating sessions or intraday cutoffs.
  *
  * <h2>Composed answers</h2>
  *
@@ -51,9 +51,9 @@ import java.util.Optional;
  *   <li>{@link #status} — {@code UNKNOWN} if any member is UNKNOWN, else {@code PROJECTED} if any
  *       member is PROJECTED, else {@code CONFIRMED}: the joint answer is only as good as its worst
  *       member.
- *   <li>{@link #closeTime} — the earliest early close declared by any member on that date. A joint
- *       date can carry an early close and still not be a business day (another member is closed);
- *       check {@link #isBusinessDay} first.
+ *   <li>{@link #memberCloses} — member-specific local closes with calendar and timezone identity.
+ *       The old {@link #closeTime} comparison of local wall-clock values is deprecated because
+ *       values in different timezones are not directly comparable.
  * </ul>
  */
 public final class JointDateStream implements DateStream {
@@ -183,12 +183,30 @@ public final class JointDateStream implements DateStream {
   }
 
   @Override
+  @Deprecated(since = "12.0", forRemoval = true)
   public Optional<LocalTime> closeTime(LocalDate date) {
     checkRange(date);
     return members.stream()
         .map(m -> m.closeTime(date))
         .flatMap(Optional::stream)
         .min(Comparator.naturalOrder());
+  }
+
+  /** Each member's early close with its own timezone identity. */
+  @Override
+  public List<MemberClose> memberCloses(LocalDate date) {
+    checkRange(date);
+    requireResolved(date);
+    List<MemberClose> closes = new ArrayList<>();
+    for (DateStream member : members) {
+      member
+          .closeTime(date)
+          .ifPresent(
+              time ->
+                  closes.add(
+                      new MemberClose(member.calendarId(), member.timezone().orElse(null), time)));
+    }
+    return List.copyOf(closes);
   }
 
   @Override

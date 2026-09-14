@@ -38,6 +38,9 @@ public record Event(
     Objects.requireNonNull(type, "type must not be null");
     Objects.requireNonNull(description, "description must not be null");
     if (status == null) status = EventStatus.CONFIRMED;
+    if (status == EventStatus.UNKNOWN) {
+      throw new IllegalArgumentException("event status must be CONFIRMED or PROJECTED");
+    }
   }
 
   /** Legacy constructor without enrichment fields. */

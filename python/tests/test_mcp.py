@@ -34,6 +34,11 @@ EXPECTED_TOOLS = {
     "next_business_day",
     "previous_business_day",
     "add_business_days",
+    "adjust_date",
+    "business_day_offset",
+    "advance_months",
+    "last_business_day_of_month",
+    "member_closes",
     "business_days_between",
     "holidays_in_range",
     "is_early_close",
@@ -73,6 +78,36 @@ async def test_is_business_day_us_nyse():
             assert payload["is_business_day"] is True
             assert "data_version" in payload
             assert "reason" not in payload
+
+
+@pytest.mark.anyio
+async def test_financial_operation_shape_and_member_timezone():
+    async with stdio_client(SERVER_PARAMS) as (read, write):
+        async with ClientSession(read, write) as session:
+            await session.initialize()
+            adjusted = await _call(
+                session,
+                "adjust_date",
+                {"calendar": "US-NYSE", "date": "2025-12-25", "convention": "FOLLOWING"},
+            )
+            assert adjusted["operation"] == "ADJUST"
+            assert adjusted["original_date"] == "2025-12-25"
+            assert adjusted["result_date"] == "2025-12-26"
+            assert adjusted["examined_dates"] == ["2025-12-25", "2025-12-26"]
+            assert adjusted["effective_confidence"] in {"CONFIRMED", "PROJECTED"}
+
+            closes = await _call(
+                session,
+                "member_closes",
+                {"calendars": ["US-NYSE"], "date": "2026-11-27"},
+            )
+            assert closes["member_closes"] == [
+                {
+                    "calendar_id": "US-NYSE",
+                    "timezone": "America/New_York",
+                    "local_time": "13:00",
+                }
+            ]
 
 
 @pytest.mark.anyio
@@ -160,6 +195,8 @@ async def test_joint_settlement_date_us_nyse_sa_tadawul():
             )
             assert payload["settlement_date"] == "2026-03-02"
             assert payload["calendar_id"] == "US-NYSE+SA-TADAWUL"
+            assert payload["effective_confidence"] in {"CONFIRMED", "PROJECTED"}
+            assert payload["examined_dates"][0] == "2026-02-26"
             closures = {d["date"]: d["closed_members"] for d in payload["intervening_days"]}
             assert closures["2026-02-27"] == ["SA-TADAWUL"]
             assert closures["2026-02-28"] == ["US-NYSE", "SA-TADAWUL"]

@@ -21,6 +21,8 @@ nyse = bdc.get_calendar("XNYS")          # or "US-NYSE"
 nyse.is_business_day(dt.date(2025, 12, 25))      # False
 nyse.next_business_day(dt.date(2025, 12, 24))    # datetime.date(2025, 12, 26)
 nyse.add_business_days(dt.date(2025, 11, 26), 2) # T+2 -> datetime.date(2025, 12, 1)
+nyse.adjust(dt.date(2025, 12, 25), "FOLLOWING")   # datetime.date(2025, 12, 26)
+nyse.advance_months(dt.date(2024, 3, 31), -1, "UNADJUSTED") # datetime.date(2024, 2, 29)
 nyse.close_time(dt.date(2025, 7, 3))             # datetime.time(13, 0)  (early close)
 nyse.status(dt.date(2028, 6, 1))                 # 'PROJECTED'
 ```
@@ -43,12 +45,16 @@ installed version. Ids are matched case-insensitively, and `-` and `_` are inter
 
 | Member | Meaning |
 |--------|---------|
-| `calendar_id`, `name`, `kind`, `timezone` | identity; `timezone` is the IANA zone close times are local to |
+| `calendar_id`, `name`, `kind`, `timezone` | identity; kind is `market`, `payment` or `base`, and `timezone` is the IANA zone close times are local to |
 | `range` | the covered window, unpacking as `(from, to)` |
 | `verified_through` | last date checked against sources, or `None` |
 | `is_business_day(date)` | not a weekend under the calendar's (effective-dated) weekend policy and no `CLOSED` event. An early close **is** a business day |
 | `next_business_day(date)` / `previous_business_day(date)` | the first business day strictly after / before |
 | `add_business_days(date, n)` | the `n`-th business day from `date`; `n = 0` returns `date` unchanged, the starting date is never counted, so T+1 from a Friday is the following Monday |
+| `adjust(date, convention)` | apply Unadjusted, Following, Modified Following, Preceding or Modified Preceding |
+| `business_day_offset(date, n)` | move by business dates; the detailed variant reports path-wide confidence |
+| `advance_months(date, months, convention, preserve_end_of_month=False)` | add calendar months, clip the nominal day, optionally preserve business month end, then adjust |
+| `last_business_day_of_month(date)` | final resolved business date in the input month |
 | `business_days_between(a, b)` | count of business days, **both endpoints included** |
 | `is_early_close(date)` / `close_time(date)` | shortened-session test and its local close time (`datetime.time` or `None`) |
 | `status(date)` | `"CONFIRMED"`, `"PROJECTED"` or `"UNKNOWN"` — never raises |
@@ -75,11 +81,17 @@ joint.add_business_days(dt.date(2026, 2, 25), 2)   # T+2 across both markets
 joint.closed_members(dt.date(2026, 2, 27))         # [<SingleCalendar SA-TADAWUL ...>]
 ```
 
-A date is a business day only when **every** member trades on it — the settlement semantic: a trade
-settles only on a day both markets are open. "Intersection of trading days" and "union of closures"
-are the same predicate, so there is exactly one constructor for it. The joint `range` is the
+A date is a business day only when **every** member trades on it. "Intersection of trading days"
+and "union of closures" are the same predicate, so there is exactly one constructor for it. The joint `range` is the
 intersection of the members' ranges, `verified_through` is the earliest declared, and `status` is
 the worst member's.
+
+The earliest local `JointCalendar.close_time` is deprecated because local times in different
+timezones are not directly comparable. Use `member_closes(date)` for `MemberClose(calendar_id,
+timezone, local_time)` values. Legacy data without timezone metadata returns `None` for that member.
+
+The generic T+N helpers calculate business-date offsets. They do not establish an instrument's
+settlement eligibility, payment-system cutoff, operating session or intraday deadline.
 
 ### Coverage, status and the out-of-range contract
 
@@ -203,6 +215,11 @@ recover — e.g. calling `list_calendars` for a valid id, or `status` to probe a
 | `next_business_day(calendar, date)` | "What's the next US-NYSE trading day after 2025-12-25?" |
 | `previous_business_day(calendar, date)` | "What was the last US-NYSE trading day before 2026-01-01?" |
 | `add_business_days(calendar, date, n)` | "If a US-NYSE trade happens on 2025-11-26, what date is T+2 settlement?" |
+| `adjust_date(calendar, date, convention)` | "Adjust 2025-12-25 on US-NYSE using Following." |
+| `business_day_offset(calendar, date, offset)` | "Move three US-NYSE business dates and show confidence for the path." |
+| `advance_months(calendar, date, months, convention, preserve_end_of_month=False)` | "Advance one month and preserve business month end." |
+| `last_business_day_of_month(calendar, date)` | "What is the month's final US-NYSE business date?" |
+| `member_closes(calendars, date)` | "List each member's early close with its timezone." |
 | `business_days_between(calendar, start, end)` | "How many US-NYSE trading days were there in March 2026?" |
 | `holidays_in_range(calendar, start, end, include_early_closes=True)` | "What holidays and early closes does US-NYSE observe in 2026?" |
 | `is_early_close(calendar, date)` | "Does the US-NYSE close early on 2027-11-26, and if so, at what time?" |

@@ -184,6 +184,44 @@ class QueryCommandTest {
     assertTrue(output.contains("2024-03-06"));
   }
 
+  @Test
+  void financialOperationsPrintTheVersionedSnakeCaseJsonShape() throws Exception {
+    CommandLine command = new CommandLine(new QueryCommand());
+    int code =
+        command.execute("US-MARKET-BASE", "--adjust", "2024-03-02", "--convention", "FOLLOWING");
+
+    assertEquals(0, code, stderr.toString());
+    var json = new com.fasterxml.jackson.databind.ObjectMapper().readTree(stdout.toString());
+    assertEquals("2024-03-02", json.path("original_date").asText());
+    assertEquals("2024-03-04", json.path("result_date").asText());
+    assertEquals("ADJUST", json.path("operation").asText());
+    assertEquals("FOLLOWING", json.path("convention").asText());
+    assertTrue(json.has("effective_confidence"));
+    assertEquals(3, json.path("examined_dates").size());
+  }
+
+  @Test
+  void financialOperationsRequireTheirExplicitArguments() {
+    CommandLine command = new CommandLine(new QueryCommand());
+    int code = command.execute("US-MARKET-BASE", "--advance-months", "1");
+
+    assertEquals(1, code);
+    assertTrue(stderr.toString().contains("--from"), stderr.toString());
+  }
+
+  @Test
+  void memberClosesJsonKeepsTimezoneIdentity() throws Exception {
+    CommandLine command = new CommandLine(new QueryCommand());
+    int code = command.execute("US-NYSE", "--member-closes", "2026-11-27");
+
+    assertEquals(0, code, stderr.toString());
+    var json = new com.fasterxml.jackson.databind.ObjectMapper().readTree(stdout.toString());
+    assertEquals("2026-11-27", json.path("date").asText());
+    assertEquals("US-NYSE", json.path("member_closes").path(0).path("calendar_id").asText());
+    assertEquals("America/New_York", json.path("member_closes").path(0).path("timezone").asText());
+    assertEquals("13:00", json.path("member_closes").path(0).path("local_time").asText());
+  }
+
   // === Joint (multi-calendar) queries ===
   // 2026-02-26 is a Thursday: Tadawul rests Fri-Sat, the NYSE Sat-Sun, so the joint calendar is
   // shut from Friday through Sunday and the next joint business day is Monday 2026-03-02.

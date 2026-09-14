@@ -38,6 +38,7 @@ from .calendar import (
     list_aliases,
     list_calendars,
 )
+from .operations import BusinessDayConvention, DateOperation, DateOperationResult, MemberClose
 from .errors import (
     BdcCalendarError,
     CalendarNotFoundError,
@@ -62,6 +63,10 @@ __all__ = [
     "data_generation_date",
     "get_calendar",
     "get_joint_calendar",
+    "BusinessDayConvention",
+    "DateOperation",
+    "DateOperationResult",
+    "MemberClose",
     "list_calendars",
     "list_aliases",
     "BusinessCalendar",

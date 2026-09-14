@@ -25,6 +25,15 @@ from . import _loader
 from ._loader import Event
 from ._weekend import DAY_NAMES, WeekendPolicy
 from .errors import OutsideCoverageError, UnresolvedDateError
+from .operations import (
+    BusinessDayConvention,
+    DateOperationResult,
+    MemberClose,
+    adjust_detailed as _adjust_detailed,
+    advance_months_detailed as _advance_months_detailed,
+    business_day_offset_detailed as _business_day_offset_detailed,
+    last_business_day_of_month_detailed as _last_business_day_of_month_detailed,
+)
 from .trust import (
     CLOSED,
     COMPLETENESS_SCOPES,
@@ -123,6 +132,11 @@ class BusinessCalendar:
         """Explicit scope-specific quality intervals; empty for legacy artifacts."""
         return ()
 
+    @property
+    def timezone(self) -> Optional[str]:
+        """IANA timezone for local close times, or ``None`` for legacy metadata."""
+        return None
+
     # --- Core queries --------------------------------------------------------
 
     def events_on(self, date: DateLike) -> List[Event]:
@@ -220,6 +234,58 @@ class BusinessCalendar:
     #: Alias matching the spelling used in ``spec/SPEC.md`` and the Java API.
     nth_business_day = add_business_days
 
+    def adjust(self, date: DateLike, convention: BusinessDayConvention) -> _dt.date:
+        """Adjust ``date`` under a standard business-day convention."""
+        return self.adjust_detailed(date, convention).result_date
+
+    def adjust_detailed(
+        self, date: DateLike, convention: BusinessDayConvention
+    ) -> DateOperationResult:
+        """Rich adjustment with confidence across every examined date."""
+        return _adjust_detailed(self, _as_date(date), convention)
+
+    def business_day_offset(self, date: DateLike, offset: int) -> _dt.date:
+        """Move by business dates; zero returns the input unchanged."""
+        return self.business_day_offset_detailed(date, offset).result_date
+
+    def business_day_offset_detailed(
+        self, date: DateLike, offset: int
+    ) -> DateOperationResult:
+        """Rich business-date offset with path-wide confidence."""
+        return _business_day_offset_detailed(self, _as_date(date), offset)
+
+    def advance_months(
+        self,
+        date: DateLike,
+        months: int,
+        convention: BusinessDayConvention,
+        preserve_end_of_month: bool = False,
+    ) -> _dt.date:
+        """Advance calendar months, clip the day, then adjust."""
+        return self.advance_months_detailed(
+            date, months, convention, preserve_end_of_month
+        ).result_date
+
+    def advance_months_detailed(
+        self,
+        date: DateLike,
+        months: int,
+        convention: BusinessDayConvention,
+        preserve_end_of_month: bool = False,
+    ) -> DateOperationResult:
+        """Rich month advancement, including explicit business-month-end checks."""
+        return _advance_months_detailed(
+            self, _as_date(date), months, convention, preserve_end_of_month
+        )
+
+    def last_business_day_of_month(self, date: DateLike) -> _dt.date:
+        """Last resolved business date in ``date``'s calendar month."""
+        return self.last_business_day_of_month_detailed(date).result_date
+
+    def last_business_day_of_month_detailed(self, date: DateLike) -> DateOperationResult:
+        """Rich last-business-day query with its backwards search path."""
+        return _last_business_day_of_month_detailed(self, _as_date(date))
+
     # --- Counting ------------------------------------------------------------
 
     def business_days_between(self, start: DateLike, end: DateLike) -> int:
@@ -286,6 +352,12 @@ class BusinessCalendar:
         not an early close: ``CLOSED`` beats ``EARLY_CLOSE`` on the same date.
         """
         return self.close_time(date) is not None
+
+    def member_closes(self, date: DateLike) -> List[MemberClose]:
+        """Member-specific early closes; timezone stays ``None`` when undeclared."""
+        day = _as_date(date)
+        close = self.close_time(day)
+        return [MemberClose(self.calendar_id, self.timezone, close)] if close else []
 
     def status(self, date: DateLike) -> str:
         """
@@ -472,7 +544,7 @@ class SingleCalendar(BusinessCalendar):
 
     @property
     def kind(self) -> str:
-        """``market`` for a tradable venue, ``base`` for a building block."""
+        """``market``, ``payment`` or ``base``, as declared by the artifact."""
         return self._data.kind
 
     @property
@@ -658,10 +730,23 @@ class JointCalendar(BusinessCalendar):
         return all(member.is_business_day(day) for member in self._members)
 
     def close_time(self, date: DateLike) -> Optional[_dt.time]:
+        """Deprecated for joint calendars; use ``member_closes`` for timezone identity."""
         day = _as_date(date)
         self._check_range(day)
         times = [t for t in (m.close_time(day) for m in self._members) if t is not None]
         return min(times) if times else None
+
+    def member_closes(self, date: DateLike) -> List[MemberClose]:
+        """Each member's early close with its own calendar and timezone identity."""
+        day = _as_date(date)
+        self._check_range(day)
+        self._require_resolved(day)
+        result = []
+        for member in self._members:
+            close = member.close_time(day)
+            if close is not None:
+                result.append(MemberClose(member.calendar_id, member.timezone, close))
+        return result
 
     def status(self, date: DateLike) -> str:
         day = _as_date(date)

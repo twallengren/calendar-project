@@ -7,9 +7,12 @@ import com.bdc.loader.SpecRegistry;
 import com.bdc.model.Event;
 import com.bdc.model.EventStatus;
 import com.bdc.resolver.SpecResolver;
+import com.bdc.stream.BusinessDayConvention;
+import com.bdc.stream.DateOperationResult;
 import com.bdc.stream.DateStream;
 import com.bdc.stream.JointDateStream;
 import com.bdc.stream.LazyDateStream;
+import com.bdc.stream.MemberClose;
 import com.bdc.stream.OutsideCoverageException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.nio.file.Path;
@@ -17,8 +20,10 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.TextStyle;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.Callable;
 import java.util.regex.Matcher;
@@ -30,7 +35,7 @@ import picocli.CommandLine.Parameters;
 @Command(
     name = "query",
     description =
-        "Query one calendar, or several jointly, for business days, events and settlement dates")
+        "Query one calendar, or several jointly, for business days, events and date operations")
 public class QueryCommand implements Callable<Integer> {
 
   private static final Pattern SETTLEMENT = Pattern.compile("^T?\\+?(\\d+)$");
@@ -79,11 +84,42 @@ public class QueryCommand implements Callable<Integer> {
       description = "Find the nth business day from a date (use with --from)")
   private Integer nthBusinessDay;
 
+  @Option(names = "--adjust", description = "Adjust a date using --convention")
+  private LocalDate adjustDate;
+
+  @Option(
+      names = "--business-day-offset",
+      description = "Move by N business dates from --from and print a rich JSON result")
+  private Integer businessDayOffset;
+
+  @Option(
+      names = "--advance-months",
+      description = "Advance by N calendar months from --from, then apply --convention")
+  private Integer advanceMonths;
+
+  @Option(names = "--convention", description = "Business-day convention: ${COMPLETION-CANDIDATES}")
+  private BusinessDayConvention convention;
+
+  @Option(
+      names = "--preserve-end-of-month",
+      description = "When the source is its month's last business date, preserve that property")
+  private boolean preserveEndOfMonth;
+
+  @Option(
+      names = "--last-business-day-of-month",
+      description = "Find the last business date in the given date's month as JSON")
+  private LocalDate lastBusinessDayOfMonth;
+
+  @Option(
+      names = "--member-closes",
+      description = "Print member-specific early closes with calendar and timezone identity")
+  private LocalDate memberClosesDate;
+
   @Option(
       names = {"--settlement"},
       description =
-          "Settlement date for a trade date given by --from, as T+N (e.g. T+2): the Nth business"
-              + " day after the trade date on the joint calendar, with the closures in between")
+          "Compatibility helper for a T+N business-date offset from --from. This does not"
+              + " determine instrument eligibility, sessions or intraday cutoffs")
   private String settlement;
 
   @Option(
@@ -126,7 +162,7 @@ public class QueryCommand implements Callable<Integer> {
   @Option(
       names = {"--from", "-f"},
       description =
-          "Reference date: trade date for --settlement, start for --nth-business-day and"
+          "Reference date for offsets/month advancement, --settlement, --nth-business-day and"
               + " --open-in/--closed-in")
   private LocalDate from;
 
@@ -247,6 +283,36 @@ public class QueryCommand implements Callable<Integer> {
         String direction = nthBusinessDay > 0 ? "after" : "before";
         System.out.println(
             Math.abs(nthBusinessDay) + " business days " + direction + " " + refDate + ": " + nth);
+      }
+
+      if (adjustDate != null) {
+        anyQuery = true;
+        requireConvention("--adjust");
+        printOperation(stream().adjustDetailed(adjustDate, convention));
+      }
+
+      if (businessDayOffset != null) {
+        anyQuery = true;
+        LocalDate refDate = requireFrom("--business-day-offset");
+        printOperation(stream().businessDayOffsetDetailed(refDate, businessDayOffset));
+      }
+
+      if (advanceMonths != null) {
+        anyQuery = true;
+        LocalDate refDate = requireFrom("--advance-months");
+        requireConvention("--advance-months");
+        printOperation(
+            stream().advanceMonthsDetailed(refDate, advanceMonths, convention, preserveEndOfMonth));
+      }
+
+      if (lastBusinessDayOfMonth != null) {
+        anyQuery = true;
+        printOperation(stream().lastBusinessDayOfMonthDetailed(lastBusinessDayOfMonth));
+      }
+
+      if (memberClosesDate != null) {
+        anyQuery = true;
+        printMemberCloses(stream(), memberClosesDate);
       }
 
       if (settlement != null) {
@@ -444,6 +510,48 @@ public class QueryCommand implements Callable<Integer> {
     }
   }
 
+  private LocalDate requireFrom(String operation) {
+    if (from == null) {
+      throw new IllegalArgumentException(operation + " needs --from <date>");
+    }
+    return from;
+  }
+
+  private void requireConvention(String operation) {
+    if (convention == null) {
+      throw new IllegalArgumentException(operation + " needs --convention <convention>");
+    }
+  }
+
+  private static void printOperation(DateOperationResult result) throws Exception {
+    Map<String, Object> row = new LinkedHashMap<>();
+    row.put("original_date", result.originalDate().toString());
+    row.put("result_date", result.resultDate().toString());
+    row.put("operation", result.operation().name());
+    row.put("convention", result.convention() == null ? null : result.convention().name());
+    row.put("business_day_offset", result.businessDayOffset());
+    row.put("month_offset", result.monthOffset());
+    row.put("preserve_end_of_month", result.preserveEndOfMonth());
+    row.put("effective_confidence", result.effectiveConfidence().name());
+    row.put("examined_dates", result.examinedDates().stream().map(LocalDate::toString).toList());
+    System.out.println(new ObjectMapper().writeValueAsString(row));
+  }
+
+  private static void printMemberCloses(DateStream stream, LocalDate date) throws Exception {
+    List<Map<String, Object>> rows = new ArrayList<>();
+    for (MemberClose close : stream.memberCloses(date)) {
+      Map<String, Object> row = new LinkedHashMap<>();
+      row.put("calendar_id", close.calendarId());
+      row.put("timezone", close.timezone() == null ? null : close.timezone().getId());
+      row.put("local_time", close.localTime().toString());
+      rows.add(row);
+    }
+    Map<String, Object> payload = new LinkedHashMap<>();
+    payload.put("date", date.toString());
+    payload.put("member_closes", rows);
+    System.out.println(new ObjectMapper().writeValueAsString(payload));
+  }
+
   private void printOpenClosed() throws Exception {
     if (openIn == null || closedIn == null || from == null || to == null) {
       throw new IllegalArgumentException(
@@ -506,8 +614,15 @@ public class QueryCommand implements Callable<Integer> {
     System.out.println(
         "  --business-days-from <date> --business-days-to <date>  Count business days");
     System.out.println("  --nth-business-day <n> --from <date>  Find nth business day");
+    System.out.println("  --adjust <date> --convention <name>  Adjust a date (JSON)");
+    System.out.println("  --business-day-offset <n> --from <date>  Move by business dates (JSON)");
     System.out.println(
-        "  --settlement T+N --from <trade date>  Settlement date and the closures in between");
+        "  --advance-months <n> --from <date> --convention <name>  Advance months (JSON)");
+    System.out.println(
+        "  --last-business-day-of-month <date>  Find month-end business date (JSON)");
+    System.out.println("  --member-closes <date>       Member close times and timezones (JSON)");
+    System.out.println(
+        "  --settlement T+N --from <date>  Compatibility business-date offset trace");
     System.out.println("  --is-early-close <date>      Check for a shortened session");
     System.out.println("  --close-time <date>          Early close time, if any");
     System.out.println(

@@ -9,6 +9,7 @@ import com.bdc.model.ResolvedSpec;
 import com.bdc.model.WeekendPolicy;
 import com.bdc.trust.CoverageInterval;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.*;
 
 /**
@@ -87,6 +88,11 @@ public class LazyDateStream implements DateStream {
   @Override
   public List<CoverageInterval> coverageIntervals() {
     return coverageIntervals;
+  }
+
+  @Override
+  public Optional<ZoneId> timezone() {
+    return Optional.ofNullable(spec.timezone()).map(ZoneId::of);
   }
 
   private void checkRange(LocalDate date) {

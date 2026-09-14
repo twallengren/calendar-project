@@ -12,6 +12,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.Instant;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
@@ -324,7 +325,11 @@ public class ReleaseHistoryStore {
         verifiedThrough(snapshot).orElse(null),
         coverageIntervals(snapshot),
         com.bdc.trust.PublishedEventDetails.read(
-            mapper.convertValue(metadata(snapshot).get("event_details"), Object.class)));
+            mapper.convertValue(metadata(snapshot).get("event_details"), Object.class)),
+        metadata(snapshot).path("timezone").isMissingNode()
+                || metadata(snapshot).path("timezone").isNull()
+            ? null
+            : ZoneId.of(metadata(snapshot).path("timezone").asText()));
   }
 
   /** Explicit scope-specific quality intervals recorded in metadata, or empty for legacy data. */

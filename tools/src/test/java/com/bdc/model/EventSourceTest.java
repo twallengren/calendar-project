@@ -9,6 +9,25 @@ import org.junit.jupiter.api.Test;
 class EventSourceTest {
 
   @Test
+  void unknownCannotBeUsedAsRawSourceStatus() {
+    assertThrows(
+        IllegalArgumentException.class,
+        () ->
+            new EventSource(
+                "test",
+                "Test",
+                null,
+                EventType.CLOSED,
+                false,
+                null,
+                null,
+                null,
+                null,
+                EventStatus.UNKNOWN,
+                null));
+  }
+
+  @Test
   void isActiveOn_withActiveYears_singleYear_matchesYear() {
     EventSource source =
         new EventSource(

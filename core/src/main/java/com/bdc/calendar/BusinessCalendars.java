@@ -15,6 +15,7 @@ import java.io.InputStream;
 import java.io.UncheckedIOException;
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
@@ -158,7 +159,10 @@ public final class BusinessCalendars {
         range,
         verifiedThrough,
         coverageIntervals,
-        com.bdc.trust.PublishedEventDetails.read(metadata.get("event_details")));
+        com.bdc.trust.PublishedEventDetails.read(metadata.get("event_details")),
+        metadata.get("timezone") == null
+            ? null
+            : ZoneId.of(String.valueOf(metadata.get("timezone"))));
   }
 
   /**

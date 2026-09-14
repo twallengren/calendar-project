@@ -682,6 +682,39 @@ Searches are bounded so a mis-specified calendar cannot loop forever: `next_busi
 `prev_business_day` scan at most **366** days and then fail; `nth_business_day` walks at most
 `366 * |n| + 366` days.
 
+### Financial date operations
+
+The Java and Python query APIs also expose these date-only operations:
+
+| Operation | Result |
+|-----------|--------|
+| `adjust(date, convention)` | apply `UNADJUSTED`, `FOLLOWING`, `MODIFIED_FOLLOWING`, `PRECEDING` or `MODIFIED_PRECEDING` |
+| `business_day_offset(date, n)` | move by `n` business dates; zero returns the input unchanged without asserting that it is a business date |
+| `advance_months(date, months, convention, preserve_end_of_month)` | add explicit calendar months, clipping the day to the destination month, then adjust |
+| `last_business_day_of_month(date)` | the final resolved business date in the input date's month; fails if that month has none |
+
+Following and preceding return an already-open input unchanged; otherwise they search in the named
+direction. A modified convention first performs that complete search, then searches from the
+original date in the opposite direction when the first result crosses the original calendar month.
+An unresolved date on either path fails the operation; the reverse path cannot hide uncertainty in
+the first path.
+
+`preserve_end_of_month` applies only when explicitly true and the source is its calendar month's
+last **business** date. A nonbusiness source on the last civil date of a month does not qualify. A
+qualifying source advances to the destination month's last business date. Negative month offsets
+and leap-year February use the same rule.
+
+Each operation has a rich `*_detailed` form returning `original_date`, `result_date`, `operation`,
+the convention and offset parameters, `preserve_end_of_month`, `effective_confidence`, and ordered
+`examined_dates`. Confidence is the least certain assessment anywhere in the decision path. The
+trace includes the failed first search of a modified convention and all dates used for an
+end-of-month decision. An identity operation examines only its input and may report `UNKNOWN`; it
+does not claim the input is a business date. A nonzero offset starts its trace with the first date
+walked to, because the source is not counted.
+
+These operations calculate business dates. They do not determine instrument-specific settlement
+eligibility, payment cutoffs, operating sessions or intraday deadlines.
+
 ### Status
 
 `status(date)` says how much the answer can be trusted. It is evaluated in this order and **never
@@ -731,9 +764,15 @@ Composition rules:
 | `status` | `UNKNOWN` if any member is `UNKNOWN`, else `PROJECTED` if any member is `PROJECTED`, else `CONFIRMED` — the joint answer is only as good as its worst member |
 | `close_time` | the earliest early close declared by any member that day. A joint date can carry an early close and still not be a business day (another member is closed), so check `is_business_day` first |
 
-Every derived operation (navigation, counting, settlement) follows from the joint `is_business_day`,
-which is what makes T+N settlement across markets correct: a trade settles only on a day both
-markets are open.
+The joint `close_time` interpretation is deprecated because comparing local wall-clock times in
+different timezones has no general meaning. `member_closes(date)` returns each early close as
+`(calendar_id, timezone, local_time)` in member order. A missing timezone in a legacy artifact stays
+missing. The operation first resolves every member, so a known close in one member cannot hide an
+unknown state in another.
+
+Every derived operation follows from the joint `is_business_day`, so a business-date offset counts
+only dates on which every member is open. Instrument-specific settlement rules are outside this
+date-only contract.
 
 ### Settlement in the browser
 
@@ -794,9 +833,14 @@ query <CAL[,CAL...]> [options]
   --next-business-day <date>     first business day after
   --prev-business-day <date>     last business day before
   --nth-business-day <n> --from <date>
+  --adjust <date> --convention <name>
+  --business-day-offset <n> --from <date>
+  --advance-months <n> --from <date> --convention <name> [--preserve-end-of-month]
+  --last-business-day-of-month <date>
+  --member-closes <date>         member-specific local early closes and timezones
   --business-days-from <date> --business-days-to <date>
-  --settlement T+N --from <trade date>
-                                 settlement date on the joint calendar, listing which member
+  --settlement T+N --from <date>
+                                 compatibility business-date offset, listing which member
                                  calendars are closed on each intervening day
   --open-in <cals> --closed-in <cals> --from <date> --to <date>
                                  dates open in one calendar (or joint group) and closed in another

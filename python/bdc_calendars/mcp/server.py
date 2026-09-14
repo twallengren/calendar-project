@@ -50,6 +50,12 @@ def _iso(value: Optional[_dt.date]) -> Optional[str]:
     return value.isoformat() if value is not None else None
 
 
+def _local_time(value: _dt.time) -> str:
+    if value.microsecond:
+        return value.isoformat(timespec="microseconds")
+    return value.isoformat(timespec="seconds" if value.second else "minutes")
+
+
 def _parse_date(value: Any, argument: str = "date") -> _dt.date:
     if not isinstance(value, str):
         raise TypeError(
@@ -99,6 +105,21 @@ def _assessment_dict(assessment: bdc.DayAssessment) -> Dict[str, Any]:
             }
             for detail in assessment.events
         ],
+    }
+
+
+def _operation_dict(result: bdc.DateOperationResult) -> Dict[str, Any]:
+    """The versioned operation shape shared with ``tools query`` JSON."""
+    return {
+        "original_date": _iso(result.original_date),
+        "result_date": _iso(result.result_date),
+        "operation": result.operation,
+        "convention": result.convention,
+        "business_day_offset": result.business_day_offset,
+        "month_offset": result.month_offset,
+        "preserve_end_of_month": result.preserve_end_of_month,
+        "effective_confidence": result.effective_confidence,
+        "examined_dates": [_iso(day) for day in result.examined_dates],
     }
 
 
@@ -182,8 +203,8 @@ def create_server() -> "Any":
         """
         List every calendar bundled with this release of bdc-calendars.
 
-        For each calendar: its id, human-readable name, kind (``market`` or
-        ``base``), IANA timezone, covered date range, ``verified_through``
+        For each calendar: its id, human-readable name, kind (``market``,
+        ``payment`` or ``base``), IANA timezone, covered date range, ``verified_through``
         date and any known aliases (exchange_calendars MICs, etc). Call this
         first to discover valid ``calendar`` arguments for the other tools.
 
@@ -327,9 +348,9 @@ def create_server() -> "Any":
 
         Walks forward for ``n > 0`` and backward for ``n < 0``, counting only
         business days; ``n = 0`` returns ``date`` unchanged whether or not it
-        is a business day. The starting date is never counted, so this is the
-        settlement primitive: T+2 from a trade date is
-        ``add_business_days(calendar, trade_date, 2)``.
+        is a business day. The starting date is never counted. This is a
+        business-date offset only; it does not determine instrument-specific
+        settlement eligibility, operating sessions or intraday cutoffs.
 
         Example question: "If a US-NYSE trade happens on 2025-11-26, what date
         is T+2 settlement?"
@@ -348,6 +369,95 @@ def create_server() -> "Any":
             "result": _iso(result),
             "status": cal.status(result),
             "verified_through": _iso(cal.verified_through),
+        }
+
+    @app.tool()
+    def adjust_date(calendar: str, date: str, convention: str) -> Dict[str, Any]:
+        """Adjust a date under a named business-day convention, with path confidence."""
+        try:
+            cal = bdc.get_calendar(calendar)
+            result = cal.adjust_detailed(_parse_date(date), convention)
+        except _QUERY_ERRORS + (RuntimeError,) as exc:
+            return _error(exc)
+        return {
+            "calendar_id": cal.calendar_id,
+            "data_version": bdc.data_version,
+            **_operation_dict(result),
+        }
+
+    @app.tool()
+    def business_day_offset(calendar: str, date: str, offset: int) -> Dict[str, Any]:
+        """Move by business dates and report confidence across every traversed date."""
+        try:
+            cal = bdc.get_calendar(calendar)
+            result = cal.business_day_offset_detailed(_parse_date(date), offset)
+        except _QUERY_ERRORS + (RuntimeError,) as exc:
+            return _error(exc)
+        return {
+            "calendar_id": cal.calendar_id,
+            "data_version": bdc.data_version,
+            **_operation_dict(result),
+        }
+
+    @app.tool()
+    def advance_months(
+        calendar: str,
+        date: str,
+        months: int,
+        convention: str,
+        preserve_end_of_month: bool = False,
+    ) -> Dict[str, Any]:
+        """Advance calendar months, clip the nominal day, and apply a convention."""
+        try:
+            cal = bdc.get_calendar(calendar)
+            result = cal.advance_months_detailed(
+                _parse_date(date), months, convention, preserve_end_of_month
+            )
+        except _QUERY_ERRORS + (RuntimeError,) as exc:
+            return _error(exc)
+        return {
+            "calendar_id": cal.calendar_id,
+            "data_version": bdc.data_version,
+            **_operation_dict(result),
+        }
+
+    @app.tool()
+    def last_business_day_of_month(calendar: str, date: str) -> Dict[str, Any]:
+        """Return the last resolved business date in the input date's month."""
+        try:
+            cal = bdc.get_calendar(calendar)
+            result = cal.last_business_day_of_month_detailed(_parse_date(date))
+        except _QUERY_ERRORS + (RuntimeError,) as exc:
+            return _error(exc)
+        return {
+            "calendar_id": cal.calendar_id,
+            "data_version": bdc.data_version,
+            **_operation_dict(result),
+        }
+
+    @app.tool()
+    def member_closes(calendars: List[str], date: str) -> Dict[str, Any]:
+        """Member-specific early closes with each calendar's timezone identity."""
+        try:
+            if not calendars:
+                raise ValueError("member_closes needs at least one calendar")
+            cal = bdc.get_joint_calendar(*calendars)
+            day = _parse_date(date)
+            closes = cal.member_closes(day)
+        except _QUERY_ERRORS + (RuntimeError,) as exc:
+            return _error(exc)
+        return {
+            "calendar_id": cal.calendar_id,
+            "data_version": bdc.data_version,
+            "date": _iso(day),
+            "member_closes": [
+                {
+                    "calendar_id": close.calendar_id,
+                    "timezone": close.timezone,
+                    "local_time": _local_time(close.local_time),
+                }
+                for close in closes
+            ],
         }
 
     @app.tool()
@@ -440,10 +550,10 @@ def create_server() -> "Any":
         calendars: List[str], trade_date: str, t_plus: int
     ) -> Dict[str, Any]:
         """
-        Settlement date T+``t_plus`` business days from ``trade_date`` on the
-        joint calendar formed from ``calendars``: a trade settles only on a
-        day every member market trades (the intersection of their trading
-        days). Mirrors ``query <cals> --settlement T+N --from <date>``: also
+        T+``t_plus`` business-date offset from ``trade_date`` on the joint
+        calendar formed from ``calendars`` (the intersection of their business
+        days). This does not establish instrument eligibility or cutoffs.
+        Mirrors ``query <cals> --settlement T+N --from <date>`` and also
         lists, for each day between the trade date and the settlement date,
         which member calendars were closed.
 
@@ -456,7 +566,8 @@ def create_server() -> "Any":
                 raise ValueError("joint_settlement_date needs at least one calendar")
             joint = bdc.get_joint_calendar(*calendars)
             trade = _parse_date(trade_date, "trade_date")
-            settlement = joint.add_business_days(trade, t_plus)
+            operation = joint.business_day_offset_detailed(trade, t_plus)
+            settlement = operation.result_date
             intervening: List[Dict[str, Any]] = []
             day = trade + _dt.timedelta(days=1)
             one = _dt.timedelta(days=1)
@@ -475,6 +586,8 @@ def create_server() -> "Any":
             "t_plus": t_plus,
             "settlement_date": _iso(settlement),
             "status": joint.status(settlement),
+            "effective_confidence": operation.effective_confidence,
+            "examined_dates": [_iso(day) for day in operation.examined_dates],
             "verified_through": _iso(joint.verified_through),
             "intervening_days": intervening,
         }

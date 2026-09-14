@@ -19,6 +19,7 @@ from __future__ import annotations
 
 import csv
 import datetime as _dt
+import io
 import json
 from typing import Any, Dict, List, Mapping, NamedTuple, Optional, Tuple
 
@@ -188,7 +189,9 @@ def load_calendar(calendar_id: str) -> CalendarData:
 
 
 def _parse_events(text: str) -> List[Event]:
-    reader = csv.DictReader(text.splitlines())
+    # StringIO preserves embedded newlines in quoted CSV fields. splitlines()
+    # changes record boundaries and can silently corrupt descriptions.
+    reader = csv.DictReader(io.StringIO(text))
     events: List[Event] = []
     for row in reader:
         events.append(_event_from_row(row))
@@ -197,11 +200,14 @@ def _parse_events(text: str) -> List[Event]:
 
 
 def _event_from_row(row) -> Event:
+    status = row.get("status") or "CONFIRMED"
+    if status not in ("CONFIRMED", "PROJECTED"):
+        raise ValueError("event status must be CONFIRMED or PROJECTED, got {!r}".format(status))
     return Event(date=_date(row["date"]), type=row["type"], description=row.get("description") or "",
         key=row.get("key") or None, source_module=row.get("source_module") or None,
         observed_from=_date(row["observed_from"]) if row.get("observed_from") else None,
         close_time=_time(row["close_time"]) if row.get("close_time") else None,
-        status=row.get("status") or "CONFIRMED")
+        status=status)
 
 
 def _date(value: str) -> _dt.date:

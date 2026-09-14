@@ -12,6 +12,7 @@ import com.bdc.trust.DayState;
 import com.bdc.trust.EventDetails;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.ZoneId;
 import java.util.Comparator;
 import java.util.EnumMap;
 import java.util.LinkedHashSet;
@@ -39,8 +40,9 @@ import java.util.Set;
  *   <li>every other query ({@link #eventsOn}, {@link #eventsInRange}, {@link #isBusinessDay},
  *       {@link #nextBusinessDay}, {@link #prevBusinessDay}, {@link #nthBusinessDay}, {@link
  *       #businessDaysInRange}, {@link #eventCountInRange}, {@link #eventOn}, {@link #closeTime},
- *       {@link #isEarlyClose}) throws {@link OutsideCoverageException}, which carries the calendar
- *       id, the offending date and the range.
+ *       {@link #isEarlyClose}, {@link #adjust}, {@link #businessDayOffset}, {@link #advanceMonths},
+ *       {@link #lastBusinessDayOfMonth}) throws {@link OutsideCoverageException}, which carries the
+ *       calendar id, the offending date and the range.
  * </ul>
  *
  * <p>A navigation query whose bounded search walks past the end of the range therefore throws
@@ -81,6 +83,11 @@ public interface DateStream {
   /** Explicit completeness intervals. An empty list identifies a legacy artifact. */
   default List<CoverageInterval> coverageIntervals() {
     return List.of();
+  }
+
+  /** IANA timezone for local close times, absent when legacy metadata did not declare one. */
+  default Optional<ZoneId> timezone() {
+    return Optional.empty();
   }
 
   // === Core queries ===
@@ -171,14 +178,14 @@ public interface DateStream {
       return from;
     }
     LocalDate current = from;
-    int remaining = Math.abs(n);
+    long remaining = Math.abs((long) n);
     boolean forward = n > 0;
     long guard = (long) MAX_SEARCH_DAYS * remaining + MAX_SEARCH_DAYS;
     while (remaining > 0) {
       if (guard-- <= 0) {
         throw new IllegalStateException(
             "Could not find "
-                + Math.abs(n)
+                + Math.abs((long) n)
                 + " business days "
                 + (forward ? "after " : "before ")
                 + from);
@@ -189,6 +196,60 @@ public interface DateStream {
       }
     }
     return current;
+  }
+
+  /** Adjusts a date under a standard business-day convention. */
+  default LocalDate adjust(LocalDate date, BusinessDayConvention convention) {
+    return adjustDetailed(date, convention).resultDate();
+  }
+
+  /** Rich form of {@link #adjust}, including confidence across the complete search path. */
+  default DateOperationResult adjustDetailed(LocalDate date, BusinessDayConvention convention) {
+    return FinancialDateOperations.adjust(this, date, convention);
+  }
+
+  /** Moves by a number of business dates; zero preserves the legacy identity behavior. */
+  default LocalDate businessDayOffset(LocalDate date, int offset) {
+    return businessDayOffsetDetailed(date, offset).resultDate();
+  }
+
+  /** Rich business-date offset with every examined date and its aggregate confidence. */
+  default DateOperationResult businessDayOffsetDetailed(LocalDate date, int offset) {
+    return FinancialDateOperations.offset(this, date, offset);
+  }
+
+  /** Advances by calendar months, clips the nominal day, then applies {@code convention}. */
+  default LocalDate advanceMonths(LocalDate date, int months, BusinessDayConvention convention) {
+    return advanceMonths(date, months, convention, false);
+  }
+
+  /** Advances by calendar months, with an explicit business-month-end preservation choice. */
+  default LocalDate advanceMonths(
+      LocalDate date, int months, BusinessDayConvention convention, boolean preserveEndOfMonth) {
+    return advanceMonthsDetailed(date, months, convention, preserveEndOfMonth).resultDate();
+  }
+
+  /** Rich month advancement including source/destination month-end decision paths. */
+  default DateOperationResult advanceMonthsDetailed(
+      LocalDate date, int months, BusinessDayConvention convention) {
+    return advanceMonthsDetailed(date, months, convention, false);
+  }
+
+  /** Rich month advancement with an explicit business-month-end preservation choice. */
+  default DateOperationResult advanceMonthsDetailed(
+      LocalDate date, int months, BusinessDayConvention convention, boolean preserveEndOfMonth) {
+    return FinancialDateOperations.advanceMonths(
+        this, date, months, convention, preserveEndOfMonth);
+  }
+
+  /** The last resolved business date in the input date's calendar month. */
+  default LocalDate lastBusinessDayOfMonth(LocalDate date) {
+    return lastBusinessDayOfMonthDetailed(date).resultDate();
+  }
+
+  /** Rich last-business-day query, including the backwards search path. */
+  default DateOperationResult lastBusinessDayOfMonthDetailed(LocalDate date) {
+    return FinancialDateOperations.lastBusinessDayOfMonth(this, date);
   }
 
   // === Counting ===
@@ -252,6 +313,17 @@ public interface DateStream {
    */
   default boolean isEarlyClose(LocalDate date) {
     return closeTime(date).isPresent();
+  }
+
+  /**
+   * Member-specific local early closes. A missing legacy timezone remains null. Prefer this over
+   * comparing the local wall-clock values returned by a joint stream's {@link #closeTime}.
+   */
+  default List<MemberClose> memberCloses(LocalDate date) {
+    Optional<LocalTime> close = closeTime(date);
+    return close
+        .map(value -> List.of(new MemberClose(calendarId(), timezone().orElse(null), value)))
+        .orElseGet(List::of);
   }
 
   /**
