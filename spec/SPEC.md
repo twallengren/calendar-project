@@ -419,31 +419,54 @@ Exit code 1 when any result has unexplained rows or a stale allowlist entry. `sc
 runs `crossvalidate --all --out blessed` after generating every calendar; the release workflow
 does the same before committing.
 
-`status [--format markdown|json] [--blessed-dir blessed] [--sources-dir sources]` builds a
-scorecard, one row per calendar in `blessed/manifest.json` (markets first, then base,
-alphabetically within each group), from `blessed/<ID>/metadata.json`, `sources/<ID>/README.md`
-(counting cited source ids) and `blessed/<ID>/cross_validation.json` (`"none"` when absent). JSON
-shape, one entry per calendar:
+`status [--format markdown|json] [--blessed-dir blessed] [--sources-dir sources]
+[--calendars-dir calendars] [--modules-dir modules]` builds a scorecard, one row per calendar in
+`blessed/manifest.json` (markets first, then base, alphabetically within each group), from
+`blessed/<ID>/metadata.json`, cited sources and `blessed/<ID>/cross_validation.json` (`"none"` when
+absent).
+
+When `--calendars-dir` exists (the default `calendars/`), sources are computed by resolving the
+calendar with `SpecResolver` (`sources_basis: "resolved"`): the distinct citation ids (plus
+titles/urls/files for citations without an id) attached to every resolved event source, unioned
+with every id documented in `sources/<CAL>/README.md` for the calendar itself and for every
+calendar in its `extends` chain (so a calendar that only `extends` a base — the four Euronext
+venues extending `EU-EURONEXT`, for instance — reports the base's citations instead of zero). The
+union means a README can also carry background sources no single event cites directly without
+being dropped; a citation id that isn't documented anywhere in the chain is reported under
+`unresolved` (and, in `--format markdown`, as a warning line on stderr). When `calendars/` is
+absent (a blessed-only environment), `status` falls back to the previous directory-only count —
+just the ids listed in `sources/<ID>/README.md` — and reports `sources_basis: "directory"`.
+
+JSON shape, one entry per calendar:
 
 ```json
 {
-  "id": "US-NYSE",
-  "name": "NYSE Trading Calendar",
+  "id": "FR-EURONEXT-PARIS",
+  "name": "Euronext Paris Trading Calendar",
   "kind": "market",
-  "timezone": "America/New_York",
-  "coverage": { "from": "1900-01-01", "to": "2030-12-31", "verified_through": "2026-12-31" },
-  "counts": { "closures": 1649, "early_closes": 126, "projected": 0 },
-  "sources": { "ids": ["nyse-history-2008", "nyse-legacy-model-2022", "nyse-hours"], "count": 3 },
+  "timezone": "Europe/Paris",
+  "coverage": { "from": "2010-01-01", "to": "2030-12-31", "verified_through": "2026-12-31" },
+  "counts": { "closures": 127, "early_closes": 29, "projected": 0 },
+  "sources": {
+    "ids": ["euronext-hours-holidays", "euronext-holiday-calendar-2026", "..."],
+    "count": 8,
+    "readmes": {
+      "euronext-hours-holidays": "sources/EU-EURONEXT/README.md",
+      "euronext-holiday-calendar-2026": "sources/EU-EURONEXT/README.md"
+    },
+    "unresolved": []
+  },
+  "sources_basis": "resolved",
   "cross_validation": {
-    "exchange_calendars-XNYS": { "status": "ok", "allowlisted": 9 },
-    "quantlib-nyse": { "status": "ok", "allowlisted": 0 }
+    "exchange_calendars-XPAR": { "status": "ok", "allowlisted": 2 }
   },
   "release_version": "11.0.0"
 }
 ```
 
 `--format markdown` renders the same data as a table (see the "Market status" section of
-`README.md`), one column per field above.
+`README.md`), one column per field above; the Sources cell shows the count, with
+` (n unresolved)` appended when `unresolved` is non-empty.
 
 ## Published artifacts and as-of queries
 
