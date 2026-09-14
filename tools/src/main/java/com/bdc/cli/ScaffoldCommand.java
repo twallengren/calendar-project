@@ -1,5 +1,6 @@
 package com.bdc.cli;
 
+import com.bdc.source.SourceRegister;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
@@ -16,8 +17,9 @@ import picocli.CommandLine.Option;
 
 /**
  * Scaffolds the files a new market needs: a calendar spec, a weekend policy (reused or new), a
- * holiday group and one example holiday, a sources README, and the {@code blessed/manifest.json}
- * and {@code scripts/reference/export_reference_calendars.py} entries that reference it.
+ * holiday group and one example holiday, a canonical source register and generated README, and the
+ * {@code blessed/manifest.json} and {@code scripts/reference/export_reference_calendars.py} entries
+ * that reference it.
  *
  * <p>Refuses to overwrite anything that already exists unless {@code --force} is given; {@code
  * --dry-run} reports the plan without writing anything.
@@ -121,11 +123,13 @@ public class ScaffoldCommand implements Callable<Integer> {
       Path holidayPath = modulesDir.resolve("holidays").resolve(holidayModuleId + ".yaml");
       Path weekendPath = modulesDir.resolve("policies").resolve(weekendModuleId + ".yaml");
       Path sourcesReadme = sourcesDir.resolve(id).resolve("README.md");
+      Path sourceRegister = sourcesDir.resolve(id).resolve("register.json");
 
       List<Path> newFiles = new ArrayList<>();
       newFiles.add(calendarPath);
       newFiles.add(groupPath);
       newFiles.add(holidayPath);
+      newFiles.add(sourceRegister);
       newFiles.add(sourcesReadme);
       if (customWeekend) {
         newFiles.add(weekendPath);
@@ -196,7 +200,13 @@ public class ScaffoldCommand implements Callable<Integer> {
       }
 
       Files.createDirectories(sourcesReadme.getParent());
-      Files.writeString(sourcesReadme, sourcesReadme(id, sourceId));
+      Files.writeString(
+          sourceRegister,
+          JSON_MAPPER.writerWithDefaultPrettyPrinter().writeValueAsString(sourceRegister(sourceId))
+              + System.lineSeparator());
+      String narrative = sourcesReadme(id);
+      Files.writeString(
+          sourcesReadme, SourceRegister.read(sourceRegister, sourcesDir).markdown(narrative));
 
       if (manifestExists) {
         updateManifest(blessedManifest, id);
@@ -248,7 +258,10 @@ public class ScaffoldCommand implements Callable<Integer> {
           coverage:
             from: %s
             to: %s
-            verified_through: %s  # TODO: update once these dates are checked against a source
+            quality:
+              - {scope: SCHEDULED_CLOSURES, from: %s, to: %s, quality: INCOMPLETE, evidence_ids: []}
+              - {scope: EARLY_CLOSES, from: %s, to: %s, quality: INCOMPLETE, evidence_ids: []}
+              - {scope: UNSCHEDULED_EXCEPTIONS, from: %s, to: %s, quality: INCOMPLETE, evidence_ids: []}
 
         # NONE | NEAREST_WEEKDAY | NEXT_AVAILABLE_WEEKDAY | FORWARD_ONLY
         weekend_shift_policy: NONE
@@ -257,7 +270,21 @@ public class ScaffoldCommand implements Callable<Integer> {
           - %s
           - %s
         """
-        .formatted(id, name, timezone, mic, from, to, from, weekendModuleId, groupModuleId);
+        .formatted(
+            id,
+            name,
+            timezone,
+            mic,
+            from,
+            to,
+            from,
+            to,
+            from,
+            to,
+            from,
+            to,
+            weekendModuleId,
+            groupModuleId);
   }
 
   private String weekendYaml(String weekendModuleId, String sourceId) {
@@ -298,8 +325,8 @@ public class ScaffoldCommand implements Callable<Integer> {
         id: %s
 
         # TODO: New Year's Day is a placeholder to get this market validating end to end. Replace
-        # it with the market's real holidays, and cite the authoritative source for each in
-        # sources/<MARKET>/README.md.
+        # it with the market's real holidays, and cite each authoritative source with an id from
+        # sources/<MARKET>/register.json. Regenerate the README table from that register.
 
         event_sources:
           - key: %s
@@ -315,21 +342,41 @@ public class ScaffoldCommand implements Callable<Integer> {
         .formatted(holidayModuleId, holidayModuleId, sourceId);
   }
 
-  private String sourcesReadme(String id, String sourceId) {
+  private ObjectNode sourceRegister(String sourceId) {
+    ObjectNode register = JSON_MAPPER.createObjectNode();
+    register.put("schema_version", "1.0");
+    ObjectNode entry = register.putArray("entries").addObject();
+    entry.put("id", sourceId);
+    entry.put("title", "TODO: title");
+    entry.put("publisher", "TODO: publisher");
+    entry.put("location", "TODO: original URL or source file");
+    entry.put("retrieved", "TODO: YYYY-MM-DD");
+    entry.put("covers", "TODO: describe the source's scope");
+    entry.put("notes", "TODO: describe what the source establishes and its limits");
+    entry.putArray("local_files");
+    entry.putArray("support_intervals");
+    return register;
+  }
+
+  private String sourcesReadme(String id) {
     return """
         # %s sources
 
         | id | title | publisher | url / file | retrieved | covers | notes |
         |----|-------|-----------|------------|-----------|--------|-------|
-        | `%s` | TODO: title | TODO: publisher | TODO: url or file | TODO: YYYY-MM-DD | TODO: date range covered | TODO: notes |
+        | placeholder | placeholder | placeholder | placeholder | placeholder | placeholder | placeholder |
 
         ## Modelling decisions recorded against these sources
 
-        - TODO: record modelling decisions (weekend definition, holiday observance rules, special
-          closures) and the source each is based on, following the pattern in
-          `sources/US-NYSE/README.md`.
+        - TODO: record the weekend definition and holiday observance rules, with the source used
+          for each decision.
+
+        ## Completeness and exception review
+
+        - TODO: identify which authority is checked for unscheduled exceptions, who maintains the
+          calendar, and when the evidence should be refreshed.
         """
-        .formatted(id, sourceId);
+        .formatted(id);
   }
 
   private void printNextSteps(String id, String slug, String groupModuleId) {
@@ -345,17 +392,27 @@ public class ScaffoldCommand implements Callable<Integer> {
     System.out.println();
     System.out.println("Next steps (see CONTRIBUTING.md):");
     System.out.println(
-        "  1. Replace the TODO placeholders: cite real sources in sources/"
+        "  1. Complete sources/"
             + id
-            + "/README.md, fill in modules/holidays/"
+            + "/register.json with real citations, preserved evidence files and checksums; add"
+            + " support_intervals only where reviewed evidence supports the full scope.");
+    System.out.println(
+        "  2. Regenerate the source table with python3 scripts/sources.py, then record the"
+            + " exception authority, maintenance owner and review cadence in sources/"
+            + id
+            + "/README.md.");
+    System.out.println(
+        "  3. Replace the TODO placeholders in modules/holidays/"
             + slug
-            + "_new_years_day.yaml, and add the market's real holidays to modules/groups/"
+            + "_new_years_day.yaml and modules/groups/"
             + groupModuleId
-            + ".yaml.");
+            + ".yaml. Coverage starts INCOMPLETE for SCHEDULED_CLOSURES, EARLY_CLOSES, and"
+            + " UNSCHEDULED_EXCEPTIONS; change a scope only when its cited evidence supports the"
+            + " full interval.");
     System.out.println(
-        "  2. Validate:   ./gradlew :tools:run --args=\"validate " + id + " --strict\"");
+        "  4. Validate:   ./gradlew :tools:run --args=\"validate " + id + " --strict\"");
     System.out.println(
-        "  3. Generate:   ./gradlew :tools:run --args=\"generate "
+        "  5. Generate:   ./gradlew :tools:run --args=\"generate "
             + id
             + " --from "
             + from
@@ -365,10 +422,10 @@ public class ScaffoldCommand implements Callable<Integer> {
             + id
             + "\"");
     System.out.println(
-        "  4. Add the golden test above, then run ./gradlew :tools:test -DupdateGoldens=true and"
+        "  6. Add the golden test above, then run ./gradlew :tools:test -DupdateGoldens=true and"
             + " review the diff before committing.");
     System.out.println(
-        "  5. Cross-validation: regenerate tools/src/test/resources/reference/"
+        "  7. Cross-validation: regenerate tools/src/test/resources/reference/"
             + id
             + "/*.csv with scripts/reference/export_reference_calendars.py and add an"
             + " allowlist.csv for any explained differences (see"
