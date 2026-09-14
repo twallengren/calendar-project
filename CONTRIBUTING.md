@@ -189,6 +189,28 @@ missing from it is invisible to `scripts/bless.sh` and the release workflow. Add
 Run `scripts/bless.sh` locally to populate `checksum` and `event_count` and to generate
 `blessed/GB-LSE/`. Review the output with `git status --short blessed/`.
 
+### Preview your change
+
+Before opening a PR, render the browsable site from what you just generated to see exactly what a
+reviewer's `ci-diff` comment (and the CI-uploaded `site-preview` artifact) will show, styled as the
+published pages:
+
+```bash
+./gradlew :tools:installDist
+T=tools/build/install/tools/bin/tools
+$T generate GB-LSE --from 2000-01-01 --to 2030-12-31 --out generated/GB-LSE --include-specs
+$T site --blessed-dir generated --compare-to blessed --out site-preview
+$T serve --dir site-preview --port 8080 --open
+```
+
+`generated/` only needs the calendar(s) you touched — the site synthesises its index from
+whichever directories are present, so a partial local output is fine. `--compare-to blessed`
+diffs each locally generated calendar against `blessed/` over the range you generated and adds a
+"Changes vs blessed" banner to every affected year and date page, plus a `/changes/` page listing
+every added, removed and modified date with its severity (a `MAJOR` change inside the calendar's
+already-published range needs the `calendar-change-approved` label, same as `ci-diff`).
+`tools serve` is a zero-dependency static file server for previewing the output — Ctrl-C stops it.
+
 ### 9. Open your PR
 
 CI runs `validate --all --strict`, the full test suite, and a `ci-diff` comparison between your

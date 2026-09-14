@@ -1,5 +1,6 @@
 package com.bdc.site;
 
+import com.bdc.diff.CalendarDiff;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
@@ -7,6 +8,7 @@ import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.Instant;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -35,12 +37,30 @@ public class SiteGenerator {
   private final Path siteDir;
   private final Path blessedDir;
   private final Path sourcesDir;
+  private final Map<String, CalendarDiff> diffs;
 
   public SiteGenerator(SiteContext context, Path siteDir, Path blessedDir, Path sourcesDir) {
+    this(context, siteDir, blessedDir, sourcesDir, null);
+  }
+
+  /**
+   * @param diffs per-calendar diffs against a {@code --compare-to} baseline, or null when no
+   *     comparison was requested (the default {@code site} run against {@code blessed/} alone). A
+   *     non-null map — even an empty one — turns on the "Changes vs blessed" banners and writes
+   *     {@code changes/index.html}; null skips both entirely so ordinary site generation is
+   *     unaffected.
+   */
+  public SiteGenerator(
+      SiteContext context,
+      Path siteDir,
+      Path blessedDir,
+      Path sourcesDir,
+      Map<String, CalendarDiff> diffs) {
     this.context = context;
     this.siteDir = siteDir;
     this.blessedDir = blessedDir;
     this.sourcesDir = sourcesDir;
+    this.diffs = diffs;
   }
 
   /**
@@ -70,18 +90,29 @@ public class SiteGenerator {
 
     copyAssets();
 
+    Map<String, CalendarDiff> pageDiffs = diffs != null ? diffs : Map.of();
+
     PageLayout layout = new PageLayout(context);
     YearGridRenderer gridRenderer = new YearGridRenderer();
     HomePageRenderer homeRenderer = new HomePageRenderer(context, layout);
     MarketPageRenderer marketRenderer = new MarketPageRenderer(context, layout, gridRenderer);
-    YearPageRenderer yearRenderer = new YearPageRenderer(context, layout, gridRenderer);
-    DatePageRenderer dateRenderer = new DatePageRenderer(layout);
+    YearPageRenderer yearRenderer = new YearPageRenderer(context, layout, gridRenderer, pageDiffs);
+    DatePageRenderer dateRenderer = new DatePageRenderer(layout, pageDiffs);
+    ChangesRenderer changesRenderer = new ChangesRenderer(layout);
 
     homeRenderer.write(calendars, status, siteDir);
     for (CalendarData calendar : calendars) {
       marketRenderer.write(calendar, status.getOrDefault(calendar.id(), StatusData.EMPTY), siteDir);
       yearRenderer.writeAll(calendar, siteDir);
       dateRenderer.writeAll(calendar, siteDir);
+    }
+
+    if (diffs != null) {
+      Map<String, CalendarData> calendarsById = new LinkedHashMap<>();
+      for (CalendarData calendar : calendars) {
+        calendarsById.put(calendar.id(), calendar);
+      }
+      changesRenderer.write(diffs, calendarsById, siteDir);
     }
 
     List<String> allPages = new SitemapEmitter(context).write(siteDir);
