@@ -7,6 +7,11 @@
   },
   "blessed_at": "2026-02-16T21:43:21Z",
   "calendars": {
+    "JP-JPX": {
+      "kind": "market",
+      "range_end": "2030-12-31",
+      "range_start": "2010-01-01"
+    },
     "SA-TADAWUL": {
       "kind": "market",
       "range_end": "2030-12-31",

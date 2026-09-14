@@ -36,6 +36,7 @@ EXPORTS = [
     # would only report the ad-hoc closures it happens to know about.
     ("US-NYSE", "XNYS", "1971-01-01", "2030-12-31"),
     ("SA-TADAWUL", "XSAU", "2020-01-01", "2030-12-31"),
+    ("JP-JPX", "XTKS", "2010-01-01", "2030-12-31"),
 ]
 
 
@@ -130,11 +131,50 @@ def export_quantlib_nyse(start: str, end: str) -> None:
     print(f"wrote {path} ({len(rows)} rows)")
 
 
+def export_quantlib(cal_id: str, name: str, cal, start: str, end: str, note: str) -> None:
+    """Writes full closures from a QuantLib calendar (weekends omitted, like the others)."""
+    if ql is None:
+        print("QuantLib not installed; skipping")
+        return
+    s = dt.date.fromisoformat(start)
+    e = dt.date.fromisoformat(end)
+    rows = []
+    day = s
+    while day <= e:
+        if day.weekday() < 5:
+            qd = ql.Date(day.day, day.month, day.year)
+            if not cal.isBusinessDay(qd):
+                rows.append(day)
+        day += dt.timedelta(days=1)
+    path = os.path.join(OUT, cal_id, f"quantlib-{name}.csv")
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "w") as f:
+        f.write(header("QuantLib", ql.__version__))
+        f.write(f"# range: {s.isoformat()} to {e.isoformat()}\n")
+        f.write(f"# types: CLOSED  (QuantLib models full closures only); {note}\n")
+        f.write("date,type,close_time\n")
+        for day in rows:
+            f.write(f"{day.isoformat()},CLOSED,\n")
+    print(f"wrote {path} ({len(rows)} rows)")
+
+
 def main() -> int:
     for cal_id, code, start, end in EXPORTS:
         export_exchange_calendars(cal_id, code, start, end)
     # QuantLib's NYSE calendar is documented from 1980 onward
     export_quantlib_nyse("1980-01-01", "2030-12-31")
+    # QuantLib's Japan() is the Japanese national-holiday calendar, not the exchange's: it does
+    # not know about JPX's Jan 2 / Jan 3 / Dec 31 market holidays (it closes Dec 31 - Jan 3, which
+    # happens to agree) nor about unscheduled closures.
+    if ql is not None:
+        export_quantlib(
+            "JP-JPX",
+            "japan",
+            ql.Japan(),
+            "2010-01-01",
+            "2030-12-31",
+            "QuantLib Japan() is a national-holiday calendar, not JPX's",
+        )
     return 0
 
 

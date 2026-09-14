@@ -1,5 +1,25 @@
 {
   "calendars" : [ {
+    "id" : "JP-JPX",
+    "name" : "Japan Exchange Group (Tokyo Stock Exchange)",
+    "timezone" : "Asia/Tokyo",
+    "coverage" : {
+      "from" : "2010-01-01",
+      "to" : "2030-12-31",
+      "verified_through" : "2027-12-31"
+    },
+    "counts_by_type" : {
+      "CLOSED" : 343,
+      "WEEKEND" : 2192
+    },
+    "counts_by_status" : {
+      "CONFIRMED" : 2529,
+      "PROJECTED" : 6
+    },
+    "checksum" : "sha256:ee9a4d5d130a9576191305125565b68ea8fc85e8aa51153b31d1705b1a18c8ad",
+    "years" : [ 2010, 2030 ],
+    "href" : "/v1/calendars/JP-JPX/manifest.json"
+  }, {
     "id" : "SA-TADAWUL",
     "name" : "Tadawul (Saudi Exchange) Trading Calendar",
     "timezone" : "Asia/Riyadh",

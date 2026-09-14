@@ -37,7 +37,8 @@ uses: [module-ids]            # Other modules to include (for composing groups)
 source: {...}                 # Default citation for every event source in this module (see Sources)
 references:
   - key: string               # Unique identifier for this reference
-    formula: string           # EASTER_WESTERN or THANKSGIVING_US
+    formula: string           # EASTER_WESTERN, THANKSGIVING_US, EQUINOX_VERNAL_JP or
+                              # EQUINOX_AUTUMNAL_JP (see "Reference formulas")
 policies:
   weekends: [SATURDAY, SUNDAY]          # or effective-dated periods, see Weekend Policy
 event_sources: [...]
@@ -300,6 +301,13 @@ overrides it.
   closure (cascading: Christmas Saturday to Monday, Boxing Day Sunday to Tuesday)
 - `FORWARD_ONLY` - shifts forward only when the holiday is on the last day of the weekend
   block (Sunday to Monday); on any other weekend day it is not observed. NYSE New Year's Day.
+- `NEXT_AVAILABLE_FROM_LAST_WEEKEND_DAY` - Japanese-style substitute holiday (振替休日): shifts
+  only when the holiday falls on the last day of the weekend block, to the next weekday that is
+  not already a closure (cascading). A Saturday holiday is not observed at all. This is
+  `FORWARD_ONLY`'s "last weekend day only" test with `NEXT_AVAILABLE_WEEKDAY`'s cascade: Japan
+  observes a Sunday holiday on "the closest following day that is not a national holiday", so
+  Sunday May 3 2026 is observed on Wednesday May 6 past the May 4 and May 5 holidays, while
+  Saturday February 11 2023 is not made up on either side.
 
 Shifting only moves CLOSED events. Observed events carry `observed_from` (the nominal date) in
 the output.
@@ -362,6 +370,30 @@ uses:
    `only_if_weekday`, place CLOSED events with weekend shifting, apply precedence
 5. Apply deltas against observed dates
 6. Emit WEEKEND rows, sort
+
+## Reference formulas
+
+`references[].formula` names a computation the generator knows. `validate` rejects any other
+value.
+
+| Formula | Result |
+|---------|--------|
+| `EASTER_WESTERN` | Western (Gregorian) Easter Sunday |
+| `THANKSGIVING_US` | Fourth Thursday of November |
+| `EQUINOX_VERNAL_JP` | Japan's Vernal Equinox Day (春分の日) |
+| `EQUINOX_AUTUMNAL_JP` | Japan's Autumnal Equinox Day (秋分の日) |
+
+The two Japanese equinox holidays are set each February by the Cabinet Office from the National
+Astronomical Observatory's almanac, so they cannot be computed exactly in advance. Both formulas
+use the standard approximation, valid 1900-2099 and an error outside that range:
+
+```
+vernal   day-of-March     = floor(20.8431 + 0.242194 * (year - 1980) - floor((year - 1980) / 4))
+autumnal day-of-September = floor(23.2488 + 0.242194 * (year - 1980) - floor((year - 1980) / 4))
+```
+
+`EquinoxCalculatorTest` checks both against every year of the Cabinet Office's published list.
+Occurrences past the end of that list are projections and should carry `status: PROJECTED`.
 
 ## Sources
 

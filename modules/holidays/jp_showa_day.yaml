@@ -1,0 +1,19 @@
+kind: module
+id: jp_showa_day
+
+# 昭和の日 (Showa no Hi), April 29. April 29 has been a holiday throughout: the Emperor's Birthday
+# until 1988, みどりの日 (Greenery Day) 1989-2006, and 昭和の日 since 2007. Only the 2007-onwards
+# name is inside this calendar's coverage; Greenery Day moved to May 4 in the same reform.
+
+source:
+  - id: cao-shukujitsu-gaiyou
+    ref: "第2条 昭和の日 4月29日"
+
+event_sources:
+  - key: jp_showa_day
+    name: Showa Day
+    default_classification: CLOSED
+    rule:
+      type: fixed_month_day
+      month: 4
+      day: 29

@@ -202,6 +202,60 @@ class ShiftPolicyTest {
   }
 
   @Test
+  void nextAvailableFromLastWeekendDay_saturdayHolidayIsNotObserved() {
+    // Japan does not make up a Saturday holiday: Sat Feb 11 2023 (National Foundation Day) is
+    // simply a weekend, with no closure on Fri Feb 10 or Mon Feb 13.
+    ResolvedSpec spec =
+        spec(
+            WeekendPolicy.SAT_SUN,
+            WeekendShiftPolicy.NEXT_AVAILABLE_FROM_LAST_WEEKEND_DAY,
+            closed("jp_national_foundation_day", 2, 11, null));
+    List<Event> events =
+        nonWeekend(generator.generate(spec, LocalDate.of(2023, 2, 1), LocalDate.of(2023, 2, 28)));
+    assertTrue(events.isEmpty(), "Saturday Feb 11 must not be observed: " + events);
+  }
+
+  @Test
+  void nextAvailableFromLastWeekendDay_sundayHolidayCascadesPastOtherClosures() {
+    // Golden Week 2026: Sun May 3 (Constitution Memorial Day) is observed on Wed May 6, past
+    // Greenery Day (Mon May 4) and Children's Day (Tue May 5). JPX publishes exactly this.
+    ResolvedSpec spec =
+        spec(
+            WeekendPolicy.SAT_SUN,
+            WeekendShiftPolicy.NEXT_AVAILABLE_FROM_LAST_WEEKEND_DAY,
+            closed("jp_constitution_memorial_day", 5, 3, null),
+            closed("jp_greenery_day", 5, 4, null),
+            closed("jp_childrens_day", 5, 5, null));
+    List<Event> events =
+        nonWeekend(generator.generate(spec, LocalDate.of(2026, 5, 1), LocalDate.of(2026, 5, 10)));
+    assertEquals(
+        List.of(LocalDate.of(2026, 5, 4), LocalDate.of(2026, 5, 5), LocalDate.of(2026, 5, 6)),
+        events.stream().map(Event::date).sorted().toList());
+    Event observed =
+        events.stream()
+            .filter(e -> e.key().equals("jp_constitution_memorial_day"))
+            .findFirst()
+            .orElseThrow();
+    assertEquals(LocalDate.of(2026, 5, 6), observed.date());
+    assertEquals(LocalDate.of(2026, 5, 3), observed.observedFrom());
+  }
+
+  @Test
+  void nextAvailableFromLastWeekendDay_sundayHolidayWithFreeMondayDoesNotCascade() {
+    // 2021 Mountain Day: Sun Aug 8 -> Mon Aug 9, no cascade needed.
+    ResolvedSpec spec =
+        spec(
+            WeekendPolicy.SAT_SUN,
+            WeekendShiftPolicy.NEXT_AVAILABLE_FROM_LAST_WEEKEND_DAY,
+            closed("jp_mountain_day", 8, 8, null));
+    List<Event> events =
+        nonWeekend(generator.generate(spec, LocalDate.of(2021, 8, 1), LocalDate.of(2021, 8, 31)));
+    assertEquals(1, events.size());
+    assertEquals(LocalDate.of(2021, 8, 9), events.get(0).date());
+    assertEquals(LocalDate.of(2021, 8, 8), events.get(0).observedFrom());
+  }
+
+  @Test
   void nearestWeekday_friSatWeekend() {
     // Saudi: Fri Sep 23 2022 -> Thu Sep 22; Sat Sep 23 2023 -> Sun Sep 24
     WeekendPolicy friSat = new WeekendPolicy(EnumSet.of(DayOfWeek.FRIDAY, DayOfWeek.SATURDAY));

@@ -14,3 +14,9 @@
 /modules/holidays/saudi_*          @twallengren
 /modules/policies/saudi_weekends.yaml  @twallengren
 /sources/SA-TADAWUL/               @twallengren
+
+# JP-JPX
+/calendars/JP-JPX.yaml             @twallengren
+/modules/holidays/jp_*             @twallengren
+/modules/groups/jp_jpx_holidays.yaml  @twallengren
+/sources/JP-JPX/                   @twallengren

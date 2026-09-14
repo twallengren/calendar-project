@@ -1,0 +1,121 @@
+date,type,description,key,source_module,observed_from,close_time,status
+2021-01-01,CLOSED,New Year's Day,jp_new_years_day,module:jp_new_years_day,,,CONFIRMED
+2021-01-02,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2021-01-03,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2021-01-09,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2021-01-10,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2021-01-11,CLOSED,Coming of Age Day,jp_coming_of_age_day,module:jp_coming_of_age_day,,,CONFIRMED
+2021-01-16,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2021-01-17,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2021-01-23,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2021-01-24,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2021-01-30,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2021-01-31,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2021-02-06,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2021-02-07,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2021-02-11,CLOSED,National Foundation Day,jp_national_foundation_day,module:jp_national_foundation_day,,,CONFIRMED
+2021-02-13,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2021-02-14,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2021-02-20,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2021-02-21,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2021-02-23,CLOSED,Emperor's Birthday,jp_emperors_birthday,module:jp_emperors_birthday,,,CONFIRMED
+2021-02-27,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2021-02-28,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2021-03-06,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2021-03-07,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2021-03-13,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2021-03-14,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2021-03-20,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2021-03-21,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2021-03-27,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2021-03-28,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2021-04-03,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2021-04-04,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2021-04-10,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2021-04-11,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2021-04-17,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2021-04-18,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2021-04-24,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2021-04-25,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2021-04-29,CLOSED,Showa Day,jp_showa_day,module:jp_showa_day,,,CONFIRMED
+2021-05-01,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2021-05-02,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2021-05-03,CLOSED,Constitution Memorial Day,jp_constitution_memorial_day,module:jp_constitution_memorial_day,,,CONFIRMED
+2021-05-04,CLOSED,Greenery Day,jp_greenery_day,module:jp_greenery_day,,,CONFIRMED
+2021-05-05,CLOSED,Children's Day,jp_childrens_day,module:jp_childrens_day,,,CONFIRMED
+2021-05-08,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2021-05-09,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2021-05-15,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2021-05-16,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2021-05-22,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2021-05-23,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2021-05-29,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2021-05-30,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2021-06-05,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2021-06-06,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2021-06-12,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2021-06-13,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2021-06-19,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2021-06-20,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2021-06-26,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2021-06-27,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2021-07-03,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2021-07-04,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2021-07-10,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2021-07-11,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2021-07-17,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2021-07-18,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2021-07-22,CLOSED,Marine Day (Tokyo Olympics),jp_marine_day_olympic,module:jp_marine_day,,,CONFIRMED
+2021-07-23,CLOSED,Sports Day (Tokyo Olympics),jp_sports_day_olympic,module:jp_sports_day,,,CONFIRMED
+2021-07-24,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2021-07-25,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2021-07-31,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2021-08-01,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2021-08-07,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2021-08-08,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2021-08-09,CLOSED,Mountain Day (Tokyo Olympics),jp_mountain_day_olympic,module:jp_mountain_day,2021-08-08,,CONFIRMED
+2021-08-14,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2021-08-15,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2021-08-21,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2021-08-22,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2021-08-28,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2021-08-29,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2021-09-04,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2021-09-05,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2021-09-11,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2021-09-12,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2021-09-18,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2021-09-19,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2021-09-20,CLOSED,Respect for the Aged Day,jp_respect_for_the_aged_day,module:jp_respect_for_the_aged_day,,,CONFIRMED
+2021-09-23,CLOSED,Autumnal Equinox Day,jp_autumnal_equinox_day,module:jp_autumnal_equinox_day,,,CONFIRMED
+2021-09-25,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2021-09-26,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2021-10-02,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2021-10-03,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2021-10-09,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2021-10-10,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2021-10-16,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2021-10-17,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2021-10-23,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2021-10-24,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2021-10-30,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2021-10-31,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2021-11-03,CLOSED,Culture Day,jp_culture_day,module:jp_culture_day,,,CONFIRMED
+2021-11-06,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2021-11-07,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2021-11-13,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2021-11-14,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2021-11-20,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2021-11-21,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2021-11-23,CLOSED,Labor Thanksgiving Day,jp_labour_thanksgiving_day,module:jp_labour_thanksgiving_day,,,CONFIRMED
+2021-11-27,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2021-11-28,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2021-12-04,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2021-12-05,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2021-12-11,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2021-12-12,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2021-12-18,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2021-12-19,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2021-12-25,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2021-12-26,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2021-12-31,CLOSED,Market Holiday (year end),jp_jpx_year_end_market_holiday,module:jp_jpx_market_holidays,,,CONFIRMED
