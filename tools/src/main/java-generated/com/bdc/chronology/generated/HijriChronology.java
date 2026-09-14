@@ -6,12 +6,15 @@ import com.bdc.chronology.ontology.algorithms.ChronologyAlgorithm;
 /**
  * Generated chronology: Islamic Calendar (Tabular)
  *
- * <p>The tabular Islamic calendar is an arithmetic approximation of the lunar Hijri calendar. It
- * uses a 30-year cycle with 11 leap years to approximate the lunar month cycle. Months alternate
- * between 30 and 29 days, with the 12th month (Dhu al-Hijjah) having 30 days in leap years.
+ * <p>The tabular Islamic calendar is an arithmetic approximation of the lunar
+ * Hijri calendar. It uses a 30-year cycle with 11 leap years to approximate
+ * the lunar month cycle. Months alternate between 30 and 29 days, with the
+ * 12th month (Dhu al-Hijjah) having 30 days in leap years.
  *
- * <p>This is suitable for civil and computational purposes. For religious observances, the actual
- * Hijri calendar based on moon sighting may differ by 1-2 days.
+ * This is suitable for civil and computational purposes. For religious
+ * observances, the actual Hijri calendar based on moon sighting may differ
+ * by 1-2 days.
+ *
  *
  * <p>This class is auto-generated from YAML. Do not edit manually.
  */
@@ -45,24 +48,16 @@ public final class HijriChronology implements ChronologyAlgorithm {
     }
 
     /** Returns the month number (1-based). */
-    public int number() {
-      return number;
-    }
+    public int number() { return number; }
 
     /** Returns the display name of the month. */
-    public String displayName() {
-      return displayName;
-    }
+    public String displayName() { return displayName; }
 
     /** Returns the number of days in this month for a common year. */
-    public int days() {
-      return days;
-    }
+    public int days() { return days; }
 
     /** Returns the number of days in this month for a leap year. */
-    public int leapDays() {
-      return leapDays;
-    }
+    public int leapDays() { return leapDays; }
 
     /** Returns the number of days in this month for the given year type. */
     public int days(boolean isLeapYear) {
@@ -97,14 +92,10 @@ public final class HijriChronology implements ChronologyAlgorithm {
     }
 
     /** Returns the day ordinal (0-based, starting from the first day of the week). */
-    public int dayOrdinal() {
-      return ordinal;
-    }
+    public int dayOrdinal() { return ordinal; }
 
     /** Returns the display name of the day. */
-    public String displayName() {
-      return displayName;
-    }
+    public String displayName() { return displayName; }
 
     /** Returns the Day for the given ordinal (0-based). */
     public static Day of(int dayOrdinal) {

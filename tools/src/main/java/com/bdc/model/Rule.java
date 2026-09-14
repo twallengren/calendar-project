@@ -10,6 +10,12 @@ import java.util.List;
 
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type")
 @JsonSubTypes({
+  @JsonSubTypes.Type(value = Rule.NativeFixedMonthDay.class, name = "native_fixed_month_day"),
+  @JsonSubTypes.Type(value = Rule.NativeExplicitDates.class, name = "native_explicit_dates"),
+  @JsonSubTypes.Type(value = Rule.NativeNthWeekday.class, name = "native_nth_weekday"),
+  @JsonSubTypes.Type(
+      value = Rule.NativeRelativeToReference.class,
+      name = "native_relative_to_reference"),
   @JsonSubTypes.Type(value = Rule.ExplicitDates.class, name = "explicit_dates"),
   @JsonSubTypes.Type(value = Rule.FixedMonthDay.class, name = "fixed_month_day"),
   @JsonSubTypes.Type(value = Rule.NthWeekdayOfMonth.class, name = "nth_weekday_of_month"),
@@ -19,7 +25,133 @@ public sealed interface Rule
     permits Rule.ExplicitDates,
         Rule.FixedMonthDay,
         Rule.NthWeekdayOfMonth,
-        Rule.RelativeToReference {
+        Rule.RelativeToReference,
+        Rule.NativeRecurring,
+        Rule.NativeExplicitDates {
+
+  /** Native-year filter intersects the enclosing source's nominal ISO active_years. */
+  sealed interface NativeRecurring extends Rule
+      permits NativeFixedMonthDay, NativeNthWeekday, NativeRelativeToReference {
+    String chronology();
+
+    List<String> monthCodes();
+
+    List<EventSource.YearRange> nativeYears();
+
+    default boolean includesYear(int year) {
+      return nativeYears() == null
+          || nativeYears().isEmpty()
+          || nativeYears().stream().anyMatch(r -> r.contains(year));
+    }
+  }
+
+  record NativeFixedMonthDay(
+      String key,
+      String name,
+      String chronology,
+      @JsonProperty("month_codes") List<String> monthCodes,
+      int day,
+      @JsonProperty("native_years") List<EventSource.YearRange> nativeYears,
+      @JsonProperty("duration_days") Integer durationDays)
+      implements NativeRecurring {
+    public NativeFixedMonthDay {
+      monthCodes = validateNative(chronology, monthCodes, nativeYears, durationDays);
+      if (nativeYears != null) nativeYears = List.copyOf(nativeYears);
+      if (day < 1 || day > 31) throw new IllegalArgumentException("day must be 1..31");
+    }
+
+    public int spanDays() {
+      return durationDays == null ? 1 : durationDays;
+    }
+
+    public NativeFixedMonthDay withIdentity(String key, String name) {
+      return new NativeFixedMonthDay(
+          key, name, chronology, monthCodes, day, nativeYears, durationDays);
+    }
+  }
+
+  record NativeNthWeekday(
+      String key,
+      String name,
+      String chronology,
+      @JsonProperty("month_codes") List<String> monthCodes,
+      DayOfWeek weekday,
+      int nth,
+      @JsonProperty("native_years") List<EventSource.YearRange> nativeYears,
+      @JsonProperty("duration_days") Integer durationDays)
+      implements NativeRecurring {
+    public NativeNthWeekday {
+      monthCodes = validateNative(chronology, monthCodes, nativeYears, durationDays);
+      if (nativeYears != null) nativeYears = List.copyOf(nativeYears);
+      if (weekday == null || nth == 0 || nth < -1 || nth > 5)
+        throw new IllegalArgumentException("weekday and nth 1..5 or -1 required");
+    }
+
+    public int spanDays() {
+      return durationDays == null ? 1 : durationDays;
+    }
+
+    public NativeNthWeekday withIdentity(String key, String name) {
+      return new NativeNthWeekday(
+          key, name, chronology, monthCodes, weekday, nth, nativeYears, durationDays);
+    }
+  }
+
+  record NativeRelativeToReference(
+      String key,
+      String name,
+      String chronology,
+      @JsonProperty("month_codes") List<String> monthCodes,
+      int day,
+      @JsonProperty("offset_days") int offsetDays,
+      @JsonProperty("native_years") List<EventSource.YearRange> nativeYears,
+      @JsonProperty("duration_days") Integer durationDays)
+      implements NativeRecurring {
+    public NativeRelativeToReference {
+      monthCodes = validateNative(chronology, monthCodes, nativeYears, durationDays);
+      if (nativeYears != null) nativeYears = List.copyOf(nativeYears);
+      if (day < 1 || day > 31) throw new IllegalArgumentException("day must be 1..31");
+    }
+
+    public int spanDays() {
+      return durationDays == null ? 1 : durationDays;
+    }
+
+    public NativeRelativeToReference withIdentity(String key, String name) {
+      return new NativeRelativeToReference(
+          key, name, chronology, monthCodes, day, offsetDays, nativeYears, durationDays);
+    }
+  }
+
+  record NativeExplicitDates(String key, String name, List<com.bdc.chronology.NativeDate> dates)
+      implements Rule {
+    public NativeExplicitDates {
+      dates = List.copyOf(dates);
+      if (dates.isEmpty())
+        throw new IllegalArgumentException("native_explicit_dates must not be empty");
+    }
+
+    public NativeExplicitDates withIdentity(String key, String name) {
+      return new NativeExplicitDates(key, name, dates);
+    }
+  }
+
+  private static List<String> validateNative(
+      String chronology, List<String> codes, List<EventSource.YearRange> years, Integer duration) {
+    java.util.Objects.requireNonNull(chronology, "chronology required");
+    if (codes == null || codes.isEmpty())
+      throw new IllegalArgumentException(
+          "month_codes must explicitly select at least one exact month identity");
+    if (new java.util.HashSet<>(codes).size() != codes.size())
+      throw new IllegalArgumentException("duplicate month_codes");
+    if (duration != null && duration < 1)
+      throw new IllegalArgumentException("duration_days must be >= 1");
+    if (years != null
+        && years.stream()
+            .anyMatch(r -> r.start() != null && r.end() != null && r.start() > r.end()))
+      throw new IllegalArgumentException("native_years start exceeds end");
+    return List.copyOf(codes);
+  }
 
   /** The event key this rule produces. May be null in YAML; inherited from the event source. */
   String key();

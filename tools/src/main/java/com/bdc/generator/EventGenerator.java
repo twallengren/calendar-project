@@ -47,6 +47,21 @@ public class EventGenerator {
 
   public List<Event> generate(ResolvedSpec spec, LocalDate from, LocalDate to) {
     DateRange requested = new DateRange(from, to);
+    for (EventSource source : spec.eventSources()) {
+      if (source.rule() instanceof Rule.NativeRecurring nativeRule) {
+        var descriptor =
+            com.bdc.chronology.ChronologyProviders.get(nativeRule.chronology()).descriptor();
+        // Native origins, spans and observation dependencies must fit inside provider support.
+        long reach = nativeRule.spanDays() - 1L;
+        if (nativeRule instanceof Rule.NativeRelativeToReference relative)
+          reach += Math.abs((long) relative.offsetDays());
+        var shift = source.effectiveShiftPolicy(spec.weekendShiftPolicy());
+        if (shift != WeekendShiftPolicy.NONE && shift != WeekendShiftPolicy.DROP)
+          reach += CASCADE_LIMIT_DAYS;
+        descriptor.requireSupported(minusDaysClamped(from, reach));
+        descriptor.requireSupported(plusDaysClamped(to, reach));
+      }
+    }
     DateRange padded = paddedRange(spec, from, to);
 
     ReferenceResolver refResolver = new ReferenceResolver();
@@ -178,7 +193,18 @@ public class EventGenerator {
    * an occurrence appeared depended on the requested range.
    */
   private static DateRange paddedRange(ResolvedSpec spec, LocalDate from, LocalDate to) {
-    long pad = 366 + maxRuleReachDays(spec);
+    long yearDays = 366;
+    for (EventSource source : spec.eventSources()) {
+      if (source.rule() instanceof Rule.NativeRecurring r) {
+        yearDays =
+            Math.max(
+                yearDays,
+                com.bdc.chronology.ChronologyProviders.get(r.chronology())
+                    .descriptor()
+                    .maximumYearDays());
+      }
+    }
+    long pad = yearDays + maxRuleReachDays(spec);
     return new DateRange(minusDaysClamped(from, pad), plusDaysClamped(to, pad));
   }
 
@@ -191,6 +217,9 @@ public class EventGenerator {
         continue;
       }
       long own = rule.spanDays();
+      if (rule instanceof Rule.NativeRelativeToReference nativeRelative) {
+        own += Math.abs((long) nativeRelative.offsetDays());
+      }
       if (rule instanceof Rule.RelativeToReference relative) {
         if (relative.offsetDays() != null) {
           own += Math.abs((long) relative.offsetDays());

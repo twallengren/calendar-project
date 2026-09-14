@@ -1,7 +1,7 @@
 package com.bdc.emitter;
 
-import com.bdc.chronology.ontology.ChronologyDate;
-import com.bdc.chronology.ontology.ChronologyRegistry;
+import com.bdc.chronology.ChronologyProviders;
+import com.bdc.chronology.NativeDate;
 import com.bdc.model.Event;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -32,6 +32,11 @@ public class CsvEmitter {
 
   public void emit(List<Event> events, Path outputPath, String outputChronology)
       throws IOException {
+    // Convert every date before opening/truncating a published output file.
+    if (outputChronology != null) {
+      var provider = ChronologyProviders.get(outputChronology);
+      for (Event event : events) provider.fromIso(event.date());
+    }
     Path parent = outputPath.getParent();
     if (parent != null) {
       Files.createDirectories(parent);
@@ -53,6 +58,7 @@ public class CsvEmitter {
   }
 
   public String emitToString(List<Event> events, String outputChronology) {
+    if (outputChronology != null) ChronologyProviders.get(outputChronology);
     StringBuilder sb = new StringBuilder();
     sb.append(getHeader(outputChronology)).append("\n");
 
@@ -79,16 +85,14 @@ public class CsvEmitter {
     List<String> cells = new ArrayList<>();
     cells.add(event.date().toString());
     if (outputChronology != null) {
-      String altDateStr;
-      try {
-        ChronologyDate altDate =
-            ChronologyRegistry.getInstance().fromIsoDate(event.date(), outputChronology);
-        altDateStr =
-            String.format("%04d-%02d-%02d", altDate.year(), altDate.month(), altDate.day());
-      } catch (IllegalArgumentException e) {
-        altDateStr = "";
-      }
-      cells.add(altDateStr);
+      NativeDate altDate = ChronologyProviders.get(outputChronology).fromIso(event.date());
+      String month =
+          altDate.monthCode().matches("M[0-9]{2}")
+              ? altDate.monthCode().substring(1)
+              : altDate.monthCode();
+      cells.add(
+          String.format(
+              java.util.Locale.ROOT, "%04d-%s-%02d", altDate.year(), month, altDate.day()));
     }
     cells.add(event.type().name());
     cells.add(escapeCsv(event.description()));

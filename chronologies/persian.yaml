@@ -2,18 +2,18 @@ kind: chronology
 id: PERSIAN
 
 metadata:
-  name: Solar Hijri Calendar
+  name: Persian Arithmetic Calendar (2820-year profile)
   description: |
-    The Solar Hijri calendar (Persian: گاه‌شماری هجری خورشیدی) is the official
-    calendar of Iran and Afghanistan. It is a solar calendar with 12 months,
-    beginning on the March equinox.
+    This profile is the 2820-year arithmetic approximation, not the astronomical
+    civil calendar used in Iran. It preserves the existing 682/2816 leap formula.
+    Epoch source: https://www.fourmilab.ch/documents/calendar/ (Persian Algorithmic).
 
     The first six months have 31 days, the next five have 30 days, and the
     last month has 29 days (30 in leap years). This arithmetic version uses
     a 2820-year cycle approximation for leap years.
 
 structure:
-  epoch_jdn: 1948320  # Farvardin 1, 1 AP (March 22, 622 CE Julian)
+  epoch_jdn: 1948321  # Farvardin 1, 1 AP = 622-03-19 Julian / 622-03-22 Gregorian
   week:
     days:
       - Yekshanbeh    # Sunday

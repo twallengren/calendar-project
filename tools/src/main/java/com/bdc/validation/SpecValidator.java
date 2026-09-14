@@ -251,6 +251,23 @@ public class SpecValidator {
     }
 
     switch (es.rule()) {
+      case Rule.NativeRecurring r -> {
+        try {
+          var provider = com.bdc.chronology.ChronologyProviders.get(r.chronology());
+          r.monthCodes().forEach(provider::validateMonthCode);
+        } catch (IllegalArgumentException e) {
+          result.error("INVALID_RULE", loc, e.getMessage());
+        }
+      }
+      case Rule.NativeExplicitDates r -> {
+        for (var date : r.dates()) {
+          try {
+            com.bdc.chronology.ChronologyProviders.get(date.chronologyId()).toIso(date);
+          } catch (IllegalArgumentException e) {
+            result.error("INVALID_RULE", loc, e.getMessage());
+          }
+        }
+      }
       case Rule.FixedMonthDay r -> {
         checkChronology(r.chronology(), loc, result);
         if (r.month() < 1 || r.month() > 12) {

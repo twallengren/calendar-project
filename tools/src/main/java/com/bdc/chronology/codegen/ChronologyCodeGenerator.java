@@ -27,7 +27,7 @@ public class ChronologyCodeGenerator {
     this.mapper =
         new ObjectMapper(new YAMLFactory())
             .setPropertyNamingStrategy(PropertyNamingStrategies.SNAKE_CASE)
-            .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+            .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
   }
 
   /**
@@ -47,6 +47,7 @@ public class ChronologyCodeGenerator {
       List<Path> yamlFiles =
           paths
               .filter(Files::isRegularFile)
+              .sorted()
               .filter(p -> p.toString().endsWith(".yaml") || p.toString().endsWith(".yml"))
               .toList();
 
@@ -71,22 +72,26 @@ public class ChronologyCodeGenerator {
    * @throws IOException if writing fails
    */
   public Path generate(ChronologySpec spec, Path outputDir) throws IOException {
+    if (spec.algorithms() == null
+        || spec.algorithms().type() == null
+        || !(spec.algorithms().type().equalsIgnoreCase("FORMULA")
+            || spec.algorithms().type().equalsIgnoreCase("LOOKUP_TABLE"))) {
+      throw new IllegalArgumentException("Unsupported chronology algorithm type");
+    }
+    com.bdc.chronology.ontology.FormulaSyntax.validate(spec.algorithms().leapYear());
     String className = toClassName(spec.id());
     String javaCode = generateClass(spec, className);
 
     Path outputFile = outputDir.resolve(className + ".java");
-    Files.writeString(outputFile, javaCode);
+    Files.writeString(outputFile, javaCode.replaceAll("(?m)[ \t]+$", ""));
 
     return outputFile;
   }
 
   private ChronologySpec loadSpec(Path path) throws IOException {
-    try {
-      return mapper.readValue(path.toFile(), ChronologySpec.class);
-    } catch (Exception e) {
-      // Skip files that don't parse as ChronologySpec
-      return null;
-    }
+    var tree = mapper.readTree(path.toFile());
+    if (!"chronology".equals(tree.path("kind").asText())) return null;
+    return mapper.treeToValue(tree, ChronologySpec.class);
   }
 
   private String toClassName(String id) {

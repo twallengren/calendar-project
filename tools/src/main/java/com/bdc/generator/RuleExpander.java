@@ -33,11 +33,68 @@ public class RuleExpander {
 
   public List<Occurrence> expand(Rule rule, DateRange range, String provenance) {
     return switch (rule) {
+      case Rule.NativeRecurring r -> expandNativeRecurring(r, range, provenance);
+      case Rule.NativeExplicitDates r -> expandNativeExplicit(r, range, provenance);
       case Rule.ExplicitDates r -> expandExplicitDates(r, range, provenance);
       case Rule.FixedMonthDay r -> expandFixedMonthDay(r, range, provenance);
       case Rule.NthWeekdayOfMonth r -> expandNthWeekday(r, range, provenance);
       case Rule.RelativeToReference r -> expandRelativeToReference(r, range, provenance);
     };
+  }
+
+  private List<Occurrence> expandNativeExplicit(
+      Rule.NativeExplicitDates rule, DateRange range, String provenance) {
+    List<Occurrence> result = new ArrayList<>();
+    for (var nativeDate : rule.dates()) {
+      var date =
+          com.bdc.chronology.ChronologyProviders.get(nativeDate.chronologyId()).toIso(nativeDate);
+      if (range.contains(date))
+        result.add(new Occurrence(rule.key(), date, rule.name(), provenance));
+    }
+    return result;
+  }
+
+  private List<Occurrence> expandNativeRecurring(
+      Rule.NativeRecurring rule, DateRange range, String provenance) {
+    var provider = com.bdc.chronology.ChronologyProviders.get(rule.chronology());
+    rule.monthCodes().forEach(provider::validateMonthCode);
+    var descriptor = provider.descriptor();
+    LocalDate first =
+        range.start().isBefore(descriptor.supportedFrom())
+            ? descriptor.supportedFrom()
+            : range.start();
+    LocalDate last =
+        range.end().isAfter(descriptor.supportedTo()) ? descriptor.supportedTo() : range.end();
+    if (last.isBefore(first)) return List.of();
+    int firstYear = provider.fromIso(first).year(), lastYear = provider.fromIso(last).year();
+    List<Occurrence> result = new ArrayList<>();
+    for (int year = firstYear; year <= lastYear; year++) {
+      if (!rule.includesYear(year)) continue;
+      for (String month : rule.monthCodes()) {
+        if (!provider.months(year).contains(month)) continue;
+        int day =
+            switch (rule) {
+              case Rule.NativeFixedMonthDay r -> r.day();
+              case Rule.NativeRelativeToReference r -> r.day();
+              case Rule.NativeNthWeekday r -> 1;
+            };
+        if (day > provider.maximumDayOfMonth(month))
+          throw new IllegalArgumentException("Day cannot exist in chronology: " + day);
+        if (day > provider.monthLength(year, month)) continue;
+        LocalDate date = provider.monthStart(year, month).plusDays(day - 1);
+        if (rule instanceof Rule.NativeRelativeToReference r) date = date.plusDays(r.offsetDays());
+        if (rule instanceof Rule.NativeNthWeekday r) {
+          LocalDate end = date.plusDays(provider.monthLength(year, month) - 1);
+          date =
+              r.nth() == -1
+                  ? end.with(TemporalAdjusters.previousOrSame(r.weekday()))
+                  : date.with(TemporalAdjusters.nextOrSame(r.weekday())).plusWeeks(r.nth() - 1);
+          if (date.isAfter(end)) continue;
+        }
+        addSpan(result, rule, date, date.plusDays(rule.spanDays() - 1), range, provenance);
+      }
+    }
+    return result;
   }
 
   private List<Occurrence> expandExplicitDates(

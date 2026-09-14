@@ -38,7 +38,7 @@ class ChronologyLoaderTest {
         structure:
           epoch_jdn: 1721424
           week:
-            days_per_week: 7
+            days: [MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY]
             first_day: MONDAY
           months:
             - {name: January, days: 31}

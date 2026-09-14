@@ -196,13 +196,13 @@ class CsvEmitterTest {
   }
 
   @Test
-  void emitToString_withOutputChronology_outOfRange_emitsEmptyAltDate() {
+  void emitToString_withOutputChronology_outOfRange_fails() {
     // 1900-01-01 is outside Umm al-Qura range (AH 1356-1500 / ~1937-2076 CE)
     List<Event> events =
         List.of(new Event(LocalDate.of(1900, 1, 1), EventType.CLOSED, "Old Event", "test"));
 
-    String result = emitter.emitToString(events, "UMM_AL_QURA");
-
-    assertTrue(result.contains("1900-01-01,,CLOSED,Old Event"));
+    assertThrows(
+        com.bdc.chronology.UnsupportedChronologyRangeException.class,
+        () -> emitter.emitToString(events, "UMM_AL_QURA"));
   }
 }
