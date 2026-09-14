@@ -106,6 +106,10 @@ python3 scripts/release/version_policy.py \
   --candidate "$DATA_VERSION" \
   --severity "$SEVERITY"
 
+# bless.sh synchronizes the final candidate into the Python package. Generate
+# parity fixtures from that exact data before hashing the review descriptor.
+python/scripts/generate_parity_fixture.sh
+
 # This browser fixture is generated from JointDateStream and must describe the
 # exact candidate data, including unresolved-day failures.
 ./gradlew :tools:test \

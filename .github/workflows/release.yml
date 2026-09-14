@@ -60,10 +60,23 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           COMMIT: ${{ steps.resolve.outputs.commit }}
         run: |
+          git fetch origin +refs/heads/main:refs/remotes/origin/main
+          git merge-base --is-ancestor "$COMMIT" refs/remotes/origin/main || {
+            echo "$COMMIT is not contained in the protected main branch" >&2
+            exit 1
+          }
           MATCHES=$(gh api -X GET "repos/$GITHUB_REPOSITORY/actions/workflows/ci.yml/runs" \
             -f head_sha="$COMMIT" -f status=completed | \
-            jq --arg sha "$COMMIT" '[.workflow_runs[] | select(.head_sha == $sha and .conclusion == "success")] | length')
-          test "$MATCHES" -gt 0 || { echo "No successful CI run exists for exact commit $COMMIT" >&2; exit 1; }
+            jq --arg sha "$COMMIT" '[.workflow_runs[] | select(
+              .head_sha == $sha and
+              .head_branch == "main" and
+              .event == "push" and
+              .conclusion == "success"
+            )] | length')
+          test "$MATCHES" -gt 0 || {
+            echo "No successful push/main CI run exists for exact commit $COMMIT" >&2
+            exit 1
+          }
 
       - name: Gate on a descriptor introduced by this exact commit
         id: gate
@@ -94,15 +107,34 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           COMMIT: ${{ steps.resolve.outputs.commit }}
         run: |
-          URL=$(gh api -X GET "repos/$GITHUB_REPOSITORY/actions/artifacts" \
-            -f name="publication-$COMMIT" -f per_page=100 \
-            --jq '[.artifacts[] | select(.expired == false)] | sort_by(.created_at) | last | .archive_download_url // empty')
-          if [ -z "$URL" ]; then
+          gh api -X GET "repos/$GITHUB_REPOSITORY/actions/artifacts" \
+            -f name="publication-$COMMIT" -f per_page=100 | \
+            jq -r --arg sha "$COMMIT" '[.artifacts[] | select(
+              .expired == false and
+              .name == ("publication-" + $sha) and
+              .workflow_run.head_sha == $sha and
+              .workflow_run.head_branch == "main"
+            )] | sort_by(.created_at) | last |
+              if . == null then empty else [.id, .workflow_run.id] | @tsv end' \
+              > "$RUNNER_TEMP/publication-artifact.tsv"
+          if [ ! -s "$RUNNER_TEMP/publication-artifact.tsv" ]; then
             echo "reused=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
+          ARTIFACT_ID=$(cut -f1 "$RUNNER_TEMP/publication-artifact.tsv")
+          RUN_ID=$(cut -f2 "$RUNNER_TEMP/publication-artifact.tsv")
+          gh api "repos/$GITHUB_REPOSITORY/actions/runs/$RUN_ID" | \
+            jq -e --arg sha "$COMMIT" '
+              .head_sha == $sha and
+              .head_branch == "main" and
+              (.event == "workflow_run" or .event == "workflow_dispatch") and
+              .path == ".github/workflows/release.yml"
+            ' >/dev/null || {
+              echo "Refusing artifact from an unrelated workflow run" >&2
+              exit 1
+            }
           mkdir -p publication
-          gh api "$URL" > "$RUNNER_TEMP/publication.zip"
+          gh api "repos/$GITHUB_REPOSITORY/actions/artifacts/$ARTIFACT_ID/zip" > "$RUNNER_TEMP/publication.zip"
           unzip -q "$RUNNER_TEMP/publication.zip" -d publication
           python3 scripts/release/verify_publication.py publication "$COMMIT"
           echo "reused=true" >> "$GITHUB_OUTPUT"
@@ -127,6 +159,10 @@ jobs:
         run: |
           export SOURCE_DATE_EPOCH=$(git show -s --format=%ct "${{ steps.resolve.outputs.commit }}")
           ./gradlew build :tools:installDist nmcpZipAggregation -Prelease=true
+          ./gradlew -c scripts/release/maven-smoke.settings.gradle.kts verifyLocalRelease \
+            -PcoreJar="$GITHUB_WORKSPACE/core/build/libs/core-$(jq -r .versions.java_core release/release.json).jar" \
+            -PdataJar="$GITHUB_WORKSPACE/data/build/libs/data-$(jq -r .versions.data release/release.json).jar" \
+            -PdataVersion="$(jq -r .versions.data release/release.json)"
           tools/build/install/tools/bin/tools validate --all --strict
           tools/build/install/tools/bin/tools crossvalidate --all --out blessed
           git diff --exit-code -- blessed
@@ -151,9 +187,7 @@ jobs:
           done
           cp -R sources publication/dataset/
           cp release/release.json release/impact.json release/baseline-evidence.json publication/dataset/
-          jq --arg commit "${{ steps.resolve.outputs.commit }}" '.release_commit = $commit' \
-            publication/dataset/release.json > publication/dataset/release.json.tmp
-          mv publication/dataset/release.json.tmp publication/dataset/release.json
+          cp LICENSE DATA_LICENSE NOTICE publication/dataset/
           cp core/build/libs/* data/build/libs/* publication/java/
           cp build/nmcp/zip/aggregation.zip publication/maven/central-bundle.zip
           cp python/dist/* publication/python/
@@ -164,7 +198,19 @@ jobs:
             ICS="publication/pages/v1/calendars/$ID/holidays-recent.ics"
             if [ -f "$ICS" ]; then cp "$ICS" "publication/assets/${ID}-holidays.ics"; fi
           done
-          python3 scripts/release/checksums.py publication/assets publication/java publication/python publication/maven publication/pages > publication/checksums.txt
+          python3 scripts/release/checksums.py \
+            publication/dataset publication/assets publication/java \
+            publication/python publication/maven publication/pages \
+            > publication/checksums.txt
+          jq -n --arg commit "${{ steps.resolve.outputs.commit }}" \
+            --arg descriptor_sha "$(sha256sum release/release.json | cut -d' ' -f1)" \
+            --arg checksums_sha "$(sha256sum publication/checksums.txt | cut -d' ' -f1)" \
+            '{
+              schema_version:"1.0",
+              release_commit:$commit,
+              descriptor_sha256:("sha256:"+$descriptor_sha),
+              checksums_sha256:("sha256:"+$checksums_sha)
+            }' > publication/build-receipt.json
 
       - uses: actions/upload-artifact@v4
         if: steps.gate.outputs.release == 'true'
@@ -209,7 +255,7 @@ jobs:
           if gh release view "$TAG" >/dev/null 2>&1; then
             python3 scripts/release/verify_github_release.py "$TAG" publication
           else
-            gh release create "$TAG" publication/assets/* publication/java/* publication/python/* publication/checksums.txt \
+            gh release create "$TAG" publication/assets/* publication/java/* publication/python/* publication/checksums.txt publication/build-receipt.json \
               --verify-tag --title "Calendar data v$VERSION" \
               --notes "Built from exact commit \`$COMMIT\`. See release/release.json for immutable inputs and hashes."
           fi
@@ -270,9 +316,14 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           CENTRAL_USERNAME: ${{ secrets.MAVEN_CENTRAL_USERNAME }}
           CENTRAL_PASSWORD: ${{ secrets.MAVEN_CENTRAL_PASSWORD }}
+          MAVEN_SIGNING_KEY: ${{ secrets.MAVEN_SIGNING_KEY }}
           VERSION: ${{ needs.build-once.outputs.data_version }}
           COMMIT: ${{ needs.build-once.outputs.commit }}
         run: |
+          test -n "$MAVEN_SIGNING_KEY" || {
+            echo "MAVEN_PUBLISH requires a non-empty MAVEN_SIGNING_KEY" >&2
+            exit 1
+          }
           TAG="v$VERSION"
           for ATTEMPT in $(seq 1 12); do
             set +e
@@ -289,7 +340,7 @@ jobs:
           test "$PLAN_STATUS" -eq 0
           if [ "$(jq -r .upload_required publication/maven/plan.json)" = false ]; then
             echo "All Maven coordinates exist with byte-identical files; skipping upload."
-            ./gradlew -b scripts/release/maven-smoke.gradle.kts resolveRelease \
+            ./gradlew -c scripts/release/maven-smoke.settings.gradle.kts resolveRelease \
               --gradle-user-home "$RUNNER_TEMP/maven-smoke" --refresh-dependencies \
               -PcoreVersion="$(jq -r .versions.java_core release/release.json)" \
               -PdataVersion="$VERSION"
@@ -317,7 +368,7 @@ jobs:
               "https://central.sonatype.com/api/v1/publisher/status?id=$DEPLOYMENT_ID")
             case "$(printf '%s' "$STATE" | jq -r .deploymentState)" in
               PUBLISHED)
-                ./gradlew -b scripts/release/maven-smoke.gradle.kts resolveRelease \
+                ./gradlew -c scripts/release/maven-smoke.settings.gradle.kts resolveRelease \
                   --gradle-user-home "$RUNNER_TEMP/maven-smoke" --refresh-dependencies \
                   -PcoreVersion="$(jq -r .versions.java_core release/release.json)" \
                   -PdataVersion="$VERSION"

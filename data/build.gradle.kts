@@ -284,8 +284,8 @@ publishing {
 signing {
     isRequired = false
     val signingKey = project.findProperty("signingKey") as String?
-    val signingPassword = project.findProperty("signingPassword") as String?
-    if (signingKey != null && signingPassword != null) {
+    val signingPassword = (project.findProperty("signingPassword") as String?) ?: ""
+    if (!signingKey.isNullOrBlank()) {
         useInMemoryPgpKeys(signingKey, signingPassword)
         sign(publishing.publications["maven"])
     }

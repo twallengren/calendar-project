@@ -3,5 +3,11 @@
   "data": "12.0.0",
   "java_core": "12.0.0",
   "python": "0.12.0",
-  "wire_schema": "1.0.0"
+  "wire_schema": {
+    "current": "2.0.0",
+    "served": [
+      "1.0.0",
+      "2.0.0"
+    ]
+  }
 }

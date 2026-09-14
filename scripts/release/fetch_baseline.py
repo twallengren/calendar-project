@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import csv
 import hashlib
 import json
 import os
@@ -12,6 +13,7 @@ import subprocess
 import tarfile
 import tempfile
 import urllib.request
+from email.utils import parsedate_to_datetime
 
 
 def sha256(data):
@@ -24,6 +26,17 @@ def request_json(url, token):
         request.add_header("Authorization", "Bearer " + token)
     with urllib.request.urlopen(request) as response:
         return json.load(response)
+
+
+def request_latest(url, token):
+    request = urllib.request.Request(url, headers={"Accept": "application/vnd.github+json"})
+    if token:
+        request.add_header("Authorization", "Bearer " + token)
+    with urllib.request.urlopen(request) as response:
+        observed = response.headers.get("Date")
+        if not observed:
+            raise ValueError("GitHub response did not provide an observation timestamp")
+        return json.load(response), parsedate_to_datetime(observed).isoformat().replace("+00:00", "Z")
 
 
 def download(url):
@@ -67,8 +80,8 @@ def synthesize_manifest(output, version, git_sha, published_at):
             metadata = json.load(handle)
         with open(events_path, "rb") as handle:
             digest = hashlib.sha256(handle.read()).hexdigest()
-        with open(events_path, encoding="utf-8") as handle:
-            count = sum(1 for _line in handle) - 1
+        with open(events_path, encoding="utf-8", newline="") as handle:
+            count = sum(1 for _record in csv.DictReader(handle))
         calendars[calendar_id] = {
             "kind": metadata.get("kind", "market"),
             "range_start": metadata["range_start"],
@@ -104,7 +117,7 @@ def prove_tag_equivalence(output, tag):
                 continue
             path = os.path.join(directory, name)
             relative = os.path.relpath(path, output).replace(os.sep, "/")
-            if relative.startswith("sources/"):
+            if relative.startswith("sources/") or relative in ("LICENSE", "DATA_LICENSE", "NOTICE"):
                 tagged_path = relative
             elif relative in ("release.json", "impact.json", "baseline-evidence.json"):
                 tagged_path = "release/" + relative
@@ -138,6 +151,12 @@ def main():
     token = os.environ.get("GITHUB_TOKEN", "")
     url = "https://api.github.com/repos/{}/releases/tags/{}".format(args.repository, args.tag)
     release = request_json(url, token)
+    latest_url = "https://api.github.com/repos/{}/releases/latest".format(args.repository)
+    latest, observed_current_at = request_latest(latest_url, token)
+    if latest.get("id") != release.get("id"):
+        raise SystemExit(
+            "requested baseline was not the repository's latest release at observation time"
+        )
     archives = [a for a in release["assets"] if a["name"].endswith(".tar.gz")]
     checksums = [a for a in release["assets"] if a["name"] == "checksums.txt"]
     if len(archives) != 1 or len(checksums) != 1:
@@ -177,6 +196,8 @@ def main():
         "tag": args.tag,
         "tag_commit": args.tag_commit,
         "published_at": release["published_at"],
+        "observed_current_at": observed_current_at,
+        "release_url": release["html_url"],
         "asset": {
             "id": archive["id"],
             "name": archive["name"],

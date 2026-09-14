@@ -29,6 +29,8 @@ def expected(publication):
                 result[name] = (path, digest(path))
     path = os.path.join(publication, "checksums.txt")
     result["checksums.txt"] = (path, digest(path))
+    path = os.path.join(publication, "build-receipt.json")
+    result["build-receipt.json"] = (path, digest(path))
     return result
 
 

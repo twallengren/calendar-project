@@ -20,15 +20,19 @@ class GithubReleaseResumeTest(unittest.TestCase):
             handle.write(b"dataset")
         with open(os.path.join(self.root, "checksums.txt"), "wb") as handle:
             handle.write(b"checksums")
+        with open(os.path.join(self.root, "build-receipt.json"), "wb") as handle:
+            handle.write(b"receipt")
 
     def tearDown(self):
         self.temporary.cleanup()
 
     def test_partial_release_uploads_only_missing_assets(self):
         checksum = hashlib.sha256(b"checksums").hexdigest()
-        response = subprocess.CompletedProcess(
-            [], 0, stdout=json.dumps({"assets": [{"name": "checksums.txt", "digest": "sha256:" + checksum}]})
-        )
+        receipt = hashlib.sha256(b"receipt").hexdigest()
+        response = subprocess.CompletedProcess([], 0, stdout=json.dumps({"assets": [
+            {"name": "checksums.txt", "digest": "sha256:" + checksum},
+            {"name": "build-receipt.json", "digest": "sha256:" + receipt},
+        ]}))
         with mock.patch.object(subject.subprocess, "run", side_effect=[response, mock.DEFAULT]) as run:
             subject.synchronize("v12.0.0", self.root, "owner/repo")
         upload = run.call_args_list[1].args[0]
@@ -45,6 +49,10 @@ class GithubReleaseResumeTest(unittest.TestCase):
                         {
                             "name": "checksums.txt",
                             "digest": "sha256:" + hashlib.sha256(b"checksums").hexdigest(),
+                        },
+                        {
+                            "name": "build-receipt.json",
+                            "digest": "sha256:" + hashlib.sha256(b"receipt").hexdigest(),
                         },
                     ]
                 }

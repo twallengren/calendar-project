@@ -62,6 +62,9 @@ def supporting_hashes() -> Dict[str, str]:
     for directory, names, files in os.walk("python/bdc_calendars/data"):
         names.sort()
         paths.extend(os.path.join(directory, name) for name in sorted(files))
+    for directory, names, files in os.walk("python/tests/fixtures"):
+        names.sort()
+        paths.extend(os.path.join(directory, name) for name in sorted(files))
     return {path.replace(os.sep, "/"): digest(path) for path in paths if os.path.isfile(path)}
 
 
@@ -80,10 +83,13 @@ def tree_digest(root: str) -> str:
     return "sha256:" + value.hexdigest()
 
 
-def tracked_tree_digest(root: str) -> str:
+def tracked_tree_digest(root: str, excludes: tuple[str, ...] = ()) -> str:
     value = hashlib.sha256()
     files = subprocess.check_output(["git", "ls-files", "--", root], text=True).splitlines()
     for path in sorted(files):
+        relative = os.path.relpath(path, root).replace(os.sep, "/")
+        if any(relative == excluded or relative.startswith(excluded + "/") for excluded in excludes):
+            continue
         value.update(path.encode("utf-8") + b"\0" + digest(path).encode("ascii") + b"\n")
     return "sha256:" + value.hexdigest()
 
@@ -98,8 +104,13 @@ def input_hashes() -> Dict[str, str]:
         "tools/src/main/java",
         "tools/src/main/java-generated",
         "tools/src/main/resources",
+        "core/src/main",
         "scripts/release",
         "scripts/bless.sh",
+        "python/scripts",
+        "python/pyproject.toml",
+        ".github/workflows/release.yml",
+        ".github/workflows/release-pr.yml",
         "build.gradle.kts",
         "settings.gradle.kts",
         "gradle.properties",
@@ -109,17 +120,39 @@ def input_hashes() -> Dict[str, str]:
         "gradle/wrapper/gradle-wrapper.properties",
         "gradle/verification-metadata.xml",
         "release/versions.json",
+        "LICENSE",
+        "DATA_LICENSE",
+        "NOTICE",
     )
-    return {root: tracked_tree_digest(root) for root in roots}
+    hashes = {root: tracked_tree_digest(root) for root in roots}
+    hashes["python/bdc_calendars"] = tracked_tree_digest(
+        "python/bdc_calendars", excludes=("data", "_version.py")
+    )
+    return hashes
 
 
-def read_versions(path: str) -> Dict[str, str]:
+def read_versions(path: str) -> Dict[str, Any]:
     with open(path, encoding="utf-8") as handle:
         versions = json.load(handle)
-    for key in ("data", "java_core", "python", "wire_schema"):
+    for key in ("data", "java_core", "python"):
         value = versions.get(key)
         if not isinstance(value, str) or not SEMVER.fullmatch(value):
             raise ValueError("{} has invalid {} version {!r}".format(path, key, value))
+    wire = versions.get("wire_schema")
+    if not isinstance(wire, dict) or set(wire) != {"current", "served"}:
+        raise ValueError("{} has invalid wire_schema declaration".format(path))
+    current = wire.get("current")
+    served = wire.get("served")
+    if (
+        not isinstance(current, str)
+        or not SEMVER.fullmatch(current)
+        or not isinstance(served, list)
+        or not served
+        or any(not isinstance(value, str) or not SEMVER.fullmatch(value) for value in served)
+        or len(set(served)) != len(served)
+        or current not in served
+    ):
+        raise ValueError("{} has invalid wire_schema versions".format(path))
     return versions
 
 

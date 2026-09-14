@@ -75,8 +75,8 @@ signing {
     // Signing is opt-in: local builds and CI dry runs have no key and must still publish.
     isRequired = false
     val signingKey = project.findProperty("signingKey") as String?
-    val signingPassword = project.findProperty("signingPassword") as String?
-    if (signingKey != null && signingPassword != null) {
+    val signingPassword = (project.findProperty("signingPassword") as String?) ?: ""
+    if (!signingKey.isNullOrBlank()) {
         useInMemoryPgpKeys(signingKey, signingPassword)
         sign(publishing.publications["maven"])
     }

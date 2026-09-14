@@ -21,7 +21,10 @@ class DescriptorVerificationTest(unittest.TestCase):
                             "java_data": "999.0.0",
                             "java_core": "999.0.0",
                             "python": "999.0.0",
-                            "wire_schema": "999.0.0",
+                            "wire_schema": {
+                                "current": "999.0.0",
+                                "served": ["999.0.0"],
+                            },
                         },
                     },
                     handle,

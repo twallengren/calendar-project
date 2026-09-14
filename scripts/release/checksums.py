@@ -16,6 +16,9 @@ def digest(path):
 
 files = []
 for root in sys.argv[1:]:
+    if os.path.isfile(root):
+        files.append(root)
+        continue
     for directory, names, entries in os.walk(root):
         names.sort()
         for name in sorted(entries):
