@@ -93,6 +93,13 @@
       "event_count": 2535,
       "checksum": "sha256:ee9a4d5d130a9576191305125565b68ea8fc85e8aa51153b31d1705b1a18c8ad",
       "kind": "market"
+    },
+    "HK-HKEX": {
+      "range_start": "2018-01-01",
+      "range_end": "2027-12-31",
+      "event_count": 1208,
+      "checksum": "sha256:f5691051cb8b3d9c599423961872296fa85d53ff72d9b355f2f2f273cb085f0a",
+      "kind": "market"
     }
   },
   "release_version": {

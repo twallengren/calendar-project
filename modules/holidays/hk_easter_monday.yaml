@@ -1,0 +1,48 @@
+kind: module
+id: hk_easter_monday
+
+# Easter Monday. A Hong Kong general holiday (General Holidays Ordinance, Cap. 149, Schedule),
+# computed from Western Easter; always a Monday, so weekend observance never applies.
+#
+# Collision with Ching Ming Festival: when Ching Ming falls on a Sunday it is observed on the
+# following Monday, which can be Easter Monday itself; the Ordinance then pushes Easter Monday to
+# the next day. Within this calendar's coverage that happens in 2021 (Ching Ming Sun 4 Apr ->
+# Mon 5 Apr; Easter Monday -> Tue 6 Apr) and 2026 (Ching Ming Sun 5 Apr -> Mon 6 Apr; Easter
+# Monday -> Tue 7 Apr). This model has no holiday-on-holiday cascade (its shift policies only
+# handle weekends), so those two years are excluded from the rule and listed explicitly instead.
+# Source: govhk-general-holidays / govhk-general-holidays-archived (gazetted dates),
+# hkex-calendar (market closed).
+
+source:
+  - id: govhk-general-holidays
+  - id: hkex-calendar
+
+references:
+  - key: easter
+    formula: EASTER_WESTERN
+
+event_sources:
+  - key: hk_easter_monday
+    name: Easter Monday
+    default_classification: CLOSED
+    active_years:
+      - [null, 2020]
+      - [2022, 2025]
+      - [2027, null]
+    rule:
+      type: relative_to_reference
+      key: hk_easter_monday
+      name: Easter Monday
+      reference: easter
+      offset_days: 1
+
+  - key: hk_day_following_easter_monday
+    name: The day following Easter Monday
+    default_classification: CLOSED
+    rule:
+      type: explicit_dates
+      dates:
+        - date: 2021-04-06
+          comment: Ching Ming Sunday 4 April observed Monday 5 April; Easter Monday moved on
+        - date: 2026-04-07
+          comment: Ching Ming Sunday 5 April observed Monday 6 April; Easter Monday moved on

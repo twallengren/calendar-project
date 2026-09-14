@@ -47,3 +47,9 @@
 /modules/holidays/jp_*             @twallengren
 /modules/groups/jp_jpx_holidays.yaml  @twallengren
 /sources/JP-JPX/                   @twallengren
+
+# HK-HKEX
+/calendars/HK-HKEX.yaml            @twallengren
+/modules/groups/hk_hkex_holidays.yaml  @twallengren
+/modules/holidays/hk_*             @twallengren
+/sources/HK-HKEX/                  @twallengren

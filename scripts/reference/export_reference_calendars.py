@@ -44,6 +44,7 @@ EXPORTS = [
     ("BE-EURONEXT-BRUSSELS", "XBRU", "2010-01-01", "2030-12-31"),
     ("PT-EURONEXT-LISBON", "XLIS", "2010-01-01", "2030-12-31"),
     ("JP-JPX", "XTKS", "2010-01-01", "2030-12-31"),
+    ("HK-HKEX", "XHKG", "2018-01-01", "2027-12-31"),
 ]
 
 
@@ -173,6 +174,16 @@ def main() -> int:
     # QuantLib's Japan() is the Japanese national-holiday calendar, not the exchange's: it does
     # not know about JPX's Jan 2 / Jan 3 / Dec 31 market holidays (it closes Dec 31 - Jan 3, which
     # happens to agree) nor about unscheduled closures.
+    if ql is not None:
+        # QuantLib's HongKong(HKEx) calendar carries hard-coded holiday lists per year
+        export_quantlib(
+            "HK-HKEX",
+            "hong-kong",
+            ql.HongKong(ql.HongKong.HKEx),
+            "2018-01-01",
+            "2027-12-31",
+            "QuantLib HongKong(HKEx): hard-coded per-year lists, ends after 2025",
+        )
     if ql is not None:
         export_quantlib(
             "GB-LSE",

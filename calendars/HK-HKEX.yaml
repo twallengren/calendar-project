@@ -1,0 +1,33 @@
+kind: calendar
+id: HK-HKEX
+
+metadata:
+  name: Hong Kong Exchanges and Clearing
+  description: >-
+    Securities market of The Stock Exchange of Hong Kong Limited, operated by Hong Kong Exchanges
+    and Clearing Limited (MIC XHKG). Trading runs Monday to Friday; the market is closed on every
+    Hong Kong general holiday (General Holidays Ordinance, Cap. 149) that falls on a weekday, and
+    trades a morning session only (12:00 noon close) on Christmas Eve, New Year's Eve and Lunar
+    New Year's Eve. Hong Kong observance: a general holiday falling on a Sunday is observed on the
+    following weekday; a general holiday falling on a Saturday is not substituted. Lunar and
+    solar-term holidays (Lunar New Year, Ching Ming, the Birthday of the Buddha, Tuen Ng, the day
+    following Mid-Autumn, Chung Yeung) have no formula in this model and are transcribed
+    year by year from the Government's gazetted list, so coverage ends at the last gazetted year
+    (2027). Unscheduled closures for typhoons and black rainstorms are out of scope: they are
+    announced on the day, are not part of any published schedule, and are not modelled here
+    (HKEX moved to trading through severe weather on 23 September 2024).
+  chronology: ISO
+  timezone: Asia/Hong_Kong
+  coverage:
+    from: 2018-01-01
+    to: 2027-12-31
+    verified_through: 2027-12-31
+
+# Hong Kong observance under the General Holidays Ordinance: a general holiday that falls on a
+# Sunday (the last day of the weekend block) is observed on the following weekday; a general
+# holiday that falls on a Saturday is not substituted. FORWARD_ONLY is exactly that rule.
+weekend_shift_policy: FORWARD_ONLY
+
+uses:
+  - weekend_sat_sun
+  - hk_hkex_holidays

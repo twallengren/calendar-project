@@ -1,0 +1,32 @@
+kind: module
+id: hk_tuen_ng
+
+# Tuen Ng Festival (Dragon Boat Festival, the fifth day of the fifth lunar month). A Hong Kong
+# general holiday (General Holidays Ordinance, Cap. 149, Schedule). The lunar calendar is not
+# modelled in this project, so every date is transcribed from the Hong Kong Government's gazetted
+# general holidays list for that year. Saturday occurrences (31 May 2025) are not trading days
+# and are not listed.
+# Source: govhk-general-holidays / govhk-general-holidays-archived (gazetted dates),
+# hkex-calendar (market closed).
+
+source:
+  - id: govhk-general-holidays
+  - id: hkex-calendar
+
+event_sources:
+  - key: hk_tuen_ng
+    name: Tuen Ng Festival
+    default_classification: CLOSED
+    status: CONFIRMED
+    rule:
+      type: explicit_dates
+      dates:
+        - 2018-06-18
+        - 2019-06-07
+        - 2020-06-25
+        - 2021-06-14
+        - 2022-06-03
+        - 2023-06-22
+        - 2024-06-10
+        - 2026-06-19
+        - 2027-06-09

@@ -1,0 +1,60 @@
+kind: module
+id: hk_christmas
+
+# Christmas Day (25 December) and "the first weekday after Christmas Day" (26 December), both
+# Hong Kong general holidays (General Holidays Ordinance, Cap. 149, Schedule).
+#
+# Hong Kong observance, verified against the gazetted lists for every year in coverage:
+#   25 Dec Mon-Thu : 25 and 26 December (2018, 2019, 2023, 2024, 2025)
+#   25 Dec Fri     : 25 December only; 26 December is a Saturday general holiday with no
+#                    substitute and no trading (2020, 2026)
+#   25 Dec Sat     : no substitute for Christmas Day; 26 December (Sunday) is observed on
+#                    Monday 27 December (2021, 2027)
+#   25 Dec Sun     : Christmas Day is not separately substituted; instead the gazette grants
+#                    "the first weekday after Christmas Day" (Mon 26 Dec) AND "the second
+#                    weekday after Christmas Day" (Tue 27 Dec)  -- 2022
+#
+# FORWARD_ONLY reproduces the first three cases exactly for both event sources. The Sunday case
+# is the one this model cannot express: FORWARD_ONLY would move Christmas Day onto Monday
+# 26 December, where the 26 December holiday already sits, and nothing cascades it on to
+# Tuesday 27 December (NEXT_AVAILABLE_WEEKDAY cascades but would also wrongly move a Saturday
+# 26 December forward to the following Monday, which Hong Kong does not do). 2022 is therefore
+# excluded from the Christmas Day rule and the extra gazetted day is listed explicitly; the
+# 26 December rule already yields Monday 26 December 2022 on its own.
+# Source: govhk-general-holidays / govhk-general-holidays-archived (gazetted dates),
+# hkex-calendar (market closed).
+
+source:
+  - id: govhk-general-holidays
+  - id: hkex-calendar
+
+event_sources:
+  - key: hk_christmas_day
+    name: Christmas Day
+    default_classification: CLOSED
+    shift_policy: FORWARD_ONLY
+    active_years:
+      - [null, 2021]
+      - [2023, null]
+    rule:
+      type: fixed_month_day
+      month: 12
+      day: 25
+
+  - key: hk_first_weekday_after_christmas
+    name: The first weekday after Christmas Day
+    default_classification: CLOSED
+    shift_policy: FORWARD_ONLY
+    rule:
+      type: fixed_month_day
+      month: 12
+      day: 26
+
+  - key: hk_second_weekday_after_christmas
+    name: The second weekday after Christmas Day
+    default_classification: CLOSED
+    rule:
+      type: explicit_dates
+      dates:
+        - date: 2022-12-27
+          comment: 25 December 2022 fell on a Sunday

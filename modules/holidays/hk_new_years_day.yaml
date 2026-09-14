@@ -1,0 +1,27 @@
+kind: module
+id: hk_new_years_day
+
+# The first day of January. A Hong Kong general holiday (General Holidays Ordinance, Cap. 149,
+# Schedule); HKEX's securities market is closed whenever it falls Monday-Friday.
+#
+# Observance: under the Ordinance a general holiday that falls on a Sunday is observed on the
+# following weekday ("the day following the first day of January", 2 January 2023). A Saturday
+# general holiday is NOT substituted (1 January 2022 was a Saturday and the gazette lists no
+# substitute day), so FORWARD_ONLY -- which shifts only from the last day of the weekend block --
+# is exact here.
+# Source: govhk-general-holidays / govhk-general-holidays-archived (gazetted dates),
+# hkex-calendar (market closed).
+
+source:
+  - id: govhk-general-holidays
+  - id: hkex-calendar
+
+event_sources:
+  - key: hk_new_years_day
+    name: The first day of January
+    default_classification: CLOSED
+    shift_policy: FORWARD_ONLY
+    rule:
+      type: fixed_month_day
+      month: 1
+      day: 1

@@ -1,0 +1,77 @@
+kind: module
+id: hk_lunar_new_year
+
+# Lunar New Year: the first, second and third days of the first lunar month are Hong Kong
+# general holidays (General Holidays Ordinance, Cap. 149, Schedule). When one of the three falls
+# on a Sunday, the fourth day of Lunar New Year is a general holiday in its place.
+#
+# The lunar calendar is not modelled in this project, so every date below is transcribed from the
+# Hong Kong Government's gazetted general holidays list for that year -- none is computed. Only
+# the dates that fall Monday-Friday are listed: a Lunar New Year day that falls on a Saturday
+# (17 Feb 2018, 25 Jan 2020, 13 Feb 2021, 10 Feb 2024, 6 Feb 2027) carries no
+# trading session and no substitute day.
+# Source: govhk-general-holidays / govhk-general-holidays-archived (gazetted dates),
+# hkex-calendar (market closed).
+
+source:
+  - id: govhk-general-holidays
+  - id: hkex-calendar
+
+event_sources:
+  - key: hk_lunar_new_year
+    name: Lunar New Year
+    default_classification: CLOSED
+    status: CONFIRMED
+    rule:
+      type: explicit_dates
+      dates:
+        - date: 2018-02-16
+          comment: Lunar New Year's Day
+        - date: 2018-02-19
+          comment: The fourth day of Lunar New Year; the second day, 17 February, was a Saturday
+        - date: 2019-02-05
+          comment: Lunar New Year's Day
+        - date: 2019-02-06
+          comment: The second day of Lunar New Year
+        - date: 2019-02-07
+          comment: The third day of Lunar New Year
+        - date: 2020-01-27
+          comment: The third day of Lunar New Year
+        - date: 2020-01-28
+          comment: The fourth day of Lunar New Year
+        - date: 2021-02-12
+          comment: Lunar New Year's Day
+        - date: 2021-02-15
+          comment: The fourth day of Lunar New Year
+        - date: 2022-02-01
+          comment: Lunar New Year's Day
+        - date: 2022-02-02
+          comment: The second day of Lunar New Year
+        - date: 2022-02-03
+          comment: The third day of Lunar New Year
+        - date: 2023-01-23
+          comment: The second day of Lunar New Year
+        - date: 2023-01-24
+          comment: The third day of Lunar New Year
+        - date: 2023-01-25
+          comment: The fourth day of Lunar New Year
+        - date: 2024-02-12
+          comment: The third day of Lunar New Year
+        - date: 2024-02-13
+          comment: The fourth day of Lunar New Year
+        - date: 2025-01-29
+          comment: Lunar New Year's Day
+        - date: 2025-01-30
+          comment: The second day of Lunar New Year
+        - date: 2025-01-31
+          comment: The third day of Lunar New Year
+        - date: 2026-02-17
+          comment: Lunar New Year's Day
+        - date: 2026-02-18
+          comment: The second day of Lunar New Year
+        - date: 2026-02-19
+          comment: The third day of Lunar New Year
+        - date: 2027-02-08
+          comment: The third day of Lunar New Year
+        - date: 2027-02-09
+          comment: The fourth day of Lunar New Year
