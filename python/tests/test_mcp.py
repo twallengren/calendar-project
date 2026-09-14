@@ -107,6 +107,28 @@ async def test_native_tase_assessment_and_unknown_error_through_stdio():
 
 
 @pytest.mark.anyio
+@pytest.mark.skipif(not bdc.get_calendar("HK-HKEX").coverage_intervals,
+                    reason="native HKEX data not bundled yet")
+async def test_hkex_native_and_authoritative_override_through_stdio():
+    async with stdio_client(SERVER_PARAMS) as (read, write):
+        async with ClientSession(read, write) as session:
+            await session.initialize()
+            native = await _call(session, "assess_day", {"calendar": "HK-HKEX", "date": "2025-01-29"})
+            assert native["state"] == "CLOSED"
+            event = next(event for event in native["events"] if event["nominal_native_date"])
+            assert event["nominal_native_date"] == dict(chronology_id="CHINESE_HK", year=2025, month_code="M01", day=1)
+            assert event["chronology_provider"] == "ICU4J 78.3"
+            override = await _call(session, "assess_day", {"calendar": "HK-HKEX", "date": "2027-02-09"})
+            assert override["state"] == "CLOSED"
+            assert override["events"]
+            for event in override["events"]:
+                assert event["nominal_native_date"] is None
+                assert {"hko-gregorian-lunar-conversion", "govhk-general-holidays", "hkex-calendar"}.issubset(event["evidence_ids"])
+            following = await _call(session, "is_business_day", {"calendar": "HK-HKEX", "date": "2027-02-10"})
+            assert following["is_business_day"] is True
+
+
+@pytest.mark.anyio
 async def test_is_early_close_thanksgiving_friday_2027():
     async with stdio_client(SERVER_PARAMS) as (read, write):
         async with ClientSession(read, write) as session:

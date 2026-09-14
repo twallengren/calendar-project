@@ -32,7 +32,12 @@ def verify(args):
                     'chronology_provider', 'evidence_ids', 'observation_lineage'):
             assert py_event[key] == java_event[key], key
     native = [event['nominal_native_date'] for event in java['events'] if event['nominal_native_date']]
-    assert native, 'Expected a native event occurrence'
+    if args.expect_iso:
+        assert java['events'] and not native, 'Expected cited ISO overrides without native identity'
+        for event in java['events']:
+            assert set(args.evidence_id).issubset(event['evidence_ids'])
+    else:
+        assert native, 'Expected a native event occurrence'
     wire = json.loads((args.site / 'v2/calendars' / args.calendar / (args.date[:4] + '.json')).read_text())
     assert next(day for day in wire['days'] if day['date'] == args.date) == java
     page = (args.site / args.calendar / args.date / 'index.html').read_text()
@@ -50,4 +55,6 @@ if __name__ == '__main__':
     parser.add_argument('--site', type=Path, required=True)
     parser.add_argument('--calendar', default='IL-TASE')
     parser.add_argument('--date', default='2025-09-23')
+    parser.add_argument('--expect-iso', action='store_true')
+    parser.add_argument('--evidence-id', action='append', default=[])
     verify(parser.parse_args())
