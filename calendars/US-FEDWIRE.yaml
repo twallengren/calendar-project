@@ -1,0 +1,40 @@
+kind: calendar
+id: US-FEDWIRE
+
+metadata:
+  name: Fedwire Funds Service
+  kind: payment
+  description: >-
+    Funds-transfer business dates for the Federal Reserve Banks' Fedwire Funds Service. This
+    date-only calendar models the 2026-2027 operating-day schedule and does not represent daily
+    hours, cutoffs, extensions, Fedwire Securities, NSS, FedACH or FedNow. Saturday holidays leave
+    the preceding Friday open; Sunday holidays are observed on Monday. The announced move to
+    Sundays and weekday holidays is due in 2028 or 2029, beyond this calendar's coverage.
+  chronology: ISO
+  timezone: America/New_York
+  coverage:
+    from: 2026-01-01
+    to: 2027-12-31
+    verified_through: 2027-12-31
+    quality:
+      - scope: SCHEDULED_CLOSURES
+        from: 2026-01-01
+        to: 2027-12-31
+        quality: VERIFIED
+        evidence_ids: [frfs-fedwire-operating-hours, frfs-holiday-schedule]
+      - scope: EARLY_CLOSES
+        from: 2026-01-01
+        to: 2027-12-31
+        quality: PROJECTED
+        evidence_ids: [frfs-fedwire-operating-hours]
+      - scope: UNSCHEDULED_EXCEPTIONS
+        from: 2026-01-01
+        to: 2027-12-31
+        quality: PROJECTED
+        evidence_ids: [frfs-fedwire-operating-hours]
+
+weekend_shift_policy: FORWARD_ONLY
+
+uses:
+  - weekend_sat_sun
+  - us_fedwire_holidays

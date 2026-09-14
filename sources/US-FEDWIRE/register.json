@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0",
+  "entries": [
+    {
+      "id": "frfs-fedwire-operating-hours",
+      "title": "Fedwire Funds Service and National Settlement Service Operating Hours",
+      "publisher": "Federal Reserve Financial Services",
+      "location": "https://www.frbservices.org/resources/financial-services/wires/operating-hours.html",
+      "retrieved": "2026-09-14",
+      "covers": "current Fedwire Funds Service schedule",
+      "notes": "States that Fedwire Funds observes all Saturdays, all Sundays and the Federal Reserve Banks' Holiday Schedule, and defines every other calendar day as a funds-transfer business day. This ordinary operating calendar supports the PROJECTED baseline of no additional date-level early closures or exceptions; it is not an exhaustive record of actual operating incidents. Daily operating hours, cutoffs and possible extensions are outside this date-only calendar.",
+      "local_files": [
+        {
+          "path": "US-FEDWIRE/frfs-fedwire-operating-hours.html.gz",
+          "sha256": "5c429f1b637b2c69f677ebfdc306de2a9f7512f0fdb8d22405694be3c4ca6f02"
+        }
+      ],
+      "support_intervals": [
+        {"scope": "SCHEDULED_CLOSURES", "from": "2026-01-01", "to": "2027-12-31"}
+      ]
+    },
+    {
+      "id": "frfs-holiday-schedule",
+      "title": "Federal Reserve System Holiday Schedule",
+      "publisher": "Federal Reserve Financial Services",
+      "location": "https://www.frbservices.org/about/holiday-schedules",
+      "retrieved": "2026-09-14",
+      "covers": "2026-2030 holiday table; used only through 2027",
+      "notes": "Lists every 2026-2030 Federal Reserve holiday. Its footnotes state that a Saturday holiday leaves Federal Reserve Banks and Branches open on the preceding Friday, while a Sunday holiday closes them on the following Monday. The implementation is deliberately bounded before the announced Fedwire operating-day change.",
+      "local_files": [
+        {
+          "path": "US-FEDWIRE/frfs-holiday-schedule.html.gz",
+          "sha256": "d4af40d1c4a2b7bb2217c189bcdf5947098bb7f5071fc29ce8c41bdc8913709a"
+        }
+      ],
+      "support_intervals": [
+        {"scope": "SCHEDULED_CLOSURES", "from": "2026-01-01", "to": "2027-12-31"}
+      ]
+    },
+    {
+      "id": "federal-reserve-fedwire-expanded-days-2025",
+      "title": "Federal Reserve Board announces expanded operating days for Fedwire Funds and NSS",
+      "publisher": "Board of Governors of the Federal Reserve System",
+      "location": "https://www.federalreserve.gov/newsevents/pressreleases/other20251009a.htm",
+      "retrieved": "2026-09-14",
+      "covers": "announced 2028 or 2029 implementation",
+      "notes": "Announces six operating days per week, Sunday-Friday including weekday holidays, to be implemented in 2028 or 2029. It prevents projecting the current holiday closure policy through the full 2030 general holiday table.",
+      "local_files": [
+        {
+          "path": "US-FEDWIRE/federal-reserve-fedwire-expanded-days-2025.html.gz",
+          "sha256": "840fb7698736c3b9989da4084fc5e593d015a5b8048c7df7b3225cfac208cda8"
+        }
+      ],
+      "support_intervals": []
+    }
+  ]
+}

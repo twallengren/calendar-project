@@ -1,0 +1,40 @@
+kind: calendar
+id: GB-CHAPS
+
+metadata:
+  name: CHAPS
+  kind: payment
+  description: >-
+    Business dates for the Bank of England's CHAPS high-value sterling payment system. This
+    date-only calendar follows Monday-Friday operation excluding bank and public holidays in
+    England and Wales for 2026-2027. It does not model settlement hours, participant cutoffs or
+    extensions. The confirmed September 2027 earlier opening changes hours only; weekend and bank
+    holiday settlement remains a consultation proposal for no earlier than 2029.
+  chronology: ISO
+  timezone: Europe/London
+  coverage:
+    from: 2026-01-01
+    to: 2027-12-31
+    verified_through: 2027-12-31
+    quality:
+      - scope: SCHEDULED_CLOSURES
+        from: 2026-01-01
+        to: 2027-12-31
+        quality: VERIFIED
+        evidence_ids: [boe-chaps-operating-days, govuk-bank-holidays]
+      - scope: EARLY_CLOSES
+        from: 2026-01-01
+        to: 2027-12-31
+        quality: PROJECTED
+        evidence_ids: [boe-chaps-operating-days]
+      - scope: UNSCHEDULED_EXCEPTIONS
+        from: 2026-01-01
+        to: 2027-12-31
+        quality: PROJECTED
+        evidence_ids: [boe-chaps-operating-days]
+
+weekend_shift_policy: NONE
+
+uses:
+  - weekend_sat_sun
+  - gb_chaps_holidays

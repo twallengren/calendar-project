@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0",
+  "entries": [
+    {
+      "id": "boe-chaps-operating-days",
+      "title": "CHAPS",
+      "publisher": "Bank of England",
+      "location": "https://www.bankofengland.co.uk/payment-and-settlement/chaps",
+      "retrieved": "2026-09-14",
+      "covers": "current CHAPS operating-day policy",
+      "notes": "The CHAPS operator states that the system is usually open Monday-Friday excluding bank or public holidays in England and Wales. This ordinary operating calendar supports the PROJECTED baseline of no additional date-level early closures or exceptions; it is not an exhaustive record of actual operating incidents. Session hours and participant cutoffs are outside this date-only calendar.",
+      "local_files": [],
+      "support_intervals": [
+        {"scope": "SCHEDULED_CLOSURES", "from": "2026-01-01", "to": "2027-12-31"}
+      ]
+    },
+    {
+      "id": "govuk-bank-holidays",
+      "title": "UK bank holidays",
+      "publisher": "Government Digital Service, GOV.UK",
+      "location": "https://www.gov.uk/bank-holidays",
+      "retrieved": "2026-09-14",
+      "covers": "England and Wales 2026-2027",
+      "notes": "Official dated lists for England and Wales. The implementation transcribes all eight published bank holidays in each of 2026 and 2027, including the Christmas and Boxing Day substitute dates.",
+      "local_files": [
+        {
+          "path": "GB-CHAPS/govuk-bank-holidays.html.gz",
+          "sha256": "173acd3da1fe5eee1863a1aafd0ae73a58079ee9820adf29e6008d1e01ff16fb"
+        }
+      ],
+      "support_intervals": [
+        {"scope": "SCHEDULED_CLOSURES", "from": "2026-01-01", "to": "2027-12-31"}
+      ]
+    },
+    {
+      "id": "boe-chaps-hours-next-steps-2026",
+      "title": "Extending RTGS and CHAPS settlement hours – next steps towards near 24x7 settlement",
+      "publisher": "Bank of England",
+      "location": "https://www.bankofengland.co.uk/paper/2026/cp/extending-rtgs-and-chaps-settlement-hours-next-steps",
+      "retrieved": "2026-09-14",
+      "covers": "May 2026 consultation and operating-hours roadmap",
+      "notes": "Confirms the September 2027 move to a 01:30 weekday opening, which does not change business dates. Sunday and selected bank-holiday settlement remains a consultation proposal for no earlier than 2029; a later 22x6 phase is proposed for no earlier than 2031.",
+      "local_files": [
+        {
+          "path": "GB-CHAPS/boe-chaps-hours-next-steps-2026.html.gz",
+          "sha256": "2bf47a83ee583429fa7868cd9468cd262247216b0deeb49dc6d17d00d459ec69"
+        }
+      ],
+      "support_intervals": []
+    }
+  ]
+}
