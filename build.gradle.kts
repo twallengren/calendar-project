@@ -2,6 +2,7 @@ import com.diffplug.spotless.LineEnding
 
 plugins {
     id("com.diffplug.spotless") version "6.25.0" apply false
+    id("com.gradleup.nmcp.aggregation") version "1.6.2"
 }
 
 /**
@@ -40,4 +41,24 @@ subprojects {
             googleJavaFormat()
         }
     }
+}
+
+/**
+ * Publishing to Maven Central goes through the Central Portal: `publishAggregationToCentralPortal`
+ * uploads one bundle containing every publication below. Credentials come from the
+ * `sonatypeUsername`/`sonatypePassword` project properties (CI passes them as
+ * `ORG_GRADLE_PROJECT_*`), so a local `publishToMavenLocal` needs no secrets at all.
+ */
+nmcpAggregation {
+    centralPortal {
+        username = providers.gradleProperty("sonatypeUsername")
+        password = providers.gradleProperty("sonatypePassword")
+        // Uploads land as a draft the release workflow (or a human) still has to release.
+        publishingType = "USER_MANAGED"
+    }
+}
+
+dependencies {
+    nmcpAggregation(project(":core"))
+    nmcpAggregation(project(":data"))
 }

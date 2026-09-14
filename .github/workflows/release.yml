@@ -437,3 +437,47 @@ jobs:
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
           packages-dir: python/dist/
+
+  # Dry run of the Maven Central publication for bdc-calendar-core / bdc-calendar-data.
+  #
+  # This job only publishes to the runner's local repository and prints what it
+  # produced: it proves the POMs, the sources/javadoc jars and the data jar all
+  # build at the released version, without needing signing keys or Central
+  # credentials. Swapping `publishToMavenLocal` for
+  # `nmcpPublishAggregationToCentralPortal` (with ORG_GRADLE_PROJECT_signingKey,
+  # ORG_GRADLE_PROJECT_signingPassword, ORG_GRADLE_PROJECT_sonatypeUsername and
+  # ORG_GRADLE_PROJECT_sonatypePassword in the environment) is the later change
+  # that makes it a real release.
+  #
+  # Inert until the repository variable MAVEN_PUBLISH is set to "true".
+  publish-maven:
+    runs-on: ubuntu-latest
+    needs: [check-release-needed, create-release]
+    if: needs.check-release-needed.outputs.should_release == 'true' && vars.MAVEN_PUBLISH == 'true'
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          # create-release pushed the updated blessed/ to main; the published
+          # version is read from blessed/manifest.json, so we need that commit.
+          ref: main
+
+      - name: Set up JDK ${{ env.JAVA_VERSION }}
+        uses: actions/setup-java@v4
+        with:
+          java-version: ${{ env.JAVA_VERSION }}
+          distribution: ${{ env.JAVA_DISTRIBUTION }}
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
+
+      - name: Publish to the local repository
+        run: ./gradlew publishToMavenLocal -Prelease=true
+
+      - name: Show what was published
+        run: |
+          find ~/.m2/repository/io/github/twallengren -type f \
+            \( -name '*.jar' -o -name '*.pom' \) -exec ls -la {} \;
