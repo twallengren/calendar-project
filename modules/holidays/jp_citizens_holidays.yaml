@@ -1,0 +1,42 @@
+kind: module
+id: jp_citizens_holidays
+
+# 国民の休日 (kokumin no kyujitsu), Art. 3(3) of the Act on National Holidays: a day that is not
+# itself a 国民の祝日 but has a 国民の祝日 on both the day before and the day after is a holiday.
+#
+# This cannot be expressed as a rule in this model - it is a property of the generated calendar,
+# not of any one holiday - so the dates are transcribed from cao-shukujitsu, which lists each of
+# them as 休日. Within coverage (2010-2030):
+#
+#   2015-09-22  between 敬老の日 (Mon Sep 21) and 秋分の日 (Wed Sep 23)
+#   2019-04-30  between 昭和の日 (Apr 29) and 天皇の即位の日 (May 1)
+#   2019-05-02  between 天皇の即位の日 (May 1) and 憲法記念日 (May 3)
+#   2026-09-22  between 敬老の日 (Mon Sep 21) and 秋分の日 (Wed Sep 23)
+#
+# There are none in 2028-2030: the September case needs 敬老の日 on the 21st with 秋分の日 on the
+# 23rd, which next happens in 2032. Occurrences past 2027 could not be confirmed against
+# cao-shukujitsu in any case, since the list ends there.
+#
+# A citizens' holiday is a 休日, not a 国民の祝日, so Art. 3(2) never creates a substitute for one;
+# these sources are correctly not shiftable.
+
+source:
+  - id: cao-shukujitsu
+    ref: "休日 rows for 2015-09-22, 2019-04-30, 2019-05-02, 2026-09-22"
+
+event_sources:
+  - key: jp_citizens_holiday
+    name: Citizens' Holiday
+    default_classification: CLOSED
+    status: CONFIRMED
+    rule:
+      type: explicit_dates
+      dates:
+        - date: 2015-09-22
+          comment: between Respect for the Aged Day and Autumnal Equinox Day
+        - date: 2019-04-30
+          comment: between Showa Day and Accession Day
+        - date: 2019-05-02
+          comment: between Accession Day and Constitution Memorial Day
+        - date: 2026-09-22
+          comment: between Respect for the Aged Day and Autumnal Equinox Day

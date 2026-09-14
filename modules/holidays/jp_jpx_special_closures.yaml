@@ -1,0 +1,24 @@
+kind: module
+id: jp_jpx_special_closures
+
+# Unscheduled full-day closures of the TSE cash equity market.
+#
+# 2020-10-01: the arrowhead system failure. TSE's own report: "a failure occurred in the
+# arrowhead cash equity trading system of Tokyo Stock Exchange, Inc. (TSE), which made it
+# impossible to start trading and meant TSE was unable to provide opportunities for trading for
+# the entire day". It is not listed on the Market Holidays page, which covers scheduled holidays
+# only.
+
+source:
+  - id: jpx-system-failure-2020
+
+event_sources:
+  - key: jp_tse_system_failure
+    name: Market Closure
+    default_classification: CLOSED
+    status: CONFIRMED
+    rule:
+      type: explicit_dates
+      dates:
+        - date: 2020-10-01
+          comment: arrowhead system failure

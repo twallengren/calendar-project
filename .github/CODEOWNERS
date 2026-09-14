@@ -41,3 +41,9 @@
 /calendars/PT-EURONEXT-LISBON.yaml @twallengren
 /modules/**/euronext_*             @twallengren
 /sources/EU-EURONEXT/              @twallengren
+
+# JP-JPX
+/calendars/JP-JPX.yaml             @twallengren
+/modules/holidays/jp_*             @twallengren
+/modules/groups/jp_jpx_holidays.yaml  @twallengren
+/sources/JP-JPX/                   @twallengren

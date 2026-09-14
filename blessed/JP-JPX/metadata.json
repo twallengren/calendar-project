@@ -1,0 +1,28 @@
+{
+  "calendar_id" : "JP-JPX",
+  "calendar_name" : "Japan Exchange Group (Tokyo Stock Exchange)",
+  "kind" : "market",
+  "generated_at" : "2026-02-16T21:43:21Z",
+  "range_start" : "2010-01-01",
+  "range_end" : "2030-12-31",
+  "timezone" : "Asia/Tokyo",
+  "coverage" : {
+    "from" : "2010-01-01",
+    "to" : "2030-12-31",
+    "verified_through" : "2027-12-31"
+  },
+  "event_count" : 2535,
+  "resolution_chain" : [ "module:weekend_sat_sun", "module:jp_new_years_day", "module:jp_coming_of_age_day", "module:jp_national_foundation_day", "module:jp_emperors_birthday", "module:jp_vernal_equinox_day", "module:jp_showa_day", "module:jp_constitution_memorial_day", "module:jp_greenery_day", "module:jp_childrens_day", "module:jp_marine_day", "module:jp_mountain_day", "module:jp_respect_for_the_aged_day", "module:jp_autumnal_equinox_day", "module:jp_sports_day", "module:jp_culture_day", "module:jp_labour_thanksgiving_day", "module:jp_citizens_holidays", "module:jp_imperial_transition_2019", "module:jp_jpx_market_holidays", "module:jp_jpx_special_closures", "module:jp_jpx_holidays", "calendar:JP-JPX" ],
+  "counts_by_type" : {
+    "CLOSED" : 343,
+    "WEEKEND" : 2192
+  },
+  "counts_by_status" : {
+    "CONFIRMED" : 2529,
+    "PROJECTED" : 6
+  },
+  "source_version" : {
+    "semantic" : "11.0.0",
+    "git_sha" : "3765bcb10d3ebcb7cfc338bcebf94505af25ec1e"
+  }
+}

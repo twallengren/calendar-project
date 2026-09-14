@@ -21,8 +21,8 @@ import java.util.stream.Collectors;
  *       that cross the requested boundaries are computed correctly; filter by {@code active_years}
  *       (on the nominal, pre-shift year) and {@code only_if_weekday}.
  *   <li>Place CLOSED occurrences. Those that fall on a weekend and have a non-NONE shift policy are
- *       moved according to that policy; {@code NEXT_AVAILABLE_WEEKDAY} cascades past every other
- *       closure already placed.
+ *       moved according to that policy; {@code NEXT_AVAILABLE_WEEKDAY} and {@code
+ *       NEXT_AVAILABLE_FROM_LAST_WEEKEND_DAY} cascade past every other closure already placed.
  *   <li>Place other occurrences. EARLY_CLOSE is dropped on weekends and on dates that are CLOSED (a
  *       full closure takes precedence over a partial one). NOTABLE and PERIOD_MARKER are
  *       informational and always kept.
@@ -198,15 +198,21 @@ public class EventGenerator {
         yield back < forward ? first.minusDays(1) : last.plusDays(1);
       }
       case FORWARD_ONLY -> date.equals(last) ? last.plusDays(1) : null;
-      case NEXT_AVAILABLE_WEEKDAY -> {
-        LocalDate candidate = last.plusDays(1);
-        int guard = 0;
-        while ((weekend.isWeekend(candidate) || closed.containsKey(candidate)) && guard++ < 60) {
-          candidate = candidate.plusDays(1);
-        }
-        yield candidate;
-      }
+      case NEXT_AVAILABLE_WEEKDAY -> nextAvailableWeekday(last, weekend, closed);
+      case NEXT_AVAILABLE_FROM_LAST_WEEKEND_DAY ->
+          date.equals(last) ? nextAvailableWeekday(last, weekend, closed) : null;
     };
+  }
+
+  /** The first day after the weekend block that is neither a weekend day nor already a closure. */
+  private static LocalDate nextAvailableWeekday(
+      LocalDate lastWeekendDay, WeekendPolicy weekend, NavigableMap<LocalDate, ?> closed) {
+    LocalDate candidate = lastWeekendDay.plusDays(1);
+    int guard = 0;
+    while ((weekend.isWeekend(candidate) || closed.containsKey(candidate)) && guard++ < 60) {
+      candidate = candidate.plusDays(1);
+    }
+    return candidate;
   }
 
   private List<Occurrence> applyDeltas(

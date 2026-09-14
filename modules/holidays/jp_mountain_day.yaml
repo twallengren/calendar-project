@@ -1,0 +1,40 @@
+kind: module
+id: jp_mountain_day
+
+# 山の日 (Yama no Hi), August 11, in force from 2016 (Act No. 43 of 2014). Moved by special
+# measures law for the Tokyo Olympics in 2020 (to August 10) and 2021 (to August 8) only.
+#
+# August 8 2021 was a Sunday, so Art. 3(2) made Monday August 9 a substitute holiday; the
+# calendar's shift policy produces that from the explicit date, which is why the Olympic source
+# carries the same shift policy rather than the explicit_dates default of not shifting.
+
+source:
+  - id: cao-shukujitsu-gaiyou
+    ref: "第2条 山の日 8月11日"
+
+event_sources:
+  - key: jp_mountain_day
+    name: Mountain Day
+    default_classification: CLOSED
+    active_years:
+      - [2016, 2019]
+      - [2022, null]
+    rule:
+      type: fixed_month_day
+      month: 8
+      day: 11
+
+  - key: jp_mountain_day_olympic
+    name: Mountain Day
+    default_classification: CLOSED
+    shift_policy: NEXT_AVAILABLE_FROM_LAST_WEEKEND_DAY
+    source:
+      - id: cao-shukujitsu-gaiyou
+        ref: "令和2年及び3年における「国民の祝日」の移動について: 山の日 2020-08-10, 2021-08-08 (8月9日は休日)"
+    rule:
+      type: explicit_dates
+      dates:
+        - date: 2020-08-10
+          comment: Tokyo Olympics
+        - date: 2021-08-08
+          comment: Tokyo Olympics

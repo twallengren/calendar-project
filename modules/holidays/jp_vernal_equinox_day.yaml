@@ -1,0 +1,44 @@
+kind: module
+id: jp_vernal_equinox_day
+
+# 春分の日 (Shunbun no Hi). Art. 2 defines the day as 春分日 (the day of the vernal equinox) rather
+# than a calendar date; the National Astronomical Observatory publishes the following year's date
+# in the February kanpo, and the Cabinet Office then lists it. EQUINOX_VERNAL_JP is the standard
+# approximation, checked against cao-shukujitsu for every year 2000-2027 in EquinoxCalculatorTest.
+# Occurrences past the end of that list (2028 onwards) are projections.
+
+source:
+  - id: cao-shukujitsu
+    ref: "春分の日 rows, 2010-2027"
+
+references:
+  - key: vernal_equinox
+    formula: EQUINOX_VERNAL_JP
+
+event_sources:
+  - key: jp_vernal_equinox_day
+    name: Vernal Equinox Day
+    default_classification: CLOSED
+    shift_policy: NEXT_AVAILABLE_FROM_LAST_WEEKEND_DAY
+    status: CONFIRMED
+    active_years:
+      - [null, 2027]
+    rule:
+      type: relative_to_reference
+      reference: vernal_equinox
+      offset_days: 0
+
+  - key: jp_vernal_equinox_day_projected
+    name: Vernal Equinox Day
+    default_classification: CLOSED
+    shift_policy: NEXT_AVAILABLE_FROM_LAST_WEEKEND_DAY
+    status: PROJECTED
+    active_years:
+      - [2028, null]
+    source:
+      - id: cao-shukujitsu-gaiyou
+        ref: "「春分の日」及び「秋分の日」について - date fixed annually by the National Astronomical Observatory"
+    rule:
+      type: relative_to_reference
+      reference: vernal_equinox
+      offset_days: 0

@@ -1,0 +1,18 @@
+kind: module
+id: jp_labour_thanksgiving_day
+
+# 勤労感謝の日 (Kinro Kansha no Hi), November 23. JPX's English listings call it
+# "Labor Thanksgiving Day".
+
+source:
+  - id: cao-shukujitsu-gaiyou
+    ref: "第2条 勤労感謝の日 11月23日"
+
+event_sources:
+  - key: jp_labour_thanksgiving_day
+    name: Labor Thanksgiving Day
+    default_classification: CLOSED
+    rule:
+      type: fixed_month_day
+      month: 11
+      day: 23

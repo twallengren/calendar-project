@@ -145,6 +145,20 @@ class GoldenTests {
     productionCalendarRunner.assertCsvGoldenMatch("FR-EURONEXT-PARIS", 2026);
   }
 
+  // JP-JPX years that exercise the Japanese substitute-holiday rule and the one-off moves:
+  // 2021 Olympic moves (Marine Day Jul 22, Sports Day Jul 23, Mountain Day Sun Aug 8 observed
+  // Mon Aug 9) and Jan 2/Jan 3 market holidays on a weekend; 2026 citizens' holiday (Sep 22)
+  // and a Sunday Constitution Memorial Day cascading past May 4 and May 5 to May 6.
+  @Test
+  void jpJpx2021() throws IOException {
+    productionCalendarRunner.assertCsvGoldenMatch("JP-JPX", 2021);
+  }
+
+  @Test
+  void jpJpx2026() throws IOException {
+    productionCalendarRunner.assertCsvGoldenMatch("JP-JPX", 2026);
+  }
+
   @Test
   void saTadawul2026to2030() throws IOException {
     productionCalendarRunner.assertCsvGoldenMatch("SA-TADAWUL", 2026, 2030);

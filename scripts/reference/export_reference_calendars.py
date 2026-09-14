@@ -43,6 +43,7 @@ EXPORTS = [
     ("NL-EURONEXT-AMSTERDAM", "XAMS", "2010-01-01", "2030-12-31"),
     ("BE-EURONEXT-BRUSSELS", "XBRU", "2010-01-01", "2030-12-31"),
     ("PT-EURONEXT-LISBON", "XLIS", "2010-01-01", "2030-12-31"),
+    ("JP-JPX", "XTKS", "2010-01-01", "2030-12-31"),
 ]
 
 
@@ -137,11 +138,11 @@ def export_quantlib_nyse(start: str, end: str) -> None:
     print(f"wrote {path} ({len(rows)} rows)")
 
 
-def export_quantlib_uk_exchange(start: str, end: str) -> None:
+def export_quantlib(cal_id: str, name: str, cal, start: str, end: str, note: str) -> None:
+    """Writes full closures from a QuantLib calendar (weekends omitted, like the others)."""
     if ql is None:
         print("QuantLib not installed; skipping")
         return
-    cal = ql.UnitedKingdom(ql.UnitedKingdom.Exchange)
     s = dt.date.fromisoformat(start)
     e = dt.date.fromisoformat(end)
     rows = []
@@ -152,74 +153,60 @@ def export_quantlib_uk_exchange(start: str, end: str) -> None:
             if not cal.isBusinessDay(qd):
                 rows.append(day)
         day += dt.timedelta(days=1)
-    path = os.path.join(OUT, "GB-LSE", "quantlib-uk-exchange.csv")
+    path = os.path.join(OUT, cal_id, f"quantlib-{name}.csv")
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w") as f:
         f.write(header("QuantLib", ql.__version__))
-        f.write("# types: CLOSED  (QuantLib models full closures only)\n")
+        f.write(f"# range: {s.isoformat()} to {e.isoformat()}\n")
+        f.write(f"# types: CLOSED  (QuantLib models full closures only); {note}\n")
         f.write("date,type,close_time\n")
         for day in rows:
             f.write(f"{day.isoformat()},CLOSED,\n")
     print(f"wrote {path} ({len(rows)} rows)")
 
-def export_quantlib_germany(start: str, end: str) -> None:
-    if ql is None:
-        print("QuantLib not installed; skipping")
-        return
-    cal = ql.Germany(ql.Germany.Xetra)
-    s = dt.date.fromisoformat(start)
-    e = dt.date.fromisoformat(end)
-    rows = []
-    day = s
-    while day <= e:
-        if day.weekday() < 5:
-            qd = ql.Date(day.day, day.month, day.year)
-            if not cal.isBusinessDay(qd):
-                rows.append(day)
-        day += dt.timedelta(days=1)
-    path = os.path.join(OUT, "DE-XETRA", "quantlib-germany-xetra.csv")
-    os.makedirs(os.path.dirname(path), exist_ok=True)
-    with open(path, "w") as f:
-        f.write(header("QuantLib", ql.__version__))
-        f.write("# types: CLOSED  (QuantLib models full closures only)\n")
-        f.write("date,type,close_time\n")
-        for day in rows:
-            f.write(f"{day.isoformat()},CLOSED,\n")
-    print(f"wrote {path} ({len(rows)} rows)")
-
-def export_quantlib_canada_tsx(start: str, end: str) -> None:
-    if ql is None:
-        print("QuantLib not installed; skipping")
-        return
-    cal = ql.Canada(ql.Canada.TSX)
-    s = dt.date.fromisoformat(start)
-    e = dt.date.fromisoformat(end)
-    rows = []
-    day = s
-    while day <= e:
-        if day.weekday() < 5:
-            qd = ql.Date(day.day, day.month, day.year)
-            if not cal.isBusinessDay(qd):
-                rows.append(day)
-        day += dt.timedelta(days=1)
-    path = os.path.join(OUT, "CA-TSX", "quantlib-tsx.csv")
-    os.makedirs(os.path.dirname(path), exist_ok=True)
-    with open(path, "w") as f:
-        f.write(header("QuantLib", ql.__version__))
-        f.write("# types: CLOSED  (QuantLib models full closures only)\n")
-        f.write("date,type,close_time\n")
-        for day in rows:
-            f.write(f"{day.isoformat()},CLOSED,\n")
-    print(f"wrote {path} ({len(rows)} rows)")
 
 def main() -> int:
     for cal_id, code, start, end in EXPORTS:
         export_exchange_calendars(cal_id, code, start, end)
     # QuantLib's NYSE calendar is documented from 1980 onward
     export_quantlib_nyse("1980-01-01", "2030-12-31")
-    export_quantlib_uk_exchange("2000-01-01", "2030-12-31")
-    export_quantlib_germany("2003-01-01", "2030-12-31")
-    export_quantlib_canada_tsx("2000-01-01", "2030-12-31")
+    # QuantLib's Japan() is the Japanese national-holiday calendar, not the exchange's: it does
+    # not know about JPX's Jan 2 / Jan 3 / Dec 31 market holidays (it closes Dec 31 - Jan 3, which
+    # happens to agree) nor about unscheduled closures.
+    if ql is not None:
+        export_quantlib(
+            "GB-LSE",
+            "uk-exchange",
+            ql.UnitedKingdom(ql.UnitedKingdom.Exchange),
+            "2000-01-01",
+            "2030-12-31",
+            "QuantLib UnitedKingdom(Exchange)",
+        )
+        export_quantlib(
+            "DE-XETRA",
+            "germany-xetra",
+            ql.Germany(ql.Germany.Xetra),
+            "2003-01-01",
+            "2030-12-31",
+            "QuantLib Germany(Xetra): no New Year's Eve, Whit Monday, Unity Day or Reformation Day rules",
+        )
+        export_quantlib(
+            "CA-TSX",
+            "tsx",
+            ql.Canada(ql.Canada.TSX),
+            "2000-01-01",
+            "2030-12-31",
+            "QuantLib Canada(TSX)",
+        )
+    if ql is not None:
+        export_quantlib(
+            "JP-JPX",
+            "japan",
+            ql.Japan(),
+            "2010-01-01",
+            "2030-12-31",
+            "QuantLib Japan() is a national-holiday calendar, not JPX's",
+        )
     return 0
 
 

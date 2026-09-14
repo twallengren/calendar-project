@@ -1,0 +1,43 @@
+kind: module
+id: jp_autumnal_equinox_day
+
+# 秋分の日 (Shubun no Hi). Same shape as 春分の日: Art. 2 defines it as 秋分日 and the date for the
+# following year is published each February by the National Astronomical Observatory.
+# EQUINOX_AUTUMNAL_JP is checked against cao-shukujitsu for every year 2000-2027 in
+# EquinoxCalculatorTest; 2028 onwards are projections.
+
+source:
+  - id: cao-shukujitsu
+    ref: "秋分の日 rows, 2010-2027"
+
+references:
+  - key: autumnal_equinox
+    formula: EQUINOX_AUTUMNAL_JP
+
+event_sources:
+  - key: jp_autumnal_equinox_day
+    name: Autumnal Equinox Day
+    default_classification: CLOSED
+    shift_policy: NEXT_AVAILABLE_FROM_LAST_WEEKEND_DAY
+    status: CONFIRMED
+    active_years:
+      - [null, 2027]
+    rule:
+      type: relative_to_reference
+      reference: autumnal_equinox
+      offset_days: 0
+
+  - key: jp_autumnal_equinox_day_projected
+    name: Autumnal Equinox Day
+    default_classification: CLOSED
+    shift_policy: NEXT_AVAILABLE_FROM_LAST_WEEKEND_DAY
+    status: PROJECTED
+    active_years:
+      - [2028, null]
+    source:
+      - id: cao-shukujitsu-gaiyou
+        ref: "「春分の日」及び「秋分の日」について - date fixed annually by the National Astronomical Observatory"
+    rule:
+      type: relative_to_reference
+      reference: autumnal_equinox
+      offset_days: 0

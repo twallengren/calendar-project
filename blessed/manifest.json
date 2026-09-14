@@ -86,6 +86,13 @@
       "range_end": "2030-12-31",
       "event_count": 2324,
       "checksum": "sha256:5f1f1df0a89a74e2108aa4c765f35bfde3a3b6c6d2510ad2935b4af49a65d2dc"
+    },
+    "JP-JPX": {
+      "range_start": "2010-01-01",
+      "range_end": "2030-12-31",
+      "event_count": 2535,
+      "checksum": "sha256:ee9a4d5d130a9576191305125565b68ea8fc85e8aa51153b31d1705b1a18c8ad",
+      "kind": "market"
     }
   },
   "release_version": {

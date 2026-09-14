@@ -1,0 +1,37 @@
+kind: module
+id: jp_marine_day
+
+# 海の日 (Umi no Hi), third Monday of July since 2003 ("Happy Monday" reform); July 20 before that,
+# which predates this calendar's coverage. Moved by special measures law for the Tokyo Olympics in
+# 2020 (to July 23) and 2021 (to July 22) only.
+
+source:
+  - id: cao-shukujitsu-gaiyou
+    ref: "第2条 海の日 7月の第3月曜日"
+
+event_sources:
+  - key: jp_marine_day
+    name: Marine Day
+    default_classification: CLOSED
+    active_years:
+      - [null, 2019]
+      - [2022, null]
+    rule:
+      type: nth_weekday_of_month
+      month: 7
+      weekday: MONDAY
+      nth: 3
+
+  - key: jp_marine_day_olympic
+    name: Marine Day
+    default_classification: CLOSED
+    source:
+      - id: cao-shukujitsu-gaiyou
+        ref: "令和2年及び3年における「国民の祝日」の移動について: 海の日 2020-07-23, 2021-07-22"
+    rule:
+      type: explicit_dates
+      dates:
+        - date: 2020-07-23
+          comment: Tokyo Olympics
+        - date: 2021-07-22
+          comment: Tokyo Olympics
