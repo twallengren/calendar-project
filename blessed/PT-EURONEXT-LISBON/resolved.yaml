@@ -5,6 +5,7 @@ metadata:
   description: Euronext Lisbon (XLIS) cash market trading calendar
   chronology: ISO
   timezone: Europe/Lisbon
+  mic: XLIS
   coverage:
     from: 2010-01-01
     to: 2030-12-31

@@ -1,4 +1,7 @@
 {
+  "aliases": [
+    "TADAWUL"
+  ],
   "calendar_id": "SA-TADAWUL",
   "calendar_name": "Tadawul (Saudi Exchange) Trading Calendar",
   "counts_by_status": {
@@ -17,6 +20,7 @@
   "event_count": 1271,
   "generated_at": "2026-02-16T21:43:21Z",
   "kind": "market",
+  "mic": "XSAU",
   "range_end": "2030-12-31",
   "range_start": "2020-01-01",
   "resolution_chain": [

@@ -79,6 +79,12 @@ public class SpecEmitter {
       if (spec.metadata().timezone() != null) {
         metadata.put("timezone", spec.metadata().timezone());
       }
+      if (spec.metadata().mic() != null) {
+        metadata.put("mic", spec.metadata().mic());
+      }
+      if (spec.metadata().aliases() != null && !spec.metadata().aliases().isEmpty()) {
+        metadata.put("aliases", spec.metadata().aliases());
+      }
       CalendarSpec.Coverage cov = spec.metadata().coverage();
       if (cov != null) {
         Map<String, Object> covMap = new LinkedHashMap<>();

@@ -13,6 +13,9 @@ metadata:
     to: 2030-12-31
     verified_through: 2027-12-31
   kind: market
+  mic: XTKS
+  aliases:
+  - XJPX
 uses:
 - weekend_sat_sun
 - jp_jpx_holidays

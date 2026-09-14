@@ -6,6 +6,9 @@ metadata:
     and Islamic holidays
   chronology: UMM_AL_QURA
   timezone: Asia/Riyadh
+  mic: XSAU
+  aliases:
+  - TADAWUL
   coverage:
     from: 2020-01-01
     to: 2030-12-31

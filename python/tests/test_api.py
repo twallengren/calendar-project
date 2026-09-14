@@ -54,6 +54,31 @@ def test_aliases_all_resolve():
         assert bdc.get_calendar(alias).calendar_id == target
 
 
+def test_get_calendar_accepts_the_lse_mic():
+    assert bdc.get_calendar("XLON").is_business_day(dt.date(2026, 12, 28)) is False
+
+
+def test_get_calendar_accepts_the_jpx_segment_mic_alias():
+    assert bdc.get_calendar("XJPX").calendar_id == "JP-JPX"
+
+
+def test_every_market_calendar_is_reachable_by_its_mic():
+    aliases_by_target = {}
+    for alias, target in bdc.list_aliases().items():
+        aliases_by_target.setdefault(target, []).append(alias)
+    for calendar_id in bdc.list_calendars():
+        if bdc.get_calendar(calendar_id).kind != "market":
+            continue  # base calendars are building blocks, not tradable venues, and carry no MIC
+        mics = [
+            alias
+            for alias in aliases_by_target.get(calendar_id, [])
+            if len(alias) == 4 and alias.isupper() and alias.isalnum()
+        ]
+        assert mics, "{} has no MIC alias in the bundled manifest".format(calendar_id)
+        for mic in mics:
+            assert bdc.get_calendar(mic).calendar_id == calendar_id
+
+
 def test_instances_are_cached(nyse):
     assert bdc.get_calendar("XNYS") is nyse
 

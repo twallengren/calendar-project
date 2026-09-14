@@ -2,6 +2,8 @@
   "calendar_id" : "SA-TADAWUL",
   "calendar_name" : "Tadawul (Saudi Exchange) Trading Calendar",
   "kind" : "market",
+  "mic" : "XSAU",
+  "aliases" : [ "TADAWUL" ],
   "generated_at" : "2026-02-16T21:43:21Z",
   "range_start" : "2020-01-01",
   "range_end" : "2030-12-31",

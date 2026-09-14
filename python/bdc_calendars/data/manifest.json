@@ -2,8 +2,18 @@
   "aliases": {
     "NYSE": "US-NYSE",
     "TADAWUL": "SA-TADAWUL",
+    "XAMS": "NL-EURONEXT-AMSTERDAM",
+    "XBRU": "BE-EURONEXT-BRUSSELS",
+    "XETR": "DE-XETRA",
+    "XHKG": "HK-HKEX",
+    "XJPX": "JP-JPX",
+    "XLIS": "PT-EURONEXT-LISBON",
+    "XLON": "GB-LSE",
     "XNYS": "US-NYSE",
-    "XSAU": "SA-TADAWUL"
+    "XPAR": "FR-EURONEXT-PARIS",
+    "XSAU": "SA-TADAWUL",
+    "XTKS": "JP-JPX",
+    "XTSE": "CA-TSX"
   },
   "blessed_at": "2026-02-16T21:43:21Z",
   "calendars": {

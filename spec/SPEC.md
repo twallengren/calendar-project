@@ -13,6 +13,11 @@ metadata:
   kind: market                # market (a tradable venue, the default) or base (a building block)
   chronology: ISO             # Informational: the market's civil calendar (ISO, HIJRI, UMM_AL_QURA, ...)
   timezone: America/New_York  # IANA zone id; required when any event source has a close_time
+  mic: XLON                   # Optional ISO 10383 Market Identifier Code; `validate --strict` warns
+                               # when a market-kind calendar has none. Must match ^[A-Z0-9]{4}$;
+                               # duplicate mics/aliases across calendars are errors.
+  aliases: [XJPX]              # Optional other spellings this calendar should resolve under
+                               # (legacy exchange_calendars ids, a segment MIC, ...)
   coverage:                   # The range this calendar is maintained for
     from: 1900-01-01
     to: 2030-12-31

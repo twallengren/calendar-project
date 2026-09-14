@@ -26,6 +26,8 @@ public record CalendarData(
     String id,
     String name,
     String timezone,
+    String mic,
+    List<String> aliases,
     Coverage coverage,
     Map<String, Integer> countsByType,
     Map<String, Integer> countsByStatus,
@@ -201,6 +203,8 @@ public record CalendarData(
         id,
         indexEntry.path("name").asText(id),
         textOrNull(indexEntry, "timezone"),
+        textOrNull(indexEntry, "mic"),
+        aliasesOf(indexEntry),
         new Coverage(
             dateOrNull(indexEntry.path("coverage"), "from"),
             dateOrNull(indexEntry.path("coverage"), "to"),
@@ -211,6 +215,18 @@ public record CalendarData(
         List.copyOf(years),
         manifest.path("weekend_policy"),
         Collections.unmodifiableMap(eventsByYear));
+  }
+
+  private static List<String> aliasesOf(JsonNode indexEntry) {
+    JsonNode aliases = indexEntry.path("aliases");
+    if (!aliases.isArray()) {
+      return List.of();
+    }
+    List<String> result = new ArrayList<>();
+    for (JsonNode alias : aliases) {
+      result.add(alias.asText());
+    }
+    return List.copyOf(result);
   }
 
   private static Map<String, Integer> counts(JsonNode node) {

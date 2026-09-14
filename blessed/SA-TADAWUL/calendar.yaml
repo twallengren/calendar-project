@@ -11,6 +11,9 @@ metadata:
     to: 2030-12-31
     verified_through: 2029-12-31
   kind: market
+  mic: XSAU
+  aliases:
+  - TADAWUL
 uses:
 - saudi_weekends
 - tadawul_holidays

@@ -142,6 +142,12 @@ public final class MarketPageRenderer {
     StringBuilder html = new StringBuilder();
     html.append("<dl class=\"facts\">\n");
     fact(html, "Calendar id", "<code>" + HtmlTemplate.escape(calendar.id()) + "</code>");
+    fact(
+        html,
+        "MIC",
+        calendar.mic() != null
+            ? "<code>" + HtmlTemplate.escape(calendar.mic()) + "</code>"
+            : "&mdash;");
     fact(html, "Timezone", HtmlTemplate.escape(orDash(calendar.timezone())));
     fact(html, "Coverage", calendar.coverage().from() + " to " + calendar.coverage().to());
     fact(

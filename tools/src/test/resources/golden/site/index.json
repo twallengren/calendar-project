@@ -3,6 +3,8 @@
     "id" : "BE-EURONEXT-BRUSSELS",
     "name" : "Euronext Brussels Trading Calendar",
     "timezone" : "Europe/Brussels",
+    "mic" : "XBRU",
+    "aliases" : [ ],
     "coverage" : {
       "from" : "2010-01-01",
       "to" : "2030-12-31",
@@ -23,6 +25,8 @@
     "id" : "CA-TSX",
     "name" : "Toronto Stock Exchange",
     "timezone" : "America/Toronto",
+    "mic" : "XTSE",
+    "aliases" : [ ],
     "coverage" : {
       "from" : "2000-01-01",
       "to" : "2030-12-31",
@@ -44,6 +48,8 @@
     "id" : "DE-XETRA",
     "name" : "Deutsche Börse Xetra",
     "timezone" : "Europe/Berlin",
+    "mic" : "XETR",
+    "aliases" : [ ],
     "coverage" : {
       "from" : "2003-01-01",
       "to" : "2030-12-31",
@@ -63,6 +69,8 @@
     "id" : "FR-EURONEXT-PARIS",
     "name" : "Euronext Paris Trading Calendar",
     "timezone" : "Europe/Paris",
+    "mic" : "XPAR",
+    "aliases" : [ ],
     "coverage" : {
       "from" : "2010-01-01",
       "to" : "2030-12-31",
@@ -83,6 +91,8 @@
     "id" : "GB-LSE",
     "name" : "London Stock Exchange",
     "timezone" : "Europe/London",
+    "mic" : "XLON",
+    "aliases" : [ ],
     "coverage" : {
       "from" : "2000-01-01",
       "to" : "2030-12-31",
@@ -103,6 +113,8 @@
     "id" : "HK-HKEX",
     "name" : "Hong Kong Exchanges and Clearing",
     "timezone" : "Asia/Hong_Kong",
+    "mic" : "XHKG",
+    "aliases" : [ ],
     "coverage" : {
       "from" : "2018-01-01",
       "to" : "2027-12-31",
@@ -123,6 +135,8 @@
     "id" : "JP-JPX",
     "name" : "Japan Exchange Group (Tokyo Stock Exchange)",
     "timezone" : "Asia/Tokyo",
+    "mic" : "XTKS",
+    "aliases" : [ "XJPX" ],
     "coverage" : {
       "from" : "2010-01-01",
       "to" : "2030-12-31",
@@ -143,6 +157,8 @@
     "id" : "NL-EURONEXT-AMSTERDAM",
     "name" : "Euronext Amsterdam Trading Calendar",
     "timezone" : "Europe/Amsterdam",
+    "mic" : "XAMS",
+    "aliases" : [ ],
     "coverage" : {
       "from" : "2010-01-01",
       "to" : "2030-12-31",
@@ -163,6 +179,8 @@
     "id" : "PT-EURONEXT-LISBON",
     "name" : "Euronext Lisbon Trading Calendar",
     "timezone" : "Europe/Lisbon",
+    "mic" : "XLIS",
+    "aliases" : [ ],
     "coverage" : {
       "from" : "2010-01-01",
       "to" : "2030-12-31",
@@ -183,6 +201,8 @@
     "id" : "SA-TADAWUL",
     "name" : "Tadawul (Saudi Exchange) Trading Calendar",
     "timezone" : "Asia/Riyadh",
+    "mic" : "XSAU",
+    "aliases" : [ "TADAWUL" ],
     "coverage" : {
       "from" : "2020-01-01",
       "to" : "2030-12-31",
@@ -203,6 +223,8 @@
     "id" : "US-NYSE",
     "name" : "NYSE Trading Calendar",
     "timezone" : "America/New_York",
+    "mic" : "XNYS",
+    "aliases" : [ "NYSE" ],
     "coverage" : {
       "from" : "1900-01-01",
       "to" : "2030-12-31",

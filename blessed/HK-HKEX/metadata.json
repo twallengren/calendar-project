@@ -2,6 +2,7 @@
   "calendar_id" : "HK-HKEX",
   "calendar_name" : "Hong Kong Exchanges and Clearing",
   "kind" : "market",
+  "mic" : "XHKG",
   "generated_at" : "2026-02-16T21:43:21Z",
   "range_start" : "2018-01-01",
   "range_end" : "2027-12-31",

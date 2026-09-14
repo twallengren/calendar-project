@@ -2,6 +2,8 @@
   "calendar_id" : "JP-JPX",
   "calendar_name" : "Japan Exchange Group (Tokyo Stock Exchange)",
   "kind" : "market",
+  "mic" : "XTKS",
+  "aliases" : [ "XJPX" ],
   "generated_at" : "2026-02-16T21:43:21Z",
   "range_start" : "2010-01-01",
   "range_end" : "2030-12-31",

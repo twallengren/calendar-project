@@ -5,6 +5,7 @@ metadata:
   description: Euronext Paris (XPAR) cash market trading calendar
   chronology: ISO
   timezone: Europe/Paris
+  mic: XPAR
   coverage:
     from: 2010-01-01
     to: 2030-12-31

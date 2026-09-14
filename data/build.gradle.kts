@@ -34,18 +34,6 @@ java {
     withJavadocJar()
 }
 
-/**
- * Exchange-code spellings callers may already have in their code, published in the manifest and
- * resolved by `BusinessCalendars.of`. Kept in step with `python/scripts/sync_data.py`.
- */
-val aliases =
-    mapOf(
-        "NYSE" to "US-NYSE",
-        "TADAWUL" to "SA-TADAWUL",
-        "XNYS" to "US-NYSE",
-        "XSAU" to "SA-TADAWUL",
-    )
-
 val csvHeader =
     "date,type,description,key,source_module,observed_from,close_time,status"
 
@@ -68,7 +56,6 @@ val generateCalendarData =
 
         inputs.dir(blessedDir).withPropertyName("blessed")
         inputs.property("includeBase", includeBase)
-        inputs.property("aliases", aliases)
         val outputDir = generatedResourcesDir
         outputs.dir(outputDir).withPropertyName("generatedResources")
 
@@ -97,6 +84,12 @@ val generateCalendarData =
                     .filterValues { includeBase || (it["kind"] ?: "market") == "market" }
                     .keys
                     .sorted()
+
+            // The MIC/alias table has one source of truth: blessed/manifest.json's own "aliases"
+            // map, written by `tools manifest` (derived from every calendar's metadata.json) and
+            // kept in step with `python/scripts/sync_data.py`, which reads the same map.
+            @Suppress("UNCHECKED_CAST")
+            val aliases = (blessedManifest["aliases"] as? Map<String, String>).orEmpty()
 
             aliases.forEach { (alias, canonical) ->
                 if (canonical !in selected) {

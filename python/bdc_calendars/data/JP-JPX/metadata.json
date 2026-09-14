@@ -1,4 +1,7 @@
 {
+  "aliases": [
+    "XJPX"
+  ],
   "calendar_id": "JP-JPX",
   "calendar_name": "Japan Exchange Group (Tokyo Stock Exchange)",
   "counts_by_status": {
@@ -17,6 +20,7 @@
   "event_count": 2535,
   "generated_at": "2026-02-16T21:43:21Z",
   "kind": "market",
+  "mic": "XTKS",
   "range_end": "2030-12-31",
   "range_start": "2010-01-01",
   "resolution_chain": [

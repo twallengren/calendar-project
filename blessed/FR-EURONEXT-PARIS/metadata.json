@@ -2,6 +2,7 @@
   "calendar_id" : "FR-EURONEXT-PARIS",
   "calendar_name" : "Euronext Paris Trading Calendar",
   "kind" : "market",
+  "mic" : "XPAR",
   "generated_at" : "2026-02-16T21:43:21Z",
   "range_start" : "2010-01-01",
   "range_end" : "2030-12-31",

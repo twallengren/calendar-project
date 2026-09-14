@@ -17,6 +17,7 @@
   "event_count": 2324,
   "generated_at": "2026-02-16T21:43:21Z",
   "kind": "market",
+  "mic": "XAMS",
   "range_end": "2030-12-31",
   "range_start": "2010-01-01",
   "resolution_chain": [

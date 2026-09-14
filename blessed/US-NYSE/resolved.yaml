@@ -5,6 +5,9 @@ metadata:
   description: New York Stock Exchange trading calendar
   chronology: ISO
   timezone: America/New_York
+  mic: XNYS
+  aliases:
+  - NYSE
   coverage:
     from: 1900-01-01
     to: 2030-12-31

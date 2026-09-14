@@ -37,6 +37,10 @@ public record CalendarSpec(
    * @param coverage the date range this calendar is maintained for, and how far it is verified
    * @param kind what the calendar is for: {@code market} (a tradable venue, the default) or {@code
    *     base} (a building block that composes into market calendars and is not itself a venue)
+   * @param mic the market's ISO 10383 Market Identifier Code (e.g. XLON), or null; {@code validate}
+   *     warns under {@code --strict} when a {@code market}-kind calendar has none
+   * @param aliases other spellings callers may already use to look this calendar up (e.g. legacy
+   *     exchange_calendars ids, or a segment MIC distinct from the primary {@code mic})
    */
   public record Metadata(
       String name,
@@ -44,7 +48,9 @@ public record CalendarSpec(
       String chronology,
       String timezone,
       Coverage coverage,
-      String kind) {
+      String kind,
+      String mic,
+      List<String> aliases) {
 
     /** The default {@link #kind()} when a calendar declares none. */
     public static final String KIND_MARKET = "market";
@@ -66,17 +72,29 @@ public record CalendarSpec(
         throw new IllegalArgumentException(
             "metadata.kind must be '" + KIND_MARKET + "' or '" + KIND_BASE + "', got: " + kind);
       }
+      if (aliases == null) aliases = List.of();
     }
 
-    /** Legacy constructor without kind. */
+    /** Legacy constructor without mic/aliases. */
+    public Metadata(
+        String name,
+        String description,
+        String chronology,
+        String timezone,
+        Coverage coverage,
+        String kind) {
+      this(name, description, chronology, timezone, coverage, kind, null, null);
+    }
+
+    /** Legacy constructor without timezone, coverage, kind, mic and aliases. */
     public Metadata(
         String name, String description, String chronology, String timezone, Coverage coverage) {
-      this(name, description, chronology, timezone, coverage, null);
+      this(name, description, chronology, timezone, coverage, null, null, null);
     }
 
-    /** Legacy constructor without timezone, coverage and kind. */
+    /** Legacy constructor without timezone, coverage, kind, mic and aliases. */
     public Metadata(String name, String description, String chronology) {
-      this(name, description, chronology, null, null, null);
+      this(name, description, chronology, null, null, null, null, null);
     }
   }
 

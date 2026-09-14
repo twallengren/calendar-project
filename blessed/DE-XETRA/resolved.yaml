@@ -6,6 +6,7 @@ metadata:
     (MIC XETR)
   chronology: ISO
   timezone: Europe/Berlin
+  mic: XETR
   coverage:
     from: 2003-01-01
     to: 2030-12-31

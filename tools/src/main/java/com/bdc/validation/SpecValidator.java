@@ -327,6 +327,89 @@ public class SpecValidator {
     }
   }
 
+  private static final java.util.regex.Pattern MIC_PATTERN =
+      java.util.regex.Pattern.compile("^[A-Z0-9]{4}$");
+
+  /**
+   * Checks {@code metadata.mic}/{@code metadata.aliases}: a market-kind calendar without a mic is a
+   * warning, a mic that doesn't look like an ISO 10383 code is an error, and a mic or alias reused
+   * by another calendar (case-insensitively) is an error naming the other calendar.
+   */
+  private void checkMicAndAliases(CalendarSpec spec, ValidationResult result) {
+    String calLoc = "calendar:" + spec.id();
+    CalendarSpec.Metadata metadata = spec.metadata();
+    String mic = metadata != null ? metadata.mic() : null;
+    List<String> aliases = metadata != null ? metadata.aliases() : List.of();
+    String kind =
+        metadata != null && metadata.kind() != null
+            ? metadata.kind()
+            : CalendarSpec.Metadata.KIND_MARKET;
+
+    if (mic == null && CalendarSpec.Metadata.KIND_MARKET.equals(kind)) {
+      result.warning(
+          "MISSING_MIC",
+          calLoc,
+          "market calendar has no metadata.mic (ISO 10383 Market Identifier Code)");
+    }
+    if (mic != null && !MIC_PATTERN.matcher(mic).matches()) {
+      result.error("INVALID_MIC", calLoc, "metadata.mic '" + mic + "' must match ^[A-Z0-9]{4}$");
+    }
+
+    Set<String> ownTokensSeen = new HashSet<>();
+    if (mic != null) {
+      ownTokensSeen.add(mic.toUpperCase(Locale.ROOT));
+    }
+    for (String alias : aliases) {
+      if (alias == null || alias.isBlank()) {
+        result.error("INVALID_ALIAS", calLoc, "metadata.aliases contains a blank entry");
+        continue;
+      }
+      if (!ownTokensSeen.add(alias.toUpperCase(Locale.ROOT))) {
+        result.error(
+            "DUPLICATE_ALIAS", calLoc, "metadata.aliases contains '" + alias + "' more than once");
+      }
+    }
+
+    for (var entry : registry.getAllCalendars().entrySet()) {
+      String otherId = entry.getKey();
+      if (otherId.equals(spec.id())) {
+        continue;
+      }
+      CalendarSpec.Metadata otherMetadata = entry.getValue().metadata();
+      if (otherMetadata == null) {
+        continue;
+      }
+      List<String> otherTokens = new ArrayList<>();
+      if (otherMetadata.mic() != null) {
+        otherTokens.add(otherMetadata.mic());
+      }
+      otherTokens.addAll(otherMetadata.aliases());
+      for (String otherToken : otherTokens) {
+        if (otherToken == null) {
+          continue;
+        }
+        if (mic != null && otherToken.equalsIgnoreCase(mic)) {
+          result.error(
+              "DUPLICATE_MIC",
+              calLoc,
+              "metadata.mic '" + mic + "' is also used by calendar '" + otherId + "'");
+        }
+        for (String alias : aliases) {
+          if (otherToken.equalsIgnoreCase(alias)) {
+            result.error(
+                "DUPLICATE_ALIAS",
+                calLoc,
+                "metadata.aliases entry '"
+                    + alias
+                    + "' is also used by calendar '"
+                    + otherId
+                    + "'");
+          }
+        }
+      }
+    }
+  }
+
   private void checkChronology(String chronology, String loc, ValidationResult result) {
     if (chronology != null && !ChronologyRegistry.getInstance().hasChronology(chronology)) {
       result.error("UNKNOWN_CHRONOLOGY", loc, "Unknown chronology: " + chronology);
@@ -406,6 +489,7 @@ public class SpecValidator {
     if (spec.metadata() != null) {
       checkChronology(spec.metadata().chronology(), calLoc, result);
     }
+    checkMicAndAliases(spec, result);
 
     Set<String> sourceKeys = new HashSet<>();
     boolean anyCloseTime = false;

@@ -16,6 +16,7 @@ import picocli.CommandLine.Command;
       HistoryCommand.class,
       CiDiffCommand.class,
       ScaffoldCommand.class,
+      ManifestCommand.class,
       ChangelogCommand.class,
       CrossvalidateCommand.class,
       StatusCommand.class,

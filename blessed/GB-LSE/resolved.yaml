@@ -5,6 +5,7 @@ metadata:
   description: London Stock Exchange (LSE) trading calendar (MIC XLON)
   chronology: ISO
   timezone: Europe/London
+  mic: XLON
   coverage:
     from: 2000-01-01
     to: 2030-12-31
