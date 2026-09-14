@@ -38,12 +38,12 @@ jobs:
       - name: Build
         id: build
         run: |
-          ./gradlew :tools:build
+          ./gradlew build
           ./gradlew :tools:installDist
           echo "tools-path=tools/build/install/tools/bin/tools" >> $GITHUB_OUTPUT
 
       - name: Run tests
-        run: ./gradlew :tools:test
+        run: ./gradlew test
 
       - name: Set up Python
         uses: actions/setup-python@v5

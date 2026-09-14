@@ -4,16 +4,23 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Build & Test Commands
 
+Three Gradle modules: **`core`** (the dependency-free query API and the `BusinessCalendars` facade,
+published as `bdc-calendar-core`), **`data`** (no sources — packs `blessed/` into classpath
+resources, published as `bdc-calendar-data`) and **`tools`** (the CLI and everything YAML-driven).
 All Gradle commands run from the repo root (the `tools/` build uses `workingDir = rootProject.projectDir`).
 
 ```bash
-./gradlew :tools:build              # Build everything
-./gradlew :tools:test               # Run all tests
+./gradlew build                     # Build all three modules
+./gradlew test                      # Run all tests (core + tools)
+./gradlew :tools:build              # Build the toolchain only
+./gradlew :tools:test               # Run the toolchain's tests
 ./gradlew :tools:fastTest           # Run all tests except @Tag("slow")/@Tag("cross-validation") (fast local loop)
 ./gradlew :tools:test --tests "ClassName"  # Run a single test class
 ./gradlew :tools:spotlessApply      # Format code (Google Java Format)
 ./gradlew generateChronologies      # Regenerate Java classes from chronologies/*.yaml
 ./gradlew installGitHooks           # Install pre-commit hook (runs spotlessApply)
+./gradlew :data:generateCalendarData   # Repack blessed/ into the data jar's resources
+./gradlew publishToMavenLocal       # Build bdc-calendar-core/-data locally (add -Prelease=true to drop -SNAPSHOT)
 ```
 
 **Running the CLI:**
@@ -60,18 +67,24 @@ YAML specs (calendars/, modules/, chronologies/)
   → Emitter (CSV/JSON output)
 ```
 
-### Key packages (`tools/src/main/java/com/bdc/`)
+### Key packages (`tools/src/main/java/com/bdc/`, except where marked **core**)
+
+The `core` module holds only classes that import nothing outside `java.*`, so the published library
+jar stays dependency-free. Package names are unchanged across the split (`com.bdc.model`,
+`com.bdc.stream`, ...), so a class moving between modules needs no import changes.
 
 | Package | Role |
 |---------|------|
+| `calendar` | **core** — `BusinessCalendars`, the entry point to the bundled data (`of`, `joint`, `available`, `dataVersion`); rebuilds WEEKEND rows from each calendar's weekend policy |
+| `stream` | **core** — the Query API: `DateStream`, `CsvDateStream`, `JointDateStream`, `OutsideCoverageException` (`LazyDateStream` needs the generator and stays in `tools`) |
 | `cli` | PicoCLI commands: validate, resolve, generate, query, ci-diff, history |
 | `loader` | YAML parsing into model objects, SpecRegistry for lookups |
 | `resolver` | Calendar inheritance resolution and module merging |
 | `generator` | Expands event rules into dated events (RuleExpander, ReferenceResolver) |
-| `chronology` | Multi-calendar support; generated classes live in `src/main/java-generated/` |
-| `emitter` | Output formatters (CSV, JSON, YAML) |
+| `chronology` | Multi-calendar support; generated classes live in `src/main/java-generated/`; `DateRange` is **core** |
+| `emitter` | Output formatters (CSV, JSON, YAML); `EventsCsvReader` is **core** |
 | `diff` | CalendarDiffEngine for comparing calendar outputs |
-| `model` | Data records for specs, events, rules |
+| `model` | Data records for specs, events, rules; `Event`/`EventType`/`EventStatus` are **core** |
 | `artifact` | Bitemporality: `ReleaseHistoryStore` reads blessed/ and release-history/ for as-of queries |
 | `validation` | `SpecValidator` (structural) and `GeneratedOutputValidator` (post-generation) behind `validate` |
 | `formula` | Reference date computation (e.g., Easter) |
@@ -109,6 +122,7 @@ Chronology YAML files in `chronologies/` are compiled to Java classes in `tools/
 - `release-history/` — historical versions for bitemporality (committed)
 - `generated/` — local dev output (gitignored)
 - `python/bdc_calendars/data/` — the same blessed data, minus weekend rows (rebuilt from `weekend_policy` at query time), bundled into the `bdc-calendars` wheel; `__version__` is `0.<data major>.<data minor>`
+- `data/build/generated-resources/bdc/calendars/` — the same trimmed data again, generated (never committed) by `:data:generateCalendarData` into the `bdc-calendar-data` jar. `core`'s `BusinessCalendarsTest` replays it against `blessed/` to prove the weekend reconstruction is lossless. The Maven artifacts are versioned from `blessed/manifest.json`'s `release_version.semantic`
 
 ### Python bindings
 

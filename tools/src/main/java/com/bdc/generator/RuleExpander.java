@@ -102,7 +102,7 @@ public class RuleExpander {
   static int[] clampedYearRange(DateRange range, String chronology) {
     ChronologyRegistry registry = ChronologyRegistry.getInstance();
     try {
-      return range.yearRange(chronology);
+      return ChronologyTranslator.getYearRange(range.start(), range.end(), chronology);
     } catch (IllegalArgumentException outOfTable) {
       ChronologyAlgorithm algorithm = registry.getAlgorithm(chronology);
       Optional<int[]> supported = algorithm.supportedYearRange();
