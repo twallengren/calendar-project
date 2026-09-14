@@ -9,11 +9,12 @@ metadata:
     Hong Kong general holiday (General Holidays Ordinance, Cap. 149) that falls on a weekday, and
     trades a morning session only (12:00 noon close) on Christmas Eve, New Year's Eve and Lunar
     New Year's Eve. Hong Kong observance: a general holiday falling on a Sunday is observed on the
-    following weekday; a general holiday falling on a Saturday is not substituted. Lunar and
-    solar-term holidays (Lunar New Year, Ching Ming, the Birthday of the Buddha, Tuen Ng, the day
-    following Mid-Autumn, Chung Yeung) have no formula in this model and are transcribed
-    year by year from the Government's gazetted list, so coverage ends at the last gazetted year
-    (2027). Unscheduled closures for typhoons and black rainstorms are out of scope: they are
+    following weekday; a general holiday falling on a Saturday is not substituted. Lunar
+    holidays retain CHINESE_HK native origins and Ching Ming uses a bounded HKO reference
+    table. Every resulting closure remains bounded to, and confirmed against, the Government and
+    exchange schedules through the last gazetted year (2027); computed future dates are not
+    published as confirmed holidays. Unscheduled closures for typhoons and black rainstorms are
+    out of scope: they are
     announced on the day, are not part of any published schedule, and are not modelled here
     (HKEX moved to trading through severe weather on 23 September 2024).
   chronology: ISO
@@ -56,3 +57,50 @@ weekend_shift_policy: FORWARD_ONLY
 uses:
   - weekend_sat_sun
   - hk_hkex_holidays
+
+deltas:
+  # HKO and the gazetted/HKEX schedules put 2027 Lunar New Year on 6 February. ICU4J 78.3's
+  # near-midnight calculation starts M01 on 7 February. Replace every affected generated row so
+  # the market dates and labels stay authoritative without attaching a false ICU native origin.
+  - action: remove
+    key: hk_lunar_new_year
+    date: 2027-02-08
+    source:
+      - id: hko-gregorian-lunar-conversion
+        ref: "T2027e.txt: 6 February is the 1st Lunar Month; 8 February is day 3"
+      - id: govhk-general-holidays
+        ref: "2027 gazetted Lunar New Year holidays"
+      - id: hkex-calendar
+        ref: "2027 Hong Kong Market is closed rows"
+  - action: remove
+    key: hk_lunar_new_year
+    date: 2027-02-09
+    source:
+      - id: hko-gregorian-lunar-conversion
+      - id: govhk-general-holidays
+      - id: hkex-calendar
+  - action: remove
+    key: hk_lunar_new_year
+    date: 2027-02-10
+    source:
+      - id: hko-gregorian-lunar-conversion
+      - id: govhk-general-holidays
+      - id: hkex-calendar
+  - action: add
+    key: hk_lunar_new_year
+    name: Lunar New Year (The third day of Lunar New Year)
+    date: 2027-02-08
+    classification: CLOSED
+    source:
+      - id: hko-gregorian-lunar-conversion
+      - id: govhk-general-holidays
+      - id: hkex-calendar
+  - action: add
+    key: hk_lunar_new_year
+    name: Lunar New Year (The fourth day of Lunar New Year)
+    date: 2027-02-09
+    classification: CLOSED
+    source:
+      - id: hko-gregorian-lunar-conversion
+      - id: govhk-general-holidays
+      - id: hkex-calendar

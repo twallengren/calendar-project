@@ -43,7 +43,7 @@ source: {...}                 # Default citation for every event source in this 
 references:
   - key: string               # Unique identifier for this reference
     formula: string           # EASTER_WESTERN, THANKSGIVING_US, EQUINOX_VERNAL_JP or
-                              # EQUINOX_AUTUMNAL_JP (see "Reference formulas")
+                              # EQUINOX_AUTUMNAL_JP or QINGMING_HK (see "Reference formulas")
 policies:
   weekends: [SATURDAY, SUNDAY]          # or effective-dated periods, see Weekend Policy
 event_sources: [...]
@@ -496,6 +496,7 @@ value.
 | `THANKSGIVING_US` | Fourth Thursday of November |
 | `EQUINOX_VERNAL_JP` | Japan's Vernal Equinox Day (春分の日) |
 | `EQUINOX_AUTUMNAL_JP` | Japan's Autumnal Equinox Day (秋分の日) |
+| `QINGMING_HK` | HKO's bounded 2016–2029 Bright & Clear (Ching Ming) table |
 
 The two Japanese equinox holidays are set each February by the Cabinet Office from the National
 Astronomical Observatory's almanac, so they cannot be computed exactly in advance. Both formulas

@@ -2,35 +2,25 @@ kind: module
 id: hk_buddhas_birthday
 
 # The Birthday of the Buddha (the eighth day of the fourth lunar month). A Hong Kong general
-# holiday (General Holidays Ordinance, Cap. 149, Schedule) since 1999. The lunar calendar is not
-# modelled in this project, so every date is transcribed from the Hong Kong Government's gazetted
-# general holidays list for that year, already carrying the Ordinance's Sunday substitution
-# ("the day following the Birthday of the Buddha", 13 May 2019, 9 May 2022, 25 May 2026).
-# Source: govhk-general-holidays / govhk-general-holidays-archived (gazetted dates),
-# hkex-calendar (market closed).
+# holiday (General Holidays Ordinance, Cap. 149, Schedule) since 1999. The bounded CHINESE_HK rule
+# supplies its native origin for 2018-2027; Government and HKEX schedules confirm every resulting
+# closure, including Sunday substitutions.
 
 source:
   - id: govhk-general-holidays
   - id: hkex-calendar
+  - id: hko-gregorian-lunar-conversion
 
 event_sources:
   - key: hk_buddhas_birthday
     name: The Birthday of the Buddha
     default_classification: CLOSED
+    shiftable: true
+    shift_policy: FORWARD_ONLY
     status: CONFIRMED
     rule:
-      type: explicit_dates
-      dates:
-        - 2018-05-22
-        - date: 2019-05-13
-          comment: observed the day following; 12 May was a Sunday
-        - 2020-04-30
-        - 2021-05-19
-        - date: 2022-05-09
-          comment: observed the day following; 8 May was a Sunday
-        - 2023-05-26
-        - 2024-05-15
-        - 2025-05-05
-        - date: 2026-05-25
-          comment: observed the day following; 24 May was a Sunday
-        - 2027-05-13
+      type: native_fixed_month_day
+      chronology: CHINESE_HK
+      month_codes: [M04]
+      day: 8
+      native_years: [{start: 2018, end: 2027}]

@@ -9,6 +9,7 @@
 | `hkex-stock-connect-calendar` | Trading Calendar of Stock Connect (annual PDFs) | Hong Kong Exchanges and Clearing Limited | https://www.hkex.com.hk/-/media/HKEX-Market/Mutual-Market/Stock-Connect/Reference-Materials/Trading-Hour,-Trading-and-Settlement-Calendar/YYYY-Calendar_pdf_e.pdf (2019-2026) | 2026-09-14 | 2019-2026 | Per-year grid marking each Hong Kong trading day "Holiday" or "Half Day". Used as a second HKEX publication corroborating the closures and half days already taken from `hkex-calendar`; it introduced no date of its own. |
 | `govhk-general-holidays` | General Holidays (per-year lists) | Hong Kong Special Administrative Region Government | https://www.gov.hk/en/about/abouthk/holiday/ , per-year pages https://www.gov.hk/en/about/abouthk/holiday/2024.htm ... /2027.htm | 2026-09-14 | 2024-2027 | The Government's published list of general holidays for each year, as gazetted under the General Holidays Ordinance (Cap. 149). Each row gives the holiday's statutory name, date and weekday, already carrying any substitution ("the day following ...", "the fourth day of Lunar New Year", "the second weekday after Christmas Day"). Only the current and next few years stay online; 2028 was not yet published at the retrieval date. |
 | `govhk-general-holidays-archived` | General Holidays (per-year lists, archived captures) | Hong Kong Special Administrative Region Government, via the Internet Archive | https://web.archive.org/web/YYYY0601/https://www.gov.hk/en/about/abouthk/holiday/YYYY.htm (2018-2023) | 2026-09-14 | 2018-2023 | The same per-year gov.hk pages for years the Government has since taken down, read from mid-year captures (by which point the year's list is final). Table shape and wording are identical to the live pages; the weekday named in each row was checked against the date as a transcription guard. |
+| `hko-gregorian-lunar-conversion` | Gregorian-Lunar Calendar Conversion Table | Hong Kong Observatory, Hong Kong Special Administrative Region Government | https://www.hko.gov.hk/en/gts/time/conversion.htm ; annual text originals at https://www.hko.gov.hk/en/gts/time/calendar/text/files/TYYYYe.txt | 2026-09-14 | 1901-2100; selected original annual tables retained locally for compiler fixtures | Authority for the published Hong Kong Gregorian/lunar correspondences and Bright & Clear solar-term rows. HKO and the gazetted HK schedule start the 2027 lunar year on 6 February; pinned ICU4J 78.3 starts it on 7 February, so the calendar carries authoritative replacement rows. HKO also warns that new moons close to midnight can differ by one day in 2057, 2089 and 2097. ICU differs from HKO at 2057-09-28 (HKO M09 day 1; ICU M08 day 30 and M09 begins 2057-09-29), while agreeing on the checked 2089 and 2097 rows. Disputed future conversions are not treated as verified exchange schedules. |
 | `hkex-severe-weather-notices` | Securities and Derivatives Market Trading Arrangements under Typhoon Signal No. 8 (Market Communications) | Hong Kong Exchanges and Clearing Limited | https://www.hkex.com.hk/News/Market-Communications/2024/240906news?sc_lang=en | 2026-09-14 | 6 September 2024 | Example of a same-day severe-weather announcement: "trading of its securities ... and derivatives markets today (Friday) has been impacted by the issuance of Typhoon Signal No.8 ... If Typhoon Signal No. 8 or above, Black Rainstorm Warning or any announcement of Extreme Conditions, remains issued at 12:00 noon, all trading sessions today will be cancelled." Cited only in `tools/src/test/resources/reference/HK-HKEX/allowlist.csv`, to show that the severe-weather closures a third-party dataset carries are announced on the day rather than scheduled; no date in this calendar comes from it. |
 | `hk-1823-ical` | Hong Kong Public Holidays iCal / JSON feed | 1823, Hong Kong Special Administrative Region Government | https://www.1823.gov.hk/common/ical/en.json | 2026-09-14 | 2025-2027 | The Government's machine-readable feed of the same gazetted general holidays, linked from the gov.hk holiday pages. Used as an independent transcription check on 2025-2027; it matched the HTML pages row for row. |
 | `hkex-severe-weather-trading` | HKEX to Implement Severe Weather Trading in Securities and Derivatives Markets from 23 September 2024 | Hong Kong Exchanges and Clearing Limited | https://www.hkex.com.hk/News/Market-Communications/2024/240618news?sc_lang=en | 2026-09-14 | from 2024-09-23 | HKEX states that its securities and derivatives markets remain open and operational during severe weather under the arrangements effective 23 September 2024. |
@@ -57,12 +58,15 @@
   Tue 7 Apr). The model has no holiday-on-holiday cascade, so those two years are excluded from
   the Easter Monday rule and listed as explicit gazetted dates instead.
 
-- **Lunar and solar-term holidays are never computed.** Lunar New Year (the first to third days of
-  the first lunar month, with the fourth day substituted when one of them is a Sunday), Ching
-  Ming, the Birthday of the Buddha, Tuen Ng, the day following the Chinese Mid-Autumn Festival and
-  Chung Yeung have no formula in this model. Every date is transcribed from the gazetted list for
-  that year, `status: CONFIRMED`, and cross-checked against `hkex-calendar` /
-  `hkex-calendar-archived` (and, for 2019-2026, `hkex-stock-connect-calendar`).
+- **Lunar and solar-term holidays remain evidence-bounded.** Lunar New Year, the Birthday of the
+  Buddha, Tuen Ng, the day following the Chinese Mid-Autumn Festival and Chung Yeung use exact
+  `CHINESE_HK` native rules only for 2018-2027. Ching Ming uses the bounded HKO Bright & Clear
+  table for that same exchange-evidenced interval. Every resulting date remains `CONFIRMED`
+  because it was checked against the gazetted list and `hkex-calendar` /
+  `hkex-calendar-archived` (and, for 2019-2026, `hkex-stock-connect-calendar`). The HKO/ICU
+  disagreement at the 2027 new moon is replaced by cited calendar deltas, so authoritative
+  closure dates carry no false ICU native origin. No formula result outside 2027 is published as
+  an exchange holiday.
 
 - **Coverage ends 2027-12-31** (`coverage.to` and `verified_through`). 2027 is the last year the
   Hong Kong Government has gazetted; `https://www.gov.hk/en/about/abouthk/holiday/2028.htm`
@@ -90,9 +94,10 @@
   24 or 31 December falls on a weekend there is simply no session and nothing is moved — HKEX does
   not shift the half day back to the preceding business day the way the London Stock Exchange
   does, and no source shows it doing so (2022 and 2023, where both dates fall on a weekend, have
-  no half-day entry at all in `hkex-calendar`). Lunar New Year's Eve is a lunar date and is listed
-  explicitly from HKEX's own calendar entries; 2023 has none because Lunar New Year's Eve 2023 fell
-  on Saturday 21 January. The close time is 12:00, the start of the half-day closing auction per
+  no half-day entry at all in `hkex-calendar`). Lunar New Year's Eve is represented by exact
+  `CHINESE_HK` dates from HKEX's own calendar entries, using the actual final day (29 or 30) of
+  month twelve; 2023 has none because Lunar New Year's Eve 2023 fell on Saturday 21 January. The
+  close time is 12:00, the start of the half-day closing auction per
   `hkex-securities-trading-hours`.
 
 - **Saturday general holidays are not emitted.** Several general holidays fall on Saturdays inside

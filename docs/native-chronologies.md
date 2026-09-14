@@ -72,15 +72,40 @@ and [Calendrical Calculations reference epoch](https://github.com/EdReingold/cal
 No published calendar currently uses `PERSIAN`; its existing leap-year policy is
 unchanged, including its disagreement with astronomical dates around 1403/1404.
 
-## Chinese profile reserved for the next integration gate
+## Modern Chinese calendar for Hong Kong
 
-`CHINESE_HK` is deliberately not registered yet. Its required design is fixed
-UTC+08:00 calculations over ISO 1929–2100, independent of market timezone. Native
-year is the Gregorian year in which the lunar year begins; month identities
-`M04` and `M04L` distinguish ordinary and intercalary months. A recurring rule's
-`month_codes` must explicitly enumerate ordinary, intercalary or both identities.
-The adapter, HKO comparison and cited Qingming reference table follow the TASE
-integration gate. An unimplemented profile fails instead of using ICU defaults.
+`CHINESE_HK` uses ICU4J 78.3's modern Chinese calendar at fixed UTC+08:00 over the
+inclusive ISO interval 1929-01-01 through 2100-12-31. The fixed calculation zone is
+part of the profile and is independent of a market's timezone. A native year is the
+Gregorian year in which its first lunar month begins, so the first supported civil
+date is `1928-M11-21` and the final one is `2100-M12-01`.
+
+Month codes are `M01` through `M12`; an `L` suffix denotes the distinct intercalary
+month. Thus 2023 orders `M02L` after `M02`, and 2025 orders `M06L` after `M06`.
+Exact conversion rejects an absent intercalary month or a day beyond the actual
+29/30-day month. Recurring selectors skip a valid month identity when it is absent;
+they never alias it to the ordinary month.
+
+The independent fixtures retain selected original [Hong Kong Observatory annual
+tables](https://www.hko.gov.hk/en/gts/time/conversion.htm), including both support
+boundaries, the 2023 and 2025 leap months, and the 2033/2034 transition. ICU and
+HKO also differ at the near-midnight 2027 new moon: HKO starts the lunar year on
+February 6 while ICU starts it on February 7. HKEX uses the gazetted HKO date, so
+its calendar replaces the affected ICU rows with cited authoritative dates that
+carry no false native origin. HKO warns that distant new moons close to midnight
+may move by a day in 2057, 2089 and 2097. The pinned ICU profile differs at the
+first warned date: HKO starts month nine on 2057-09-28, while ICU reports
+`2057-M08-30` and starts month nine on 2057-09-29.
+ICU and HKO agree on the checked starts at 2089-09-04 (`M08`) and 2097-08-07
+(`M07`). Tests preserve this difference explicitly; it is not silently corrected,
+and no disputed future conversion is labeled as a confirmed exchange event.
+
+`QINGMING_HK` is separate from lunar conversion. It is a table of HKO's published
+Bright & Clear solar-term dates for 2016–2029, wide enough for the padded generation
+of HKEX's evidenced 2018–2027 interval. It throws outside that range rather than
+extrapolating an astronomical formula. HKEX lunar and Ching Ming rules likewise end
+at the last exchange-confirmed year; the chronology provider alone does not confer
+holiday status or a substitution policy.
 
 ## Reproducibility
 

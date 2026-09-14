@@ -75,7 +75,7 @@ class NativeChronologyTest {
         () -> hebrew.fromIso(LocalDate.of(1900, 12, 31)));
     assertThrows(
         UnsupportedChronologyRangeException.class, () -> hebrew.fromIso(LocalDate.of(2101, 1, 1)));
-    assertThrows(IllegalArgumentException.class, () -> ChronologyProviders.get("CHINESE_HK"));
+    assertEquals("CHINESE_HK", ChronologyProviders.get("CHINESE_HK").descriptor().id());
   }
 
   @Test

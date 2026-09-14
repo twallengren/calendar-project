@@ -101,6 +101,28 @@
       "support_intervals": []
     },
     {
+      "id": "hko-gregorian-lunar-conversion",
+      "title": "Gregorian-Lunar Calendar Conversion Table",
+      "publisher": "Hong Kong Observatory, Hong Kong Special Administrative Region Government",
+      "location": "https://www.hko.gov.hk/en/gts/time/conversion.htm ; annual text originals at https://www.hko.gov.hk/en/gts/time/calendar/text/files/TYYYYe.txt",
+      "retrieved": "2026-09-14",
+      "covers": "1901-2100; selected original annual tables retained locally for compiler fixtures",
+      "notes": "Authority for the published Hong Kong Gregorian/lunar correspondences and Bright & Clear solar-term rows. HKO and the gazetted HK schedule start the 2027 lunar year on 6 February; pinned ICU4J 78.3 starts it on 7 February, so the calendar carries authoritative replacement rows. HKO also warns that new moons close to midnight can differ by one day in 2057, 2089 and 2097. ICU differs from HKO at 2057-09-28 (HKO M09 day 1; ICU M08 day 30 and M09 begins 2057-09-29), while agreeing on the checked 2089 and 2097 rows. Disputed future conversions are not treated as verified exchange schedules.",
+      "local_files": [
+        {"path": "HK-HKEX/hko/T1929e.txt", "sha256": "1e15689478a2a3462b659b44c1da110b53d2a79009bbc34f6941b60e0023ea52"},
+        {"path": "HK-HKEX/hko/T2023e.txt", "sha256": "f3bbdef5c9b0c0158ca8328004e347da714494572effc23fea97af48052402e5"},
+        {"path": "HK-HKEX/hko/T2025e.txt", "sha256": "e11ba9a4d1fcde4d09570871149d3eea329d3a92a1b79be814d3f7313ae3fa50"},
+        {"path": "HK-HKEX/hko/T2027e.txt", "sha256": "3754bb79f07ea3dc0d355c7e5da1770bc9bb02ac26bf2e7633692703177f9a17"},
+        {"path": "HK-HKEX/hko/T2033e.txt", "sha256": "f7937894bf740a8b3fa1b348ba718b2cd7d017ae743018a01c138e1c765c4fee"},
+        {"path": "HK-HKEX/hko/T2034e.txt", "sha256": "a73bc77280d0dd6cc860cdc9e69cc199877e4b92d4a6f9ecd713a2e15ec43138"},
+        {"path": "HK-HKEX/hko/T2057e.txt", "sha256": "a8a6582d79f2214f68c5e1f7429cf267a50541f5546e494b1a88639fe28ce23d"},
+        {"path": "HK-HKEX/hko/T2089e.txt", "sha256": "032b86ae289624f927dd6fa64c99148ce7adffb9cea6481ca83617db132fdf69"},
+        {"path": "HK-HKEX/hko/T2097e.txt", "sha256": "d174c54cffa8c1268adc408e21038e597f89e425572249dbc7f6dba315fb6919"},
+        {"path": "HK-HKEX/hko/T2100e.txt", "sha256": "c75561b0e594e3aff40842fae5258e82524d1494c9bd59f69309fce2a7053336"}
+      ],
+      "support_intervals": []
+    },
+    {
       "id": "hkex-severe-weather-notices",
       "title": "Securities and Derivatives Market Trading Arrangements under Typhoon Signal No. 8 (Market Communications)",
       "publisher": "Hong Kong Exchanges and Clearing Limited",

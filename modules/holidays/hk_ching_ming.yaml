@@ -2,34 +2,28 @@ kind: module
 id: hk_ching_ming
 
 # Ching Ming Festival. A Hong Kong general holiday (General Holidays Ordinance, Cap. 149,
-# Schedule). Ching Ming is a solar-term date; this project has no formula for it, so every date
-# is transcribed from the Hong Kong Government's gazetted general holidays list for that year,
-# already carrying the Ordinance's Sunday substitution ("the day following Ching Ming Festival",
-# 5 Apr 2021 and 6 Apr 2026). Saturday occurrences (4 Apr 2020) are not trading days and are
-# not listed.
-# Source: govhk-general-holidays / govhk-general-holidays-archived (gazetted dates),
-# hkex-calendar (market closed).
+# Schedule). QINGMING_HK is a bounded table of the HKO's published Bright & Clear solar-term date,
+# not an astronomical approximation. The rule uses the exchange-evidenced 2018-2027 part of that
+# table and applies Hong Kong's Sunday-only substitution.
 
 source:
   - id: govhk-general-holidays
   - id: hkex-calendar
+  - id: hko-gregorian-lunar-conversion
+
+references:
+  - key: ching_ming_hko
+    formula: QINGMING_HK
 
 event_sources:
   - key: hk_ching_ming
     name: Ching Ming Festival
     default_classification: CLOSED
+    shiftable: true
+    shift_policy: FORWARD_ONLY
+    active_years: [[2018, 2027]]
     status: CONFIRMED
     rule:
-      type: explicit_dates
-      dates:
-        - 2018-04-05
-        - 2019-04-05
-        - date: 2021-04-05
-          comment: observed the day following; 4 April was a Sunday
-        - 2022-04-05
-        - 2023-04-05
-        - 2024-04-04
-        - 2025-04-04
-        - date: 2026-04-06
-          comment: observed the day following; 5 April was a Sunday
-        - 2027-04-05
+      type: relative_to_reference
+      reference: ching_ming_hko
+      offset_days: 0

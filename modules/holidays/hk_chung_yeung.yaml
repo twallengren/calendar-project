@@ -2,34 +2,24 @@ kind: module
 id: hk_chung_yeung
 
 # Chung Yeung Festival (the ninth day of the ninth lunar month). A Hong Kong general holiday
-# (General Holidays Ordinance, Cap. 149, Schedule). The lunar calendar is not modelled in this
-# project, so every date is transcribed from the Hong Kong Government's gazetted general holidays
-# list for that year, already carrying the Ordinance's Sunday substitution ("the day following
-# Chung Yeung Festival", 26 Oct 2020 and 19 Oct 2026).
-# Source: govhk-general-holidays / govhk-general-holidays-archived (gazetted dates),
-# hkex-calendar (market closed).
+# (General Holidays Ordinance, Cap. 149, Schedule). The bounded CHINESE_HK rule supplies its native
+# origin for the exchange-evidenced 2018-2027 interval and the statutory Sunday substitution.
 
 source:
   - id: govhk-general-holidays
   - id: hkex-calendar
+  - id: hko-gregorian-lunar-conversion
 
 event_sources:
   - key: hk_chung_yeung
     name: Chung Yeung Festival
     default_classification: CLOSED
+    shiftable: true
+    shift_policy: FORWARD_ONLY
     status: CONFIRMED
     rule:
-      type: explicit_dates
-      dates:
-        - 2018-10-17
-        - 2019-10-07
-        - date: 2020-10-26
-          comment: observed the day following; 25 October was a Sunday
-        - 2021-10-14
-        - 2022-10-04
-        - 2023-10-23
-        - 2024-10-11
-        - 2025-10-29
-        - date: 2026-10-19
-          comment: observed the day following; 18 October was a Sunday
-        - 2027-10-08
+      type: native_fixed_month_day
+      chronology: CHINESE_HK
+      month_codes: [M09]
+      day: 9
+      native_years: [{start: 2018, end: 2027}]
