@@ -345,10 +345,14 @@ jobs:
           # blessed/<ID>/cross_validation.json for every calendar that has reference data.
           ./tools/build/install/tools/bin/tools crossvalidate --all --out blessed
 
-          # Commit updated blessed and release history
+          # Keep the Python package's bundled copy (data + version markers) in step with the
+          # release; python/tests/test_data.py compares it against blessed/.
+          python3 python/scripts/sync_data.py
+
+          # Commit updated blessed, release history and the re-synced Python data
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add blessed/ release-history/
+          git add blessed/ release-history/ python/bdc_calendars/
           git commit -m "chore: update blessed artifacts for v${NEW_VERSION}" || echo "No changes to commit"
           git push
 

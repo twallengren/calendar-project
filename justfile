@@ -2,13 +2,13 @@
 # All recipes run from the repository root. Requires https://github.com/casey/just
 # Optional: the project works fully without it, using ./gradlew directly.
 
-# Build everything
+# Build every module (core, data, tools)
 build:
-    ./gradlew :tools:build
+    ./gradlew build
 
-# Run all tests
+# Run all tests in every module
 test:
-    ./gradlew :tools:test
+    ./gradlew test
 
 # Run the fast test suite. A sibling change is adding a :tools:fastTest Gradle task;
 # just has no built-in way to fall back to another recipe when a Gradle task is
