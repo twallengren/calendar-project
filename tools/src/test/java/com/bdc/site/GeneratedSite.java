@@ -8,6 +8,7 @@ import java.io.UncheckedIOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Comparator;
 import picocli.CommandLine;
 
 /**
@@ -31,7 +32,20 @@ final class GeneratedSite {
     if (site == null) {
       try {
         Path out = Files.createTempDirectory("bdc-site");
-        out.toFile().deleteOnExit();
+        Runtime.getRuntime()
+            .addShutdownHook(
+                new Thread(
+                    () -> {
+                      try (var paths = Files.walk(out)) {
+                        for (Path path : paths.sorted(Comparator.reverseOrder()).toList()) {
+                          Files.deleteIfExists(path);
+                        }
+                      } catch (IOException e) {
+                        System.err.println(
+                            "Could not remove generated test site " + out + ": " + e);
+                      }
+                    },
+                    "generated-site-cleanup"));
         int exit =
             new CommandLine(new Main())
                 .execute(
