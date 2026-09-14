@@ -4,7 +4,11 @@ import java.time.LocalDate;
 import java.util.stream.Stream;
 
 /**
- * Represents a date range with utility methods for chronology-aware operations.
+ * An inclusive range of civil dates.
+ *
+ * <p>Year ranges in a non-Gregorian chronology come from {@code ChronologyTranslator.getYearRange}
+ * in the toolchain: this record stays free of the chronology machinery so it can ship in the
+ * dependency-free core jar.
  *
  * @param start the start date (inclusive)
  * @param end the end date (inclusive)
@@ -34,27 +38,6 @@ public record DateRange(LocalDate start, LocalDate end) {
    */
   public Stream<LocalDate> stream() {
     return start.datesUntil(end.plusDays(1));
-  }
-
-  /**
-   * Returns the year range in the specified chronology.
-   *
-   * @param chronologyId the chronology identifier (e.g., "ISO", "HIJRI", "JULIAN")
-   * @return array of [startYear, endYear] in the specified chronology
-   */
-  public int[] yearRange(String chronologyId) {
-    return ChronologyTranslator.getYearRange(start, end, chronologyId);
-  }
-
-  /**
-   * Returns the Hijri year range for this date range.
-   *
-   * @return array of [startYear, endYear] in Hijri calendar
-   * @deprecated Use {@link #yearRange(String)} with "HIJRI" instead
-   */
-  @Deprecated
-  public int[] hijriYearRange() {
-    return yearRange("HIJRI");
   }
 
   /**

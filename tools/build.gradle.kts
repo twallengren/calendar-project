@@ -1,7 +1,6 @@
 plugins {
     java
     application
-    id("com.diffplug.spotless") version "6.25.0"
 }
 
 group = "com.bdc"
@@ -18,6 +17,7 @@ repositories {
 }
 
 dependencies {
+    implementation(project(":core"))
     implementation("com.fasterxml.jackson.core:jackson-databind:2.17.0")
     implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.17.0")
     implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.17.0")
@@ -27,6 +27,7 @@ dependencies {
     testImplementation(platform("org.junit:junit-bom:5.10.2"))
     testImplementation("org.junit.jupiter:junit-jupiter")
     testImplementation("net.jqwik:jqwik:1.8.2")
+    testRuntimeOnly(project(":data"))
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
@@ -62,14 +63,8 @@ tasks.named<JavaExec>("run") {
     notCompatibleWithConfigurationCache("uses System.in for interactive input")
 }
 
-spotless {
-    // Fixed line endings: the default git-attributes policy cannot be serialized by the
-    // configuration cache and fails with "Error while evaluating property 'lineEndingsPolicy'".
-    lineEndings = com.diffplug.spotless.LineEnding.UNIX
-    java {
-        googleJavaFormat()
-    }
-}
+// Spotless (Google Java Format, UNIX line endings) is configured for every module in the
+// root build script.
 
 // Chronology code generation - generated sources go to src/main/java-generated
 // This directory is committed to version control so the code is always available
