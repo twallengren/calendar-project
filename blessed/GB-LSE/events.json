@@ -987,10 +987,10 @@
   }, {
     "date" : "2000-12-22",
     "type" : "EARLY_CLOSE",
-    "description" : "Christmas Eve (Early Close) (24 December 2000 is a Sunday; half day observed the preceding Friday)",
-    "key" : "gb_lse_christmas_eve_early_close_shifted",
+    "description" : "Christmas Eve (Early Close)",
+    "key" : "gb_lse_christmas_eve_early_close",
     "source_module" : "module:gb_lse_early_closes",
-    "observed_from" : null,
+    "observed_from" : "2000-12-24",
     "close_time" : "12:30",
     "status" : "CONFIRMED"
   }, {
@@ -1032,10 +1032,10 @@
   }, {
     "date" : "2000-12-29",
     "type" : "EARLY_CLOSE",
-    "description" : "New Year's Eve (Early Close) (31 December 2000 is a Sunday; half day observed the preceding Friday)",
-    "key" : "gb_lse_new_years_eve_early_close_shifted",
+    "description" : "New Year's Eve (Early Close)",
+    "key" : "gb_lse_new_years_eve_early_close",
     "source_module" : "module:gb_lse_early_closes",
-    "observed_from" : null,
+    "observed_from" : "2000-12-31",
     "close_time" : "12:30",
     "status" : "CONFIRMED"
   }, {
@@ -6144,10 +6144,10 @@
   }, {
     "date" : "2005-12-23",
     "type" : "EARLY_CLOSE",
-    "description" : "Christmas Eve (Early Close) (24 December 2005 is a Saturday; half day observed the preceding Friday)",
-    "key" : "gb_lse_christmas_eve_early_close_shifted",
+    "description" : "Christmas Eve (Early Close)",
+    "key" : "gb_lse_christmas_eve_early_close",
     "source_module" : "module:gb_lse_early_closes",
-    "observed_from" : null,
+    "observed_from" : "2005-12-24",
     "close_time" : "12:30",
     "status" : "CONFIRMED"
   }, {
@@ -6189,10 +6189,10 @@
   }, {
     "date" : "2005-12-30",
     "type" : "EARLY_CLOSE",
-    "description" : "New Year's Eve (Early Close) (31 December 2005 is a Saturday; half day observed the preceding Friday)",
-    "key" : "gb_lse_new_years_eve_early_close_shifted",
+    "description" : "New Year's Eve (Early Close)",
+    "key" : "gb_lse_new_years_eve_early_close",
     "source_module" : "module:gb_lse_early_closes",
-    "observed_from" : null,
+    "observed_from" : "2005-12-31",
     "close_time" : "12:30",
     "status" : "CONFIRMED"
   }, {
@@ -7170,10 +7170,10 @@
   }, {
     "date" : "2006-12-22",
     "type" : "EARLY_CLOSE",
-    "description" : "Christmas Eve (Early Close) (24 December 2006 is a Sunday; half day observed the preceding Friday)",
-    "key" : "gb_lse_christmas_eve_early_close_shifted",
+    "description" : "Christmas Eve (Early Close)",
+    "key" : "gb_lse_christmas_eve_early_close",
     "source_module" : "module:gb_lse_early_closes",
-    "observed_from" : null,
+    "observed_from" : "2006-12-24",
     "close_time" : "12:30",
     "status" : "CONFIRMED"
   }, {
@@ -7215,10 +7215,10 @@
   }, {
     "date" : "2006-12-29",
     "type" : "EARLY_CLOSE",
-    "description" : "New Year's Eve (Early Close) (31 December 2006 is a Sunday; half day observed the preceding Friday)",
-    "key" : "gb_lse_new_years_eve_early_close_shifted",
+    "description" : "New Year's Eve (Early Close)",
+    "key" : "gb_lse_new_years_eve_early_close",
     "source_module" : "module:gb_lse_early_closes",
-    "observed_from" : null,
+    "observed_from" : "2006-12-31",
     "close_time" : "12:30",
     "status" : "CONFIRMED"
   }, {
@@ -12327,10 +12327,10 @@
   }, {
     "date" : "2011-12-23",
     "type" : "EARLY_CLOSE",
-    "description" : "Christmas Eve (Early Close) (24 December 2011 is a Saturday; half day observed the preceding Friday)",
-    "key" : "gb_lse_christmas_eve_early_close_shifted",
+    "description" : "Christmas Eve (Early Close)",
+    "key" : "gb_lse_christmas_eve_early_close",
     "source_module" : "module:gb_lse_early_closes",
-    "observed_from" : null,
+    "observed_from" : "2011-12-24",
     "close_time" : "12:30",
     "status" : "CONFIRMED"
   }, {
@@ -12372,10 +12372,10 @@
   }, {
     "date" : "2011-12-30",
     "type" : "EARLY_CLOSE",
-    "description" : "New Year's Eve (Early Close) (31 December 2011 is a Saturday; half day observed the preceding Friday)",
-    "key" : "gb_lse_new_years_eve_early_close_shifted",
+    "description" : "New Year's Eve (Early Close)",
+    "key" : "gb_lse_new_years_eve_early_close",
     "source_module" : "module:gb_lse_early_closes",
-    "observed_from" : null,
+    "observed_from" : "2011-12-31",
     "close_time" : "12:30",
     "status" : "CONFIRMED"
   }, {
@@ -17484,10 +17484,10 @@
   }, {
     "date" : "2016-12-23",
     "type" : "EARLY_CLOSE",
-    "description" : "Christmas Eve (Early Close) (24 December 2016 is a Saturday; half day observed the preceding Friday)",
-    "key" : "gb_lse_christmas_eve_early_close_shifted",
+    "description" : "Christmas Eve (Early Close)",
+    "key" : "gb_lse_christmas_eve_early_close",
     "source_module" : "module:gb_lse_early_closes",
-    "observed_from" : null,
+    "observed_from" : "2016-12-24",
     "close_time" : "12:30",
     "status" : "CONFIRMED"
   }, {
@@ -17529,10 +17529,10 @@
   }, {
     "date" : "2016-12-30",
     "type" : "EARLY_CLOSE",
-    "description" : "New Year's Eve (Early Close) (31 December 2016 is a Saturday; half day observed the preceding Friday)",
-    "key" : "gb_lse_new_years_eve_early_close_shifted",
+    "description" : "New Year's Eve (Early Close)",
+    "key" : "gb_lse_new_years_eve_early_close",
     "source_module" : "module:gb_lse_early_closes",
-    "observed_from" : null,
+    "observed_from" : "2016-12-31",
     "close_time" : "12:30",
     "status" : "CONFIRMED"
   }, {
@@ -18510,10 +18510,10 @@
   }, {
     "date" : "2017-12-22",
     "type" : "EARLY_CLOSE",
-    "description" : "Christmas Eve (Early Close) (24 December 2017 is a Sunday; half day observed the preceding Friday)",
-    "key" : "gb_lse_christmas_eve_early_close_shifted",
+    "description" : "Christmas Eve (Early Close)",
+    "key" : "gb_lse_christmas_eve_early_close",
     "source_module" : "module:gb_lse_early_closes",
-    "observed_from" : null,
+    "observed_from" : "2017-12-24",
     "close_time" : "12:30",
     "status" : "CONFIRMED"
   }, {
@@ -18555,10 +18555,10 @@
   }, {
     "date" : "2017-12-29",
     "type" : "EARLY_CLOSE",
-    "description" : "New Year's Eve (Early Close) (31 December 2017 is a Sunday; half day observed the preceding Friday)",
-    "key" : "gb_lse_new_years_eve_early_close_shifted",
+    "description" : "New Year's Eve (Early Close)",
+    "key" : "gb_lse_new_years_eve_early_close",
     "source_module" : "module:gb_lse_early_closes",
-    "observed_from" : null,
+    "observed_from" : "2017-12-31",
     "close_time" : "12:30",
     "status" : "CONFIRMED"
   }, {
@@ -23676,10 +23676,10 @@
   }, {
     "date" : "2022-12-23",
     "type" : "EARLY_CLOSE",
-    "description" : "Christmas Eve (Early Close) (24 December 2022 is a Saturday; half day observed the preceding Friday)",
-    "key" : "gb_lse_christmas_eve_early_close_shifted",
+    "description" : "Christmas Eve (Early Close)",
+    "key" : "gb_lse_christmas_eve_early_close",
     "source_module" : "module:gb_lse_early_closes",
-    "observed_from" : null,
+    "observed_from" : "2022-12-24",
     "close_time" : "12:30",
     "status" : "CONFIRMED"
   }, {
@@ -23721,10 +23721,10 @@
   }, {
     "date" : "2022-12-30",
     "type" : "EARLY_CLOSE",
-    "description" : "New Year's Eve (Early Close) (31 December 2022 is a Saturday; half day observed the preceding Friday)",
-    "key" : "gb_lse_new_years_eve_early_close_shifted",
+    "description" : "New Year's Eve (Early Close)",
+    "key" : "gb_lse_new_years_eve_early_close",
     "source_module" : "module:gb_lse_early_closes",
-    "observed_from" : null,
+    "observed_from" : "2022-12-31",
     "close_time" : "12:30",
     "status" : "CONFIRMED"
   }, {
@@ -24711,10 +24711,10 @@
   }, {
     "date" : "2023-12-22",
     "type" : "EARLY_CLOSE",
-    "description" : "Christmas Eve (Early Close) (24 December 2023 is a Sunday; half day observed the preceding Friday)",
-    "key" : "gb_lse_christmas_eve_early_close_shifted",
+    "description" : "Christmas Eve (Early Close)",
+    "key" : "gb_lse_christmas_eve_early_close",
     "source_module" : "module:gb_lse_early_closes",
-    "observed_from" : null,
+    "observed_from" : "2023-12-24",
     "close_time" : "12:30",
     "status" : "CONFIRMED"
   }, {
@@ -24756,10 +24756,10 @@
   }, {
     "date" : "2023-12-29",
     "type" : "EARLY_CLOSE",
-    "description" : "New Year's Eve (Early Close) (31 December 2023 is a Sunday; half day observed the preceding Friday)",
-    "key" : "gb_lse_new_years_eve_early_close_shifted",
+    "description" : "New Year's Eve (Early Close)",
+    "key" : "gb_lse_new_years_eve_early_close",
     "source_module" : "module:gb_lse_early_closes",
-    "observed_from" : null,
+    "observed_from" : "2023-12-31",
     "close_time" : "12:30",
     "status" : "CONFIRMED"
   }, {
@@ -29859,10 +29859,10 @@
   }, {
     "date" : "2028-12-22",
     "type" : "EARLY_CLOSE",
-    "description" : "Christmas Eve (Early Close) (24 December 2028 is a Sunday; half day observed the preceding Friday)",
-    "key" : "gb_lse_christmas_eve_early_close_shifted",
+    "description" : "Christmas Eve (Early Close)",
+    "key" : "gb_lse_christmas_eve_early_close",
     "source_module" : "module:gb_lse_early_closes",
-    "observed_from" : null,
+    "observed_from" : "2028-12-24",
     "close_time" : "12:30",
     "status" : "CONFIRMED"
   }, {
@@ -29904,10 +29904,10 @@
   }, {
     "date" : "2028-12-29",
     "type" : "EARLY_CLOSE",
-    "description" : "New Year's Eve (Early Close) (31 December 2028 is a Sunday; half day observed the preceding Friday)",
-    "key" : "gb_lse_new_years_eve_early_close_shifted",
+    "description" : "New Year's Eve (Early Close)",
+    "key" : "gb_lse_new_years_eve_early_close",
     "source_module" : "module:gb_lse_early_closes",
-    "observed_from" : null,
+    "observed_from" : "2028-12-31",
     "close_time" : "12:30",
     "status" : "CONFIRMED"
   }, {

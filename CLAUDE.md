@@ -97,7 +97,7 @@ Event sources also carry `shift_policy` (per-holiday weekend observance, e.g. `F
 - **Groups** (`modules/groups/`) aggregate modules into reusable sets (e.g., `us_nyse_holidays`)
 - **Deltas** allow add/remove/reclassify of inherited events
 - **Weekend policies** are effective-dated (`{days, from, to}` periods); `nyse_weekends` models Saturday sessions before 1952
-- **Weekend shift policies**: NONE, NEAREST_WEEKDAY, NEXT_AVAILABLE_WEEKDAY, FORWARD_ONLY; CLOSED beats EARLY_CLOSE on the same date
+- **Weekend shift policies**: NONE, NEAREST_WEEKDAY, NEXT_AVAILABLE_WEEKDAY, NEXT_AVAILABLE_FROM_LAST_WEEKEND_DAY, FORWARD_ONLY for CLOSED; DROP (default) and PREVIOUS_AVAILABLE_BUSINESS_DAY for EARLY_CLOSE; CLOSED beats EARLY_CLOSE on the same date, and `displaces:` lets a shifting CLOSED event take a slot and push the holder forward
 
 ### Chronology codegen
 

@@ -35,7 +35,7 @@
       "range_start": "2000-01-01",
       "range_end": "2030-12-31",
       "event_count": 3552,
-      "checksum": "sha256:d63d64d090ae86800da9d926cc58dce3db7ef27859034c789b989c60acb9fba4",
+      "checksum": "sha256:307f5d8fa3df7d3028acb3d3138f2b8d65cf41fa692769914e1b350d3b70ec0e",
       "kind": "market"
     },
     "DE-XETRA": {
@@ -49,7 +49,7 @@
       "range_start": "2000-01-01",
       "range_end": "2030-12-31",
       "event_count": 3546,
-      "checksum": "sha256:b564e7081e93534cd4dded70927e8b3e4a114e634ee70387cca0c7650d16b8da",
+      "checksum": "sha256:e3990abc8d46393df7fd25ed647770bff025f0dc03034d88792aed52592b00c4",
       "kind": "market"
     },
     "EU-EURONEXT": {

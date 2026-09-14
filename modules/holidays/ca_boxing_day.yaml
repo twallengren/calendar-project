@@ -7,6 +7,11 @@ id: ca_boxing_day
 # Saturday). Shifts to the next available weekday when it falls on a weekend, cascading past
 # Christmas Day's own shifted date: tmx-holiday-schedule-2021 confirms Sun Dec 26, 2021
 # (nominal) was observed Tue Dec 28, 2021, one day after Christmas's own Sat->Mon shift.
+#
+# In the other direction, ca_christmas declares `displaces: [ca_boxing_day]`: when Dec 25 is a
+# Sunday, Boxing Day's own nominal Monday is taken by Christmas "in lieu of Christmas Day" and
+# Boxing Day re-cascades to the Tuesday "in lieu of Boxing Day" (tmx-holiday-schedule-2016).
+# See modules/holidays/ca_christmas.yaml and spec/SPEC.md, "Observance priority".
 
 source:
   - id: tsx-calendar-page

@@ -186,7 +186,8 @@ public class SpecValidator {
                 es.onlyIfWeekday(),
                 es.closeTime(),
                 es.status(),
-                module.source()));
+                module.source(),
+                es.displaces()));
       } else {
         sources.add(es);
       }
@@ -230,6 +231,23 @@ public class SpecValidator {
     if (es.closeTime() != null && es.defaultClassification() != EventType.EARLY_CLOSE) {
       result.warning(
           "CLOSE_TIME_IGNORED", loc, "close_time is only emitted for EARLY_CLOSE events");
+    }
+    if (es.shiftPolicy() == WeekendShiftPolicy.DROP
+        && es.defaultClassification() != EventType.EARLY_CLOSE) {
+      result.error(
+          "INVALID_SHIFT_POLICY",
+          loc,
+          "shift_policy DROP applies to EARLY_CLOSE events only; a CLOSED event on a weekend is "
+              + "either shifted or observed on the weekend day (use NONE for the latter)");
+    }
+    if (!es.displaces().isEmpty() && es.defaultClassification() != EventType.CLOSED) {
+      result.warning(
+          "DISPLACES_IGNORED",
+          loc,
+          "displaces only affects CLOSED events; it is ignored on " + es.defaultClassification());
+    }
+    if (es.displaces().contains(es.key())) {
+      result.error("DISPLACES_SELF", loc, "displaces lists its own key '" + es.key() + "'");
     }
 
     switch (es.rule()) {
@@ -333,6 +351,42 @@ public class SpecValidator {
     }
   }
 
+  /**
+   * The first cycle in the {@code displaces} graph reachable from {@code start} that comes back to
+   * {@code start}, as the path that closes it, or null when there is none.
+   */
+  private static List<String> findDisplacementCycle(String start, Map<String, List<String>> graph) {
+    Deque<String> path = new ArrayDeque<>();
+    if (walkDisplacement(start, start, graph, new HashSet<>(), path)) {
+      List<String> cycle = new ArrayList<>(path);
+      cycle.add(start);
+      return cycle;
+    }
+    return null;
+  }
+
+  private static boolean walkDisplacement(
+      String current,
+      String start,
+      Map<String, List<String>> graph,
+      Set<String> visited,
+      Deque<String> path) {
+    if (!visited.add(current)) {
+      return false;
+    }
+    path.addLast(current);
+    for (String next : graph.getOrDefault(current, List.of())) {
+      if (next.equals(start)) {
+        return true;
+      }
+      if (walkDisplacement(next, start, graph, visited, path)) {
+        return true;
+      }
+    }
+    path.removeLast();
+    return false;
+  }
+
   private Set<String> transitiveUses(String moduleId, Set<String> seen) {
     Optional<ModuleSpec> maybe = registry.getModule(moduleId);
     if (maybe.isEmpty()) {
@@ -370,6 +424,37 @@ public class SpecValidator {
             loc,
             "Shiftable holiday in a calendar whose effective weekend_shift_policy is NONE; "
                 + "weekend occurrences will be emitted as CLOSED on the weekend day");
+      }
+    }
+
+    // displaces: every named key must exist, and the priority graph must be acyclic
+    Map<String, List<String>> displacementGraph = new LinkedHashMap<>();
+    for (EventSource es : resolved.eventSources()) {
+      if (es.displaces().isEmpty()) {
+        continue;
+      }
+      String loc = resolved.sourceOrigins().getOrDefault(es.key(), calLoc) + "/" + es.key();
+      for (String target : es.displaces()) {
+        if (!sourceKeys.contains(target)) {
+          result.error(
+              "UNKNOWN_DISPLACES",
+              loc,
+              "displaces key '" + target + "' matches no event source in this calendar");
+        }
+      }
+      displacementGraph.put(es.key(), es.displaces());
+    }
+    for (String start : displacementGraph.keySet()) {
+      List<String> cycle = findDisplacementCycle(start, displacementGraph);
+      if (cycle != null) {
+        String loc = resolved.sourceOrigins().getOrDefault(start, calLoc) + "/" + start;
+        result.warning(
+            "DISPLACES_CYCLE",
+            loc,
+            "displaces forms a cycle: "
+                + String.join(" -> ", cycle)
+                + "; placement stops displacing after a bounded number of steps, so the resulting "
+                + "observed dates depend on declaration order");
       }
     }
 

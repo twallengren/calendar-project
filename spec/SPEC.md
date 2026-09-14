@@ -72,6 +72,7 @@ event_sources:
     default_classification: CLOSED  # Event type (default: CLOSED)
     shiftable: true              # Whether to shift on weekends (see below)
     shift_policy: FORWARD_ONLY   # Optional per-event override of the calendar's policy
+    displaces: [other_key]       # Optional: CLOSED keys this event outranks when it shifts
     only_if_weekday: [MONDAY, TUESDAY, THURSDAY]  # Optional: drop occurrences on other weekdays
     close_time: "13:00"          # Local close time for EARLY_CLOSE events (quote it in YAML)
     status: CONFIRMED            # CONFIRMED (default) or PROJECTED
@@ -88,7 +89,8 @@ they must agree.
 `shiftable` controls whether this event follows the calendar's `weekend_shift_policy` when it
 falls on a weekend. Defaults to `true` for `fixed_month_day` rules, `false` for others.
 `shift_policy` sets the policy for this event regardless of the calendar default (NYSE New
-Year's Day is `FORWARD_ONLY` while Christmas is `NEAREST_WEEKDAY`).
+Year's Day is `FORWARD_ONLY` while Christmas is `NEAREST_WEEKDAY`). `EARLY_CLOSE` sources ignore
+both `shiftable` and the calendar default: without an explicit `shift_policy` they are `DROP`.
 
 ### only_if_weekday
 
@@ -289,9 +291,10 @@ identical periods reached twice (diamond dependencies) are deduplicated.
 
 ## Weekend Shift Policy
 
-Controls how a CLOSED holiday that falls on a weekend is observed. The calendar's
-`weekend_shift_policy` is the default for shiftable events; `shift_policy` on an event source
-overrides it.
+Controls how an event whose nominal date is unavailable is observed. The calendar's
+`weekend_shift_policy` is the default for shiftable CLOSED events; `shift_policy` on an event
+source overrides it. The first five values below answer "a CLOSED holiday fell on a weekend day,
+where is it observed?"; the last two answer the EARLY_CLOSE question and are described after them.
 
 - `NONE` - No shifting; the holiday stays on the weekend day (emitted as CLOSED)
 - `NEAREST_WEEKDAY` - US-style: first day of a two-day weekend shifts back, last day shifts
@@ -309,14 +312,96 @@ overrides it.
   Sunday May 3 2026 is observed on Wednesday May 6 past the May 4 and May 5 holidays, while
   Saturday February 11 2023 is not made up on either side.
 
-Shifting only moves CLOSED events. Observed events carry `observed_from` (the nominal date) in
-the output.
+The next two values apply to `EARLY_CLOSE` events instead. An early close is "blocked" when its
+nominal date is not a session: the date is a weekend day, or a CLOSED event occupies it after
+CLOSED placement (see *Same-date precedence*).
+
+- `DROP` - the blocked occurrence is simply not observed. **This is the default for every
+  `EARLY_CLOSE` event source**, regardless of `shiftable` and regardless of the calendar's
+  `weekend_shift_policy`, which governs full closures only. `DROP` on a CLOSED source is a
+  validation error (a CLOSED event either shifts or stays on the weekend day: use `NONE`).
+- `PREVIOUS_AVAILABLE_BUSINESS_DAY` - the blocked occurrence moves back to the nearest earlier
+  date that is neither a weekend day nor carries a CLOSED event, searching at most **7 days**
+  back; if no such date is found the occurrence is dropped. The moved row carries `observed_from`.
+  Same-date precedence still applies to the landing date by construction, since a date holding a
+  CLOSED event is never chosen. The London Stock Exchange 12:30 half day on 24/31 December uses
+  this: Sunday 24 December 2028 is observed on Friday 22 December 2028.
+
+Shifting a CLOSED event only ever happens when its nominal date is a weekend day; an early close
+under `PREVIOUS_AVAILABLE_BUSINESS_DAY` also moves when a full closure has taken its nominal
+date. Observed events carry `observed_from` (the nominal date) in the output.
+
+### Observance priority (`displaces`)
+
+Cascading policies resolve collisions by "first come, first served": an event whose own nominal
+date is an ordinary weekday is placed before any weekend event's shift is resolved, so the
+shifting event cascades past it. That is correct for the UK (Boxing Day keeps Monday 26 December
+and a Sunday Christmas cascades to Tuesday 27 December) and wrong for Canada, where TMX observes a
+Sunday Christmas on the Monday "in lieu of Christmas Day" and pushes Boxing Day to the Tuesday.
+
+`displaces` on an event source names the keys this event outranks:
+
+```yaml
+- key: ca_christmas
+  name: Christmas Day
+  displaces: [ca_boxing_day]
+  rule: {type: fixed_month_day, month: 12, day: 25}
+```
+
+Semantics, precisely:
+
+1. `displaces` affects **CLOSED** events only, and only while a shift is being resolved. It is
+   ignored (with a validation warning) on other classifications. Default: empty - no displacement,
+   which is the "first come, first served" behaviour above.
+2. While a policy searches for a slot, a candidate date counts as **available** when it is not a
+   weekend day **and** it is either empty or occupied *exclusively* by occurrences whose keys are
+   all listed in the shifting event's `displaces`. A date holding even one occurrence the event
+   may not displace is skipped as before.
+3. When the chosen slot was occupied, the occupants are evicted, the shifting event is placed
+   there with its own `observed_from` (its nominal date), and each evicted occurrence
+   **re-cascades**.
+4. **Re-cascade rule.** A displaced occurrence moves to the first date strictly after the slot it
+   lost that is neither a weekend day nor already carrying a CLOSED event - that is,
+   `NEXT_AVAILABLE_WEEKDAY`'s cascade applied from the taken slot, *whatever the displaced event's
+   own `shift_policy` is*. Displacement only ever pushes an event later, so `NEAREST_WEEKDAY`'s
+   backward branch and the "not observed at all" branches of `FORWARD_ONLY` and
+   `NEXT_AVAILABLE_FROM_LAST_WEEKEND_DAY` never apply to a displaced event. The displaced
+   occurrence keeps its original nominal date in `observed_from` (or gains its pre-displacement
+   date as `observed_from` if it had not shifted before).
+5. The re-cascade honours the displaced event's *own* `displaces` list, so priorities chain. An
+   implementation must bound the chain (this one stops after 16 displacements) so that a cycle
+   terminates.
+6. `validate` **errors** on a `displaces` key that matches no event source in the calendar, and on
+   an event that lists its own key; it **warns** on a cycle in the `displaces` graph, whose
+   outcome depends on declaration order and is therefore not a well-defined model.
+
+Worked example (`CA-TSX`, weekend Sat-Sun, `weekend_shift_policy: NEXT_AVAILABLE_WEEKDAY`,
+`ca_christmas` declaring `displaces: [ca_boxing_day]`):
+
+| Year | Dec 25 | Placement |
+|------|--------|-----------|
+| 2022 | Sunday | Boxing Day is placed on its own Monday 26th. Christmas shifts: Monday 26th is held only by `ca_boxing_day`, so it is available. Christmas takes Monday 26th (`observed_from` 2022-12-25); Boxing Day re-cascades to Tuesday 27th (`observed_from` 2022-12-26). |
+| 2021 | Saturday | Both are weekend events. Christmas resolves first (earlier nominal date) to Monday 27th; Boxing Day then cascades to Tuesday 28th. No displacement occurs. |
+| 2026 | Friday | Christmas stays on Friday 25th. Boxing Day (Saturday 26th) cascades to Monday 28th. No displacement occurs. |
+
+Without `displaces` the same two sources produce the UK ordering, which is what `GB-LSE` relies
+on: Boxing Day keeps Monday and Christmas cascades to Tuesday.
+
+**Ports.** `shift_policy` (including `DROP` and `PREVIOUS_AVAILABLE_BUSINESS_DAY`) and `displaces`
+are *generation-time* rules: they decide which dates end up in `events.csv`/`events.json`. Any
+implementation that compiles these YAML specs must implement them to produce the same artifacts.
+Consumers that read the generated artifacts - the Python package in `python/` among them - are
+unaffected: they see only the resulting dates and the `observed_from` column, both of which already
+exist in the output contract.
 
 ### Same-date precedence
 
 A date can carry at most one of CLOSED or EARLY_CLOSE: a full closure suppresses an early close
 on the same date (Christmas observed on Friday December 24 removes the Christmas Eve early
-close). EARLY_CLOSE is also dropped on weekend days. NOTABLE and PERIOD_MARKER events are
+close). An EARLY_CLOSE on a weekend day is likewise not a session. In both cases the early
+close's own `shift_policy` decides what happens: `DROP` (the default) discards it, and
+`PREVIOUS_AVAILABLE_BUSINESS_DAY` moves it back to the nearest earlier session (see *Weekend
+Shift Policy*). NOTABLE and PERIOD_MARKER events are
 informational and are always kept; a weekend day with only informational events still gets its
 WEEKEND row. `validate` reports two CLOSED events on one date as a warning.
 
@@ -414,7 +499,9 @@ sources. `validate --strict` fails on an event source without a resolvable citat
 duplicate ids, unknown modules/references/formulas/chronologies, rule sanity (`nth`, month/day
 ranges, empty or duplicate explicit dates), rule/event-source identity mismatches, weekend
 period conflicts, missing `source`, `coverage`, `timezone` or `close_time`, redundant `uses`,
-classifications and deltas that match nothing, lookup-table chronology coverage, and, after
+classifications and deltas that match nothing, `shift_policy: DROP` on a CLOSED source,
+unknown or self-referencing `displaces` keys (error) and `displaces` cycles (warning),
+lookup-table chronology coverage, and, after
 generating over the coverage range, same-date CLOSED/EARLY_CLOSE conflicts, rules that produce
 nothing, and PROJECTED events before `verified_through`. Exit code 1 on errors, 2 on warnings
 under `--strict`.

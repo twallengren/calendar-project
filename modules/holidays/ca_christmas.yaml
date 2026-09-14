@@ -10,7 +10,9 @@ id: ca_christmas
 # -- every year in active_years whose 24 December is a weekday, so nothing here is unsourced.
 # Not modelled before 2015 (unchecked) or after coverage.verified_through (2026): TMX treats
 # it as an annual announcement, not a standing rule, so it is not projected forward. When
-# Dec 24 itself falls on a weekend the engine drops the early close automatically.
+# Dec 24 itself falls on a weekend the early close is dropped -- the default shift_policy DROP
+# that every EARLY_CLOSE source has (TMX cancels the half day rather than moving it back to the
+# preceding business day, unlike LSE).
 
 source:
   - id: holidays-act-canada
@@ -24,6 +26,28 @@ event_sources:
   - key: ca_christmas
     name: Christmas Day
     default_classification: CLOSED
+    # When Dec 25 is a Sunday, TMX observes Christmas on Mon Dec 26 "in lieu of Christmas Day"
+    # and pushes Boxing Day to Tue Dec 27 "in lieu of Boxing Day" -- Christmas, the earlier
+    # holiday, outranks Boxing Day's own nominal weekday date. tmx-holiday-schedule-2016 states
+    # both lines verbatim for 2016; tmx-canada-holiday-2022 corroborates 2022. `displaces` says
+    # exactly that: Christmas's shift may take a slot held only by ca_boxing_day, and the
+    # displaced Boxing Day re-cascades to the next free weekday. Affects 2005, 2011, 2016 and
+    # 2022 in coverage (the next Sunday Christmas is 2033, past coverage.to). When Dec 25 is a
+    # Saturday instead, Boxing Day's own Sunday shift is resolved after Christmas's and lands
+    # one day later without any displacement (tmx-holiday-schedule-2021: Mon Dec 27/Tue Dec 28,
+    # 2021).
+    displaces: [ca_boxing_day]
+    source:
+      - id: tmx-holiday-schedule-2016
+        ref: >-
+          Closed Mon Dec 26, 2016 "in lieu of Christmas Day on Sunday, December 25, 2016" and
+          Tue Dec 27, 2016 "in lieu of Boxing Day on Monday, December 26, 2016"
+      - id: tmx-canada-holiday-2022
+        ref: "Same Mon Dec 26 / Tue Dec 27 ordering for the Sunday Christmas of 2022"
+      - id: tmx-holiday-schedule-2021
+        ref: "Sat Dec 25, 2021 observed Mon Dec 27, 2021 (no displacement needed)"
+      - id: holidays-act-canada
+      - id: tsx-calendar-page
     rule:
       type: fixed_month_day
       month: 12

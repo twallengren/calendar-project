@@ -22,10 +22,13 @@ import java.util.stream.Collectors;
  *       (on the nominal, pre-shift year) and {@code only_if_weekday}.
  *   <li>Place CLOSED occurrences. Those that fall on a weekend and have a non-NONE shift policy are
  *       moved according to that policy; {@code NEXT_AVAILABLE_WEEKDAY} and {@code
- *       NEXT_AVAILABLE_FROM_LAST_WEEKEND_DAY} cascade past every other closure already placed.
- *   <li>Place other occurrences. EARLY_CLOSE is dropped on weekends and on dates that are CLOSED (a
- *       full closure takes precedence over a partial one). NOTABLE and PERIOD_MARKER are
- *       informational and always kept.
+ *       NEXT_AVAILABLE_FROM_LAST_WEEKEND_DAY} cascade past every other closure already placed. A
+ *       source that lists {@code displaces} keys treats a slot held only by those keys as
+ *       available: it takes the slot and the displaced occurrences re-cascade forward.
+ *   <li>Place other occurrences. An EARLY_CLOSE whose date is a weekend day or already CLOSED (a
+ *       full closure takes precedence over a partial one) follows its own shift policy: {@code
+ *       DROP} (the default) discards it, {@code PREVIOUS_AVAILABLE_BUSINESS_DAY} moves it back to
+ *       the nearest earlier session. NOTABLE and PERIOD_MARKER are informational and always kept.
  *   <li>Apply deltas against final (observed) dates, classify, add WEEKEND rows for weekend dates
  *       without a CLOSED event, filter to the requested range, sort.
  * </ol>
@@ -92,9 +95,10 @@ public class EventGenerator {
     pendingShift.sort(Comparator.comparing(Occurrence::date)); // stable: keeps declaration order
     for (Occurrence occ : pendingShift) {
       WeekendShiftPolicy policy = shiftPolicyFor(occ, sourcesByKey, spec);
-      LocalDate observed = shift(occ.date(), policy, weekend, closed);
+      Set<String> displaces = displacesFor(occ, sourcesByKey);
+      LocalDate observed = shift(occ.date(), policy, weekend, closed, displaces);
       if (observed != null) {
-        closed.computeIfAbsent(observed, d -> new ArrayList<>()).add(occ.observedOn(observed));
+        place(occ, observed, displaces, weekend, closed, sourcesByKey, 0);
       }
     }
 
@@ -105,6 +109,12 @@ public class EventGenerator {
       EventType type = ctx.typeOf(occ);
       if (type == EventType.EARLY_CLOSE
           && (weekend.isWeekend(occ.date()) || closed.containsKey(occ.date()))) {
+        LocalDate moved =
+            shiftEarlyClose(occ.date(), shiftPolicyFor(occ, sourcesByKey, spec), weekend, closed);
+        if (moved == null) {
+          continue;
+        }
+        placed.add(occ.observedOn(moved));
         continue;
       }
       placed.add(occ);
@@ -159,6 +169,61 @@ public class EventGenerator {
     return source.effectiveShiftPolicy(spec.weekendShiftPolicy());
   }
 
+  private static Set<String> displacesFor(Occurrence occ, Map<String, EventSource> sourcesByKey) {
+    EventSource source = sourcesByKey.get(occ.key());
+    if (source == null || source.displaces().isEmpty()) {
+      return Set.of();
+    }
+    return Set.copyOf(source.displaces());
+  }
+
+  /** Guard against a {@code displaces} cycle turning placement into an infinite chain. */
+  private static final int MAX_DISPLACEMENT_DEPTH = 16;
+
+  /**
+   * Puts a shifted closure on its observed date, evicting any lower-priority closures it displaces.
+   *
+   * <p>A displaced occurrence re-cascades to the first date strictly after the slot it lost that is
+   * neither a weekend day nor already a closure - {@code NEXT_AVAILABLE_WEEKDAY}'s cascade applied
+   * from the taken slot, whatever the displaced event's own policy. Displacement only ever pushes
+   * an event later, so {@code NEAREST_WEEKDAY}'s backward branch and the "not observed at all"
+   * branches of {@code FORWARD_ONLY} / {@code NEXT_AVAILABLE_FROM_LAST_WEEKEND_DAY} never apply.
+   * The re-cascade honours the displaced event's own {@code displaces} list, so priorities chain;
+   * {@link #MAX_DISPLACEMENT_DEPTH} stops a cycle (which {@code validate} warns about).
+   */
+  private static void place(
+      Occurrence occ,
+      LocalDate observed,
+      Set<String> displaces,
+      WeekendPolicy weekend,
+      NavigableMap<LocalDate, List<Occurrence>> closed,
+      Map<String, EventSource> sourcesByKey,
+      int depth) {
+    List<Occurrence> evicted = null;
+    if (isDisplaceable(closed.get(observed), displaces) && depth < MAX_DISPLACEMENT_DEPTH) {
+      evicted = closed.remove(observed);
+    }
+    closed.computeIfAbsent(observed, d -> new ArrayList<>()).add(occ.observedOn(observed));
+    if (evicted == null) {
+      return;
+    }
+    for (Occurrence displaced : evicted) {
+      Set<String> ownDisplaces = displacesFor(displaced, sourcesByKey);
+      LocalDate next = nextAvailableWeekday(observed, weekend, closed, ownDisplaces);
+      if (next != null) {
+        place(displaced, next, ownDisplaces, weekend, closed, sourcesByKey, depth + 1);
+      }
+    }
+  }
+
+  /** True when a slot is occupied and every occupant is one this event is allowed to displace. */
+  private static boolean isDisplaceable(List<Occurrence> held, Set<String> displaces) {
+    return held != null
+        && !held.isEmpty()
+        && !displaces.isEmpty()
+        && held.stream().allMatch(o -> displaces.contains(o.key()));
+  }
+
   /**
    * Computes the observed date for a weekend holiday, or null when the holiday is not observed.
    *
@@ -168,9 +233,30 @@ public class EventGenerator {
       LocalDate date,
       WeekendShiftPolicy policy,
       WeekendPolicy weekend,
-      NavigableMap<LocalDate, ?> closed) {
-    if (policy == WeekendShiftPolicy.NONE || !weekend.isWeekend(date)) {
+      NavigableMap<LocalDate, List<Occurrence>> closed) {
+    return shift(date, policy, weekend, closed, Set.of());
+  }
+
+  /**
+   * Computes the observed date for a weekend holiday, or null when the holiday is not observed.
+   *
+   * @param closed closures already placed, consulted by NEXT_AVAILABLE_WEEKDAY for cascading
+   * @param displaces keys whose slots count as available to this event (see {@code displaces})
+   */
+  static LocalDate shift(
+      LocalDate date,
+      WeekendShiftPolicy policy,
+      WeekendPolicy weekend,
+      NavigableMap<LocalDate, List<Occurrence>> closed,
+      Set<String> displaces) {
+    if (!weekend.isWeekend(date) || policy == WeekendShiftPolicy.NONE) {
       return date;
+    }
+    if (policy == WeekendShiftPolicy.DROP) {
+      return null;
+    }
+    if (policy == WeekendShiftPolicy.PREVIOUS_AVAILABLE_BUSINESS_DAY) {
+      return previousAvailableBusinessDay(date, weekend, closed);
     }
 
     // Find the contiguous weekend block containing the date (bounded to a week)
@@ -189,7 +275,7 @@ public class EventGenerator {
     }
 
     return switch (policy) {
-      case NONE -> date;
+      case NONE, DROP, PREVIOUS_AVAILABLE_BUSINESS_DAY -> date; // handled above
       case NEAREST_WEEKDAY -> {
         // Nearest weekday by distance; ties go forward. For a two-day weekend this is
         // first day -> previous weekday, last day -> next weekday.
@@ -198,21 +284,69 @@ public class EventGenerator {
         yield back < forward ? first.minusDays(1) : last.plusDays(1);
       }
       case FORWARD_ONLY -> date.equals(last) ? last.plusDays(1) : null;
-      case NEXT_AVAILABLE_WEEKDAY -> nextAvailableWeekday(last, weekend, closed);
+      case NEXT_AVAILABLE_WEEKDAY -> nextAvailableWeekday(last, weekend, closed, displaces);
       case NEXT_AVAILABLE_FROM_LAST_WEEKEND_DAY ->
-          date.equals(last) ? nextAvailableWeekday(last, weekend, closed) : null;
+          date.equals(last) ? nextAvailableWeekday(last, weekend, closed, displaces) : null;
     };
   }
 
-  /** The first day after the weekend block that is neither a weekend day nor already a closure. */
+  /**
+   * The observed date for an EARLY_CLOSE whose nominal date is not a session, or null when it is
+   * not observed. Only {@code PREVIOUS_AVAILABLE_BUSINESS_DAY} moves a half day; every other policy
+   * - including the {@code DROP} default - discards it.
+   */
+  private static LocalDate shiftEarlyClose(
+      LocalDate date,
+      WeekendShiftPolicy policy,
+      WeekendPolicy weekend,
+      NavigableMap<LocalDate, List<Occurrence>> closed) {
+    if (policy != WeekendShiftPolicy.PREVIOUS_AVAILABLE_BUSINESS_DAY) {
+      return null;
+    }
+    return previousAvailableBusinessDay(date, weekend, closed);
+  }
+
+  /**
+   * The nearest date strictly before {@code date} that is neither a weekend day nor already a
+   * closure, searching at most seven days back; null when there is none.
+   */
+  private static LocalDate previousAvailableBusinessDay(
+      LocalDate date, WeekendPolicy weekend, NavigableMap<LocalDate, List<Occurrence>> closed) {
+    for (int back = 1; back <= 7; back++) {
+      LocalDate candidate = date.minusDays(back);
+      if (!weekend.isWeekend(candidate) && !closed.containsKey(candidate)) {
+        return candidate;
+      }
+    }
+    return null;
+  }
+
+  /**
+   * The first day after the weekend block that is neither a weekend day nor a closure this event is
+   * not allowed to displace.
+   */
   private static LocalDate nextAvailableWeekday(
-      LocalDate lastWeekendDay, WeekendPolicy weekend, NavigableMap<LocalDate, ?> closed) {
+      LocalDate lastWeekendDay,
+      WeekendPolicy weekend,
+      NavigableMap<LocalDate, List<Occurrence>> closed,
+      Set<String> displaces) {
     LocalDate candidate = lastWeekendDay.plusDays(1);
     int guard = 0;
-    while ((weekend.isWeekend(candidate) || closed.containsKey(candidate)) && guard++ < 60) {
+    while (guard++ < 60 && !isAvailable(candidate, weekend, closed, displaces)) {
       candidate = candidate.plusDays(1);
     }
     return candidate;
+  }
+
+  private static boolean isAvailable(
+      LocalDate candidate,
+      WeekendPolicy weekend,
+      NavigableMap<LocalDate, List<Occurrence>> closed,
+      Set<String> displaces) {
+    if (weekend.isWeekend(candidate)) {
+      return false;
+    }
+    return !closed.containsKey(candidate) || isDisplaceable(closed.get(candidate), displaces);
   }
 
   private List<Occurrence> applyDeltas(

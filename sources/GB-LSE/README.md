@@ -48,19 +48,23 @@
   - `lse-trading-calendar-2023`: 24 and 31 Dec 2023 are Sundays; the London Stock Exchange
     column is marked early close on **Friday 22 December 2023** and **Friday 29 December 2023**.
 
-  The calendar model's shift mechanisms (`shift_policy`/`weekend_shift_policy`) only move
-  `CLOSED` events, not `EARLY_CLOSE` events, so this behaviour cannot be expressed as a general
-  rule (see the note in `modules/holidays/gb_lse_early_closes.yaml`); each occurrence is listed
-  as an `explicit_dates` entry instead.
+  This is modelled as a general rule, not as a date list: both early-close event sources carry
+  `shift_policy: PREVIOUS_AVAILABLE_BUSINESS_DAY` (see `spec/SPEC.md`, "Weekend Shift Policy"),
+  which moves a half day whose nominal date is not a session back to the nearest earlier date
+  that is neither a weekend day nor a full closure. The shifted rows carry `observed_from` (the
+  nominal 24/31 December date). An earlier revision of this calendar listed all eighteen shifted
+  occurrences as `explicit_dates` under separate `*_shifted` event sources, because the shift
+  mechanisms then applied to `CLOSED` events only; that workaround is gone and the generated
+  dates, types and close times are unchanged by its removal.
 
   The same 24/31-December-on-weekend collision also occurs, within this calendar's coverage, in
   2000, 2005, 2006, 2011, 2016 and 2017. **No LSE-published document we could locate covers those
   six years** — the live business-days table only reaches back to the current year and no LSE
   trading-calendar PDF earlier than 2021 is still served from `docs.londonstockexchange.com`.
-  They are modelled by applying the shift rule that the three documents above establish, on the
-  basis that LSE has published the identical behaviour in every weekend-collision year it does
-  cover (2022, 2023, 2028) and that the 12:30 half day itself is unchanged across the whole
-  period. `xcal-xlon-crossval` independently computes the same six dates and close time, which is
+  They are produced by the same `PREVIOUS_AVAILABLE_BUSINESS_DAY` rule the three documents above
+  establish, on the basis that LSE has published the identical behaviour in every
+  weekend-collision year it does cover (2022, 2023, 2028) and that the 12:30 half day itself is
+  unchanged across the whole period. `xcal-xlon-crossval` independently computes the same six dates and close time, which is
   recorded as corroboration only — it is a cross-validation reference, not a citation, and it is
   not the reason those dates are in the calendar. A reviewer who wants a stricter standard should
   narrow `coverage.from` to 2021-01-01 rather than allowlist them, since they are ordinary
