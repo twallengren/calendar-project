@@ -37,6 +37,21 @@ class SpecEmitterTest {
   }
 
   @Test
+  void explicitNativeDatesHaveStableArtifactFieldOrder() throws Exception {
+    Path output = tempDir.resolve("tase.yaml");
+    new SpecEmitter().emitResolvedSpec(prodResolver.resolve("IL-TASE"), output);
+    String yaml = Files.readString(output);
+    assertTrue(
+        yaml.contains(
+            "    - chronology_id: HEBREW\n      year: 5786\n      month_code: IYAR\n      day: 4\n"),
+        yaml);
+    assertTrue(
+        yaml.contains(
+            "    - chronology_id: HEBREW\n      year: 5786\n      month_code: IYAR\n      day: 5\n"),
+        yaml);
+  }
+
+  @Test
   void emitCalendarSpec_producesValidYaml() throws Exception {
     CalendarSpec spec = prodRegistry.getCalendar("US-NYSE").orElseThrow();
     SpecEmitter emitter = new SpecEmitter();

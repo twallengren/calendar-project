@@ -1,7 +1,10 @@
 package com.bdc.diff;
 
+import com.bdc.model.Event;
+import com.bdc.model.EventStatus;
 import com.bdc.model.EventType;
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 public record EventDiff(
     LocalDate date,
@@ -10,7 +13,38 @@ public record EventDiff(
     String oldDescription,
     String newDescription,
     DiffKind kind,
-    String key) {
+    String key,
+    PublishedFields oldFields,
+    PublishedFields newFields) {
+  public EventDiff(
+      LocalDate date,
+      EventType oldType,
+      EventType newType,
+      String oldDescription,
+      String newDescription,
+      DiffKind kind,
+      String key) {
+    this(
+        date,
+        oldType,
+        newType,
+        oldDescription,
+        newDescription,
+        kind,
+        key,
+        oldType == null ? null : new PublishedFields(null, null, null, EventStatus.CONFIRMED),
+        newType == null ? null : new PublishedFields(null, null, null, EventStatus.CONFIRMED));
+  }
+
+  /** Published enrichment, excluding the reader's synthetic in-memory provenance label. */
+  public record PublishedFields(
+      String sourceModule, LocalDate observedFrom, LocalTime closeTime, EventStatus status) {
+    public static PublishedFields of(Event event) {
+      return new PublishedFields(
+          event.sourceModule(), event.observedFrom(), event.closeTime(), event.status());
+    }
+  }
+
   public enum DiffKind {
     ADDED,
     REMOVED,

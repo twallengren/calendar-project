@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0",
+  "entries": [
+    {
+      "id": "nyse-history-2008",
+      "title": "History of New York Stock Exchange Holidays (revised through November 2008)",
+      "publisher": "NYSE",
+      "location": "`nyse-holiday-history-2008.pdf` (text extract: `nyse-holiday-history-2008.txt`)",
+      "retrieved": "2022-01-14",
+      "covers": "1885–2007",
+      "notes": "The standard-holiday table (years observed, Rule 51 on Saturday holidays) and the \"Special Closings, 1885–date\" list. Primary source for everything before 2008.",
+      "local_files": [
+        {
+          "path": "US-NYSE/nyse-holiday-history-2008.pdf",
+          "sha256": "0d36c6bbb6ac9f17fc9285a4e260b4f45333a00d0289672a6e22c674de52985f"
+        },
+        {
+          "path": "US-NYSE/nyse-holiday-history-2008.txt",
+          "sha256": "f206a8e11a3367d9f1cb7bc6523b54747d278417552001f2c100f9029523cec9"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "1900-01-01",
+          "to": "2007-12-31"
+        },
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "1900-01-01",
+          "to": "2007-12-31"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "1900-01-01",
+          "to": "2007-12-31"
+        }
+      ]
+    },
+    {
+      "id": "nyse-legacy-model-2022",
+      "title": "Structured rule model derived from `nyse-history-2008`",
+      "publisher": "project maintainer",
+      "location": "`legacy-rule-model-2022.json`",
+      "retrieved": "2022-01-14",
+      "covers": "1885–2022",
+      "notes": "Machine-readable transcription of the PDF (holiday rules, Saturday closings, observed-Friday lists, weekend history). Used to generate `us_nyse_special_closings_pre1960`.",
+      "local_files": [
+        {
+          "path": "US-NYSE/legacy-rule-model-2022.json",
+          "sha256": "45b1f360af321aadd83f8be4b33150cfe6ab4d44335a9a25f5b936181d1726bd"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "nyse-hours",
+      "title": "NYSE Holidays & Trading Hours",
+      "publisher": "NYSE",
+      "location": "https://www.nyse.com/markets/hours-calendars",
+      "retrieved": "2026-09-12",
+      "covers": "current and next two years",
+      "notes": "Published holiday and early-close schedule. Also the source for post-2008 one-off closings: Hurricane Sandy (2012-10-29/30), national days of mourning for George H. W. Bush (2018-12-05) and Jimmy Carter (2025-01-09).",
+      "local_files": [],
+      "support_intervals": []
+    }
+  ]
+}

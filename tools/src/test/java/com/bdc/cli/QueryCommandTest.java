@@ -33,6 +33,17 @@ class QueryCommandTest {
   }
 
   @Test
+  void assessmentFromArtifactIsOneParseableJsonDocument() throws Exception {
+    int code =
+        new CommandLine(new QueryCommand())
+            .execute("US-NYSE", "--as-of", "blessed", "--assess-day", "2025-09-23");
+    assertEquals(0, code);
+    var day = new com.fasterxml.jackson.databind.ObjectMapper().readTree(stdout.toString());
+    assertEquals("2025-09-23", day.path("date").asText());
+    assertTrue(stderr.toString().contains("Using artifact"));
+  }
+
+  @Test
   void call_isBusinessDay_weekday_printsBusinessDay() {
     QueryCommand cmd = new QueryCommand();
     CommandLine cmdLine = new CommandLine(cmd);
@@ -173,6 +184,73 @@ class QueryCommandTest {
     assertTrue(output.contains("2024-03-06"));
   }
 
+  @Test
+  void financialOperationsPrintTheVersionedSnakeCaseJsonShape() throws Exception {
+    CommandLine command = new CommandLine(new QueryCommand());
+    int code =
+        command.execute("US-MARKET-BASE", "--adjust", "2024-03-02", "--convention", "FOLLOWING");
+
+    assertEquals(0, code, stderr.toString());
+    var json = new com.fasterxml.jackson.databind.ObjectMapper().readTree(stdout.toString());
+    assertEquals("2024-03-02", json.path("original_date").asText());
+    assertEquals("2024-03-04", json.path("result_date").asText());
+    assertEquals("ADJUST", json.path("operation").asText());
+    assertEquals("FOLLOWING", json.path("convention").asText());
+    assertTrue(json.has("effective_confidence"));
+    assertEquals(3, json.path("examined_dates").size());
+  }
+
+  @Test
+  void financialOperationsRequireTheirExplicitArguments() {
+    CommandLine command = new CommandLine(new QueryCommand());
+    int code = command.execute("US-MARKET-BASE", "--advance-months", "1");
+
+    assertEquals(1, code);
+    assertTrue(stderr.toString().contains("--from"), stderr.toString());
+  }
+
+  @Test
+  void financialArtifactQueriesKeepStdoutAsJson() throws Exception {
+    for (String[] operation :
+        java.util.List.of(
+            new String[] {"--adjust", "2026-02-25", "--convention", "FOLLOWING"},
+            new String[] {"--business-day-offset", "1", "--from", "2026-02-25"},
+            new String[] {
+              "--advance-months", "1", "--from", "2026-02-25", "--convention", "FOLLOWING"
+            },
+            new String[] {"--last-business-day-of-month", "2026-02-25"},
+            new String[] {"--member-closes", "2026-11-27"})) {
+      stdout.reset();
+      stderr.reset();
+      var args =
+          new java.util.ArrayList<>(java.util.List.of("US-NYSE,SA-TADAWUL", "--as-of", "blessed"));
+      args.addAll(java.util.List.of(operation));
+      assertEquals(
+          0,
+          new CommandLine(new QueryCommand()).execute(args.toArray(String[]::new)),
+          stderr.toString());
+      var json =
+          new com.fasterxml.jackson.databind.ObjectMapper()
+              .enable(com.fasterxml.jackson.databind.DeserializationFeature.FAIL_ON_TRAILING_TOKENS)
+              .readTree(stdout.toString());
+      assertTrue(json.isObject());
+      assertTrue(stderr.toString().contains("Using artifact"));
+    }
+  }
+
+  @Test
+  void memberClosesJsonKeepsTimezoneIdentity() throws Exception {
+    CommandLine command = new CommandLine(new QueryCommand());
+    int code = command.execute("US-NYSE", "--member-closes", "2026-11-27");
+
+    assertEquals(0, code, stderr.toString());
+    var json = new com.fasterxml.jackson.databind.ObjectMapper().readTree(stdout.toString());
+    assertEquals("2026-11-27", json.path("date").asText());
+    assertEquals("US-NYSE", json.path("member_closes").path(0).path("calendar_id").asText());
+    assertEquals("America/New_York", json.path("member_closes").path(0).path("timezone").asText());
+    assertEquals("13:00", json.path("member_closes").path(0).path("local_time").asText());
+  }
+
   // === Joint (multi-calendar) queries ===
   // 2026-02-26 is a Thursday: Tadawul rests Fri-Sat, the NYSE Sat-Sun, so the joint calendar is
   // shut from Friday through Sunday and the next joint business day is Monday 2026-03-02.
@@ -297,13 +375,13 @@ class QueryCommandTest {
   }
 
   @Test
-  void call_status_withinVerifiedRange_isConfirmed() {
+  void call_status_withLegacyVerifiedRangeButProjectedScopedQuality_isProjected() {
     CommandLine cmdLine = new CommandLine(new QueryCommand());
 
     int exitCode = cmdLine.execute("US-NYSE", "--status", "2024-06-03");
 
     assertEquals(0, exitCode);
-    assertTrue(stdout.toString().contains("CONFIRMED"), stdout.toString());
+    assertTrue(stdout.toString().contains("PROJECTED"), stdout.toString());
   }
 
   @Test

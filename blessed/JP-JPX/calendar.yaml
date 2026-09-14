@@ -11,6 +11,41 @@ metadata:
   coverage:
     from: 2010-01-01
     to: 2030-12-31
+    quality:
+    - scope: SCHEDULED_CLOSURES
+      from: 2010-01-01
+      to: 2018-12-31
+      quality: PROJECTED
+      evidenceIds:
+      - cao-shukujitsu
+      - jpx-market-holidays
+    - scope: SCHEDULED_CLOSURES
+      from: 2019-01-01
+      to: 2027-12-31
+      quality: VERIFIED
+      evidenceIds:
+      - jpx-market-holidays-archive
+      - jpx-market-holidays
+      - cao-shukujitsu
+    - scope: SCHEDULED_CLOSURES
+      from: 2028-01-01
+      to: 2030-12-31
+      quality: PROJECTED
+      evidenceIds:
+      - jpx-market-holidays
+      - cao-shukujitsu-gaiyou
+    - scope: EARLY_CLOSES
+      from: 2010-01-01
+      to: 2030-12-31
+      quality: PROJECTED
+      evidenceIds:
+      - jpx-market-holidays
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2010-01-01
+      to: 2030-12-31
+      quality: PROJECTED
+      evidenceIds:
+      - jpx-system-failure-2020
     verified_through: 2027-12-31
   kind: market
   mic: XTKS

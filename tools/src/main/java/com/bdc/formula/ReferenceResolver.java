@@ -24,6 +24,7 @@ public class ReferenceResolver {
               case "THANKSGIVING_US" -> nthWeekdayOfMonth(year, 11, DayOfWeek.THURSDAY, 4);
               case "EQUINOX_VERNAL_JP" -> vernalEquinoxJp(year);
               case "EQUINOX_AUTUMNAL_JP" -> autumnalEquinoxJp(year);
+              case "QINGMING_HK" -> QingmingHkTable.date(year);
               default -> throw new IllegalArgumentException("Unknown formula: " + ref.formula());
             };
         // Don't filter by range here - the reference date (e.g., Easter) may be

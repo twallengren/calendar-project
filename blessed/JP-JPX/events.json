@@ -9,7 +9,38 @@
   "coverage" : {
     "from" : "2010-01-01",
     "to" : "2030-12-31",
-    "verified_through" : "2027-12-31"
+    "verified_through" : "2027-12-31",
+    "quality" : [ {
+      "scope" : "SCHEDULED_CLOSURES",
+      "from" : "2010-01-01",
+      "to" : "2018-12-31",
+      "quality" : "PROJECTED",
+      "evidence_ids" : [ "cao-shukujitsu", "jpx-market-holidays" ]
+    }, {
+      "scope" : "SCHEDULED_CLOSURES",
+      "from" : "2019-01-01",
+      "to" : "2027-12-31",
+      "quality" : "VERIFIED",
+      "evidence_ids" : [ "jpx-market-holidays-archive", "jpx-market-holidays", "cao-shukujitsu" ]
+    }, {
+      "scope" : "SCHEDULED_CLOSURES",
+      "from" : "2028-01-01",
+      "to" : "2030-12-31",
+      "quality" : "PROJECTED",
+      "evidence_ids" : [ "jpx-market-holidays", "cao-shukujitsu-gaiyou" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "2010-01-01",
+      "to" : "2030-12-31",
+      "quality" : "PROJECTED",
+      "evidence_ids" : [ "jpx-market-holidays" ]
+    }, {
+      "scope" : "UNSCHEDULED_EXCEPTIONS",
+      "from" : "2010-01-01",
+      "to" : "2030-12-31",
+      "quality" : "PROJECTED",
+      "evidence_ids" : [ "jpx-system-failure-2020" ]
+    } ]
   },
   "event_count" : 2535,
   "events" : [ {

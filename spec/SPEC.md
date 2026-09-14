@@ -10,7 +10,7 @@ id: string                    # Unique identifier
 metadata:
   name: string                # Human-readable name
   description: string         # Optional description
-  kind: market                # market (a tradable venue, the default) or base (a building block)
+  kind: market                # market (default), payment (operating dates), or base (building block)
   chronology: ISO             # Informational: the market's civil calendar (ISO, HIJRI, UMM_AL_QURA, ...)
   timezone: America/New_York  # IANA zone id; required when any event source has a close_time
   mic: XLON                   # Optional ISO 10383 Market Identifier Code; `validate --strict` warns
@@ -43,7 +43,7 @@ source: {...}                 # Default citation for every event source in this 
 references:
   - key: string               # Unique identifier for this reference
     formula: string           # EASTER_WESTERN, THANKSGIVING_US, EQUINOX_VERNAL_JP or
-                              # EQUINOX_AUTUMNAL_JP (see "Reference formulas")
+                              # EQUINOX_AUTUMNAL_JP or QINGMING_HK (see "Reference formulas")
 policies:
   weekends: [SATURDAY, SUNDAY]          # or effective-dated periods, see Weekend Policy
 event_sources: [...]
@@ -496,6 +496,7 @@ value.
 | `THANKSGIVING_US` | Fourth Thursday of November |
 | `EQUINOX_VERNAL_JP` | Japan's Vernal Equinox Day (春分の日) |
 | `EQUINOX_AUTUMNAL_JP` | Japan's Autumnal Equinox Day (秋分の日) |
+| `QINGMING_HK` | HKO's bounded 2016–2029 Bright & Clear (Ching Ming) table |
 
 The two Japanese equinox holidays are set each February by the Cabinet Office from the National
 Astronomical Observatory's almanac, so they cannot be computed exactly in advance. Both formulas
@@ -620,10 +621,18 @@ JSON shape, one entry per calendar:
 
 `blessed/` holds the current release and `release-history/<CAL>/<timestamp>_<sha>_v<version>/`
 the previous ones. `query <CAL> --as-of <blessed|vX.Y.Z|date>` answers from a published
-artifact instead of the current YAML; `history releases <CAL>` lists them. The release workflow
-retains only the most recent 30 versions per calendar in `release-history/`, so pinned release
-files (and `--as-of` lookups by version or date) are only available for retained versions; older
-releases remain accessible via git history.
+artifact instead of the current YAML; `history releases <CAL>` lists them. Release preparation
+preserves existing snapshots. Storage retention is separate from publication transactions.
+
+Date selectors require evidenced publication bounds. A legacy archive timestamp does not prove
+when a version first became public; such snapshots remain available by exact version without an
+invented lower bound. `release-history/publications.json` records authenticated release receipts,
+including the full source commit, asset digest and the complete atomic dataset's calendar inventory.
+The publication instant is inclusive and the next evidenced publication instant is exclusive.
+For the latest receipt, date selection stops after its authenticated `observed_current_at` instant;
+later dates are unknown until another observation or publication is recorded. A candidate generation
+timestamp never establishes publication. Conflicting source identities or duplicate local snapshots
+claiming one authenticated version fail rather than selecting an arbitrary history entry.
 
 ## Query API
 
@@ -673,10 +682,53 @@ Searches are bounded so a mis-specified calendar cannot loop forever: `next_busi
 `prev_business_day` scan at most **366** days and then fail; `nth_business_day` walks at most
 `366 * |n| + 366` days.
 
+### Financial date operations
+
+The Java and Python query APIs also expose these date-only operations:
+
+| Operation | Result |
+|-----------|--------|
+| `adjust(date, convention)` | apply `UNADJUSTED`, `FOLLOWING`, `MODIFIED_FOLLOWING`, `PRECEDING` or `MODIFIED_PRECEDING` |
+| `business_day_offset(date, n)` | move by `n` business dates; zero returns the input unchanged without asserting that it is a business date |
+| `advance_months(date, months, convention, preserve_end_of_month)` | add explicit calendar months, clipping the day to the destination month, then adjust |
+| `last_business_day_of_month(date)` | the final resolved business date in the input date's month; fails if that month has none |
+
+Following and preceding return an already-open input unchanged; otherwise they search in the named
+direction. A modified convention first performs that complete search, then searches from the
+original date in the opposite direction when the first result crosses the original calendar month.
+An unresolved date on either path fails the operation; the reverse path cannot hide uncertainty in
+the first path.
+
+`preserve_end_of_month` applies only when explicitly true and the source is its calendar month's
+last **business** date. A nonbusiness source on the last civil date of a month does not qualify. A
+qualifying source advances to the destination month's last business date. Negative month offsets
+and leap-year February use the same rule.
+
+Each operation has a rich `*_detailed` form returning `original_date`, `result_date`, `operation`,
+the convention and offset parameters, `preserve_end_of_month`, `effective_confidence`, and ordered
+`examined_dates`. Confidence is the least certain assessment anywhere in the decision path. The
+trace includes the failed first search of a modified convention and all dates used for an
+end-of-month decision. An identity operation examines only its input and may report `UNKNOWN`; it
+does not claim the input is a business date. A nonzero offset starts its trace with the first date
+walked to, because the source is not counted.
+
+These operations calculate business dates. They do not determine instrument-specific settlement
+eligibility, payment cutoffs, operating sessions or intraday deadlines.
+
+The CLI and MCP return the detailed result as JSON. Their financial-operation calendar argument
+accepts a single ID or comma-separated IDs for an all-members-open joint calendar. Nonzero month
+advancement with `UNADJUSTED` still requires a resolved destination; only identity operations may
+return an unresolved date without failing.
+
 ### Status
 
-`status(date)` says how much the answer can be trusted. It is evaluated in this order and **never
-raises**:
+`status(date)` says how much the answer can be trusted and **never raises**. Outside coverage it
+returns `UNKNOWN`. For calendars with explicit per-scope quality, it returns the assessment's
+effective confidence: a missing or incomplete scope means `UNKNOWN`; otherwise a projected scope
+or raw projected event means `PROJECTED`; otherwise it returns `CONFIRMED`. Explicit quality takes
+precedence over the legacy scalar `verified_through`.
+
+Legacy artifacts without per-scope quality retain this evaluation order:
 
 1. `UNKNOWN` — the date lies outside `range`.
 2. `PROJECTED` — the date is after `verified_through`. This wins over whatever the rows say: a
@@ -691,11 +743,14 @@ raises**:
 Outside a stream's `range` the absence of a closure row means "not known", never "open". Therefore:
 
 - `status(date)` returns `UNKNOWN`; it is the safe way to probe an unfamiliar date first.
-- **Every other operation raises** an out-of-range error (`OutsideCoverageException` in Java; ports
+- Operations requiring a resolved date raise an out-of-range error (`OutsideCoverageException` in Java; ports
   should raise their own equivalent, an invalid-argument error) carrying the calendar id, the
   offending date and the range. This includes navigation whose bounded search would step past the
   edge of the range: `next_business_day(2030-12-31)` on a calendar covered through 2030-12-31
   fails rather than guessing.
+- Assessments and identity operations (`UNADJUSTED` adjustment, zero business-day offset, and zero
+  month advancement with `UNADJUSTED` and no end-of-month preservation) remain
+  safe to call outside coverage; they report `UNKNOWN` confidence without claiming an open date.
 - A YAML-backed stream enforces this only when the calendar declares `coverage`; without one it is
   unbounded and never raises for being out of range. Artifact-backed streams are always bounded by
   the generated range.
@@ -722,24 +777,31 @@ Composition rules:
 | `status` | `UNKNOWN` if any member is `UNKNOWN`, else `PROJECTED` if any member is `PROJECTED`, else `CONFIRMED` — the joint answer is only as good as its worst member |
 | `close_time` | the earliest early close declared by any member that day. A joint date can carry an early close and still not be a business day (another member is closed), so check `is_business_day` first |
 
-Every derived operation (navigation, counting, settlement) follows from the joint `is_business_day`,
-which is what makes T+N settlement across markets correct: a trade settles only on a day both
-markets are open.
+The joint `close_time` interpretation is deprecated because comparing local wall-clock times in
+different timezones has no general meaning. `member_closes(date)` returns each early close as
+`(calendar_id, timezone, local_time)` in member order. A missing timezone in a legacy artifact stays
+missing. The operation first resolves every member, so a known close in one member cannot hide an
+unknown state in another.
+
+Every derived operation follows from the joint `is_business_day`, so a business-date offset counts
+only dates on which every member is open. Instrument-specific settlement rules are outside this
+date-only contract.
 
 ### Settlement in the browser
 
-The compare pages on the published site carry a T+N settlement form that answers from the JSON API
+The compare pages carry a T+N business-date offset form that answers from the JSON API
 in the reader's browser. It is a *reimplementation* of the joint stream — no Java runs — so this
 section is the contract it implements, and the reference for any other client that walks the
 published files directly rather than calling a library. The implementation lives in
 `tools/src/main/resources/site/site.js`.
 
-Inputs, per calendar, both fetched from `/v1/`:
+Inputs, per calendar, fetched from `/v1/`:
 
 | Input | File | Use |
 |-------|------|-----|
 | `weekend_policy` | `calendars/<ID>/manifest.json` | which weekdays are non-trading, effective-dated |
-| `CLOSED` rows | `calendars/<ID>/<year>.json` | full-day closures, by date |
+| `CLOSED` rows and event `status` | `calendars/<ID>/<year>.json` | full-day closures and raw projected status, by date |
+| `coverage.quality`, coverage bounds | `calendars/<ID>/manifest.json` | scope completeness and confidence on each examined date |
 
 Fetch the year file for the trade date's year **and the following year**: a T+10 walk from late
 December crosses the boundary, and a year the API does not publish is outside coverage.
@@ -758,14 +820,20 @@ The algorithm:
 4. **Walk.** `N = 0` returns the trade date unchanged, business day or not. Otherwise walk forward
    one day at a time from the trade date, never counting the trade date itself, decrementing the
    remaining count on each joint business day; the date where the count reaches zero is the
-   settlement date. Report every day walked past, and for each, which calendars were closed on it.
+   resulting business date. Report every day walked past, and for each, which calendars were closed on it.
    Bound the walk at `366 * N + 366` days and fail rather than loop.
 5. **Out of range.** If the walk reaches a year the API does not publish for one of the calendars,
    raise rather than treat the missing rows as "open" — the out-of-range contract above applies
-   unchanged to a browser client.
+   unchanged to a browser client. Missing or incomplete quality for any explicitly modelled scope
+   also stops the walk, even when another member is closed.
+6. **Confidence.** Return the weakest confidence across every examined date, including closed dates
+   skipped along the way. The detailed result records `effective_confidence` and `examined_dates`.
+   For zero offsets, assess the unchanged input without claiming it is a business date; confidence
+   can be `UNKNOWN`. This helper establishes neither instrument-specific eligibility nor sessions
+   or cutoffs.
 
 This must agree with `JointDateStream` date for date. `/compare/settlement-selftest.html` ships a
-fixture of fifty (pair, trade date, N) cases whose answers were computed in Java, runs the browser
+fixture covering every published market/payment pair with (pair, start date, N) cases whose answers were computed in Java, runs the browser
 algorithm against the published API on page load, and reports pass/fail in the page; the fixture
 itself is regenerated and re-checked against `JointDateStream` by `SettlementParityTest`.
 
@@ -778,9 +846,14 @@ query <CAL[,CAL...]> [options]
   --next-business-day <date>     first business day after
   --prev-business-day <date>     last business day before
   --nth-business-day <n> --from <date>
+  --adjust <date> --convention <name>
+  --business-day-offset <n> --from <date>
+  --advance-months <n> --from <date> --convention <name> [--preserve-end-of-month]
+  --last-business-day-of-month <date>
+  --member-closes <date>         member-specific local early closes and timezones
   --business-days-from <date> --business-days-to <date>
-  --settlement T+N --from <trade date>
-                                 settlement date on the joint calendar, listing which member
+  --settlement T+N --from <date>
+                                 compatibility business-date offset, listing which member
                                  calendars are closed on each intervening day
   --open-in <cals> --closed-in <cals> --from <date> --to <date>
                                  dates open in one calendar (or joint group) and closed in another
@@ -1069,8 +1142,9 @@ ChronologyDate fromIso = ChronologyDate.fromIsoDate(LocalDate.now(), "HIJRI");
 `tools site --api-only --blessed-dir blessed --release-history-dir release-history --out site/
 [--include-base]` reads `blessed/` and `release-history/` and writes a static `/v1/` tree of
 minified JSON and RFC 5545 `.ics` files, suitable for serving as-is (e.g. from GitHub Pages).
-`--include-base` also emits calendars whose `kind` is not `market` (see below); by default only
-`market`-kind calendars are published.
+`--include-base` also emits foundational calendars (see below); by default `market` and
+`payment` calendars are published. Payment calendars use system identifiers without a MIC and
+cover operating dates only, excluding sessions, cutoffs and payment eligibility.
 
 ### URL layout
 
@@ -1103,8 +1177,8 @@ are omitted (rather than written as `null`) when not applicable, to keep the min
 reasonable size — a missing key means the same thing as an explicit `null`.
 
 A calendar's `kind` (`metadata.json`'s `kind` field, falling back to `manifest.json`'s per-calendar
-entry) controls whether it is published; `kind` is optional and defaults to `market`. Only
-`market` calendars are published by default; `--include-base` publishes `base`-kind calendars too.
+entry) controls whether it is published; `kind` is optional and defaults to `market`. Both
+`market` and `payment` calendars are published by default; `--include-base` publishes `base`-kind calendars too.
 A calendar that is not published has **no** entry under `v1/calendars/<ID>/` or
 `v1/releases/<semver>/calendars/<ID>/` at all: `index.json` is the definitive list of what exists
 under `v1/calendars/`.
@@ -1145,9 +1219,11 @@ releases in practice, since holiday data that far back is already settled.
 `ci-diff` compares the events generated from the specs against the blessed baseline for the same
 range. Every occurrence takes part: events are grouped by identity - `(date, key)` when both sides
 carry event keys, by date alone for a legacy baseline written before the key column existed - and
-within one identity the occurrences are compared as a multiset of `(type, description)`. Nothing
-else is compared: provenance and the enrichment columns a published artifact does not retain take
-no part, so a description or type change is a difference and a change of source module is not.
+within one identity the occurrences are compared as a multiset of the complete published value:
+`(type, description, source_module, observed_from, close_time, status)`. Only the reader's synthetic
+in-memory provenance label is excluded. A source-module, observation, close-time or status change
+is therefore visible even when the date and description stay the same. Missing legacy columns use
+the CSV reader's documented defaults; newly supplied enrichment is a publishable change.
 
 Exact matches cancel one occurrence at a time. If exactly one occurrence then remains on each
 side, the pair is reported as a modification; otherwise every leftover is reported individually as
@@ -1163,7 +1239,7 @@ that moves to another date is a removal and an addition. So, for occurrences sha
 
 No event can therefore hide another on the same date, and repeated changes keep their counts.
 The report is sorted by date, key, old and new type (in event-type enum order) and old and new
-description, so it never depends on the order the events arrive in.
+description and published enrichment fields, so it never depends on the order the events arrive in.
 
 Removals and modifications are MAJOR. Additions inside the compared blessed range are MAJOR;
 additions only outside it (a backfill or an extension) are MINOR. A calendar with no blessed
@@ -1180,3 +1256,46 @@ doubled quotes, ignores blank lines, `#` comment lines and a leading UTF-8 byte 
 fails with the file and line number on a malformed row, an invalid ISO date or an unknown event
 type rather than skipping it.
 
+
+### Reference cross-validation
+
+Reference exporters expose `date,type,close_time`; comparisons count each occurrence of this tuple,
+exclude effective weekend days on both sides, and honour the declared comparison types and range.
+An empty reference is an error, not a clean validation. Missing close time differs from a supplied
+time. An exact match cancels once, and each unexplained remaining occurrence is reported separately.
+
+Legacy allowlists use `source,side,date,type,reason`; each entry excuses one occurrence. New precise
+allowlists can use `source,side,date,type,close_time,reason`, including an empty close time for a
+full closure. A stale occurrence fails validation. Close-time discrepancies must cite evidence and
+must not be hidden by a broad date-only exception.
+
+API link values are resolved against the URL of the JSON document containing them. For example,
+`v1/index.json` links to `calendars/US-NYSE/manifest.json`, and that manifest links to `2026.json`.
+This keeps the same output usable at `/` and `/calendar-project/`. CI executes the shipped browser
+algorithm over HTTP using `python3 scripts/verification/browser.py --site build/browser-site`.
+The historical `--settlement T+N` spelling computes a business-date offset, not instrument-specific
+settlement eligibility, sessions or cutoffs.
+
+### Canonical evidence register
+
+`source.id` resolves against `sources/<MARKET>/register.json`; this machine-readable table is
+canonical, while the surrounding README prose remains authored. `python3 scripts/sources.py`
+regenerates the human table and `--check` verifies it. Each registered local evidence file has a
+SHA-256 checksum and a path constrained to `sources/`. Missing files, checksum drift and unknown
+citation IDs fail validation. An inline URL does not excuse a misspelled source ID.
+
+All delta variants accept additive `source: [...]` citations, with the same shape as an event
+source. Existing Java constructors remain available. `validate --strict` rejects uncited deltas;
+the NYSE Good Friday removals cite its published holiday history.
+
+### JSON API v2 and enriched assessments
+
+`v2/index.json` advertises relative links to `calendars/<ID>/manifest.json`; each manifest advertises relative year links. The wire schema is `2.0`, independently of `data_version`. Each year contains an inclusive `days` array bounded by the artifact range. Every day reports `state`, `scheduled_state`, `effective_confidence`, scope-keyed `completeness`, `evidence_ids` and enriched `events`. `UNKNOWN` preserves the scheduled answer separately; it must never be interpreted as `OPEN`.
+
+Event details retain complete published fields, `raw_status`, effective day status, evidence IDs, nominal native date (`chronology_id`, `year`, `month_code`, `day`), chronology profile/provider and observation lineage. These fields are also available through Java `DateStream.assessment` / `eventDetailsOn`, Python `assessment` / `event_details_on`, MCP `assess_day`, and CLI `query <ID> --assess-day <ISO-date>`. Existing Event constructors and Python event tuples remain unchanged. Compiler metadata's additive `event_details` contains one occurrence for every non-weekend CSV record; loaders reject missing or surplus occurrences instead of attaching evidence ambiguously. Legacy artifacts have no native provenance; it is not reconstructed from an observed ISO date.
+
+`explicit_quality: false` in a v2 manifest identifies a legacy artifact without scope-specific evidence. Such artifacts retain the legacy query compatibility behavior; their completeness is reported as projected, never represented as proof of historical completeness. Newly audited artifacts carry explicit scope intervals. Where any required scope is incomplete or absent within explicit intervals, boolean, navigation and count operations raise `UnresolvedDateException` / `UnresolvedDateError`, subclasses of the existing coverage exceptions. Joint operations cannot hide an unknown member behind another member's closed day. Zero-offset operations retain their existing unchanged-date behavior.
+
+The browser business-date helper reads the same quality intervals from the additive v1 manifest metadata and rejects unresolved dates anywhere in its traversal, including gaps within a published year. `/v1` remains available during migration; `/v2` carries the new explicit daily-state semantics.
+
+Strict source validation rejects unknown register fields, invalid support scopes, missing or changed local files, unresolved coverage/rule/delta evidence IDs, and any VERIFIED coverage claim beyond the continuous union of its cited source support intervals. Structured support bounds are reviewed evidence claims; free-text `covers` descriptions alone never establish them.

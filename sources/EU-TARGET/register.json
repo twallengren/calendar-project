@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0",
+  "entries": [
+    {
+      "id": "ecb-t2-opening-hours",
+      "title": "What is T2?",
+      "publisher": "European Central Bank",
+      "location": "https://www.ecb.europa.eu/paym/target/t2/html/index.en.html",
+      "retrieved": "2026-09-14",
+      "covers": "current euro T2 operating schedule",
+      "notes": "Defines T2 as the Eurosystem's RTGS system and states that euro settlement is open Monday-Friday except 1 January, Good Friday, Easter Monday, 1 May, 25 December and 26 December. This ordinary operating calendar supports the PROJECTED baseline of no additional date-level early closures or exceptions; it is not an exhaustive record of actual operating incidents. Other TARGET services and currencies can have different availability.",
+      "local_files": [
+        {
+          "path": "EU-TARGET/ecb-t2-opening-hours.html.gz",
+          "sha256": "a20e97a9896bb42d4a2cb77ce93cdf9ac2f436a3de168dd9f4ca4d97cf8d65cb"
+        }
+      ],
+      "support_intervals": [
+        {"scope": "SCHEDULED_CLOSURES", "from": "2026-01-01", "to": "2027-12-31"}
+      ]
+    },
+    {
+      "id": "ecb-target-holidays-2026-2027",
+      "title": "ECB public holidays and TARGET closing days",
+      "publisher": "European Central Bank",
+      "location": "https://www.ecb.europa.eu/ecb/contacts/working-hours/html/index.en.html",
+      "retrieved": "2026-09-14",
+      "covers": "2026-2027",
+      "notes": "The annual tables mark TARGET closing days with an asterisk. They confirm the exact Good Friday and Easter Monday dates and show that ECB staff holidays such as Ascension Day, Christmas Eve and New Year's Eve are not TARGET closing days.",
+      "local_files": [
+        {
+          "path": "EU-TARGET/ecb-target-holidays-2026-2027.html.gz",
+          "sha256": "94e1fde4ed55f3c6c7674bf28e0f9c9879c77f792337405f612f932b770c1c0b"
+        }
+      ],
+      "support_intervals": [
+        {"scope": "SCHEDULED_CLOSURES", "from": "2026-01-01", "to": "2027-12-31"}
+      ]
+    },
+    {
+      "id": "ecb-t2-hours-outcome-2026",
+      "title": "Outcome of the public consultation on the extension of T2 operating hours",
+      "publisher": "European Central Bank",
+      "location": "https://www.ecb.europa.eu/press/payments-news/ecb.pubconpm202605.en.pdf",
+      "retrieved": "2026-09-14",
+      "covers": "May 2026 operating-hours roadmap",
+      "notes": "Confirms that T2 RTGS remains closed for payments on weekends and the six TARGET holidays. A short weekend/holiday window for liquidity transfers is planned within two years without changing value dating; broader RTGS expansion remains a future consideration. This calendar therefore represents RTGS payment business dates, not every CLM or TIPS operation.",
+      "local_files": [
+        {
+          "path": "EU-TARGET/ecb-t2-hours-outcome-2026.pdf",
+          "sha256": "8716fe3d2ed22fc189801e4ea092e754fb702ef10b8155e506c4e0d1eb38c823"
+        }
+      ],
+      "support_intervals": []
+    }
+  ]
+}

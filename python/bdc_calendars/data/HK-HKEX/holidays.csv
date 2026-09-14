@@ -1,8 +1,8 @@
 date,type,description,key,source_module,observed_from,close_time,status
 2018-01-01,CLOSED,The first day of January,hk_new_years_day,module:hk_new_years_day,,,CONFIRMED
 2018-02-15,EARLY_CLOSE,Lunar New Year's Eve (Half Day),hk_hkex_lunar_new_years_eve_early_close,module:hk_hkex_early_closes,,12:00,CONFIRMED
-2018-02-16,CLOSED,Lunar New Year (Lunar New Year's Day),hk_lunar_new_year,module:hk_lunar_new_year,,,CONFIRMED
-2018-02-19,CLOSED,"Lunar New Year (The fourth day of Lunar New Year; the second day, 17 February, was a Saturday)",hk_lunar_new_year,module:hk_lunar_new_year,,,CONFIRMED
+2018-02-16,CLOSED,Lunar New Year,hk_lunar_new_year,module:hk_lunar_new_year,,,CONFIRMED
+2018-02-19,CLOSED,Lunar New Year,hk_lunar_new_year,module:hk_lunar_new_year,2018-02-18,,CONFIRMED
 2018-03-30,CLOSED,Good Friday,hk_good_friday,module:hk_good_friday,,,CONFIRMED
 2018-04-02,CLOSED,Easter Monday,hk_easter_monday,module:hk_easter_monday,,,CONFIRMED
 2018-04-05,CLOSED,Ching Ming Festival,hk_ching_ming,module:hk_ching_ming,,,CONFIRMED
@@ -19,14 +19,14 @@ date,type,description,key,source_module,observed_from,close_time,status
 2018-12-31,EARLY_CLOSE,New Year's Eve (Half Day),hk_hkex_new_years_eve_early_close,module:hk_hkex_early_closes,,12:00,CONFIRMED
 2019-01-01,CLOSED,The first day of January,hk_new_years_day,module:hk_new_years_day,,,CONFIRMED
 2019-02-04,EARLY_CLOSE,Lunar New Year's Eve (Half Day),hk_hkex_lunar_new_years_eve_early_close,module:hk_hkex_early_closes,,12:00,CONFIRMED
-2019-02-05,CLOSED,Lunar New Year (Lunar New Year's Day),hk_lunar_new_year,module:hk_lunar_new_year,,,CONFIRMED
-2019-02-06,CLOSED,Lunar New Year (The second day of Lunar New Year),hk_lunar_new_year,module:hk_lunar_new_year,,,CONFIRMED
-2019-02-07,CLOSED,Lunar New Year (The third day of Lunar New Year),hk_lunar_new_year,module:hk_lunar_new_year,,,CONFIRMED
+2019-02-05,CLOSED,Lunar New Year,hk_lunar_new_year,module:hk_lunar_new_year,,,CONFIRMED
+2019-02-06,CLOSED,Lunar New Year,hk_lunar_new_year,module:hk_lunar_new_year,,,CONFIRMED
+2019-02-07,CLOSED,Lunar New Year,hk_lunar_new_year,module:hk_lunar_new_year,,,CONFIRMED
 2019-04-05,CLOSED,Ching Ming Festival,hk_ching_ming,module:hk_ching_ming,,,CONFIRMED
 2019-04-19,CLOSED,Good Friday,hk_good_friday,module:hk_good_friday,,,CONFIRMED
 2019-04-22,CLOSED,Easter Monday,hk_easter_monday,module:hk_easter_monday,,,CONFIRMED
 2019-05-01,CLOSED,Labour Day,hk_labour_day,module:hk_labour_day,,,CONFIRMED
-2019-05-13,CLOSED,The Birthday of the Buddha (observed the day following; 12 May was a Sunday),hk_buddhas_birthday,module:hk_buddhas_birthday,,,CONFIRMED
+2019-05-13,CLOSED,The Birthday of the Buddha,hk_buddhas_birthday,module:hk_buddhas_birthday,2019-05-12,,CONFIRMED
 2019-06-07,CLOSED,Tuen Ng Festival,hk_tuen_ng,module:hk_tuen_ng,,,CONFIRMED
 2019-07-01,CLOSED,Hong Kong Special Administrative Region Establishment Day,hk_hksar_establishment_day,module:hk_hksar_establishment_day,,,CONFIRMED
 2019-10-01,CLOSED,National Day,hk_national_day,module:hk_national_day,,,CONFIRMED
@@ -37,8 +37,8 @@ date,type,description,key,source_module,observed_from,close_time,status
 2019-12-31,EARLY_CLOSE,New Year's Eve (Half Day),hk_hkex_new_years_eve_early_close,module:hk_hkex_early_closes,,12:00,CONFIRMED
 2020-01-01,CLOSED,The first day of January,hk_new_years_day,module:hk_new_years_day,,,CONFIRMED
 2020-01-24,EARLY_CLOSE,Lunar New Year's Eve (Half Day),hk_hkex_lunar_new_years_eve_early_close,module:hk_hkex_early_closes,,12:00,CONFIRMED
-2020-01-27,CLOSED,Lunar New Year (The third day of Lunar New Year),hk_lunar_new_year,module:hk_lunar_new_year,,,CONFIRMED
-2020-01-28,CLOSED,Lunar New Year (The fourth day of Lunar New Year),hk_lunar_new_year,module:hk_lunar_new_year,,,CONFIRMED
+2020-01-27,CLOSED,Lunar New Year,hk_lunar_new_year,module:hk_lunar_new_year,,,CONFIRMED
+2020-01-28,CLOSED,Lunar New Year,hk_lunar_new_year,module:hk_lunar_new_year,2020-01-26,,CONFIRMED
 2020-04-10,CLOSED,Good Friday,hk_good_friday,module:hk_good_friday,,,CONFIRMED
 2020-04-13,CLOSED,Easter Monday,hk_easter_monday,module:hk_easter_monday,,,CONFIRMED
 2020-04-30,CLOSED,The Birthday of the Buddha,hk_buddhas_birthday,module:hk_buddhas_birthday,,,CONFIRMED
@@ -47,16 +47,16 @@ date,type,description,key,source_module,observed_from,close_time,status
 2020-07-01,CLOSED,Hong Kong Special Administrative Region Establishment Day,hk_hksar_establishment_day,module:hk_hksar_establishment_day,,,CONFIRMED
 2020-10-01,CLOSED,National Day,hk_national_day,module:hk_national_day,,,CONFIRMED
 2020-10-02,CLOSED,The day following the Chinese Mid-Autumn Festival,hk_mid_autumn,module:hk_mid_autumn,,,CONFIRMED
-2020-10-26,CLOSED,Chung Yeung Festival (observed the day following; 25 October was a Sunday),hk_chung_yeung,module:hk_chung_yeung,,,CONFIRMED
+2020-10-26,CLOSED,Chung Yeung Festival,hk_chung_yeung,module:hk_chung_yeung,2020-10-25,,CONFIRMED
 2020-12-24,EARLY_CLOSE,Christmas Eve (Half Day),hk_hkex_christmas_eve_early_close,module:hk_hkex_early_closes,,12:00,CONFIRMED
 2020-12-25,CLOSED,Christmas Day,hk_christmas_day,module:hk_christmas,,,CONFIRMED
 2020-12-31,EARLY_CLOSE,New Year's Eve (Half Day),hk_hkex_new_years_eve_early_close,module:hk_hkex_early_closes,,12:00,CONFIRMED
 2021-01-01,CLOSED,The first day of January,hk_new_years_day,module:hk_new_years_day,,,CONFIRMED
 2021-02-11,EARLY_CLOSE,Lunar New Year's Eve (Half Day),hk_hkex_lunar_new_years_eve_early_close,module:hk_hkex_early_closes,,12:00,CONFIRMED
-2021-02-12,CLOSED,Lunar New Year (Lunar New Year's Day),hk_lunar_new_year,module:hk_lunar_new_year,,,CONFIRMED
-2021-02-15,CLOSED,Lunar New Year (The fourth day of Lunar New Year),hk_lunar_new_year,module:hk_lunar_new_year,,,CONFIRMED
+2021-02-12,CLOSED,Lunar New Year,hk_lunar_new_year,module:hk_lunar_new_year,,,CONFIRMED
+2021-02-15,CLOSED,Lunar New Year,hk_lunar_new_year,module:hk_lunar_new_year,2021-02-14,,CONFIRMED
 2021-04-02,CLOSED,Good Friday,hk_good_friday,module:hk_good_friday,,,CONFIRMED
-2021-04-05,CLOSED,Ching Ming Festival (observed the day following; 4 April was a Sunday),hk_ching_ming,module:hk_ching_ming,,,CONFIRMED
+2021-04-05,CLOSED,Ching Ming Festival,hk_ching_ming,module:hk_ching_ming,2021-04-04,,CONFIRMED
 2021-04-06,CLOSED,The day following Easter Monday (Ching Ming Sunday 4 April observed Monday 5 April; Easter Monday moved on),hk_day_following_easter_monday,module:hk_easter_monday,,,CONFIRMED
 2021-05-19,CLOSED,The Birthday of the Buddha,hk_buddhas_birthday,module:hk_buddhas_birthday,,,CONFIRMED
 2021-06-14,CLOSED,Tuen Ng Festival,hk_tuen_ng,module:hk_tuen_ng,,,CONFIRMED
@@ -68,24 +68,24 @@ date,type,description,key,source_module,observed_from,close_time,status
 2021-12-27,CLOSED,The first weekday after Christmas Day,hk_first_weekday_after_christmas,module:hk_christmas,2021-12-26,,CONFIRMED
 2021-12-31,EARLY_CLOSE,New Year's Eve (Half Day),hk_hkex_new_years_eve_early_close,module:hk_hkex_early_closes,,12:00,CONFIRMED
 2022-01-31,EARLY_CLOSE,Lunar New Year's Eve (Half Day),hk_hkex_lunar_new_years_eve_early_close,module:hk_hkex_early_closes,,12:00,CONFIRMED
-2022-02-01,CLOSED,Lunar New Year (Lunar New Year's Day),hk_lunar_new_year,module:hk_lunar_new_year,,,CONFIRMED
-2022-02-02,CLOSED,Lunar New Year (The second day of Lunar New Year),hk_lunar_new_year,module:hk_lunar_new_year,,,CONFIRMED
-2022-02-03,CLOSED,Lunar New Year (The third day of Lunar New Year),hk_lunar_new_year,module:hk_lunar_new_year,,,CONFIRMED
+2022-02-01,CLOSED,Lunar New Year,hk_lunar_new_year,module:hk_lunar_new_year,,,CONFIRMED
+2022-02-02,CLOSED,Lunar New Year,hk_lunar_new_year,module:hk_lunar_new_year,,,CONFIRMED
+2022-02-03,CLOSED,Lunar New Year,hk_lunar_new_year,module:hk_lunar_new_year,,,CONFIRMED
 2022-04-05,CLOSED,Ching Ming Festival,hk_ching_ming,module:hk_ching_ming,,,CONFIRMED
 2022-04-15,CLOSED,Good Friday,hk_good_friday,module:hk_good_friday,,,CONFIRMED
 2022-04-18,CLOSED,Easter Monday,hk_easter_monday,module:hk_easter_monday,,,CONFIRMED
 2022-05-02,CLOSED,Labour Day,hk_labour_day,module:hk_labour_day,2022-05-01,,CONFIRMED
-2022-05-09,CLOSED,The Birthday of the Buddha (observed the day following; 8 May was a Sunday),hk_buddhas_birthday,module:hk_buddhas_birthday,,,CONFIRMED
+2022-05-09,CLOSED,The Birthday of the Buddha,hk_buddhas_birthday,module:hk_buddhas_birthday,2022-05-08,,CONFIRMED
 2022-06-03,CLOSED,Tuen Ng Festival,hk_tuen_ng,module:hk_tuen_ng,,,CONFIRMED
 2022-07-01,CLOSED,Hong Kong Special Administrative Region Establishment Day,hk_hksar_establishment_day,module:hk_hksar_establishment_day,,,CONFIRMED
-2022-09-12,CLOSED,The day following the Chinese Mid-Autumn Festival (observed the second day following; 11 September was a Sunday),hk_mid_autumn,module:hk_mid_autumn,,,CONFIRMED
+2022-09-12,CLOSED,The day following the Chinese Mid-Autumn Festival,hk_mid_autumn,module:hk_mid_autumn,2022-09-11,,CONFIRMED
 2022-10-04,CLOSED,Chung Yeung Festival,hk_chung_yeung,module:hk_chung_yeung,,,CONFIRMED
 2022-12-26,CLOSED,The first weekday after Christmas Day,hk_first_weekday_after_christmas,module:hk_christmas,,,CONFIRMED
 2022-12-27,CLOSED,The second weekday after Christmas Day (25 December 2022 fell on a Sunday),hk_second_weekday_after_christmas,module:hk_christmas,,,CONFIRMED
 2023-01-02,CLOSED,The first day of January,hk_new_years_day,module:hk_new_years_day,2023-01-01,,CONFIRMED
-2023-01-23,CLOSED,Lunar New Year (The second day of Lunar New Year),hk_lunar_new_year,module:hk_lunar_new_year,,,CONFIRMED
-2023-01-24,CLOSED,Lunar New Year (The third day of Lunar New Year),hk_lunar_new_year,module:hk_lunar_new_year,,,CONFIRMED
-2023-01-25,CLOSED,Lunar New Year (The fourth day of Lunar New Year),hk_lunar_new_year,module:hk_lunar_new_year,,,CONFIRMED
+2023-01-23,CLOSED,Lunar New Year,hk_lunar_new_year,module:hk_lunar_new_year,,,CONFIRMED
+2023-01-24,CLOSED,Lunar New Year,hk_lunar_new_year,module:hk_lunar_new_year,,,CONFIRMED
+2023-01-25,CLOSED,Lunar New Year,hk_lunar_new_year,module:hk_lunar_new_year,2023-01-22,,CONFIRMED
 2023-04-05,CLOSED,Ching Ming Festival,hk_ching_ming,module:hk_ching_ming,,,CONFIRMED
 2023-04-07,CLOSED,Good Friday,hk_good_friday,module:hk_good_friday,,,CONFIRMED
 2023-04-10,CLOSED,Easter Monday,hk_easter_monday,module:hk_easter_monday,,,CONFIRMED
@@ -98,8 +98,8 @@ date,type,description,key,source_module,observed_from,close_time,status
 2023-12-26,CLOSED,The first weekday after Christmas Day,hk_first_weekday_after_christmas,module:hk_christmas,,,CONFIRMED
 2024-01-01,CLOSED,The first day of January,hk_new_years_day,module:hk_new_years_day,,,CONFIRMED
 2024-02-09,EARLY_CLOSE,Lunar New Year's Eve (Half Day),hk_hkex_lunar_new_years_eve_early_close,module:hk_hkex_early_closes,,12:00,CONFIRMED
-2024-02-12,CLOSED,Lunar New Year (The third day of Lunar New Year),hk_lunar_new_year,module:hk_lunar_new_year,,,CONFIRMED
-2024-02-13,CLOSED,Lunar New Year (The fourth day of Lunar New Year),hk_lunar_new_year,module:hk_lunar_new_year,,,CONFIRMED
+2024-02-12,CLOSED,Lunar New Year,hk_lunar_new_year,module:hk_lunar_new_year,,,CONFIRMED
+2024-02-13,CLOSED,Lunar New Year,hk_lunar_new_year,module:hk_lunar_new_year,2024-02-11,,CONFIRMED
 2024-03-29,CLOSED,Good Friday,hk_good_friday,module:hk_good_friday,,,CONFIRMED
 2024-04-01,CLOSED,Easter Monday,hk_easter_monday,module:hk_easter_monday,,,CONFIRMED
 2024-04-04,CLOSED,Ching Ming Festival,hk_ching_ming,module:hk_ching_ming,,,CONFIRMED
@@ -116,9 +116,9 @@ date,type,description,key,source_module,observed_from,close_time,status
 2024-12-31,EARLY_CLOSE,New Year's Eve (Half Day),hk_hkex_new_years_eve_early_close,module:hk_hkex_early_closes,,12:00,CONFIRMED
 2025-01-01,CLOSED,The first day of January,hk_new_years_day,module:hk_new_years_day,,,CONFIRMED
 2025-01-28,EARLY_CLOSE,Lunar New Year's Eve (Half Day),hk_hkex_lunar_new_years_eve_early_close,module:hk_hkex_early_closes,,12:00,CONFIRMED
-2025-01-29,CLOSED,Lunar New Year (Lunar New Year's Day),hk_lunar_new_year,module:hk_lunar_new_year,,,CONFIRMED
-2025-01-30,CLOSED,Lunar New Year (The second day of Lunar New Year),hk_lunar_new_year,module:hk_lunar_new_year,,,CONFIRMED
-2025-01-31,CLOSED,Lunar New Year (The third day of Lunar New Year),hk_lunar_new_year,module:hk_lunar_new_year,,,CONFIRMED
+2025-01-29,CLOSED,Lunar New Year,hk_lunar_new_year,module:hk_lunar_new_year,,,CONFIRMED
+2025-01-30,CLOSED,Lunar New Year,hk_lunar_new_year,module:hk_lunar_new_year,,,CONFIRMED
+2025-01-31,CLOSED,Lunar New Year,hk_lunar_new_year,module:hk_lunar_new_year,,,CONFIRMED
 2025-04-04,CLOSED,Ching Ming Festival,hk_ching_ming,module:hk_ching_ming,,,CONFIRMED
 2025-04-18,CLOSED,Good Friday,hk_good_friday,module:hk_good_friday,,,CONFIRMED
 2025-04-21,CLOSED,Easter Monday,hk_easter_monday,module:hk_easter_monday,,,CONFIRMED
@@ -134,18 +134,18 @@ date,type,description,key,source_module,observed_from,close_time,status
 2025-12-31,EARLY_CLOSE,New Year's Eve (Half Day),hk_hkex_new_years_eve_early_close,module:hk_hkex_early_closes,,12:00,CONFIRMED
 2026-01-01,CLOSED,The first day of January,hk_new_years_day,module:hk_new_years_day,,,CONFIRMED
 2026-02-16,EARLY_CLOSE,Lunar New Year's Eve (Half Day),hk_hkex_lunar_new_years_eve_early_close,module:hk_hkex_early_closes,,12:00,CONFIRMED
-2026-02-17,CLOSED,Lunar New Year (Lunar New Year's Day),hk_lunar_new_year,module:hk_lunar_new_year,,,CONFIRMED
-2026-02-18,CLOSED,Lunar New Year (The second day of Lunar New Year),hk_lunar_new_year,module:hk_lunar_new_year,,,CONFIRMED
-2026-02-19,CLOSED,Lunar New Year (The third day of Lunar New Year),hk_lunar_new_year,module:hk_lunar_new_year,,,CONFIRMED
+2026-02-17,CLOSED,Lunar New Year,hk_lunar_new_year,module:hk_lunar_new_year,,,CONFIRMED
+2026-02-18,CLOSED,Lunar New Year,hk_lunar_new_year,module:hk_lunar_new_year,,,CONFIRMED
+2026-02-19,CLOSED,Lunar New Year,hk_lunar_new_year,module:hk_lunar_new_year,,,CONFIRMED
 2026-04-03,CLOSED,Good Friday,hk_good_friday,module:hk_good_friday,,,CONFIRMED
-2026-04-06,CLOSED,Ching Ming Festival (observed the day following; 5 April was a Sunday),hk_ching_ming,module:hk_ching_ming,,,CONFIRMED
+2026-04-06,CLOSED,Ching Ming Festival,hk_ching_ming,module:hk_ching_ming,2026-04-05,,CONFIRMED
 2026-04-07,CLOSED,The day following Easter Monday (Ching Ming Sunday 5 April observed Monday 6 April; Easter Monday moved on),hk_day_following_easter_monday,module:hk_easter_monday,,,CONFIRMED
 2026-05-01,CLOSED,Labour Day,hk_labour_day,module:hk_labour_day,,,CONFIRMED
-2026-05-25,CLOSED,The Birthday of the Buddha (observed the day following; 24 May was a Sunday),hk_buddhas_birthday,module:hk_buddhas_birthday,,,CONFIRMED
+2026-05-25,CLOSED,The Birthday of the Buddha,hk_buddhas_birthday,module:hk_buddhas_birthday,2026-05-24,,CONFIRMED
 2026-06-19,CLOSED,Tuen Ng Festival,hk_tuen_ng,module:hk_tuen_ng,,,CONFIRMED
 2026-07-01,CLOSED,Hong Kong Special Administrative Region Establishment Day,hk_hksar_establishment_day,module:hk_hksar_establishment_day,,,CONFIRMED
 2026-10-01,CLOSED,National Day,hk_national_day,module:hk_national_day,,,CONFIRMED
-2026-10-19,CLOSED,Chung Yeung Festival (observed the day following; 18 October was a Sunday),hk_chung_yeung,module:hk_chung_yeung,,,CONFIRMED
+2026-10-19,CLOSED,Chung Yeung Festival,hk_chung_yeung,module:hk_chung_yeung,2026-10-18,,CONFIRMED
 2026-12-24,EARLY_CLOSE,Christmas Eve (Half Day),hk_hkex_christmas_eve_early_close,module:hk_hkex_early_closes,,12:00,CONFIRMED
 2026-12-25,CLOSED,Christmas Day,hk_christmas_day,module:hk_christmas,,,CONFIRMED
 2026-12-31,EARLY_CLOSE,New Year's Eve (Half Day),hk_hkex_new_years_eve_early_close,module:hk_hkex_early_closes,,12:00,CONFIRMED

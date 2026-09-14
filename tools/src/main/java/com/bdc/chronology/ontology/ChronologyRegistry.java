@@ -1,8 +1,6 @@
 package com.bdc.chronology.ontology;
 
 import com.bdc.chronology.ontology.algorithms.ChronologyAlgorithm;
-import com.bdc.chronology.ontology.algorithms.IsoAlgorithm;
-import com.bdc.chronology.ontology.algorithms.JulianAlgorithm;
 import java.time.LocalDate;
 import java.util.Map;
 import java.util.Set;
@@ -29,60 +27,20 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class ChronologyRegistry {
 
-  /** Package where generated chronology classes are located. */
-  private static final String GENERATED_PACKAGE = "com.bdc.chronology.generated";
-
-  /** Mapping of chronology ID to generated class name suffix. */
-  private static final Map<String, String> GENERATED_CLASS_NAMES =
-      Map.of(
-          "ISO", "IsoChronology",
-          "HIJRI", "HijriChronology",
-          "JULIAN", "JulianChronology",
-          "PERSIAN", "PersianChronology",
-          "UMM_AL_QURA", "UmmAlQuraChronology");
-
-  // INSTANCE must be declared after GENERATED_CLASS_NAMES to ensure correct initialization order
   private static final ChronologyRegistry INSTANCE = new ChronologyRegistry();
-
   private final Map<String, ChronologyAlgorithm> algorithms = new ConcurrentHashMap<>();
 
   private ChronologyRegistry() {
-    // Register algorithms - prefer generated, fallback to built-in
     registerAlgorithms();
   }
 
   private void registerAlgorithms() {
-    // Try to load generated classes first, fallback to built-in implementations
-    for (var entry : GENERATED_CLASS_NAMES.entrySet()) {
-      String className = entry.getValue();
-      ChronologyAlgorithm algorithm = tryLoadGenerated(className);
-      if (algorithm != null) {
-        register(algorithm);
-      }
-    }
-
-    // Register fallback implementations for any that weren't loaded from generated classes
-    // Note: HIJRI and PERSIAN have no built-in fallback - they require generated classes
-    registerFallbackIfMissing("ISO", IsoAlgorithm::new);
-    registerFallbackIfMissing("JULIAN", JulianAlgorithm::new);
-  }
-
-  private ChronologyAlgorithm tryLoadGenerated(String className) {
-    try {
-      String fullClassName = GENERATED_PACKAGE + "." + className;
-      Class<?> clazz = Class.forName(fullClassName);
-      return (ChronologyAlgorithm) clazz.getDeclaredConstructor().newInstance();
-    } catch (Exception e) {
-      // Generated class not available, will use fallback
-      return null;
-    }
-  }
-
-  private void registerFallbackIfMissing(
-      String id, java.util.function.Supplier<ChronologyAlgorithm> supplier) {
-    if (!hasChronology(id)) {
-      register(supplier.get());
-    }
+    // Explicit construction makes missing or broken generated providers a build error.
+    register(new com.bdc.chronology.generated.IsoChronology());
+    register(new com.bdc.chronology.generated.HijriChronology());
+    register(new com.bdc.chronology.generated.JulianChronology());
+    register(new com.bdc.chronology.generated.PersianChronology());
+    register(new com.bdc.chronology.generated.UmmAlQuraChronology());
   }
 
   /**

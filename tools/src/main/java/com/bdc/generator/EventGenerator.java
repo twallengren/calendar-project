@@ -46,7 +46,26 @@ public class EventGenerator {
   }
 
   public List<Event> generate(ResolvedSpec spec, LocalDate from, LocalDate to) {
+    return generateWithDetails(spec, from, to).stream().map(CompiledEvent::event).toList();
+  }
+
+  public List<CompiledEvent> generateWithDetails(ResolvedSpec spec, LocalDate from, LocalDate to) {
     DateRange requested = new DateRange(from, to);
+    for (EventSource source : spec.eventSources()) {
+      if (source.rule() instanceof Rule.NativeRecurring nativeRule) {
+        var descriptor =
+            com.bdc.chronology.ChronologyProviders.get(nativeRule.chronology()).descriptor();
+        // Native origins, spans and observation dependencies must fit inside provider support.
+        long reach = nativeRule.spanDays() - 1L;
+        if (nativeRule instanceof Rule.NativeRelativeToReference relative)
+          reach += Math.abs((long) relative.offsetDays());
+        var shift = source.effectiveShiftPolicy(spec.weekendShiftPolicy());
+        if (shift != WeekendShiftPolicy.NONE && shift != WeekendShiftPolicy.DROP)
+          reach += CASCADE_LIMIT_DAYS;
+        descriptor.requireSupported(minusDaysClamped(from, reach));
+        descriptor.requireSupported(plusDaysClamped(to, reach));
+      }
+    }
     DateRange padded = paddedRange(spec, from, to);
 
     ReferenceResolver refResolver = new ReferenceResolver();
@@ -127,6 +146,7 @@ public class EventGenerator {
 
     // 5. Classify
     List<Event> events = new ArrayList<>();
+    Map<Event, EventProvenance> provenance = new IdentityHashMap<>();
     Set<LocalDate> closedDates = new HashSet<>();
     for (Occurrence occ : placed) {
       if (!requested.contains(occ.date())) {
@@ -134,6 +154,41 @@ public class EventGenerator {
       }
       Event event = ctx.toEvent(occ);
       events.add(event);
+      EventSource source = sourcesByKey.get(event.key());
+      Set<String> evidence = new TreeSet<>();
+      if (source != null)
+        source.source().stream()
+            .map(SourceCitation::id)
+            .filter(Objects::nonNull)
+            .forEach(evidence::add);
+      for (Delta delta : spec.deltas()) {
+        boolean applies =
+            switch (delta) {
+              case Delta.Add add ->
+                  add.key().equals(event.key()) && add.date().equals(event.date());
+              case Delta.Reclassify change ->
+                  change.key().equals(event.key()) && change.date().equals(event.date());
+              case Delta.Remove ignored -> false;
+            };
+        if (applies)
+          delta.source().stream()
+              .map(SourceCitation::id)
+              .filter(Objects::nonNull)
+              .forEach(evidence::add);
+      }
+      var descriptor =
+          occ.nominalNativeDate() == null
+              ? null
+              : com.bdc.chronology.ChronologyProviders.get(occ.nominalNativeDate().chronologyId())
+                  .descriptor();
+      provenance.put(
+          event,
+          new EventProvenance(
+              occ.nominalNativeDate(),
+              descriptor == null ? null : descriptor.profile(),
+              descriptor == null ? null : descriptor.provider(),
+              List.copyOf(evidence),
+              occ.observationLineage()));
       if (event.type() == EventType.CLOSED) {
         closedDates.add(event.date());
       }
@@ -163,7 +218,15 @@ public class EventGenerator {
     }
 
     // 7. Sort deterministically
-    return events.stream().sorted().collect(Collectors.toList());
+    return events.stream()
+        .sorted()
+        .map(
+            event ->
+                new CompiledEvent(
+                    event,
+                    provenance.getOrDefault(
+                        event, new EventProvenance(null, null, null, List.of(), List.of()))))
+        .toList();
   }
 
   /**
@@ -178,7 +241,18 @@ public class EventGenerator {
    * an occurrence appeared depended on the requested range.
    */
   private static DateRange paddedRange(ResolvedSpec spec, LocalDate from, LocalDate to) {
-    long pad = 366 + maxRuleReachDays(spec);
+    long yearDays = 366;
+    for (EventSource source : spec.eventSources()) {
+      if (source.rule() instanceof Rule.NativeRecurring r) {
+        yearDays =
+            Math.max(
+                yearDays,
+                com.bdc.chronology.ChronologyProviders.get(r.chronology())
+                    .descriptor()
+                    .maximumYearDays());
+      }
+    }
+    long pad = yearDays + maxRuleReachDays(spec);
     return new DateRange(minusDaysClamped(from, pad), plusDaysClamped(to, pad));
   }
 
@@ -191,6 +265,9 @@ public class EventGenerator {
         continue;
       }
       long own = rule.spanDays();
+      if (rule instanceof Rule.NativeRelativeToReference nativeRelative) {
+        own += Math.abs((long) nativeRelative.offsetDays());
+      }
       if (rule instanceof Rule.RelativeToReference relative) {
         if (relative.offsetDays() != null) {
           own += Math.abs((long) relative.offsetDays());
@@ -411,11 +488,14 @@ public class EventGenerator {
     if (deltas.isEmpty()) {
       return occurrences;
     }
-    Map<String, Map<LocalDate, Occurrence>> byKeyAndDate = new LinkedHashMap<>();
+    Map<String, Map<LocalDate, List<Occurrence>>> byKeyAndDate = new LinkedHashMap<>();
 
     // Index existing occurrences (a key may legitimately have several dates, e.g. a span)
     for (Occurrence occ : occurrences) {
-      byKeyAndDate.computeIfAbsent(occ.key(), k -> new LinkedHashMap<>()).put(occ.date(), occ);
+      byKeyAndDate
+          .computeIfAbsent(occ.key(), k -> new LinkedHashMap<>())
+          .computeIfAbsent(occ.date(), k -> new ArrayList<>())
+          .add(occ);
     }
 
     // Apply deltas
@@ -426,11 +506,11 @@ public class EventGenerator {
             Occurrence occ = new Occurrence(add.key(), add.date(), add.name(), "delta:add");
             byKeyAndDate
                 .computeIfAbsent(add.key(), k -> new LinkedHashMap<>())
-                .put(add.date(), occ);
+                .put(add.date(), List.of(occ));
           }
         }
         case Delta.Remove remove -> {
-          Map<LocalDate, Occurrence> byDate = byKeyAndDate.get(remove.key());
+          Map<LocalDate, List<Occurrence>> byDate = byKeyAndDate.get(remove.key());
           if (byDate != null) {
             byDate.remove(remove.date());
           }
@@ -444,6 +524,7 @@ public class EventGenerator {
     // Flatten back to list
     return byKeyAndDate.values().stream()
         .flatMap(m -> m.values().stream())
+        .flatMap(List::stream)
         .collect(Collectors.toList());
   }
 }

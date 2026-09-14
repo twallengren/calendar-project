@@ -47,9 +47,9 @@ public class DiffReportFormatter {
         CalendarDiff diff = entry.getValue();
         Map<String, Object> calJson = new LinkedHashMap<>();
         calJson.put("severity", diff.severity().name());
-        calJson.put("additions", formatEventDiffs(diff.additions()));
-        calJson.put("removals", formatEventDiffs(diff.removals()));
-        calJson.put("modifications", formatEventDiffs(diff.modifications()));
+        calJson.put("additions", formatEventDiffs(diff.additions(), diff.cutoffDate()));
+        calJson.put("removals", formatEventDiffs(diff.removals(), diff.cutoffDate()));
+        calJson.put("modifications", formatEventDiffs(diff.modifications(), diff.cutoffDate()));
         calendars.put(entry.getKey(), calJson);
       }
       json.put("calendars", calendars);
@@ -60,7 +60,8 @@ public class DiffReportFormatter {
     }
   }
 
-  private List<Map<String, Object>> formatEventDiffs(List<EventDiff> diffs) {
+  private List<Map<String, Object>> formatEventDiffs(
+      List<EventDiff> diffs, java.time.LocalDate cutoffDate) {
     return diffs.stream()
         .map(
             d -> {
@@ -71,7 +72,9 @@ public class DiffReportFormatter {
               if (d.newType() != null) map.put("new_type", d.newType().name());
               if (d.oldDescription() != null) map.put("old_description", d.oldDescription());
               if (d.newDescription() != null) map.put("new_description", d.newDescription());
-              map.put("is_historical", d.isHistorical(java.time.LocalDate.now()));
+              if (d.oldFields() != null) map.put("old_fields", d.oldFields());
+              if (d.newFields() != null) map.put("new_fields", d.newFields());
+              map.put("is_historical", d.isHistorical(cutoffDate));
               return map;
             })
         .collect(Collectors.toList());
@@ -220,6 +223,19 @@ public class DiffReportFormatter {
               .append(markdownDescription(e.newDescription()))
               .append(" |\n");
           modificationCount++;
+        }
+        for (EventDiff e : diff.modifications().stream().limit(maxDiffsPerSection).toList()) {
+          if (!java.util.Objects.equals(e.oldFields(), e.newFields())) {
+            sb.append("\nPublished fields on ")
+                .append(e.date())
+                .append(" (")
+                .append(markdownDescription(e.key() == null ? "legacy identity" : e.key()))
+                .append("): ")
+                .append(markdownDescription(String.valueOf(e.oldFields())))
+                .append(" → ")
+                .append(markdownDescription(String.valueOf(e.newFields())))
+                .append("\n");
+          }
         }
         if (diff.modifications().size() > maxDiffsPerSection) {
           sb.append("\n*...and ")

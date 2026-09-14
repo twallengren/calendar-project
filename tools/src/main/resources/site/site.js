@@ -60,12 +60,56 @@
   /* A date is a business day when it carries no CLOSED row and is not a weekend day under the
      policy in effect on it. EARLY_CLOSE days are business days. */
   function isBusinessDay(calendar, iso, name) {
+    if ((calendar.from && iso < calendar.from) || (calendar.to && iso > calendar.to)) {
+      throw coverageError(calendar.id, iso);
+    }
+    var quality = calendar.quality || [];
+    if (quality.length) {
+      ["SCHEDULED_CLOSURES", "EARLY_CLOSES", "UNSCHEDULED_EXCEPTIONS"].forEach(function (scope) {
+        var matches = quality.filter(function (row) {
+          return row.scope === scope && iso >= row.from && iso <= row.to;
+        });
+        if (!matches.length || matches.some(function (row) { return row.quality === "INCOMPLETE"; })) {
+          throw coverageError(calendar.id, iso);
+        }
+      });
+    }
     return !calendar.closed[iso] && !isWeekend(calendar, iso, name);
   }
 
+  function coverageError(id, iso) {
+    var error = new Error(id + " has unresolved or missing coverage for " + iso);
+    error.date = iso;
+    return error;
+  }
+
+  function confidence(calendar, iso) {
+    if ((calendar.from && iso < calendar.from) || (calendar.to && iso > calendar.to) ||
+        !calendar.years[iso.slice(0, 4)]) return "UNKNOWN";
+    var projected = !!calendar.projected[iso];
+    var quality = calendar.quality || [];
+    if (!quality.length) {
+      return projected || (calendar.verifiedThrough && iso > calendar.verifiedThrough) ? "PROJECTED" : "CONFIRMED";
+    }
+    var scopes = ["SCHEDULED_CLOSURES", "EARLY_CLOSES", "UNSCHEDULED_EXCEPTIONS"];
+    for (var i = 0; i < scopes.length; i++) {
+      var matches = quality.filter(function (row) {
+        return row.scope === scopes[i] && iso >= row.from && iso <= row.to;
+      });
+      if (!matches.length || matches.some(function (row) { return row.quality === "INCOMPLETE"; })) return "UNKNOWN";
+      if (matches.some(function (row) { return row.quality === "PROJECTED"; })) projected = true;
+    }
+    return projected ? "PROJECTED" : "CONFIRMED";
+  }
+
+  function weakerConfidence(a, b) {
+    if (a === "UNKNOWN" || b === "UNKNOWN") return "UNKNOWN";
+    return a === "PROJECTED" || b === "PROJECTED" ? "PROJECTED" : "CONFIRMED";
+  }
+
   /*
-   * The joint T+N settlement date: walk forward day by day, counting only days EVERY calendar
-   * trades on. n === 0 returns the trade date unchanged; otherwise the trade date is never counted,
+   * The joint T+N business-date offset: walk forward, counting only days EVERY calendar is open.
+   * n === 0 returns the start date unchanged; otherwise the start date is never counted,
    * so T+1 from a Friday is the following Monday. Mirrors DateStream.nthBusinessDay over
    * JointDateStream.isBusinessDay, bound included.
    */
@@ -75,9 +119,14 @@
     var remaining = n;
     var guard = MAX_SEARCH_DAYS * n + MAX_SEARCH_DAYS;
     var iso = tradeIso;
+    var effective = "CONFIRMED";
+    var examined = n === 0 ? [tradeIso] : [];
+    if (n === 0) calendars.forEach(function (calendar) {
+      effective = weakerConfidence(effective, confidence(calendar, tradeIso));
+    });
     while (remaining > 0) {
       if (guard-- <= 0) {
-        throw new Error("No settlement date within " + MAX_SEARCH_DAYS * n + " days");
+        throw new Error("No business date within " + MAX_SEARCH_DAYS * n + " days");
       }
       day += DAY;
       iso = toIso(day);
@@ -85,18 +134,20 @@
       var closed = [];
       for (var i = 0; i < calendars.length; i++) {
         if (!calendars[i].years[iso.slice(0, 4)]) {
-          throw new Error(calendars[i].id + " has no published data for " + iso);
+          throw coverageError(calendars[i].id, iso);
         }
         if (!isBusinessDay(calendars[i], iso, name)) {
           closed.push(calendars[i].id);
         }
+        effective = weakerConfidence(effective, confidence(calendars[i], iso));
       }
+      examined.push(iso);
       steps.push({ date: iso, closed: closed });
       if (!closed.length) {
         remaining--;
       }
     }
-    return { settles: iso, steps: steps };
+    return { settles: iso, steps: steps, effective_confidence: effective, examined_dates: examined };
   }
 
   // ------------------------------------------------------------- fetching
@@ -116,11 +167,13 @@
   function load(api, id, years) {
     var calendar = cache[id];
     if (!calendar) {
-      calendar = cache[id] = { id: id, closed: {}, years: {}, pending: {} };
+      calendar = cache[id] = { id: id, closed: {}, projected: {}, years: {}, pending: {} };
       calendar.pending.manifest = fetchJson(api + id + "/manifest.json").then(function (manifest) {
         calendar.weekend = periodsOf(manifest.weekend_policy);
         calendar.from = manifest.range_start;
         calendar.to = manifest.range_end;
+        calendar.quality = (manifest.coverage || {}).quality || [];
+        calendar.verifiedThrough = (manifest.coverage || {}).verified_through;
       });
     }
     var jobs = [calendar.pending.manifest];
@@ -130,6 +183,7 @@
         calendar.pending[key] = fetchJson(api + id + "/" + key + ".json").then(
           function (document_) {
             (document_.events || []).forEach(function (event) {
+              if (event.status === "PROJECTED") calendar.projected[event.date] = true;
               if (event.type === "CLOSED") {
                 calendar.closed[event.date] = true;
               }
@@ -169,9 +223,9 @@
      from the page or the API is written with textContent below. */
   var FORM =
     '<form class="settlement-form">' +
-    '<label for="sd">Trade date</label><input id="sd" type="date" required>' +
+    '<label for="sd">Start date</label><input id="sd" type="date" required>' +
     '<label for="sn">T+</label><input id="sn" type="number" min="0" max="10" value="2">' +
-    "<button type=\"submit\">Settle</button></form>" +
+    "<button type=\"submit\">Calculate</button></form>" +
     '<div class="settlement-result" role="status"></div>';
 
   function mountSettlement(mount) {
@@ -206,7 +260,7 @@
           render(result, ids, tradeIso, steps, settle(calendars, tradeIso, steps));
         })
         .catch(function (error) {
-          result.textContent = "Could not settle: " + error.message;
+          result.textContent = "Could not calculate: " + error.message;
         });
     });
   }
@@ -216,7 +270,8 @@
     var headline = document.createElement("p");
     headline.className = "settlement-answer";
     headline.textContent =
-      "T+" + n + " from " + tradeIso + " settles " + answer.settles + " on " + ids.join(" + ");
+      "T+" + n + " from " + tradeIso + " reaches " + answer.settles + " on " + ids.join(" + ") +
+      ". Confidence across the calculation: " + answer.effective_confidence + ".";
     result.appendChild(headline);
 
     var list = document.createElement("ol");
@@ -261,17 +316,22 @@
     )
       .then(function () {
         var failures = [];
+        verifyPathConfidence(failures);
         fixture.cases.forEach(function (one) {
           var calendars = [cache[one.a], cache[one.b]];
           var got;
           try {
             got = settle(calendars, one.trade_date, one.n);
           } catch (error) {
-            failures.push(describe(one) + ": threw " + error.message);
+            if (one.error_date !== error.date) failures.push(describe(one) + ": threw " + error.message);
             return;
           }
+          if (one.error_date) { failures.push(describe(one) + ": expected coverage failure"); return; }
           if (got.settles !== one.settles) {
             failures.push(describe(one) + ": expected " + one.settles + ", got " + got.settles);
+          }
+          if (got.effective_confidence !== one.effective_confidence) {
+            failures.push(describe(one) + ": confidence " + got.effective_confidence + " != " + one.effective_confidence);
           }
           var skipped = got.steps.filter(function (step) {
             return step.closed.length;
@@ -282,12 +342,36 @@
             failures.push(describe(one) + ": skipped days " + actual + " != " + expected);
           }
         });
-        report(mount, fixture.cases.length, failures);
+        report(mount, fixture.cases.length + 3, failures);
       })
       .catch(function (error) {
         mount.textContent =
           "Could not run: " + error.message + " — serve the site over HTTP, not file://.";
       });
+  }
+
+  // A projected closure followed by a confirmed open date must keep the path projected.
+  // Identity cases establish neither business-day status nor an in-range guarantee.
+  function verifyPathConfidence(failures) {
+    var calendar = { id: "CONFIDENCE-CHECK", from: "2026-01-01", to: "2026-01-02",
+      years: { "2026": true }, closed: { "2026-01-01": true }, projected: {}, weekend: [], quality: [] };
+    ["SCHEDULED_CLOSURES", "EARLY_CLOSES", "UNSCHEDULED_EXCEPTIONS"].forEach(function (scope) {
+      calendar.quality.push({ scope: scope, from: "2026-01-01", to: "2026-01-02", quality: "VERIFIED" });
+    });
+    calendar.quality.push({ scope: "SCHEDULED_CLOSURES", from: "2026-01-01", to: "2026-01-01", quality: "PROJECTED" });
+    var traversed = settle([calendar], "2025-12-31", 1);
+    if (traversed.settles !== "2026-01-02" || traversed.effective_confidence !== "PROJECTED" ||
+        JSON.stringify(traversed.examined_dates) !== '["2026-01-01","2026-01-02"]') {
+      failures.push("Projected closure was lost from traversal confidence");
+    }
+    var outside = settle([calendar], "2025-12-31", 0);
+    if (outside.settles !== "2025-12-31" || outside.effective_confidence !== "UNKNOWN") {
+      failures.push("Zero offset outside coverage must retain unknown confidence");
+    }
+    var closed = settle([calendar], "2026-01-01", 0);
+    if (closed.settles !== "2026-01-01" || closed.steps.length !== 0 || closed.effective_confidence !== "PROJECTED") {
+      failures.push("Zero offset must preserve a closed start date");
+    }
   }
 
   function describe(one) {

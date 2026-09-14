@@ -106,13 +106,11 @@ class ComparePageTest {
   }
 
   @Test
-  void pairPageSummarisesCountsAndTheJointVerifiedThroughDate() throws IOException {
+  void pairPageSummarisesCountsAndBothCoverageQualities() throws IOException {
     String page = GeneratedSite.read("compare/SA-TADAWUL/US-NYSE/index.html");
-    // SA-TADAWUL is verified through 2029-12-31 and US-NYSE through 2026-12-31; the joint answer is
-    // only as good as its worst member, so the page must show the earlier of the two.
-    assertTrue(
-        page.contains("<dt>Joint verified through</dt><dd><time datetime=\"2026-12-31\">"),
-        "joint verified_through should be the minimum of the two calendars");
+    assertTrue(page.contains("<dt>SA-TADAWUL coverage quality</dt><dd>"));
+    assertTrue(page.contains("<dt>US-NYSE coverage quality</dt><dd>"));
+    assertFalse(page.contains("Joint verified through"));
     assertTrue(
         page.contains("<dt>Shared coverage</dt><dd>2020-01-01 to 2030-12-31"),
         "shared coverage should be the intersection of the two ranges");

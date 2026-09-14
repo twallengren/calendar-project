@@ -3,31 +3,24 @@ id: hk_mid_autumn
 
 # The day following the Chinese Mid-Autumn Festival. A Hong Kong general holiday (General
 # Holidays Ordinance, Cap. 149, Schedule) -- note that the holiday is the day AFTER the festival,
-# not the festival itself. The lunar calendar is not modelled in this project, so every date is
-# transcribed from the Hong Kong Government's gazetted general holidays list for that year,
-# already carrying the Ordinance's Sunday substitution ("the second day following the Chinese
-# Mid-Autumn Festival", 12 Sep 2022). Saturday occurrences (14 Sep 2019, 30 Sep 2023,
-# 26 Sep 2026) are not trading days and are not listed.
-# Source: govhk-general-holidays / govhk-general-holidays-archived (gazetted dates),
-# hkex-calendar (market closed).
+# not the festival itself. The bounded CHINESE_HK rule selects day 16 of month eight for the
+# exchange-evidenced 2018-2027 interval. Sunday is substituted; Saturday is not.
 
 source:
   - id: govhk-general-holidays
   - id: hkex-calendar
+  - id: hko-gregorian-lunar-conversion
 
 event_sources:
   - key: hk_mid_autumn
     name: The day following the Chinese Mid-Autumn Festival
     default_classification: CLOSED
+    shiftable: true
+    shift_policy: FORWARD_ONLY
     status: CONFIRMED
     rule:
-      type: explicit_dates
-      dates:
-        - 2018-09-25
-        - 2020-10-02
-        - 2021-09-22
-        - date: 2022-09-12
-          comment: observed the second day following; 11 September was a Sunday
-        - 2024-09-18
-        - 2025-10-07
-        - 2027-09-16
+      type: native_fixed_month_day
+      chronology: CHINESE_HK
+      month_codes: [M08]
+      day: 16
+      native_years: [{start: 2018, end: 2027}]

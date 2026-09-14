@@ -4,11 +4,22 @@ import com.bdc.chronology.DateRange;
 import com.bdc.model.Event;
 import com.bdc.model.EventStatus;
 import com.bdc.model.EventType;
+import com.bdc.trust.CompletenessScope;
+import com.bdc.trust.CoverageInterval;
+import com.bdc.trust.CoverageQuality;
+import com.bdc.trust.DayAssessment;
+import com.bdc.trust.DayState;
+import com.bdc.trust.EventDetails;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.ZoneId;
 import java.util.Comparator;
+import java.util.EnumMap;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
 
 /**
  * The query API over a calendar: the one surface every distribution channel (CLI, static JSON API,
@@ -29,8 +40,9 @@ import java.util.Optional;
  *   <li>every other query ({@link #eventsOn}, {@link #eventsInRange}, {@link #isBusinessDay},
  *       {@link #nextBusinessDay}, {@link #prevBusinessDay}, {@link #nthBusinessDay}, {@link
  *       #businessDaysInRange}, {@link #eventCountInRange}, {@link #eventOn}, {@link #closeTime},
- *       {@link #isEarlyClose}) throws {@link OutsideCoverageException}, which carries the calendar
- *       id, the offending date and the range.
+ *       {@link #isEarlyClose}, {@link #adjust}, {@link #businessDayOffset}, {@link #advanceMonths},
+ *       {@link #lastBusinessDayOfMonth}) throws {@link OutsideCoverageException}, which carries the
+ *       calendar id, the offending date and the range.
  * </ul>
  *
  * <p>A navigation query whose bounded search walks past the end of the range therefore throws
@@ -67,6 +79,16 @@ public interface DateStream {
    * calendar declares one. Dates after it are {@link EventStatus#PROJECTED}.
    */
   Optional<LocalDate> verifiedThrough();
+
+  /** Explicit completeness intervals. An empty list identifies a legacy artifact. */
+  default List<CoverageInterval> coverageIntervals() {
+    return List.of();
+  }
+
+  /** IANA timezone for local close times, absent when legacy metadata did not declare one. */
+  default Optional<ZoneId> timezone() {
+    return Optional.empty();
+  }
 
   // === Core queries ===
 
@@ -156,14 +178,14 @@ public interface DateStream {
       return from;
     }
     LocalDate current = from;
-    int remaining = Math.abs(n);
+    long remaining = Math.abs((long) n);
     boolean forward = n > 0;
     long guard = (long) MAX_SEARCH_DAYS * remaining + MAX_SEARCH_DAYS;
     while (remaining > 0) {
       if (guard-- <= 0) {
         throw new IllegalStateException(
             "Could not find "
-                + Math.abs(n)
+                + Math.abs((long) n)
                 + " business days "
                 + (forward ? "after " : "before ")
                 + from);
@@ -174,6 +196,60 @@ public interface DateStream {
       }
     }
     return current;
+  }
+
+  /** Adjusts a date under a standard business-day convention. */
+  default LocalDate adjust(LocalDate date, BusinessDayConvention convention) {
+    return adjustDetailed(date, convention).resultDate();
+  }
+
+  /** Rich form of {@link #adjust}, including confidence across the complete search path. */
+  default DateOperationResult adjustDetailed(LocalDate date, BusinessDayConvention convention) {
+    return FinancialDateOperations.adjust(this, date, convention);
+  }
+
+  /** Moves by a number of business dates; zero preserves the legacy identity behavior. */
+  default LocalDate businessDayOffset(LocalDate date, int offset) {
+    return businessDayOffsetDetailed(date, offset).resultDate();
+  }
+
+  /** Rich business-date offset with every examined date and its aggregate confidence. */
+  default DateOperationResult businessDayOffsetDetailed(LocalDate date, int offset) {
+    return FinancialDateOperations.offset(this, date, offset);
+  }
+
+  /** Advances by calendar months, clips the nominal day, then applies {@code convention}. */
+  default LocalDate advanceMonths(LocalDate date, int months, BusinessDayConvention convention) {
+    return advanceMonths(date, months, convention, false);
+  }
+
+  /** Advances by calendar months, with an explicit business-month-end preservation choice. */
+  default LocalDate advanceMonths(
+      LocalDate date, int months, BusinessDayConvention convention, boolean preserveEndOfMonth) {
+    return advanceMonthsDetailed(date, months, convention, preserveEndOfMonth).resultDate();
+  }
+
+  /** Rich month advancement including source/destination month-end decision paths. */
+  default DateOperationResult advanceMonthsDetailed(
+      LocalDate date, int months, BusinessDayConvention convention) {
+    return advanceMonthsDetailed(date, months, convention, false);
+  }
+
+  /** Rich month advancement with an explicit business-month-end preservation choice. */
+  default DateOperationResult advanceMonthsDetailed(
+      LocalDate date, int months, BusinessDayConvention convention, boolean preserveEndOfMonth) {
+    return FinancialDateOperations.advanceMonths(
+        this, date, months, convention, preserveEndOfMonth);
+  }
+
+  /** The last resolved business date in the input date's calendar month. */
+  default LocalDate lastBusinessDayOfMonth(LocalDate date) {
+    return lastBusinessDayOfMonthDetailed(date).resultDate();
+  }
+
+  /** Rich last-business-day query, including the backwards search path. */
+  default DateOperationResult lastBusinessDayOfMonthDetailed(LocalDate date) {
+    return FinancialDateOperations.lastBusinessDayOfMonth(this, date);
   }
 
   // === Counting ===
@@ -203,6 +279,12 @@ public interface DateStream {
    * @throws OutsideCoverageException if either endpoint lies outside {@link #range()}
    */
   default long eventCountInRange(LocalDate from, LocalDate to) {
+    if (from.isAfter(to)) {
+      throw new IllegalArgumentException("from must not be after to");
+    }
+    for (LocalDate date = from; !date.isAfter(to); date = date.plusDays(1)) {
+      requireResolved(date);
+    }
     return eventsInRange(from, to).size();
   }
 
@@ -216,6 +298,7 @@ public interface DateStream {
    * @throws OutsideCoverageException if the date lies outside {@link #range()}
    */
   default Optional<LocalTime> closeTime(LocalDate date) {
+    requireResolved(date);
     return eventsOn(date).stream()
         .filter(e -> e.type() == EventType.EARLY_CLOSE && e.closeTime() != null)
         .map(Event::closeTime)
@@ -233,10 +316,22 @@ public interface DateStream {
   }
 
   /**
+   * Member-specific local early closes. A missing legacy timezone remains null. Prefer this over
+   * comparing the local wall-clock values returned by a joint stream's {@link #closeTime}.
+   */
+  default List<MemberClose> memberCloses(LocalDate date) {
+    Optional<LocalTime> close = closeTime(date);
+    return close
+        .map(value -> List.of(new MemberClose(calendarId(), timezone().orElse(null), value)))
+        .orElseGet(List::of);
+  }
+
+  /**
    * How much confidence the data for this date deserves. Never throws.
    *
    * <ul>
    *   <li>{@code UNKNOWN} when the date lies outside {@link #range()};
+   *   <li>the assessment's effective confidence when explicit scope quality is present;
    *   <li>{@code PROJECTED} when the date is after {@link #verifiedThrough()}, whatever the rows
    *       say, or when any event on the date is {@code PROJECTED};
    *   <li>{@code CONFIRMED} otherwise.
@@ -246,11 +341,156 @@ public interface DateStream {
     if (!range().contains(date)) {
       return EventStatus.UNKNOWN;
     }
+    if (!coverageIntervals().isEmpty()) {
+      return assessment(date).effectiveConfidence();
+    }
     if (verifiedThrough().map(date::isAfter).orElse(false)) {
       return EventStatus.PROJECTED;
     }
     return eventsOn(date).stream().anyMatch(e -> e.status() == EventStatus.PROJECTED)
         ? EventStatus.PROJECTED
         : EventStatus.CONFIRMED;
+  }
+
+  /**
+   * Explains the actual and scheduled state of a date without throwing. Missing explicit quality
+   * for any scope is incomplete. Legacy artifacts stay query-compatible, but their enriched
+   * completeness is reported as PROJECTED because they do not prove scope-specific evidence.
+   */
+  default DayAssessment assessment(LocalDate date) {
+    if (!range().contains(date)) {
+      Map<CompletenessScope, CoverageQuality> unknown = new EnumMap<>(CompletenessScope.class);
+      for (CompletenessScope scope : CompletenessScope.values()) {
+        unknown.put(scope, CoverageQuality.INCOMPLETE);
+      }
+      return new DayAssessment(
+          date,
+          DayState.UNKNOWN,
+          DayState.UNKNOWN,
+          EventStatus.UNKNOWN,
+          unknown,
+          List.of(),
+          List.of());
+    }
+
+    List<Event> rawEvents = eventsOn(date);
+    DayState scheduled = scheduledState(rawEvents);
+    Map<CompletenessScope, CoverageQuality> completeness = new EnumMap<>(CompletenessScope.class);
+    Set<String> evidence = new LinkedHashSet<>();
+    boolean explicit = !coverageIntervals().isEmpty();
+    for (CompletenessScope scope : CompletenessScope.values()) {
+      CoverageQuality quality = null;
+      if (!explicit) {
+        quality = CoverageQuality.PROJECTED;
+      } else {
+        for (CoverageInterval interval : coverageIntervals()) {
+          if (interval.scope() == scope && interval.contains(date)) {
+            quality = strongerUncertainty(quality, interval.quality());
+            evidence.addAll(interval.evidenceIds());
+          }
+        }
+      }
+      completeness.put(scope, quality == null ? CoverageQuality.INCOMPLETE : quality);
+    }
+
+    boolean incomplete = completeness.containsValue(CoverageQuality.INCOMPLETE);
+    boolean projected = completeness.containsValue(CoverageQuality.PROJECTED);
+    boolean rawProjected = rawEvents.stream().anyMatch(e -> e.status() == EventStatus.PROJECTED);
+    EventStatus confidence =
+        incomplete
+            ? EventStatus.UNKNOWN
+            : projected || rawProjected ? EventStatus.PROJECTED : EventStatus.CONFIRMED;
+    if (!explicit) {
+      confidence =
+          verifiedThrough().map(date::isAfter).orElse(false) || rawProjected
+              ? EventStatus.PROJECTED
+              : EventStatus.CONFIRMED;
+    }
+    EventStatus effectiveConfidence = confidence;
+    DayState actual = incomplete ? DayState.UNKNOWN : scheduled;
+    List<EventDetails> details =
+        eventDetailsOn(date).stream()
+            .map(
+                detail -> {
+                  return new EventDetails(
+                      detail.event(),
+                      detail.rawStatus(),
+                      effectiveConfidence,
+                      detail.evidenceIds(),
+                      detail.nominalNativeDate(),
+                      detail.chronologyProfile(),
+                      detail.chronologyProvider(),
+                      detail.observationLineage());
+                })
+            .toList();
+    details.forEach(detail -> evidence.addAll(detail.evidenceIds()));
+    return new DayAssessment(
+        date,
+        actual,
+        scheduled,
+        effectiveConfidence,
+        completeness,
+        evidence.stream().sorted().toList(),
+        details);
+  }
+
+  /** Raw event provenance, with assessment() supplying effective day confidence separately. */
+  default List<EventDetails> eventDetailsOn(LocalDate date) {
+    return eventsOn(date).stream()
+        .map(
+            event ->
+                new EventDetails(
+                    event,
+                    event.status(),
+                    event.status(),
+                    List.of(),
+                    null,
+                    null,
+                    null,
+                    event.observedFrom() == null
+                        ? List.of()
+                        : List.of(event.observedFrom(), event.date())))
+        .toList();
+  }
+
+  /** Refuses boolean/session answers when an explicitly modelled scope is incomplete. */
+  default void requireResolved(LocalDate date) {
+    DayAssessment assessment = assessment(date);
+    if (assessment.state() != DayState.UNKNOWN) {
+      return;
+    }
+    if (!range().contains(date)) {
+      throw new OutsideCoverageException(calendarId(), date, range());
+    }
+    Set<CompletenessScope> incomplete =
+        assessment.completeness().entrySet().stream()
+            .filter(entry -> entry.getValue() == CoverageQuality.INCOMPLETE)
+            .map(Map.Entry::getKey)
+            .collect(java.util.stream.Collectors.toUnmodifiableSet());
+    throw new UnresolvedDateException(calendarId(), date, range(), incomplete);
+  }
+
+  private static CoverageQuality strongerUncertainty(
+      CoverageQuality current, CoverageQuality candidate) {
+    if (current == null) {
+      return candidate;
+    }
+    if (current == CoverageQuality.INCOMPLETE || candidate == CoverageQuality.INCOMPLETE) {
+      return CoverageQuality.INCOMPLETE;
+    }
+    return current == CoverageQuality.PROJECTED || candidate == CoverageQuality.PROJECTED
+        ? CoverageQuality.PROJECTED
+        : CoverageQuality.VERIFIED;
+  }
+
+  private static DayState scheduledState(List<Event> events) {
+    if (events.stream()
+        .anyMatch(e -> e.type() == EventType.CLOSED || e.type() == EventType.WEEKEND)) {
+      return DayState.CLOSED;
+    }
+    if (events.stream().anyMatch(e -> e.type() == EventType.EARLY_CLOSE)) {
+      return DayState.EARLY_CLOSE;
+    }
+    return DayState.OPEN;
   }
 }

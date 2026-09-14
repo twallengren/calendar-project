@@ -257,10 +257,63 @@ def test_holidays_outside_coverage_raises(nyse):
 # --- Status and coverage -----------------------------------------------------
 
 
+def test_explicit_incomplete_scope_preserves_scheduled_state_and_refuses_boolean_answer():
+    from bdc_calendars._loader import CalendarData
+    from bdc_calendars.calendar import SingleCalendar
+
+    metadata = {
+        "range_start": "2020-01-01",
+        "range_end": "2020-12-31",
+        "coverage": {
+            "verified_through": "2020-12-31",
+            "quality": [
+                {
+                    "scope": "SCHEDULED_CLOSURES",
+                    "from": "2020-01-01",
+                    "to": "2020-12-31",
+                    "quality": "INCOMPLETE",
+                    "evidence_ids": ["missing-primary"],
+                },
+                {
+                    "scope": "EARLY_CLOSES",
+                    "from": "2020-01-01",
+                    "to": "2020-12-31",
+                    "quality": "PROJECTED",
+                    "evidence_ids": [],
+                },
+                {
+                    "scope": "UNSCHEDULED_EXCEPTIONS",
+                    "from": "2020-01-01",
+                    "to": "2020-12-31",
+                    "quality": "PROJECTED",
+                    "evidence_ids": [],
+                },
+            ],
+        },
+    }
+    calendar = SingleCalendar(CalendarData("TEST", metadata, []))
+    day = dt.date(2020, 7, 30)
+
+    assessment = calendar.assessment(day)
+    assert assessment.state == "UNKNOWN"
+    assert assessment.scheduled_state == "OPEN"
+    assert assessment.effective_confidence == "UNKNOWN"
+    assert assessment.evidence_ids == ["missing-primary"]
+    with pytest.raises(bdc.UnresolvedDateError) as excinfo:
+        calendar.is_business_day(day)
+    assert isinstance(excinfo.value, bdc.OutsideCoverageError)
+    assert excinfo.value.incomplete_scopes == ["SCHEDULED_CLOSURES"]
+    with pytest.raises(bdc.UnresolvedDateError):
+        calendar.event_count_in_range(day, day)
+
+
 def test_status(nyse):
     assert nyse.verified_through == dt.date(2026, 12, 31)
-    assert nyse.status(dt.date(2025, 7, 4)) == "CONFIRMED"
-    assert nyse.status(dt.date(2026, 12, 31)) == "CONFIRMED"
+    # Audited scope quality supersedes the legacy scalar verification horizon.
+    modern_status = "PROJECTED" if nyse.coverage_intervals else "CONFIRMED"
+    assert nyse.status(dt.date(2007, 6, 1)) == "CONFIRMED"
+    assert nyse.status(dt.date(2025, 7, 4)) == modern_status
+    assert nyse.status(dt.date(2026, 12, 31)) == modern_status
     assert nyse.status(dt.date(2028, 6, 1)) == "PROJECTED"
     assert nyse.status(dt.date(2031, 1, 1)) == "UNKNOWN"
     assert nyse.status(dt.date(1899, 12, 31)) == "UNKNOWN"
@@ -370,7 +423,8 @@ def test_joint_settlement_crosses_both_markets(joint):
 
 
 def test_joint_status_is_as_good_as_its_worst_member(joint):
-    assert joint.status(dt.date(2026, 3, 2)) == "CONFIRMED"
+    modern_status = "PROJECTED" if bdc.get_calendar(NYSE).coverage_intervals else "CONFIRMED"
+    assert joint.status(dt.date(2026, 3, 2)) == modern_status
     assert joint.status(dt.date(2028, 6, 1)) == "PROJECTED"  # past the NYSE horizon
     assert joint.status(dt.date(2019, 1, 1)) == "UNKNOWN"  # outside SA-TADAWUL
 

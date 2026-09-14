@@ -1,3 +1,4 @@
+source,side,date,type,close_time,reason
 # Known differences between our FR-EURONEXT-PARIS data and the reference datasets.
 # source,side,date,type,reason
 #
@@ -8,5 +9,20 @@
 # euronext-calendars-hours-archive). The CAC 40, AEX and BEL 20 index histories have no
 # session that day. The Euronext notice wins, so we record a full closure and drop the early
 # close.
-exchange_calendars-XPAR,ours,2015-12-31,CLOSED,Euronext Calendar of business days 2015 lists 31 December 2015 as a market closure; the PDF/notice wins over exchange_calendars' generic New Year's Eve early-close rule
-exchange_calendars-XPAR,theirs,2015-12-31,EARLY_CLOSE,Euronext announced a half trading day for 24 December 2015 only; 31 December 2015 was a full closure per the same notice
+exchange_calendars-XPAR,ours,2015-12-31,CLOSED,,Euronext Calendar of business days 2015 lists 31 December 2015 as a market closure; the PDF/notice wins over exchange_calendars' generic New Year's Eve early-close rule
+exchange_calendars-XPAR,theirs,2015-12-31,EARLY_CLOSE,14:05,Euronext announced a half trading day for 24 December 2015 only; 31 December 2015 was a full closure per the same notice
+
+# Annual notices report the cash-market close. The reference includes five minutes
+# of trading at last; see sources/EU-EURONEXT/README.md (cross-validation precision).
+exchange_calendars-XPAR,ours,2010-12-24,EARLY_CLOSE,14:00,nyse-euronext-calendar-2010 reports 14:00 CET cash close; reference uses 14:05 CET including trading at last; local venue time compared exactly
+exchange_calendars-XPAR,theirs,2010-12-24,EARLY_CLOSE,14:05,nyse-euronext-calendar-2010 reports 14:00 CET cash close; reference uses 14:05 CET including trading at last; local venue time compared exactly
+exchange_calendars-XPAR,ours,2010-12-31,EARLY_CLOSE,14:00,nyse-euronext-calendar-2010 reports 14:00 CET cash close; reference uses 14:05 CET including trading at last; local venue time compared exactly
+exchange_calendars-XPAR,theirs,2010-12-31,EARLY_CLOSE,14:05,nyse-euronext-calendar-2010 reports 14:00 CET cash close; reference uses 14:05 CET including trading at last; local venue time compared exactly
+exchange_calendars-XPAR,ours,2012-12-24,EARLY_CLOSE,14:00,nyse-euronext-calendar-2012 reports 14:00 CET cash close; reference uses 14:05 CET including trading at last; local venue time compared exactly
+exchange_calendars-XPAR,theirs,2012-12-24,EARLY_CLOSE,14:05,nyse-euronext-calendar-2012 reports 14:00 CET cash close; reference uses 14:05 CET including trading at last; local venue time compared exactly
+exchange_calendars-XPAR,ours,2012-12-31,EARLY_CLOSE,14:00,nyse-euronext-calendar-2012 reports 14:00 CET cash close; reference uses 14:05 CET including trading at last; local venue time compared exactly
+exchange_calendars-XPAR,theirs,2012-12-31,EARLY_CLOSE,14:05,nyse-euronext-calendar-2012 reports 14:00 CET cash close; reference uses 14:05 CET including trading at last; local venue time compared exactly
+exchange_calendars-XPAR,ours,2013-12-24,EARLY_CLOSE,14:00,nyse-euronext-calendar-2013 reports 14:00 CET cash close; reference uses 14:05 CET including trading at last; local venue time compared exactly
+exchange_calendars-XPAR,theirs,2013-12-24,EARLY_CLOSE,14:05,nyse-euronext-calendar-2013 reports 14:00 CET cash close; reference uses 14:05 CET including trading at last; local venue time compared exactly
+exchange_calendars-XPAR,ours,2013-12-31,EARLY_CLOSE,14:00,nyse-euronext-calendar-2013 reports 14:00 CET cash close; reference uses 14:05 CET including trading at last; local venue time compared exactly
+exchange_calendars-XPAR,theirs,2013-12-31,EARLY_CLOSE,14:05,nyse-euronext-calendar-2013 reports 14:00 CET cash close; reference uses 14:05 CET including trading at last; local venue time compared exactly

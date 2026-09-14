@@ -52,10 +52,13 @@ public class JsonEventsEmitter {
     doc.put("range", range);
     CalendarSpec.Coverage coverage = spec.coverage();
     if (coverage != null) {
-      Map<String, String> cov = new LinkedHashMap<>();
+      Map<String, Object> cov = new LinkedHashMap<>();
       cov.put("from", str(coverage.from()));
       cov.put("to", str(coverage.to()));
       cov.put("verified_through", str(coverage.verifiedThrough()));
+      if (!coverage.quality().isEmpty()) {
+        cov.put("quality", CoverageSerialization.toMaps(coverage.quality()));
+      }
       doc.put("coverage", cov);
     }
     List<Map<String, Object>> rows = new ArrayList<>(events.size());

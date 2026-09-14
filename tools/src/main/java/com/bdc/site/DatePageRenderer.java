@@ -28,6 +28,7 @@ public final class DatePageRenderer {
           <p class="verdict {{verdictClass}}">{{verdict}}</p>
           {{{diffBanner}}}
           {{{events}}}
+          {{{assessment}}}
           <section aria-labelledby="around-heading">
             <h2 id="around-heading">Around this date</h2>
             {{{around}}}
@@ -102,6 +103,13 @@ public final class DatePageRenderer {
       verdictClass = "open";
     }
 
+    if (calendar.isUnknown(date)) {
+      verdict =
+          "Actual day state is unknown on "
+              + longDate
+              + ". Scheduled events are listed below; coverage is incomplete.";
+      verdictClass = "unknown";
+    }
     String description =
         verdict
             + " Source module, observance rule and the surrounding business days for "
@@ -117,6 +125,7 @@ public final class DatePageRenderer {
             "verdictClass", verdictClass,
             "diffBanner", diffBanner(calendar, date, root),
             "events", eventTable(calendar, events),
+            "assessment", assessment(calendar, date),
             "around", around(calendar, date),
             "root", root,
             "id", calendar.id(),
@@ -128,7 +137,7 @@ public final class DatePageRenderer {
         calendar.name() + ": " + headline + ", " + longDate,
         description,
         List.of(
-            new PageLayout.Crumb("Markets", "../../index.html"),
+            new PageLayout.Crumb("Calendars", "../../index.html"),
             new PageLayout.Crumb(calendar.id(), "../index.html"),
             new PageLayout.Crumb(
                 String.valueOf(date.getYear()), "../" + date.getYear() + "/index.html"),
@@ -203,6 +212,58 @@ public final class DatePageRenderer {
     return html.toString();
   }
 
+  private String assessment(CalendarData calendar, LocalDate date) {
+    var day = calendar.assessments().get(date);
+    if (day == null) return "";
+    StringBuilder html =
+        new StringBuilder(
+            "<section><h2>Confidence and native origins</h2><p>Effective confidence: ");
+    html.append(HtmlTemplate.escape(day.path("effective_confidence").asText()))
+        .append(". Scheduled state: ")
+        .append(HtmlTemplate.escape(day.path("scheduled_state").asText()))
+        .append(".</p><ul>");
+    day.path("completeness")
+        .fields()
+        .forEachRemaining(
+            field ->
+                html.append("<li>")
+                    .append(HtmlTemplate.escape(field.getKey()))
+                    .append(": ")
+                    .append(HtmlTemplate.escape(field.getValue().asText()))
+                    .append("</li>"));
+    html.append("</ul>");
+    for (var event : day.path("events")) {
+      var nativeDate = event.path("nominal_native_date");
+      if (nativeDate.isNull() || nativeDate.isMissingNode()) continue;
+      html.append("<p>")
+          .append(HtmlTemplate.escape(event.path("description").asText()))
+          .append(": <code>")
+          .append(HtmlTemplate.escape(nativeDate.path("chronology_id").asText()))
+          .append(" ")
+          .append(nativeDate.path("year").asInt())
+          .append(" ")
+          .append(HtmlTemplate.escape(nativeDate.path("month_code").asText()))
+          .append(" ")
+          .append(nativeDate.path("day").asInt())
+          .append("</code> → ")
+          .append(date)
+          .append(". Profile: ")
+          .append(HtmlTemplate.escape(event.path("chronology_profile").asText()))
+          .append(" (")
+          .append(HtmlTemplate.escape(event.path("chronology_provider").asText()))
+          .append("). Evidence: ");
+      List<String> evidence = new ArrayList<>();
+      event.path("evidence_ids").forEach(id -> evidence.add(id.asText()));
+      html.append(HtmlTemplate.escape(String.join(", ", evidence))).append(".</p>");
+    }
+    return html.append("<p><a href=\"../../v2/calendars/")
+        .append(HtmlTemplate.escape(calendar.id()))
+        .append("/")
+        .append(date.getYear())
+        .append(".json\">Full assessment and provenance as JSON</a></p></section>")
+        .toString();
+  }
+
   private String around(CalendarData calendar, LocalDate date) {
     LocalDate previous = calendar.adjacentBusinessDay(date, -1);
     LocalDate next = calendar.adjacentBusinessDay(date, 1);
@@ -230,7 +291,7 @@ public final class DatePageRenderer {
     if (date == null) {
       return "<span class=\"step disabled\">"
           + HtmlTemplate.escape(label)
-          + ": outside coverage</span>\n";
+          + ": unresolved or outside coverage</span>\n";
     }
     boolean hasOwnPage =
         calendar.eventsIn(date.getYear()).stream()

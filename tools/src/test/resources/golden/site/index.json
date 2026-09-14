@@ -20,7 +20,7 @@
     },
     "checksum" : "sha256:2911e892195b38a6e9b53785ee42e6edcea6d5b11915ef44ef0f42684d8ec79d",
     "years" : [ 2010, 2030 ],
-    "href" : "/v1/calendars/BE-EURONEXT-BRUSSELS/manifest.json"
+    "href" : "calendars/BE-EURONEXT-BRUSSELS/manifest.json"
   }, {
     "id" : "CA-TSX",
     "name" : "Toronto Stock Exchange",
@@ -43,7 +43,7 @@
     },
     "checksum" : "sha256:e3990abc8d46393df7fd25ed647770bff025f0dc03034d88792aed52592b00c4",
     "years" : [ 2000, 2030 ],
-    "href" : "/v1/calendars/CA-TSX/manifest.json"
+    "href" : "calendars/CA-TSX/manifest.json"
   }, {
     "id" : "DE-XETRA",
     "name" : "Deutsche Börse Xetra",
@@ -64,7 +64,28 @@
     },
     "checksum" : "sha256:7cb017d87e960494675fdc1caaff4363a8f05c96301331781dc94ad38f777677",
     "years" : [ 2003, 2030 ],
-    "href" : "/v1/calendars/DE-XETRA/manifest.json"
+    "href" : "calendars/DE-XETRA/manifest.json"
+  }, {
+    "id" : "EU-TARGET",
+    "name" : "T2 euro RTGS",
+    "timezone" : "Europe/Berlin",
+    "mic" : null,
+    "aliases" : [ ],
+    "coverage" : {
+      "from" : "2026-01-01",
+      "to" : "2027-12-31",
+      "verified_through" : "2027-12-31"
+    },
+    "counts_by_type" : {
+      "CLOSED" : 8,
+      "WEEKEND" : 208
+    },
+    "counts_by_status" : {
+      "CONFIRMED" : 216
+    },
+    "checksum" : "sha256:c8bd7a027e9ac3cdf3d031c717742d00b76f863d47d2ca933157572da2b3c56f",
+    "years" : [ 2026, 2027 ],
+    "href" : "calendars/EU-TARGET/manifest.json"
   }, {
     "id" : "FR-EURONEXT-PARIS",
     "name" : "Euronext Paris Trading Calendar",
@@ -86,7 +107,28 @@
     },
     "checksum" : "sha256:2911e892195b38a6e9b53785ee42e6edcea6d5b11915ef44ef0f42684d8ec79d",
     "years" : [ 2010, 2030 ],
-    "href" : "/v1/calendars/FR-EURONEXT-PARIS/manifest.json"
+    "href" : "calendars/FR-EURONEXT-PARIS/manifest.json"
+  }, {
+    "id" : "GB-CHAPS",
+    "name" : "CHAPS",
+    "timezone" : "Europe/London",
+    "mic" : null,
+    "aliases" : [ ],
+    "coverage" : {
+      "from" : "2026-01-01",
+      "to" : "2027-12-31",
+      "verified_through" : "2027-12-31"
+    },
+    "counts_by_type" : {
+      "CLOSED" : 16,
+      "WEEKEND" : 208
+    },
+    "counts_by_status" : {
+      "CONFIRMED" : 224
+    },
+    "checksum" : "sha256:adbd7b0ebe9ec21ee0b18029b89369680634f3beeea53ff6b25ca1d4caf4aab7",
+    "years" : [ 2026, 2027 ],
+    "href" : "calendars/GB-CHAPS/manifest.json"
   }, {
     "id" : "GB-LSE",
     "name" : "London Stock Exchange",
@@ -108,7 +150,7 @@
     },
     "checksum" : "sha256:307f5d8fa3df7d3028acb3d3138f2b8d65cf41fa692769914e1b350d3b70ec0e",
     "years" : [ 2000, 2030 ],
-    "href" : "/v1/calendars/GB-LSE/manifest.json"
+    "href" : "calendars/GB-LSE/manifest.json"
   }, {
     "id" : "HK-HKEX",
     "name" : "Hong Kong Exchanges and Clearing",
@@ -128,9 +170,31 @@
     "counts_by_status" : {
       "CONFIRMED" : 1208
     },
-    "checksum" : "sha256:f5691051cb8b3d9c599423961872296fa85d53ff72d9b355f2f2f273cb085f0a",
+    "checksum" : "sha256:7816d1a238a72cc8105892e7ab8cd14b6185b477943185c4157854a56f54310e",
     "years" : [ 2018, 2027 ],
-    "href" : "/v1/calendars/HK-HKEX/manifest.json"
+    "href" : "calendars/HK-HKEX/manifest.json"
+  }, {
+    "id" : "IL-TASE",
+    "name" : "Tel Aviv Stock Exchange",
+    "timezone" : "Asia/Jerusalem",
+    "mic" : "XTAE",
+    "aliases" : [ "TASE" ],
+    "coverage" : {
+      "from" : "2025-01-01",
+      "to" : "2027-12-31",
+      "verified_through" : "2025-12-31"
+    },
+    "counts_by_type" : {
+      "WEEKEND" : 310,
+      "CLOSED" : 19,
+      "EARLY_CLOSE" : 12
+    },
+    "counts_by_status" : {
+      "CONFIRMED" : 341
+    },
+    "checksum" : "sha256:65833fed51d56855f28d31a3d26ff3f289c5f364293c2844725be04cc60f3762",
+    "years" : [ 2025, 2027 ],
+    "href" : "calendars/IL-TASE/manifest.json"
   }, {
     "id" : "JP-JPX",
     "name" : "Japan Exchange Group (Tokyo Stock Exchange)",
@@ -152,7 +216,7 @@
     },
     "checksum" : "sha256:ee9a4d5d130a9576191305125565b68ea8fc85e8aa51153b31d1705b1a18c8ad",
     "years" : [ 2010, 2030 ],
-    "href" : "/v1/calendars/JP-JPX/manifest.json"
+    "href" : "calendars/JP-JPX/manifest.json"
   }, {
     "id" : "NL-EURONEXT-AMSTERDAM",
     "name" : "Euronext Amsterdam Trading Calendar",
@@ -174,7 +238,7 @@
     },
     "checksum" : "sha256:2911e892195b38a6e9b53785ee42e6edcea6d5b11915ef44ef0f42684d8ec79d",
     "years" : [ 2010, 2030 ],
-    "href" : "/v1/calendars/NL-EURONEXT-AMSTERDAM/manifest.json"
+    "href" : "calendars/NL-EURONEXT-AMSTERDAM/manifest.json"
   }, {
     "id" : "PT-EURONEXT-LISBON",
     "name" : "Euronext Lisbon Trading Calendar",
@@ -196,7 +260,7 @@
     },
     "checksum" : "sha256:5f1f1df0a89a74e2108aa4c765f35bfde3a3b6c6d2510ad2935b4af49a65d2dc",
     "years" : [ 2010, 2030 ],
-    "href" : "/v1/calendars/PT-EURONEXT-LISBON/manifest.json"
+    "href" : "calendars/PT-EURONEXT-LISBON/manifest.json"
   }, {
     "id" : "SA-TADAWUL",
     "name" : "Tadawul (Saudi Exchange) Trading Calendar",
@@ -218,7 +282,28 @@
     },
     "checksum" : "sha256:7abe60d0b866382dae15d4ab78bab9286fdceb737781776c08abcf3972a4bbe1",
     "years" : [ 2020, 2030 ],
-    "href" : "/v1/calendars/SA-TADAWUL/manifest.json"
+    "href" : "calendars/SA-TADAWUL/manifest.json"
+  }, {
+    "id" : "US-FEDWIRE",
+    "name" : "Fedwire Funds Service",
+    "timezone" : "America/New_York",
+    "mic" : null,
+    "aliases" : [ ],
+    "coverage" : {
+      "from" : "2026-01-01",
+      "to" : "2027-12-31",
+      "verified_through" : "2027-12-31"
+    },
+    "counts_by_type" : {
+      "CLOSED" : 19,
+      "WEEKEND" : 208
+    },
+    "counts_by_status" : {
+      "CONFIRMED" : 227
+    },
+    "checksum" : "sha256:18913140ae886795a553c451759e5f7ef181380659fd308dc065365ffb9ec1e9",
+    "years" : [ 2026, 2027 ],
+    "href" : "calendars/US-FEDWIRE/manifest.json"
   }, {
     "id" : "US-NYSE",
     "name" : "NYSE Trading Calendar",
@@ -233,19 +318,19 @@
     "counts_by_type" : {
       "CLOSED" : 1649,
       "WEEKEND" : 11061,
-      "EARLY_CLOSE" : 126
+      "EARLY_CLOSE" : 127
     },
     "counts_by_status" : {
-      "CONFIRMED" : 12836
+      "CONFIRMED" : 12837
     },
-    "checksum" : "sha256:1c9c599763a4a964592dcce6dbca29b940a02ece883fd4937dcdf408199e5763",
+    "checksum" : "sha256:2e256009884c6adf7876f375336f547b8bb88bd54174522382c152de791de2cc",
     "years" : [ 1900, 2030 ],
-    "href" : "/v1/calendars/US-NYSE/manifest.json"
+    "href" : "calendars/US-NYSE/manifest.json"
   } ],
   "release" : {
-    "semantic" : "11.0.0",
-    "git_sha" : "3765bcb10d3ebcb7cfc338bcebf94505af25ec1e",
-    "generation_date" : "2026-02-16"
+    "semantic" : "12.0.0",
+    "git_sha" : "94db6de7728c26ee75c0449220a721bfdb1977d7",
+    "generation_date" : "2026-09-14"
   },
   "generated_at" : "2026-06-01T00:00:00Z",
   "schema_version" : "1.0",

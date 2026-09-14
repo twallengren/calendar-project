@@ -1,496 +1,446 @@
-name: Release
+name: Publish reviewed release
 
 on:
-  push:
+  workflow_run:
+    workflows: [CI]
+    types: [completed]
     branches: [main]
-    paths:
-      - 'calendars/**'
-      - 'modules/**'
-      - 'chronologies/**'
-      - 'tools/src/main/**'
-  # A push that touches these paths but produces no change in generated output
-  # exits early (ci-diff returns 0), so tool-only refactors do not cut releases.
-  # Use workflow_dispatch to force a release for anything else.
   workflow_dispatch:
     inputs:
-      force_version_type:
-        description: 'Force version bump type'
-        required: false
-        type: choice
-        options:
-          - auto
-          - major
-          - minor
-          - patch
+      commit:
+        description: Exact full commit SHA containing a reviewed release descriptor
+        required: true
 
 permissions:
-  contents: write
+  contents: read
+  actions: read
+
+concurrency:
+  group: publication
+  cancel-in-progress: false
 
 env:
   JAVA_VERSION: '21'
-  JAVA_DISTRIBUTION: 'temurin'
+  JAVA_DISTRIBUTION: temurin
 
 jobs:
-  check-release-needed:
+  build-once:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.workflow_run.conclusion == 'success' &&
+       github.event.workflow_run.head_branch == 'main')
     runs-on: ubuntu-latest
     outputs:
-      should_release: ${{ steps.check.outputs.should_release }}
-      version_type: ${{ steps.check.outputs.version_type }}
-      new_version: ${{ steps.check.outputs.new_version }}
-
+      release: ${{ steps.gate.outputs.release }}
+      commit: ${{ steps.gate.outputs.commit }}
+      data_version: ${{ steps.gate.outputs.data_version }}
+      python_version: ${{ steps.gate.outputs.python_version }}
+      java_core_version: ${{ steps.gate.outputs.java_core_version }}
+      release_tag: ${{ steps.gate.outputs.release_tag }}
+      release_kind: ${{ steps.gate.outputs.release_kind }}
+      publish_python: ${{ steps.gate.outputs.publish_python }}
+      publish_maven: ${{ steps.gate.outputs.publish_maven }}
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - name: Resolve exact CI-tested commit
+        id: resolve
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          TESTED_SHA: ${{ github.event.workflow_run.head_sha }}
+          MANUAL_SHA: ${{ inputs.commit }}
+        run: |
+          COMMIT="$TESTED_SHA"
+          if [ "$EVENT_NAME" = workflow_dispatch ]; then COMMIT="$MANUAL_SHA"; fi
+          case "$COMMIT" in *[!0-9a-f]*|'') exit 2;; esac
+          test "${#COMMIT}" -eq 40
+          echo "commit=$COMMIT" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/checkout@v4
         with:
+          ref: ${{ steps.resolve.outputs.commit }}
           fetch-depth: 0
 
-      - name: Set up JDK ${{ env.JAVA_VERSION }}
-        uses: actions/setup-java@v4
-        with:
-          java-version: ${{ env.JAVA_VERSION }}
-          distribution: ${{ env.JAVA_DISTRIBUTION }}
-
-      - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v3
-
-      - name: Build tools
-        run: ./gradlew :tools:installDist
-
-      - name: Determine version bump
-        id: check
+      - name: Prove CI succeeded for this exact commit
+        env:
+          GH_TOKEN: ${{ github.token }}
+          COMMIT: ${{ steps.resolve.outputs.commit }}
         run: |
-          # Get current version from manifest
-          CURRENT_VERSION=$(jq -r '.release_version.semantic // "0.0.0"' blessed/manifest.json)
-          echo "Current version: $CURRENT_VERSION"
+          git fetch origin +refs/heads/main:refs/remotes/origin/main
+          git merge-base --is-ancestor "$COMMIT" refs/remotes/origin/main || {
+            echo "$COMMIT is not contained in the protected main branch" >&2
+            exit 1
+          }
+          MATCHES=$(gh api -X GET "repos/$GITHUB_REPOSITORY/actions/workflows/ci.yml/runs" \
+            -f head_sha="$COMMIT" -f status=completed | \
+            jq --arg sha "$COMMIT" '[.workflow_runs[] | select(
+              .head_sha == $sha and
+              .head_branch == "main" and
+              .event == "push" and
+              .conclusion == "success"
+            )] | length')
+          test "$MATCHES" -gt 0 || {
+            echo "No successful push/main CI run exists for exact commit $COMMIT" >&2
+            exit 1
+          }
 
-          # Parse version components
-          IFS='.' read -r MAJOR MINOR PATCH <<< "$CURRENT_VERSION"
-
-          # Determine bump type
-          if [ "${{ inputs.force_version_type }}" != "" ] && [ "${{ inputs.force_version_type }}" != "auto" ]; then
-            VERSION_TYPE="${{ inputs.force_version_type }}"
+      - name: Gate on a descriptor introduced by this exact commit
+        id: gate
+        env:
+          COMMIT: ${{ steps.resolve.outputs.commit }}
+        run: |
+          if ! git diff --name-only "${COMMIT}^" "$COMMIT" | grep -qx release/release.json; then
+            echo "release=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          test "$COMMIT" = "$(git rev-parse HEAD)"
+          SOURCE_SHA=$(jq -er .source_sha release/release.json)
+          git merge-base --is-ancestor "$SOURCE_SHA" "$COMMIT"
+          BASELINE_REF=$(jq -er .baseline.ref release/release.json)
+          test "$(git rev-parse "${BASELINE_REF}^{commit}")" = "$(jq -er .baseline.commit release/release.json)"
+          python3 scripts/release/descriptor.py --verify
+          test "$(jq -er .versions.data release/release.json)" = "$(jq -er .release_version.semantic blessed/manifest.json)"
+          echo "release=true" >> "$GITHUB_OUTPUT"
+          echo "commit=$COMMIT" >> "$GITHUB_OUTPUT"
+          echo "data_version=$(jq -r .versions.data release/release.json)" >> "$GITHUB_OUTPUT"
+          echo "python_version=$(jq -r .versions.python release/release.json)" >> "$GITHUB_OUTPUT"
+          echo "java_core_version=$(jq -r .versions.java_core release/release.json)" >> "$GITHUB_OUTPUT"
+          echo "release_tag=$(jq -r .release_tag release/release.json)" >> "$GITHUB_OUTPUT"
+          echo "release_kind=$(jq -r .release_kind release/release.json)" >> "$GITHUB_OUTPUT"
+          if [ "$(jq -r .release_kind release/release.json)" = DATASET ]; then
+            echo "publish_python=true" >> "$GITHUB_OUTPUT"
+            echo "publish_maven=true" >> "$GITHUB_OUTPUT"
           else
-            # Run diff to determine severity
-            set +e
-            ./tools/build/install/tools/bin/tools ci-diff \
-              --blessed-dir blessed \
-              --calendars all \
-              --output-format json \
-              --current-sha "${{ github.sha }}" > /tmp/diff.json
-            EXIT_CODE=$?
-            set -e
-
-            if [ $EXIT_CODE -eq 0 ]; then
-              echo "No changes detected"
-              echo "should_release=false" >> $GITHUB_OUTPUT
-              exit 0
-            elif [ $EXIT_CODE -eq 1 ]; then
-              VERSION_TYPE="minor"
-            elif [ $EXIT_CODE -eq 2 ]; then
-              VERSION_TYPE="major"
-            else
-              echo "Error running diff"
-              cat /tmp/diff.json
-              exit 1
-            fi
+            echo "publish_python=$(jq -r '.software_changes | has("python")' release/impact.json)" >> "$GITHUB_OUTPUT"
+            echo "publish_maven=$(jq -r '.software_changes | has("java_core")' release/impact.json)" >> "$GITHUB_OUTPUT"
           fi
 
-          # Calculate new version
-          case $VERSION_TYPE in
-            major)
-              NEW_VERSION="$((MAJOR + 1)).0.0"
-              ;;
-            minor)
-              NEW_VERSION="${MAJOR}.$((MINOR + 1)).0"
-              ;;
-            patch)
-              NEW_VERSION="${MAJOR}.${MINOR}.$((PATCH + 1))"
-              ;;
-          esac
+      - name: Reuse a verified build from an earlier attempt
+        if: steps.gate.outputs.release == 'true'
+        id: reuse
+        env:
+          GH_TOKEN: ${{ github.token }}
+          COMMIT: ${{ steps.resolve.outputs.commit }}
+        run: |
+          gh api -X GET "repos/$GITHUB_REPOSITORY/actions/artifacts" \
+            -f name="publication-$COMMIT" -f per_page=100 | \
+            jq -r --arg sha "$COMMIT" '[.artifacts[] | select(
+              .expired == false and
+              .name == ("publication-" + $sha) and
+              .workflow_run.head_sha == $sha and
+              .workflow_run.head_branch == "main"
+            )] | sort_by(.created_at) | last |
+              if . == null then empty else [.id, .workflow_run.id] | @tsv end' \
+              > "$RUNNER_TEMP/publication-artifact.tsv"
+          if [ ! -s "$RUNNER_TEMP/publication-artifact.tsv" ]; then
+            echo "reused=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          ARTIFACT_ID=$(cut -f1 "$RUNNER_TEMP/publication-artifact.tsv")
+          RUN_ID=$(cut -f2 "$RUNNER_TEMP/publication-artifact.tsv")
+          gh api "repos/$GITHUB_REPOSITORY/actions/runs/$RUN_ID" | \
+            jq -e --arg sha "$COMMIT" '
+              .head_sha == $sha and
+              .head_branch == "main" and
+              (.event == "workflow_run" or .event == "workflow_dispatch") and
+              .path == ".github/workflows/release.yml"
+            ' >/dev/null || {
+              echo "Refusing artifact from an unrelated workflow run" >&2
+              exit 1
+            }
+          mkdir -p publication
+          gh api "repos/$GITHUB_REPOSITORY/actions/artifacts/$ARTIFACT_ID/zip" > "$RUNNER_TEMP/publication.zip"
+          unzip -q "$RUNNER_TEMP/publication.zip" -d publication
+          python3 scripts/release/verify_publication.py publication "$COMMIT"
+          echo "reused=true" >> "$GITHUB_OUTPUT"
 
-          echo "should_release=true" >> $GITHUB_OUTPUT
-          echo "version_type=$VERSION_TYPE" >> $GITHUB_OUTPUT
-          echo "new_version=$NEW_VERSION" >> $GITHUB_OUTPUT
-          echo "New version will be: $NEW_VERSION (type: $VERSION_TYPE)"
-
-  create-release:
-    runs-on: ubuntu-latest
-    needs: check-release-needed
-    if: needs.check-release-needed.outputs.should_release == 'true'
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Set up JDK ${{ env.JAVA_VERSION }}
-        uses: actions/setup-java@v4
+      - uses: actions/setup-java@v4
+        if: steps.gate.outputs.release == 'true' && steps.reuse.outputs.reused == 'false'
         with:
           java-version: ${{ env.JAVA_VERSION }}
           distribution: ${{ env.JAVA_DISTRIBUTION }}
-
-      - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v3
-
-      - name: Build tools
-        run: ./gradlew :tools:installDist
-
-      - name: Archive current blessed to artifacts
-        run: |
-          # Read CURRENT version from manifest (before we update to new version)
-          CURRENT_VERSION=$(jq -r '.release_version.semantic // "unknown"' blessed/manifest.json)
-          CURRENT_SHA=$(jq -r '.release_version.git_sha // "unknown"' blessed/manifest.json)
-          SHORT_SHA="${CURRENT_SHA:0:7}"
-          TIMESTAMP=$(date -u +%Y-%m-%dT%H-%M-%SZ)
-          # Timestamp first for correct chronological sorting in retention policy
-          VERSION_ID="${TIMESTAMP}_${SHORT_SHA}_v${CURRENT_VERSION}"
-
-          echo "Archiving current blessed with version ID: $VERSION_ID"
-
-          # Idempotent: a release is archived once, at the moment it is superseded. If this
-          # version+sha already has a snapshot (e.g. it was restored by hand, or a previous run
-          # archived it), blessed/ has since been regenerated without a release and must not be
-          # archived under the old version's name.
-          if compgen -G "release-history/*/*_${SHORT_SHA}_v${CURRENT_VERSION}" > /dev/null; then
-            echo "release-history already holds a snapshot for ${SHORT_SHA}_v${CURRENT_VERSION}; skipping archive"
-            exit 0
-          fi
-
-          # Check if blessed directory exists and has calendar subdirectories
-          if [ ! -d "blessed" ]; then
-            echo "::warning::blessed directory does not exist, skipping archive"
-            exit 0
-          fi
-
-          CALENDAR_COUNT=$(find blessed -mindepth 1 -maxdepth 1 -type d | wc -l)
-          if [ "$CALENDAR_COUNT" -eq 0 ]; then
-            echo "::warning::No calendar directories found in blessed/, skipping archive"
-            exit 0
-          fi
-
-          # Create release history directory (separate from artifacts/ used by ArtifactStore)
-          mkdir -p release-history
-
-          ARCHIVED_COUNT=0
-
-          # Archive each calendar's current blessed state
-          for CAL_DIR in blessed/*/; do
-            if [ -d "$CAL_DIR" ]; then
-              CAL_ID=$(basename "$CAL_DIR")
-
-              # Check if directory has files to archive
-              FILE_COUNT=$(find "$CAL_DIR" -type f | wc -l)
-              if [ "$FILE_COUNT" -eq 0 ]; then
-                echo "::warning::No files found in $CAL_DIR, skipping"
-                continue
-              fi
-
-              ARCHIVE_DIR="release-history/$CAL_ID/$VERSION_ID"
-              mkdir -p "$ARCHIVE_DIR"
-
-              if cp -r "$CAL_DIR"/* "$ARCHIVE_DIR/"; then
-                echo "  Archived $CAL_ID ($FILE_COUNT files) to $ARCHIVE_DIR"
-                ARCHIVED_COUNT=$((ARCHIVED_COUNT + 1))
-              else
-                echo "::error::Failed to archive $CAL_ID"
-                exit 1
-              fi
-            fi
-          done
-
-          echo "Successfully archived $ARCHIVED_COUNT calendars"
-
-          # Retention policy: keep only the last 30 versions per calendar
-          # Older versions remain accessible via git history
-          RETENTION_COUNT=30
-          echo "Applying retention policy (keeping last $RETENTION_COUNT versions)"
-
-          for CAL_DIR in release-history/*/; do
-            if [ -d "$CAL_DIR" ]; then
-              CAL_ID=$(basename "$CAL_DIR")
-              VERSION_COUNT=$(find "$CAL_DIR" -mindepth 1 -maxdepth 1 -type d | wc -l)
-
-              if [ "$VERSION_COUNT" -gt "$RETENTION_COUNT" ]; then
-                # Sort by directory name (which includes timestamp) and remove oldest
-                VERSIONS_TO_REMOVE=$((VERSION_COUNT - RETENTION_COUNT))
-                echo "  $CAL_ID: $VERSION_COUNT versions found, removing $VERSIONS_TO_REMOVE oldest"
-
-                find "$CAL_DIR" -mindepth 1 -maxdepth 1 -type d | sort | head -n "$VERSIONS_TO_REMOVE" | while read OLD_VERSION; do
-                  echo "    Removing $(basename "$OLD_VERSION")"
-                  rm -rf "$OLD_VERSION"
-                done
-              else
-                echo "  $CAL_ID: $VERSION_COUNT versions (within retention limit)"
-              fi
-            fi
-          done
-
-      - name: Generate release artifacts
-        id: artifacts
-        run: |
-          NEW_VERSION="${{ needs.check-release-needed.outputs.new_version }}"
-          GIT_SHA="${{ github.sha }}"
-          SHORT_SHA="${GIT_SHA:0:7}"
-          GEN_DATE=$(date -u +%Y-%m-%d)
-
-          # One timestamp for every calendar so a no-op re-bless is byte-identical
-          GENERATED_AT=$(date -u +%Y-%m-%dT%H:%M:%SZ)
-          echo "generated_at=$GENERATED_AT" >> $GITHUB_OUTPUT
-
-          # Create release directory
-          RELEASE_DIR="release-artifacts"
-          mkdir -p "$RELEASE_DIR"
-
-          # Read calendar list from manifest
-          CALENDARS=$(jq -r '.calendars | keys[]' blessed/manifest.json)
-
-          # Generate each calendar
-          for CAL_ID in $CALENDARS; do
-            RANGE_START=$(jq -r ".calendars[\"$CAL_ID\"].range_start" blessed/manifest.json)
-            RANGE_END=$(jq -r ".calendars[\"$CAL_ID\"].range_end" blessed/manifest.json)
-
-            echo "Generating $CAL_ID from $RANGE_START to $RANGE_END"
-
-            CAL_DIR="$RELEASE_DIR/$CAL_ID"
-            mkdir -p "$CAL_DIR"
-
-            ./tools/build/install/tools/bin/tools generate "$CAL_ID" \
-              --from "$RANGE_START" \
-              --to "$RANGE_END" \
-              --out "$CAL_DIR" \
-              --source-version "$GIT_SHA" \
-              --release-version "$NEW_VERSION" \
-              --generated-at "$GENERATED_AT" \
-              --include-specs
-          done
-
-          # Release notes from the manifest (calendars and their ranges)
-          {
-            echo "## Calendar Release v${NEW_VERSION}"
-            echo
-            echo "**Version Info:**"
-            echo "- Semantic Version: \`${NEW_VERSION}\`"
-            echo "- Git SHA: \`${GIT_SHA}\`"
-            echo "- Generation Date: \`${GEN_DATE}\`"
-            echo "- Release Type: \`${{ needs.check-release-needed.outputs.version_type }}\`"
-            echo
-            echo "**Included Calendars:**"
-            jq -r '.calendars | to_entries[] | "- \(.key) (\(.value.range_start) to \(.value.range_end))"' blessed/manifest.json
-            echo
-            echo "**Downloads:**"
-            echo "- \`*.tar.gz\` / \`*.zip\` - Per-calendar events.csv, events.json, metadata.json and specs"
-            echo "- \`<ID>-events.csv\` / \`<ID>-events.json\` / \`<ID>-holidays.ics\` (market calendars only) - loose per-calendar assets, if you only need one calendar without unpacking an archive"
-            echo "- See \`checksums.txt\` for SHA-256 verification"
-          } > release-notes.md
-
-          # Create combined archive
-          ARCHIVE_NAME="bdc-calendars-${NEW_VERSION}+${SHORT_SHA}.${GEN_DATE}"
-          cd "$RELEASE_DIR"
-
-          # tar.gz archive
-          tar -czvf "../${ARCHIVE_NAME}.tar.gz" .
-
-          # zip archive
-          zip -r "../${ARCHIVE_NAME}.zip" .
-
-          cd ..
-
-          # Generate checksums
-          sha256sum "${ARCHIVE_NAME}"* > checksums.txt
-
-          echo "archive_name=$ARCHIVE_NAME" >> $GITHUB_OUTPUT
-          echo "gen_date=$GEN_DATE" >> $GITHUB_OUTPUT
-
-      - name: Update blessed artifacts
-        run: |
-          NEW_VERSION="${{ needs.check-release-needed.outputs.new_version }}"
-          GIT_SHA="${{ github.sha }}"
-          GEN_DATE="${{ steps.artifacts.outputs.gen_date }}"
-
-          # Copy generated files to blessed/
-          cp -r release-artifacts/* blessed/
-
-          # Update manifest
-          jq --arg version "$NEW_VERSION" \
-             --arg sha "$GIT_SHA" \
-             --arg date "$GEN_DATE" \
-             --arg timestamp "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
-             '.release_version.semantic = $version |
-              .release_version.git_sha = $sha |
-              .release_version.generation_date = $date |
-              .blessed_at = "${{ steps.artifacts.outputs.generated_at }}" |
-              .blessed_by = "github-actions"' \
-             blessed/manifest.json > blessed/manifest.json.tmp
-          mv blessed/manifest.json.tmp blessed/manifest.json
-
-          # Update checksums in manifest
-          for CAL_DIR in blessed/*/; do
-            CAL_ID=$(basename "$CAL_DIR")
-            if [ -f "$CAL_DIR/events.csv" ]; then
-              CHECKSUM=$(sha256sum "$CAL_DIR/events.csv" | cut -d' ' -f1)
-              EVENT_COUNT=$(tail -n +2 "$CAL_DIR/events.csv" | grep -c . || echo 0)
-              # kind (market | base) comes from the calendar's metadata, which comes from its YAML
-              KIND=$(jq -r '.kind // "market"' "$CAL_DIR/metadata.json")
-              jq --arg cal "$CAL_ID" \
-                 --arg checksum "sha256:$CHECKSUM" \
-                 --arg count "$EVENT_COUNT" \
-                 --arg kind "$KIND" \
-                 '.calendars[$cal].kind = $kind | .calendars[$cal].checksum = $checksum | .calendars[$cal].event_count = ($count | tonumber)' \
-                 blessed/manifest.json > blessed/manifest.json.tmp
-              mv blessed/manifest.json.tmp blessed/manifest.json
-            fi
-          done
-
-          # Cross-validate against reference data (committed under
-          # tools/src/test/resources/reference/, so no extra checkout is needed); writes
-          # blessed/<ID>/cross_validation.json for every calendar that has reference data.
-          ./tools/build/install/tools/bin/tools crossvalidate --all --out blessed
-
-          # Keep the Python package's bundled copy (data + version markers) in step with the
-          # release; python/tests/test_data.py compares it against blessed/.
-          python3 python/scripts/sync_data.py
-
-          # Commit updated blessed, release history and the re-synced Python data
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add blessed/ release-history/ python/bdc_calendars/
-          git commit -m "chore: update blessed artifacts for v${NEW_VERSION}" || echo "No changes to commit"
-          git push
-
-      # Loose, flat per-calendar files alongside the combined archives, so a
-      # consumer who only needs one calendar can grab it directly from the
-      # release page without unpacking a tar.gz/zip. The .ics files come from
-      # the JSON API site generator run against the now-updated blessed/ (see
-      # spec/SPEC.md#json-api-v1); market-kind calendars only, same as the
-      # site's default publishing rule.
-      - name: Collect release assets
-        run: |
-          mkdir -p release-assets
-
-          CALENDARS=$(jq -r '.calendars | keys[]' blessed/manifest.json)
-
-          for CAL_ID in $CALENDARS; do
-            cp "release-artifacts/$CAL_ID/events.csv" "release-assets/${CAL_ID}-events.csv"
-            cp "release-artifacts/$CAL_ID/events.json" "release-assets/${CAL_ID}-events.json"
-          done
-
-          tools/build/install/tools/bin/tools site --api-only --out /tmp/release-site
-
-          for CAL_ID in $CALENDARS; do
-            ICS="/tmp/release-site/v1/calendars/$CAL_ID/holidays-recent.ics"
-            if [ -f "$ICS" ]; then
-              cp "$ICS" "release-assets/${CAL_ID}-holidays.ics"
-            fi
-          done
-
-          ls -la release-assets/
-
-      # The bdc-calendars Python package ships the blessed data inside its wheel,
-      # so the copy under python/bdc_calendars/data/ has to move with it. The
-      # script is stdlib-only and refuses to write unless the weekend policy it
-      # records reproduces the published weekend rows exactly.
-      - name: Sync Python package data
-        run: |
-          NEW_VERSION="${{ needs.check-release-needed.outputs.new_version }}"
-          python3 python/scripts/sync_data.py
-          git add python/bdc_calendars/data python/bdc_calendars/_version.py
-          git commit -m "chore: sync bdc-calendars data for v${NEW_VERSION}" || echo "No changes to commit"
-          git push
-
-      - name: Create GitHub Release
-        uses: softprops/action-gh-release@v1
-        with:
-          tag_name: v${{ needs.check-release-needed.outputs.new_version }}
-          name: Calendar Release v${{ needs.check-release-needed.outputs.new_version }}
-          body_path: release-notes.md
-          files: |
-            ${{ steps.artifacts.outputs.archive_name }}.tar.gz
-            ${{ steps.artifacts.outputs.archive_name }}.zip
-            checksums.txt
-            release-assets/*
-          draft: false
-          prerelease: false
-
-  # Publishes bdc-calendars to PyPI with Trusted Publishing (OIDC, no API token).
-  #
-  # Inert until the maintainer (a) registers this repository and workflow as a
-  # trusted publisher for the `bdc-calendars` project on PyPI and (b) sets the
-  # repository variable PYPI_PUBLISH to "true". Until then the job is skipped,
-  # so releases behave exactly as before.
-  publish-python:
-    runs-on: ubuntu-latest
-    needs: [check-release-needed, create-release]
-    if: needs.check-release-needed.outputs.should_release == 'true' && vars.PYPI_PUBLISH == 'true'
-    permissions:
-      contents: read
-      id-token: write   # required for Trusted Publishing
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          # create-release pushed the updated blessed/ and synced package data
-          # to main; github.sha still points at the commit that triggered us.
-          ref: main
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - uses: gradle/actions/setup-gradle@v4
+        if: steps.gate.outputs.release == 'true' && steps.reuse.outputs.reused == 'false'
+      - uses: actions/setup-python@v5
+        if: steps.gate.outputs.release == 'true' && steps.reuse.outputs.reused == 'false'
         with:
           python-version: '3.11'
 
-      - name: Sync data from blessed artifacts
-        run: python python/scripts/sync_data.py
-
-      - name: Build distributions
+      - name: Validate and build all deliverables once
+        if: steps.gate.outputs.release == 'true' && steps.reuse.outputs.reused == 'false'
+        env:
+          ORG_GRADLE_PROJECT_signingKey: ${{ secrets.MAVEN_SIGNING_KEY }}
+          ORG_GRADLE_PROJECT_signingPassword: ${{ secrets.MAVEN_SIGNING_PASSWORD }}
         run: |
-          python -m pip install --upgrade pip build
+          export SOURCE_DATE_EPOCH=$(git show -s --format=%ct "${{ steps.resolve.outputs.commit }}")
+          ./gradlew build :tools:installDist nmcpZipAggregation -Prelease=true
+          ./gradlew -c scripts/release/maven-smoke.settings.gradle.kts verifyLocalRelease \
+            -PcoreJar="$GITHUB_WORKSPACE/core/build/libs/core-$(jq -r .versions.java_core release/release.json).jar" \
+            -PdataJar="$GITHUB_WORKSPACE/data/build/libs/data-$(jq -r .versions.data release/release.json).jar" \
+            -PdataVersion="$(jq -r .versions.data release/release.json)"
+          tools/build/install/tools/bin/tools validate --all --strict
+          tools/build/install/tools/bin/tools crossvalidate --all --out blessed
+          git diff --exit-code -- blessed
+          python3 scripts/release/descriptor.py --verify
+          python3 python/scripts/sync_data.py --check
+          python -m pip install --upgrade build
           python -m build python/
-          ls -la python/dist/
+          tools/build/install/tools/bin/tools site \
+            --out publication/pages \
+            --base-url https://twallengren.github.io/calendar-project/ \
+            --generated-at "$(jq -r .generation_timestamp release/release.json)"
+          touch publication/pages/.nojekyll
 
-      - name: Publish to PyPI
-        uses: pypa/gh-action-pypi-publish@release/v1
+      - name: Assemble deterministic release assets
+        if: steps.gate.outputs.release == 'true' && steps.reuse.outputs.reused == 'false'
+        run: |
+          VERSION=$(jq -r .versions.data release/release.json)
+          mkdir -p publication/dataset publication/assets publication/java publication/python publication/maven
+          cp blessed/manifest.json publication/dataset/
+          for ID in $(jq -r '.calendars | keys[]' blessed/manifest.json); do
+            cp -R "blessed/$ID" publication/dataset/
+          done
+          cp -R sources publication/dataset/
+          cp release/release.json release/impact.json release/baseline-evidence.json publication/dataset/
+          cp LICENSE DATA_LICENSE NOTICE publication/dataset/
+          cp core/build/libs/* data/build/libs/* publication/java/
+          cp build/nmcp/zip/aggregation.zip publication/maven/central-bundle.zip
+          cp python/dist/* publication/python/
+          python3 scripts/release/archive.py publication/dataset "publication/assets/bdc-calendars-${VERSION}"
+          for ID in $(jq -r '.calendars | keys[]' blessed/manifest.json); do
+            cp "blessed/$ID/events.csv" "publication/assets/${ID}-events.csv"
+            cp "blessed/$ID/events.json" "publication/assets/${ID}-events.json"
+            ICS="publication/pages/v1/calendars/$ID/holidays-recent.ics"
+            if [ -f "$ICS" ]; then cp "$ICS" "publication/assets/${ID}-holidays.ics"; fi
+          done
+          python3 scripts/release/checksums.py \
+            publication/dataset publication/assets publication/java \
+            publication/python publication/maven publication/pages \
+            > publication/checksums.txt
+          jq -n --arg commit "${{ steps.resolve.outputs.commit }}" \
+            --arg descriptor_sha "$(sha256sum release/release.json | cut -d' ' -f1)" \
+            --arg checksums_sha "$(sha256sum publication/checksums.txt | cut -d' ' -f1)" \
+            '{
+              schema_version:"1.0",
+              release_commit:$commit,
+              descriptor_sha256:("sha256:"+$descriptor_sha),
+              checksums_sha256:("sha256:"+$checksums_sha)
+            }' > publication/build-receipt.json
+
+      - uses: actions/upload-artifact@v4
+        if: steps.gate.outputs.release == 'true'
         with:
-          packages-dir: python/dist/
+          name: publication-${{ steps.resolve.outputs.commit }}
+          path: publication
+          if-no-files-found: error
+          include-hidden-files: true
+          retention-days: 30
 
-  # Dry run of the Maven Central publication for bdc-calendar-core / bdc-calendar-data.
-  #
-  # This job only publishes to the runner's local repository and prints what it
-  # produced: it proves the POMs, the sources/javadoc jars and the data jar all
-  # build at the released version, without needing signing keys or Central
-  # credentials. Swapping `publishToMavenLocal` for
-  # `nmcpPublishAggregationToCentralPortal` (with ORG_GRADLE_PROJECT_signingKey,
-  # ORG_GRADLE_PROJECT_signingPassword, ORG_GRADLE_PROJECT_sonatypeUsername and
-  # ORG_GRADLE_PROJECT_sonatypePassword in the environment) is the later change
-  # that makes it a real release.
-  #
-  # Inert until the repository variable MAVEN_PUBLISH is set to "true".
-  publish-maven:
+  github-release:
+    needs: build-once
+    if: needs.build-once.outputs.release == 'true'
     runs-on: ubuntu-latest
-    needs: [check-release-needed, create-release]
-    if: needs.check-release-needed.outputs.should_release == 'true' && vars.MAVEN_PUBLISH == 'true'
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.build-once.outputs.commit }}
+          fetch-depth: 0
+      - uses: actions/download-artifact@v4
+        with:
+          name: publication-${{ needs.build-once.outputs.commit }}
+          path: publication
+      - name: Verify the complete persisted publication
+        run: python3 scripts/release/verify_publication.py publication "${{ needs.build-once.outputs.commit }}"
+      - name: Bind tag and assets to the exact commit, idempotently
+        env:
+          GH_TOKEN: ${{ github.token }}
+          COMMIT: ${{ needs.build-once.outputs.commit }}
+          VERSION: ${{ needs.build-once.outputs.data_version }}
+          RELEASE_TAG: ${{ needs.build-once.outputs.release_tag }}
+          RELEASE_KIND: ${{ needs.build-once.outputs.release_kind }}
+        run: |
+          TAG="$RELEASE_TAG"
+          if git rev-parse "refs/tags/$TAG" >/dev/null 2>&1; then
+            test "$(git rev-list -n 1 "$TAG")" = "$COMMIT" || { echo "Conflicting tag $TAG" >&2; exit 1; }
+          else
+            git config user.name "calendar-release[bot]"
+            git config user.email "calendar-release[bot]@users.noreply.github.com"
+            git tag -a "$TAG" "$COMMIT" -m "Calendar release $TAG"
+            git push origin "refs/tags/$TAG"
+          fi
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            python3 scripts/release/verify_github_release.py "$TAG" publication
+          else
+            LATEST=()
+            if [ "$RELEASE_KIND" = SOFTWARE ]; then LATEST+=(--latest=false); fi
+            gh release create "$TAG" publication/assets/* publication/java/* publication/python/* publication/checksums.txt publication/build-receipt.json \
+              --verify-tag "${LATEST[@]}" --title "Calendar release $TAG" \
+              --notes "Built from exact commit \`$COMMIT\`. See release/release.json for immutable inputs and hashes."
+          fi
+
+  publish-python:
+    needs: [build-once, github-release]
+    if: >-
+      needs.build-once.outputs.release == 'true' &&
+      needs.build-once.outputs.publish_python == 'true' &&
+      vars.PYPI_PUBLISH == 'true'
+    runs-on: ubuntu-latest
     permissions:
       contents: read
-
+      actions: read
+      id-token: write
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
-          # create-release pushed the updated blessed/ to main; the published
-          # version is read from blessed/manifest.json, so we need that commit.
-          ref: main
+          ref: ${{ needs.build-once.outputs.commit }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          name: publication-${{ needs.build-once.outputs.commit }}
+          path: publication
+      - name: Verify the complete persisted publication
+        run: python3 scripts/release/verify_publication.py publication "${{ needs.build-once.outputs.commit }}"
+      - name: Reject an existing version with different files
+        run: python3 scripts/release/verify_pypi.py "${{ needs.build-once.outputs.python_version }}" publication/python
+      - uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          packages-dir: publication/python
+          skip-existing: true
+      - name: Verify installation from PyPI
+        run: |
+          for ATTEMPT in $(seq 1 12); do
+            if python -m pip install --no-cache-dir --index-url https://pypi.org/simple "bdc-calendars==${{ needs.build-once.outputs.python_version }}"; then
+              python -c 'import bdc_calendars; assert bdc_calendars.__version__ == "${{ needs.build-once.outputs.python_version }}"; assert bdc_calendars.data_version == "${{ needs.build-once.outputs.data_version }}"'
+              exit 0
+            fi
+            sleep 10
+          done
+          exit 1
 
-      - name: Set up JDK ${{ env.JAVA_VERSION }}
-        uses: actions/setup-java@v4
+  publish-maven:
+    needs: [build-once, github-release]
+    if: >-
+      needs.build-once.outputs.release == 'true' &&
+      needs.build-once.outputs.publish_maven == 'true' &&
+      vars.MAVEN_PUBLISH == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.build-once.outputs.commit }}
+      - uses: actions/setup-java@v4
         with:
           java-version: ${{ env.JAVA_VERSION }}
           distribution: ${{ env.JAVA_DISTRIBUTION }}
-
-      - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v3
-
-      - name: Publish to the local repository
-        run: ./gradlew publishToMavenLocal -Prelease=true
-
-      - name: Show what was published
+      - uses: gradle/actions/setup-gradle@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: publication-${{ needs.build-once.outputs.commit }}
+          path: publication
+      - name: Verify the complete persisted publication
+        run: python3 scripts/release/verify_publication.py publication "${{ needs.build-once.outputs.commit }}"
+      - name: Upload once and resume the recorded Central deployment
+        env:
+          GH_TOKEN: ${{ github.token }}
+          CENTRAL_USERNAME: ${{ secrets.MAVEN_CENTRAL_USERNAME }}
+          CENTRAL_PASSWORD: ${{ secrets.MAVEN_CENTRAL_PASSWORD }}
+          MAVEN_SIGNING_KEY: ${{ secrets.MAVEN_SIGNING_KEY }}
+          VERSION: ${{ needs.build-once.outputs.data_version }}
+          COMMIT: ${{ needs.build-once.outputs.commit }}
+          RELEASE_TAG: ${{ needs.build-once.outputs.release_tag }}
         run: |
-          find ~/.m2/repository/io/github/twallengren -type f \
-            \( -name '*.jar' -o -name '*.pom' \) -exec ls -la {} \;
+          test -n "$MAVEN_SIGNING_KEY" || {
+            echo "MAVEN_PUBLISH requires a non-empty MAVEN_SIGNING_KEY" >&2
+            exit 1
+          }
+          TAG="$RELEASE_TAG"
+          for ATTEMPT in $(seq 1 12); do
+            set +e
+            python3 scripts/release/prepare_maven_upload.py \
+              publication/maven/central-bundle.zip publication/maven/upload.zip \
+              --core-version "$(jq -r .versions.java_core release/release.json)" \
+              --data-version "$VERSION" > publication/maven/plan.json
+            PLAN_STATUS=$?
+            set -e
+            if [ "$PLAN_STATUS" -eq 0 ]; then break; fi
+            if [ "$PLAN_STATUS" -ne 2 ]; then exit "$PLAN_STATUS"; fi
+            sleep 10
+          done
+          test "$PLAN_STATUS" -eq 0
+          if [ "$(jq -r .upload_required publication/maven/plan.json)" = false ]; then
+            echo "All Maven coordinates exist with byte-identical files; skipping upload."
+            ./gradlew -c scripts/release/maven-smoke.settings.gradle.kts resolveRelease \
+              --gradle-user-home "$RUNNER_TEMP/maven-smoke" --refresh-dependencies \
+              -PcoreVersion="$(jq -r .versions.java_core release/release.json)" \
+              -PdataVersion="$VERSION"
+            exit 0
+          fi
+          BUNDLE_SHA=$(jq -r .bundle_sha256 publication/maven/plan.json)
+          mkdir -p publication/maven-state
+          if gh release download "$TAG" --pattern maven-deployment.json --dir publication/maven-state >/dev/null 2>&1; then
+            test "$(jq -r .bundle_sha256 publication/maven-state/maven-deployment.json)" = "$BUNDLE_SHA"
+            test "$(jq -r .commit publication/maven-state/maven-deployment.json)" = "$COMMIT"
+            DEPLOYMENT_ID=$(jq -r .deployment_id publication/maven-state/maven-deployment.json)
+          else
+            AUTH=$(printf '%s:%s' "$CENTRAL_USERNAME" "$CENTRAL_PASSWORD" | base64 | tr -d '\n')
+            DEPLOYMENT_ID=$(curl --fail --silent --show-error \
+              --header "Authorization: Bearer $AUTH" \
+              --form "bundle=@publication/maven/upload.zip;type=application/octet-stream" \
+              "https://central.sonatype.com/api/v1/publisher/upload?publishingType=AUTOMATIC&name=calendar-project-$COMMIT")
+            jq -n --arg id "$DEPLOYMENT_ID" --arg sha "$BUNDLE_SHA" --arg commit "$COMMIT" \
+              '{deployment_id:$id,bundle_sha256:$sha,commit:$commit}' > publication/maven-state/maven-deployment.json
+            gh release upload "$TAG" publication/maven-state/maven-deployment.json
+          fi
+          AUTH=$(printf '%s:%s' "$CENTRAL_USERNAME" "$CENTRAL_PASSWORD" | base64 | tr -d '\n')
+          for ATTEMPT in $(seq 1 30); do
+            STATE=$(curl --fail --silent --show-error --request POST \
+              --header "Authorization: Bearer $AUTH" \
+              "https://central.sonatype.com/api/v1/publisher/status?id=$DEPLOYMENT_ID")
+            case "$(printf '%s' "$STATE" | jq -r .deploymentState)" in
+              PUBLISHED)
+                ./gradlew -c scripts/release/maven-smoke.settings.gradle.kts resolveRelease \
+                  --gradle-user-home "$RUNNER_TEMP/maven-smoke" --refresh-dependencies \
+                  -PcoreVersion="$(jq -r .versions.java_core release/release.json)" \
+                  -PdataVersion="$VERSION"
+                exit 0
+                ;;
+              FAILED) printf '%s\n' "$STATE" >&2; exit 1 ;;
+            esac
+            sleep 20
+          done
+          echo "Central deployment $DEPLOYMENT_ID is still processing; retry this workflow to resume it." >&2
+          exit 1
+
+  deploy-pages:
+    needs: [build-once, github-release]
+    if: needs.build-once.outputs.release == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.build-once.outputs.commit }}
+      - uses: actions/download-artifact@v4
+        with:
+          name: publication-${{ needs.build-once.outputs.commit }}
+          path: publication
+      - name: Verify the complete persisted publication
+        run: python3 scripts/release/verify_publication.py publication "${{ needs.build-once.outputs.commit }}"
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: publication/pages
+      - id: deployment
+        uses: actions/deploy-pages@v4

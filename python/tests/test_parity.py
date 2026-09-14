@@ -7,10 +7,11 @@ They record, per calendar:
 
 * every non-weekend event in the published artifact, field for field;
 * a deterministic, evenly spaced sample of ~1000 dates across the covered range
-  (so ~2000 dates over the two calendars), each with the business-day test,
+  (for every bundled calendar), each with the business-day test,
   next/previous/nth navigation, status, close time, a 31-day business-day count
   and the full event list for that date — weekend rows included, which is what
-  makes the weekend reconstruction testable.
+  makes the weekend reconstruction testable;
+* enriched assessments and typed coverage failures, including the exact date where traversal stopped.
 
 Regenerate them (and re-run ``scripts/sync_data.py``) whenever the blessed data
 changes; a mismatch here means the two implementations have diverged.
@@ -27,7 +28,7 @@ import pytest
 import bdc_calendars as bdc
 
 FIXTURE_DIR = os.path.join(os.path.dirname(__file__), "fixtures")
-CALENDARS = ["US-NYSE", "SA-TADAWUL"]
+CALENDARS = sorted(name[7:-5] for name in os.listdir(FIXTURE_DIR) if name.startswith("parity_") and name.endswith(".json"))
 
 
 def _load(calendar_id: str) -> dict:
@@ -50,17 +51,23 @@ def _event_tuple(event) -> list:
         event.key,
         event.source_module,
         event.observed_from.isoformat() if event.observed_from else None,
-        event.close_time.isoformat("auto")[:5] if event.close_time else None,
+        _time(event.close_time),
         event.status,
     ]
 
 
+def _time(value):
+    if value is None:
+        return None
+    if isinstance(value, str):
+        value = dt.time.fromisoformat(value)
+    return value.isoformat(timespec="minutes" if value.second == 0 and value.microsecond == 0 else "auto")
+
+
 def _fixture_event(row: list) -> list:
-    # The Java dump writes LocalTime.toString(), i.e. "13:00"; normalise both
-    # sides to HH:MM so the comparison is about content, not formatting.
     row = list(row)
     if row[6]:
-        row[6] = row[6][:5]
+        row[6] = _time(row[6])
     return row
 
 
@@ -95,22 +102,77 @@ def test_sampled_queries_match(pair):
     for case in queries:
         day = dt.date.fromisoformat(case["d"])
 
-        assert calendar.is_business_day(day) is case["b"], day
+        _assert_query(lambda: calendar.is_business_day(day), case["b"], day)
         assert calendar.status(day) == case["s"], day
-        assert calendar.is_early_close(day) is case["ec"], day
+        _assert_query(lambda: calendar.is_early_close(day), case["ec"], day)
 
-        close = calendar.close_time(day)
-        assert (close.isoformat("auto")[:5] if close else None) == (
-            case["c"][:5] if case["c"] else None
-        ), day
+        expected_close = case["c"] if isinstance(case["c"], dict) else _time(case["c"])
+        _assert_query(lambda: _time(calendar.close_time(day)), expected_close, day)
+        if "assessment" in case:
+            from bdc_calendars.mcp.server import _assessment_dict
+            actual = _assessment_dict(calendar.assessment(day))
+            expected = case["assessment"]
+            for event in actual["events"]:
+                event.pop("status")
+                event["close_time"] = _time(event["close_time"])
+            assert actual == expected, day
 
         _assert_navigation(calendar, day, case)
 
         window_end = dt.date.fromisoformat(case["we"])
-        assert calendar.business_days_between(day, window_end) == case["cnt"], day
+        _assert_query(lambda: calendar.business_days_between(day, window_end), case["cnt"], day)
 
         ours = [_event_tuple(e) for e in calendar.events_on(day)]
         assert ours == [_fixture_event(row) for row in case["ev"]], day
+
+
+def _assert_query(call, expected, context):
+    if isinstance(expected, dict) and "error" in expected:
+        error_type = getattr(bdc, expected["error"])
+        with pytest.raises(error_type) as caught:
+            call()
+        assert type(caught.value) is error_type, context
+        assert caught.value.date.isoformat() == expected["date"], context
+    else:
+        assert call() == expected, context
+
+
+def test_financial_operations_match(pair):
+    calendar, fixture = pair
+    if "financial_queries" not in fixture:
+        pytest.skip("legacy fixture predates financial operations")
+
+    def normalized(call):
+        result = call()._asdict()
+        for key in ("original_date", "result_date"):
+            result[key] = result[key].isoformat()
+        result["examined_dates"] = [day.isoformat() for day in result["examined_dates"]]
+        return result
+
+    for case in fixture["financial_queries"]:
+        day = dt.date.fromisoformat(case["d"])
+        for convention in bdc.BusinessDayConvention:
+            _assert_query(
+                lambda: normalized(lambda: calendar.adjust_detailed(day, convention)),
+                case["adjust_" + convention.value], (day, convention),
+            )
+            _assert_query(
+                lambda: normalized(lambda: calendar.advance_months_detailed(day, 1, convention, False)),
+                case["months_" + convention.value], (day, convention),
+            )
+        for offset in (-5, 0, 5):
+            _assert_query(
+                lambda: normalized(lambda: calendar.business_day_offset_detailed(day, offset)),
+                case["offset_" + str(offset)], (day, offset),
+            )
+        _assert_query(
+            lambda: normalized(lambda: calendar.advance_months_detailed(day, -1, "MODIFIED_FOLLOWING", True)),
+            case["eom"], (day, "eom"),
+        )
+        _assert_query(
+            lambda: normalized(lambda: calendar.last_business_day_of_month_detailed(day)),
+            case["last"], (day, "last"),
+        )
 
 
 def _assert_navigation(calendar, day: dt.date, case: dict) -> None:
@@ -126,7 +188,7 @@ def _assert_navigation(calendar, day: dt.date, case: dict) -> None:
             with pytest.raises((bdc.OutsideCoverageError, RuntimeError)):
                 call()
         else:
-            assert call().isoformat() == expected, (day, key)
+            _assert_query(lambda: call().isoformat(), expected, (day, key))
 
 
 def test_sample_covers_both_ends_of_the_range(pair):

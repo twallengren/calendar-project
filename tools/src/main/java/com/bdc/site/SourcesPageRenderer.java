@@ -21,9 +21,8 @@ public final class SourcesPageRenderer {
       HtmlTemplate.of(
           """
           <h1>Sources</h1>
-          <p class="lede">Every closure in this dataset is transcribed from an authoritative
-          document — an exchange notice, a gazette, a rule-book circular — and cites it by id. This
-          is the register of those documents, one section per market directory in
+          <p class="lede">Calendars cite sources for their rules and exceptions. Coverage assessments show which
+          questions those sources support. This register collects the cited documents, one section per calendar directory in
           <a href="{{repoSourcesUrl}}"><code>sources/</code></a>.</p>
           {{{sections}}}
           """);

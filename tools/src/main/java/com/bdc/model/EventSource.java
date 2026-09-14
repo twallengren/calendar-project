@@ -72,6 +72,9 @@ public record EventSource(
     if (status == null) {
       status = EventStatus.CONFIRMED;
     }
+    if (status == EventStatus.UNKNOWN) {
+      throw new IllegalArgumentException("event source status must be CONFIRMED or PROJECTED");
+    }
     if (source == null) {
       source = List.of();
     }

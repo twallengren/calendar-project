@@ -102,18 +102,97 @@ class CrossValidatorTest {
   }
 
   @Test
-  void emptyReferenceFileYieldsEmptyCleanResult() throws Exception {
-    Path referenceFile = tempDir.resolve("empty-source.csv");
-    Files.writeString(referenceFile, "date,type,close_time\n");
+  void emptyReferenceFailsInsteadOfClaimingCleanCoverage() throws Exception {
+    Path referenceFile = writeReference();
+    assertThrows(
+        java.io.IOException.class,
+        () ->
+            new CrossValidator()
+                .compare(
+                    "TEST-CAL",
+                    List.of(closed("2024-01-01")),
+                    WeekendPolicy.SAT_SUN,
+                    referenceFile));
+  }
 
-    CrossValidationResult result =
+  @Test
+  void duplicateMultiplicityIsPreservedAndOneAllowlistRowExcusesOneOccurrence() throws Exception {
+    Path referenceFile = writeReference("2024-01-01,CLOSED,");
+    writeAllowlist("test-source,ours,2024-01-01,CLOSED,one reviewed duplicate");
+    var result =
         new CrossValidator()
             .compare(
-                "TEST-CAL", List.of(closed("2024-01-01")), WeekendPolicy.SAT_SUN, referenceFile);
+                "TEST-CAL",
+                List.of(closed("2024-01-01"), closed("2024-01-01"), closed("2024-01-01")),
+                WeekendPolicy.SAT_SUN,
+                referenceFile);
+    assertEquals(1, result.matchedCount());
+    assertEquals(1, result.allowlistedCount());
+    assertEquals(1, result.unexplainedCount());
+  }
 
-    assertTrue(result.isClean());
-    assertEquals(0, result.matchedCount());
-    assertNull(result.from());
-    assertNull(result.to());
+  @Test
+  void legacyAllowlistCannotExcuseCloseTimeDifferences() throws Exception {
+    Path referenceFile = writeReference("2024-01-01,EARLY_CLOSE,14:00");
+    writeAllowlist(
+        "test-source,ours,2024-01-01,EARLY_CLOSE,broad old exception",
+        "test-source,theirs,2024-01-01,EARLY_CLOSE,broad old exception");
+    Event event =
+        new Event(
+            LocalDate.parse("2024-01-01"),
+            EventType.EARLY_CLOSE,
+            "close",
+            "test",
+            "close",
+            "test",
+            null,
+            java.time.LocalTime.of(13, 0),
+            null);
+    var result =
+        new CrossValidator()
+            .compare("TEST-CAL", List.of(event), WeekendPolicy.SAT_SUN, referenceFile);
+    assertEquals(0, result.allowlistedCount());
+    assertEquals(2, result.unexplainedRows().size());
+    assertEquals(2, result.staleAllowlistRows().size());
+  }
+
+  @Test
+  void closeTimesCompareExactlyAndInputOrderDoesNotMatter() throws Exception {
+    Path referenceFile =
+        writeReference(
+            "2024-01-01,EARLY_CLOSE,13:00",
+            "2024-01-01,EARLY_CLOSE,14:00",
+            "2024-01-01,EARLY_CLOSE,14:00");
+    Event one =
+        new Event(
+            LocalDate.parse("2024-01-01"),
+            EventType.EARLY_CLOSE,
+            "close",
+            "test",
+            "close",
+            "test",
+            null,
+            java.time.LocalTime.of(13, 0),
+            null);
+    Event two =
+        new Event(
+            LocalDate.parse("2024-01-01"),
+            EventType.EARLY_CLOSE,
+            "close",
+            "test",
+            "close",
+            "test",
+            null,
+            java.time.LocalTime.of(15, 0),
+            null);
+    var validator = new CrossValidator();
+    var result =
+        validator.compare("TEST-CAL", List.of(one, two), WeekendPolicy.SAT_SUN, referenceFile);
+    assertEquals(
+        result,
+        validator.compare("TEST-CAL", List.of(two, one), WeekendPolicy.SAT_SUN, referenceFile));
+    assertEquals(1, result.matchedCount());
+    assertEquals(3, result.unexplainedCount());
+    assertTrue(result.unexplainedRows().stream().anyMatch(r -> r.endsWith("15:00")));
   }
 }

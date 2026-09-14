@@ -1,0 +1,705 @@
+{
+  "calendar_id" : "IL-TASE",
+  "calendar_name" : "Tel Aviv Stock Exchange",
+  "kind" : "market",
+  "mic" : "XTAE",
+  "aliases" : [ "TASE" ],
+  "generated_at" : "2026-09-14T23:09:32Z",
+  "range_start" : "2025-01-01",
+  "range_end" : "2027-12-31",
+  "timezone" : "Asia/Jerusalem",
+  "coverage" : {
+    "from" : "2025-01-01",
+    "to" : "2027-12-31",
+    "verified_through" : "2025-12-31",
+    "quality" : [ {
+      "scope" : "SCHEDULED_CLOSURES",
+      "from" : "2025-01-01",
+      "to" : "2025-12-31",
+      "quality" : "VERIFIED",
+      "evidence_ids" : [ "tase-vacation-schedule-2025" ]
+    }, {
+      "scope" : "SCHEDULED_CLOSURES",
+      "from" : "2026-01-01",
+      "to" : "2026-04-20",
+      "quality" : "INCOMPLETE",
+      "evidence_ids" : [ "isa-trading-week-2026", "tase-q1-2026-report" ]
+    }, {
+      "scope" : "SCHEDULED_CLOSURES",
+      "from" : "2026-04-21",
+      "to" : "2026-04-22",
+      "quality" : "VERIFIED",
+      "evidence_ids" : [ "tase-weekly-review-2026-04-20" ]
+    }, {
+      "scope" : "SCHEDULED_CLOSURES",
+      "from" : "2026-04-23",
+      "to" : "2027-12-31",
+      "quality" : "INCOMPLETE",
+      "evidence_ids" : [ "isa-trading-week-2026" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "2025-01-01",
+      "to" : "2026-01-08",
+      "quality" : "INCOMPLETE",
+      "evidence_ids" : [ "tase-vacation-schedule-2025", "tase-board-trading-hours-2024" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "2026-01-09",
+      "to" : "2026-01-09",
+      "quality" : "VERIFIED",
+      "evidence_ids" : [ "isa-trading-week-2026" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "2026-01-10",
+      "to" : "2026-01-15",
+      "quality" : "INCOMPLETE",
+      "evidence_ids" : [ "isa-trading-week-2026" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "2026-01-16",
+      "to" : "2026-01-16",
+      "quality" : "VERIFIED",
+      "evidence_ids" : [ "isa-trading-week-2026" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "2026-01-17",
+      "to" : "2026-01-22",
+      "quality" : "INCOMPLETE",
+      "evidence_ids" : [ "isa-trading-week-2026" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "2026-01-23",
+      "to" : "2026-01-23",
+      "quality" : "VERIFIED",
+      "evidence_ids" : [ "isa-trading-week-2026" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "2026-01-24",
+      "to" : "2026-01-29",
+      "quality" : "INCOMPLETE",
+      "evidence_ids" : [ "isa-trading-week-2026" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "2026-01-30",
+      "to" : "2026-01-30",
+      "quality" : "VERIFIED",
+      "evidence_ids" : [ "isa-trading-week-2026" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "2026-01-31",
+      "to" : "2026-02-05",
+      "quality" : "INCOMPLETE",
+      "evidence_ids" : [ "isa-trading-week-2026" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "2026-02-06",
+      "to" : "2026-02-06",
+      "quality" : "VERIFIED",
+      "evidence_ids" : [ "isa-trading-week-2026" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "2026-02-07",
+      "to" : "2026-02-12",
+      "quality" : "INCOMPLETE",
+      "evidence_ids" : [ "isa-trading-week-2026" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "2026-02-13",
+      "to" : "2026-02-13",
+      "quality" : "VERIFIED",
+      "evidence_ids" : [ "isa-trading-week-2026" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "2026-02-14",
+      "to" : "2026-02-19",
+      "quality" : "INCOMPLETE",
+      "evidence_ids" : [ "isa-trading-week-2026" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "2026-02-20",
+      "to" : "2026-02-20",
+      "quality" : "VERIFIED",
+      "evidence_ids" : [ "isa-trading-week-2026" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "2026-02-21",
+      "to" : "2026-02-26",
+      "quality" : "INCOMPLETE",
+      "evidence_ids" : [ "isa-trading-week-2026" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "2026-02-27",
+      "to" : "2026-02-27",
+      "quality" : "VERIFIED",
+      "evidence_ids" : [ "isa-trading-week-2026" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "2026-02-28",
+      "to" : "2026-03-05",
+      "quality" : "INCOMPLETE",
+      "evidence_ids" : [ "isa-trading-week-2026" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "2026-03-06",
+      "to" : "2026-03-06",
+      "quality" : "VERIFIED",
+      "evidence_ids" : [ "isa-trading-week-2026" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "2026-03-07",
+      "to" : "2026-03-12",
+      "quality" : "INCOMPLETE",
+      "evidence_ids" : [ "isa-trading-week-2026" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "2026-03-13",
+      "to" : "2026-03-13",
+      "quality" : "VERIFIED",
+      "evidence_ids" : [ "isa-trading-week-2026" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "2026-03-14",
+      "to" : "2026-03-19",
+      "quality" : "INCOMPLETE",
+      "evidence_ids" : [ "isa-trading-week-2026" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "2026-03-20",
+      "to" : "2026-03-20",
+      "quality" : "VERIFIED",
+      "evidence_ids" : [ "isa-trading-week-2026" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "2026-03-21",
+      "to" : "2026-03-26",
+      "quality" : "INCOMPLETE",
+      "evidence_ids" : [ "isa-trading-week-2026" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "2026-03-27",
+      "to" : "2026-03-27",
+      "quality" : "VERIFIED",
+      "evidence_ids" : [ "isa-trading-week-2026" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "2026-03-28",
+      "to" : "2027-12-31",
+      "quality" : "INCOMPLETE",
+      "evidence_ids" : [ "isa-trading-week-2026" ]
+    }, {
+      "scope" : "UNSCHEDULED_EXCEPTIONS",
+      "from" : "2025-01-01",
+      "to" : "2027-12-31",
+      "quality" : "INCOMPLETE",
+      "evidence_ids" : [ "tase-vacation-schedule-2025", "tase-weekly-review-2026-04-20" ]
+    } ]
+  },
+  "event_count" : 341,
+  "resolution_chain" : [ "module:tase_weekends", "module:tase_scheduled_closures_2025", "module:tase_verified_events_2026", "module:tase_holidays", "calendar:IL-TASE" ],
+  "counts_by_type" : {
+    "WEEKEND" : 310,
+    "CLOSED" : 19,
+    "EARLY_CLOSE" : 12
+  },
+  "counts_by_status" : {
+    "CONFIRMED" : 341
+  },
+  "source_version" : {
+    "semantic" : "12.0.0",
+    "git_sha" : "94db6de7728c26ee75c0449220a721bfdb1977d7"
+  },
+  "event_details" : [ {
+    "date" : "2025-03-14",
+    "type" : "CLOSED",
+    "description" : "Purim",
+    "key" : "tase_purim_2025",
+    "source_module" : "module:tase_scheduled_closures_2025",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "tase-vacation-schedule-2025" ],
+    "observation_lineage" : [ ],
+    "nominal_native_date" : {
+      "chronology_id" : "HEBREW",
+      "year" : 5785,
+      "month_code" : "ADAR",
+      "day" : 14
+    },
+    "chronology_profile" : "fixed-arithmetic-hebrew-civil",
+    "chronology_provider" : "ICU4J 78.3"
+  }, {
+    "date" : "2025-04-13",
+    "type" : "CLOSED",
+    "description" : "Passover",
+    "key" : "tase_passover_2025",
+    "source_module" : "module:tase_scheduled_closures_2025",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "tase-vacation-schedule-2025" ],
+    "observation_lineage" : [ ],
+    "nominal_native_date" : {
+      "chronology_id" : "HEBREW",
+      "year" : 5785,
+      "month_code" : "NISAN",
+      "day" : 15
+    },
+    "chronology_profile" : "fixed-arithmetic-hebrew-civil",
+    "chronology_provider" : "ICU4J 78.3"
+  }, {
+    "date" : "2025-04-18",
+    "type" : "CLOSED",
+    "description" : "Seventh Day of Passover Eve",
+    "key" : "tase_seventh_passover_eve_2025",
+    "source_module" : "module:tase_scheduled_closures_2025",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "tase-vacation-schedule-2025" ],
+    "observation_lineage" : [ ],
+    "nominal_native_date" : {
+      "chronology_id" : "HEBREW",
+      "year" : 5785,
+      "month_code" : "NISAN",
+      "day" : 20
+    },
+    "chronology_profile" : "fixed-arithmetic-hebrew-civil",
+    "chronology_provider" : "ICU4J 78.3"
+  }, {
+    "date" : "2025-04-30",
+    "type" : "CLOSED",
+    "description" : "Memorial Day",
+    "key" : "tase_memorial_day_2025",
+    "source_module" : "module:tase_scheduled_closures_2025",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "tase-vacation-schedule-2025" ],
+    "observation_lineage" : [ ],
+    "nominal_native_date" : {
+      "chronology_id" : "HEBREW",
+      "year" : 5785,
+      "month_code" : "IYAR",
+      "day" : 2
+    },
+    "chronology_profile" : "fixed-arithmetic-hebrew-civil",
+    "chronology_provider" : "ICU4J 78.3"
+  }, {
+    "date" : "2025-05-01",
+    "type" : "CLOSED",
+    "description" : "Independence Day",
+    "key" : "tase_independence_day_2025",
+    "source_module" : "module:tase_scheduled_closures_2025",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "tase-vacation-schedule-2025" ],
+    "observation_lineage" : [ ],
+    "nominal_native_date" : {
+      "chronology_id" : "HEBREW",
+      "year" : 5785,
+      "month_code" : "IYAR",
+      "day" : 3
+    },
+    "chronology_profile" : "fixed-arithmetic-hebrew-civil",
+    "chronology_provider" : "ICU4J 78.3"
+  }, {
+    "date" : "2025-06-01",
+    "type" : "CLOSED",
+    "description" : "Shavuot Eve",
+    "key" : "tase_shavuot_eve_2025",
+    "source_module" : "module:tase_scheduled_closures_2025",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "tase-vacation-schedule-2025" ],
+    "observation_lineage" : [ ],
+    "nominal_native_date" : {
+      "chronology_id" : "HEBREW",
+      "year" : 5785,
+      "month_code" : "SIVAN",
+      "day" : 5
+    },
+    "chronology_profile" : "fixed-arithmetic-hebrew-civil",
+    "chronology_provider" : "ICU4J 78.3"
+  }, {
+    "date" : "2025-06-02",
+    "type" : "CLOSED",
+    "description" : "Shavuot",
+    "key" : "tase_shavuot_2025",
+    "source_module" : "module:tase_scheduled_closures_2025",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "tase-vacation-schedule-2025" ],
+    "observation_lineage" : [ ],
+    "nominal_native_date" : {
+      "chronology_id" : "HEBREW",
+      "year" : 5785,
+      "month_code" : "SIVAN",
+      "day" : 6
+    },
+    "chronology_profile" : "fixed-arithmetic-hebrew-civil",
+    "chronology_provider" : "ICU4J 78.3"
+  }, {
+    "date" : "2025-08-03",
+    "type" : "CLOSED",
+    "description" : "Tisha B'Av",
+    "key" : "tase_tisha_bav_2025",
+    "source_module" : "module:tase_scheduled_closures_2025",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "tase-vacation-schedule-2025" ],
+    "observation_lineage" : [ ],
+    "nominal_native_date" : {
+      "chronology_id" : "HEBREW",
+      "year" : 5785,
+      "month_code" : "AV",
+      "day" : 9
+    },
+    "chronology_profile" : "fixed-arithmetic-hebrew-civil",
+    "chronology_provider" : "ICU4J 78.3"
+  }, {
+    "date" : "2025-09-22",
+    "type" : "CLOSED",
+    "description" : "Rosh Hashanah Eve",
+    "key" : "tase_rosh_hashanah_eve_2025",
+    "source_module" : "module:tase_scheduled_closures_2025",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "tase-vacation-schedule-2025" ],
+    "observation_lineage" : [ ],
+    "nominal_native_date" : {
+      "chronology_id" : "HEBREW",
+      "year" : 5785,
+      "month_code" : "ELUL",
+      "day" : 29
+    },
+    "chronology_profile" : "fixed-arithmetic-hebrew-civil",
+    "chronology_provider" : "ICU4J 78.3"
+  }, {
+    "date" : "2025-09-23",
+    "type" : "CLOSED",
+    "description" : "Rosh Hashanah",
+    "key" : "tase_rosh_hashanah_2025",
+    "source_module" : "module:tase_scheduled_closures_2025",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "tase-vacation-schedule-2025" ],
+    "observation_lineage" : [ ],
+    "nominal_native_date" : {
+      "chronology_id" : "HEBREW",
+      "year" : 5786,
+      "month_code" : "TISHRI",
+      "day" : 1
+    },
+    "chronology_profile" : "fixed-arithmetic-hebrew-civil",
+    "chronology_provider" : "ICU4J 78.3"
+  }, {
+    "date" : "2025-09-24",
+    "type" : "CLOSED",
+    "description" : "Rosh Hashanah",
+    "key" : "tase_rosh_hashanah_2025",
+    "source_module" : "module:tase_scheduled_closures_2025",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "tase-vacation-schedule-2025" ],
+    "observation_lineage" : [ ],
+    "nominal_native_date" : {
+      "chronology_id" : "HEBREW",
+      "year" : 5786,
+      "month_code" : "TISHRI",
+      "day" : 2
+    },
+    "chronology_profile" : "fixed-arithmetic-hebrew-civil",
+    "chronology_provider" : "ICU4J 78.3"
+  }, {
+    "date" : "2025-10-01",
+    "type" : "CLOSED",
+    "description" : "Yom Kippur Eve",
+    "key" : "tase_yom_kippur_eve_2025",
+    "source_module" : "module:tase_scheduled_closures_2025",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "tase-vacation-schedule-2025" ],
+    "observation_lineage" : [ ],
+    "nominal_native_date" : {
+      "chronology_id" : "HEBREW",
+      "year" : 5786,
+      "month_code" : "TISHRI",
+      "day" : 9
+    },
+    "chronology_profile" : "fixed-arithmetic-hebrew-civil",
+    "chronology_provider" : "ICU4J 78.3"
+  }, {
+    "date" : "2025-10-02",
+    "type" : "CLOSED",
+    "description" : "Yom Kippur",
+    "key" : "tase_yom_kippur_2025",
+    "source_module" : "module:tase_scheduled_closures_2025",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "tase-vacation-schedule-2025" ],
+    "observation_lineage" : [ ],
+    "nominal_native_date" : {
+      "chronology_id" : "HEBREW",
+      "year" : 5786,
+      "month_code" : "TISHRI",
+      "day" : 10
+    },
+    "chronology_profile" : "fixed-arithmetic-hebrew-civil",
+    "chronology_provider" : "ICU4J 78.3"
+  }, {
+    "date" : "2025-10-06",
+    "type" : "CLOSED",
+    "description" : "Sukkot Eve",
+    "key" : "tase_sukkot_eve_2025",
+    "source_module" : "module:tase_scheduled_closures_2025",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "tase-vacation-schedule-2025" ],
+    "observation_lineage" : [ ],
+    "nominal_native_date" : {
+      "chronology_id" : "HEBREW",
+      "year" : 5786,
+      "month_code" : "TISHRI",
+      "day" : 14
+    },
+    "chronology_profile" : "fixed-arithmetic-hebrew-civil",
+    "chronology_provider" : "ICU4J 78.3"
+  }, {
+    "date" : "2025-10-07",
+    "type" : "CLOSED",
+    "description" : "Sukkot",
+    "key" : "tase_sukkot_2025",
+    "source_module" : "module:tase_scheduled_closures_2025",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "tase-vacation-schedule-2025" ],
+    "observation_lineage" : [ ],
+    "nominal_native_date" : {
+      "chronology_id" : "HEBREW",
+      "year" : 5786,
+      "month_code" : "TISHRI",
+      "day" : 15
+    },
+    "chronology_profile" : "fixed-arithmetic-hebrew-civil",
+    "chronology_provider" : "ICU4J 78.3"
+  }, {
+    "date" : "2025-10-13",
+    "type" : "CLOSED",
+    "description" : "Simchat Torah Eve",
+    "key" : "tase_simchat_torah_eve_2025",
+    "source_module" : "module:tase_scheduled_closures_2025",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "tase-vacation-schedule-2025" ],
+    "observation_lineage" : [ ],
+    "nominal_native_date" : {
+      "chronology_id" : "HEBREW",
+      "year" : 5786,
+      "month_code" : "TISHRI",
+      "day" : 21
+    },
+    "chronology_profile" : "fixed-arithmetic-hebrew-civil",
+    "chronology_provider" : "ICU4J 78.3"
+  }, {
+    "date" : "2025-10-14",
+    "type" : "CLOSED",
+    "description" : "Simchat Torah",
+    "key" : "tase_simchat_torah_2025",
+    "source_module" : "module:tase_scheduled_closures_2025",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "tase-vacation-schedule-2025" ],
+    "observation_lineage" : [ ],
+    "nominal_native_date" : {
+      "chronology_id" : "HEBREW",
+      "year" : 5786,
+      "month_code" : "TISHRI",
+      "day" : 22
+    },
+    "chronology_profile" : "fixed-arithmetic-hebrew-civil",
+    "chronology_provider" : "ICU4J 78.3"
+  }, {
+    "date" : "2026-01-09",
+    "type" : "EARLY_CLOSE",
+    "description" : "Friday Session (Early Close)",
+    "key" : "tase_friday_short_session_q1_2026",
+    "source_module" : "module:tase_verified_events_2026",
+    "observed_from" : null,
+    "close_time" : "13:50",
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "isa-trading-week-2026", "tase-q1-2026-report" ],
+    "observation_lineage" : [ ]
+  }, {
+    "date" : "2026-01-16",
+    "type" : "EARLY_CLOSE",
+    "description" : "Friday Session (Early Close)",
+    "key" : "tase_friday_short_session_q1_2026",
+    "source_module" : "module:tase_verified_events_2026",
+    "observed_from" : null,
+    "close_time" : "13:50",
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "isa-trading-week-2026", "tase-q1-2026-report" ],
+    "observation_lineage" : [ ]
+  }, {
+    "date" : "2026-01-23",
+    "type" : "EARLY_CLOSE",
+    "description" : "Friday Session (Early Close)",
+    "key" : "tase_friday_short_session_q1_2026",
+    "source_module" : "module:tase_verified_events_2026",
+    "observed_from" : null,
+    "close_time" : "13:50",
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "isa-trading-week-2026", "tase-q1-2026-report" ],
+    "observation_lineage" : [ ]
+  }, {
+    "date" : "2026-01-30",
+    "type" : "EARLY_CLOSE",
+    "description" : "Friday Session (Early Close)",
+    "key" : "tase_friday_short_session_q1_2026",
+    "source_module" : "module:tase_verified_events_2026",
+    "observed_from" : null,
+    "close_time" : "13:50",
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "isa-trading-week-2026", "tase-q1-2026-report" ],
+    "observation_lineage" : [ ]
+  }, {
+    "date" : "2026-02-06",
+    "type" : "EARLY_CLOSE",
+    "description" : "Friday Session (Early Close)",
+    "key" : "tase_friday_short_session_q1_2026",
+    "source_module" : "module:tase_verified_events_2026",
+    "observed_from" : null,
+    "close_time" : "13:50",
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "isa-trading-week-2026", "tase-q1-2026-report" ],
+    "observation_lineage" : [ ]
+  }, {
+    "date" : "2026-02-13",
+    "type" : "EARLY_CLOSE",
+    "description" : "Friday Session (Early Close)",
+    "key" : "tase_friday_short_session_q1_2026",
+    "source_module" : "module:tase_verified_events_2026",
+    "observed_from" : null,
+    "close_time" : "13:50",
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "isa-trading-week-2026", "tase-q1-2026-report" ],
+    "observation_lineage" : [ ]
+  }, {
+    "date" : "2026-02-20",
+    "type" : "EARLY_CLOSE",
+    "description" : "Friday Session (Early Close)",
+    "key" : "tase_friday_short_session_q1_2026",
+    "source_module" : "module:tase_verified_events_2026",
+    "observed_from" : null,
+    "close_time" : "13:50",
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "isa-trading-week-2026", "tase-q1-2026-report" ],
+    "observation_lineage" : [ ]
+  }, {
+    "date" : "2026-02-27",
+    "type" : "EARLY_CLOSE",
+    "description" : "Friday Session (Early Close)",
+    "key" : "tase_friday_short_session_q1_2026",
+    "source_module" : "module:tase_verified_events_2026",
+    "observed_from" : null,
+    "close_time" : "13:50",
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "isa-trading-week-2026", "tase-q1-2026-report" ],
+    "observation_lineage" : [ ]
+  }, {
+    "date" : "2026-03-06",
+    "type" : "EARLY_CLOSE",
+    "description" : "Friday Session (Early Close)",
+    "key" : "tase_friday_short_session_q1_2026",
+    "source_module" : "module:tase_verified_events_2026",
+    "observed_from" : null,
+    "close_time" : "13:50",
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "isa-trading-week-2026", "tase-q1-2026-report" ],
+    "observation_lineage" : [ ]
+  }, {
+    "date" : "2026-03-13",
+    "type" : "EARLY_CLOSE",
+    "description" : "Friday Session (Early Close)",
+    "key" : "tase_friday_short_session_q1_2026",
+    "source_module" : "module:tase_verified_events_2026",
+    "observed_from" : null,
+    "close_time" : "13:50",
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "isa-trading-week-2026", "tase-q1-2026-report" ],
+    "observation_lineage" : [ ]
+  }, {
+    "date" : "2026-03-20",
+    "type" : "EARLY_CLOSE",
+    "description" : "Friday Session (Early Close)",
+    "key" : "tase_friday_short_session_q1_2026",
+    "source_module" : "module:tase_verified_events_2026",
+    "observed_from" : null,
+    "close_time" : "13:50",
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "isa-trading-week-2026", "tase-q1-2026-report" ],
+    "observation_lineage" : [ ]
+  }, {
+    "date" : "2026-03-27",
+    "type" : "EARLY_CLOSE",
+    "description" : "Friday Session (Early Close)",
+    "key" : "tase_friday_short_session_q1_2026",
+    "source_module" : "module:tase_verified_events_2026",
+    "observed_from" : null,
+    "close_time" : "13:50",
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "isa-trading-week-2026", "tase-q1-2026-report" ],
+    "observation_lineage" : [ ]
+  }, {
+    "date" : "2026-04-21",
+    "type" : "CLOSED",
+    "description" : "Memorial Day",
+    "key" : "tase_memorial_day_2026",
+    "source_module" : "module:tase_verified_events_2026",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "tase-weekly-review-2026-04-20" ],
+    "observation_lineage" : [ ],
+    "nominal_native_date" : {
+      "chronology_id" : "HEBREW",
+      "year" : 5786,
+      "month_code" : "IYAR",
+      "day" : 4
+    },
+    "chronology_profile" : "fixed-arithmetic-hebrew-civil",
+    "chronology_provider" : "ICU4J 78.3"
+  }, {
+    "date" : "2026-04-22",
+    "type" : "CLOSED",
+    "description" : "Independence Day",
+    "key" : "tase_independence_day_2026",
+    "source_module" : "module:tase_verified_events_2026",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "tase-weekly-review-2026-04-20" ],
+    "observation_lineage" : [ ],
+    "nominal_native_date" : {
+      "chronology_id" : "HEBREW",
+      "year" : 5786,
+      "month_code" : "IYAR",
+      "day" : 5
+    },
+    "chronology_profile" : "fixed-arithmetic-hebrew-civil",
+    "chronology_provider" : "ICU4J 78.3"
+  } ]
+}

@@ -9,7 +9,56 @@
   "coverage" : {
     "from" : "2000-01-01",
     "to" : "2030-12-31",
-    "verified_through" : "2026-12-31"
+    "verified_through" : "2026-12-31",
+    "quality" : [ {
+      "scope" : "SCHEDULED_CLOSURES",
+      "from" : "2000-01-01",
+      "to" : "2030-12-31",
+      "quality" : "PROJECTED",
+      "evidence_ids" : [ "tsx-calendar-page", "holidays-act-canada", "ontario-family-day-2007" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "2000-01-01",
+      "to" : "2009-12-31",
+      "quality" : "PROJECTED",
+      "evidence_ids" : [ "tsx-calendar-page" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "2010-01-01",
+      "to" : "2014-12-31",
+      "quality" : "INCOMPLETE",
+      "evidence_ids" : [ "tsx-calendar-page" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "2015-01-01",
+      "to" : "2024-12-31",
+      "quality" : "PROJECTED",
+      "evidence_ids" : [ "tsx-calendar-page" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "2025-01-01",
+      "to" : "2026-12-31",
+      "quality" : "VERIFIED",
+      "evidence_ids" : [ "tsx-calendar-page", "tmx-holiday-schedule-2025" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "2027-01-01",
+      "to" : "2030-12-31",
+      "quality" : "INCOMPLETE",
+      "evidence_ids" : [ "tsx-calendar-page" ]
+    }, {
+      "scope" : "UNSCHEDULED_EXCEPTIONS",
+      "from" : "2000-01-01",
+      "to" : "2030-12-31",
+      "quality" : "PROJECTED",
+      "evidence_ids" : [ "tsx-calendar-page" ]
+    }, {
+      "scope" : "UNSCHEDULED_EXCEPTIONS",
+      "from" : "2001-09-11",
+      "to" : "2001-09-12",
+      "quality" : "INCOMPLETE",
+      "evidence_ids" : [ "tsx-calendar-page" ]
+    } ]
   },
   "event_count" : 3546,
   "events" : [ {

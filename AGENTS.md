@@ -36,7 +36,7 @@ resources, published as `bdc-calendar-data`) and **`tools`** (the CLI and everyt
 ./gradlew :tools:run --args="query US-NYSE --as-of v10.1.0 --is-business-day 2021-12-31"
 ./gradlew :tools:run --args="changelog --blessed-dir blessed --release-history-dir release-history --out site/"  # build changelog site from release history
 ./gradlew :tools:run --args="site --api-only --out site"  # write the /v1/ JSON API + .ics files from blessed/ (see spec/SPEC.md#json-api-v1)
-# .github/workflows/pages.yml deploys `tools site --out site/` (JSON API + HTML) to GitHub Pages on every push to main touching blessed/, release-history/, tools/src/main/, or sources/
+# .github/workflows/release-pr.yml prepares reviewed release artifacts after qualifying main CI; release.yml publishes the exact merged release SHA and deploys Pages directly.
 ./gradlew :tools:run --args="site --out site --base-url https://twallengren.github.io/calendar-project/"  # full static site: /v1/ API, changelog, then HTML pages rendered from that API (com.bdc.site; hand-written styles.css/site.js in tools/src/main/resources/site/)
 ./gradlew :tools:run --args="site --blessed-dir generated --compare-to blessed --out site-preview"  # contributor preview: build the site from a local `generate --include-specs` output (index synthesised from whichever calendars are present) and add a "Changes vs blessed" banner plus /changes/ against another dir (e.g. blessed/)
 ./gradlew :tools:run --args="serve --dir site-preview --port 8080"  # zero-dependency static file server (JDK HttpServer) for previewing `site`/`site-preview` output; --open launches a browser, Ctrl-C stops it
@@ -173,6 +173,27 @@ After updates, run tests without golden-update mode. For generation or compariso
 
 ## Data contributions
 
-When adding or modifying calendar data, cite the source with a `source:` field (an id from `sources/<MARKET>/README.md`); `validate --strict` rejects uncited event sources. The NYSE's own holiday history PDF under `sources/US-NYSE/` outranks third-party libraries when they disagree.
+When adding or modifying calendar data, cite the source with a `source:` field (an id from canonical `sources/<MARKET>/register.json` (README is generated)); `validate --strict` rejects uncited event sources. The NYSE's own holiday history PDF under `sources/US-NYSE/` outranks third-party libraries when they disagree.
 
 A market-kind calendar's `metadata.mic` (ISO 10383) and `metadata.aliases` are the one source of truth for exchange-code lookups: `validate --strict` warns when a market has no `mic` and errors on a malformed or duplicate mic/alias; `tools manifest` (run by `scripts/bless.sh`) derives `blessed/manifest.json`'s `aliases` map from them, and `python/scripts/sync_data.py`/`data/build.gradle.kts` read that map rather than hand-maintaining their own.
+
+## Native chronologies, trust and financial operations
+
+`docs/native-chronologies.md` describes the compiler-only ICU4J 78.3 Hebrew and Chinese Hong Kong
+profiles, bounded conversion intervals, named/leap months and independent evidence. Keep native
+identity and provider provenance through generation. `tools convert` shares the provider path;
+conversion must fail explicitly outside its profile rather than emit blank dates.
+
+Coverage quality is per scope (scheduled closures, early closes, unscheduled exceptions).
+`INCOMPLETE` or a missing explicit scope makes actual state UNKNOWN and business-day operations
+raise `UnresolvedDateException` / `UnresolvedDateError`, compatible with coverage errors. Read
+`assessment` for scheduled state and evidence; raw event status remains CONFIRMED/PROJECTED.
+
+Financial date conventions, month advancement and last-business-day queries are defined in
+`spec/SPEC.md#financial-date-operations`. Keep detailed Java/Python/CLI/MCP results and full-path
+confidence in parity. Identity exceptions do not establish an open date. Member close times retain
+calendar/timezone identity; comparing wall-clock close times across zones is deprecated.
+
+`EU-TARGET`, `US-FEDWIRE` and `GB-CHAPS` are payment-kind calendars without MICs, included alongside
+markets in runtime/site publication. Their 2026–2027 ordinary-day projections exclude sessions,
+cutoffs and instrument eligibility; see `docs/payment-calendars.md`.

@@ -22,9 +22,9 @@ class CiDiffMultisetIntegrationTest {
   private final ByteArrayOutputStream stderr = new ByteArrayOutputStream();
   private PrintStream originalOut;
   private PrintStream originalErr;
-  private static final String HEADER = "date,type,description\n";
-  private static final String A = "2024-01-01,CLOSED,A\n";
-  private static final String B = "2024-01-01,CLOSED,B\n";
+  private static final String HEADER = "date,type,description,source_module\n";
+  private static final String A = "2024-01-01,CLOSED,A,calendar:TEST\n";
+  private static final String B = "2024-01-01,CLOSED,B,calendar:TEST\n";
 
   @BeforeEach
   void capture() {
@@ -111,7 +111,7 @@ class CiDiffMultisetIntegrationTest {
     assertEquals(2, calendar().path("removals").size());
     assertEquals(calendar().path("removals").get(0), calendar().path("removals").get(1));
 
-    assertEquals(2, ci(HEADER + A + "2024-01-01,NOTABLE,C\n", "json"));
+    assertEquals(2, ci(HEADER + A + "2024-01-01,NOTABLE,C,calendar:TEST\n", "json"));
     assertEquals(1, calendar().path("modifications").size());
     assertEquals("C", calendar().path("modifications").get(0).path("old_description").asText());
     assertEquals("B", calendar().path("modifications").get(0).path("new_description").asText());
@@ -132,7 +132,9 @@ class CiDiffMultisetIntegrationTest {
   void readsColumnsByNameAndKeepsMissingBaselineAndErrorBehavior() throws Exception {
     assertEquals(
         0,
-        ci("description,type,date\n\"B\",CLOSED,2024-01-01\nA,CLOSED,2024-01-01\n", "json"),
+        ci(
+            "description,type,date,source_module\n\"B\",CLOSED,2024-01-01,calendar:TEST\nA,CLOSED,2024-01-01,calendar:TEST\n",
+            "json"),
         stderr.toString());
     assertEquals("NONE", calendar().path("severity").asText());
 

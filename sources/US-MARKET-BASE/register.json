@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "entries": [
+    {
+      "id": "convention",
+      "title": "Saturday-Sunday weekend",
+      "publisher": "n/a",
+      "location": "n/a",
+      "retrieved": "n/a",
+      "covers": "all years",
+      "notes": "Standard weekend definition; no external source.",
+      "local_files": [],
+      "support_intervals": []
+    },
+    {
+      "id": "nyse-history-2008",
+      "title": "History of New York Stock Exchange Holidays",
+      "publisher": "NYSE",
+      "location": "see `sources/US-NYSE/README.md`",
+      "retrieved": "2022-01-14",
+      "covers": "1885-2007",
+      "notes": "Cited by the shared US holiday modules this calendar composes.",
+      "local_files": [
+        {
+          "path": "US-NYSE/README.md",
+          "sha256": "a51c05744ac005d7eee9dab4149dfecd4c323c39a049f9eec2f88c72acf560d9"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "1900-01-01",
+          "to": "2007-12-31"
+        },
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "1900-01-01",
+          "to": "2007-12-31"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "1900-01-01",
+          "to": "2007-12-31"
+        }
+      ]
+    }
+  ]
+}

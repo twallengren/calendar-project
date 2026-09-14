@@ -34,7 +34,96 @@ public record CalendarData(
     String checksum,
     List<Integer> years,
     JsonNode weekendPolicy,
-    Map<Integer, List<DayEvent>> eventsByYear) {
+    Map<Integer, List<DayEvent>> eventsByYear,
+    Map<LocalDate, JsonNode> assessments,
+    String kind) {
+
+  public CalendarData(
+      String id,
+      String name,
+      String timezone,
+      String mic,
+      List<String> aliases,
+      Coverage coverage,
+      Map<String, Integer> countsByType,
+      Map<String, Integer> countsByStatus,
+      String checksum,
+      List<Integer> years,
+      JsonNode weekendPolicy,
+      Map<Integer, List<DayEvent>> eventsByYear,
+      Map<LocalDate, JsonNode> assessments) {
+    this(
+        id,
+        name,
+        timezone,
+        mic,
+        aliases,
+        coverage,
+        countsByType,
+        countsByStatus,
+        checksum,
+        years,
+        weekendPolicy,
+        eventsByYear,
+        assessments,
+        "market");
+  }
+
+  public CalendarData(
+      String id,
+      String name,
+      String timezone,
+      String mic,
+      List<String> aliases,
+      Coverage coverage,
+      Map<String, Integer> countsByType,
+      Map<String, Integer> countsByStatus,
+      String checksum,
+      List<Integer> years,
+      JsonNode weekendPolicy,
+      Map<Integer, List<DayEvent>> eventsByYear) {
+    this(
+        id,
+        name,
+        timezone,
+        mic,
+        aliases,
+        coverage,
+        countsByType,
+        countsByStatus,
+        checksum,
+        years,
+        weekendPolicy,
+        eventsByYear,
+        Map.of());
+  }
+
+  public boolean isUnknown(LocalDate date) {
+    if ((coverage.from() != null && date.isBefore(coverage.from()))
+        || (coverage.to() != null && date.isAfter(coverage.to()))) return true;
+    return !assessments.isEmpty()
+        && (!assessments.containsKey(date)
+            || assessments.get(date).path("state").asText().equals("UNKNOWN"));
+  }
+
+  /** Completeness across the published dates, using the weakest scope on each date. */
+  public String coverageSummary() {
+    if (assessments.isEmpty()) return "Completeness not recorded";
+    int incomplete = 0;
+    int projected = 0;
+    for (JsonNode day : assessments.values()) {
+      List<String> scopes = new ArrayList<>();
+      day.path("completeness").elements().forEachRemaining(value -> scopes.add(value.asText()));
+      if (scopes.size() != 3 || scopes.contains("INCOMPLETE")) incomplete++;
+      else if (scopes.contains("PROJECTED")) projected++;
+    }
+    return incomplete
+        + " incomplete; "
+        + projected
+        + " projected; "
+        + (assessments.size() - incomplete - projected)
+        + " verified days";
+  }
 
   /** The published coverage window, plus the date through which the data has been verified. */
   public record Coverage(LocalDate from, LocalDate to, LocalDate verifiedThrough) {}
@@ -100,6 +189,8 @@ public record CalendarData(
 
   /** A date is a non-business day when it carries a WEEKEND or CLOSED row. */
   public boolean isBusinessDay(LocalDate date) {
+    if (isUnknown(date))
+      throw new IllegalArgumentException("Unresolved date " + date + " for " + id);
     for (DayEvent event : eventsIn(date.getYear())) {
       if (event.date().equals(date) && (event.isWeekend() || event.isClosed())) {
         return false;
@@ -120,6 +211,7 @@ public record CalendarData(
     LocalDate last = LocalDate.of(lastYear(), 12, 31);
     LocalDate cursor = date.plusDays(step);
     while (!cursor.isBefore(first) && !cursor.isAfter(last)) {
+      if (isUnknown(cursor)) return null;
       if (isBusinessDay(cursor)) {
         return cursor;
       }
@@ -199,6 +291,17 @@ public record CalendarData(
       eventsByYear.put(year, List.copyOf(events));
     }
 
+    Map<LocalDate, JsonNode> assessments = new TreeMap<>();
+    Path v2 = v1.getParent().resolve("v2/calendars").resolve(id);
+    if (manifest.path("coverage").path("quality").size() > 0
+        && !Files.exists(v2.resolve("manifest.json")))
+      throw new IOException("Explicit coverage requires v2 assessments for " + id);
+    for (int year : years) {
+      Path yearFile = v2.resolve(year + ".json");
+      if (!Files.exists(yearFile)) continue;
+      for (JsonNode day : mapper.readTree(yearFile.toFile()).path("days"))
+        assessments.put(LocalDate.parse(day.path("date").asText()), day);
+    }
     return new CalendarData(
         id,
         indexEntry.path("name").asText(id),
@@ -214,7 +317,9 @@ public record CalendarData(
         textOrNull(indexEntry, "checksum"),
         List.copyOf(years),
         manifest.path("weekend_policy"),
-        Collections.unmodifiableMap(eventsByYear));
+        Collections.unmodifiableMap(eventsByYear),
+        Collections.unmodifiableMap(assessments),
+        manifest.path("kind").asText("market"));
   }
 
   private static List<String> aliasesOf(JsonNode indexEntry) {

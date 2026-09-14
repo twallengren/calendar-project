@@ -9,17 +9,27 @@
 import com.bdc.artifact.ReleaseHistoryStore;
 import com.bdc.model.Event;
 import com.bdc.stream.DateStream;
+import com.bdc.stream.DateOperationResult;
+import com.bdc.stream.BusinessDayConvention;
+import com.bdc.stream.OutsideCoverageException;
+import com.bdc.stream.UnresolvedDateException;
+import com.bdc.emitter.AssessmentEmitter;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.function.Supplier;
 import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.TreeSet;
+import java.util.LinkedHashMap;
 
 String CAL = System.getenv("BDC_CALENDAR");
 Path ROOT = Path.of(System.getenv("BDC_REPO_ROOT"));
 Path OUT = Path.of(System.getenv("BDC_OUT"));
 int SAMPLES = Integer.parseInt(System.getenv().getOrDefault("BDC_SAMPLES", "1000"));
+ObjectMapper mapper = new ObjectMapper();
 
 String esc(String s) {
     if (s == null) return "null";
@@ -61,9 +71,36 @@ String nav(DateStream s, String op, LocalDate d, int n) {
             default -> s.nthBusinessDay(d, n);
         };
         return esc(r.toString());
-    } catch (RuntimeException ex) {
-        return "null";
+    } catch (OutsideCoverageException ex) {
+        return failure(ex);
     }
+}
+
+String failure(OutsideCoverageException ex) {
+    return "{\"error\":" + esc(ex instanceof UnresolvedDateException ? "UnresolvedDateError" : "OutsideCoverageError")
+        + ",\"date\":" + esc(ex.date().toString()) + "}";
+}
+
+String query(Supplier<Object> call) throws Exception {
+    try { return mapper.writeValueAsString(call.get()); }
+    catch (OutsideCoverageException ex) { return failure(ex); }
+}
+
+String financial(Supplier<DateOperationResult> call) throws Exception {
+    return query(() -> {
+        var result = call.get();
+        var row = new LinkedHashMap<String, Object>();
+        row.put("original_date", result.originalDate().toString());
+        row.put("result_date", result.resultDate().toString());
+        row.put("operation", result.operation().name());
+        row.put("convention", result.convention() == null ? null : result.convention().name());
+        row.put("business_day_offset", result.businessDayOffset());
+        row.put("month_offset", result.monthOffset());
+        row.put("preserve_end_of_month", result.preserveEndOfMonth());
+        row.put("effective_confidence", result.effectiveConfidence().name());
+        row.put("examined_dates", result.examinedDates().stream().map(Object::toString).toList());
+        return row;
+    });
 }
 
 var store = new ReleaseHistoryStore(ROOT.resolve("release-history"), ROOT.resolve("blessed"));
@@ -75,6 +112,7 @@ LocalDate end = stream.range().end();
 Files.createDirectories(OUT.getParent());
 PrintWriter out = new PrintWriter(Files.newBufferedWriter(OUT, StandardCharsets.UTF_8));
 out.print("{\"calendar_id\":" + esc(stream.calendarId()));
+out.print(",\"fixture_schema\":2");
 out.print(",\"version\":" + esc(snapshot.version()));
 out.print(",\"range\":[" + esc(start.toString()) + "," + esc(end.toString()) + "]");
 out.print(",\"verified_through\":" + opt(stream.verifiedThrough().orElse(null)));
@@ -94,22 +132,37 @@ out.print("]");
 out.print(",\"queries\":[");
 long span = end.toEpochDay() - start.toEpochDay();
 long step = Math.max(1, span / SAMPLES);
+var sampledDates = new TreeSet<LocalDate>();
+for (long i = 0; i <= span; i += step) sampledDates.add(start.plusDays(i));
+sampledDates.add(end);
+for (var interval : stream.coverageIntervals()) {
+    for (var boundary : List.of(interval.from(), interval.to())) {
+        for (int offset = -1; offset <= 1; offset++) {
+            var date = boundary.plusDays(offset);
+            if (!date.isBefore(start) && !date.isAfter(end)) sampledDates.add(date);
+        }
+    }
+}
+for (Event event : stream.eventsInRange(start, end)) {
+    if (!event.type().toString().equals("WEEKEND") && stream.eventDetailsOn(event.date()).stream().anyMatch(detail -> detail.nominalNativeDate() != null))
+        sampledDates.add(event.date());
+}
 first = true;
-for (long i = 0; i <= span; i += step) {
-    LocalDate d = start.plusDays(i);
+for (LocalDate d : sampledDates) {
     if (!first) out.print(",");
     first = false;
     out.print("{\"d\":" + esc(d.toString()));
-    out.print(",\"b\":" + stream.isBusinessDay(d));
+    out.print(",\"assessment\":" + mapper.writeValueAsString(AssessmentEmitter.row(stream.assessment(d))));
+    out.print(",\"b\":" + query(() -> stream.isBusinessDay(d)));
     out.print(",\"n\":" + nav(stream, "next", d, 0));
     out.print(",\"p\":" + nav(stream, "prev", d, 0));
     out.print(",\"f5\":" + nav(stream, "nth", d, 5));
     out.print(",\"b5\":" + nav(stream, "nth", d, -5));
     out.print(",\"s\":" + esc(stream.status(d).toString()));
-    out.print(",\"c\":" + opt(stream.closeTime(d).orElse(null)));
-    out.print(",\"ec\":" + stream.isEarlyClose(d));
+    out.print(",\"c\":" + query(() -> stream.closeTime(d).map(Object::toString).orElse(null)));
+    out.print(",\"ec\":" + query(() -> stream.isEarlyClose(d)));
     LocalDate windowEnd = d.plusDays(30).isAfter(end) ? end : d.plusDays(30);
-    out.print(",\"cnt\":" + stream.businessDaysInRange(d, windowEnd));
+    out.print(",\"cnt\":" + query(() -> stream.businessDaysInRange(d, windowEnd)));
     out.print(",\"we\":" + esc(windowEnd.toString()));
     out.print(",\"ev\":[");
     boolean firstEvent = true;
@@ -119,6 +172,39 @@ for (long i = 0; i <= span; i += step) {
         out.print(eventJson(e));
     }
     out.print("]}");
+}
+out.print("]");
+
+// Detailed operations at coverage, quality and month boundaries. Keep the sample
+// bounded for century-long calendars while exercising every convention and path.
+var financialDates = new TreeSet<LocalDate>();
+financialDates.add(start.minusDays(1));
+financialDates.add(end.plusDays(1));
+for (long i = 0; i <= 24; i++) {
+    var date = start.plusDays(span * i / 24);
+    financialDates.add(date);
+    financialDates.add(date.withDayOfMonth(1));
+    financialDates.add(date.withDayOfMonth(date.lengthOfMonth()));
+}
+for (var interval : stream.coverageIntervals()) {
+    financialDates.add(interval.from());
+    financialDates.add(interval.to());
+}
+out.print(",\"financial_queries\":[");
+first = true;
+for (LocalDate d : financialDates) {
+    if (!first) out.print(",");
+    first = false;
+    out.print("{\"d\":" + esc(d.toString()));
+    for (var convention : BusinessDayConvention.values()) {
+        out.print(",\"adjust_" + convention.name() + "\":" + financial(() -> stream.adjustDetailed(d, convention)));
+        out.print(",\"months_" + convention.name() + "\":" + financial(() -> stream.advanceMonthsDetailed(d, 1, convention, false)));
+    }
+    for (int offset : List.of(-5, 0, 5))
+        out.print(",\"offset_" + offset + "\":" + financial(() -> stream.businessDayOffsetDetailed(d, offset)));
+    out.print(",\"eom\":" + financial(() -> stream.advanceMonthsDetailed(d, -1, BusinessDayConvention.MODIFIED_FOLLOWING, true)));
+    out.print(",\"last\":" + financial(() -> stream.lastBusinessDayOfMonthDetailed(d)));
+    out.print("}");
 }
 out.print("]}");
 out.close();

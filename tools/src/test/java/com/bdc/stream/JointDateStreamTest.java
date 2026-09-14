@@ -139,13 +139,15 @@ class JointDateStreamTest {
 
   @Test
   void statusIsTheWorstMemberStatus() {
-    assertEquals(EventStatus.CONFIRMED, joint.status(LocalDate.of(2024, 6, 3)));
+    // Tadawul's scoped quality treats unverified absence of early/unscheduled closures as a
+    // projected schedule even inside the legacy verified_through boundary.
+    assertEquals(EventStatus.PROJECTED, joint.status(LocalDate.of(2024, 6, 3)));
     // past the NYSE verified_through but inside both ranges
     assertEquals(EventStatus.PROJECTED, joint.status(LocalDate.of(2028, 6, 1)));
-    assertEquals(EventStatus.CONFIRMED, tadawul.status(LocalDate.of(2028, 6, 1)));
+    assertEquals(EventStatus.PROJECTED, tadawul.status(LocalDate.of(2028, 6, 1)));
     // outside SA-TADAWUL's coverage
     assertEquals(EventStatus.UNKNOWN, joint.status(LocalDate.of(2019, 6, 3)));
-    assertEquals(EventStatus.CONFIRMED, nyse.status(LocalDate.of(2019, 6, 3)));
+    assertEquals(EventStatus.PROJECTED, nyse.status(LocalDate.of(2019, 6, 3)));
   }
 
   @Test

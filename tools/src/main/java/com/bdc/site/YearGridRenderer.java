@@ -58,6 +58,7 @@ public final class YearGridRenderer {
     return """
         <ul class="legend">
           <li><span class="swatch open"></span>Open</li>
+          <li><span class="swatch unknown"></span>Unknown (incomplete coverage)</li>
           <li><span class="swatch closed"></span>Closed</li>
           <li><span class="swatch early-close"></span>Early close</li>
           <li><span class="swatch weekend"></span>Weekend</li>
@@ -134,6 +135,19 @@ public final class YearGridRenderer {
       }
     }
 
+    if (calendar.isUnknown(date)) {
+      titles.add(0, "Unknown actual state; scheduled " + state);
+      state = "unknown";
+      projected = false;
+    } else if (calendar.assessments().containsKey(date)) {
+      projected =
+          calendar
+              .assessments()
+              .get(date)
+              .path("effective_confidence")
+              .asText()
+              .equals("PROJECTED");
+    }
     StringBuilder html = new StringBuilder(160);
     html.append("<td class=\"day ")
         .append(state)

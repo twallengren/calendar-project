@@ -53,6 +53,7 @@ public class ResolveCommand implements Callable<Integer> {
           new ObjectMapper(new YAMLFactory().disable(YAMLGenerator.Feature.WRITE_DOC_START_MARKER))
               .registerModule(new JavaTimeModule())
               .enable(SerializationFeature.INDENT_OUTPUT)
+              .enable(SerializationFeature.ORDER_MAP_ENTRIES_BY_KEYS)
               .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
 
       String yaml = yamlMapper.writeValueAsString(resolved);

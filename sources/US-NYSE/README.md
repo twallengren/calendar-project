@@ -21,6 +21,10 @@
   from 1992, Independence Day eve from 1995) and every one-off "Closed at ..." entry in the
   special closings list are modelled with their local close time. "Opened at ..." late opens
   are not modelled.
+- **Disputed Christmas Eves.** The history PDF explicitly lists a 14:00 close on 24 December 1975,
+  which is modelled as a one-off alongside 1974. The remaining pre-1990 Christmas Eve dates carried
+  by exchange_calendars but absent from the PDF are marked `INCOMPLETE` for the `EARLY_CLOSES`
+  scope on those exact dates; surrounding dates retain the PDF-backed quality interval.
 - **PDF typo.** The list prints "Dec. 12, 1950 (Sat) Saturday before Christmas Eve"; December 12,
   1950 was a Tuesday and the Saturday before Christmas Eve was December 23, 1950, which is the
   date used.

@@ -9,6 +9,38 @@ metadata:
   coverage:
     from: 2020-01-01
     to: 2030-12-31
+    quality:
+    - scope: SCHEDULED_CLOSURES
+      from: 2020-01-01
+      to: 2020-12-31
+      quality: INCOMPLETE
+      evidenceIds:
+      - saudi-exchange-announcements
+      - argaam-tadawul-eid-adha-2020
+    - scope: SCHEDULED_CLOSURES
+      from: 2021-01-01
+      to: 2029-12-31
+      quality: VERIFIED
+      evidenceIds:
+      - saudi-exchange-announcements
+    - scope: SCHEDULED_CLOSURES
+      from: 2030-01-01
+      to: 2030-12-31
+      quality: PROJECTED
+      evidenceIds:
+      - saudi-exchange-announcements
+    - scope: EARLY_CLOSES
+      from: 2020-01-01
+      to: 2030-12-31
+      quality: PROJECTED
+      evidenceIds:
+      - saudi-exchange-announcements
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2020-01-01
+      to: 2030-12-31
+      quality: PROJECTED
+      evidenceIds:
+      - saudi-exchange-announcements
     verified_through: 2029-12-31
   kind: market
   mic: XSAU

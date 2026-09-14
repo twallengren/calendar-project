@@ -9,7 +9,26 @@
   "coverage" : {
     "from" : "1900-01-01",
     "to" : "2030-12-31",
-    "verified_through" : "2026-12-31"
+    "verified_through" : "2026-12-31",
+    "quality" : [ {
+      "scope" : "SCHEDULED_CLOSURES",
+      "from" : "1900-01-01",
+      "to" : "2030-12-31",
+      "quality" : "PROJECTED",
+      "evidence_ids" : [ "nyse-history-2008" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "1900-01-01",
+      "to" : "2030-12-31",
+      "quality" : "PROJECTED",
+      "evidence_ids" : [ "nyse-history-2008" ]
+    }, {
+      "scope" : "UNSCHEDULED_EXCEPTIONS",
+      "from" : "1900-01-01",
+      "to" : "2030-12-31",
+      "quality" : "PROJECTED",
+      "evidence_ids" : [ "nyse-history-2008" ]
+    } ]
   },
   "event_count" : 14608,
   "events" : [ {

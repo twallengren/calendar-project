@@ -6,9 +6,11 @@ import com.bdc.chronology.ontology.algorithms.ChronologyAlgorithm;
 /**
  * Generated chronology: Gregorian Calendar
  *
- * <p>The Gregorian calendar is the internationally accepted civil calendar, introduced by Pope
- * Gregory XIII in October 1582 as a reform of the Julian calendar. It is a solar calendar based on
- * a 365-day common year divided into 12 months.
+ * <p>The Gregorian calendar is the internationally accepted civil calendar,
+ * introduced by Pope Gregory XIII in October 1582 as a reform of the
+ * Julian calendar. It is a solar calendar based on a 365-day common year
+ * divided into 12 months.
+ *
  *
  * <p>This class is auto-generated from YAML. Do not edit manually.
  */
@@ -42,24 +44,16 @@ public final class IsoChronology implements ChronologyAlgorithm {
     }
 
     /** Returns the month number (1-based). */
-    public int number() {
-      return number;
-    }
+    public int number() { return number; }
 
     /** Returns the display name of the month. */
-    public String displayName() {
-      return displayName;
-    }
+    public String displayName() { return displayName; }
 
     /** Returns the number of days in this month for a common year. */
-    public int days() {
-      return days;
-    }
+    public int days() { return days; }
 
     /** Returns the number of days in this month for a leap year. */
-    public int leapDays() {
-      return leapDays;
-    }
+    public int leapDays() { return leapDays; }
 
     /** Returns the number of days in this month for the given year type. */
     public int days(boolean isLeapYear) {
@@ -94,14 +88,10 @@ public final class IsoChronology implements ChronologyAlgorithm {
     }
 
     /** Returns the day ordinal (0-based, starting from the first day of the week). */
-    public int dayOrdinal() {
-      return ordinal;
-    }
+    public int dayOrdinal() { return ordinal; }
 
     /** Returns the display name of the day. */
-    public String displayName() {
-      return displayName;
-    }
+    public String displayName() { return displayName; }
 
     /** Returns the Day for the given ordinal (0-based). */
     public static Day of(int dayOrdinal) {

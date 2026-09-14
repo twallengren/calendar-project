@@ -1,0 +1,18 @@
+# Independent source: Hong Kong Observatory Gregorian-Lunar Calendar Conversion Tables
+# https://www.hko.gov.hk/en/gts/time/conversion.htm
+# Selected original annual text files and hashes are retained in sources/HK-HKEX/hko and register.json.
+# HKO warns that distant new moons near midnight may differ by one day. ICU_EXPECTED columns pin
+# this compiler profile without rewriting HKO's published row; NOTE explains each disagreement.
+# ISO HKO_YEAR HKO_MONTH HKO_DAY ICU_EXPECTED_YEAR ICU_EXPECTED_MONTH ICU_EXPECTED_DAY NOTE
+1929-01-01	1928	M11	21	1928	M11	21	first supported ISO date; preceding month start appears in the 1928 table
+2023-03-22	2023	M02L	1	2023	M02L	1	HKO second occurrence of 2nd Lunar Month is intercalary
+2025-07-25	2025	M06L	1	2025	M06L	1	HKO second occurrence of 6th Lunar Month is intercalary
+2027-02-06	2027	M01	1	2026	M12	30	HKO/HK schedules start the lunar year here; ICU starts it one day later
+2027-02-07	2027	M01	2	2027	M01	1	ICU starts the lunar year here, requiring an authoritative HKEX exception
+2033-12-22	2033	M11L	1	2033	M11L	1	2033 transition: second occurrence of 11th Lunar Month
+2034-01-20	2033	M12	1	2033	M12	1	2033 native year continues into Gregorian 2034
+2057-09-28	2057	M09	1	2057	M08	30	HKO warned new moon; ICU starts M09 one civil day later
+2057-09-29	2057	M09	2	2057	M09	1	HKO warned new moon; ICU starts M09 on this civil date
+2089-09-04	2089	M08	1	2089	M08	1	HKO warned date; ICU agrees
+2097-08-07	2097	M07	1	2097	M07	1	HKO warned date; ICU agrees
+2100-12-31	2100	M12	1	2100	M12	1	last supported ISO date

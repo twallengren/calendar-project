@@ -61,3 +61,27 @@ calendars, so these sources back `EU-EURONEXT` and all four venue calendars.
   located; earlier years would need the pre-2010 Rule Book I announcements, which also cover
   holidays (Whit Monday, Bastille Day, Assumption, All Saints) that Euronext has since
   dropped, so they are deliberately out of coverage rather than rule-derived.
+
+## Cross-validation precision
+
+Cross-validation compares each `(date, type, close_time)` occurrence. The 2010, 2012 and 2013
+Christmas Eve and New Year's Eve discrepancies are scoped to both exact times in each venue's
+allowlist; changing a time or adding another occurrence fails validation.
+
+The [2012 annual notice](https://www.euronext.com/sites/www.euronext.com/files/calendar_2012.pdf)
+and [2013 annual announcement](https://www.euronext.com/en/about/media/euronext-press-releases/nyse-euronext-announces-its-2013-holiday-calendar-and-early)
+report a 14:00 CET cash-market close. The
+[2010 detailed trading announcement](https://www.euronext.com/sites/default/files/european_cash_markets_trading_hours_for_24th_and_31st_december_2010.pdf)
+distinguishes the 14:00 closing auction from trading at last through 14:05. The existing data
+retains the annual-notice convention for those years; the reference uses 14:05. Lisbon's local
+equivalents are 13:00 and 13:05. This is a documented precision/phase distinction, not evidence
+that the reference is erroneous or that all instruments finish at the annual-notice time.
+The previously claimed universal 2014 time change needs further session-level review; the
+calendar API does not model those sessions.
+
+- **Quality audit.** The yearly notices verify scheduled closures and venue half days through
+  2026; 2027–2030 are rule projections. The 2010 detailed trading-hours notice distinguishes a
+  14:00 closing auction from trading-at-last until 14:05, while the annual 2010, 2012 and 2013
+  notices call 14:00 the close. The six affected dates in each venue retain the published 14:00 local
+  convention but are explicitly `INCOMPLETE` for early-close precision pending a session-field
+  decision. Unscheduled-exception completeness is labelled `PROJECTED`, not verified history.

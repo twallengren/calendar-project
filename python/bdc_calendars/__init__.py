@@ -17,9 +17,9 @@ given package version.
 
 Versioning
 ----------
-``__version__`` is ``0.<data major>.<data minor>``: it tracks the release
-version of the calendar data, which is exposed in full as :data:`data_version`
-together with the :data:`data_git_sha` it was generated from.
+``__version__`` is the Python API/package version.  The independently versioned
+calendar data is exposed as :data:`data_version` together with the
+:data:`data_git_sha` it was generated from.
 """
 
 from ._loader import Event
@@ -38,7 +38,14 @@ from .calendar import (
     list_aliases,
     list_calendars,
 )
-from .errors import BdcCalendarError, CalendarNotFoundError, OutsideCoverageError
+from .operations import BusinessDayConvention, DateOperation, DateOperationResult, MemberClose
+from .errors import (
+    BdcCalendarError,
+    CalendarNotFoundError,
+    OutsideCoverageError,
+    UnresolvedDateError,
+)
+from .trust import CoverageInterval, DayAssessment, EventDetails, NativeDate
 
 #: Release version of the bundled calendar data, e.g. ``"11.0.0"``.
 data_version = DATA_VERSION
@@ -56,6 +63,10 @@ __all__ = [
     "data_generation_date",
     "get_calendar",
     "get_joint_calendar",
+    "BusinessDayConvention",
+    "DateOperation",
+    "DateOperationResult",
+    "MemberClose",
     "list_calendars",
     "list_aliases",
     "BusinessCalendar",
@@ -68,6 +79,11 @@ __all__ = [
     "BdcCalendarError",
     "CalendarNotFoundError",
     "OutsideCoverageError",
+    "UnresolvedDateError",
+    "CoverageInterval",
+    "DayAssessment",
+    "EventDetails",
+    "NativeDate",
     "CONFIRMED",
     "PROJECTED",
     "UNKNOWN",

@@ -1,3 +1,4 @@
+source,side,date,type,close_time,reason
 # Known differences between our DE-XETRA data and the reference datasets.
 # source,side,date,type,reason
 # exchange_calendars models a 14:00 early close on the last trading day of every year
@@ -6,57 +7,57 @@
 # hours may apply on December 30, 2026" pending a future circular, which is not a confirmed
 # close time. Treated the same way as the NYSE allowlist treats an unconfirmed
 # exchange_calendars early close: not modelled until a primary source states a time.
-exchange_calendars-XETR,theirs,2010-12-30,EARLY_CLOSE,No Deutsche Börse trading calendar states an early close for the last trading day of the year
-exchange_calendars-XETR,theirs,2011-12-30,EARLY_CLOSE,No Deutsche Börse trading calendar states an early close for the last trading day of the year
-exchange_calendars-XETR,theirs,2012-12-28,EARLY_CLOSE,No Deutsche Börse trading calendar states an early close for the last trading day of the year
-exchange_calendars-XETR,theirs,2013-12-30,EARLY_CLOSE,No Deutsche Börse trading calendar states an early close for the last trading day of the year
-exchange_calendars-XETR,theirs,2014-12-30,EARLY_CLOSE,No Deutsche Börse trading calendar states an early close for the last trading day of the year
-exchange_calendars-XETR,theirs,2015-12-30,EARLY_CLOSE,No Deutsche Börse trading calendar states an early close for the last trading day of the year
-exchange_calendars-XETR,theirs,2016-12-30,EARLY_CLOSE,No Deutsche Börse trading calendar states an early close for the last trading day of the year
-exchange_calendars-XETR,theirs,2017-12-29,EARLY_CLOSE,No Deutsche Börse trading calendar states an early close for the last trading day of the year
-exchange_calendars-XETR,theirs,2018-12-28,EARLY_CLOSE,No Deutsche Börse trading calendar states an early close for the last trading day of the year
-exchange_calendars-XETR,theirs,2019-12-30,EARLY_CLOSE,No Deutsche Börse trading calendar states an early close for the last trading day of the year
-exchange_calendars-XETR,theirs,2020-12-30,EARLY_CLOSE,No Deutsche Börse trading calendar states an early close for the last trading day of the year
-exchange_calendars-XETR,theirs,2021-12-30,EARLY_CLOSE,No Deutsche Börse trading calendar states an early close for the last trading day of the year
-exchange_calendars-XETR,theirs,2022-12-30,EARLY_CLOSE,No Deutsche Börse trading calendar states an early close for the last trading day of the year
-exchange_calendars-XETR,theirs,2023-12-29,EARLY_CLOSE,No Deutsche Börse trading calendar states an early close for the last trading day of the year
-exchange_calendars-XETR,theirs,2024-12-30,EARLY_CLOSE,No Deutsche Börse trading calendar states an early close for the last trading day of the year
-exchange_calendars-XETR,theirs,2025-12-30,EARLY_CLOSE,No Deutsche Börse trading calendar states an early close for the last trading day of the year
-exchange_calendars-XETR,theirs,2026-12-30,EARLY_CLOSE,Xetra's own 2026 trading calendar only says deviating hours "may apply" pending a future circular; not a confirmed close time
-exchange_calendars-XETR,theirs,2027-12-30,EARLY_CLOSE,No Deutsche Börse trading calendar states an early close for the last trading day of the year (projected by exchange_calendars, not sourced)
-exchange_calendars-XETR,theirs,2028-12-29,EARLY_CLOSE,No Deutsche Börse trading calendar states an early close for the last trading day of the year (projected by exchange_calendars, not sourced)
-exchange_calendars-XETR,theirs,2029-12-28,EARLY_CLOSE,No Deutsche Börse trading calendar states an early close for the last trading day of the year (projected by exchange_calendars, not sourced)
-exchange_calendars-XETR,theirs,2030-12-30,EARLY_CLOSE,No Deutsche Börse trading calendar states an early close for the last trading day of the year (projected by exchange_calendars, not sourced)
-quantlib-germany-xetra,ours,2003-12-31,CLOSED,QuantLib Germany(Xetra) does not model New Year's Eve as a closure; every trading calendar 2003-2026 (sources/DE-XETRA/README.md) lists it as non-trading
-quantlib-germany-xetra,ours,2004-12-31,CLOSED,QuantLib Germany(Xetra) does not model New Year's Eve as a closure; every trading calendar 2003-2026 (sources/DE-XETRA/README.md) lists it as non-trading
-quantlib-germany-xetra,ours,2007-12-31,CLOSED,QuantLib Germany(Xetra) does not model New Year's Eve as a closure; every trading calendar 2003-2026 (sources/DE-XETRA/README.md) lists it as non-trading
-quantlib-germany-xetra,ours,2008-12-31,CLOSED,QuantLib Germany(Xetra) does not model New Year's Eve as a closure; every trading calendar 2003-2026 (sources/DE-XETRA/README.md) lists it as non-trading
-quantlib-germany-xetra,ours,2009-12-31,CLOSED,QuantLib Germany(Xetra) does not model New Year's Eve as a closure; every trading calendar 2003-2026 (sources/DE-XETRA/README.md) lists it as non-trading
-quantlib-germany-xetra,ours,2010-12-31,CLOSED,QuantLib Germany(Xetra) does not model New Year's Eve as a closure; every trading calendar 2003-2026 (sources/DE-XETRA/README.md) lists it as non-trading
-quantlib-germany-xetra,ours,2012-12-31,CLOSED,QuantLib Germany(Xetra) does not model New Year's Eve as a closure; every trading calendar 2003-2026 (sources/DE-XETRA/README.md) lists it as non-trading
-quantlib-germany-xetra,ours,2013-12-31,CLOSED,QuantLib Germany(Xetra) does not model New Year's Eve as a closure; every trading calendar 2003-2026 (sources/DE-XETRA/README.md) lists it as non-trading
-quantlib-germany-xetra,ours,2014-12-31,CLOSED,QuantLib Germany(Xetra) does not model New Year's Eve as a closure; every trading calendar 2003-2026 (sources/DE-XETRA/README.md) lists it as non-trading
-quantlib-germany-xetra,ours,2015-12-31,CLOSED,QuantLib Germany(Xetra) does not model New Year's Eve as a closure; every trading calendar 2003-2026 (sources/DE-XETRA/README.md) lists it as non-trading
-quantlib-germany-xetra,ours,2018-12-31,CLOSED,QuantLib Germany(Xetra) does not model New Year's Eve as a closure; every trading calendar 2003-2026 (sources/DE-XETRA/README.md) lists it as non-trading
-quantlib-germany-xetra,ours,2019-12-31,CLOSED,QuantLib Germany(Xetra) does not model New Year's Eve as a closure; every trading calendar 2003-2026 (sources/DE-XETRA/README.md) lists it as non-trading
-quantlib-germany-xetra,ours,2020-12-31,CLOSED,QuantLib Germany(Xetra) does not model New Year's Eve as a closure; every trading calendar 2003-2026 (sources/DE-XETRA/README.md) lists it as non-trading
-quantlib-germany-xetra,ours,2021-12-31,CLOSED,QuantLib Germany(Xetra) does not model New Year's Eve as a closure; every trading calendar 2003-2026 (sources/DE-XETRA/README.md) lists it as non-trading
-quantlib-germany-xetra,ours,2024-12-31,CLOSED,QuantLib Germany(Xetra) does not model New Year's Eve as a closure; every trading calendar 2003-2026 (sources/DE-XETRA/README.md) lists it as non-trading
-quantlib-germany-xetra,ours,2025-12-31,CLOSED,QuantLib Germany(Xetra) does not model New Year's Eve as a closure; every trading calendar 2003-2026 (sources/DE-XETRA/README.md) lists it as non-trading
-quantlib-germany-xetra,ours,2026-12-31,CLOSED,QuantLib Germany(Xetra) does not model New Year's Eve as a closure; every trading calendar 2003-2026 (sources/DE-XETRA/README.md) lists it as non-trading
-quantlib-germany-xetra,ours,2027-12-31,CLOSED,QuantLib Germany(Xetra) does not model New Year's Eve as a closure; every trading calendar 2003-2026 (sources/DE-XETRA/README.md) lists it as non-trading
-quantlib-germany-xetra,ours,2029-12-31,CLOSED,QuantLib Germany(Xetra) does not model New Year's Eve as a closure; every trading calendar 2003-2026 (sources/DE-XETRA/README.md) lists it as non-trading
-quantlib-germany-xetra,ours,2007-05-28,CLOSED,QuantLib Germany(Xetra) has no rule for Xetra's exchange-discretionary Whit Monday closures; confirmed non-trading per sources/DE-XETRA/README.md
-quantlib-germany-xetra,ours,2015-05-25,CLOSED,QuantLib Germany(Xetra) has no rule for Xetra's exchange-discretionary Whit Monday closures; confirmed non-trading per sources/DE-XETRA/README.md
-quantlib-germany-xetra,ours,2016-05-16,CLOSED,QuantLib Germany(Xetra) has no rule for Xetra's exchange-discretionary Whit Monday closures; confirmed non-trading per sources/DE-XETRA/README.md
-quantlib-germany-xetra,ours,2017-06-05,CLOSED,QuantLib Germany(Xetra) has no rule for Xetra's exchange-discretionary Whit Monday closures; confirmed non-trading per sources/DE-XETRA/README.md
-quantlib-germany-xetra,ours,2018-05-21,CLOSED,QuantLib Germany(Xetra) has no rule for Xetra's exchange-discretionary Whit Monday closures; confirmed non-trading per sources/DE-XETRA/README.md
-quantlib-germany-xetra,ours,2019-06-10,CLOSED,QuantLib Germany(Xetra) has no rule for Xetra's exchange-discretionary Whit Monday closures; confirmed non-trading per sources/DE-XETRA/README.md
-quantlib-germany-xetra,ours,2020-06-01,CLOSED,QuantLib Germany(Xetra) has no rule for Xetra's exchange-discretionary Whit Monday closures; confirmed non-trading per sources/DE-XETRA/README.md
-quantlib-germany-xetra,ours,2021-05-24,CLOSED,QuantLib Germany(Xetra) has no rule for Xetra's exchange-discretionary Whit Monday closures; confirmed non-trading per sources/DE-XETRA/README.md
-quantlib-germany-xetra,ours,2014-10-03,CLOSED,QuantLib Germany(Xetra) has no rule for Xetra's exchange-discretionary German Unity Day closures; confirmed non-trading per sources/DE-XETRA/README.md
-quantlib-germany-xetra,ours,2016-10-03,CLOSED,QuantLib Germany(Xetra) has no rule for Xetra's exchange-discretionary German Unity Day closures; confirmed non-trading per sources/DE-XETRA/README.md
-quantlib-germany-xetra,ours,2017-10-03,CLOSED,QuantLib Germany(Xetra) has no rule for Xetra's exchange-discretionary German Unity Day closures; confirmed non-trading per sources/DE-XETRA/README.md
-quantlib-germany-xetra,ours,2018-10-03,CLOSED,QuantLib Germany(Xetra) has no rule for Xetra's exchange-discretionary German Unity Day closures; confirmed non-trading per sources/DE-XETRA/README.md
-quantlib-germany-xetra,ours,2019-10-03,CLOSED,QuantLib Germany(Xetra) has no rule for Xetra's exchange-discretionary German Unity Day closures; confirmed non-trading per sources/DE-XETRA/README.md
-quantlib-germany-xetra,ours,2017-10-31,CLOSED,One-off 500th-anniversary Reformation Day holiday not modelled by QuantLib Germany(Xetra); confirmed non-trading per xetra-trading-calendar-2017
+exchange_calendars-XETR,theirs,2010-12-30,EARLY_CLOSE,14:00,No Deutsche Börse trading calendar states an early close for the last trading day of the year
+exchange_calendars-XETR,theirs,2011-12-30,EARLY_CLOSE,14:00,No Deutsche Börse trading calendar states an early close for the last trading day of the year
+exchange_calendars-XETR,theirs,2012-12-28,EARLY_CLOSE,14:00,No Deutsche Börse trading calendar states an early close for the last trading day of the year
+exchange_calendars-XETR,theirs,2013-12-30,EARLY_CLOSE,14:00,No Deutsche Börse trading calendar states an early close for the last trading day of the year
+exchange_calendars-XETR,theirs,2014-12-30,EARLY_CLOSE,14:00,No Deutsche Börse trading calendar states an early close for the last trading day of the year
+exchange_calendars-XETR,theirs,2015-12-30,EARLY_CLOSE,14:00,No Deutsche Börse trading calendar states an early close for the last trading day of the year
+exchange_calendars-XETR,theirs,2016-12-30,EARLY_CLOSE,14:00,No Deutsche Börse trading calendar states an early close for the last trading day of the year
+exchange_calendars-XETR,theirs,2017-12-29,EARLY_CLOSE,14:00,No Deutsche Börse trading calendar states an early close for the last trading day of the year
+exchange_calendars-XETR,theirs,2018-12-28,EARLY_CLOSE,14:00,No Deutsche Börse trading calendar states an early close for the last trading day of the year
+exchange_calendars-XETR,theirs,2019-12-30,EARLY_CLOSE,14:00,No Deutsche Börse trading calendar states an early close for the last trading day of the year
+exchange_calendars-XETR,theirs,2020-12-30,EARLY_CLOSE,14:00,No Deutsche Börse trading calendar states an early close for the last trading day of the year
+exchange_calendars-XETR,theirs,2021-12-30,EARLY_CLOSE,14:00,No Deutsche Börse trading calendar states an early close for the last trading day of the year
+exchange_calendars-XETR,theirs,2022-12-30,EARLY_CLOSE,14:00,No Deutsche Börse trading calendar states an early close for the last trading day of the year
+exchange_calendars-XETR,theirs,2023-12-29,EARLY_CLOSE,14:00,No Deutsche Börse trading calendar states an early close for the last trading day of the year
+exchange_calendars-XETR,theirs,2024-12-30,EARLY_CLOSE,14:00,No Deutsche Börse trading calendar states an early close for the last trading day of the year
+exchange_calendars-XETR,theirs,2025-12-30,EARLY_CLOSE,14:00,No Deutsche Börse trading calendar states an early close for the last trading day of the year
+exchange_calendars-XETR,theirs,2026-12-30,EARLY_CLOSE,14:00,Xetra's own 2026 trading calendar only says deviating hours "may apply" pending a future circular; not a confirmed close time
+exchange_calendars-XETR,theirs,2027-12-30,EARLY_CLOSE,14:00,No Deutsche Börse trading calendar states an early close for the last trading day of the year (projected by exchange_calendars, not sourced)
+exchange_calendars-XETR,theirs,2028-12-29,EARLY_CLOSE,14:00,No Deutsche Börse trading calendar states an early close for the last trading day of the year (projected by exchange_calendars, not sourced)
+exchange_calendars-XETR,theirs,2029-12-28,EARLY_CLOSE,14:00,No Deutsche Börse trading calendar states an early close for the last trading day of the year (projected by exchange_calendars, not sourced)
+exchange_calendars-XETR,theirs,2030-12-30,EARLY_CLOSE,14:00,No Deutsche Börse trading calendar states an early close for the last trading day of the year (projected by exchange_calendars, not sourced)
+quantlib-germany-xetra,ours,2003-12-31,CLOSED,,QuantLib Germany(Xetra) does not model New Year's Eve as a closure; every trading calendar 2003-2026 (sources/DE-XETRA/README.md) lists it as non-trading
+quantlib-germany-xetra,ours,2004-12-31,CLOSED,,QuantLib Germany(Xetra) does not model New Year's Eve as a closure; every trading calendar 2003-2026 (sources/DE-XETRA/README.md) lists it as non-trading
+quantlib-germany-xetra,ours,2007-12-31,CLOSED,,QuantLib Germany(Xetra) does not model New Year's Eve as a closure; every trading calendar 2003-2026 (sources/DE-XETRA/README.md) lists it as non-trading
+quantlib-germany-xetra,ours,2008-12-31,CLOSED,,QuantLib Germany(Xetra) does not model New Year's Eve as a closure; every trading calendar 2003-2026 (sources/DE-XETRA/README.md) lists it as non-trading
+quantlib-germany-xetra,ours,2009-12-31,CLOSED,,QuantLib Germany(Xetra) does not model New Year's Eve as a closure; every trading calendar 2003-2026 (sources/DE-XETRA/README.md) lists it as non-trading
+quantlib-germany-xetra,ours,2010-12-31,CLOSED,,QuantLib Germany(Xetra) does not model New Year's Eve as a closure; every trading calendar 2003-2026 (sources/DE-XETRA/README.md) lists it as non-trading
+quantlib-germany-xetra,ours,2012-12-31,CLOSED,,QuantLib Germany(Xetra) does not model New Year's Eve as a closure; every trading calendar 2003-2026 (sources/DE-XETRA/README.md) lists it as non-trading
+quantlib-germany-xetra,ours,2013-12-31,CLOSED,,QuantLib Germany(Xetra) does not model New Year's Eve as a closure; every trading calendar 2003-2026 (sources/DE-XETRA/README.md) lists it as non-trading
+quantlib-germany-xetra,ours,2014-12-31,CLOSED,,QuantLib Germany(Xetra) does not model New Year's Eve as a closure; every trading calendar 2003-2026 (sources/DE-XETRA/README.md) lists it as non-trading
+quantlib-germany-xetra,ours,2015-12-31,CLOSED,,QuantLib Germany(Xetra) does not model New Year's Eve as a closure; every trading calendar 2003-2026 (sources/DE-XETRA/README.md) lists it as non-trading
+quantlib-germany-xetra,ours,2018-12-31,CLOSED,,QuantLib Germany(Xetra) does not model New Year's Eve as a closure; every trading calendar 2003-2026 (sources/DE-XETRA/README.md) lists it as non-trading
+quantlib-germany-xetra,ours,2019-12-31,CLOSED,,QuantLib Germany(Xetra) does not model New Year's Eve as a closure; every trading calendar 2003-2026 (sources/DE-XETRA/README.md) lists it as non-trading
+quantlib-germany-xetra,ours,2020-12-31,CLOSED,,QuantLib Germany(Xetra) does not model New Year's Eve as a closure; every trading calendar 2003-2026 (sources/DE-XETRA/README.md) lists it as non-trading
+quantlib-germany-xetra,ours,2021-12-31,CLOSED,,QuantLib Germany(Xetra) does not model New Year's Eve as a closure; every trading calendar 2003-2026 (sources/DE-XETRA/README.md) lists it as non-trading
+quantlib-germany-xetra,ours,2024-12-31,CLOSED,,QuantLib Germany(Xetra) does not model New Year's Eve as a closure; every trading calendar 2003-2026 (sources/DE-XETRA/README.md) lists it as non-trading
+quantlib-germany-xetra,ours,2025-12-31,CLOSED,,QuantLib Germany(Xetra) does not model New Year's Eve as a closure; every trading calendar 2003-2026 (sources/DE-XETRA/README.md) lists it as non-trading
+quantlib-germany-xetra,ours,2026-12-31,CLOSED,,QuantLib Germany(Xetra) does not model New Year's Eve as a closure; every trading calendar 2003-2026 (sources/DE-XETRA/README.md) lists it as non-trading
+quantlib-germany-xetra,ours,2027-12-31,CLOSED,,QuantLib Germany(Xetra) does not model New Year's Eve as a closure; every trading calendar 2003-2026 (sources/DE-XETRA/README.md) lists it as non-trading
+quantlib-germany-xetra,ours,2029-12-31,CLOSED,,QuantLib Germany(Xetra) does not model New Year's Eve as a closure; every trading calendar 2003-2026 (sources/DE-XETRA/README.md) lists it as non-trading
+quantlib-germany-xetra,ours,2007-05-28,CLOSED,,QuantLib Germany(Xetra) has no rule for Xetra's exchange-discretionary Whit Monday closures; confirmed non-trading per sources/DE-XETRA/README.md
+quantlib-germany-xetra,ours,2015-05-25,CLOSED,,QuantLib Germany(Xetra) has no rule for Xetra's exchange-discretionary Whit Monday closures; confirmed non-trading per sources/DE-XETRA/README.md
+quantlib-germany-xetra,ours,2016-05-16,CLOSED,,QuantLib Germany(Xetra) has no rule for Xetra's exchange-discretionary Whit Monday closures; confirmed non-trading per sources/DE-XETRA/README.md
+quantlib-germany-xetra,ours,2017-06-05,CLOSED,,QuantLib Germany(Xetra) has no rule for Xetra's exchange-discretionary Whit Monday closures; confirmed non-trading per sources/DE-XETRA/README.md
+quantlib-germany-xetra,ours,2018-05-21,CLOSED,,QuantLib Germany(Xetra) has no rule for Xetra's exchange-discretionary Whit Monday closures; confirmed non-trading per sources/DE-XETRA/README.md
+quantlib-germany-xetra,ours,2019-06-10,CLOSED,,QuantLib Germany(Xetra) has no rule for Xetra's exchange-discretionary Whit Monday closures; confirmed non-trading per sources/DE-XETRA/README.md
+quantlib-germany-xetra,ours,2020-06-01,CLOSED,,QuantLib Germany(Xetra) has no rule for Xetra's exchange-discretionary Whit Monday closures; confirmed non-trading per sources/DE-XETRA/README.md
+quantlib-germany-xetra,ours,2021-05-24,CLOSED,,QuantLib Germany(Xetra) has no rule for Xetra's exchange-discretionary Whit Monday closures; confirmed non-trading per sources/DE-XETRA/README.md
+quantlib-germany-xetra,ours,2014-10-03,CLOSED,,QuantLib Germany(Xetra) has no rule for Xetra's exchange-discretionary German Unity Day closures; confirmed non-trading per sources/DE-XETRA/README.md
+quantlib-germany-xetra,ours,2016-10-03,CLOSED,,QuantLib Germany(Xetra) has no rule for Xetra's exchange-discretionary German Unity Day closures; confirmed non-trading per sources/DE-XETRA/README.md
+quantlib-germany-xetra,ours,2017-10-03,CLOSED,,QuantLib Germany(Xetra) has no rule for Xetra's exchange-discretionary German Unity Day closures; confirmed non-trading per sources/DE-XETRA/README.md
+quantlib-germany-xetra,ours,2018-10-03,CLOSED,,QuantLib Germany(Xetra) has no rule for Xetra's exchange-discretionary German Unity Day closures; confirmed non-trading per sources/DE-XETRA/README.md
+quantlib-germany-xetra,ours,2019-10-03,CLOSED,,QuantLib Germany(Xetra) has no rule for Xetra's exchange-discretionary German Unity Day closures; confirmed non-trading per sources/DE-XETRA/README.md
+quantlib-germany-xetra,ours,2017-10-31,CLOSED,,One-off 500th-anniversary Reformation Day holiday not modelled by QuantLib Germany(Xetra); confirmed non-trading per xetra-trading-calendar-2017

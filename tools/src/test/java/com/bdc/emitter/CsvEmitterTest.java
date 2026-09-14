@@ -170,6 +170,16 @@ class CsvEmitterTest {
   }
 
   @Test
+  void emitToString_withChineseLeapMonth_usesConsistentNumericMonthCode() {
+    List<Event> events =
+        List.of(new Event(LocalDate.of(2023, 3, 22), EventType.CLOSED, "Leap month", "test"));
+
+    String result = emitter.emitToString(events, "CHINESE_HK");
+
+    assertTrue(result.contains("2023-03-22,2023-02L-01,CLOSED,Leap month"));
+  }
+
+  @Test
   void emit_withOutputChronology_writesAltDateColumn() throws Exception {
     List<Event> events =
         List.of(new Event(LocalDate.of(2025, 1, 1), EventType.CLOSED, "New Year's Day", "test"));
@@ -196,13 +206,13 @@ class CsvEmitterTest {
   }
 
   @Test
-  void emitToString_withOutputChronology_outOfRange_emitsEmptyAltDate() {
+  void emitToString_withOutputChronology_outOfRange_fails() {
     // 1900-01-01 is outside Umm al-Qura range (AH 1356-1500 / ~1937-2076 CE)
     List<Event> events =
         List.of(new Event(LocalDate.of(1900, 1, 1), EventType.CLOSED, "Old Event", "test"));
 
-    String result = emitter.emitToString(events, "UMM_AL_QURA");
-
-    assertTrue(result.contains("1900-01-01,,CLOSED,Old Event"));
+    assertThrows(
+        com.bdc.chronology.UnsupportedChronologyRangeException.class,
+        () -> emitter.emitToString(events, "UMM_AL_QURA"));
   }
 }

@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0",
+  "entries": [
+    {
+      "id": "jpx-market-holidays",
+      "title": "Market Holidays",
+      "publisher": "Japan Exchange Group",
+      "location": "https://www.jpx.co.jp/english/corporate/about-jpx/calendar/",
+      "retrieved": "2026-09-14",
+      "covers": "2026–2027",
+      "notes": "The exchange's own publication (page \"Update : Feb. 06, 2026\"). States the standing rule: \"JPX markets are closed on Saturdays, Sundays, national holidays, and on the dates indicated below\", where the dates indicated are Jan. 2, Jan. 3 and Dec. 31 every year. Also states the observance rule (\"National holidays that fall on a Sunday are observed on the closest following day that is not a national holiday\") and flags 2026-09-22 as a holiday \"in accordance with Rule 3, Paragraph 3 of Act on National Holidays\".",
+      "local_files": [],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2026-01-01",
+          "to": "2027-12-31"
+        }
+      ]
+    },
+    {
+      "id": "jpx-market-holidays-archive",
+      "title": "Market Holidays (archived editions)",
+      "publisher": "Japan Exchange Group, via the Internet Archive",
+      "location": "https://web.archive.org/web/20190722020359/https://www.jpx.co.jp/english/corporate/about-jpx/calendar/index.html (2019, 2020), https://web.archive.org/web/20210503003901/https://www.jpx.co.jp/english/corporate/about-jpx/calendar/index.html (2021, 2022), https://web.archive.org/web/20240207130608/https://www.jpx.co.jp/english/corporate/about-jpx/calendar/index.html (2023, 2024), https://web.archive.org/web/20260215170040/https://www.jpx.co.jp/english/corporate/about-jpx/calendar/index.html (2025–2027)",
+      "retrieved": "2026-09-14",
+      "covers": "2019–2027",
+      "notes": "Earlier editions of the same JPX page. Jan. 2, Jan. 3 and Dec. 31 are listed as \"Market Holiday\" in every edition, including years in which they fall on a weekend. Source for the Olympic-year moves as JPX published them and for the 2019 imperial-transition holidays.",
+      "local_files": [],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2019-01-01",
+          "to": "2025-12-31"
+        }
+      ]
+    },
+    {
+      "id": "cao-shukujitsu",
+      "title": "昭和30年（1955年）から令和9年（2027年）国民の祝日（csv形式）",
+      "publisher": "内閣府 (Cabinet Office, Government of Japan)",
+      "location": "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv",
+      "retrieved": "2026-09-14",
+      "covers": "1955–2027",
+      "notes": "Machine-readable list of every 国民の祝日 and every 休日 (both substitute holidays under Art. 3(2) and citizens' holidays under Art. 3(3)). The authoritative date list for everything statutory, including the Vernal and Autumnal Equinox dates.",
+      "local_files": [],
+      "support_intervals": []
+    },
+    {
+      "id": "cao-shukujitsu-gaiyou",
+      "title": "「国民の祝日」について",
+      "publisher": "内閣府 (Cabinet Office, Government of Japan)",
+      "location": "https://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html",
+      "retrieved": "2026-09-14",
+      "covers": "current law",
+      "notes": "Text of 国民の祝日に関する法律 (Act No. 178 of 1948): Art. 2 (the sixteen holidays and their rules, including the \"Happy Monday\" ones), Art. 3(2) (substitute holiday), Art. 3(3) (citizens' holiday), the note that the two equinox days are fixed annually by the National Astronomical Observatory in the February *kanpō* of the preceding year, and the table of the 2020/2021 Olympic moves of Marine Day, Sports Day and Mountain Day.",
+      "local_files": [],
+      "support_intervals": []
+    },
+    {
+      "id": "jpx-system-failure-2020",
+      "title": "The Failure of Equity Trading System on October 1, 2020",
+      "publisher": "Tokyo Stock Exchange, Inc. / Japan Exchange Group",
+      "location": "https://www.jpx.co.jp/english/corporate/news/news-releases/0060/20201019-01.html",
+      "retrieved": "2026-09-14",
+      "covers": "2020-10-01",
+      "notes": "\"a failure occurred in the arrowhead cash equity trading system … which made it impossible to start trading and meant TSE was unable to provide opportunities for trading for the entire day\". The basis for the single unscheduled full-day closure in coverage.",
+      "local_files": [],
+      "support_intervals": []
+    }
+  ]
+}

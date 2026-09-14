@@ -50,6 +50,12 @@ def _iso(value: Optional[_dt.date]) -> Optional[str]:
     return value.isoformat() if value is not None else None
 
 
+def _local_time(value: _dt.time) -> str:
+    if value.microsecond:
+        return value.isoformat(timespec="microseconds")
+    return value.isoformat(timespec="seconds" if value.second else "minutes")
+
+
 def _parse_date(value: Any, argument: str = "date") -> _dt.date:
     if not isinstance(value, str):
         raise TypeError(
@@ -73,6 +79,55 @@ def _event_dict(event: Event) -> Dict[str, Any]:
         "key": event.key,
         "source_module": event.source_module,
         "observed_from": _iso(event.observed_from),
+    }
+
+
+def _assessment_dict(assessment: bdc.DayAssessment) -> Dict[str, Any]:
+    return {
+        "date": _iso(assessment.date),
+        "state": assessment.state,
+        "scheduled_state": assessment.scheduled_state,
+        "effective_confidence": assessment.effective_confidence,
+        "completeness": dict(assessment.completeness),
+        "evidence_ids": list(assessment.evidence_ids),
+        "events": [
+            {
+                **_event_dict(detail.event),
+                "raw_status": detail.raw_status,
+                "effective_status": detail.effective_status,
+                "evidence_ids": list(detail.evidence_ids),
+                "nominal_native_date": detail.nominal_native_date._asdict()
+                if detail.nominal_native_date
+                else None,
+                "chronology_profile": detail.chronology_profile,
+                "chronology_provider": detail.chronology_provider,
+                "observation_lineage": [_iso(day) for day in detail.observation_lineage],
+            }
+            for detail in assessment.events
+        ],
+    }
+
+
+def _operation_calendar(calendar):
+    """Resolve one ID or comma-separated IDs with the CLI's all-members-open semantics."""
+    ids = [identifier.strip() for identifier in calendar.split(",")]
+    if not all(ids):
+        raise ValueError("calendar must contain nonempty calendar IDs")
+    return bdc.get_joint_calendar(*ids) if len(ids) > 1 else bdc.get_calendar(ids[0])
+
+
+def _operation_dict(result: bdc.DateOperationResult) -> Dict[str, Any]:
+    """The versioned operation shape shared with ``tools query`` JSON."""
+    return {
+        "original_date": _iso(result.original_date),
+        "result_date": _iso(result.result_date),
+        "operation": result.operation,
+        "convention": result.convention,
+        "business_day_offset": result.business_day_offset,
+        "month_offset": result.month_offset,
+        "preserve_end_of_month": result.preserve_end_of_month,
+        "effective_confidence": result.effective_confidence,
+        "examined_dates": [_iso(day) for day in result.examined_dates],
     }
 
 
@@ -156,8 +211,8 @@ def create_server() -> "Any":
         """
         List every calendar bundled with this release of bdc-calendars.
 
-        For each calendar: its id, human-readable name, kind (``market`` or
-        ``base``), IANA timezone, covered date range, ``verified_through``
+        For each calendar: its id, human-readable name, kind (``market``,
+        ``payment`` or ``base``), IANA timezone, covered date range, ``verified_through``
         date and any known aliases (exchange_calendars MICs, etc). Call this
         first to discover valid ``calendar`` arguments for the other tools.
 
@@ -188,7 +243,32 @@ def create_server() -> "Any":
         info = _calendar_summary(cal)
         info["sources"] = cal.metadata.get("sources")
         info["weekend_policy"] = _weekend_policy_dict(cal.weekend_policy)
+        info["coverage_quality"] = [
+            {
+                "scope": interval.scope,
+                "from": _iso(interval.start),
+                "to": _iso(interval.end),
+                "quality": interval.quality,
+                "evidence_ids": interval.evidence_ids,
+            }
+            for interval in cal.coverage_intervals
+        ]
         return info
+
+    @app.tool()
+    def assess_day(calendar: str, date: str) -> Dict[str, Any]:
+        """Explain actual and scheduled state, confidence, completeness and evidence for a date."""
+        try:
+            cal = bdc.get_calendar(calendar)
+            day = _parse_date(date)
+            assessment = cal.assessment(day)
+        except _QUERY_ERRORS as exc:
+            return _error(exc)
+        return {
+            "calendar_id": cal.calendar_id,
+            "data_version": bdc.data_version,
+            **_assessment_dict(assessment),
+        }
 
     @app.tool()
     def is_business_day(calendar: str, date: str) -> Dict[str, Any]:
@@ -276,9 +356,9 @@ def create_server() -> "Any":
 
         Walks forward for ``n > 0`` and backward for ``n < 0``, counting only
         business days; ``n = 0`` returns ``date`` unchanged whether or not it
-        is a business day. The starting date is never counted, so this is the
-        settlement primitive: T+2 from a trade date is
-        ``add_business_days(calendar, trade_date, 2)``.
+        is a business day. The starting date is never counted. This is a
+        business-date offset only; it does not determine instrument-specific
+        settlement eligibility, operating sessions or intraday cutoffs.
 
         Example question: "If a US-NYSE trade happens on 2025-11-26, what date
         is T+2 settlement?"
@@ -297,6 +377,95 @@ def create_server() -> "Any":
             "result": _iso(result),
             "status": cal.status(result),
             "verified_through": _iso(cal.verified_through),
+        }
+
+    @app.tool()
+    def adjust_date(calendar: str, date: str, convention: str) -> Dict[str, Any]:
+        """Adjust with path confidence; calendar accepts one ID or comma-separated joint IDs."""
+        try:
+            cal = _operation_calendar(calendar)
+            result = cal.adjust_detailed(_parse_date(date), convention)
+        except _QUERY_ERRORS + (RuntimeError,) as exc:
+            return _error(exc)
+        return {
+            "calendar_id": cal.calendar_id,
+            "data_version": bdc.data_version,
+            **_operation_dict(result),
+        }
+
+    @app.tool()
+    def business_day_offset(calendar: str, date: str, offset: int) -> Dict[str, Any]:
+        """Move by business dates; calendar accepts one ID or comma-separated joint IDs."""
+        try:
+            cal = _operation_calendar(calendar)
+            result = cal.business_day_offset_detailed(_parse_date(date), offset)
+        except _QUERY_ERRORS + (RuntimeError,) as exc:
+            return _error(exc)
+        return {
+            "calendar_id": cal.calendar_id,
+            "data_version": bdc.data_version,
+            **_operation_dict(result),
+        }
+
+    @app.tool()
+    def advance_months(
+        calendar: str,
+        date: str,
+        months: int,
+        convention: str,
+        preserve_end_of_month: bool = False,
+    ) -> Dict[str, Any]:
+        """Advance months, clip and adjust; calendar accepts one ID or comma-separated joint IDs."""
+        try:
+            cal = _operation_calendar(calendar)
+            result = cal.advance_months_detailed(
+                _parse_date(date), months, convention, preserve_end_of_month
+            )
+        except _QUERY_ERRORS + (RuntimeError,) as exc:
+            return _error(exc)
+        return {
+            "calendar_id": cal.calendar_id,
+            "data_version": bdc.data_version,
+            **_operation_dict(result),
+        }
+
+    @app.tool()
+    def last_business_day_of_month(calendar: str, date: str) -> Dict[str, Any]:
+        """Last business date in the month; calendar accepts one ID or comma-separated joint IDs."""
+        try:
+            cal = _operation_calendar(calendar)
+            result = cal.last_business_day_of_month_detailed(_parse_date(date))
+        except _QUERY_ERRORS + (RuntimeError,) as exc:
+            return _error(exc)
+        return {
+            "calendar_id": cal.calendar_id,
+            "data_version": bdc.data_version,
+            **_operation_dict(result),
+        }
+
+    @app.tool()
+    def member_closes(calendars: List[str], date: str) -> Dict[str, Any]:
+        """Member-specific early closes with each calendar's timezone identity."""
+        try:
+            if not calendars:
+                raise ValueError("member_closes needs at least one calendar")
+            cal = bdc.get_joint_calendar(*calendars)
+            day = _parse_date(date)
+            closes = cal.member_closes(day)
+        except _QUERY_ERRORS + (RuntimeError,) as exc:
+            return _error(exc)
+        return {
+            "calendar_id": cal.calendar_id,
+            "data_version": bdc.data_version,
+            "date": _iso(day),
+            "member_closes": [
+                {
+                    "calendar_id": close.calendar_id,
+                    "timezone": close.timezone,
+                    "local_time": _local_time(close.local_time),
+                }
+                for close in closes
+            ],
         }
 
     @app.tool()
@@ -389,10 +558,10 @@ def create_server() -> "Any":
         calendars: List[str], trade_date: str, t_plus: int
     ) -> Dict[str, Any]:
         """
-        Settlement date T+``t_plus`` business days from ``trade_date`` on the
-        joint calendar formed from ``calendars``: a trade settles only on a
-        day every member market trades (the intersection of their trading
-        days). Mirrors ``query <cals> --settlement T+N --from <date>``: also
+        T+``t_plus`` business-date offset from ``trade_date`` on the joint
+        calendar formed from ``calendars`` (the intersection of their business
+        days). This does not establish instrument eligibility or cutoffs.
+        Mirrors ``query <cals> --settlement T+N --from <date>`` and also
         lists, for each day between the trade date and the settlement date,
         which member calendars were closed.
 
@@ -405,7 +574,8 @@ def create_server() -> "Any":
                 raise ValueError("joint_settlement_date needs at least one calendar")
             joint = bdc.get_joint_calendar(*calendars)
             trade = _parse_date(trade_date, "trade_date")
-            settlement = joint.add_business_days(trade, t_plus)
+            operation = joint.business_day_offset_detailed(trade, t_plus)
+            settlement = operation.result_date
             intervening: List[Dict[str, Any]] = []
             day = trade + _dt.timedelta(days=1)
             one = _dt.timedelta(days=1)
@@ -424,6 +594,8 @@ def create_server() -> "Any":
             "t_plus": t_plus,
             "settlement_date": _iso(settlement),
             "status": joint.status(settlement),
+            "effective_confidence": operation.effective_confidence,
+            "examined_dates": [_iso(day) for day in operation.examined_dates],
             "verified_through": _iso(joint.verified_through),
             "intervening_days": intervening,
         }

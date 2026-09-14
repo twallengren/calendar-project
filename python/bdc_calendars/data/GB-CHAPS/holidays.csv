@@ -1,0 +1,17 @@
+date,type,description,key,source_module,observed_from,close_time,status
+2026-01-01,CLOSED,New Year's Day,chaps_new_years_day,module:gb_chaps_holidays,,,CONFIRMED
+2026-04-03,CLOSED,Good Friday,chaps_good_friday,module:gb_chaps_holidays,,,CONFIRMED
+2026-04-06,CLOSED,Easter Monday,chaps_easter_monday,module:gb_chaps_holidays,,,CONFIRMED
+2026-05-04,CLOSED,Early May bank holiday,chaps_early_may_bank_holiday,module:gb_chaps_holidays,,,CONFIRMED
+2026-05-25,CLOSED,Spring bank holiday,chaps_spring_bank_holiday,module:gb_chaps_holidays,,,CONFIRMED
+2026-08-31,CLOSED,Summer bank holiday,chaps_summer_bank_holiday,module:gb_chaps_holidays,,,CONFIRMED
+2026-12-25,CLOSED,Christmas Day,chaps_christmas_day,module:gb_chaps_holidays,,,CONFIRMED
+2026-12-28,CLOSED,Boxing Day,chaps_boxing_day,module:gb_chaps_holidays,,,CONFIRMED
+2027-01-01,CLOSED,New Year's Day,chaps_new_years_day,module:gb_chaps_holidays,,,CONFIRMED
+2027-03-26,CLOSED,Good Friday,chaps_good_friday,module:gb_chaps_holidays,,,CONFIRMED
+2027-03-29,CLOSED,Easter Monday,chaps_easter_monday,module:gb_chaps_holidays,,,CONFIRMED
+2027-05-03,CLOSED,Early May bank holiday,chaps_early_may_bank_holiday,module:gb_chaps_holidays,,,CONFIRMED
+2027-05-31,CLOSED,Spring bank holiday,chaps_spring_bank_holiday,module:gb_chaps_holidays,,,CONFIRMED
+2027-08-30,CLOSED,Summer bank holiday,chaps_summer_bank_holiday,module:gb_chaps_holidays,,,CONFIRMED
+2027-12-27,CLOSED,Christmas Day,chaps_christmas_day,module:gb_chaps_holidays,,,CONFIRMED
+2027-12-28,CLOSED,Boxing Day,chaps_boxing_day,module:gb_chaps_holidays,,,CONFIRMED

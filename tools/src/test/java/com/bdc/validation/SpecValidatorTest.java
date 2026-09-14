@@ -259,6 +259,23 @@ class SpecValidatorTest {
   }
 
   @Test
+  void paymentCalendarUsesSystemIdentityWithoutAMic() throws Exception {
+    String calendar =
+        """
+        kind: calendar
+        id: CAL
+        metadata:
+          name: Payment system
+          kind: payment
+          coverage: {from: 2026-01-01, to: 2027-12-31}
+        """;
+    ValidationResult withoutMic = validate(calendar, "");
+    assertFalse(codes(withoutMic).contains("MISSING_MIC"), withoutMic.issues().toString());
+    ValidationResult withMic = validate(calendar + "  mic: XXXX\n", "");
+    assertTrue(codes(withMic).contains("PAYMENT_MIC"), withMic.issues().toString());
+  }
+
+  @Test
   void malformedMicIsAnError() throws Exception {
     ValidationResult r =
         validate(

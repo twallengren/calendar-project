@@ -4,19 +4,22 @@ import com.bdc.chronology.ontology.ChronologyDate;
 import com.bdc.chronology.ontology.algorithms.ChronologyAlgorithm;
 
 /**
- * Generated chronology: Solar Hijri Calendar
+ * Generated chronology: Persian Arithmetic Calendar (2820-year profile)
  *
- * <p>The Solar Hijri calendar (Persian: گاه‌شماری هجری خورشیدی) is the official calendar of Iran
- * and Afghanistan. It is a solar calendar with 12 months, beginning on the March equinox.
+ * <p>This profile is the 2820-year arithmetic approximation, not the astronomical
+ * civil calendar used in Iran. It preserves the existing 682/2816 leap formula.
+ * Epoch source: https://www.fourmilab.ch/documents/calendar/ (Persian Algorithmic).
  *
- * <p>The first six months have 31 days, the next five have 30 days, and the last month has 29 days
- * (30 in leap years). This arithmetic version uses a 2820-year cycle approximation for leap years.
+ * The first six months have 31 days, the next five have 30 days, and the
+ * last month has 29 days (30 in leap years). This arithmetic version uses
+ * a 2820-year cycle approximation for leap years.
+ *
  *
  * <p>This class is auto-generated from YAML. Do not edit manually.
  */
 public final class PersianChronology implements ChronologyAlgorithm {
 
-  /** Months of the Solar Hijri Calendar. */
+  /** Months of the Persian Arithmetic Calendar (2820-year profile). */
   public enum Month {
     FARVARDIN(1, "Farvardin", 31, 31),
     ORDIBEHESHT(2, "Ordibehesht", 31, 31),
@@ -44,24 +47,16 @@ public final class PersianChronology implements ChronologyAlgorithm {
     }
 
     /** Returns the month number (1-based). */
-    public int number() {
-      return number;
-    }
+    public int number() { return number; }
 
     /** Returns the display name of the month. */
-    public String displayName() {
-      return displayName;
-    }
+    public String displayName() { return displayName; }
 
     /** Returns the number of days in this month for a common year. */
-    public int days() {
-      return days;
-    }
+    public int days() { return days; }
 
     /** Returns the number of days in this month for a leap year. */
-    public int leapDays() {
-      return leapDays;
-    }
+    public int leapDays() { return leapDays; }
 
     /** Returns the number of days in this month for the given year type. */
     public int days(boolean isLeapYear) {
@@ -77,7 +72,7 @@ public final class PersianChronology implements ChronologyAlgorithm {
     }
   }
 
-  /** Days of the week in the Solar Hijri Calendar. */
+  /** Days of the week in the Persian Arithmetic Calendar (2820-year profile). */
   public enum Day {
     SHANBEH(0, "Shanbeh"),
     YEKSHANBEH(1, "Yekshanbeh"),
@@ -96,14 +91,10 @@ public final class PersianChronology implements ChronologyAlgorithm {
     }
 
     /** Returns the day ordinal (0-based, starting from the first day of the week). */
-    public int dayOrdinal() {
-      return ordinal;
-    }
+    public int dayOrdinal() { return ordinal; }
 
     /** Returns the display name of the day. */
-    public String displayName() {
-      return displayName;
-    }
+    public String displayName() { return displayName; }
 
     /** Returns the Day for the given ordinal (0-based). */
     public static Day of(int dayOrdinal) {
@@ -115,7 +106,7 @@ public final class PersianChronology implements ChronologyAlgorithm {
   }
 
   public static final String ID = "PERSIAN";
-  private static final long EPOCH_JDN = 1948320L;
+  private static final long EPOCH_JDN = 1948321L;
 
   private static final int[] DAYS_IN_MONTH = {31, 31, 31, 31, 31, 31, 30, 30, 30, 30, 30, 29};
   private static final int[] LEAP_DAYS_IN_MONTH = {31, 31, 31, 31, 31, 31, 30, 30, 30, 30, 30, 30};

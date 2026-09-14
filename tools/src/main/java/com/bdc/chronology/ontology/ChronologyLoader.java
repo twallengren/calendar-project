@@ -33,7 +33,7 @@ public class ChronologyLoader {
     this.mapper =
         new ObjectMapper(new YAMLFactory())
             .setPropertyNamingStrategy(PropertyNamingStrategies.SNAKE_CASE)
-            .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+            .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
   }
 
   /**
@@ -117,6 +117,7 @@ public class ChronologyLoader {
       List<Path> yamlFiles =
           paths
               .filter(Files::isRegularFile)
+              .sorted()
               .filter(p -> p.toString().endsWith(".yaml") || p.toString().endsWith(".yml"))
               .toList();
 

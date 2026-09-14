@@ -40,9 +40,9 @@ public final class MarketPageRenderer {
             {{{weekend}}}
           </section>
           <section aria-labelledby="compare-heading">
-            <h2 id="compare-heading">Compare with another market</h2>
-            <p>Which days does {{id}} trade while another market is shut, and when does a trade
-            between the two settle?</p>
+            <h2 id="compare-heading">Compare with another calendar</h2>
+            <p>Which business dates does {{id}} share with another calendar, and where does an
+            offset on both calendars lead?</p>
             {{{compare}}}
           </section>
           <section aria-labelledby="sources-heading">
@@ -84,7 +84,7 @@ public final class MarketPageRenderer {
 
   String render(CalendarData calendar, StatusData status) {
     int currentYear = currentYear(calendar);
-    String title = calendar.name() + " holidays and trading calendar";
+    String title = calendar.name() + " holidays and business-date calendar";
     String description =
         calendar.name()
             + " ("
@@ -126,7 +126,7 @@ public final class MarketPageRenderer {
         title,
         description,
         List.of(
-            new PageLayout.Crumb("Markets", "../index.html"),
+            new PageLayout.Crumb("Calendars", "../index.html"),
             new PageLayout.Crumb(calendar.id(), null)),
         "",
         body);
@@ -142,6 +142,13 @@ public final class MarketPageRenderer {
     StringBuilder html = new StringBuilder();
     html.append("<dl class=\"facts\">\n");
     fact(html, "Calendar id", "<code>" + HtmlTemplate.escape(calendar.id()) + "</code>");
+    fact(html, "Calendar kind", HtmlTemplate.escape(calendar.kind()));
+    if ("payment".equals(calendar.kind())) {
+      fact(
+          html,
+          "Scope",
+          "Date-only operating calendar; no sessions, cutoffs or payment eligibility");
+    }
     fact(
         html,
         "MIC",
@@ -150,16 +157,7 @@ public final class MarketPageRenderer {
             : "&mdash;");
     fact(html, "Timezone", HtmlTemplate.escape(orDash(calendar.timezone())));
     fact(html, "Coverage", calendar.coverage().from() + " to " + calendar.coverage().to());
-    fact(
-        html,
-        "Verified through",
-        calendar.coverage().verifiedThrough() != null
-            ? "<time datetime=\""
-                + calendar.coverage().verifiedThrough()
-                + "\">"
-                + calendar.coverage().verifiedThrough()
-                + "</time>"
-            : "&mdash;");
+    fact(html, "Coverage quality", HtmlTemplate.escape(calendar.coverageSummary()));
     fact(html, "Full-day closures", String.valueOf(calendar.closures()));
     fact(html, "Early closes", String.valueOf(calendar.earlyCloses()));
     fact(html, "Projected rows", String.valueOf(calendar.projected()));
@@ -210,7 +208,7 @@ public final class MarketPageRenderer {
     StringBuilder html = new StringBuilder();
     List<String> days = days(policy.path("days"));
     if (!days.isEmpty()) {
-      html.append("<p>Today the market is closed every ")
+      html.append("<p>This calendar is closed every ")
           .append(HtmlTemplate.escape(join(days)))
           .append(".</p>\n");
     }
@@ -282,7 +280,7 @@ public final class MarketPageRenderer {
       }
     }
     if (others.isEmpty()) {
-      return "<p class=\"muted\">No other market is published to compare against.</p>\n";
+      return "<p class=\"muted\">No other calendar is published to compare against.</p>\n";
     }
     others.sort(String::compareTo);
     StringBuilder html = new StringBuilder();
@@ -296,7 +294,7 @@ public final class MarketPageRenderer {
           .append(HtmlTemplate.escape(other))
           .append("</a></li>\n");
     }
-    html.append("</ul>\n<p><a href=\"../compare/index.html\">All market pairs</a></p>\n");
+    html.append("</ul>\n<p><a href=\"../compare/index.html\">All calendar pairs</a></p>\n");
     return html.toString();
   }
 

@@ -12,6 +12,7 @@ import picocli.CommandLine.Command;
       ValidateCommand.class,
       ResolveCommand.class,
       GenerateCommand.class,
+      ConvertCommand.class,
       QueryCommand.class,
       HistoryCommand.class,
       CiDiffCommand.class,

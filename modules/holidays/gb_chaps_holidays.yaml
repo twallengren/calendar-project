@@ -1,0 +1,58 @@
+kind: module
+id: gb_chaps_holidays
+
+# Exact England and Wales bank/public holidays published for 2026 and 2027. The Bank of England
+# states that CHAPS is normally open Monday-Friday excluding these holidays.
+
+source:
+  - id: boe-chaps-operating-days
+  - id: govuk-bank-holidays
+
+event_sources:
+  - key: chaps_new_years_day
+    name: New Year's Day
+    shiftable: false
+    status: CONFIRMED
+    rule: {type: explicit_dates, dates: [2026-01-01, 2027-01-01]}
+
+  - key: chaps_good_friday
+    name: Good Friday
+    shiftable: false
+    status: CONFIRMED
+    rule: {type: explicit_dates, dates: [2026-04-03, 2027-03-26]}
+
+  - key: chaps_easter_monday
+    name: Easter Monday
+    shiftable: false
+    status: CONFIRMED
+    rule: {type: explicit_dates, dates: [2026-04-06, 2027-03-29]}
+
+  - key: chaps_early_may_bank_holiday
+    name: Early May bank holiday
+    shiftable: false
+    status: CONFIRMED
+    rule: {type: explicit_dates, dates: [2026-05-04, 2027-05-03]}
+
+  - key: chaps_spring_bank_holiday
+    name: Spring bank holiday
+    shiftable: false
+    status: CONFIRMED
+    rule: {type: explicit_dates, dates: [2026-05-25, 2027-05-31]}
+
+  - key: chaps_summer_bank_holiday
+    name: Summer bank holiday
+    shiftable: false
+    status: CONFIRMED
+    rule: {type: explicit_dates, dates: [2026-08-31, 2027-08-30]}
+
+  - key: chaps_christmas_day
+    name: Christmas Day
+    shiftable: false
+    status: CONFIRMED
+    rule: {type: explicit_dates, dates: [2026-12-25, 2027-12-27]}
+
+  - key: chaps_boxing_day
+    name: Boxing Day
+    shiftable: false
+    status: CONFIRMED
+    rule: {type: explicit_dates, dates: [2026-12-28, 2027-12-28]}

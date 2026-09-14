@@ -47,6 +47,29 @@ class ApiEmitterTest {
   }
 
   @Test
+  void apiLinksResolveAtBothRootAndProjectPrefix() throws Exception {
+    JsonNode index = mapper.readTree(v1.resolve("index.json").toFile());
+    for (String prefix : List.of("/", "/calendar-project/")) {
+      java.net.URI indexUri =
+          java.net.URI.create("https://example.test" + prefix + "v1/index.json");
+      for (JsonNode entry : index.path("calendars")) {
+        java.net.URI manifestUri = indexUri.resolve(entry.path("href").asText());
+        assertTrue(manifestUri.getPath().startsWith(prefix + "v1/"));
+        Path manifestPath = outDir.resolve(manifestUri.getPath().substring(prefix.length()));
+        JsonNode manifest = mapper.readTree(manifestPath.toFile());
+        for (JsonNode link : manifest.path("links")) {
+          String value = link.asText().replace("{year}", manifest.path("years").get(0).asText());
+          java.net.URI target = manifestUri.resolve(value);
+          assertTrue(target.getPath().startsWith(prefix + "v1/"));
+          assertTrue(
+              Files.exists(outDir.resolve(target.getPath().substring(prefix.length()))),
+              target.toString());
+        }
+      }
+    }
+  }
+
+  @Test
   void writesExpectedFileSetForNyse() {
     assertTrue(Files.exists(v1.resolve("index.json")));
     Path calDir = v1.resolve("calendars/US-NYSE");
@@ -93,7 +116,47 @@ class ApiEmitterTest {
   }
 
   @Test
-  void indexJsonListsExactlyTheMarketCalendars() throws Exception {
+  void paymentCalendarIsPublishedWithoutIncludeBase(@TempDir Path paymentRoot) throws Exception {
+    Path artifacts = paymentRoot.resolve("blessed");
+    Path calendar = artifacts.resolve("PAYMENT-TEST");
+    Files.createDirectories(calendar);
+    for (String name : List.of("events.csv", "metadata.json", "resolved.yaml")) {
+      Files.copy(Path.of("blessed/US-NYSE").resolve(name), calendar.resolve(name));
+    }
+    var metadata =
+        (com.fasterxml.jackson.databind.node.ObjectNode)
+            mapper.readTree(calendar.resolve("metadata.json").toFile());
+    metadata.put("kind", "payment");
+    metadata.remove("mic");
+    Path resolved = calendar.resolve("resolved.yaml");
+    Files.writeString(resolved, Files.readString(resolved).replace("  mic: XNYS\n", ""));
+    mapper.writeValue(calendar.resolve("metadata.json").toFile(), metadata);
+    var manifest =
+        (com.fasterxml.jackson.databind.node.ObjectNode)
+            mapper.readTree(Path.of("blessed/manifest.json").toFile());
+    var entry = manifest.path("calendars").path("US-NYSE").deepCopy();
+    ((com.fasterxml.jackson.databind.node.ObjectNode) entry).put("kind", "payment");
+    manifest.putObject("calendars").set("PAYMENT-TEST", entry);
+    mapper.writeValue(artifacts.resolve("manifest.json").toFile(), manifest);
+    Path output = paymentRoot.resolve("site");
+    new ApiEmitter(
+            artifacts,
+            paymentRoot.resolve("history"),
+            output,
+            false,
+            java.time.Instant.parse("2026-09-14T00:00:00Z"))
+        .emit();
+    JsonNode index = mapper.readTree(output.resolve("v1/index.json").toFile());
+    assertEquals("PAYMENT-TEST", index.path("calendars").get(0).path("id").asText());
+    JsonNode published =
+        mapper.readTree(output.resolve("v1/calendars/PAYMENT-TEST/manifest.json").toFile());
+    assertEquals("payment", published.path("kind").asText());
+    assertFalse(published.hasNonNull("mic"));
+    assertTrue(Files.isRegularFile(output.resolve("v1/calendars/PAYMENT-TEST/holidays.ics")));
+  }
+
+  @Test
+  void indexJsonListsExactlyTheMarketAndPaymentCalendars() throws Exception {
     JsonNode index = mapper.readTree(v1.resolve("index.json").toFile());
     JsonNode manifest = mapper.readTree(Path.of("blessed/manifest.json").toFile());
 
@@ -103,8 +166,8 @@ class ApiEmitterTest {
         .fields()
         .forEachRemaining(
             e -> {
-              // Only calendars whose manifest kind is "market" (the default) are published
-              if ("market".equals(e.getValue().path("kind").asText("market"))) {
+              String kind = e.getValue().path("kind").asText("market");
+              if ("market".equals(kind) || "payment".equals(kind)) {
                 expectedIds.add(e.getKey());
               }
             });

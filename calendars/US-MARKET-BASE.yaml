@@ -11,6 +11,10 @@ metadata:
     from: 1900-01-01
     to: 2030-12-31
     verified_through: 2026-12-31
+    quality:
+      - {scope: SCHEDULED_CLOSURES, from: 1900-01-01, to: 2030-12-31, quality: PROJECTED, evidence_ids: [nyse-history-2008]}
+      - {scope: EARLY_CLOSES, from: 1900-01-01, to: 2030-12-31, quality: PROJECTED, evidence_ids: [nyse-history-2008]}
+      - {scope: UNSCHEDULED_EXCEPTIONS, from: 1900-01-01, to: 2030-12-31, quality: PROJECTED, evidence_ids: [nyse-history-2008]}
 
 # US markets observe Sunday holidays on Monday and (since 1959) Saturday holidays on Friday,
 # except New Year's Day (see new_years_day). This base calendar uses a plain Sat-Sun weekend;

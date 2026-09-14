@@ -11,11 +11,4950 @@
   },
   "coverage": {
     "from": "2000-01-01",
+    "quality": [
+      {
+        "evidence_ids": [
+          "uk-1971-act"
+        ],
+        "from": "2000-01-01",
+        "quality": "PROJECTED",
+        "scope": "SCHEDULED_CLOSURES",
+        "to": "2020-12-31"
+      },
+      {
+        "evidence_ids": [
+          "govuk-bank-holidays",
+          "lse-trading-calendar-2021",
+          "lse-trading-calendar-2022",
+          "lse-trading-calendar-2023"
+        ],
+        "from": "2021-01-01",
+        "quality": "VERIFIED",
+        "scope": "SCHEDULED_CLOSURES",
+        "to": "2023-12-31"
+      },
+      {
+        "evidence_ids": [
+          "govuk-bank-holidays"
+        ],
+        "from": "2024-01-01",
+        "quality": "PROJECTED",
+        "scope": "SCHEDULED_CLOSURES",
+        "to": "2025-12-31"
+      },
+      {
+        "evidence_ids": [
+          "lse-business-days",
+          "govuk-bank-holidays"
+        ],
+        "from": "2026-01-01",
+        "quality": "VERIFIED",
+        "scope": "SCHEDULED_CLOSURES",
+        "to": "2028-12-31"
+      },
+      {
+        "evidence_ids": [
+          "lse-business-days"
+        ],
+        "from": "2029-01-01",
+        "quality": "PROJECTED",
+        "scope": "SCHEDULED_CLOSURES",
+        "to": "2030-12-31"
+      },
+      {
+        "evidence_ids": [
+          "lse-business-days"
+        ],
+        "from": "2000-01-01",
+        "quality": "PROJECTED",
+        "scope": "EARLY_CLOSES",
+        "to": "2020-12-31"
+      },
+      {
+        "evidence_ids": [
+          "lse-trading-calendar-2021",
+          "lse-trading-calendar-2022",
+          "lse-trading-calendar-2023"
+        ],
+        "from": "2021-01-01",
+        "quality": "VERIFIED",
+        "scope": "EARLY_CLOSES",
+        "to": "2023-12-31"
+      },
+      {
+        "evidence_ids": [
+          "lse-business-days"
+        ],
+        "from": "2024-01-01",
+        "quality": "PROJECTED",
+        "scope": "EARLY_CLOSES",
+        "to": "2025-12-31"
+      },
+      {
+        "evidence_ids": [
+          "lse-business-days"
+        ],
+        "from": "2026-01-01",
+        "quality": "VERIFIED",
+        "scope": "EARLY_CLOSES",
+        "to": "2028-12-31"
+      },
+      {
+        "evidence_ids": [
+          "lse-business-days"
+        ],
+        "from": "2029-01-01",
+        "quality": "PROJECTED",
+        "scope": "EARLY_CLOSES",
+        "to": "2030-12-31"
+      },
+      {
+        "evidence_ids": [],
+        "from": "2000-12-22",
+        "quality": "INCOMPLETE",
+        "scope": "EARLY_CLOSES",
+        "to": "2000-12-22"
+      },
+      {
+        "evidence_ids": [],
+        "from": "2000-12-29",
+        "quality": "INCOMPLETE",
+        "scope": "EARLY_CLOSES",
+        "to": "2000-12-29"
+      },
+      {
+        "evidence_ids": [],
+        "from": "2005-12-23",
+        "quality": "INCOMPLETE",
+        "scope": "EARLY_CLOSES",
+        "to": "2005-12-23"
+      },
+      {
+        "evidence_ids": [],
+        "from": "2005-12-30",
+        "quality": "INCOMPLETE",
+        "scope": "EARLY_CLOSES",
+        "to": "2005-12-30"
+      },
+      {
+        "evidence_ids": [],
+        "from": "2006-12-22",
+        "quality": "INCOMPLETE",
+        "scope": "EARLY_CLOSES",
+        "to": "2006-12-22"
+      },
+      {
+        "evidence_ids": [],
+        "from": "2006-12-29",
+        "quality": "INCOMPLETE",
+        "scope": "EARLY_CLOSES",
+        "to": "2006-12-29"
+      },
+      {
+        "evidence_ids": [],
+        "from": "2011-12-23",
+        "quality": "INCOMPLETE",
+        "scope": "EARLY_CLOSES",
+        "to": "2011-12-23"
+      },
+      {
+        "evidence_ids": [],
+        "from": "2011-12-30",
+        "quality": "INCOMPLETE",
+        "scope": "EARLY_CLOSES",
+        "to": "2011-12-30"
+      },
+      {
+        "evidence_ids": [],
+        "from": "2016-12-23",
+        "quality": "INCOMPLETE",
+        "scope": "EARLY_CLOSES",
+        "to": "2016-12-23"
+      },
+      {
+        "evidence_ids": [],
+        "from": "2016-12-30",
+        "quality": "INCOMPLETE",
+        "scope": "EARLY_CLOSES",
+        "to": "2016-12-30"
+      },
+      {
+        "evidence_ids": [],
+        "from": "2017-12-22",
+        "quality": "INCOMPLETE",
+        "scope": "EARLY_CLOSES",
+        "to": "2017-12-22"
+      },
+      {
+        "evidence_ids": [],
+        "from": "2017-12-29",
+        "quality": "INCOMPLETE",
+        "scope": "EARLY_CLOSES",
+        "to": "2017-12-29"
+      },
+      {
+        "evidence_ids": [
+          "lse-business-days"
+        ],
+        "from": "2000-01-01",
+        "quality": "PROJECTED",
+        "scope": "UNSCHEDULED_EXCEPTIONS",
+        "to": "2030-12-31"
+      }
+    ],
     "to": "2030-12-31",
     "verified_through": "2028-12-31"
   },
   "event_count": 3552,
-  "generated_at": "2026-02-16T21:43:21Z",
+  "event_details": [
+    {
+      "close_time": null,
+      "date": "2000-01-03",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_new_years_day",
+      "observation_lineage": [
+        "2000-01-01",
+        "2000-01-03"
+      ],
+      "observed_from": "2000-01-01",
+      "source_module": "module:uk_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2000-04-21",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2000-04-24",
+      "description": "Easter Monday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "easter_monday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_easter_monday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2000-05-01",
+      "description": "Early May Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_early_may_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_early_may_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2000-05-29",
+      "description": "Spring Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_spring_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_spring_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2000-08-28",
+      "description": "Summer Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_summer_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_summer_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2000-12-22",
+      "description": "Christmas Eve (Early Close)",
+      "evidence_ids": [
+        "lse-business-days",
+        "lse-trading-calendar-2021",
+        "lse-trading-calendar-2022",
+        "lse-trading-calendar-2023"
+      ],
+      "key": "gb_lse_christmas_eve_early_close",
+      "observation_lineage": [
+        "2000-12-24",
+        "2000-12-22"
+      ],
+      "observed_from": "2000-12-24",
+      "source_module": "module:gb_lse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2000-12-25",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2000-12-26",
+      "description": "Boxing Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_boxing_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_boxing_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2000-12-29",
+      "description": "New Year's Eve (Early Close)",
+      "evidence_ids": [
+        "lse-business-days",
+        "lse-trading-calendar-2021",
+        "lse-trading-calendar-2022",
+        "lse-trading-calendar-2023"
+      ],
+      "key": "gb_lse_new_years_eve_early_close",
+      "observation_lineage": [
+        "2000-12-31",
+        "2000-12-29"
+      ],
+      "observed_from": "2000-12-31",
+      "source_module": "module:gb_lse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2001-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2001-04-13",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2001-04-16",
+      "description": "Easter Monday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "easter_monday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_easter_monday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2001-05-07",
+      "description": "Early May Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_early_may_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_early_may_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2001-05-28",
+      "description": "Spring Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_spring_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_spring_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2001-08-27",
+      "description": "Summer Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_summer_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_summer_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2001-12-24",
+      "description": "Christmas Eve (Early Close)",
+      "evidence_ids": [
+        "lse-business-days",
+        "lse-trading-calendar-2021",
+        "lse-trading-calendar-2022",
+        "lse-trading-calendar-2023"
+      ],
+      "key": "gb_lse_christmas_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:gb_lse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2001-12-25",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2001-12-26",
+      "description": "Boxing Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_boxing_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_boxing_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2001-12-31",
+      "description": "New Year's Eve (Early Close)",
+      "evidence_ids": [
+        "lse-business-days",
+        "lse-trading-calendar-2021",
+        "lse-trading-calendar-2022",
+        "lse-trading-calendar-2023"
+      ],
+      "key": "gb_lse_new_years_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:gb_lse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2002-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2002-03-29",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2002-04-01",
+      "description": "Easter Monday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "easter_monday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_easter_monday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2002-05-06",
+      "description": "Early May Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_early_may_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_early_may_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2002-06-03",
+      "description": "Spring Bank Holiday (Moved for the Golden Jubilee)",
+      "evidence_ids": [
+        "dcms-diamond-jubilee-ia",
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_spring_bank_holiday_moved",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_spring_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2002-06-04",
+      "description": "Jubilee Bank Holiday (Golden Jubilee)",
+      "evidence_ids": [
+        "dcms-diamond-jubilee-ia",
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_jubilee_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_jubilee_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2002-08-26",
+      "description": "Summer Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_summer_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_summer_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2002-12-24",
+      "description": "Christmas Eve (Early Close)",
+      "evidence_ids": [
+        "lse-business-days",
+        "lse-trading-calendar-2021",
+        "lse-trading-calendar-2022",
+        "lse-trading-calendar-2023"
+      ],
+      "key": "gb_lse_christmas_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:gb_lse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2002-12-25",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2002-12-26",
+      "description": "Boxing Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_boxing_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_boxing_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2002-12-31",
+      "description": "New Year's Eve (Early Close)",
+      "evidence_ids": [
+        "lse-business-days",
+        "lse-trading-calendar-2021",
+        "lse-trading-calendar-2022",
+        "lse-trading-calendar-2023"
+      ],
+      "key": "gb_lse_new_years_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:gb_lse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2003-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2003-04-18",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2003-04-21",
+      "description": "Easter Monday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "easter_monday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_easter_monday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2003-05-05",
+      "description": "Early May Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_early_may_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_early_may_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2003-05-26",
+      "description": "Spring Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_spring_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_spring_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2003-08-25",
+      "description": "Summer Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_summer_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_summer_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2003-12-24",
+      "description": "Christmas Eve (Early Close)",
+      "evidence_ids": [
+        "lse-business-days",
+        "lse-trading-calendar-2021",
+        "lse-trading-calendar-2022",
+        "lse-trading-calendar-2023"
+      ],
+      "key": "gb_lse_christmas_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:gb_lse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2003-12-25",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2003-12-26",
+      "description": "Boxing Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_boxing_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_boxing_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2003-12-31",
+      "description": "New Year's Eve (Early Close)",
+      "evidence_ids": [
+        "lse-business-days",
+        "lse-trading-calendar-2021",
+        "lse-trading-calendar-2022",
+        "lse-trading-calendar-2023"
+      ],
+      "key": "gb_lse_new_years_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:gb_lse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2004-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2004-04-09",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2004-04-12",
+      "description": "Easter Monday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "easter_monday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_easter_monday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2004-05-03",
+      "description": "Early May Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_early_may_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_early_may_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2004-05-31",
+      "description": "Spring Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_spring_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_spring_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2004-08-30",
+      "description": "Summer Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_summer_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_summer_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2004-12-24",
+      "description": "Christmas Eve (Early Close)",
+      "evidence_ids": [
+        "lse-business-days",
+        "lse-trading-calendar-2021",
+        "lse-trading-calendar-2022",
+        "lse-trading-calendar-2023"
+      ],
+      "key": "gb_lse_christmas_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:gb_lse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2004-12-27",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_christmas_day",
+      "observation_lineage": [
+        "2004-12-25",
+        "2004-12-27"
+      ],
+      "observed_from": "2004-12-25",
+      "source_module": "module:uk_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2004-12-28",
+      "description": "Boxing Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_boxing_day",
+      "observation_lineage": [
+        "2004-12-26",
+        "2004-12-28"
+      ],
+      "observed_from": "2004-12-26",
+      "source_module": "module:uk_boxing_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2004-12-31",
+      "description": "New Year's Eve (Early Close)",
+      "evidence_ids": [
+        "lse-business-days",
+        "lse-trading-calendar-2021",
+        "lse-trading-calendar-2022",
+        "lse-trading-calendar-2023"
+      ],
+      "key": "gb_lse_new_years_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:gb_lse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2005-01-03",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_new_years_day",
+      "observation_lineage": [
+        "2005-01-01",
+        "2005-01-03"
+      ],
+      "observed_from": "2005-01-01",
+      "source_module": "module:uk_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2005-03-25",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2005-03-28",
+      "description": "Easter Monday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "easter_monday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_easter_monday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2005-05-02",
+      "description": "Early May Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_early_may_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_early_may_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2005-05-30",
+      "description": "Spring Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_spring_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_spring_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2005-08-29",
+      "description": "Summer Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_summer_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_summer_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2005-12-23",
+      "description": "Christmas Eve (Early Close)",
+      "evidence_ids": [
+        "lse-business-days",
+        "lse-trading-calendar-2021",
+        "lse-trading-calendar-2022",
+        "lse-trading-calendar-2023"
+      ],
+      "key": "gb_lse_christmas_eve_early_close",
+      "observation_lineage": [
+        "2005-12-24",
+        "2005-12-23"
+      ],
+      "observed_from": "2005-12-24",
+      "source_module": "module:gb_lse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2005-12-26",
+      "description": "Boxing Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_boxing_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_boxing_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2005-12-27",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_christmas_day",
+      "observation_lineage": [
+        "2005-12-25",
+        "2005-12-27"
+      ],
+      "observed_from": "2005-12-25",
+      "source_module": "module:uk_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2005-12-30",
+      "description": "New Year's Eve (Early Close)",
+      "evidence_ids": [
+        "lse-business-days",
+        "lse-trading-calendar-2021",
+        "lse-trading-calendar-2022",
+        "lse-trading-calendar-2023"
+      ],
+      "key": "gb_lse_new_years_eve_early_close",
+      "observation_lineage": [
+        "2005-12-31",
+        "2005-12-30"
+      ],
+      "observed_from": "2005-12-31",
+      "source_module": "module:gb_lse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2006-01-02",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_new_years_day",
+      "observation_lineage": [
+        "2006-01-01",
+        "2006-01-02"
+      ],
+      "observed_from": "2006-01-01",
+      "source_module": "module:uk_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2006-04-14",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2006-04-17",
+      "description": "Easter Monday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "easter_monday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_easter_monday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2006-05-01",
+      "description": "Early May Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_early_may_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_early_may_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2006-05-29",
+      "description": "Spring Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_spring_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_spring_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2006-08-28",
+      "description": "Summer Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_summer_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_summer_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2006-12-22",
+      "description": "Christmas Eve (Early Close)",
+      "evidence_ids": [
+        "lse-business-days",
+        "lse-trading-calendar-2021",
+        "lse-trading-calendar-2022",
+        "lse-trading-calendar-2023"
+      ],
+      "key": "gb_lse_christmas_eve_early_close",
+      "observation_lineage": [
+        "2006-12-24",
+        "2006-12-22"
+      ],
+      "observed_from": "2006-12-24",
+      "source_module": "module:gb_lse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2006-12-25",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2006-12-26",
+      "description": "Boxing Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_boxing_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_boxing_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2006-12-29",
+      "description": "New Year's Eve (Early Close)",
+      "evidence_ids": [
+        "lse-business-days",
+        "lse-trading-calendar-2021",
+        "lse-trading-calendar-2022",
+        "lse-trading-calendar-2023"
+      ],
+      "key": "gb_lse_new_years_eve_early_close",
+      "observation_lineage": [
+        "2006-12-31",
+        "2006-12-29"
+      ],
+      "observed_from": "2006-12-31",
+      "source_module": "module:gb_lse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2007-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2007-04-06",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2007-04-09",
+      "description": "Easter Monday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "easter_monday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_easter_monday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2007-05-07",
+      "description": "Early May Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_early_may_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_early_may_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2007-05-28",
+      "description": "Spring Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_spring_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_spring_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2007-08-27",
+      "description": "Summer Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_summer_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_summer_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2007-12-24",
+      "description": "Christmas Eve (Early Close)",
+      "evidence_ids": [
+        "lse-business-days",
+        "lse-trading-calendar-2021",
+        "lse-trading-calendar-2022",
+        "lse-trading-calendar-2023"
+      ],
+      "key": "gb_lse_christmas_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:gb_lse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2007-12-25",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2007-12-26",
+      "description": "Boxing Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_boxing_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_boxing_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2007-12-31",
+      "description": "New Year's Eve (Early Close)",
+      "evidence_ids": [
+        "lse-business-days",
+        "lse-trading-calendar-2021",
+        "lse-trading-calendar-2022",
+        "lse-trading-calendar-2023"
+      ],
+      "key": "gb_lse_new_years_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:gb_lse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2008-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2008-03-21",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2008-03-24",
+      "description": "Easter Monday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "easter_monday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_easter_monday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2008-05-05",
+      "description": "Early May Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_early_may_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_early_may_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2008-05-26",
+      "description": "Spring Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_spring_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_spring_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2008-08-25",
+      "description": "Summer Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_summer_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_summer_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2008-12-24",
+      "description": "Christmas Eve (Early Close)",
+      "evidence_ids": [
+        "lse-business-days",
+        "lse-trading-calendar-2021",
+        "lse-trading-calendar-2022",
+        "lse-trading-calendar-2023"
+      ],
+      "key": "gb_lse_christmas_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:gb_lse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2008-12-25",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2008-12-26",
+      "description": "Boxing Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_boxing_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_boxing_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2008-12-31",
+      "description": "New Year's Eve (Early Close)",
+      "evidence_ids": [
+        "lse-business-days",
+        "lse-trading-calendar-2021",
+        "lse-trading-calendar-2022",
+        "lse-trading-calendar-2023"
+      ],
+      "key": "gb_lse_new_years_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:gb_lse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2009-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2009-04-10",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2009-04-13",
+      "description": "Easter Monday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "easter_monday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_easter_monday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2009-05-04",
+      "description": "Early May Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_early_may_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_early_may_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2009-05-25",
+      "description": "Spring Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_spring_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_spring_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2009-08-31",
+      "description": "Summer Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_summer_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_summer_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2009-12-24",
+      "description": "Christmas Eve (Early Close)",
+      "evidence_ids": [
+        "lse-business-days",
+        "lse-trading-calendar-2021",
+        "lse-trading-calendar-2022",
+        "lse-trading-calendar-2023"
+      ],
+      "key": "gb_lse_christmas_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:gb_lse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2009-12-25",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2009-12-28",
+      "description": "Boxing Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_boxing_day",
+      "observation_lineage": [
+        "2009-12-26",
+        "2009-12-28"
+      ],
+      "observed_from": "2009-12-26",
+      "source_module": "module:uk_boxing_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2009-12-31",
+      "description": "New Year's Eve (Early Close)",
+      "evidence_ids": [
+        "lse-business-days",
+        "lse-trading-calendar-2021",
+        "lse-trading-calendar-2022",
+        "lse-trading-calendar-2023"
+      ],
+      "key": "gb_lse_new_years_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:gb_lse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2010-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-04-02",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-04-05",
+      "description": "Easter Monday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "easter_monday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_easter_monday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-05-03",
+      "description": "Early May Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_early_may_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_early_may_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-05-31",
+      "description": "Spring Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_spring_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_spring_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-08-30",
+      "description": "Summer Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_summer_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_summer_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2010-12-24",
+      "description": "Christmas Eve (Early Close)",
+      "evidence_ids": [
+        "lse-business-days",
+        "lse-trading-calendar-2021",
+        "lse-trading-calendar-2022",
+        "lse-trading-calendar-2023"
+      ],
+      "key": "gb_lse_christmas_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:gb_lse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2010-12-27",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_christmas_day",
+      "observation_lineage": [
+        "2010-12-25",
+        "2010-12-27"
+      ],
+      "observed_from": "2010-12-25",
+      "source_module": "module:uk_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-12-28",
+      "description": "Boxing Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_boxing_day",
+      "observation_lineage": [
+        "2010-12-26",
+        "2010-12-28"
+      ],
+      "observed_from": "2010-12-26",
+      "source_module": "module:uk_boxing_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2010-12-31",
+      "description": "New Year's Eve (Early Close)",
+      "evidence_ids": [
+        "lse-business-days",
+        "lse-trading-calendar-2021",
+        "lse-trading-calendar-2022",
+        "lse-trading-calendar-2023"
+      ],
+      "key": "gb_lse_new_years_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:gb_lse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2011-01-03",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_new_years_day",
+      "observation_lineage": [
+        "2011-01-01",
+        "2011-01-03"
+      ],
+      "observed_from": "2011-01-01",
+      "source_module": "module:uk_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-04-22",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-04-25",
+      "description": "Easter Monday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "easter_monday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_easter_monday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-04-29",
+      "description": "Royal Wedding Bank Holiday",
+      "evidence_ids": [
+        "dcms-diamond-jubilee-ia",
+        "dcms-mayday-preconsultation"
+      ],
+      "key": "uk_royal_wedding_2011",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_one_off_bank_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-05-02",
+      "description": "Early May Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_early_may_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_early_may_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-05-30",
+      "description": "Spring Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_spring_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_spring_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-08-29",
+      "description": "Summer Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_summer_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_summer_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2011-12-23",
+      "description": "Christmas Eve (Early Close)",
+      "evidence_ids": [
+        "lse-business-days",
+        "lse-trading-calendar-2021",
+        "lse-trading-calendar-2022",
+        "lse-trading-calendar-2023"
+      ],
+      "key": "gb_lse_christmas_eve_early_close",
+      "observation_lineage": [
+        "2011-12-24",
+        "2011-12-23"
+      ],
+      "observed_from": "2011-12-24",
+      "source_module": "module:gb_lse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2011-12-26",
+      "description": "Boxing Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_boxing_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_boxing_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-12-27",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_christmas_day",
+      "observation_lineage": [
+        "2011-12-25",
+        "2011-12-27"
+      ],
+      "observed_from": "2011-12-25",
+      "source_module": "module:uk_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2011-12-30",
+      "description": "New Year's Eve (Early Close)",
+      "evidence_ids": [
+        "lse-business-days",
+        "lse-trading-calendar-2021",
+        "lse-trading-calendar-2022",
+        "lse-trading-calendar-2023"
+      ],
+      "key": "gb_lse_new_years_eve_early_close",
+      "observation_lineage": [
+        "2011-12-31",
+        "2011-12-30"
+      ],
+      "observed_from": "2011-12-31",
+      "source_module": "module:gb_lse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2012-01-02",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_new_years_day",
+      "observation_lineage": [
+        "2012-01-01",
+        "2012-01-02"
+      ],
+      "observed_from": "2012-01-01",
+      "source_module": "module:uk_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-04-06",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-04-09",
+      "description": "Easter Monday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "easter_monday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_easter_monday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-05-07",
+      "description": "Early May Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_early_may_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_early_may_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-06-04",
+      "description": "Spring Bank Holiday (Moved for the Diamond Jubilee)",
+      "evidence_ids": [
+        "dcms-diamond-jubilee-ia",
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_spring_bank_holiday_moved",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_spring_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-06-05",
+      "description": "Jubilee Bank Holiday (Diamond Jubilee)",
+      "evidence_ids": [
+        "dcms-diamond-jubilee-ia",
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_jubilee_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_jubilee_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-08-27",
+      "description": "Summer Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_summer_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_summer_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2012-12-24",
+      "description": "Christmas Eve (Early Close)",
+      "evidence_ids": [
+        "lse-business-days",
+        "lse-trading-calendar-2021",
+        "lse-trading-calendar-2022",
+        "lse-trading-calendar-2023"
+      ],
+      "key": "gb_lse_christmas_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:gb_lse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2012-12-25",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-12-26",
+      "description": "Boxing Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_boxing_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_boxing_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2012-12-31",
+      "description": "New Year's Eve (Early Close)",
+      "evidence_ids": [
+        "lse-business-days",
+        "lse-trading-calendar-2021",
+        "lse-trading-calendar-2022",
+        "lse-trading-calendar-2023"
+      ],
+      "key": "gb_lse_new_years_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:gb_lse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2013-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-03-29",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-04-01",
+      "description": "Easter Monday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "easter_monday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_easter_monday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-05-06",
+      "description": "Early May Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_early_may_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_early_may_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-05-27",
+      "description": "Spring Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_spring_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_spring_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-08-26",
+      "description": "Summer Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_summer_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_summer_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2013-12-24",
+      "description": "Christmas Eve (Early Close)",
+      "evidence_ids": [
+        "lse-business-days",
+        "lse-trading-calendar-2021",
+        "lse-trading-calendar-2022",
+        "lse-trading-calendar-2023"
+      ],
+      "key": "gb_lse_christmas_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:gb_lse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2013-12-25",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-12-26",
+      "description": "Boxing Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_boxing_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_boxing_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2013-12-31",
+      "description": "New Year's Eve (Early Close)",
+      "evidence_ids": [
+        "lse-business-days",
+        "lse-trading-calendar-2021",
+        "lse-trading-calendar-2022",
+        "lse-trading-calendar-2023"
+      ],
+      "key": "gb_lse_new_years_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:gb_lse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2014-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-04-18",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-04-21",
+      "description": "Easter Monday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "easter_monday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_easter_monday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-05-05",
+      "description": "Early May Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_early_may_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_early_may_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-05-26",
+      "description": "Spring Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_spring_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_spring_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-08-25",
+      "description": "Summer Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_summer_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_summer_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2014-12-24",
+      "description": "Christmas Eve (Early Close)",
+      "evidence_ids": [
+        "lse-business-days",
+        "lse-trading-calendar-2021",
+        "lse-trading-calendar-2022",
+        "lse-trading-calendar-2023"
+      ],
+      "key": "gb_lse_christmas_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:gb_lse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2014-12-25",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-12-26",
+      "description": "Boxing Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_boxing_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_boxing_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2014-12-31",
+      "description": "New Year's Eve (Early Close)",
+      "evidence_ids": [
+        "lse-business-days",
+        "lse-trading-calendar-2021",
+        "lse-trading-calendar-2022",
+        "lse-trading-calendar-2023"
+      ],
+      "key": "gb_lse_new_years_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:gb_lse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2015-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-04-03",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-04-06",
+      "description": "Easter Monday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "easter_monday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_easter_monday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-05-04",
+      "description": "Early May Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_early_may_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_early_may_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-05-25",
+      "description": "Spring Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_spring_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_spring_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-08-31",
+      "description": "Summer Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_summer_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_summer_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2015-12-24",
+      "description": "Christmas Eve (Early Close)",
+      "evidence_ids": [
+        "lse-business-days",
+        "lse-trading-calendar-2021",
+        "lse-trading-calendar-2022",
+        "lse-trading-calendar-2023"
+      ],
+      "key": "gb_lse_christmas_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:gb_lse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2015-12-25",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-12-28",
+      "description": "Boxing Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_boxing_day",
+      "observation_lineage": [
+        "2015-12-26",
+        "2015-12-28"
+      ],
+      "observed_from": "2015-12-26",
+      "source_module": "module:uk_boxing_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2015-12-31",
+      "description": "New Year's Eve (Early Close)",
+      "evidence_ids": [
+        "lse-business-days",
+        "lse-trading-calendar-2021",
+        "lse-trading-calendar-2022",
+        "lse-trading-calendar-2023"
+      ],
+      "key": "gb_lse_new_years_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:gb_lse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2016-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-03-25",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-03-28",
+      "description": "Easter Monday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "easter_monday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_easter_monday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-05-02",
+      "description": "Early May Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_early_may_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_early_may_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-05-30",
+      "description": "Spring Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_spring_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_spring_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-08-29",
+      "description": "Summer Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_summer_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_summer_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2016-12-23",
+      "description": "Christmas Eve (Early Close)",
+      "evidence_ids": [
+        "lse-business-days",
+        "lse-trading-calendar-2021",
+        "lse-trading-calendar-2022",
+        "lse-trading-calendar-2023"
+      ],
+      "key": "gb_lse_christmas_eve_early_close",
+      "observation_lineage": [
+        "2016-12-24",
+        "2016-12-23"
+      ],
+      "observed_from": "2016-12-24",
+      "source_module": "module:gb_lse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2016-12-26",
+      "description": "Boxing Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_boxing_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_boxing_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-12-27",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_christmas_day",
+      "observation_lineage": [
+        "2016-12-25",
+        "2016-12-27"
+      ],
+      "observed_from": "2016-12-25",
+      "source_module": "module:uk_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2016-12-30",
+      "description": "New Year's Eve (Early Close)",
+      "evidence_ids": [
+        "lse-business-days",
+        "lse-trading-calendar-2021",
+        "lse-trading-calendar-2022",
+        "lse-trading-calendar-2023"
+      ],
+      "key": "gb_lse_new_years_eve_early_close",
+      "observation_lineage": [
+        "2016-12-31",
+        "2016-12-30"
+      ],
+      "observed_from": "2016-12-31",
+      "source_module": "module:gb_lse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2017-01-02",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_new_years_day",
+      "observation_lineage": [
+        "2017-01-01",
+        "2017-01-02"
+      ],
+      "observed_from": "2017-01-01",
+      "source_module": "module:uk_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-04-14",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-04-17",
+      "description": "Easter Monday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "easter_monday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_easter_monday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-05-01",
+      "description": "Early May Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_early_may_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_early_may_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-05-29",
+      "description": "Spring Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_spring_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_spring_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-08-28",
+      "description": "Summer Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_summer_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_summer_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2017-12-22",
+      "description": "Christmas Eve (Early Close)",
+      "evidence_ids": [
+        "lse-business-days",
+        "lse-trading-calendar-2021",
+        "lse-trading-calendar-2022",
+        "lse-trading-calendar-2023"
+      ],
+      "key": "gb_lse_christmas_eve_early_close",
+      "observation_lineage": [
+        "2017-12-24",
+        "2017-12-22"
+      ],
+      "observed_from": "2017-12-24",
+      "source_module": "module:gb_lse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2017-12-25",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-12-26",
+      "description": "Boxing Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_boxing_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_boxing_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2017-12-29",
+      "description": "New Year's Eve (Early Close)",
+      "evidence_ids": [
+        "lse-business-days",
+        "lse-trading-calendar-2021",
+        "lse-trading-calendar-2022",
+        "lse-trading-calendar-2023"
+      ],
+      "key": "gb_lse_new_years_eve_early_close",
+      "observation_lineage": [
+        "2017-12-31",
+        "2017-12-29"
+      ],
+      "observed_from": "2017-12-31",
+      "source_module": "module:gb_lse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2018-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-03-30",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-04-02",
+      "description": "Easter Monday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "easter_monday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_easter_monday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-05-07",
+      "description": "Early May Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_early_may_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_early_may_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-05-28",
+      "description": "Spring Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_spring_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_spring_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-08-27",
+      "description": "Summer Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_summer_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_summer_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2018-12-24",
+      "description": "Christmas Eve (Early Close)",
+      "evidence_ids": [
+        "lse-business-days",
+        "lse-trading-calendar-2021",
+        "lse-trading-calendar-2022",
+        "lse-trading-calendar-2023"
+      ],
+      "key": "gb_lse_christmas_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:gb_lse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2018-12-25",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-12-26",
+      "description": "Boxing Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_boxing_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_boxing_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2018-12-31",
+      "description": "New Year's Eve (Early Close)",
+      "evidence_ids": [
+        "lse-business-days",
+        "lse-trading-calendar-2021",
+        "lse-trading-calendar-2022",
+        "lse-trading-calendar-2023"
+      ],
+      "key": "gb_lse_new_years_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:gb_lse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2019-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-04-19",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-04-22",
+      "description": "Easter Monday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "easter_monday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_easter_monday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-05-06",
+      "description": "Early May Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_early_may_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_early_may_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-05-27",
+      "description": "Spring Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_spring_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_spring_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-08-26",
+      "description": "Summer Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_summer_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_summer_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2019-12-24",
+      "description": "Christmas Eve (Early Close)",
+      "evidence_ids": [
+        "lse-business-days",
+        "lse-trading-calendar-2021",
+        "lse-trading-calendar-2022",
+        "lse-trading-calendar-2023"
+      ],
+      "key": "gb_lse_christmas_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:gb_lse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2019-12-25",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-12-26",
+      "description": "Boxing Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_boxing_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_boxing_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2019-12-31",
+      "description": "New Year's Eve (Early Close)",
+      "evidence_ids": [
+        "lse-business-days",
+        "lse-trading-calendar-2021",
+        "lse-trading-calendar-2022",
+        "lse-trading-calendar-2023"
+      ],
+      "key": "gb_lse_new_years_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:gb_lse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2020-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-04-10",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-04-13",
+      "description": "Easter Monday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "easter_monday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_easter_monday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-05-08",
+      "description": "Early May Bank Holiday (VE Day 75th anniversary)",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_early_may_bank_holiday_moved",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_early_may_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-05-25",
+      "description": "Spring Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_spring_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_spring_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-08-31",
+      "description": "Summer Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_summer_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_summer_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2020-12-24",
+      "description": "Christmas Eve (Early Close)",
+      "evidence_ids": [
+        "lse-business-days",
+        "lse-trading-calendar-2021",
+        "lse-trading-calendar-2022",
+        "lse-trading-calendar-2023"
+      ],
+      "key": "gb_lse_christmas_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:gb_lse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2020-12-25",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-12-28",
+      "description": "Boxing Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_boxing_day",
+      "observation_lineage": [
+        "2020-12-26",
+        "2020-12-28"
+      ],
+      "observed_from": "2020-12-26",
+      "source_module": "module:uk_boxing_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2020-12-31",
+      "description": "New Year's Eve (Early Close)",
+      "evidence_ids": [
+        "lse-business-days",
+        "lse-trading-calendar-2021",
+        "lse-trading-calendar-2022",
+        "lse-trading-calendar-2023"
+      ],
+      "key": "gb_lse_new_years_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:gb_lse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2021-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-04-02",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-04-05",
+      "description": "Easter Monday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "easter_monday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_easter_monday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-05-03",
+      "description": "Early May Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_early_may_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_early_may_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-05-31",
+      "description": "Spring Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_spring_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_spring_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-08-30",
+      "description": "Summer Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_summer_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_summer_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2021-12-24",
+      "description": "Christmas Eve (Early Close)",
+      "evidence_ids": [
+        "lse-business-days",
+        "lse-trading-calendar-2021",
+        "lse-trading-calendar-2022",
+        "lse-trading-calendar-2023"
+      ],
+      "key": "gb_lse_christmas_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:gb_lse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2021-12-27",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_christmas_day",
+      "observation_lineage": [
+        "2021-12-25",
+        "2021-12-27"
+      ],
+      "observed_from": "2021-12-25",
+      "source_module": "module:uk_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-12-28",
+      "description": "Boxing Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_boxing_day",
+      "observation_lineage": [
+        "2021-12-26",
+        "2021-12-28"
+      ],
+      "observed_from": "2021-12-26",
+      "source_module": "module:uk_boxing_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2021-12-31",
+      "description": "New Year's Eve (Early Close)",
+      "evidence_ids": [
+        "lse-business-days",
+        "lse-trading-calendar-2021",
+        "lse-trading-calendar-2022",
+        "lse-trading-calendar-2023"
+      ],
+      "key": "gb_lse_new_years_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:gb_lse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2022-01-03",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_new_years_day",
+      "observation_lineage": [
+        "2022-01-01",
+        "2022-01-03"
+      ],
+      "observed_from": "2022-01-01",
+      "source_module": "module:uk_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-04-15",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-04-18",
+      "description": "Easter Monday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "easter_monday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_easter_monday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-05-02",
+      "description": "Early May Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_early_may_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_early_may_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-06-02",
+      "description": "Spring Bank Holiday (Moved for the Platinum Jubilee)",
+      "evidence_ids": [
+        "dcms-diamond-jubilee-ia",
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_spring_bank_holiday_moved",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_spring_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-06-03",
+      "description": "Jubilee Bank Holiday (Platinum Jubilee)",
+      "evidence_ids": [
+        "dcms-diamond-jubilee-ia",
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_jubilee_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_jubilee_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-08-29",
+      "description": "Summer Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_summer_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_summer_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-09-19",
+      "description": "State Funeral of Queen Elizabeth II",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_state_funeral_2022",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_one_off_bank_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2022-12-23",
+      "description": "Christmas Eve (Early Close)",
+      "evidence_ids": [
+        "lse-business-days",
+        "lse-trading-calendar-2021",
+        "lse-trading-calendar-2022",
+        "lse-trading-calendar-2023"
+      ],
+      "key": "gb_lse_christmas_eve_early_close",
+      "observation_lineage": [
+        "2022-12-24",
+        "2022-12-23"
+      ],
+      "observed_from": "2022-12-24",
+      "source_module": "module:gb_lse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2022-12-26",
+      "description": "Boxing Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_boxing_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_boxing_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-12-27",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_christmas_day",
+      "observation_lineage": [
+        "2022-12-25",
+        "2022-12-27"
+      ],
+      "observed_from": "2022-12-25",
+      "source_module": "module:uk_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2022-12-30",
+      "description": "New Year's Eve (Early Close)",
+      "evidence_ids": [
+        "lse-business-days",
+        "lse-trading-calendar-2021",
+        "lse-trading-calendar-2022",
+        "lse-trading-calendar-2023"
+      ],
+      "key": "gb_lse_new_years_eve_early_close",
+      "observation_lineage": [
+        "2022-12-31",
+        "2022-12-30"
+      ],
+      "observed_from": "2022-12-31",
+      "source_module": "module:gb_lse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2023-01-02",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_new_years_day",
+      "observation_lineage": [
+        "2023-01-01",
+        "2023-01-02"
+      ],
+      "observed_from": "2023-01-01",
+      "source_module": "module:uk_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-04-07",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-04-10",
+      "description": "Easter Monday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "easter_monday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_easter_monday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-05-01",
+      "description": "Early May Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_early_may_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_early_may_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-05-08",
+      "description": "Coronation of King Charles III",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_coronation_2023",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_one_off_bank_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-05-29",
+      "description": "Spring Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_spring_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_spring_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-08-28",
+      "description": "Summer Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_summer_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_summer_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2023-12-22",
+      "description": "Christmas Eve (Early Close)",
+      "evidence_ids": [
+        "lse-business-days",
+        "lse-trading-calendar-2021",
+        "lse-trading-calendar-2022",
+        "lse-trading-calendar-2023"
+      ],
+      "key": "gb_lse_christmas_eve_early_close",
+      "observation_lineage": [
+        "2023-12-24",
+        "2023-12-22"
+      ],
+      "observed_from": "2023-12-24",
+      "source_module": "module:gb_lse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2023-12-25",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-12-26",
+      "description": "Boxing Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_boxing_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_boxing_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2023-12-29",
+      "description": "New Year's Eve (Early Close)",
+      "evidence_ids": [
+        "lse-business-days",
+        "lse-trading-calendar-2021",
+        "lse-trading-calendar-2022",
+        "lse-trading-calendar-2023"
+      ],
+      "key": "gb_lse_new_years_eve_early_close",
+      "observation_lineage": [
+        "2023-12-31",
+        "2023-12-29"
+      ],
+      "observed_from": "2023-12-31",
+      "source_module": "module:gb_lse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2024-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-03-29",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-04-01",
+      "description": "Easter Monday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "easter_monday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_easter_monday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-05-06",
+      "description": "Early May Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_early_may_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_early_may_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-05-27",
+      "description": "Spring Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_spring_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_spring_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-08-26",
+      "description": "Summer Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_summer_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_summer_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2024-12-24",
+      "description": "Christmas Eve (Early Close)",
+      "evidence_ids": [
+        "lse-business-days",
+        "lse-trading-calendar-2021",
+        "lse-trading-calendar-2022",
+        "lse-trading-calendar-2023"
+      ],
+      "key": "gb_lse_christmas_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:gb_lse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2024-12-25",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-12-26",
+      "description": "Boxing Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_boxing_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_boxing_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2024-12-31",
+      "description": "New Year's Eve (Early Close)",
+      "evidence_ids": [
+        "lse-business-days",
+        "lse-trading-calendar-2021",
+        "lse-trading-calendar-2022",
+        "lse-trading-calendar-2023"
+      ],
+      "key": "gb_lse_new_years_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:gb_lse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2025-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-04-18",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-04-21",
+      "description": "Easter Monday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "easter_monday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_easter_monday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-05-05",
+      "description": "Early May Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_early_may_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_early_may_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-05-26",
+      "description": "Spring Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_spring_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_spring_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-08-25",
+      "description": "Summer Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_summer_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_summer_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2025-12-24",
+      "description": "Christmas Eve (Early Close)",
+      "evidence_ids": [
+        "lse-business-days",
+        "lse-trading-calendar-2021",
+        "lse-trading-calendar-2022",
+        "lse-trading-calendar-2023"
+      ],
+      "key": "gb_lse_christmas_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:gb_lse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2025-12-25",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-12-26",
+      "description": "Boxing Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_boxing_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_boxing_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2025-12-31",
+      "description": "New Year's Eve (Early Close)",
+      "evidence_ids": [
+        "lse-business-days",
+        "lse-trading-calendar-2021",
+        "lse-trading-calendar-2022",
+        "lse-trading-calendar-2023"
+      ],
+      "key": "gb_lse_new_years_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:gb_lse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2026-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-04-03",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-04-06",
+      "description": "Easter Monday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "easter_monday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_easter_monday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-05-04",
+      "description": "Early May Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_early_may_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_early_may_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-05-25",
+      "description": "Spring Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_spring_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_spring_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-08-31",
+      "description": "Summer Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_summer_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_summer_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2026-12-24",
+      "description": "Christmas Eve (Early Close)",
+      "evidence_ids": [
+        "lse-business-days",
+        "lse-trading-calendar-2021",
+        "lse-trading-calendar-2022",
+        "lse-trading-calendar-2023"
+      ],
+      "key": "gb_lse_christmas_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:gb_lse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2026-12-25",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-12-28",
+      "description": "Boxing Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_boxing_day",
+      "observation_lineage": [
+        "2026-12-26",
+        "2026-12-28"
+      ],
+      "observed_from": "2026-12-26",
+      "source_module": "module:uk_boxing_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2026-12-31",
+      "description": "New Year's Eve (Early Close)",
+      "evidence_ids": [
+        "lse-business-days",
+        "lse-trading-calendar-2021",
+        "lse-trading-calendar-2022",
+        "lse-trading-calendar-2023"
+      ],
+      "key": "gb_lse_new_years_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:gb_lse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2027-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-03-26",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-03-29",
+      "description": "Easter Monday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "easter_monday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_easter_monday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-05-03",
+      "description": "Early May Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_early_may_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_early_may_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-05-31",
+      "description": "Spring Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_spring_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_spring_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-08-30",
+      "description": "Summer Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_summer_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_summer_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2027-12-24",
+      "description": "Christmas Eve (Early Close)",
+      "evidence_ids": [
+        "lse-business-days",
+        "lse-trading-calendar-2021",
+        "lse-trading-calendar-2022",
+        "lse-trading-calendar-2023"
+      ],
+      "key": "gb_lse_christmas_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:gb_lse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2027-12-27",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_christmas_day",
+      "observation_lineage": [
+        "2027-12-25",
+        "2027-12-27"
+      ],
+      "observed_from": "2027-12-25",
+      "source_module": "module:uk_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-12-28",
+      "description": "Boxing Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_boxing_day",
+      "observation_lineage": [
+        "2027-12-26",
+        "2027-12-28"
+      ],
+      "observed_from": "2027-12-26",
+      "source_module": "module:uk_boxing_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2027-12-31",
+      "description": "New Year's Eve (Early Close)",
+      "evidence_ids": [
+        "lse-business-days",
+        "lse-trading-calendar-2021",
+        "lse-trading-calendar-2022",
+        "lse-trading-calendar-2023"
+      ],
+      "key": "gb_lse_new_years_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:gb_lse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2028-01-03",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_new_years_day",
+      "observation_lineage": [
+        "2028-01-01",
+        "2028-01-03"
+      ],
+      "observed_from": "2028-01-01",
+      "source_module": "module:uk_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2028-04-14",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2028-04-17",
+      "description": "Easter Monday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "easter_monday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_easter_monday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2028-05-01",
+      "description": "Early May Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_early_may_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_early_may_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2028-05-29",
+      "description": "Spring Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_spring_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_spring_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2028-08-28",
+      "description": "Summer Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_summer_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_summer_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2028-12-22",
+      "description": "Christmas Eve (Early Close)",
+      "evidence_ids": [
+        "lse-business-days",
+        "lse-trading-calendar-2021",
+        "lse-trading-calendar-2022",
+        "lse-trading-calendar-2023"
+      ],
+      "key": "gb_lse_christmas_eve_early_close",
+      "observation_lineage": [
+        "2028-12-24",
+        "2028-12-22"
+      ],
+      "observed_from": "2028-12-24",
+      "source_module": "module:gb_lse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2028-12-25",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2028-12-26",
+      "description": "Boxing Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_boxing_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_boxing_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2028-12-29",
+      "description": "New Year's Eve (Early Close)",
+      "evidence_ids": [
+        "lse-business-days",
+        "lse-trading-calendar-2021",
+        "lse-trading-calendar-2022",
+        "lse-trading-calendar-2023"
+      ],
+      "key": "gb_lse_new_years_eve_early_close",
+      "observation_lineage": [
+        "2028-12-31",
+        "2028-12-29"
+      ],
+      "observed_from": "2028-12-31",
+      "source_module": "module:gb_lse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2029-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2029-03-30",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2029-04-02",
+      "description": "Easter Monday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "easter_monday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_easter_monday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2029-05-07",
+      "description": "Early May Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_early_may_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_early_may_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2029-05-28",
+      "description": "Spring Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_spring_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_spring_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2029-08-27",
+      "description": "Summer Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_summer_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_summer_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2029-12-24",
+      "description": "Christmas Eve (Early Close)",
+      "evidence_ids": [
+        "lse-business-days",
+        "lse-trading-calendar-2021",
+        "lse-trading-calendar-2022",
+        "lse-trading-calendar-2023"
+      ],
+      "key": "gb_lse_christmas_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:gb_lse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2029-12-25",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2029-12-26",
+      "description": "Boxing Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_boxing_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_boxing_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2029-12-31",
+      "description": "New Year's Eve (Early Close)",
+      "evidence_ids": [
+        "lse-business-days",
+        "lse-trading-calendar-2021",
+        "lse-trading-calendar-2022",
+        "lse-trading-calendar-2023"
+      ],
+      "key": "gb_lse_new_years_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:gb_lse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2030-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2030-04-19",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2030-04-22",
+      "description": "Easter Monday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "easter_monday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_easter_monday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2030-05-06",
+      "description": "Early May Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_early_may_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_early_may_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2030-05-27",
+      "description": "Spring Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_spring_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_spring_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2030-08-26",
+      "description": "Summer Bank Holiday",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_summer_bank_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_summer_bank_holiday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2030-12-24",
+      "description": "Christmas Eve (Early Close)",
+      "evidence_ids": [
+        "lse-business-days",
+        "lse-trading-calendar-2021",
+        "lse-trading-calendar-2022",
+        "lse-trading-calendar-2023"
+      ],
+      "key": "gb_lse_christmas_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:gb_lse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2030-12-25",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2030-12-26",
+      "description": "Boxing Day",
+      "evidence_ids": [
+        "govuk-bank-holidays"
+      ],
+      "key": "uk_boxing_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:uk_boxing_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2030-12-31",
+      "description": "New Year's Eve (Early Close)",
+      "evidence_ids": [
+        "lse-business-days",
+        "lse-trading-calendar-2021",
+        "lse-trading-calendar-2022",
+        "lse-trading-calendar-2023"
+      ],
+      "key": "gb_lse_new_years_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:gb_lse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    }
+  ],
+  "generated_at": "2026-09-14T23:09:32Z",
   "kind": "market",
   "mic": "XLON",
   "range_end": "2030-12-31",
@@ -37,8 +4976,8 @@
     "calendar:GB-LSE"
   ],
   "source_version": {
-    "git_sha": "3765bcb10d3ebcb7cfc338bcebf94505af25ec1e",
-    "semantic": "11.0.0"
+    "git_sha": "94db6de7728c26ee75c0449220a721bfdb1977d7",
+    "semantic": "12.0.0"
   },
   "timezone": "Europe/London",
   "weekend_policy": {

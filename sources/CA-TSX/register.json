@@ -1,0 +1,143 @@
+{
+  "schema_version": "1.0",
+  "entries": [
+    {
+      "id": "tsx-calendar-page",
+      "title": "Calendars & Trading Hours: Calendar",
+      "publisher": "TSX (TMX Group)",
+      "location": "https://www.tsx.com/en/trading/calendars-and-trading-hours/calendar",
+      "retrieved": "2026-09-14",
+      "covers": "2025 and 2026",
+      "notes": "Current published holiday list (New Year's Day, Family Day, Good Friday, Victoria Day, Canada Day, Civic Holiday, Labour Day, Thanksgiving Day, Christmas Eve early close, Christmas Day, Boxing Day / \"In Lieu of Boxing Day\"). No entry for National Day for Truth and Reconciliation in either year, i.e. TSX does not close for it.",
+      "local_files": [],
+      "support_intervals": [
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2025-01-01",
+          "to": "2026-12-31"
+        }
+      ]
+    },
+    {
+      "id": "tmx-holiday-schedule-2025",
+      "title": "TMX Group Holiday Operating Schedule (2025-12-03)",
+      "publisher": "TMX Group",
+      "location": "https://s21.q4cdn.com/671813756/files/doc_news/TMX-Group-Holiday-Operating-Schedule-2025.pdf",
+      "retrieved": "2026-09-14",
+      "covers": "Dec 2025 - Jan 2026",
+      "notes": "Confirms Wed Dec 24, 2025 open until 1:00 p.m. (TSX/TSXV), closed Thu Dec 25, Fri Dec 26, and Thu Jan 1, 2026 (no weekend shifting needed that year).",
+      "local_files": [],
+      "support_intervals": []
+    },
+    {
+      "id": "tmx-holiday-schedule-2023",
+      "title": "TMX Group Holiday Operating Schedule (2023-12-05)",
+      "publisher": "TMX Group",
+      "location": "https://s21.q4cdn.com/671813756/files/doc_news/2023/12/1/TMX-Group-Holiday-Operating-Schedule-2023.pdf",
+      "retrieved": "2026-09-14",
+      "covers": "Dec 2023 - Jan 2024",
+      "notes": "Closed Mon Dec 25, Tue Dec 26, 2023 and Mon Jan 1, 2024; no Dec 24 early-close line for TSX (Dec 24, 2023 was a Sunday, already non-trading).",
+      "local_files": [],
+      "support_intervals": []
+    },
+    {
+      "id": "tmx-holiday-schedule-2020",
+      "title": "TMX Group Holiday Operating Schedule (December 2020 / January 2021)",
+      "publisher": "TMX Group",
+      "location": "https://www.tsx.com/en/news?id=797",
+      "retrieved": "2026-09-14",
+      "covers": "Dec 2020 - Jan 2021",
+      "notes": "Timetable for TSX/TSXV/TSX Alpha: Thu Dec 24, 2020 \"Open until 1:00 p.m. (EST)\"; closed Fri Dec 25, 2020, Mon Dec 28, 2020 \"in lieu of Boxing Day\" (Dec 26, 2020 was a Saturday) and Fri Jan 1, 2021. Confirms both the 2020 Dec 24 early close and the Boxing-Day-on-Saturday forward shift.",
+      "local_files": [],
+      "support_intervals": []
+    },
+    {
+      "id": "tmx-holiday-schedule-2021",
+      "title": "TMX Group Holiday Operating Schedule (2021-11-30)",
+      "publisher": "TMX Group",
+      "location": "https://s21.q4cdn.com/671813756/files/doc_news/2021/11/1/TMX-Group-Holiday-Operating-Schedule-2021.pdf",
+      "retrieved": "2026-09-14",
+      "covers": "Dec 2021 - Jan 2022",
+      "notes": "Primary source for the weekend-cascade case: Fri Dec 24, 2021 open until 1:00 p.m.; closed Mon Dec 27 (\"in lieu of Christmas Day\", nominal Sat Dec 25), Tue Dec 28 (\"in lieu of Boxing Day\", nominal Sun Dec 26), and Mon Jan 3, 2022 (\"in lieu of New Year's Day\", nominal Sat Jan 1, 2022). Confirms New Year's Day also uses next-available-weekday shifting (not forward-only).",
+      "local_files": [],
+      "support_intervals": []
+    },
+    {
+      "id": "tmx-canada-day-2017",
+      "title": "Toronto Stock Exchange, TSX Venture Exchange, TSX Alpha Exchange and Montréal Exchange Closed for Canada Day (2017-06-21)",
+      "publisher": "TMX Group",
+      "location": "https://s21.q4cdn.com/671813756/files/doc_news/2017/06/1/Toronto-Stock-Exchange-TSX-Venture-Exchange-TSX-Alpha-Exchange-and-Montral-Exchange-Closed-for-Canada-Day-2017-6-21-2017.pdf",
+      "retrieved": "2026-09-14",
+      "covers": "2017",
+      "notes": "Canada Day fell on Saturday, July 1, 2017; markets closed Monday, July 3, 2017 and reopened Tuesday, July 4.",
+      "local_files": [],
+      "support_intervals": []
+    },
+    {
+      "id": "tmx-canada-day-2023",
+      "title": "TMX Group notice: Canada Day 2023 (2023-06-28)",
+      "publisher": "TMX Group",
+      "location": "https://www.tsx.com/en/news?id=971",
+      "retrieved": "2026-09-14",
+      "covers": "2023",
+      "notes": "Canada Day fell on Saturday, July 1, 2023; markets closed Monday, July 3, 2023, reopened Tuesday, July 4. Confirms Canada Day cascades to the following Monday like the other statutory holidays, not to the preceding Friday.",
+      "local_files": [],
+      "support_intervals": []
+    },
+    {
+      "id": "tmx-holiday-schedule-2016",
+      "title": "TMX Group Holiday Operating Schedule (2016-11-30)",
+      "publisher": "TMX Group",
+      "location": "https://s21.q4cdn.com/671813756/files/doc_news/2016/11/1/TMX-Group-Holiday-Operating-Schedule-2016-11-30-2016.pdf",
+      "retrieved": "2026-09-14",
+      "covers": "Dec 2016 - Jan 2017",
+      "notes": "Confirms, in TMX's own words, closed \"Monday, December 26, 2016 in lieu of Christmas Day on Sunday, December 25, 2016\" and \"Tuesday, December 27, 2016 in lieu of Boxing Day on Monday, December 26, 2016\": when Christmas Day (the chronologically earlier holiday) falls on a Sunday, it -- not Boxing Day -- takes the first available weekday, and Boxing Day cascades to the day after.",
+      "local_files": [],
+      "support_intervals": []
+    },
+    {
+      "id": "tmx-canada-holiday-2022",
+      "title": "TMX Group Holiday Operating Schedule (2022-12-07)",
+      "publisher": "TMX Group",
+      "location": "https://www.tsx.com/en/news?id=931",
+      "retrieved": "2026-09-14",
+      "covers": "Dec 2022 - Jan 2023",
+      "notes": "Corroborates the same pattern for 2022: closed Mon Dec 26, 2022, Tue Dec 27, 2022 and Mon Jan 2, 2023 \"in lieu of\" Christmas Day, Boxing Day and New Year's Day respectively (Dec 25, 2022 was a Sunday). Retrieved via search result summary; the source PDF itself returned HTTP 403 on direct fetch.",
+      "local_files": [],
+      "support_intervals": []
+    },
+    {
+      "id": "tmx-truth-reconciliation-2021",
+      "title": "TMX Markets Operating Schedule for National Day for Truth and Reconciliation (2021-08-11)",
+      "publisher": "TMX Group",
+      "location": "https://www.tsx.com/en/resource/2677",
+      "retrieved": "2026-09-14",
+      "covers": "2021-present",
+      "notes": "States plainly: \"Toronto Stock Exchange, TSX Venture Exchange, and TSX Alpha Exchange will be open for trading on National Day of Truth and Reconciliation and regular operating hours will be in effect.\" Only Bourse de Montréal fixed-income derivatives close. TSX has never closed for this holiday since its creation in 2021; the current calendar page (`tsx-calendar-page`) confirms this is still true for 2025/2026.",
+      "local_files": [],
+      "support_intervals": []
+    },
+    {
+      "id": "holidays-act-canada",
+      "title": "Holidays Act, R.S.C. 1985, c. H-5",
+      "publisher": "Government of Canada (Justice Laws Website)",
+      "location": "https://laws-lois.justice.gc.ca/eng/acts/h-5/page-1.html",
+      "retrieved": "2026-09-14",
+      "covers": "statute, in force",
+      "notes": "Federal statute defining New Year's Day, Good Friday, Victoria Day (\"the first Monday immediately preceding the 25th day of May\"), Canada Day, Labour Day, Thanksgiving Day, Remembrance Day, and Christmas Day as legal holidays. Used for the Victoria Day date rule and to establish which TSX holidays are fixed by statute (as opposed to Civic Holiday, which is not).",
+      "local_files": [],
+      "support_intervals": []
+    },
+    {
+      "id": "ontario-family-day-2007",
+      "title": "\"Manitoba, Saskatchewan and Ontario Family Day\" information notice (2007-10-16)",
+      "publisher": "Government of Canada, Treasury Board of Canada Secretariat",
+      "location": "https://www.canada.ca/en/treasury-board-secretariat/services/information-notice/manitoba-saskatchewan-ontario-family-day.html",
+      "retrieved": "2026-09-14",
+      "covers": "2008-present",
+      "notes": "Records that Ontario's Family Day, third Monday of February, was first observed February 18, 2008 (Employment Standards Amendment Act (Family Day), 2007). TSX is an Ontario-based exchange whose published schedule (`tsx-calendar-page`) closes for every other Ontario statutory holiday, so it is modelled as closing for Family Day from its first year, 2008; no TMX press release from 2008 itself was found to confirm the very first occurrence directly.",
+      "local_files": [],
+      "support_intervals": []
+    }
+  ]
+}

@@ -1,0 +1,174 @@
+kind: module
+id: tase_scheduled_closures_2025
+
+# The rules retain each official 2025 schedule row as a Hebrew-calendar origin. Regular religious
+# dates use bounded native recurrences. Israel's 2025 Memorial and Independence Days were moved
+# from 4/5 Iyar to 2/3 Iyar; native relative rules record those two-day adjustments without
+# pretending they are a general observance formula. No rule extends beyond its evidenced year.
+source:
+  - id: tase-vacation-schedule-2025
+    ref: "Complete 2025 vacation table, rows 14 March through 14 October"
+
+event_sources:
+  - key: tase_purim_2025
+    name: Purim
+    shiftable: false
+    rule:
+      type: native_fixed_month_day
+      chronology: HEBREW
+      month_codes: [ADAR, ADAR_II]
+      day: 14
+      native_years: [{start: 5785, end: 5785}]
+
+  - key: tase_passover_2025
+    name: Passover
+    shiftable: false
+    rule:
+      type: native_fixed_month_day
+      chronology: HEBREW
+      month_codes: [NISAN]
+      day: 15
+      native_years: [{start: 5785, end: 5785}]
+
+  - key: tase_seventh_passover_eve_2025
+    name: Seventh Day of Passover Eve
+    shiftable: false
+    rule:
+      type: native_fixed_month_day
+      chronology: HEBREW
+      month_codes: [NISAN]
+      day: 20
+      native_years: [{start: 5785, end: 5785}]
+
+  - key: tase_memorial_day_2025
+    name: Memorial Day
+    shiftable: false
+    rule:
+      type: native_relative_to_reference
+      chronology: HEBREW
+      month_codes: [IYAR]
+      day: 4
+      offset_days: -2
+      native_years: [{start: 5785, end: 5785}]
+
+  - key: tase_independence_day_2025
+    name: Independence Day
+    shiftable: false
+    rule:
+      type: native_relative_to_reference
+      chronology: HEBREW
+      month_codes: [IYAR]
+      day: 5
+      offset_days: -2
+      native_years: [{start: 5785, end: 5785}]
+
+  - key: tase_shavuot_eve_2025
+    name: Shavuot Eve
+    shiftable: false
+    rule:
+      type: native_fixed_month_day
+      chronology: HEBREW
+      month_codes: [SIVAN]
+      day: 5
+      native_years: [{start: 5785, end: 5785}]
+
+  - key: tase_shavuot_2025
+    name: Shavuot
+    shiftable: false
+    rule:
+      type: native_fixed_month_day
+      chronology: HEBREW
+      month_codes: [SIVAN]
+      day: 6
+      native_years: [{start: 5785, end: 5785}]
+
+  - key: tase_tisha_bav_2025
+    name: Tisha B'Av
+    shiftable: false
+    rule:
+      type: native_fixed_month_day
+      chronology: HEBREW
+      month_codes: [AV]
+      day: 9
+      native_years: [{start: 5785, end: 5785}]
+
+  - key: tase_rosh_hashanah_eve_2025
+    name: Rosh Hashanah Eve
+    shiftable: false
+    rule:
+      type: native_fixed_month_day
+      chronology: HEBREW
+      month_codes: [ELUL]
+      day: 29
+      native_years: [{start: 5785, end: 5785}]
+
+  - key: tase_rosh_hashanah_2025
+    name: Rosh Hashanah
+    shiftable: false
+    rule:
+      type: native_fixed_month_day
+      chronology: HEBREW
+      month_codes: [TISHRI]
+      day: 1
+      duration_days: 2
+      native_years: [{start: 5786, end: 5786}]
+
+  - key: tase_yom_kippur_eve_2025
+    name: Yom Kippur Eve
+    shiftable: false
+    rule:
+      type: native_fixed_month_day
+      chronology: HEBREW
+      month_codes: [TISHRI]
+      day: 9
+      native_years: [{start: 5786, end: 5786}]
+
+  - key: tase_yom_kippur_2025
+    name: Yom Kippur
+    shiftable: false
+    rule:
+      type: native_fixed_month_day
+      chronology: HEBREW
+      month_codes: [TISHRI]
+      day: 10
+      native_years: [{start: 5786, end: 5786}]
+
+  - key: tase_sukkot_eve_2025
+    name: Sukkot Eve
+    shiftable: false
+    rule:
+      type: native_fixed_month_day
+      chronology: HEBREW
+      month_codes: [TISHRI]
+      day: 14
+      native_years: [{start: 5786, end: 5786}]
+
+  - key: tase_sukkot_2025
+    name: Sukkot
+    shiftable: false
+    rule:
+      type: native_fixed_month_day
+      chronology: HEBREW
+      month_codes: [TISHRI]
+      day: 15
+      native_years: [{start: 5786, end: 5786}]
+
+  - key: tase_simchat_torah_eve_2025
+    name: Simchat Torah Eve
+    shiftable: false
+    rule:
+      type: native_fixed_month_day
+      chronology: HEBREW
+      month_codes: [TISHRI]
+      day: 21
+      native_years: [{start: 5786, end: 5786}]
+
+  - key: tase_simchat_torah_2025
+    name: Simchat Torah
+    shiftable: false
+    rule:
+      type: native_fixed_month_day
+      chronology: HEBREW
+      month_codes: [TISHRI]
+      day: 22
+      native_years: [{start: 5786, end: 5786}]

@@ -72,16 +72,84 @@ class ReleaseHistoryStoreTest {
   }
 
   @Test
-  void resolvesByVersionAndAsOfDate() throws Exception {
+  void exactVersionsRemainAvailableButLegacyTimestampsDoNotInventPublicationDates()
+      throws Exception {
     ReleaseHistoryStore store = new ReleaseHistoryStore(history, blessed);
     assertEquals("5.0.0", store.resolve("CAL", "v5.0.0").orElseThrow().version());
     assertEquals("10.1.0", store.resolve("CAL", "10.1.0").orElseThrow().version());
     assertEquals("11.0.0", store.resolve("CAL", "blessed").orElseThrow().version());
-    // v5 was current until it was archived on 2026-02-01; v10.1.0 until 2026-02-16; then blessed
-    assertEquals("5.0.0", store.resolve("CAL", "2026-01-20").orElseThrow().version());
-    assertEquals("10.1.0", store.resolve("CAL", "2026-02-10").orElseThrow().version());
-    assertEquals("11.0.0", store.resolve("CAL", "2026-02-20").orElseThrow().version());
+    assertTrue(store.resolve("CAL", "2026-01-20").isEmpty());
+    assertTrue(store.resolve("CAL", "2026-02-10").isEmpty());
+    assertTrue(store.resolve("CAL", "2026-02-20").isEmpty());
     assertTrue(store.resolve("CAL", "v99.0.0").isEmpty());
+  }
+
+  @Test
+  void dateSelectorsUseEvidencedInclusiveExclusiveValidityIntervals() throws Exception {
+    Path old = history.resolve("DATED/2026-02-16T21-43-18Z_98bac4f_v10.1.0");
+    snapshot(old, "date,type,description\n", "2021-01-01", "2022-12-31");
+    Files.writeString(
+        old.resolve("release.json"),
+        "{\"valid_from\":\"2026-02-01T12:00:00Z\"," + "\"valid_until\":\"2026-02-16T21:43:18Z\"}");
+
+    Path current = blessed.resolve("DATED");
+    snapshot(current, "date,type,description\n", "2021-01-01", "2022-12-31");
+    Files.writeString(
+        blessed.resolve("manifest.json"),
+        "{\"published_at\":\"2026-02-16T21:43:18Z\","
+            + "\"calendars\":{\"DATED\":{}},"
+            + "\"release_version\":{\"semantic\":\"11.0.0\",\"git_sha\":\"abc1234\"}}");
+
+    ReleaseHistoryStore store = new ReleaseHistoryStore(history, blessed);
+    assertTrue(store.resolve("DATED", "2026-02-01T11:59:59Z").isEmpty());
+    assertEquals("10.1.0", store.resolve("DATED", "2026-02-01T12:00:00Z").orElseThrow().version());
+    assertEquals("10.1.0", store.resolve("DATED", "2026-02-16T21:43:17Z").orElseThrow().version());
+    assertEquals("11.0.0", store.resolve("DATED", "2026-02-16T21:43:18Z").orElseThrow().version());
+  }
+
+  @Test
+  void authenticatedLedgerUsesPublicationBoundariesWithoutChangingSnapshotBytes() throws Exception {
+    Path old = history.resolve("CAL/2026-02-16T21-43-18Z_98bac4f_v10.1.0");
+    byte[] original = Files.readAllBytes(old.resolve("metadata.json"));
+    Files.writeString(
+        history.resolve("publications.json"),
+        """
+        {"schema_version":"1.0","releases":[
+          {"data_version":"10.1.0","source_sha":"98bac4f000000000000000000000000000000000","atomic_dataset":true,"calendar_ids":["CAL"],"observed_current_at":"2026-03-01T11:00:00Z","published_at":"2026-02-16T21:43:18Z"}
+        ]}
+        """);
+    ReleaseHistoryStore store = new ReleaseHistoryStore(history, blessed);
+    assertTrue(store.resolve("CAL", "2026-02-16T21:43:17Z").isEmpty());
+    assertEquals("10.1.0", store.resolve("CAL", "2026-02-16T21:43:18Z").orElseThrow().version());
+    // Generation does not establish publication, and currentness stops at its last proof.
+    assertEquals("10.1.0", store.resolve("CAL", "2026-03-01T11:00:00Z").orElseThrow().version());
+    assertTrue(store.resolve("CAL", "2026-03-01T11:00:00.000000001Z").isEmpty());
+    assertTrue(store.resolve("CAL", "2026-03-02").isEmpty());
+    Files.writeString(
+        history.resolve("publications.json"),
+        """
+        {"schema_version":"1.0","releases":[
+          {"data_version":"10.1.0","source_sha":"98bac4f000000000000000000000000000000000","atomic_dataset":true,"calendar_ids":["CAL"],"observed_current_at":"2026-03-01T11:00:00Z","published_at":"2026-02-16T21:43:18Z"},
+          {"data_version":"11.0.0","source_sha":"3765bcb000000000000000000000000000000000","atomic_dataset":true,"calendar_ids":["CAL"],"observed_current_at":"2026-03-03T12:00:00Z","published_at":"2026-03-03T12:00:00Z"}
+        ]}
+        """);
+    assertEquals("10.1.0", store.resolve("CAL", "2026-03-03T11:59:59Z").orElseThrow().version());
+    assertEquals("11.0.0", store.resolve("CAL", "2026-03-03T12:00:00Z").orElseThrow().version());
+    assertArrayEquals(original, Files.readAllBytes(old.resolve("metadata.json")));
+  }
+
+  @Test
+  void ledgerCannotBindPublicationToDifferentSourceCommit() throws Exception {
+    Files.writeString(
+        history.resolve("publications.json"),
+        """
+        {"schema_version":"1.0","releases":[
+          {"data_version":"10.1.0","source_sha":"abcdef0000000000000000000000000000000000","atomic_dataset":true,"calendar_ids":["CAL"],"observed_current_at":"2026-03-01T11:00:00Z","published_at":"2026-02-16T21:43:18Z"}
+        ]}
+        """);
+    assertThrows(
+        IllegalArgumentException.class,
+        () -> new ReleaseHistoryStore(history, blessed).list("CAL"));
   }
 
   @Test

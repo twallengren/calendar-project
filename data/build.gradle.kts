@@ -19,10 +19,11 @@ plugins {
     `java-library`
     `maven-publish`
     signing
+    id("com.gradleup.nmcp")
 }
 
 group = "io.github.twallengren"
-version = rootProject.extra["publishVersion"] as String
+version = rootProject.extra["dataPublishVersion"] as String
 
 java {
     toolchain {
@@ -81,7 +82,7 @@ val generateCalendarData =
 
             val selected =
                 blessedCalendars
-                    .filterValues { includeBase || (it["kind"] ?: "market") == "market" }
+                    .filterValues { includeBase || (it["kind"] ?: "market") in setOf("market", "payment") }
                     .keys
                     .sorted()
 
@@ -283,8 +284,8 @@ publishing {
 signing {
     isRequired = false
     val signingKey = project.findProperty("signingKey") as String?
-    val signingPassword = project.findProperty("signingPassword") as String?
-    if (signingKey != null && signingPassword != null) {
+    val signingPassword = (project.findProperty("signingPassword") as String?) ?: ""
+    if (!signingKey.isNullOrBlank()) {
         useInMemoryPgpKeys(signingKey, signingPassword)
         sign(publishing.publications["maven"])
     }

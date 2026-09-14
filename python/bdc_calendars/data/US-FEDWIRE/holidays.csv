@@ -1,0 +1,20 @@
+date,type,description,key,source_module,observed_from,close_time,status
+2026-01-01,CLOSED,New Year's Day,fedwire_new_years_day,module:us_fedwire_holidays,,,CONFIRMED
+2026-01-19,CLOSED,Martin Luther King Jr. Day,fedwire_martin_luther_king_jr_day,module:us_fedwire_holidays,,,CONFIRMED
+2026-02-16,CLOSED,Washington's Birthday (Presidents Day),fedwire_washingtons_birthday,module:us_fedwire_holidays,,,CONFIRMED
+2026-05-25,CLOSED,Memorial Day,fedwire_memorial_day,module:us_fedwire_holidays,,,CONFIRMED
+2026-06-19,CLOSED,Juneteenth National Independence Day,fedwire_juneteenth,module:us_fedwire_holidays,,,CONFIRMED
+2026-09-07,CLOSED,Labor Day,fedwire_labor_day,module:us_fedwire_holidays,,,CONFIRMED
+2026-10-12,CLOSED,Columbus Day,fedwire_columbus_day,module:us_fedwire_holidays,,,CONFIRMED
+2026-11-11,CLOSED,Veterans Day,fedwire_veterans_day,module:us_fedwire_holidays,,,CONFIRMED
+2026-11-26,CLOSED,Thanksgiving Day,fedwire_thanksgiving_day,module:us_fedwire_holidays,,,CONFIRMED
+2026-12-25,CLOSED,Christmas Day,fedwire_christmas_day,module:us_fedwire_holidays,,,CONFIRMED
+2027-01-01,CLOSED,New Year's Day,fedwire_new_years_day,module:us_fedwire_holidays,,,CONFIRMED
+2027-01-18,CLOSED,Martin Luther King Jr. Day,fedwire_martin_luther_king_jr_day,module:us_fedwire_holidays,,,CONFIRMED
+2027-02-15,CLOSED,Washington's Birthday (Presidents Day),fedwire_washingtons_birthday,module:us_fedwire_holidays,,,CONFIRMED
+2027-05-31,CLOSED,Memorial Day,fedwire_memorial_day,module:us_fedwire_holidays,,,CONFIRMED
+2027-07-05,CLOSED,Independence Day,fedwire_independence_day,module:us_fedwire_holidays,2027-07-04,,CONFIRMED
+2027-09-06,CLOSED,Labor Day,fedwire_labor_day,module:us_fedwire_holidays,,,CONFIRMED
+2027-10-11,CLOSED,Columbus Day,fedwire_columbus_day,module:us_fedwire_holidays,,,CONFIRMED
+2027-11-11,CLOSED,Veterans Day,fedwire_veterans_day,module:us_fedwire_holidays,,,CONFIRMED
+2027-11-25,CLOSED,Thanksgiving Day,fedwire_thanksgiving_day,module:us_fedwire_holidays,,,CONFIRMED

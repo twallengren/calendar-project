@@ -873,3 +873,7 @@ table.compare .year-row th {
     text-decoration: none;
   }
 }
+
+/* Unknown state remains distinct from a projected open/closed schedule. */
+.day.unknown, .swatch.unknown { background: repeating-linear-gradient(135deg, #eee8d8, #eee8d8 4px, #fffaf0 4px, #fffaf0 8px); color: #57450a; }
+.verdict.unknown { border-left: 4px solid #9b7c14; background: #fffaf0; }

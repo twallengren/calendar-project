@@ -1,0 +1,17 @@
+Business-day calendar project
+
+The project's software is distributed under the Apache License, Version 2.0;
+see LICENSE. Original calendar-data contributions and their compiled artifacts
+are covered by the CC0 dedication in DATA_LICENSE. These terms apply to the
+project's own contributions and do not grant rights in separately owned source
+material.
+
+Documents retained or linked under sources/ remain the work of their respective
+publishers. Their copyright, attribution and other notices remain applicable.
+The source registers identify that evidence; inclusion of a citation does not
+imply endorsement by an exchange, payment-system operator or other publisher.
+
+The compiler uses ICU4J 78.3. Its Unicode and third-party notices are preserved
+in tools/src/main/resources/META-INF/licenses/icu4j-78.3-LICENSE and in the ICU4J
+dependency. ICU is a compiler dependency; the Java core and Python query API
+do not require ICU at runtime.

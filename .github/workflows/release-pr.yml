@@ -1,0 +1,175 @@
+name: Prepare release PR
+
+on:
+  workflow_run:
+    workflows: [CI]
+    types: [completed]
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      baseline_ref:
+        description: Immutable published release tag
+        required: true
+        default: v11.0.0
+      source_sha:
+        description: Full source commit SHA (defaults to the selected main commit)
+        required: false
+      generated_at:
+        description: Reproducible UTC generation timestamp
+        required: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-pr
+  cancel-in-progress: false
+
+env:
+  JAVA_VERSION: '21'
+  JAVA_DISTRIBUTION: temurin
+
+jobs:
+  prepare:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.workflow_run.conclusion == 'success' &&
+       github.event.workflow_run.head_branch == 'main')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Resolve immutable inputs
+        id: inputs
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          AUTO_SHA: ${{ github.event.workflow_run.head_sha }}
+          AUTO_GENERATED_AT: ${{ github.event.workflow_run.created_at }}
+          MANUAL_SHA: ${{ inputs.source_sha }}
+          MANUAL_GENERATED_AT: ${{ inputs.generated_at }}
+          MANUAL_BASELINE: ${{ inputs.baseline_ref }}
+        run: |
+          if [ "$EVENT_NAME" = workflow_run ]; then
+            SOURCE_SHA="$AUTO_SHA"
+            GENERATED_AT="$AUTO_GENERATED_AT"
+            BASELINE_REF="latest"
+          else
+            SOURCE_SHA="${MANUAL_SHA:-${GITHUB_SHA}}"
+            GENERATED_AT="${MANUAL_GENERATED_AT:-$(date -u +%Y-%m-%dT%H:%M:%SZ)}"
+            BASELINE_REF="$MANUAL_BASELINE"
+          fi
+          echo "source_sha=$SOURCE_SHA" >> "$GITHUB_OUTPUT"
+          echo "generated_at=$GENERATED_AT" >> "$GITHUB_OUTPUT"
+          echo "baseline_ref=$BASELINE_REF" >> "$GITHUB_OUTPUT"
+
+      - name: Create repository-scoped GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.RELEASE_APP_ID }}
+          private-key: ${{ secrets.RELEASE_APP_PRIVATE_KEY }}
+
+      - name: Checkout exact source commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ steps.inputs.outputs.source_sha }}
+          fetch-depth: 0
+          token: ${{ steps.app-token.outputs.token }}
+
+      - name: Do not prepare a release from a release-PR merge
+        id: kind
+        run: |
+          if git diff --name-only "HEAD^" HEAD | grep -qx release/release.json; then
+            echo "release=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "release=false" >> "$GITHUB_OUTPUT"
+            if git diff --name-only "HEAD^" HEAD | grep -Eq \
+              '^(calendars/|modules/|chronologies/|sources/|tools/src/|data/|scripts/bless\.sh|scripts/release/)'; then
+              echo "candidate=dataset" >> "$GITHUB_OUTPUT"
+            elif git diff --name-only "HEAD^" HEAD | grep -Eq \
+              '^(core/src/|core/build\.gradle\.kts|python/bdc_calendars/|python/pyproject\.toml|release/versions\.json)'; then
+              echo "candidate=software" >> "$GITHUB_OUTPUT"
+            else
+              echo "candidate=dataset" >> "$GITHUB_OUTPUT"
+            fi
+          fi
+
+      - name: Download and verify the actual published baseline
+        if: steps.kind.outputs.release == 'false'
+        id: baseline
+        env:
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
+          REQUESTED_BASELINE: ${{ steps.inputs.outputs.baseline_ref }}
+        run: |
+          BASELINE_REF="$REQUESTED_BASELINE"
+          if [ "$BASELINE_REF" = latest ]; then
+            BASELINE_REF=$(python3 -c 'import json,os,urllib.request; r=urllib.request.Request("https://api.github.com/repos/"+os.environ["GITHUB_REPOSITORY"]+"/releases/latest",headers={"Authorization":"Bearer "+os.environ["GITHUB_TOKEN"]}); print(json.load(urllib.request.urlopen(r))["tag_name"])')
+          fi
+          git fetch --force origin "refs/tags/$BASELINE_REF:refs/tags/$BASELINE_REF"
+          BASELINE_COMMIT=$(git rev-parse "${BASELINE_REF}^{commit}")
+          python3 scripts/release/fetch_baseline.py \
+            --repository "$GITHUB_REPOSITORY" \
+            --tag "$BASELINE_REF" \
+            --tag-commit "$BASELINE_COMMIT" \
+            --output "$RUNNER_TEMP/published-baseline" \
+            --evidence "$RUNNER_TEMP/baseline-evidence.json" \
+            --prove-tag-equivalence
+          echo "ref=$BASELINE_REF" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/setup-java@v4
+        with:
+          java-version: ${{ env.JAVA_VERSION }}
+          distribution: ${{ env.JAVA_DISTRIBUTION }}
+      - uses: gradle/actions/setup-gradle@v4
+
+      - name: Generate candidate and complete published-release comparison
+        if: steps.kind.outputs.release == 'false'
+        id: prepare
+        env:
+          BASELINE_REF: ${{ steps.baseline.outputs.ref }}
+          SOURCE_SHA: ${{ steps.inputs.outputs.source_sha }}
+          GENERATED_AT: ${{ steps.inputs.outputs.generated_at }}
+          CANDIDATE_KIND: ${{ steps.kind.outputs.candidate }}
+        run: |
+          EXTRA=()
+          if [ "$CANDIDATE_KIND" = software ]; then EXTRA+=(--software-only); fi
+          set +e
+          scripts/release/prepare.sh \
+            --baseline-ref "$BASELINE_REF" \
+            --baseline-dir "$RUNNER_TEMP/published-baseline" \
+            --baseline-evidence "$RUNNER_TEMP/baseline-evidence.json" \
+            --source-sha "$SOURCE_SHA" \
+            --generated-at "$GENERATED_AT" \
+            "${EXTRA[@]}"
+          STATUS=$?
+          set -e
+          if [ "$STATUS" -eq 10 ]; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          test "$STATUS" -eq 0
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Open or update the release PR
+        if: steps.prepare.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+        run: |
+          RELEASE_TAG=$(jq -r '.release_tag' release/release.json)
+          BRANCH=release/next
+          git fetch origin "refs/heads/$BRANCH:refs/remotes/origin/$BRANCH" || true
+          git switch -C "$BRANCH"
+          git config user.name "calendar-release[bot]"
+          git config user.email "calendar-release[bot]@users.noreply.github.com"
+          git add blessed release release-history python/bdc_calendars
+          git add tools/src/main/resources/site/settlement-fixture.json
+          git add tools/src/test/resources/golden/site
+          git commit -m "chore: prepare release ${RELEASE_TAG}"
+          git push --force-with-lease origin "HEAD:refs/heads/$BRANCH"
+          BODY_FILE=$(mktemp)
+          REPORT_URL="https://github.com/${GITHUB_REPOSITORY}/blob/${BRANCH}/release/impact.json"
+          jq -r --arg report_url "$REPORT_URL" '"Prepares `\(.release_tag)` from `\(.source_sha)` against the verified release asset for `\(.baseline.ref)`.\n\nRelease kind: **\(.release_kind)**. Dataset impact: **\(.impact.severity)**. Review the exhaustive [release impact report](\($report_url)); baseline evidence and generated hashes are committed beside it in `release/`."' release/release.json > "$BODY_FILE"
+          PR=$(gh pr list --head "$BRANCH" --base main --state open --json number --jq '.[0].number // empty')
+          if [ -n "$PR" ]; then
+            gh pr edit "$PR" --title "Prepare release ${RELEASE_TAG}" --body-file "$BODY_FILE"
+          else
+            gh pr create --head "$BRANCH" --base main --title "Prepare release ${RELEASE_TAG}" --body-file "$BODY_FILE"
+          fi

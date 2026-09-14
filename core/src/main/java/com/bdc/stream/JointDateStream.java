@@ -3,11 +3,19 @@ package com.bdc.stream;
 import com.bdc.chronology.DateRange;
 import com.bdc.model.Event;
 import com.bdc.model.EventStatus;
+import com.bdc.trust.CompletenessScope;
+import com.bdc.trust.CoverageQuality;
+import com.bdc.trust.DayAssessment;
+import com.bdc.trust.DayState;
+import com.bdc.trust.EventDetails;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.EnumMap;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 /**
@@ -24,8 +32,8 @@ import java.util.Optional;
  * predicate (for example "open in any member") would be a different class with a different name;
  * none is provided.
  *
- * <p>This is the settlement/operations semantic: a trade between two markets can only settle on a
- * day both are open, so T+N is counted on the joint stream.
+ * <p>Date offsets on this stream count only days when every member is open. They do not establish
+ * instrument-specific settlement eligibility, operating sessions or intraday cutoffs.
  *
  * <h2>Composed answers</h2>
  *
@@ -43,9 +51,9 @@ import java.util.Optional;
  *   <li>{@link #status} — {@code UNKNOWN} if any member is UNKNOWN, else {@code PROJECTED} if any
  *       member is PROJECTED, else {@code CONFIRMED}: the joint answer is only as good as its worst
  *       member.
- *   <li>{@link #closeTime} — the earliest early close declared by any member on that date. A joint
- *       date can carry an early close and still not be a business day (another member is closed);
- *       check {@link #isBusinessDay} first.
+ *   <li>{@link #memberCloses} — member-specific local closes with calendar and timezone identity.
+ *       The old {@link #closeTime} comparison of local wall-clock values is deprecated because
+ *       values in different timezones are not directly comparable.
  * </ul>
  */
 public final class JointDateStream implements DateStream {
@@ -165,6 +173,7 @@ public final class JointDateStream implements DateStream {
   @Override
   public boolean isBusinessDay(LocalDate date) {
     checkRange(date);
+    requireResolved(date);
     for (DateStream member : members) {
       if (!member.isBusinessDay(date)) {
         return false;
@@ -174,12 +183,30 @@ public final class JointDateStream implements DateStream {
   }
 
   @Override
+  @Deprecated(since = "12.0", forRemoval = true)
   public Optional<LocalTime> closeTime(LocalDate date) {
     checkRange(date);
     return members.stream()
         .map(m -> m.closeTime(date))
         .flatMap(Optional::stream)
         .min(Comparator.naturalOrder());
+  }
+
+  /** Each member's early close with its own timezone identity. */
+  @Override
+  public List<MemberClose> memberCloses(LocalDate date) {
+    checkRange(date);
+    requireResolved(date);
+    List<MemberClose> closes = new ArrayList<>();
+    for (DateStream member : members) {
+      member
+          .closeTime(date)
+          .ifPresent(
+              time ->
+                  closes.add(
+                      new MemberClose(member.calendarId(), member.timezone().orElse(null), time)));
+    }
+    return List.copyOf(closes);
   }
 
   @Override
@@ -195,6 +222,65 @@ public final class JointDateStream implements DateStream {
       }
     }
     return projected ? EventStatus.PROJECTED : EventStatus.CONFIRMED;
+  }
+
+  @Override
+  public DayAssessment assessment(LocalDate date) {
+    if (!range.contains(date)) {
+      return DateStream.super.assessment(date);
+    }
+    List<DayAssessment> assessments =
+        members.stream().map(member -> member.assessment(date)).toList();
+    Map<CompletenessScope, CoverageQuality> completeness = new EnumMap<>(CompletenessScope.class);
+    for (CompletenessScope scope : CompletenessScope.values()) {
+      List<CoverageQuality> qualities =
+          assessments.stream().map(a -> a.completeness().get(scope)).toList();
+      completeness.put(
+          scope,
+          qualities.contains(CoverageQuality.INCOMPLETE)
+              ? CoverageQuality.INCOMPLETE
+              : qualities.contains(CoverageQuality.PROJECTED)
+                  ? CoverageQuality.PROJECTED
+                  : CoverageQuality.VERIFIED);
+    }
+    LinkedHashSet<String> evidence = new LinkedHashSet<>();
+    assessments.forEach(assessment -> evidence.addAll(assessment.evidenceIds()));
+    DayState scheduled =
+        assessments.stream().anyMatch(a -> a.scheduledState() == DayState.CLOSED)
+            ? DayState.CLOSED
+            : assessments.stream().anyMatch(a -> a.scheduledState() == DayState.EARLY_CLOSE)
+                ? DayState.EARLY_CLOSE
+                : DayState.OPEN;
+    EventStatus confidence =
+        assessments.stream().anyMatch(a -> a.effectiveConfidence() == EventStatus.UNKNOWN)
+            ? EventStatus.UNKNOWN
+            : assessments.stream().anyMatch(a -> a.effectiveConfidence() == EventStatus.PROJECTED)
+                ? EventStatus.PROJECTED
+                : EventStatus.CONFIRMED;
+    List<EventDetails> details = new ArrayList<>();
+    for (int i = 0; i < members.size(); i++) {
+      DateStream member = members.get(i);
+      for (EventDetails detail : assessments.get(i).events()) {
+        details.add(
+            new EventDetails(
+                qualify(member, detail.event()),
+                detail.rawStatus(),
+                detail.effectiveStatus(),
+                detail.evidenceIds(),
+                detail.nominalNativeDate(),
+                detail.chronologyProfile(),
+                detail.chronologyProvider(),
+                detail.observationLineage()));
+      }
+    }
+    return new DayAssessment(
+        date,
+        confidence == EventStatus.UNKNOWN ? DayState.UNKNOWN : scheduled,
+        scheduled,
+        confidence,
+        completeness,
+        List.copyOf(evidence),
+        details);
   }
 
   private void checkRange(LocalDate date) {

@@ -12,6 +12,79 @@ metadata:
     from: 1900-01-01
     to: 2030-12-31
     verified_through: 2026-12-31
+    quality:
+      - scope: SCHEDULED_CLOSURES
+        from: 1900-01-01
+        to: 2007-12-31
+        quality: VERIFIED
+        evidence_ids: [nyse-history-2008]
+      - scope: SCHEDULED_CLOSURES
+        from: 2008-01-01
+        to: 2030-12-31
+        quality: PROJECTED
+        evidence_ids: [nyse-hours]
+      - scope: EARLY_CLOSES
+        from: 1900-01-01
+        to: 2007-12-31
+        quality: VERIFIED
+        evidence_ids: [nyse-history-2008]
+      - scope: EARLY_CLOSES
+        from: 2008-01-01
+        to: 2030-12-31
+        quality: PROJECTED
+        evidence_ids: [nyse-hours]
+      # These Christmas Eves disagree with exchange_calendars, while the NYSE history PDF does
+      # not explicitly identify an early close. Keep only the disputed dates unresolved.
+      - scope: EARLY_CLOSES
+        from: 1973-12-24
+        to: 1973-12-24
+        quality: INCOMPLETE
+        evidence_ids: [nyse-history-2008]
+      - scope: EARLY_CLOSES
+        from: 1979-12-24
+        to: 1979-12-24
+        quality: INCOMPLETE
+        evidence_ids: [nyse-history-2008]
+      - scope: EARLY_CLOSES
+        from: 1980-12-24
+        to: 1980-12-24
+        quality: INCOMPLETE
+        evidence_ids: [nyse-history-2008]
+      - scope: EARLY_CLOSES
+        from: 1981-12-24
+        to: 1981-12-24
+        quality: INCOMPLETE
+        evidence_ids: [nyse-history-2008]
+      - scope: EARLY_CLOSES
+        from: 1984-12-24
+        to: 1984-12-24
+        quality: INCOMPLETE
+        evidence_ids: [nyse-history-2008]
+      - scope: EARLY_CLOSES
+        from: 1985-12-24
+        to: 1985-12-24
+        quality: INCOMPLETE
+        evidence_ids: [nyse-history-2008]
+      - scope: EARLY_CLOSES
+        from: 1986-12-24
+        to: 1986-12-24
+        quality: INCOMPLETE
+        evidence_ids: [nyse-history-2008]
+      - scope: EARLY_CLOSES
+        from: 1987-12-24
+        to: 1987-12-24
+        quality: INCOMPLETE
+        evidence_ids: [nyse-history-2008]
+      - scope: UNSCHEDULED_EXCEPTIONS
+        from: 1900-01-01
+        to: 2007-12-31
+        quality: VERIFIED
+        evidence_ids: [nyse-history-2008]
+      - scope: UNSCHEDULED_EXCEPTIONS
+        from: 2008-01-01
+        to: 2030-12-31
+        quality: PROJECTED
+        evidence_ids: [nyse-hours]
 
 weekend_shift_policy: NEAREST_WEEKDAY
 
@@ -24,9 +97,15 @@ deltas:
   - action: remove
     key: good_friday
     date: 1898-04-08
+    source:
+      - id: nyse-history-2008
   - action: remove
     key: good_friday
     date: 1906-04-13
+    source:
+      - id: nyse-history-2008
   - action: remove
     key: good_friday
     date: 1907-03-29
+    source:
+      - id: nyse-history-2008

@@ -14,11 +14,2694 @@
   },
   "coverage": {
     "from": "2020-01-01",
+    "quality": [
+      {
+        "evidence_ids": [
+          "saudi-exchange-announcements",
+          "argaam-tadawul-eid-adha-2020"
+        ],
+        "from": "2020-01-01",
+        "quality": "INCOMPLETE",
+        "scope": "SCHEDULED_CLOSURES",
+        "to": "2020-12-31"
+      },
+      {
+        "evidence_ids": [
+          "saudi-exchange-announcements"
+        ],
+        "from": "2021-01-01",
+        "quality": "VERIFIED",
+        "scope": "SCHEDULED_CLOSURES",
+        "to": "2029-12-31"
+      },
+      {
+        "evidence_ids": [
+          "saudi-exchange-announcements"
+        ],
+        "from": "2030-01-01",
+        "quality": "PROJECTED",
+        "scope": "SCHEDULED_CLOSURES",
+        "to": "2030-12-31"
+      },
+      {
+        "evidence_ids": [
+          "saudi-exchange-announcements"
+        ],
+        "from": "2020-01-01",
+        "quality": "PROJECTED",
+        "scope": "EARLY_CLOSES",
+        "to": "2030-12-31"
+      },
+      {
+        "evidence_ids": [
+          "saudi-exchange-announcements"
+        ],
+        "from": "2020-01-01",
+        "quality": "PROJECTED",
+        "scope": "UNSCHEDULED_EXCEPTIONS",
+        "to": "2030-12-31"
+      }
+    ],
     "to": "2030-12-31",
     "verified_through": "2029-12-31"
   },
   "event_count": 1271,
-  "generated_at": "2026-02-16T21:43:21Z",
+  "event_details": [
+    {
+      "close_time": null,
+      "date": "2020-05-22",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-05-23",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-05-24",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-05-25",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-05-26",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-05-27",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-05-28",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-05-29",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-05-30",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-09-23",
+      "description": "Saudi National Day",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "saudi_national_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:saudi_national_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-05-13",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-05-14",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-05-15",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-05-16",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-07-16",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-07-17",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-07-18",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-07-19",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-07-20",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-07-21",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-07-22",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-07-23",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-07-24",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-09-23",
+      "description": "Saudi National Day",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "saudi_national_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:saudi_national_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-02-22",
+      "description": "Saudi Founding Day",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "saudi_founding_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:saudi_founding_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-04-28",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-04-29",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-04-30",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-05-01",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-05-02",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-05-03",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-05-04",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-05-05",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-05-06",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-05-07",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-05-08",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-07-07",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-07-08",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-07-09",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-07-10",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-07-11",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-07-12",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-09-22",
+      "description": "Saudi National Day",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "saudi_national_day",
+      "observation_lineage": [
+        "2022-09-23",
+        "2022-09-22"
+      ],
+      "observed_from": "2022-09-23",
+      "source_module": "module:saudi_national_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-02-22",
+      "description": "Saudi Founding Day",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "saudi_founding_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:saudi_founding_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-04-18",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-04-19",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-04-20",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-04-21",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-04-22",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-04-23",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-04-24",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-06-23",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-06-24",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-06-25",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-06-26",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-06-27",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-06-28",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-06-29",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-06-30",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-07-01",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-09-24",
+      "description": "Saudi National Day",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "saudi_national_day",
+      "observation_lineage": [
+        "2023-09-23",
+        "2023-09-24"
+      ],
+      "observed_from": "2023-09-23",
+      "source_module": "module:saudi_national_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-02-22",
+      "description": "Saudi Founding Day",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "saudi_founding_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:saudi_founding_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-04-05",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-04-06",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-04-07",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-04-08",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-04-09",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-04-10",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-04-11",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-04-12",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-04-13",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-06-14",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-06-15",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-06-16",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-06-17",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-06-18",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-06-19",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-06-20",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-06-21",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-06-22",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-09-23",
+      "description": "Saudi National Day",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "saudi_national_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:saudi_national_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-02-23",
+      "description": "Saudi Founding Day",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "saudi_founding_day",
+      "observation_lineage": [
+        "2025-02-22",
+        "2025-02-23"
+      ],
+      "observed_from": "2025-02-22",
+      "source_module": "module:saudi_founding_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-03-28",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-03-29",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-03-30",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-03-31",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-04-01",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-04-02",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-06-05",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-06-06",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-06-07",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-06-08",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-06-09",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-06-10",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-09-23",
+      "description": "Saudi National Day",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "saudi_national_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:saudi_national_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-02-22",
+      "description": "Saudi Founding Day",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "saudi_founding_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:saudi_founding_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-03-17",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-03-18",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-03-19",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-03-20",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-03-21",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-03-22",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-03-23",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-05-22",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-05-23",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-05-24",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-05-25",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-05-26",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-05-27",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-05-28",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-05-29",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-05-30",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-09-23",
+      "description": "Saudi National Day",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "saudi_national_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:saudi_national_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-02-22",
+      "description": "Saudi Founding Day",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "saudi_founding_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:saudi_founding_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-03-05",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-03-06",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-03-07",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-03-08",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-03-09",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-03-10",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-03-11",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-03-12",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-03-13",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-05-14",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-05-15",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-05-16",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-05-17",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-05-18",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-05-19",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-05-20",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-05-21",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-05-22",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-09-23",
+      "description": "Saudi National Day",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "saudi_national_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:saudi_national_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2028-02-22",
+      "description": "Saudi Founding Day",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "saudi_founding_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:saudi_founding_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2028-02-25",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2028-02-26",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2028-02-27",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2028-02-28",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2028-02-29",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2028-03-01",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2028-03-02",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2028-03-03",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2028-03-04",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2028-05-03",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2028-05-04",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2028-05-05",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2028-05-06",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2028-05-07",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2028-05-08",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2028-05-09",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2028-09-24",
+      "description": "Saudi National Day",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "saudi_national_day",
+      "observation_lineage": [
+        "2028-09-23",
+        "2028-09-24"
+      ],
+      "observed_from": "2028-09-23",
+      "source_module": "module:saudi_national_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2029-02-12",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2029-02-13",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2029-02-14",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2029-02-15",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2029-02-16",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2029-02-17",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2029-02-18",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2029-02-22",
+      "description": "Saudi Founding Day",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "saudi_founding_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:saudi_founding_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2029-04-20",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2029-04-21",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2029-04-22",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2029-04-23",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2029-04-24",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2029-04-25",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2029-04-26",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2029-04-27",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2029-04-28",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2029-09-23",
+      "description": "Saudi National Day",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "saudi_national_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:saudi_national_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2030-02-01",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr_projected",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "PROJECTED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2030-02-02",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr_projected",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "PROJECTED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2030-02-03",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr_projected",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "PROJECTED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2030-02-04",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr_projected",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "PROJECTED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2030-02-05",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr_projected",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "PROJECTED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2030-02-06",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr_projected",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "PROJECTED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2030-02-07",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_fitr_projected",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "PROJECTED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2030-02-21",
+      "description": "Saudi Founding Day",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "saudi_founding_day",
+      "observation_lineage": [
+        "2030-02-22",
+        "2030-02-21"
+      ],
+      "observed_from": "2030-02-22",
+      "source_module": "module:saudi_founding_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2030-04-08",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha_projected",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "PROJECTED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2030-04-09",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha_projected",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "PROJECTED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2030-04-10",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha_projected",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "PROJECTED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2030-04-11",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha_projected",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "PROJECTED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2030-04-12",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha_projected",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "PROJECTED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2030-04-13",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha_projected",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "PROJECTED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2030-04-14",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha_projected",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "PROJECTED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2030-04-15",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha_projected",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "PROJECTED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2030-04-16",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "eid_al_adha_projected",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "PROJECTED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2030-09-23",
+      "description": "Saudi National Day",
+      "evidence_ids": [
+        "saudi-exchange-announcements"
+      ],
+      "key": "saudi_national_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:saudi_national_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    }
+  ],
+  "generated_at": "2026-09-14T23:09:32Z",
   "kind": "market",
   "mic": "XSAU",
   "range_end": "2030-12-31",
@@ -33,8 +2716,8 @@
     "calendar:SA-TADAWUL"
   ],
   "source_version": {
-    "git_sha": "3765bcb10d3ebcb7cfc338bcebf94505af25ec1e",
-    "semantic": "11.0.0"
+    "git_sha": "94db6de7728c26ee75c0449220a721bfdb1977d7",
+    "semantic": "12.0.0"
   },
   "timezone": "Asia/Riyadh",
   "weekend_policy": {

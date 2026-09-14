@@ -6,7 +6,12 @@ import java.util.Set;
 public final class Formulas {
 
   public static final Set<String> KNOWN =
-      Set.of("EASTER_WESTERN", "THANKSGIVING_US", "EQUINOX_VERNAL_JP", "EQUINOX_AUTUMNAL_JP");
+      Set.of(
+          "EASTER_WESTERN",
+          "THANKSGIVING_US",
+          "EQUINOX_VERNAL_JP",
+          "EQUINOX_AUTUMNAL_JP",
+          "QINGMING_HK");
 
   private Formulas() {}
 

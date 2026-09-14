@@ -24,7 +24,28 @@ from typing import List, NamedTuple, Optional, Sequence, Tuple, Union
 from . import _loader
 from ._loader import Event
 from ._weekend import DAY_NAMES, WeekendPolicy
-from .errors import OutsideCoverageError
+from .errors import OutsideCoverageError, UnresolvedDateError
+from .operations import (
+    BusinessDayConvention,
+    DateOperationResult,
+    MemberClose,
+    adjust_detailed as _adjust_detailed,
+    advance_months_detailed as _advance_months_detailed,
+    business_day_offset_detailed as _business_day_offset_detailed,
+    last_business_day_of_month_detailed as _last_business_day_of_month_detailed,
+)
+from .trust import (
+    CLOSED,
+    COMPLETENESS_SCOPES,
+    EARLY_CLOSE,
+    INCOMPLETE,
+    OPEN,
+    PROJECTED as QUALITY_PROJECTED,
+    UNKNOWN as STATE_UNKNOWN,
+    CoverageInterval,
+    DayAssessment,
+    EventDetails,
+)
 
 __all__ = [
     "BusinessCalendar",
@@ -105,6 +126,16 @@ class BusinessCalendar:
         Dates after it are :data:`PROJECTED`, whatever the underlying rows say.
         """
         raise NotImplementedError
+
+    @property
+    def coverage_intervals(self) -> Sequence[CoverageInterval]:
+        """Explicit scope-specific quality intervals; empty for legacy artifacts."""
+        return ()
+
+    @property
+    def timezone(self) -> Optional[str]:
+        """IANA timezone for local close times, or ``None`` for legacy metadata."""
+        return None
 
     # --- Core queries --------------------------------------------------------
 
@@ -203,6 +234,58 @@ class BusinessCalendar:
     #: Alias matching the spelling used in ``spec/SPEC.md`` and the Java API.
     nth_business_day = add_business_days
 
+    def adjust(self, date: DateLike, convention: BusinessDayConvention) -> _dt.date:
+        """Adjust ``date`` under a standard business-day convention."""
+        return self.adjust_detailed(date, convention).result_date
+
+    def adjust_detailed(
+        self, date: DateLike, convention: BusinessDayConvention
+    ) -> DateOperationResult:
+        """Rich adjustment with confidence across every examined date."""
+        return _adjust_detailed(self, _as_date(date), convention)
+
+    def business_day_offset(self, date: DateLike, offset: int) -> _dt.date:
+        """Move by business dates; zero returns the input unchanged."""
+        return self.business_day_offset_detailed(date, offset).result_date
+
+    def business_day_offset_detailed(
+        self, date: DateLike, offset: int
+    ) -> DateOperationResult:
+        """Rich business-date offset with path-wide confidence."""
+        return _business_day_offset_detailed(self, _as_date(date), offset)
+
+    def advance_months(
+        self,
+        date: DateLike,
+        months: int,
+        convention: BusinessDayConvention,
+        preserve_end_of_month: bool = False,
+    ) -> _dt.date:
+        """Advance calendar months, clip the day, then adjust."""
+        return self.advance_months_detailed(
+            date, months, convention, preserve_end_of_month
+        ).result_date
+
+    def advance_months_detailed(
+        self,
+        date: DateLike,
+        months: int,
+        convention: BusinessDayConvention,
+        preserve_end_of_month: bool = False,
+    ) -> DateOperationResult:
+        """Rich month advancement, including explicit business-month-end checks."""
+        return _advance_months_detailed(
+            self, _as_date(date), months, convention, preserve_end_of_month
+        )
+
+    def last_business_day_of_month(self, date: DateLike) -> _dt.date:
+        """Last resolved business date in ``date``'s calendar month."""
+        return self.last_business_day_of_month_detailed(date).result_date
+
+    def last_business_day_of_month_detailed(self, date: DateLike) -> DateOperationResult:
+        """Rich last-business-day query with its backwards search path."""
+        return _last_business_day_of_month_detailed(self, _as_date(date))
+
     # --- Counting ------------------------------------------------------------
 
     def business_days_between(self, start: DateLike, end: DateLike) -> int:
@@ -230,7 +313,16 @@ class BusinessCalendar:
 
     def event_count_in_range(self, start: DateLike, end: DateLike) -> int:
         """The number of events in ``[start, end]``, weekend rows included."""
-        return len(self.events_in_range(start, end))
+        first = _as_date(start, "start")
+        last = _as_date(end, "end")
+        if first > last:
+            raise ValueError("from must not be after to")
+        day = first
+        one = _dt.timedelta(days=1)
+        while day <= last:
+            self._require_resolved(day)
+            day += one
+        return len(self.events_in_range(first, last))
 
     # --- Session detail ------------------------------------------------------
 
@@ -243,9 +335,11 @@ class BusinessCalendar:
         closed date both answer ``None`` (use :meth:`is_business_day` to tell
         them apart).
         """
+        day = _as_date(date)
+        self._require_resolved(day)
         times = [
             event.close_time
-            for event in self.events_on(date)
+            for event in self.events_on(day)
             if event.type == "EARLY_CLOSE" and event.close_time is not None
         ]
         return min(times) if times else None
@@ -259,6 +353,12 @@ class BusinessCalendar:
         """
         return self.close_time(date) is not None
 
+    def member_closes(self, date: DateLike) -> List[MemberClose]:
+        """Member-specific early closes; timezone stays ``None`` when undeclared."""
+        day = _as_date(date)
+        close = self.close_time(day)
+        return [MemberClose(self.calendar_id, self.timezone, close)] if close else []
+
     def status(self, date: DateLike) -> str:
         """
         How much confidence the data for this date deserves. Never raises.
@@ -271,6 +371,8 @@ class BusinessCalendar:
         day = _as_date(date)
         if not self.range.contains(day):
             return UNKNOWN
+        if self.coverage_intervals:
+            return self.assessment(day).effective_confidence
         verified = self.verified_through
         if verified is not None and day > verified:
             return PROJECTED
@@ -278,6 +380,77 @@ class BusinessCalendar:
             if event.status == PROJECTED:
                 return PROJECTED
         return CONFIRMED
+
+    def assessment(self, date: DateLike) -> DayAssessment:
+        """Return actual, scheduled and completeness state without raising."""
+        day = _as_date(date)
+        if not self.range.contains(day):
+            return DayAssessment(
+                day,
+                STATE_UNKNOWN,
+                STATE_UNKNOWN,
+                UNKNOWN,
+                {scope: INCOMPLETE for scope in COMPLETENESS_SCOPES},
+                [],
+                [],
+            )
+        events = self.events_on(day)
+        scheduled = _scheduled_state(events)
+        explicit = bool(self.coverage_intervals)
+        completeness = {}
+        evidence = []
+        for scope in COMPLETENESS_SCOPES:
+            matching = [
+                interval
+                for interval in self.coverage_intervals
+                if interval.scope == scope and interval.contains(day)
+            ]
+            qualities = [interval.quality for interval in matching]
+            quality = (
+                INCOMPLETE
+                if INCOMPLETE in qualities
+                else QUALITY_PROJECTED
+                if QUALITY_PROJECTED in qualities
+                else qualities[0]
+                if qualities
+                else QUALITY_PROJECTED
+                if not explicit
+                else INCOMPLETE
+            )
+            completeness[scope] = quality
+            for interval in matching:
+                for evidence_id in interval.evidence_ids:
+                    if evidence_id not in evidence:
+                        evidence.append(evidence_id)
+        incomplete = INCOMPLETE in completeness.values()
+        raw_projected = any(event.status == PROJECTED for event in events)
+        if incomplete:
+            confidence = UNKNOWN
+        elif QUALITY_PROJECTED in completeness.values() or raw_projected:
+            confidence = PROJECTED
+        else:
+            confidence = CONFIRMED
+        if not explicit:
+            confidence = (
+                PROJECTED
+                if (self.verified_through is not None and day > self.verified_through)
+                or raw_projected
+                else CONFIRMED
+            )
+        details = [
+            detail._replace(effective_status=confidence)
+            for detail in self.event_details_on(day)
+        ]
+        evidence = sorted(set(evidence).union(*(set(detail.evidence_ids) for detail in details)))
+        return DayAssessment(
+            day,
+            STATE_UNKNOWN if incomplete else scheduled,
+            scheduled,
+            confidence,
+            completeness,
+            evidence,
+            details,
+        )
 
     # --- Convenience ---------------------------------------------------------
 
@@ -330,6 +503,24 @@ class BusinessCalendar:
         if not window.contains(date):
             raise OutsideCoverageError(self.calendar_id, date, window.start, window.end)
 
+    def event_details_on(self, date: DateLike) -> List[EventDetails]:
+        """Raw retained provenance; assessment() supplies effective confidence."""
+        return [EventDetails(event, event.status, event.status, [], None, None, None,
+            [event.observed_from, event.date] if event.observed_from else [])
+            for event in self.events_on(date)]
+
+    def _require_resolved(self, date: _dt.date) -> None:
+        assessment = self.assessment(date)
+        if assessment.state != STATE_UNKNOWN:
+            return
+        self._check_range(date)
+        incomplete = [
+            scope for scope, quality in assessment.completeness.items() if quality == INCOMPLETE
+        ]
+        raise UnresolvedDateError(
+            self.calendar_id, date, self.range.start, self.range.end, incomplete
+        )
+
     def __repr__(self) -> str:
         return "<{} {} {}>".format(type(self).__name__, self.calendar_id, self.range)
 
@@ -353,7 +544,7 @@ class SingleCalendar(BusinessCalendar):
 
     @property
     def kind(self) -> str:
-        """``market`` for a tradable venue, ``base`` for a building block."""
+        """``market``, ``payment`` or ``base``, as declared by the artifact."""
         return self._data.kind
 
     @property
@@ -379,12 +570,25 @@ class SingleCalendar(BusinessCalendar):
     def verified_through(self) -> Optional[_dt.date]:
         return self._data.verified_through
 
+    @property
+    def coverage_intervals(self) -> Sequence[CoverageInterval]:
+        return self._data.coverage_intervals
+
     # --- Core queries --------------------------------------------------------
 
     def events_on(self, date: DateLike) -> List[Event]:
         day = _as_date(date)
         self._check_range(day)
         return self._events_on_unchecked(day)
+
+    def event_details_on(self, date: DateLike) -> List[EventDetails]:
+        day = _as_date(date)
+        self._check_range(day)
+        if day not in self._data.details_by_date:
+            return super().event_details_on(day)
+        details = list(self._data.details_by_date[day])
+        details.extend(detail for detail in super().event_details_on(day) if detail.event.type == "WEEKEND")
+        return details
 
     def _events_on_unchecked(self, day: _dt.date) -> List[Event]:
         # Weekend rows are the ones dropped from the shipped data. The artifact
@@ -431,6 +635,7 @@ class SingleCalendar(BusinessCalendar):
     def is_business_day(self, date: DateLike) -> bool:
         day = _as_date(date)
         self._check_range(day)
+        self._require_resolved(day)
         if self._data.weekend_policy.is_weekend(day):
             return False
         rows = self._data.events_by_date.get(day)
@@ -521,13 +726,27 @@ class JointCalendar(BusinessCalendar):
     def is_business_day(self, date: DateLike) -> bool:
         day = _as_date(date)
         self._check_range(day)
+        self._require_resolved(day)
         return all(member.is_business_day(day) for member in self._members)
 
     def close_time(self, date: DateLike) -> Optional[_dt.time]:
+        """Deprecated for joint calendars; use ``member_closes`` for timezone identity."""
         day = _as_date(date)
         self._check_range(day)
         times = [t for t in (m.close_time(day) for m in self._members) if t is not None]
         return min(times) if times else None
+
+    def member_closes(self, date: DateLike) -> List[MemberClose]:
+        """Each member's early close with its own calendar and timezone identity."""
+        day = _as_date(date)
+        self._check_range(day)
+        self._require_resolved(day)
+        result = []
+        for member in self._members:
+            close = member.close_time(day)
+            if close is not None:
+                result.append(MemberClose(member.calendar_id, member.timezone, close))
+        return result
 
     def status(self, date: DateLike) -> str:
         day = _as_date(date)
@@ -540,6 +759,52 @@ class JointCalendar(BusinessCalendar):
                 projected = True
         return PROJECTED if projected else CONFIRMED
 
+    def assessment(self, date: DateLike) -> DayAssessment:
+        day = _as_date(date)
+        if not self.range.contains(day):
+            return super().assessment(day)
+        assessments = [member.assessment(day) for member in self._members]
+        completeness = {}
+        evidence = []
+        for scope in COMPLETENESS_SCOPES:
+            qualities = [item.completeness[scope] for item in assessments]
+            completeness[scope] = (
+                INCOMPLETE
+                if INCOMPLETE in qualities
+                else QUALITY_PROJECTED if QUALITY_PROJECTED in qualities else "VERIFIED"
+            )
+        for item in assessments:
+            for evidence_id in item.evidence_ids:
+                if evidence_id not in evidence:
+                    evidence.append(evidence_id)
+        scheduled = (
+            CLOSED
+            if any(item.scheduled_state == CLOSED for item in assessments)
+            else EARLY_CLOSE
+            if any(item.scheduled_state == EARLY_CLOSE for item in assessments)
+            else OPEN
+        )
+        confidence = (
+            UNKNOWN
+            if any(item.effective_confidence == UNKNOWN for item in assessments)
+            else PROJECTED
+            if any(item.effective_confidence == PROJECTED for item in assessments)
+            else CONFIRMED
+        )
+        details = []
+        for member, item in zip(self._members, assessments):
+            for detail in item.events:
+                details.append(detail._replace(event=_qualify(member, detail.event)))
+        return DayAssessment(
+            day,
+            STATE_UNKNOWN if confidence == UNKNOWN else scheduled,
+            scheduled,
+            confidence,
+            completeness,
+            evidence,
+            details,
+        )
+
 
 def _qualify(member: BusinessCalendar, event: Event) -> Event:
     """Re-labels a member event so its origin stays visible in the joint stream."""
@@ -548,6 +813,14 @@ def _qualify(member: BusinessCalendar, event: Event) -> Event:
     else:
         source = "{}/{}".format(member.calendar_id, event.source_module)
     return event._replace(source_module=source)
+
+
+def _scheduled_state(events: Sequence[Event]) -> str:
+    if any(event.type in ("CLOSED", "WEEKEND") for event in events):
+        return CLOSED
+    if any(event.type == "EARLY_CLOSE" for event in events):
+        return EARLY_CLOSE
+    return OPEN
 
 
 # --- Factories ---------------------------------------------------------------

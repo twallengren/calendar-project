@@ -93,6 +93,9 @@ public class SpecEmitter {
         if (cov.verifiedThrough() != null) {
           covMap.put("verified_through", cov.verifiedThrough().toString());
         }
+        if (!cov.quality().isEmpty()) {
+          covMap.put("quality", CoverageSerialization.toMaps(cov.quality()));
+        }
         metadata.put("coverage", covMap);
       }
       resolved.put("metadata", metadata);
@@ -211,6 +214,33 @@ public class SpecEmitter {
   public static Map<String, Object> ruleToMap(Rule rule) {
     Map<String, Object> map = new LinkedHashMap<>();
     switch (rule) {
+      case Rule.NativeRecurring r -> {
+        map.put("chronology", r.chronology());
+        map.put("month_codes", r.monthCodes());
+        if (r.nativeYears() != null && !r.nativeYears().isEmpty())
+          map.put("native_years", r.nativeYears());
+        if (r.spanDays() != 1) map.put("duration_days", r.spanDays());
+        switch (r) {
+          case Rule.NativeFixedMonthDay n -> {
+            map.put("type", "native_fixed_month_day");
+            map.put("day", n.day());
+          }
+          case Rule.NativeNthWeekday n -> {
+            map.put("type", "native_nth_weekday");
+            map.put("weekday", n.weekday().name());
+            map.put("nth", n.nth());
+          }
+          case Rule.NativeRelativeToReference n -> {
+            map.put("type", "native_relative_to_reference");
+            map.put("day", n.day());
+            map.put("offset_days", n.offsetDays());
+          }
+        }
+      }
+      case Rule.NativeExplicitDates r -> {
+        map.put("type", "native_explicit_dates");
+        map.put("dates", r.dates().stream().map(NativeDateFields::of).toList());
+      }
       case Rule.FixedMonthDay r -> {
         map.put("type", "fixed_month_day");
         map.put("month", r.month());

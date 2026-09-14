@@ -37,9 +37,9 @@ import java.util.Map;
  * weekend policies, already stated on both market pages, and would bury the holiday differences
  * these pages exist to show.
  *
- * <p>The T+N settlement helper on each page is the one piece that is not pre-rendered: it is
- * progressive enhancement in {@code site.js} that fetches the two calendars' year files and walks
- * the joint stream in the browser, mirroring {@code JointDateStream} exactly (see {@code
+ * <p>The T+N business-date offset helper on each page is the one piece that is not pre-rendered: it
+ * is progressive enhancement in {@code site.js} that fetches the two calendars' year files and
+ * walks the joint stream in the browser, mirroring {@code JointDateStream} exactly (see {@code
  * spec/SPEC.md#joint-calendars-several-calendars-at-once}). With scripting off the form is simply
  * absent and the page names the CLI command that answers the same question.
  */
@@ -50,18 +50,20 @@ public final class ComparePageRenderer {
           """
           <h1>{{aName}} vs {{bName}}</h1>
           <p class="lede">Where <code>{{a}}</code> and <code>{{b}}</code> disagree: every day one
-          market trades and the other is closed, {{window}}. Weekends are excluded — those follow
+          calendar is open and the other is closed, {{window}}. Weekends are excluded — those follow
           from each calendar's weekend policy, not from a holiday.</p>
+          <p>Differences below include only resolved dates. Incomplete coverage is shown as unknown on each calendar; the offset helper stops at an unresolved date.</p>
           <section aria-labelledby="summary-heading">
             <h2 id="summary-heading">Summary</h2>
             {{{summary}}}
           </section>
           <section class="settlement" aria-labelledby="settlement-heading">
-            <h2 id="settlement-heading">Settlement date (T+N)</h2>
+            <h2 id="settlement-heading">Business-date offset (T+N)</h2>
             <div data-settlement data-a="{{a}}" data-b="{{b}}" data-api="{{api}}"
                  data-min="{{min}}" data-max="{{max}}"></div>
-            <p>A trade between these two markets can only settle on a day <em>both</em> are open, so
-            T+N counts business days on the joint calendar. From a command line:</p>
+            <p>T+N counts dates on which both calendars are open. This date-only calculation does
+            not establish instrument-specific settlement eligibility, operating sessions or cutoffs.
+            From a command line:</p>
             <pre><code>tools query {{a}},{{b}} --settlement T+2 --from {{example}}</code></pre>
           </section>
           <section aria-labelledby="a-open-heading">
@@ -78,21 +80,21 @@ public final class ComparePageRenderer {
   private static final HtmlTemplate INDEX =
       HtmlTemplate.of(
           """
-          <h1>Compare two markets</h1>
-          <p class="lede">{{pairCount}} pairs of the {{marketCount}} published markets, each with
-          the days one trades while the other is closed and a T+N settlement helper for trades
+          <h1>Compare two calendars</h1>
+          <p class="lede">{{pairCount}} pairs of the {{marketCount}} published calendars, each with
+          the days one is open while the other is closed and a T+N business-date offset helper for dates
           between them.</p>
           {{{sections}}}
-          <p class="muted"><a href="settlement-selftest.html">Settlement self-test</a> — runs the
-          browser settlement algorithm against a fixture of answers computed in Java. Serve the site
+          <p class="muted"><a href="settlement-selftest.html">Business-date offset self-test</a> — runs the
+          browser business-date offset algorithm against a fixture of answers computed in Java. Serve the site
           over HTTP to run it; it fetches the published JSON API.</p>
           """);
 
   private static final HtmlTemplate SELFTEST =
       HtmlTemplate.of(
           """
-          <h1>Settlement self-test</h1>
-          <p class="lede">The T+N settlement helper on every compare page is written once, in
+          <h1>Business-date offset self-test</h1>
+          <p class="lede">The T+N business-date offset helper on every compare page is written once, in
           <a href="../site.js"><code>site.js</code></a>, and must agree with
           <code>JointDateStream</code> — the same code the <code>query --settlement</code> CLI
           answers from. This page runs the browser implementation against a fixture of {{caseCount}}
@@ -115,7 +117,7 @@ public final class ComparePageRenderer {
     this.layout = layout;
   }
 
-  /** The published calendars whose {@code kind} is {@code market}, in index order. */
+  /** Published market and payment calendars, in index order. */
   public static List<CalendarData> marketCalendars(List<CalendarData> calendars, Path siteDir)
       throws IOException {
     ObjectMapper mapper = new ObjectMapper();
@@ -132,7 +134,7 @@ public final class ComparePageRenderer {
         JsonNode node = mapper.readTree(manifest.toFile()).path("kind");
         kind = node.isMissingNode() || node.isNull() ? "market" : node.asText("market");
       }
-      if ("market".equals(kind)) {
+      if ("market".equals(kind) || "payment".equals(kind)) {
         markets.add(calendar);
       }
     }
@@ -203,7 +205,7 @@ public final class ComparePageRenderer {
     String description =
         "Days "
             + a.id()
-            + " trades while "
+            + " is open while "
             + b.id()
             + " is closed ("
             + aOpen.size()
@@ -213,7 +215,7 @@ public final class ComparePageRenderer {
             + window.firstYear()
             + " to "
             + window.lastYear()
-            + ", with a T+N settlement helper.";
+            + ", with a T+N business-date offset helper.";
 
     String body =
         PAIR.render(
@@ -277,8 +279,8 @@ public final class ComparePageRenderer {
         1,
         "compare/",
         "Compare two trading calendars",
-        "Every pair of published markets, with the days one trades while the other is closed and a"
-            + " T+N settlement helper.",
+        "Every pair of published calendars, with the days one is open while the other is closed and a"
+            + " T+N business-date offset helper.",
         List.of(
             new PageLayout.Crumb("Markets", "../index.html"),
             new PageLayout.Crumb("Compare", null)),
@@ -299,12 +301,12 @@ public final class ComparePageRenderer {
     return layout.render(
         1,
         "compare/settlement-selftest.html",
-        "Settlement self-test",
-        "Runs the browser T+N settlement algorithm against answers computed in Java.",
+        "Business-date offset self-test",
+        "Runs the browser T+N business-date offset algorithm against answers computed in Java.",
         List.of(
             new PageLayout.Crumb("Markets", "../index.html"),
             new PageLayout.Crumb("Compare", "index.html"),
-            new PageLayout.Crumb("Settlement self-test", null)),
+            new PageLayout.Crumb("Business-date offset self-test", null)),
         "",
         SELFTEST.render(
             "caseCount", String.valueOf(caseCount),
@@ -356,7 +358,10 @@ public final class ComparePageRenderer {
         // A holiday that lands on the closed market's own weekend is not a difference worth a row:
         // it restates the weekend policy, and Tadawul's Friday Eid days would otherwise crowd out
         // the holidays the page exists to show.
-        if (isWeekend(closed.weekendPolicy(), date) || !open.isBusinessDay(date)) {
+        if (closed.isUnknown(date)
+            || open.isUnknown(date)
+            || isWeekend(closed.weekendPolicy(), date)
+            || !open.isBusinessDay(date)) {
           continue;
         }
         byDate.computeIfAbsent(date, k -> new ArrayList<>()).add(event.description());
@@ -435,7 +440,6 @@ public final class ComparePageRenderer {
   }
 
   private String summary(CalendarData a, CalendarData b, Window window, int aOpen, int bOpen) {
-    LocalDate verified = earliest(a.coverage().verifiedThrough(), b.coverage().verifiedThrough());
     StringBuilder html = new StringBuilder();
     html.append("<dl class=\"facts\">\n");
     html.append("<div><dt>Shared coverage</dt><dd>")
@@ -443,12 +447,13 @@ public final class ComparePageRenderer {
         .append(" to ")
         .append(window.to())
         .append("</dd></div>\n");
-    html.append("<div><dt>Joint verified through</dt><dd>")
-        .append(
-            verified == null
-                ? "&mdash;"
-                : "<time datetime=\"" + verified + "\">" + verified + "</time>")
-        .append("</dd></div>\n");
+    for (CalendarData calendar : List.of(a, b)) {
+      html.append("<div><dt>")
+          .append(HtmlTemplate.escape(calendar.id()))
+          .append(" coverage quality</dt><dd>")
+          .append(HtmlTemplate.escape(calendar.coverageSummary()))
+          .append("</dd></div>\n");
+    }
     html.append("<div><dt>Open in ")
         .append(HtmlTemplate.escape(a.id()))
         .append(", closed in ")
@@ -465,8 +470,8 @@ public final class ComparePageRenderer {
         .append("</dd></div>\n");
     html.append("</dl>\n");
     html.append(
-        "<p class=\"muted\">Dates after the joint verified-through date are projected from the"
-            + " rules and have not been checked against a published notice.</p>\n");
+        "<p class=\"muted\">Quality is assessed separately for scheduled closures, early closes and"
+            + " unscheduled exceptions. An incomplete date stops a business-date calculation.</p>\n");
     return html.toString();
   }
 

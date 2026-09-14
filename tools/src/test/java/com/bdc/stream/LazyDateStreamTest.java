@@ -296,7 +296,7 @@ class LazyDateStreamTest {
   void status_afterVerifiedThrough_isProjected() throws Exception {
     LazyDateStream nyse = productionStream("US-NYSE");
     assertEquals(LocalDate.of(2026, 12, 31), nyse.verifiedThrough().orElseThrow());
-    assertEquals(com.bdc.model.EventStatus.CONFIRMED, nyse.status(LocalDate.of(2026, 12, 30)));
+    assertEquals(com.bdc.model.EventStatus.PROJECTED, nyse.status(LocalDate.of(2026, 12, 30)));
     assertEquals(com.bdc.model.EventStatus.PROJECTED, nyse.status(LocalDate.of(2027, 1, 4)));
   }
 

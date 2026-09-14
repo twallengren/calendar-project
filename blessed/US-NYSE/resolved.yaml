@@ -12,6 +12,91 @@ metadata:
     from: 1900-01-01
     to: 2030-12-31
     verified_through: 2026-12-31
+    quality:
+    - scope: SCHEDULED_CLOSURES
+      from: 1900-01-01
+      to: 2007-12-31
+      quality: VERIFIED
+      evidence_ids:
+      - nyse-history-2008
+    - scope: SCHEDULED_CLOSURES
+      from: 2008-01-01
+      to: 2030-12-31
+      quality: PROJECTED
+      evidence_ids:
+      - nyse-hours
+    - scope: EARLY_CLOSES
+      from: 1900-01-01
+      to: 2007-12-31
+      quality: VERIFIED
+      evidence_ids:
+      - nyse-history-2008
+    - scope: EARLY_CLOSES
+      from: 2008-01-01
+      to: 2030-12-31
+      quality: PROJECTED
+      evidence_ids:
+      - nyse-hours
+    - scope: EARLY_CLOSES
+      from: 1973-12-24
+      to: 1973-12-24
+      quality: INCOMPLETE
+      evidence_ids:
+      - nyse-history-2008
+    - scope: EARLY_CLOSES
+      from: 1979-12-24
+      to: 1979-12-24
+      quality: INCOMPLETE
+      evidence_ids:
+      - nyse-history-2008
+    - scope: EARLY_CLOSES
+      from: 1980-12-24
+      to: 1980-12-24
+      quality: INCOMPLETE
+      evidence_ids:
+      - nyse-history-2008
+    - scope: EARLY_CLOSES
+      from: 1981-12-24
+      to: 1981-12-24
+      quality: INCOMPLETE
+      evidence_ids:
+      - nyse-history-2008
+    - scope: EARLY_CLOSES
+      from: 1984-12-24
+      to: 1984-12-24
+      quality: INCOMPLETE
+      evidence_ids:
+      - nyse-history-2008
+    - scope: EARLY_CLOSES
+      from: 1985-12-24
+      to: 1985-12-24
+      quality: INCOMPLETE
+      evidence_ids:
+      - nyse-history-2008
+    - scope: EARLY_CLOSES
+      from: 1986-12-24
+      to: 1986-12-24
+      quality: INCOMPLETE
+      evidence_ids:
+      - nyse-history-2008
+    - scope: EARLY_CLOSES
+      from: 1987-12-24
+      to: 1987-12-24
+      quality: INCOMPLETE
+      evidence_ids:
+      - nyse-history-2008
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 1900-01-01
+      to: 2007-12-31
+      quality: VERIFIED
+      evidence_ids:
+      - nyse-history-2008
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2008-01-01
+      to: 2030-12-31
+      quality: PROJECTED
+      evidence_ids:
+      - nyse-hours
 weekend_policy:
   days:
   - SATURDAY
@@ -1523,6 +1608,8 @@ event_sources:
     - date: 1967-02-07
       comment: Snowstorm (also opened late)
     - date: 1974-12-24
+      comment: Christmas Eve
+    - date: 1975-12-24
       comment: Christmas Eve
 - key: nyse_early_close_oneoff_1407
   name: Early Close

@@ -11,10 +11,20 @@ This walkthrough adds a new exchange calendar end to end. It assumes a market th
 public holidays and has at least one authoritative source you can point to (an exchange
 circular, a gazette notice, an official holiday list).
 
-A `scaffold` command that generates the YAML skeleton, source file, and test fixtures for a new
-market is being added in parallel. Once it lands it will shortcut steps 1-3 below. This guide
-does not document its flags yet; check `./gradlew :tools:run --args="scaffold --help"` once it
-exists.
+Start with the scaffold command to create the YAML skeleton, a canonical source register, a
+generated source README and the reference-export entry:
+
+```bash
+./gradlew :tools:run --args="scaffold --market GB-LSE --name \"London Stock Exchange\" --timezone Europe/London --mic XLON"
+```
+
+It reuses the Saturday-Sunday weekend module by default. Use `--weekend FRI_SAT` to reuse the
+Friday-Saturday policy, `--weekend custom` to create a policy module, `--from` and `--to` to set
+the initial range, `--dry-run` to preview, and `--force` only when replacing existing scaffold
+files. The scaffold creates a canonical `register.json` and generated README table with a TODO
+source entry; it leaves evidence and calendar rules for you to complete, and does not create golden
+tests. Structural validation is useful during development; publication additionally requires completed
+evidence, reviewed rules and the release checks below.
 
 ### 1. Pick your ids
 
@@ -24,15 +34,20 @@ exists.
 | Calendar id | Same as the filename, no extension | `GB-LSE` |
 | Module file | `modules/holidays\|policies\|groups/<snake_case_id>.yaml` | `modules/holidays/boxing_day.yaml` |
 | Module id | snake_case, matches the filename | `boxing_day` |
-| Source table | `sources/<MARKET>/README.md` | `sources/GB-LSE/README.md` |
+| Source register | `sources/<MARKET>/register.json` | `sources/GB-LSE/register.json` |
+| Generated source table | `sources/<MARKET>/README.md` | `sources/GB-LSE/README.md` |
 
 `<CC>` is the ISO country code, `<MARKET>` a short exchange mnemonic. Use the same `<MARKET>`
 token for the source directory as for the calendar id suffix.
 
 ### 2. Cite your sources first
 
-Every holiday needs a citation, and `validate --strict` enforces it. Create
-`sources/<MARKET>/README.md` with a table:
+Every holiday needs a citation, and `validate --strict` resolves citation IDs through the
+canonical `sources/<MARKET>/register.json`. Add each source there with its original location,
+retrieval date, description, preserved local files and SHA-256 checksums. For a `VERIFIED`
+coverage claim, also record `support_intervals` for each scope and date range the source supports.
+The free-text `covers` field is descriptive and does not establish coverage. Once the register is
+complete, generate the table in `sources/<MARKET>/README.md`:
 
 ```markdown
 # GB-LSE sources
@@ -42,8 +57,10 @@ Every holiday needs a citation, and `validate --strict` enforces it. Create
 | `lse-hours` | LSE Holidays & Trading Hours | London Stock Exchange | https://www.londonstockexchange.com/... | 2026-09-13 | current and next year | Published holiday schedule |
 ```
 
-Add a row for every distinct document you transcribe from. `retrieved` is the date you pulled
-the source; `covers` is the date range it is good for.
+Add an entry for every distinct document you transcribe from. `retrieved` is the date you pulled
+the source; `covers` describes its scope. The README table is generated from `register.json` and
+must not be edited as the source of truth. Run `python3 scripts/sources.py` to regenerate it, or
+`python3 scripts/sources.py --check` to check it.
 
 In YAML, reference a row by its `id`:
 
@@ -68,7 +85,7 @@ Start with the calendar's own metadata. The fields a market needs:
 | `metadata.mic` | The market's ISO 10383 Market Identifier Code (e.g. `XLON`). `validate --strict` warns when a market-kind calendar has none, and errors on a malformed or duplicate one. |
 | `metadata.aliases` | Other spellings this calendar should resolve under (legacy exchange_calendars ids, a segment MIC distinct from the primary `mic`, ...). |
 | `metadata.coverage.from` / `to` | The date range you maintain this calendar for. |
-| `metadata.coverage.verified_through` | Dates up to here have been checked against sources. Anything after that should be `status: PROJECTED`. |
+| `metadata.coverage.quality` | Scope-specific intervals for `SCHEDULED_CLOSURES`, `EARLY_CLOSES`, and `UNSCHEDULED_EXCEPTIONS`, each marked `VERIFIED`, `PROJECTED`, or `INCOMPLETE`. |
 | `weekend_shift_policy` | Default shift policy for weekend holidays: `NONE`, `NEAREST_WEEKDAY`, `NEXT_AVAILABLE_WEEKDAY`, or `FORWARD_ONLY`. |
 | `uses` | Weekend policy module plus a holiday group module. |
 
@@ -84,7 +101,10 @@ metadata:
   coverage:
     from: 2000-01-01
     to: 2030-12-31
-    verified_through: 2026-12-31
+    quality:
+      - {scope: SCHEDULED_CLOSURES, from: 2000-01-01, to: 2030-12-31, quality: INCOMPLETE, evidence_ids: []}
+      - {scope: EARLY_CLOSES, from: 2000-01-01, to: 2030-12-31, quality: INCOMPLETE, evidence_ids: []}
+      - {scope: UNSCHEDULED_EXCEPTIONS, from: 2000-01-01, to: 2030-12-31, quality: INCOMPLETE, evidence_ids: []}
 
 weekend_shift_policy: NEXT_AVAILABLE_WEEKDAY
 
@@ -107,6 +127,30 @@ example). Per event source, the fields most markets need beyond `key`, `name`, a
 `spec/SPEC.md` documents every rule type (`fixed_month_day`, `nth_weekday_of_month`,
 `relative_to_reference`, `explicit_dates`), the weekend policy shapes, and delta operations. Read
 it before inventing a new rule type; the existing ones cover almost everything.
+
+For holidays dated in a native calendar, the compiler supports exact native dates and converts
+them to ISO dates. For example, convert Hebrew 1 Tishri 5785 with the `HEBREW` chronology
+provider:
+
+```bash
+./gradlew :tools:run --args="convert --from-chronology HEBREW --year 5785 --month-code TISHRI --day 1"
+# 2024-10-03
+```
+
+The Hebrew provider uses a fixed arithmetic civil-date mapping; it does not model sunset instants.
+Use month codes such as `TISHRI`, `NISAN`, or `ADAR_II` (the available code depends on whether the
+Hebrew year is intercalary). Check the supported range and exact-date semantics before relying on
+a conversion for source evidence. The bounded `CHINESE_HK` profile uses fixed UTC+08:00 civil-date
+mapping; month codes are `M01`–`M12`, with an `L` suffix for an intercalary month. For example:
+
+```bash
+./gradlew :tools:run --args="convert --from-chronology CHINESE_HK --year 2025 --month-code M06L --day 1"
+```
+
+A successful native-date conversion establishes a chronology date, not an exchange opening day.
+For TASE, actual-day assessments remain `UNKNOWN` wherever required scheduled-closure or
+unscheduled-exception coverage is incomplete. Follow the calendar's scope-specific quality intervals
+and exception-maintenance policy; do not mark a broader span verified from a conversion example.
 
 ### 4. Validate
 
@@ -177,21 +221,13 @@ we lack. Every allowlist row needs a real reason: "the reference is wrong becaus
 from reference". A stale allowlist row (one that no longer reflects an actual difference) fails
 the test, so remove rows once they stop applying.
 
-### 8. Add the calendar to the blessed manifest
+### 8. Submit the reviewed calendar for release preparation
 
-`blessed/manifest.json` lists every calendar that gets published and re-blessed. A calendar
-missing from it is invisible to `scripts/bless.sh` and the release workflow. Add an entry:
-
-```json
-"GB-LSE": {
-  "range_start": "2000-01-01",
-  "range_end": "2030-12-31"
-}
-```
-
-Run `scripts/bless.sh` locally to populate `checksum` and `event_count`, generate
-`blessed/GB-LSE/`, and recompute `blessed/manifest.json`'s `aliases` map from every calendar's
-`metadata.mic`/`metadata.aliases`. Review the output with `git status --short blessed/`.
+The release preparation workflow discovers calendar specifications, regenerates their declared
+ranges and updates `blessed/manifest.json` with complete artifacts, counts, checksums and aliases.
+Scaffolding leaves that published manifest unchanged. Submit the YAML, sources and reviewed test
+expectations in the implementation PR; the subsequent release PR contains generated data and its
+published-to-candidate impact report. Use the preview below to inspect local output.
 
 ### Preview your change
 
@@ -228,25 +264,39 @@ severity:
 | `MAJOR` | Past or near-term events changed (a correction to already-published data). |
 
 Any severity other than `NONE` blocks merge until a maintainer adds the
-`calendar-change-approved` label after reviewing the diff comment. Adding a brand-new calendar
-is usually `MAJOR` the first time (there is no prior blessed output to diff against for it), so
-expect to ask for that label.
+`calendar-change-approved` label after reviewing the diff comment. The release-impact comparator
+classifies a new calendar as MINOR and examines the union of published and candidate IDs, including
+calendars absent from the older manifest.
 
 Before requesting review, self-check against `.github/PULL_REQUEST_TEMPLATE.md`.
 
 ### 10. Release and bless
 
-Merges to `main` that touch `calendars/`, `modules/`, `chronologies/`, or the tool itself trigger
-`.github/workflows/release.yml`. It re-runs `ci-diff` to decide a semantic version bump (`MAJOR`
-diff -> major version, `MINOR` diff -> minor version, no change -> no release), regenerates
-`blessed/`, archives the previous state to `release-history/`, and cuts a GitHub release with the
-artifacts attached. You do not run this yourself; `scripts/bless.sh` is for local review only.
+After CI succeeds for a qualifying merge to `main`, `.github/workflows/release-pr.yml` prepares
+one reviewable release PR. It compares the candidate with an authenticated immutable published
+release asset. This release-impact comparison is separate from the development `ci-diff` above:
+removals, coverage contractions, changed answers inside existing coverage and incompatible identity
+changes are MAJOR; new calendars, additive aliases and coverage extensions are MINOR; descriptive
+metadata or citation-only changes are PATCH. Exact severity is in `release/impact.json`.
 
-A release to `blessed/`, `release-history/` or the site generator also triggers
-`.github/workflows/pages.yml`, which republishes the [JSON API and site](README.md#get-the-data)
-to GitHub Pages. **Enable GitHub Pages once, before the first run**: only a repository maintainer
-can do this — Settings → Pages → Source: **GitHub Actions**. Until that is set, `pages.yml` runs
-but the deploy step fails; nothing else in the release is affected.
+The PR contains regenerated artifacts, immutable history, synchronized Python data and parity/API
+fixtures, and `release/release.json`. The descriptor fixes the baseline, source SHA, versions,
+generation timestamp and hashes. `scripts/bless.sh` performs strict validation and cross-validation;
+a failed check aborts preparation. Review the complete report and intentional golden changes before
+merging the release PR. Never reconstruct an old published baseline from today's modified data.
+
+`.github/workflows/release.yml` publishes only after CI succeeds on the exact release merge commit.
+It binds tags to that commit, builds once, verifies artifact hashes at every downstream step, and
+resumes matching completed steps while rejecting conflicts. Publication runs are serialized without
+cancelling active work. Dataset, Java core, Python software and wire-schema versions are independent;
+`release/versions.json` records the selected versions. Manual dispatch supports recovery and retries.
+
+Release PR creation requires the repository-scoped GitHub App configured with `RELEASE_APP_ID` and
+`RELEASE_APP_PRIVATE_KEY`; its PRs run normal checks and do not bypass branch protection. Registry
+credentials and repository settings must be configured for the intended publication channels.
+The publication workflow deploys Pages directly. Configure Pages to use **GitHub Actions**;
+there is no separate bot-push-triggered `pages.yml`. A local build is not evidence of remote
+publication: package installation from each registry must succeed before that channel is complete.
 
 ## Code contributions
 
@@ -262,9 +312,9 @@ but the deploy step fails; nothing else in the release is affected.
 
 Found a wrong date in an existing calendar? Same tools, smaller scope:
 
-1. Update the source table row in `sources/<MARKET>/README.md` if the citation itself needs to
-   change (new URL, later `retrieved` date), or add a new row for a document you are
-   introducing.
+1. Update the source entry in `sources/<MARKET>/register.json` if the citation itself needs to
+   change (new location, later `retrieved` date), or add a new entry for a document you are
+   introducing. Regenerate `README.md` with `python3 scripts/sources.py`.
 2. Fix the YAML and re-run `validate` and the golden tests as above.
 3. Expect a `MAJOR` `ci-diff` if the correction touches a past or already-published date; that
    is expected and will need the `calendar-change-approved` label.
@@ -275,3 +325,11 @@ Found a wrong date in an existing calendar? Same tools, smaller scope:
 
 Cite your source. "I think this is wrong" is a good reason to open an issue; it is not a good
 commit message.
+
+### Evidence and completeness for new calendars
+
+Add `sources/<ID>/register.json` as the canonical source register, with the original URL, a retrieval date, and SHA-256 for every preserved local evidence file. Generate its README table with `python3 scripts/sources.py`; `--check` verifies consistency. Citation IDs must resolve for rules, deltas, and coverage claims. A retrieval timestamp records acquisition, not an announcement or publication date.
+
+Declare scope-specific `coverage.quality` intervals for scheduled closures, early closes and unscheduled exceptions. `VERIFIED` requires evidence IDs whose canonical `support_intervals` cover the entire claimed interval for that scope. A gap in support is a validation error. Use `PROJECTED` only when the schedule model is explicitly documented; use `INCOMPLETE` where absent events cannot safely mean open. A date is `UNKNOWN` for business-day decisions if any required scope is incomplete or absent, even when the scheduled closure list is complete. Boolean, navigation and count operations fail with an unresolved-date error for such dates. Do not copy a calendar's desired coverage into a source's support intervals without reviewing the source. A source can establish scheduled holidays without establishing emergency closures.
+
+A submission also needs independently sourced conversion/closure examples, an explanation of weekend and observation rules, and an exception-maintenance policy: which authority is reviewed, who maintains the calendar, and when evidence should be refreshed. The scheduled source-review workflow reports ageing citations and approaching coverage boundaries; it does not invent coverage extensions. Preserve source rights and third-party licence notices when adding evidence or generated datasets.

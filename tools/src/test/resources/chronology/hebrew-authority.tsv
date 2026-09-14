@@ -1,0 +1,20 @@
+# Independent source: Bank of Israel services calendar 2024/2025
+# https://www.boi.org.il/media/irfl2amk/list-of-holidays-affecting-bank-of-israel-services-in-2024-2025.pdf
+# These are conversion fixtures, not an assertion that BOI or TASE closes on every row.
+# Hebrew year, civil month identity, day, ISO date
+5784	ADAR_II	15	2024-03-25
+5784	NISAN	15	2024-04-23
+5784	NISAN	21	2024-04-29
+5784	SIVAN	6	2024-06-12
+5784	AV	9	2024-08-13
+5785	TISHRI	1	2024-10-03
+5785	TISHRI	2	2024-10-04
+5785	TISHRI	15	2024-10-17
+5785	TISHRI	22	2024-10-24
+5785	ADAR	14	2025-03-14
+5785	SIVAN	6	2025-06-02
+5786	TISHRI	1	2025-09-23
+5786	TISHRI	2	2025-09-24
+5786	TISHRI	10	2025-10-02
+5786	TISHRI	15	2025-10-07
+5786	TISHRI	22	2025-10-14

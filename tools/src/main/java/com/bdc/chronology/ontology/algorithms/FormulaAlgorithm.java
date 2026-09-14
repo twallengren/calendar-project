@@ -204,6 +204,7 @@ public class FormulaAlgorithm implements ChronologyAlgorithm {
    * @return the predicate
    */
   private IntPredicate parseLeapYearFormula(String formula) {
+    com.bdc.chronology.ontology.FormulaSyntax.validate(formula);
     if (formula == null || formula.isBlank()) {
       return year -> false;
     }

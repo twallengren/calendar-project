@@ -8,11 +8,14 @@ import com.bdc.model.EventType;
 import com.bdc.stream.CsvDateStream;
 import com.bdc.stream.DateStream;
 import com.bdc.stream.JointDateStream;
+import com.bdc.trust.CoverageInterval;
+import com.bdc.trust.CoverageIntervals;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.UncheckedIOException;
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
@@ -141,13 +144,25 @@ public final class BusinessCalendars {
     Collections.sort(events);
 
     LocalDate verifiedThrough = null;
-    if (metadata.get("coverage") instanceof Map<?, ?> coverage) {
+    List<CoverageInterval> coverageIntervals = List.of();
+    {
+      Map<?, ?> coverage = CoverageIntervals.coverageObject(metadata.get("coverage"));
       Object declared = coverage.get("verified_through");
       if (declared != null) {
         verifiedThrough = LocalDate.parse(String.valueOf(declared));
       }
+      coverageIntervals = CoverageIntervals.fromJson(coverage.get("quality"));
     }
-    return new CsvDateStream(calendarId, events, range, verifiedThrough);
+    return new CsvDateStream(
+        calendarId,
+        events,
+        range,
+        verifiedThrough,
+        coverageIntervals,
+        com.bdc.trust.PublishedEventDetails.read(metadata.get("event_details")),
+        metadata.get("timezone") == null
+            ? null
+            : ZoneId.of(String.valueOf(metadata.get("timezone"))));
   }
 
   /**

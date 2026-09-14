@@ -82,6 +82,85 @@ class MultieventDiffTest {
     assertEquals(DiffSeverity.MAJOR, compare(List.of(), List.of(boundary, boundary)).severity());
   }
 
+  @Test
+  void allPublishedFieldsParticipateInEqualityAndReports() {
+    Event base =
+        new Event(
+            DAY,
+            EventType.EARLY_CLOSE,
+            "half day",
+            "reader",
+            "key",
+            "source",
+            DAY.minusDays(1),
+            java.time.LocalTime.of(13, 0),
+            com.bdc.model.EventStatus.CONFIRMED);
+    List<Event> variants =
+        List.of(
+            new Event(
+                DAY,
+                base.type(),
+                base.description(),
+                "other reader",
+                "key",
+                "new source",
+                base.observedFrom(),
+                base.closeTime(),
+                base.status()),
+            new Event(
+                DAY,
+                base.type(),
+                base.description(),
+                "reader",
+                "key",
+                "source",
+                null,
+                base.closeTime(),
+                base.status()),
+            new Event(
+                DAY,
+                base.type(),
+                base.description(),
+                "reader",
+                "key",
+                "source",
+                base.observedFrom(),
+                java.time.LocalTime.of(14, 0),
+                base.status()),
+            new Event(
+                DAY,
+                base.type(),
+                base.description(),
+                "reader",
+                "key",
+                "source",
+                base.observedFrom(),
+                base.closeTime(),
+                com.bdc.model.EventStatus.PROJECTED));
+    for (Event changed : variants) {
+      var diff = compare(List.of(base, base), List.of(base, changed));
+      assertEquals(DiffSeverity.MAJOR, diff.severity());
+      assertEquals(1, diff.modifications().size());
+      assertEquals(EventDiff.PublishedFields.of(base), diff.modifications().getFirst().oldFields());
+      assertEquals(
+          EventDiff.PublishedFields.of(changed), diff.modifications().getFirst().newFields());
+      assertEquals(diff, compare(List.of(base, base), List.of(changed, base)));
+    }
+    Event differentKey =
+        new Event(
+            DAY,
+            base.type(),
+            base.description(),
+            "reader",
+            "new key",
+            "source",
+            base.observedFrom(),
+            base.closeTime(),
+            base.status());
+    assertEquals(1, compare(List.of(base), List.of(differentKey)).removals().size());
+    assertEquals(1, compare(List.of(base), List.of(differentKey)).additions().size());
+  }
+
   @Property(tries = 200)
   void permutationEqualityAndReconstructionLaws(@ForAll long seed) {
     Random random = new Random(seed);

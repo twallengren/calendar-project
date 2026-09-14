@@ -1,0 +1,32 @@
+date,type,description,key,source_module,observed_from,close_time,status
+2025-03-14,CLOSED,Purim,tase_purim_2025,module:tase_scheduled_closures_2025,,,CONFIRMED
+2025-04-13,CLOSED,Passover,tase_passover_2025,module:tase_scheduled_closures_2025,,,CONFIRMED
+2025-04-18,CLOSED,Seventh Day of Passover Eve,tase_seventh_passover_eve_2025,module:tase_scheduled_closures_2025,,,CONFIRMED
+2025-04-30,CLOSED,Memorial Day,tase_memorial_day_2025,module:tase_scheduled_closures_2025,,,CONFIRMED
+2025-05-01,CLOSED,Independence Day,tase_independence_day_2025,module:tase_scheduled_closures_2025,,,CONFIRMED
+2025-06-01,CLOSED,Shavuot Eve,tase_shavuot_eve_2025,module:tase_scheduled_closures_2025,,,CONFIRMED
+2025-06-02,CLOSED,Shavuot,tase_shavuot_2025,module:tase_scheduled_closures_2025,,,CONFIRMED
+2025-08-03,CLOSED,Tisha B'Av,tase_tisha_bav_2025,module:tase_scheduled_closures_2025,,,CONFIRMED
+2025-09-22,CLOSED,Rosh Hashanah Eve,tase_rosh_hashanah_eve_2025,module:tase_scheduled_closures_2025,,,CONFIRMED
+2025-09-23,CLOSED,Rosh Hashanah,tase_rosh_hashanah_2025,module:tase_scheduled_closures_2025,,,CONFIRMED
+2025-09-24,CLOSED,Rosh Hashanah,tase_rosh_hashanah_2025,module:tase_scheduled_closures_2025,,,CONFIRMED
+2025-10-01,CLOSED,Yom Kippur Eve,tase_yom_kippur_eve_2025,module:tase_scheduled_closures_2025,,,CONFIRMED
+2025-10-02,CLOSED,Yom Kippur,tase_yom_kippur_2025,module:tase_scheduled_closures_2025,,,CONFIRMED
+2025-10-06,CLOSED,Sukkot Eve,tase_sukkot_eve_2025,module:tase_scheduled_closures_2025,,,CONFIRMED
+2025-10-07,CLOSED,Sukkot,tase_sukkot_2025,module:tase_scheduled_closures_2025,,,CONFIRMED
+2025-10-13,CLOSED,Simchat Torah Eve,tase_simchat_torah_eve_2025,module:tase_scheduled_closures_2025,,,CONFIRMED
+2025-10-14,CLOSED,Simchat Torah,tase_simchat_torah_2025,module:tase_scheduled_closures_2025,,,CONFIRMED
+2026-01-09,EARLY_CLOSE,Friday Session (Early Close),tase_friday_short_session_q1_2026,module:tase_verified_events_2026,,13:50,CONFIRMED
+2026-01-16,EARLY_CLOSE,Friday Session (Early Close),tase_friday_short_session_q1_2026,module:tase_verified_events_2026,,13:50,CONFIRMED
+2026-01-23,EARLY_CLOSE,Friday Session (Early Close),tase_friday_short_session_q1_2026,module:tase_verified_events_2026,,13:50,CONFIRMED
+2026-01-30,EARLY_CLOSE,Friday Session (Early Close),tase_friday_short_session_q1_2026,module:tase_verified_events_2026,,13:50,CONFIRMED
+2026-02-06,EARLY_CLOSE,Friday Session (Early Close),tase_friday_short_session_q1_2026,module:tase_verified_events_2026,,13:50,CONFIRMED
+2026-02-13,EARLY_CLOSE,Friday Session (Early Close),tase_friday_short_session_q1_2026,module:tase_verified_events_2026,,13:50,CONFIRMED
+2026-02-20,EARLY_CLOSE,Friday Session (Early Close),tase_friday_short_session_q1_2026,module:tase_verified_events_2026,,13:50,CONFIRMED
+2026-02-27,EARLY_CLOSE,Friday Session (Early Close),tase_friday_short_session_q1_2026,module:tase_verified_events_2026,,13:50,CONFIRMED
+2026-03-06,EARLY_CLOSE,Friday Session (Early Close),tase_friday_short_session_q1_2026,module:tase_verified_events_2026,,13:50,CONFIRMED
+2026-03-13,EARLY_CLOSE,Friday Session (Early Close),tase_friday_short_session_q1_2026,module:tase_verified_events_2026,,13:50,CONFIRMED
+2026-03-20,EARLY_CLOSE,Friday Session (Early Close),tase_friday_short_session_q1_2026,module:tase_verified_events_2026,,13:50,CONFIRMED
+2026-03-27,EARLY_CLOSE,Friday Session (Early Close),tase_friday_short_session_q1_2026,module:tase_verified_events_2026,,13:50,CONFIRMED
+2026-04-21,CLOSED,Memorial Day,tase_memorial_day_2026,module:tase_verified_events_2026,,,CONFIRMED
+2026-04-22,CLOSED,Independence Day,tase_independence_day_2026,module:tase_verified_events_2026,,,CONFIRMED

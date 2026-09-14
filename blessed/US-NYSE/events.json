@@ -9,9 +9,94 @@
   "coverage" : {
     "from" : "1900-01-01",
     "to" : "2030-12-31",
-    "verified_through" : "2026-12-31"
+    "verified_through" : "2026-12-31",
+    "quality" : [ {
+      "scope" : "SCHEDULED_CLOSURES",
+      "from" : "1900-01-01",
+      "to" : "2007-12-31",
+      "quality" : "VERIFIED",
+      "evidence_ids" : [ "nyse-history-2008" ]
+    }, {
+      "scope" : "SCHEDULED_CLOSURES",
+      "from" : "2008-01-01",
+      "to" : "2030-12-31",
+      "quality" : "PROJECTED",
+      "evidence_ids" : [ "nyse-hours" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "1900-01-01",
+      "to" : "2007-12-31",
+      "quality" : "VERIFIED",
+      "evidence_ids" : [ "nyse-history-2008" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "2008-01-01",
+      "to" : "2030-12-31",
+      "quality" : "PROJECTED",
+      "evidence_ids" : [ "nyse-hours" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "1973-12-24",
+      "to" : "1973-12-24",
+      "quality" : "INCOMPLETE",
+      "evidence_ids" : [ "nyse-history-2008" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "1979-12-24",
+      "to" : "1979-12-24",
+      "quality" : "INCOMPLETE",
+      "evidence_ids" : [ "nyse-history-2008" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "1980-12-24",
+      "to" : "1980-12-24",
+      "quality" : "INCOMPLETE",
+      "evidence_ids" : [ "nyse-history-2008" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "1981-12-24",
+      "to" : "1981-12-24",
+      "quality" : "INCOMPLETE",
+      "evidence_ids" : [ "nyse-history-2008" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "1984-12-24",
+      "to" : "1984-12-24",
+      "quality" : "INCOMPLETE",
+      "evidence_ids" : [ "nyse-history-2008" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "1985-12-24",
+      "to" : "1985-12-24",
+      "quality" : "INCOMPLETE",
+      "evidence_ids" : [ "nyse-history-2008" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "1986-12-24",
+      "to" : "1986-12-24",
+      "quality" : "INCOMPLETE",
+      "evidence_ids" : [ "nyse-history-2008" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "1987-12-24",
+      "to" : "1987-12-24",
+      "quality" : "INCOMPLETE",
+      "evidence_ids" : [ "nyse-history-2008" ]
+    }, {
+      "scope" : "UNSCHEDULED_EXCEPTIONS",
+      "from" : "1900-01-01",
+      "to" : "2007-12-31",
+      "quality" : "VERIFIED",
+      "evidence_ids" : [ "nyse-history-2008" ]
+    }, {
+      "scope" : "UNSCHEDULED_EXCEPTIONS",
+      "from" : "2008-01-01",
+      "to" : "2030-12-31",
+      "quality" : "PROJECTED",
+      "evidence_ids" : [ "nyse-hours" ]
+    } ]
   },
-  "event_count" : 12836,
+  "event_count" : 12837,
   "events" : [ {
     "date" : "1900-01-01",
     "type" : "CLOSED",
@@ -58655,6 +58740,15 @@
     "source_module" : "weekend_policy",
     "observed_from" : null,
     "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "1975-12-24",
+    "type" : "EARLY_CLOSE",
+    "description" : "Early Close (Christmas Eve)",
+    "key" : "nyse_early_close_oneoff_1400",
+    "source_module" : "module:us_nyse_historical_early_closes",
+    "observed_from" : null,
+    "close_time" : "14:00",
     "status" : "CONFIRMED"
   }, {
     "date" : "1975-12-25",

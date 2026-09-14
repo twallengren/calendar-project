@@ -1,0 +1,159 @@
+{
+  "schema_version": "1.0",
+  "entries": [
+    {
+      "id": "lse-business-days",
+      "title": "Business days",
+      "publisher": "London Stock Exchange",
+      "location": "https://www.londonstockexchange.com/equities-trading/business-days",
+      "retrieved": "2026-09-14",
+      "covers": "live table observed spanning Mon 31 Aug 2026 - Mon 1 Jan 2029",
+      "notes": "The Exchange's own published trading-impact table for its Bank Holidays. States that LSE \"recognise[s] the Public and Bank Holidays of England & Wales\" and lists, per holiday, whether on-Exchange trading is a NON-trading day or a half day (12:30 close). No standalone yearly PDF calendar was linked from the page at time of retrieval (only a business-parameters spreadsheet and a trading-system guide); the HTML table itself was used instead.",
+      "local_files": [],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2026-01-01",
+          "to": "2028-12-31"
+        },
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2026-01-01",
+          "to": "2028-12-31"
+        }
+      ]
+    },
+    {
+      "id": "govuk-bank-holidays",
+      "title": "UK bank holidays (England and Wales division)",
+      "publisher": "GOV.UK / HM Government",
+      "location": "https://www.gov.uk/bank-holidays (JSON: https://www.gov.uk/bank-holidays.json)",
+      "retrieved": "2026-09-14",
+      "covers": "2019-01-01 to 2028-12-26",
+      "notes": "GOV.UK's published list of bank holidays for England and Wales, including the already-shifted (\"Substitute day\") dates and the one-off Platinum Jubilee (2022-06-03) and State Funeral (2022-09-19) bank holidays and the 2020 VE Day and 2023 Coronation early-May moves. GOV.UK only publishes a rolling window (roughly the current year, several years back and several years forward); it does not go back to 2000.",
+      "local_files": [],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2021-01-01",
+          "to": "2023-12-31"
+        },
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2026-01-01",
+          "to": "2028-12-31"
+        }
+      ]
+    },
+    {
+      "id": "uk-1971-act",
+      "title": "Banking and Financial Dealings Act 1971",
+      "publisher": "UK Parliament / legislation.gov.uk",
+      "location": "https://www.legislation.gov.uk/ukpga/1971/80",
+      "retrieved": "2026-09-14",
+      "covers": "statutory, ongoing",
+      "notes": "Statutory basis for the New Year's Day, Easter Monday, early May, Spring and Summer bank holidays and Boxing Day in England & Wales, and for Royal Proclamations appointing additional or moved bank holidays (used for the one-off Jubilee/Royal Wedding/State Funeral days). Good Friday and Christmas Day are common-law holidays, not listed in the Act itself.",
+      "local_files": [],
+      "support_intervals": []
+    },
+    {
+      "id": "dcms-mayday-preconsultation",
+      "title": "Pre-Consultation on moving the May Day Bank Holiday (DCMS, May 2011)",
+      "publisher": "Department for Culture, Media and Sport",
+      "location": "https://assets.publishing.service.gov.uk/media/5a78ab29ed915d04220646a3/PreConsult_Bank_Holiday.pdf",
+      "retrieved": "2026-09-14",
+      "covers": "background, published May 2011",
+      "notes": "Official government consultation document. Section 2.1 tabulates how each regular bank holiday is established in law (Royal Proclamation, the 1971 Act, or common law) for England & Wales. Section 2.3 records that 2011 had \"3 bank holidays (4 in 2011 due to the Royal Wedding)\" clustered around Easter/May, corroborating that 29 April 2011 was an additional bank holiday.",
+      "local_files": [],
+      "support_intervals": []
+    },
+    {
+      "id": "dcms-diamond-jubilee-ia",
+      "title": "2012 Diamond Jubilee Extra Bank Holiday: Impact Assessment (DCMS/BIS)",
+      "publisher": "Department for Culture, Media and Sport",
+      "location": "https://assets.publishing.service.gov.uk/media/5a749febed915d0e8e399b80/2011-diamond-jubilee-bank-holiday-impact-assessment.pdf",
+      "retrieved": "2026-09-14",
+      "covers": "published 2011, covers the 2002 and 2012 Jubilee bank holidays and references the 2011 Royal Wedding",
+      "notes": "Official government impact assessment. States: \"The late May bank holiday will be moved to Monday 4 June 2012 and the extra bank holiday will take place on Tuesday 5 June 2012\"; and, discussing precedent, that for the Golden Jubilee \"the late May bank holiday was also moved to Monday the 3rd of June 2002 and this was followed by an additional bank holiday on Tuesday the 4th of June 2002.\" Also references \"the Royal Wedding on April 29th 2011\" as a comparable national holiday.",
+      "local_files": [],
+      "support_intervals": []
+    },
+    {
+      "id": "lse-trading-calendar-2021",
+      "title": "Trading Calendar 2021 (Turquoise / London Stock Exchange / Borsa Italiana / …)",
+      "publisher": "London Stock Exchange plc",
+      "location": "https://docs.londonstockexchange.com/sites/default/files/documents/turquoise_tc_2021.pdf",
+      "retrieved": "2026-09-14",
+      "covers": "2021",
+      "notes": "LSE-published multi-venue trading calendar with one column per venue and a per-venue \"Early Closing Time\" header row; the London Stock Exchange column's early-closing time is **12:30**. December 2021 rows: Fri 24 Dec 2021 marked Early Close, Mon 27 and Tue 28 Dec 2021 marked Market Closed, Fri 31 Dec 2021 marked Early Close. Confirms both the ordinary 24/31-December half day and the 2021 Christmas/Boxing cascade.",
+      "local_files": [],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2021-01-01",
+          "to": "2021-12-31"
+        },
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2021-01-01",
+          "to": "2021-12-31"
+        }
+      ]
+    },
+    {
+      "id": "lse-trading-calendar-2022",
+      "title": "Trading Calendar 2022 (Turquoise / London Stock Exchange / Borsa Italiana / …)",
+      "publisher": "London Stock Exchange plc",
+      "location": "https://docs.londonstockexchange.com/sites/default/files/documents/turquoise_tc_2022.pdf",
+      "retrieved": "2026-09-14",
+      "covers": "2022",
+      "notes": "Same format. 24 and 31 December 2022 both fell on a Saturday and appear nowhere in the calendar; instead **Fri 23 Dec 2022 and Fri 30 Dec 2022 are marked Early Close in the London Stock Exchange column** (12:30), with Mon 26 and Tue 27 Dec 2022 marked Market Closed. Primary-source confirmation of the preceding-business-day half-day shift.",
+      "local_files": [],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2022-01-01",
+          "to": "2022-12-31"
+        },
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2022-01-01",
+          "to": "2022-12-31"
+        }
+      ]
+    },
+    {
+      "id": "lse-trading-calendar-2023",
+      "title": "Trading Calendar 2023 (Turquoise / London Stock Exchange / Borsa Italiana / …)",
+      "publisher": "London Stock Exchange plc",
+      "location": "https://docs.londonstockexchange.com/sites/default/files/documents/turquoise-calendar-2023.pdf",
+      "retrieved": "2026-09-14",
+      "covers": "2023",
+      "notes": "Same format. 24 and 31 December 2023 both fell on a Sunday; **Fri 22 Dec 2023 and Fri 29 Dec 2023 carry the London Stock Exchange early-close marking** (12:30), with Mon 25 and Tue 26 Dec 2023 marked Market Closed. Second primary-source confirmation of the same shift.",
+      "local_files": [],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2023-01-01",
+          "to": "2023-12-31"
+        },
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2023-01-01",
+          "to": "2023-12-31"
+        }
+      ]
+    },
+    {
+      "id": "xcal-xlon-crossval",
+      "title": "`exchange_calendars` 4.11, XLON calendar",
+      "publisher": "`exchange_calendars` (Python package)",
+      "location": "`tools/src/test/resources/reference/GB-LSE/exchange_calendars-XLON.csv` (generated by `scripts/reference/export_reference_calendars.py`)",
+      "retrieved": "2026-09-14",
+      "covers": "2000-01-04 to 2030-12-31",
+      "notes": "**Not a primary source and not cited by any event source.** Cross-validation reference only. It agrees with this calendar on all 315 compared rows, including the six pre-2022 preceding-Friday half days that no primary document we located covers (2000, 2005, 2006, 2011, 2016, 2017); that agreement is reported here as corroboration, but those six dates are justified by the LSE's own published shift behaviour (`lse-trading-calendar-2022`, `lse-trading-calendar-2023`, `lse-business-days` 2028), not by the library.",
+      "local_files": [],
+      "support_intervals": []
+    }
+  ]
+}

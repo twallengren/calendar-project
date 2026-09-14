@@ -1,0 +1,223 @@
+{
+  "calendar_id" : "GB-CHAPS",
+  "calendar_name" : "CHAPS",
+  "kind" : "payment",
+  "generated_at" : "2026-09-14T23:09:32Z",
+  "range_start" : "2026-01-01",
+  "range_end" : "2027-12-31",
+  "timezone" : "Europe/London",
+  "coverage" : {
+    "from" : "2026-01-01",
+    "to" : "2027-12-31",
+    "verified_through" : "2027-12-31",
+    "quality" : [ {
+      "scope" : "SCHEDULED_CLOSURES",
+      "from" : "2026-01-01",
+      "to" : "2027-12-31",
+      "quality" : "VERIFIED",
+      "evidence_ids" : [ "boe-chaps-operating-days", "govuk-bank-holidays" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "2026-01-01",
+      "to" : "2027-12-31",
+      "quality" : "PROJECTED",
+      "evidence_ids" : [ "boe-chaps-operating-days" ]
+    }, {
+      "scope" : "UNSCHEDULED_EXCEPTIONS",
+      "from" : "2026-01-01",
+      "to" : "2027-12-31",
+      "quality" : "PROJECTED",
+      "evidence_ids" : [ "boe-chaps-operating-days" ]
+    } ]
+  },
+  "event_count" : 224,
+  "resolution_chain" : [ "module:weekend_sat_sun", "module:gb_chaps_holidays", "calendar:GB-CHAPS" ],
+  "counts_by_type" : {
+    "CLOSED" : 16,
+    "WEEKEND" : 208
+  },
+  "counts_by_status" : {
+    "CONFIRMED" : 224
+  },
+  "source_version" : {
+    "semantic" : "12.0.0",
+    "git_sha" : "94db6de7728c26ee75c0449220a721bfdb1977d7"
+  },
+  "event_details" : [ {
+    "date" : "2026-01-01",
+    "type" : "CLOSED",
+    "description" : "New Year's Day",
+    "key" : "chaps_new_years_day",
+    "source_module" : "module:gb_chaps_holidays",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "boe-chaps-operating-days", "govuk-bank-holidays" ],
+    "observation_lineage" : [ ]
+  }, {
+    "date" : "2026-04-03",
+    "type" : "CLOSED",
+    "description" : "Good Friday",
+    "key" : "chaps_good_friday",
+    "source_module" : "module:gb_chaps_holidays",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "boe-chaps-operating-days", "govuk-bank-holidays" ],
+    "observation_lineage" : [ ]
+  }, {
+    "date" : "2026-04-06",
+    "type" : "CLOSED",
+    "description" : "Easter Monday",
+    "key" : "chaps_easter_monday",
+    "source_module" : "module:gb_chaps_holidays",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "boe-chaps-operating-days", "govuk-bank-holidays" ],
+    "observation_lineage" : [ ]
+  }, {
+    "date" : "2026-05-04",
+    "type" : "CLOSED",
+    "description" : "Early May bank holiday",
+    "key" : "chaps_early_may_bank_holiday",
+    "source_module" : "module:gb_chaps_holidays",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "boe-chaps-operating-days", "govuk-bank-holidays" ],
+    "observation_lineage" : [ ]
+  }, {
+    "date" : "2026-05-25",
+    "type" : "CLOSED",
+    "description" : "Spring bank holiday",
+    "key" : "chaps_spring_bank_holiday",
+    "source_module" : "module:gb_chaps_holidays",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "boe-chaps-operating-days", "govuk-bank-holidays" ],
+    "observation_lineage" : [ ]
+  }, {
+    "date" : "2026-08-31",
+    "type" : "CLOSED",
+    "description" : "Summer bank holiday",
+    "key" : "chaps_summer_bank_holiday",
+    "source_module" : "module:gb_chaps_holidays",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "boe-chaps-operating-days", "govuk-bank-holidays" ],
+    "observation_lineage" : [ ]
+  }, {
+    "date" : "2026-12-25",
+    "type" : "CLOSED",
+    "description" : "Christmas Day",
+    "key" : "chaps_christmas_day",
+    "source_module" : "module:gb_chaps_holidays",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "boe-chaps-operating-days", "govuk-bank-holidays" ],
+    "observation_lineage" : [ ]
+  }, {
+    "date" : "2026-12-28",
+    "type" : "CLOSED",
+    "description" : "Boxing Day",
+    "key" : "chaps_boxing_day",
+    "source_module" : "module:gb_chaps_holidays",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "boe-chaps-operating-days", "govuk-bank-holidays" ],
+    "observation_lineage" : [ ]
+  }, {
+    "date" : "2027-01-01",
+    "type" : "CLOSED",
+    "description" : "New Year's Day",
+    "key" : "chaps_new_years_day",
+    "source_module" : "module:gb_chaps_holidays",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "boe-chaps-operating-days", "govuk-bank-holidays" ],
+    "observation_lineage" : [ ]
+  }, {
+    "date" : "2027-03-26",
+    "type" : "CLOSED",
+    "description" : "Good Friday",
+    "key" : "chaps_good_friday",
+    "source_module" : "module:gb_chaps_holidays",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "boe-chaps-operating-days", "govuk-bank-holidays" ],
+    "observation_lineage" : [ ]
+  }, {
+    "date" : "2027-03-29",
+    "type" : "CLOSED",
+    "description" : "Easter Monday",
+    "key" : "chaps_easter_monday",
+    "source_module" : "module:gb_chaps_holidays",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "boe-chaps-operating-days", "govuk-bank-holidays" ],
+    "observation_lineage" : [ ]
+  }, {
+    "date" : "2027-05-03",
+    "type" : "CLOSED",
+    "description" : "Early May bank holiday",
+    "key" : "chaps_early_may_bank_holiday",
+    "source_module" : "module:gb_chaps_holidays",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "boe-chaps-operating-days", "govuk-bank-holidays" ],
+    "observation_lineage" : [ ]
+  }, {
+    "date" : "2027-05-31",
+    "type" : "CLOSED",
+    "description" : "Spring bank holiday",
+    "key" : "chaps_spring_bank_holiday",
+    "source_module" : "module:gb_chaps_holidays",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "boe-chaps-operating-days", "govuk-bank-holidays" ],
+    "observation_lineage" : [ ]
+  }, {
+    "date" : "2027-08-30",
+    "type" : "CLOSED",
+    "description" : "Summer bank holiday",
+    "key" : "chaps_summer_bank_holiday",
+    "source_module" : "module:gb_chaps_holidays",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "boe-chaps-operating-days", "govuk-bank-holidays" ],
+    "observation_lineage" : [ ]
+  }, {
+    "date" : "2027-12-27",
+    "type" : "CLOSED",
+    "description" : "Christmas Day",
+    "key" : "chaps_christmas_day",
+    "source_module" : "module:gb_chaps_holidays",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "boe-chaps-operating-days", "govuk-bank-holidays" ],
+    "observation_lineage" : [ ]
+  }, {
+    "date" : "2027-12-28",
+    "type" : "CLOSED",
+    "description" : "Boxing Day",
+    "key" : "chaps_boxing_day",
+    "source_module" : "module:gb_chaps_holidays",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "boe-chaps-operating-days", "govuk-bank-holidays" ],
+    "observation_lineage" : [ ]
+  } ]
+}
