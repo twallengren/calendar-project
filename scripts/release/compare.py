@@ -14,6 +14,7 @@ import collections
 import csv
 import datetime as dt
 import json
+import hashlib
 import os
 import sys
 from typing import Any, Dict, Iterable, Mapping, Sequence, Tuple
@@ -23,7 +24,6 @@ EXIT_CODES = {"NONE": 0, "PATCH": 1, "MINOR": 1, "MAJOR": 2}
 IDENTITY_FIELDS = ("calendar_id", "kind", "timezone", "mic")
 DESCRIPTIVE_FIELDS = ("calendar_name", "description")
 SEMANTIC_DETAIL_FIELDS = (
-    "event_details",
     "chronology",
     "chronology_profile",
     "native_profile",
@@ -104,7 +104,106 @@ def _raise(current: str, proposed: str) -> str:
     return proposed if SEVERITIES[proposed] > SEVERITIES[current] else current
 
 
-def compare(baseline_root: str, candidate_root: str) -> Dict[str, Any]:
+def _event_details(value: Any, start: str, end: str) -> collections.Counter:
+    result: collections.Counter = collections.Counter()
+    if not isinstance(value, list):
+        return result
+    for item in value:
+        if not isinstance(item, dict):
+            raise ValueError("event_details entries must be objects")
+        date = item.get("date") or item.get("iso_date")
+        if date is not None and not (start <= str(date) <= end):
+            continue
+        result[json.dumps(item, sort_keys=True, separators=(",", ":"))] += 1
+    return result
+
+
+def _flatten(value: Any, prefix: str = "") -> Dict[str, Any]:
+    if not isinstance(value, dict):
+        return {prefix: value}
+    result = {}
+    for key in sorted(value):
+        path = "{}.{}".format(prefix, key) if prefix else key
+        result.update(_flatten(value[key], path))
+    return result
+
+
+def _quality_rank(value: Any) -> int | None:
+    if not isinstance(value, str):
+        return None
+    return {
+        "INCOMPLETE": 0,
+        "UNKNOWN": 0,
+        "PROJECTED": 1,
+        "COMPLETE": 2,
+        "VERIFIED": 2,
+        "CONFIRMED": 2,
+    }.get(value.upper())
+
+
+def _compare_coverage(old: Mapping[str, Any], new: Mapping[str, Any]) -> Tuple[str, list]:
+    severity = "NONE"
+    reasons = []
+    if old and not new:
+        return "MAJOR", ["explicit coverage metadata removed"]
+    old_verified = old.get("verified_through")
+    new_verified = new.get("verified_through")
+    if old_verified and (not new_verified or new_verified < old_verified):
+        severity = _raise(severity, "MAJOR")
+        reasons.append("verified coverage contracted")
+    elif new_verified and (not old_verified or new_verified > old_verified):
+        severity = _raise(severity, "MINOR")
+        reasons.append("verified coverage extended")
+
+    ignored = {"from", "to", "verified_through"}
+    old_details = _flatten({key: value for key, value in old.items() if key not in ignored})
+    new_details = _flatten({key: value for key, value in new.items() if key not in ignored})
+    for key in sorted(set(old_details) | set(new_details)):
+        before = old_details.get(key)
+        after = new_details.get(key)
+        if before == after:
+            continue
+        before_rank = _quality_rank(before)
+        after_rank = _quality_rank(after)
+        if after_rank == 0 or (before_rank is not None and (after_rank is None or after_rank < before_rank)):
+            severity = _raise(severity, "MAJOR")
+            reasons.append("coverage quality contracted: {}".format(key))
+        elif before is None:
+            severity = _raise(severity, "MINOR")
+            reasons.append("coverage metadata added: {}".format(key))
+        else:
+            severity = _raise(severity, "MAJOR")
+            reasons.append("coverage semantics changed: {}".format(key))
+    if not old and new and not reasons:
+        severity = _raise(severity, "MINOR")
+        reasons.append("explicit coverage metadata added")
+    return severity, reasons
+
+
+def _source_snapshot(root: str | None) -> Dict[str, str]:
+    result = {}
+    if not root or not os.path.isdir(root):
+        return result
+    for directory, names, files in os.walk(root):
+        names.sort()
+        for name in sorted(files):
+            path = os.path.join(directory, name)
+            relative = os.path.relpath(path, root).replace(os.sep, "/")
+            with open(path, "rb") as handle:
+                raw = handle.read()
+            if name.endswith((".md", ".txt", ".json", ".yaml", ".yml", ".csv")):
+                text = raw.decode("utf-8").replace("\r\n", "\n")
+                raw = ("\n".join(line.rstrip() for line in text.splitlines()) + "\n").encode()
+            result[relative] = hashlib.sha256(raw).hexdigest()
+    return result
+
+
+def compare(
+    baseline_root: str,
+    candidate_root: str,
+    baseline_sources: str | None = None,
+    candidate_sources: str | None = None,
+) -> Dict[str, Any]:
     baseline = _manifest(baseline_root)
     candidate = _manifest(candidate_root)
     old_calendars = baseline.get("calendars", {})
@@ -173,6 +272,18 @@ def compare(baseline_root: str, candidate_root: str) -> Dict[str, Any]:
                         "({} removed, {} added)".format(removed, added)
                     )
 
+                old_details = _event_details(old_meta.get("event_details"), overlap_start, overlap_end)
+                new_details = _event_details(new_meta.get("event_details"), overlap_start, overlap_end)
+                if "event_details" not in old_meta and "event_details" in new_meta:
+                    severity = _raise(severity, "MINOR")
+                    reasons.append("published event provenance added")
+                elif "event_details" in old_meta and "event_details" not in new_meta:
+                    severity = _raise(severity, "MAJOR")
+                    reasons.append("published event provenance removed")
+                elif old_details != new_details:
+                    severity = _raise(severity, "MAJOR")
+                    reasons.append("published event provenance changed inside existing coverage")
+
             for field in IDENTITY_FIELDS:
                 if field not in old_meta and field in new_meta:
                     severity = _raise(severity, "MINOR")
@@ -202,26 +313,11 @@ def compare(baseline_root: str, candidate_root: str) -> Dict[str, Any]:
                 elif old_meta.get(field) != new_meta.get(field):
                     severity = _raise(severity, "MAJOR")
                     reasons.append("published semantic metadata changed: {}".format(field))
-            old_coverage = old_meta.get("coverage") or {}
-            new_coverage = new_meta.get("coverage") or {}
-            if not old_coverage and new_coverage:
-                severity = _raise(severity, "MINOR")
-                reasons.append("explicit coverage metadata added")
-            elif old_coverage and not new_coverage:
-                severity = _raise(severity, "MAJOR")
-                reasons.append("explicit coverage metadata removed")
-            elif old_coverage != new_coverage:
-                old_verified = old_coverage.get("verified_through")
-                new_verified = new_coverage.get("verified_through")
-                if old_verified and (not new_verified or new_verified < old_verified):
-                    severity = _raise(severity, "MAJOR")
-                    reasons.append("verified coverage contracted")
-                elif new_verified and (not old_verified or new_verified > old_verified):
-                    severity = _raise(severity, "MINOR")
-                    reasons.append("verified coverage extended")
-                else:
-                    severity = _raise(severity, "MAJOR")
-                    reasons.append("coverage semantics changed")
+            coverage_severity, coverage_reasons = _compare_coverage(
+                old_meta.get("coverage") or {}, new_meta.get("coverage") or {}
+            )
+            severity = _raise(severity, coverage_severity)
+            reasons.extend(coverage_reasons)
 
         reports[calendar_id] = {"severity": severity, "reasons": reasons}
         overall = _raise(overall, severity)
@@ -239,6 +335,11 @@ def compare(baseline_root: str, candidate_root: str) -> Dict[str, Any]:
             overall = _raise(overall, "MINOR")
             alias_reasons.append("alias {} added".format(alias))
 
+    source_reasons = []
+    if _source_snapshot(baseline_sources) != _source_snapshot(candidate_sources):
+        overall = _raise(overall, "PATCH")
+        source_reasons.append("canonical source documentation changed")
+
     return {
         "schema_version": "1.0",
         "severity": overall,
@@ -246,6 +347,7 @@ def compare(baseline_root: str, candidate_root: str) -> Dict[str, Any]:
         "candidate_data_version": candidate.get("release_version", {}).get("semantic"),
         "calendars": reports,
         "aliases": alias_reasons,
+        "sources": source_reasons,
     }
 
 
@@ -254,9 +356,13 @@ def main(argv: Sequence[str] | None = None) -> int:
     parser.add_argument("--baseline", required=True)
     parser.add_argument("--candidate", required=True)
     parser.add_argument("--output")
+    parser.add_argument("--baseline-sources")
+    parser.add_argument("--candidate-sources")
     args = parser.parse_args(argv)
     try:
-        report = compare(args.baseline, args.candidate)
+        report = compare(
+            args.baseline, args.candidate, args.baseline_sources, args.candidate_sources
+        )
     except (OSError, ValueError, json.JSONDecodeError, csv.Error) as error:
         print("release comparison failed: {}".format(error), file=sys.stderr)
         return 3

@@ -101,7 +101,7 @@ jobs:
             --tag "$BASELINE_REF" \
             --tag-commit "$BASELINE_COMMIT" \
             --output "$RUNNER_TEMP/published-baseline" \
-            --evidence release/baseline-evidence.json \
+            --evidence "$RUNNER_TEMP/baseline-evidence.json" \
             --prove-tag-equivalence
           echo "ref=$BASELINE_REF" >> "$GITHUB_OUTPUT"
 
@@ -123,7 +123,7 @@ jobs:
           scripts/release/prepare.sh \
             --baseline-ref "$BASELINE_REF" \
             --baseline-dir "$RUNNER_TEMP/published-baseline" \
-            --baseline-evidence release/baseline-evidence.json \
+            --baseline-evidence "$RUNNER_TEMP/baseline-evidence.json" \
             --source-sha "$SOURCE_SHA" \
             --generated-at "$GENERATED_AT"
           STATUS=$?

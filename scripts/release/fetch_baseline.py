@@ -104,8 +104,14 @@ def prove_tag_equivalence(output, tag):
                 continue
             path = os.path.join(directory, name)
             relative = os.path.relpath(path, output).replace(os.sep, "/")
+            if relative.startswith("sources/"):
+                tagged_path = relative
+            elif relative in ("release.json", "impact.json", "baseline-evidence.json"):
+                tagged_path = "release/" + relative
+            else:
+                tagged_path = "blessed/" + relative
             tagged = subprocess.run(
-                ["git", "show", "{}:blessed/{}".format(tag, relative)],
+                ["git", "show", "{}:{}".format(tag, tagged_path)],
                 check=True,
                 capture_output=True,
             ).stdout

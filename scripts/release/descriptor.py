@@ -9,11 +9,20 @@ import hashlib
 import json
 import os
 import re
+import subprocess
 import sys
 from typing import Any, Dict, Sequence
 
 SHA = re.compile(r"^[0-9a-f]{40}$")
 SEMVER = re.compile(r"^[0-9]+\.[0-9]+\.[0-9]+$")
+
+
+def _load_json(path: str) -> Dict[str, Any]:
+    with open(path, encoding="utf-8") as handle:
+        value = json.load(handle)
+    if not isinstance(value, dict):
+        raise ValueError("{} must contain a JSON object".format(path))
+    return value
 
 
 def digest(path: str) -> str:
@@ -56,10 +65,58 @@ def supporting_hashes() -> Dict[str, str]:
     return {path.replace(os.sep, "/"): digest(path) for path in paths if os.path.isfile(path)}
 
 
+def tree_digest(root: str) -> str:
+    if os.path.isfile(root):
+        return digest(root)
+    value = hashlib.sha256()
+    if not os.path.isdir(root):
+        return "sha256:" + value.hexdigest()
+    for directory, names, files in os.walk(root):
+        names.sort()
+        for name in sorted(files):
+            path = os.path.join(directory, name)
+            relative = os.path.relpath(path, root).replace(os.sep, "/")
+            value.update(relative.encode("utf-8") + b"\0" + digest(path).encode("ascii") + b"\n")
+    return "sha256:" + value.hexdigest()
+
+
+def tracked_tree_digest(root: str) -> str:
+    value = hashlib.sha256()
+    files = subprocess.check_output(["git", "ls-files", "--", root], text=True).splitlines()
+    for path in sorted(files):
+        value.update(path.encode("utf-8") + b"\0" + digest(path).encode("ascii") + b"\n")
+    return "sha256:" + value.hexdigest()
+
+
+def input_hashes() -> Dict[str, str]:
+    roots = (
+        "calendars",
+        "modules",
+        "chronologies",
+        "sources",
+        "spec",
+        "tools/src/main/java",
+        "tools/src/main/java-generated",
+        "tools/src/main/resources",
+        "scripts/release",
+        "scripts/bless.sh",
+        "build.gradle.kts",
+        "settings.gradle.kts",
+        "gradle.properties",
+        "core/build.gradle.kts",
+        "data/build.gradle.kts",
+        "tools/build.gradle.kts",
+        "gradle/wrapper/gradle-wrapper.properties",
+        "gradle/verification-metadata.xml",
+        "release/versions.json",
+    )
+    return {root: tracked_tree_digest(root) for root in roots}
+
+
 def read_versions(path: str) -> Dict[str, str]:
     with open(path, encoding="utf-8") as handle:
         versions = json.load(handle)
-    for key in ("data", "java_core", "python"):
+    for key in ("data", "java_core", "python", "wire_schema"):
         value = versions.get(key)
         if not isinstance(value, str) or not SEMVER.fullmatch(value):
             raise ValueError("{} has invalid {} version {!r}".format(path, key, value))
@@ -105,6 +162,7 @@ def build(args: argparse.Namespace) -> Dict[str, Any]:
             "java_core": versions["java_core"],
             "java_data": args.data_version,
             "python": versions["python"],
+            "wire_schema": versions["wire_schema"],
         },
         "impact": {
             "severity": impact["severity"],
@@ -113,22 +171,80 @@ def build(args: argparse.Namespace) -> Dict[str, Any]:
         },
         "artifacts": artifact_hashes(args.artifacts),
         "supporting_artifacts": supporting_hashes(),
+        "history_sha256": tree_digest("release-history"),
+        "inputs": input_hashes(),
     }
 
 
 def verify(path: str, artifacts: str, impact: str) -> None:
     with open(path, encoding="utf-8") as handle:
         descriptor = json.load(handle)
+    if descriptor.get("schema_version") != "1.0":
+        raise ValueError("unsupported release descriptor schema")
+    if not SHA.fullmatch(str(descriptor.get("source_sha", ""))):
+        raise ValueError("release descriptor has invalid source SHA")
+    generated_at = str(descriptor.get("generation_timestamp", ""))
+    if not generated_at.endswith("Z"):
+        raise ValueError("release descriptor has invalid UTC generation timestamp")
+    dt.datetime.fromisoformat(generated_at[:-1] + "+00:00")
+    versions = read_versions("release/versions.json")
+    declared = descriptor.get("versions", {})
+    if (
+        declared.get("data") != versions["data"]
+        or declared.get("java_data") != versions["data"]
+        or declared.get("java_core") != versions["java_core"]
+        or declared.get("python") != versions["python"]
+        or declared.get("wire_schema") != versions["wire_schema"]
+    ):
+        raise ValueError("release descriptor versions do not match release/versions.json")
     expected = artifact_hashes(artifacts)
     if descriptor.get("artifacts") != expected:
         raise ValueError("release descriptor artifact hashes do not match the working tree")
     if descriptor.get("supporting_artifacts") != supporting_hashes():
         raise ValueError("release descriptor supporting artifact hashes do not match the working tree")
+    if descriptor.get("history_sha256") != tree_digest("release-history"):
+        raise ValueError("release descriptor does not match immutable release history")
+    if descriptor.get("inputs") != input_hashes():
+        raise ValueError("release descriptor reproducibility inputs do not match the working tree")
     if descriptor.get("impact", {}).get("sha256") != digest(impact):
         raise ValueError("release descriptor impact hash does not match the working tree")
     evidence = descriptor.get("baseline", {}).get("evidence")
     if not evidence or descriptor["baseline"].get("evidence_sha256") != digest(evidence):
         raise ValueError("release descriptor baseline evidence hash does not match the working tree")
+    with open(evidence, encoding="utf-8") as handle:
+        evidence_value = json.load(handle)
+    baseline = descriptor["baseline"]
+    if (
+        evidence_value.get("tag") != baseline.get("ref")
+        or evidence_value.get("tag_commit") != baseline.get("commit")
+        or evidence_value.get("data_version") != baseline.get("data_version")
+    ):
+        raise ValueError("release descriptor baseline fields do not match authenticated evidence")
+    tagged = subprocess.check_output(
+        ["git", "rev-parse", "{}^{{commit}}".format(baseline["ref"])], text=True
+    ).strip()
+    if tagged != baseline["commit"]:
+        raise ValueError("release baseline tag no longer resolves to the declared commit")
+    with open(impact, encoding="utf-8") as handle:
+        impact_value = json.load(handle)
+    if impact_value.get("severity") not in ("PATCH", "MINOR", "MAJOR"):
+        raise ValueError("release impact has invalid severity")
+    if descriptor.get("impact", {}).get("severity") != impact_value.get("severity"):
+        raise ValueError("release descriptor severity does not match impact report")
+    if (
+        impact_value.get("baseline_data_version") != baseline.get("data_version")
+        or impact_value.get("candidate_data_version") != declared["data"]
+    ):
+        raise ValueError("impact report versions do not match release descriptor")
+    manifest = _load_json(os.path.join(artifacts, "manifest.json"))
+    release = manifest.get("release_version", {})
+    if release.get("semantic") != declared["data"] or release.get("git_sha") != descriptor["source_sha"]:
+        raise ValueError("blessed manifest version/source do not match release descriptor")
+    for calendar_id in manifest.get("calendars", {}):
+        metadata = _load_json(os.path.join(artifacts, calendar_id, "metadata.json"))
+        source = metadata.get("source_version", {})
+        if source.get("semantic") != declared["data"] or source.get("git_sha") != descriptor["source_sha"]:
+            raise ValueError("{} metadata version/source does not match descriptor".format(calendar_id))
 
 
 def main(argv: Sequence[str] | None = None) -> int:

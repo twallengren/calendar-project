@@ -13,6 +13,7 @@ on:
 
 permissions:
   contents: read
+  actions: read
 
 concurrency:
   group: publication
@@ -54,6 +55,16 @@ jobs:
           ref: ${{ steps.resolve.outputs.commit }}
           fetch-depth: 0
 
+      - name: Prove CI succeeded for this exact commit
+        env:
+          GH_TOKEN: ${{ github.token }}
+          COMMIT: ${{ steps.resolve.outputs.commit }}
+        run: |
+          MATCHES=$(gh api -X GET "repos/$GITHUB_REPOSITORY/actions/workflows/ci.yml/runs" \
+            -f head_sha="$COMMIT" -f status=completed | \
+            jq --arg sha "$COMMIT" '[.workflow_runs[] | select(.head_sha == $sha and .conclusion == "success")] | length')
+          test "$MATCHES" -gt 0 || { echo "No successful CI run exists for exact commit $COMMIT" >&2; exit 1; }
+
       - name: Gate on a descriptor introduced by this exact commit
         id: gate
         env:
@@ -76,24 +87,45 @@ jobs:
           echo "python_version=$(jq -r .versions.python release/release.json)" >> "$GITHUB_OUTPUT"
           echo "java_core_version=$(jq -r .versions.java_core release/release.json)" >> "$GITHUB_OUTPUT"
 
-      - uses: actions/setup-java@v4
+      - name: Reuse a verified build from an earlier attempt
         if: steps.gate.outputs.release == 'true'
+        id: reuse
+        env:
+          GH_TOKEN: ${{ github.token }}
+          COMMIT: ${{ steps.resolve.outputs.commit }}
+        run: |
+          URL=$(gh api -X GET "repos/$GITHUB_REPOSITORY/actions/artifacts" \
+            -f name="publication-$COMMIT" -f per_page=100 \
+            --jq '[.artifacts[] | select(.expired == false)] | sort_by(.created_at) | last | .archive_download_url // empty')
+          if [ -z "$URL" ]; then
+            echo "reused=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          mkdir -p publication
+          gh api "$URL" > "$RUNNER_TEMP/publication.zip"
+          unzip -q "$RUNNER_TEMP/publication.zip" -d publication
+          python3 scripts/release/verify_publication.py publication "$COMMIT"
+          echo "reused=true" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/setup-java@v4
+        if: steps.gate.outputs.release == 'true' && steps.reuse.outputs.reused == 'false'
         with:
           java-version: ${{ env.JAVA_VERSION }}
           distribution: ${{ env.JAVA_DISTRIBUTION }}
       - uses: gradle/actions/setup-gradle@v4
-        if: steps.gate.outputs.release == 'true'
+        if: steps.gate.outputs.release == 'true' && steps.reuse.outputs.reused == 'false'
       - uses: actions/setup-python@v5
-        if: steps.gate.outputs.release == 'true'
+        if: steps.gate.outputs.release == 'true' && steps.reuse.outputs.reused == 'false'
         with:
           python-version: '3.11'
 
       - name: Validate and build all deliverables once
-        if: steps.gate.outputs.release == 'true'
+        if: steps.gate.outputs.release == 'true' && steps.reuse.outputs.reused == 'false'
         env:
           ORG_GRADLE_PROJECT_signingKey: ${{ secrets.MAVEN_SIGNING_KEY }}
           ORG_GRADLE_PROJECT_signingPassword: ${{ secrets.MAVEN_SIGNING_PASSWORD }}
         run: |
+          export SOURCE_DATE_EPOCH=$(git show -s --format=%ct "${{ steps.resolve.outputs.commit }}")
           ./gradlew build :tools:installDist nmcpZipAggregation -Prelease=true
           tools/build/install/tools/bin/tools validate --all --strict
           tools/build/install/tools/bin/tools crossvalidate --all --out blessed
@@ -109,7 +141,7 @@ jobs:
           touch publication/pages/.nojekyll
 
       - name: Assemble deterministic release assets
-        if: steps.gate.outputs.release == 'true'
+        if: steps.gate.outputs.release == 'true' && steps.reuse.outputs.reused == 'false'
         run: |
           VERSION=$(jq -r .versions.data release/release.json)
           mkdir -p publication/dataset publication/assets publication/java publication/python publication/maven
@@ -117,7 +149,11 @@ jobs:
           for ID in $(jq -r '.calendars | keys[]' blessed/manifest.json); do
             cp -R "blessed/$ID" publication/dataset/
           done
+          cp -R sources publication/dataset/
           cp release/release.json release/impact.json release/baseline-evidence.json publication/dataset/
+          jq --arg commit "${{ steps.resolve.outputs.commit }}" '.release_commit = $commit' \
+            publication/dataset/release.json > publication/dataset/release.json.tmp
+          mv publication/dataset/release.json.tmp publication/dataset/release.json
           cp core/build/libs/* data/build/libs/* publication/java/
           cp build/nmcp/zip/aggregation.zip publication/maven/central-bundle.zip
           cp python/dist/* publication/python/
@@ -128,7 +164,7 @@ jobs:
             ICS="publication/pages/v1/calendars/$ID/holidays-recent.ics"
             if [ -f "$ICS" ]; then cp "$ICS" "publication/assets/${ID}-holidays.ics"; fi
           done
-          python3 scripts/release/checksums.py publication/assets publication/java publication/python publication/maven > publication/checksums.txt
+          python3 scripts/release/checksums.py publication/assets publication/java publication/python publication/maven publication/pages > publication/checksums.txt
 
       - uses: actions/upload-artifact@v4
         if: steps.gate.outputs.release == 'true'
@@ -136,6 +172,7 @@ jobs:
           name: publication-${{ steps.resolve.outputs.commit }}
           path: publication
           if-no-files-found: error
+          include-hidden-files: true
           retention-days: 30
 
   github-release:
@@ -144,6 +181,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      actions: read
     steps:
       - uses: actions/checkout@v4
         with:
@@ -163,6 +201,8 @@ jobs:
           if git rev-parse "refs/tags/$TAG" >/dev/null 2>&1; then
             test "$(git rev-list -n 1 "$TAG")" = "$COMMIT" || { echo "Conflicting tag $TAG" >&2; exit 1; }
           else
+            git config user.name "calendar-release[bot]"
+            git config user.email "calendar-release[bot]@users.noreply.github.com"
             git tag -a "$TAG" "$COMMIT" -m "Calendar data $VERSION"
             git push origin "refs/tags/$TAG"
           fi
@@ -179,6 +219,8 @@ jobs:
     if: needs.build-once.outputs.release == 'true' && vars.PYPI_PUBLISH == 'true'
     runs-on: ubuntu-latest
     permissions:
+      contents: read
+      actions: read
       id-token: write
     steps:
       - uses: actions/checkout@v4
@@ -214,6 +256,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      actions: read
     steps:
       - uses: actions/checkout@v4
         with:
@@ -231,34 +274,39 @@ jobs:
           COMMIT: ${{ needs.build-once.outputs.commit }}
         run: |
           TAG="v$VERSION"
-          CORE_URL="https://repo1.maven.org/maven2/io/github/twallengren/bdc-calendar-core/$(jq -r .versions.java_core release/release.json)/bdc-calendar-core-$(jq -r .versions.java_core release/release.json).pom"
-          DATA_URL="https://repo1.maven.org/maven2/io/github/twallengren/bdc-calendar-data/$VERSION/bdc-calendar-data-$VERSION.pom"
-          CORE_STATUS=$(curl -sS -o /dev/null -w '%{http_code}' "$CORE_URL")
-          DATA_STATUS=$(curl -sS -o /dev/null -w '%{http_code}' "$DATA_URL")
-          if [ "$CORE_STATUS" = 200 ] && [ "$DATA_STATUS" = 200 ]; then
-            echo "Both Maven coordinates already exist; skipping completed publication."
+          for ATTEMPT in $(seq 1 12); do
+            set +e
+            python3 scripts/release/prepare_maven_upload.py \
+              publication/maven/central-bundle.zip publication/maven/upload.zip \
+              --core-version "$(jq -r .versions.java_core release/release.json)" \
+              --data-version "$VERSION" > publication/maven/plan.json
+            PLAN_STATUS=$?
+            set -e
+            if [ "$PLAN_STATUS" -eq 0 ]; then break; fi
+            if [ "$PLAN_STATUS" -ne 2 ]; then exit "$PLAN_STATUS"; fi
+            sleep 10
+          done
+          test "$PLAN_STATUS" -eq 0
+          if [ "$(jq -r .upload_required publication/maven/plan.json)" = false ]; then
+            echo "All Maven coordinates exist with byte-identical files; skipping upload."
             ./gradlew -b scripts/release/maven-smoke.gradle.kts resolveRelease \
               --gradle-user-home "$RUNNER_TEMP/maven-smoke" --refresh-dependencies \
               -PcoreVersion="$(jq -r .versions.java_core release/release.json)" \
               -PdataVersion="$VERSION"
             exit 0
           fi
-          if [ "$CORE_STATUS" = 200 ] || [ "$DATA_STATUS" = 200 ]; then
-            echo "Conflicting partial Maven publication" >&2
-            exit 1
-          fi
-          BUNDLE_SHA=$(sha256sum publication/maven/central-bundle.zip | cut -d' ' -f1)
+          BUNDLE_SHA=$(jq -r .bundle_sha256 publication/maven/plan.json)
           mkdir -p publication/maven-state
           if gh release download "$TAG" --pattern maven-deployment.json --dir publication/maven-state >/dev/null 2>&1; then
-            test "$(jq -r .bundle_sha256 publication/maven-state/maven-deployment.json)" = "sha256:$BUNDLE_SHA"
+            test "$(jq -r .bundle_sha256 publication/maven-state/maven-deployment.json)" = "$BUNDLE_SHA"
             DEPLOYMENT_ID=$(jq -r .deployment_id publication/maven-state/maven-deployment.json)
           else
             AUTH=$(printf '%s:%s' "$CENTRAL_USERNAME" "$CENTRAL_PASSWORD" | base64 | tr -d '\n')
             DEPLOYMENT_ID=$(curl --fail --silent --show-error \
               --header "Authorization: Bearer $AUTH" \
-              --form "bundle=@publication/maven/central-bundle.zip;type=application/octet-stream" \
+              --form "bundle=@publication/maven/upload.zip;type=application/octet-stream" \
               "https://central.sonatype.com/api/v1/publisher/upload?publishingType=AUTOMATIC&name=calendar-project-$COMMIT")
-            jq -n --arg id "$DEPLOYMENT_ID" --arg sha "sha256:$BUNDLE_SHA" --arg commit "$COMMIT" \
+            jq -n --arg id "$DEPLOYMENT_ID" --arg sha "$BUNDLE_SHA" --arg commit "$COMMIT" \
               '{deployment_id:$id,bundle_sha256:$sha,commit:$commit}' > publication/maven-state/maven-deployment.json
             gh release upload "$TAG" publication/maven-state/maven-deployment.json
           fi
@@ -287,6 +335,7 @@ jobs:
     if: needs.build-once.outputs.release == 'true'
     runs-on: ubuntu-latest
     permissions:
+      actions: read
       pages: write
       id-token: write
     environment:

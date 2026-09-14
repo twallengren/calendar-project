@@ -44,6 +44,9 @@ class ReleaseCompareTest(unittest.TestCase):
                 "range_end": end,
                 "generated_at": spec.get("generated_at", "2025-01-01T00:00:00Z"),
             }
+            for field in ("coverage", "event_details", "chronology_profile"):
+                if field in spec:
+                    metadata[field] = spec[field]
             with open(os.path.join(target, "metadata.json"), "w", encoding="utf-8") as handle:
                 json.dump(metadata, handle)
             with open(
@@ -152,6 +155,76 @@ class ReleaseCompareTest(unittest.TestCase):
             writer.writerow(row)
         self.write_dataset(self.new, {"CAL": {"rows": [self.row(close_time="13:00")]}})
         self.assertEqual("MINOR", self.severity())
+
+    def test_event_details_are_counted_order_independently_and_filtered_to_overlap(self):
+        details = [
+            {"date": "2025-05-01", "key": "a", "evidence": "one"},
+            {"date": "2025-05-01", "key": "b", "evidence": "two"},
+        ]
+        self.write_dataset(self.old, {"CAL": {"event_details": details}})
+        self.write_dataset(
+            self.new,
+            {
+                "CAL": {
+                    "end": "2026-12-31",
+                    "event_details": list(reversed(details))
+                    + [{"date": "2026-05-01", "key": "new", "evidence": "three"}],
+                }
+            },
+        )
+        self.assertEqual("MINOR", self.severity())
+
+    def test_event_detail_attribution_change_inside_overlap_is_major(self):
+        self.write_dataset(
+            self.old,
+            {"CAL": {"event_details": [{"date": "2025-05-01", "evidence": "old"}]}},
+        )
+        self.write_dataset(
+            self.new,
+            {"CAL": {"event_details": [{"date": "2025-05-01", "evidence": "new"}]}},
+        )
+        self.assertEqual("MAJOR", self.severity())
+
+    def test_quality_contraction_wins_over_verified_extension(self):
+        self.write_dataset(
+            self.old,
+            {"CAL": {"coverage": {"from": "2025-01-01", "to": "2025-12-31", "verified_through": "2025-06-01", "scheduled": {"quality": "VERIFIED"}}}},
+        )
+        self.write_dataset(
+            self.new,
+            {"CAL": {"coverage": {"from": "2025-01-01", "to": "2025-12-31", "verified_through": "2025-12-01", "scheduled": {"quality": "INCOMPLETE"}}}},
+        )
+        self.assertEqual("MAJOR", self.severity())
+
+    def test_new_explicit_incomplete_quality_is_major_for_legacy_coverage(self):
+        self.write_dataset(self.old, {"CAL": {}})
+        self.write_dataset(
+            self.new,
+            {"CAL": {"coverage": {"from": "2025-01-01", "to": "2025-12-31", "scheduled": {"quality": "INCOMPLETE"}}}},
+        )
+        self.assertEqual("MAJOR", self.severity())
+
+    def test_pure_coverage_extension_stays_minor(self):
+        coverage = {"from": "2025-01-01", "to": "2025-12-31", "verified_through": "2025-06-01"}
+        self.write_dataset(self.old, {"CAL": {"coverage": coverage}})
+        extended = dict(coverage, to="2026-12-31")
+        self.write_dataset(
+            self.new, {"CAL": {"end": "2026-12-31", "coverage": extended}}
+        )
+        self.assertEqual("MINOR", self.severity())
+
+    def test_source_document_only_change_is_patch(self):
+        self.write_dataset(self.old, {"CAL": {}})
+        self.write_dataset(self.new, {"CAL": {}})
+        old_sources = os.path.join(self.temporary.name, "old-sources")
+        new_sources = os.path.join(self.temporary.name, "new-sources")
+        os.makedirs(old_sources)
+        os.makedirs(new_sources)
+        for root, text in ((old_sources, "Old citation\n"), (new_sources, "New citation\n")):
+            with open(os.path.join(root, "register.md"), "w", encoding="utf-8") as handle:
+                handle.write(text)
+        report = compare.compare(self.old, self.new, old_sources, new_sources)
+        self.assertEqual("PATCH", report["severity"])
 
 
 if __name__ == "__main__":

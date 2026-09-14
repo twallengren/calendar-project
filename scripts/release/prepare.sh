@@ -30,6 +30,14 @@ if [ "${#SOURCE_SHA}" -ne 40 ]; then
   echo "--source-sha must be a full Git SHA" >&2
   exit 2
 fi
+if [ "$SOURCE_SHA" != "$(git rev-parse HEAD)" ]; then
+  echo "--source-sha must equal the checked-out HEAD" >&2
+  exit 2
+fi
+if ! git diff --quiet || ! git diff --cached --quiet; then
+  echo "tracked release inputs must be clean before preparation" >&2
+  exit 2
+fi
 
 BASELINE_COMMIT=$(git rev-parse "${BASELINE_REF}^{commit}")
 if [ -z "$BASELINE_DIR" ] || [ -z "$BASELINE_EVIDENCE" ]; then
@@ -42,6 +50,8 @@ DATA_VERSION=$(jq -er '.data' release/versions.json)
 python3 scripts/release/archive_baseline.py \
   --baseline "$BASELINE_DIR" \
   --evidence "$BASELINE_EVIDENCE"
+cp "$BASELINE_EVIDENCE" release/baseline-evidence.json
+BASELINE_EVIDENCE=release/baseline-evidence.json
 
 scripts/bless.sh \
   --version "$DATA_VERSION" \
@@ -52,6 +62,8 @@ set +e
 python3 scripts/release/compare.py \
   --baseline "$BASELINE_DIR" \
   --candidate blessed \
+  --baseline-sources "$BASELINE_DIR/sources" \
+  --candidate-sources sources \
   --output release/impact.json
 COMPARE_EXIT=$?
 set -e
@@ -81,6 +93,8 @@ if [ "$DATA_VERSION" != "$EXPECTED_VERSION" ]; then
   python3 scripts/release/compare.py \
     --baseline "$BASELINE_DIR" \
     --candidate blessed \
+    --baseline-sources "$BASELINE_DIR/sources" \
+    --candidate-sources sources \
     --output release/impact.json
   COMPARE_EXIT=$?
   set -e

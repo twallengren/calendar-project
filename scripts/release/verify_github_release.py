@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-"""Reject a partial/conflicting retry; accept an already complete GitHub release."""
+"""Synchronize a GitHub release, preserving matching assets and filling only missing ones."""
 
 import hashlib
+import json
 import os
 import subprocess
 import sys
@@ -25,33 +26,47 @@ def expected(publication):
             if os.path.isfile(path):
                 if name in result:
                     raise ValueError("duplicate release asset name " + name)
-                result[name] = digest(path)
-    result["checksums.txt"] = digest(os.path.join(publication, "checksums.txt"))
+                result[name] = (path, digest(path))
+    path = os.path.join(publication, "checksums.txt")
+    result["checksums.txt"] = (path, digest(path))
     return result
 
 
-tag, publication = sys.argv[1:]
-wanted = expected(publication)
-with tempfile.TemporaryDirectory() as temporary:
-    subprocess.run(
-        ["gh", "release", "download", tag, "--dir", temporary],
-        check=True,
+def synchronize(tag, publication, repository):
+    wanted = expected(publication)
+    release = json.loads(
+        subprocess.run(
+            ["gh", "api", "repos/{}/releases/tags/{}".format(repository, tag)],
+            check=True,
+            capture_output=True,
+            text=True,
+        ).stdout
     )
-    actual = {
-        name: digest(os.path.join(temporary, name))
-        for name in os.listdir(temporary)
-        if os.path.isfile(os.path.join(temporary, name))
-    }
-    # A successful/partial Maven step persists its deployment ID as a release
-    # asset so a later workflow run resumes instead of uploading another bundle.
-    actual.pop("maven-deployment.json", None)
-if actual != wanted:
-    missing = sorted(set(wanted) - set(actual))
-    extra = sorted(set(actual) - set(wanted))
-    changed = sorted(name for name in set(actual) & set(wanted) if actual[name] != wanted[name])
-    raise SystemExit(
-        "conflicting existing release: missing={}, extra={}, changed={}".format(
-            missing, extra, changed
-        )
-    )
-print("Existing GitHub release is byte-identical; skipping upload.")
+    actual = {asset["name"]: asset for asset in release["assets"]}
+    unexpected = set(actual) - set(wanted) - {"maven-deployment.json"}
+    if unexpected:
+        raise ValueError("existing release has unexpected assets: {}".format(sorted(unexpected)))
+    for name, (path, local_digest) in wanted.items():
+        asset = actual.get(name)
+        if asset is None:
+            subprocess.run(["gh", "release", "upload", tag, path], check=True)
+            continue
+        remote_digest = asset.get("digest")
+        if remote_digest:
+            matches = remote_digest == "sha256:" + local_digest
+        else:
+            with tempfile.TemporaryDirectory() as temporary:
+                subprocess.run(
+                    ["gh", "release", "download", tag, "--pattern", name, "--dir", temporary],
+                    check=True,
+                )
+                matches = digest(os.path.join(temporary, name)) == local_digest
+        if not matches:
+            raise ValueError("existing release asset has conflicting bytes: " + name)
+
+
+if __name__ == "__main__":
+    try:
+        synchronize(sys.argv[1], sys.argv[2], os.environ["GITHUB_REPOSITORY"])
+    except (KeyError, OSError, ValueError, subprocess.CalledProcessError) as error:
+        raise SystemExit("GitHub release synchronization failed: {}".format(error))
