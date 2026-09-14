@@ -269,6 +269,7 @@ jobs:
             echo
             echo "**Downloads:**"
             echo "- \`*.tar.gz\` / \`*.zip\` - Per-calendar events.csv, events.json, metadata.json and specs"
+            echo "- \`<ID>-events.csv\` / \`<ID>-events.json\` / \`<ID>-holidays.ics\` (market calendars only) - loose per-calendar assets, if you only need one calendar without unpacking an archive"
             echo "- See \`checksums.txt\` for SHA-256 verification"
           } > release-notes.md
 
@@ -342,6 +343,34 @@ jobs:
           git commit -m "chore: update blessed artifacts for v${NEW_VERSION}" || echo "No changes to commit"
           git push
 
+      # Loose, flat per-calendar files alongside the combined archives, so a
+      # consumer who only needs one calendar can grab it directly from the
+      # release page without unpacking a tar.gz/zip. The .ics files come from
+      # the JSON API site generator run against the now-updated blessed/ (see
+      # spec/SPEC.md#json-api-v1); market-kind calendars only, same as the
+      # site's default publishing rule.
+      - name: Collect release assets
+        run: |
+          mkdir -p release-assets
+
+          CALENDARS=$(jq -r '.calendars | keys[]' blessed/manifest.json)
+
+          for CAL_ID in $CALENDARS; do
+            cp "release-artifacts/$CAL_ID/events.csv" "release-assets/${CAL_ID}-events.csv"
+            cp "release-artifacts/$CAL_ID/events.json" "release-assets/${CAL_ID}-events.json"
+          done
+
+          tools/build/install/tools/bin/tools site --api-only --out /tmp/release-site
+
+          for CAL_ID in $CALENDARS; do
+            ICS="/tmp/release-site/v1/calendars/$CAL_ID/holidays-recent.ics"
+            if [ -f "$ICS" ]; then
+              cp "$ICS" "release-assets/${CAL_ID}-holidays.ics"
+            fi
+          done
+
+          ls -la release-assets/
+
       # The bdc-calendars Python package ships the blessed data inside its wheel,
       # so the copy under python/bdc_calendars/data/ has to move with it. The
       # script is stdlib-only and refuses to write unless the weekend policy it
@@ -364,6 +393,7 @@ jobs:
             ${{ steps.artifacts.outputs.archive_name }}.tar.gz
             ${{ steps.artifacts.outputs.archive_name }}.zip
             checksums.txt
+            release-assets/*
           draft: false
           prerelease: false
 

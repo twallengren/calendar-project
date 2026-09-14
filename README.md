@@ -124,16 +124,54 @@ date,type,description,key,source_module,observed_from,close_time,status
 
 ## Get the data
 
-Every release publishes the generated artifacts three ways: `blessed/` in this repository (the
-current release, with previous ones under `release-history/`), a `tar.gz`/`zip` attached to the
-[GitHub release](https://github.com/twallengren/calendar-project/releases), and the
-[`bdc-calendars`](python/README.md) Python package, which ships the same data inside its wheel and
-answers the [Query API](spec/SPEC.md#query-api) offline with **zero runtime dependencies**
-(`pip install bdc-calendars`, then `bdc_calendars.get_calendar("XNYS")` — exchange_calendars MICs
-are accepted as aliases). Its version is `0.<data major>.<data minor>`, so it tracks the data
-release; see [`python/README.md`](python/README.md) for the API, the migration notes from
-exchange_calendars and the coverage/status caveats. An optional `bdc-calendars-mcp` MCP server
+Every release publishes the generated artifacts several zero-install ways, so you rarely need to
+clone this repository or build the tool just to read a calendar. All examples below use
+**US-NYSE**; swap in any other ID from the [Market status](#market-status) table.
+
+**(a) GitHub Pages JSON API** — the current release's [JSON API v1](spec/SPEC.md#json-api-v1),
+served statically from `main`, no auth, no rate limit:
+- Index of every published calendar: <https://twallengren.github.io/calendar-project/v1/index.json>
+- One calendar-year: <https://twallengren.github.io/calendar-project/v1/calendars/US-NYSE/2027.json>
+- All holidays for a calendar: <https://twallengren.github.io/calendar-project/v1/calendars/US-NYSE/holidays.json>
+- Subscribe in any calendar app (updates as the site is republished, 2020 onward):
+  `webcal://twallengren.github.io/calendar-project/v1/calendars/US-NYSE/holidays-recent.ics`
+
+**(b) jsDelivr**, pointed at any tagged release, for a URL that never changes underneath you:
+```
+https://cdn.jsdelivr.net/gh/twallengren/calendar-project@v11.0.0/blessed/US-NYSE/events.json
+```
+jsDelivr caches tagged files **permanently** — if a release needs a correction, it ships under a
+new tag, not by overwriting the old one, so pin a version and re-point at the new tag when you
+upgrade.
+
+**(c) GitHub Release assets** — loose per-calendar files attached to each
+[release](https://github.com/twallengren/calendar-project/releases), no unpacking required:
+```
+https://github.com/twallengren/calendar-project/releases/download/v11.0.0/US-NYSE-events.csv
+```
+(`<ID>-events.json` and, for market calendars, `<ID>-holidays.ics` are attached the same way.) A
+combined `tar.gz`/`zip` with every calendar's events/metadata/specs, plus `checksums.txt`, is
+attached to the same release for bulk use.
+
+**(d) The [`bdc-calendars`](python/README.md) Python package**, which ships the same data inside
+its wheel and answers the [Query API](spec/SPEC.md#query-api) offline with **zero runtime
+dependencies**:
+```
+pip install bdc-calendars
+```
+then `bdc_calendars.get_calendar("XNYS")` (exchange_calendars MICs are accepted as aliases). Its
+version is `0.<data major>.<data minor>`, so it tracks the data release; see
+[`python/README.md`](python/README.md) for the API, the migration notes from exchange_calendars
+and the coverage/status caveats. An optional `bdc-calendars-mcp` MCP server
 (`pip install "bdc-calendars[mcp]"`) exposes the same Query API to AI agents over stdio.
+
+**(e) Point-in-time history** — every option above gives you the *current* release. To ask what a
+calendar looked like as of an earlier release (audit, backtest reproducibility), use the CLI's
+`--as-of` against a checked-out copy, which reads `release-history/`:
+```bash
+./gradlew :tools:run --args="query US-NYSE --as-of v10.1.0 --is-business-day 2021-12-31"
+./gradlew :tools:run --args="history releases US-NYSE"
+```
 
 ## Chronology Support
 

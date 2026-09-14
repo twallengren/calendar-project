@@ -216,6 +216,12 @@ diff -> major version, `MINOR` diff -> minor version, no change -> no release), 
 `blessed/`, archives the previous state to `release-history/`, and cuts a GitHub release with the
 artifacts attached. You do not run this yourself; `scripts/bless.sh` is for local review only.
 
+A release to `blessed/`, `release-history/` or the site generator also triggers
+`.github/workflows/pages.yml`, which republishes the [JSON API and site](README.md#get-the-data)
+to GitHub Pages. **Enable GitHub Pages once, before the first run**: only a repository maintainer
+can do this — Settings → Pages → Source: **GitHub Actions**. Until that is set, `pages.yml` runs
+but the deploy step fails; nothing else in the release is affected.
+
 ## Code contributions
 
 - Java 21, built with Gradle from the repo root.
