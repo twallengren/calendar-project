@@ -18,6 +18,16 @@ import org.junit.jupiter.api.Test;
  */
 class ComparePageTest {
 
+  /**
+   * Unordered market pairs, derived from the /v1/ calendar count so new markets do not break it.
+   */
+  private static final int PAIR_COUNT = pairCount();
+
+  private static int pairCount() {
+    int n = GeneratedSite.get().resolve("v1/calendars").toFile().list().length;
+    return n * (n - 1) / 2;
+  }
+
   @Test
   void everyUnorderedPairOfMarketsHasExactlyOnePage() throws IOException {
     Path compare = GeneratedSite.get().resolve("compare");
@@ -64,7 +74,7 @@ class ComparePageTest {
   void knownDifferencesAppearOnTheCorrectSide() throws IOException {
     String page = GeneratedSite.read("compare/SA-TADAWUL/US-NYSE/index.html");
     String tadawulOpen = section(page, "a-open-heading", "b-open-heading");
-    String nyseOpen = section(page, "b-open-heading", "All 36 market pairs");
+    String nyseOpen = section(page, "b-open-heading", "All " + PAIR_COUNT + " market pairs");
 
     assertTrue(
         tadawulOpen.contains("2026-11-26") && tadawulOpen.contains("Thanksgiving Day"),
@@ -88,7 +98,7 @@ class ComparePageTest {
   @Test
   void holidaysOnTheClosedMarketsOwnWeekendAreNotListed() throws IOException {
     String page = GeneratedSite.read("compare/SA-TADAWUL/US-NYSE/index.html");
-    String nyseOpen = section(page, "b-open-heading", "All 36 market pairs");
+    String nyseOpen = section(page, "b-open-heading", "All " + PAIR_COUNT + " market pairs");
     assertTrue(nyseOpen.contains("2026-03-17"), "17 March 2026 is a Tuesday Eid closure");
     assertTrue(nyseOpen.contains("2026-03-23"), "23 March 2026 is a Monday Eid closure");
     assertFalse(

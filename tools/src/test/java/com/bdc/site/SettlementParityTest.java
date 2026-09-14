@@ -29,8 +29,9 @@ import org.junit.jupiter.api.Test;
  * answer as {@link JointDateStream}, which is what {@code query --settlement} answers from. There
  * is no JavaScript engine on the JVM classpath here and adding one to test twenty lines of
  * arithmetic would be a poor trade, so the two implementations meet at a file instead: {@code
- * tools/src/main/resources/site/settlement-fixture.json} holds fifty (pair, trade date, N) cases
- * with the answer <em>and</em> the skipped-day breakdown.
+ * tools/src/main/resources/site/settlement-fixture.json} holds at least two (pair, trade date, N)
+ * cases per market pair (never fewer than fifty) with the answer <em>and</em> the skipped-day
+ * breakdown.
  *
  * <p>That splits the problem in two, and both halves are checked:
  *
@@ -53,7 +54,9 @@ class SettlementParityTest {
   private static final Path FIXTURE =
       Path.of("tools/src/main/resources/site/settlement-fixture.json");
 
-  private static final int CASE_COUNT = 50;
+  /** Trade dates cycle through this many days after {@link #FIRST_TRADE_DATE} (through 2027). */
+  private static final int TRADE_DATE_SPAN_DAYS = 1450;
+
   private static final LocalDate FIRST_TRADE_DATE = LocalDate.of(2024, 1, 1);
   private static final int MAX_N = 10;
 
@@ -80,7 +83,8 @@ class SettlementParityTest {
         FIXTURE + " is missing; regenerate with ./gradlew :tools:test -DupdateGoldens=true");
 
     List<Case> cases = readFixture();
-    assertEquals(CASE_COUNT, cases.size(), "fixture should hold " + CASE_COUNT + " cases");
+    int expectedCount = caseCount(pairs(marketIds()).size());
+    assertEquals(expectedCount, cases.size(), "fixture should hold " + expectedCount + " cases");
 
     List<String> mismatches = new ArrayList<>();
     for (Case expected : cases) {
@@ -137,9 +141,10 @@ class SettlementParityTest {
 
   @Test
   void fixtureCoversDaysBothMarketsAreShut() throws IOException {
-    long withSkips = readFixture().stream().filter(one -> !one.skipped().isEmpty()).count();
+    List<Case> cases = readFixture();
+    long withSkips = cases.stream().filter(one -> !one.skipped().isEmpty()).count();
     assertTrue(
-        withSkips > CASE_COUNT / 2,
+        withSkips > cases.size() / 2,
         "most cases should walk past at least one closure or weekend, got " + withSkips);
   }
 
@@ -153,13 +158,18 @@ class SettlementParityTest {
   private static List<Case> generate(List<String> markets, Map<String, DateStream> streams) {
     List<List<String>> pairs = pairs(markets);
     List<Case> cases = new ArrayList<>();
-    for (int i = 0; i < CASE_COUNT; i++) {
+    for (int i = 0; i < caseCount(pairs.size()); i++) {
       List<String> pair = pairs.get(i % pairs.size());
-      LocalDate tradeDate = FIRST_TRADE_DATE.plusDays(i * 29L);
+      LocalDate tradeDate = FIRST_TRADE_DATE.plusDays((i * 29L) % TRADE_DATE_SPAN_DAYS);
       int n = i % (MAX_N + 1);
       cases.add(answer(streams, pair.get(0), pair.get(1), tradeDate, n));
     }
     return cases;
+  }
+
+  /** Two cases per pair so every pair is exercised with two depths, and at least fifty overall. */
+  static int caseCount(int pairs) {
+    return Math.max(50, 2 * pairs);
   }
 
   /** The joint T+N answer, and which calendars were shut on each day the walk did not count. */

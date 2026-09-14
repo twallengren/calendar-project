@@ -34,6 +34,19 @@ application {
     mainClass.set("com.bdc.cli.Main")
 }
 
+// Tests read the repository's data directories at runtime (workingDir is the repo root), so they
+// must be declared as inputs or the build cache will replay stale results after a YAML or
+// blessed/ change.
+val repoDataInputs = listOf("calendars", "modules", "chronologies", "blessed", "release-history",
+    "sources", "spec", "python/bdc_calendars/data")
+
+tasks.withType<Test>().configureEach {
+    repoDataInputs.forEach { dir ->
+        inputs.dir(rootProject.file(dir)).withPropertyName("repoData.$dir").optional()
+            .withPathSensitivity(PathSensitivity.RELATIVE)
+    }
+}
+
 tasks.named<Test>("test") {
     useJUnitPlatform()
     workingDir = rootProject.projectDir
