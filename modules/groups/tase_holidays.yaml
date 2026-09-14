@@ -1,0 +1,7 @@
+kind: module
+id: tase_holidays
+
+uses:
+  - tase_scheduled_closures_2025
+  - tase_short_sessions_2025
+  - tase_verified_events_2026

@@ -1,0 +1,56 @@
+kind: module
+id: tase_verified_events_2026
+
+# This module is intentionally partial. The ISA establishes 13:50 as the end of equity trading on
+# every Friday under the new week. Only Q1 Fridays are emitted here: TASE's Q1 report corroborates
+# 62 actual sessions, while no canonical annual vacation schedule was available to prove later
+# Friday/holiday collisions. TASE's 20 April weekly review separately confirms the two closures.
+
+event_sources:
+  - key: tase_friday_short_session_q1_2026
+    name: Friday Session (Early Close)
+    default_classification: EARLY_CLOSE
+    close_time: "13:50"
+    shiftable: false
+    source:
+      - id: isa-trading-week-2026
+        ref: "pp. 17-19, 30: every Friday 10:00-13:50 from 2026-01-05"
+      - id: tase-q1-2026-report
+        ref: "p. 3: 62 actual trading days in Q1 2026"
+    rule:
+      type: explicit_dates
+      dates:
+        - 2026-01-09
+        - 2026-01-16
+        - 2026-01-23
+        - 2026-01-30
+        - 2026-02-06
+        - 2026-02-13
+        - 2026-02-20
+        - 2026-02-27
+        - 2026-03-06
+        - 2026-03-13
+        - 2026-03-20
+        - 2026-03-27
+
+  - key: tase_memorial_day_2026
+    name: Memorial Day
+    shiftable: false
+    source:
+      - id: tase-weekly-review-2026-04-20
+        ref: "p. 1: no Tuesday trading due to Memorial Day"
+    rule:
+      type: native_explicit_dates
+      dates:
+        - {chronology_id: HEBREW, year: 5786, month_code: IYAR, day: 4}
+
+  - key: tase_independence_day_2026
+    name: Independence Day
+    shiftable: false
+    source:
+      - id: tase-weekly-review-2026-04-20
+        ref: "p. 1: no Wednesday trading due to Independence Day; resumes Thursday"
+    rule:
+      type: native_explicit_dates
+      dates:
+        - {chronology_id: HEBREW, year: 5786, month_code: IYAR, day: 5}

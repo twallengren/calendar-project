@@ -1,0 +1,26 @@
+kind: calendar
+id: IL-TASE
+
+metadata:
+  name: Tel Aviv Stock Exchange
+  description: >-
+    Tel Aviv Stock Exchange (TASE) equity trading calendar. Scheduled closures and shortened
+    sessions are complete for 2025. The 2026-2027 range deliberately contains only the verified
+    trading-week change, verified Q1 Friday sessions, and two individually announced April 2026
+    closures; other scheduled closures and unscheduled exceptions in that range are incomplete.
+  # TASE publishes civil session dates in ISO; individual Jewish events below retain HEBREW
+  # native origins and are converted to ISO by the compiler.
+  chronology: ISO
+  timezone: Asia/Jerusalem
+  mic: XTAE
+  aliases: [TASE]
+  coverage:
+    from: 2025-01-01
+    to: 2027-12-31
+    verified_through: 2025-12-31
+
+weekend_shift_policy: NONE
+
+uses:
+  - tase_weekends
+  - tase_holidays

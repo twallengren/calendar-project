@@ -1,0 +1,17 @@
+kind: module
+id: tase_weekends
+
+# TASE's own 2025 schedule states that trading runs Sunday-Thursday. The ISA guide makes the
+# Monday-Friday week effective on Monday 5 January 2026: Sunday trading is discontinued and
+# Friday becomes a shortened session. The guide does not identify Sunday 4 January as a closure;
+# it remains under the preceding Sunday-Thursday policy.
+source:
+  - id: tase-vacation-schedule-2025
+    ref: "Opening statement: trading takes place Sunday through Thursday"
+  - id: isa-trading-week-2026
+    ref: "pp. 7, 30: effective 2026-01-05; new trading days Monday through Friday"
+
+policies:
+  weekends:
+    - {days: [FRIDAY, SATURDAY], to: 2026-01-04}
+    - {days: [SATURDAY, SUNDAY], from: 2026-01-05}
