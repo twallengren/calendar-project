@@ -6120,7 +6120,7 @@
     "description" : "Christmas Day",
     "key" : "ca_christmas",
     "source_module" : "module:ca_christmas",
-    "observed_from" : null,
+    "observed_from" : "2005-12-25",
     "close_time" : null,
     "status" : "CONFIRMED"
   }, {
@@ -6129,7 +6129,7 @@
     "description" : "Boxing Day",
     "key" : "ca_boxing_day",
     "source_module" : "module:ca_boxing_day",
-    "observed_from" : null,
+    "observed_from" : "2005-12-26",
     "close_time" : null,
     "status" : "CONFIRMED"
   }, {
@@ -12276,7 +12276,7 @@
     "description" : "Christmas Day",
     "key" : "ca_christmas",
     "source_module" : "module:ca_christmas",
-    "observed_from" : null,
+    "observed_from" : "2011-12-25",
     "close_time" : null,
     "status" : "CONFIRMED"
   }, {
@@ -12285,7 +12285,7 @@
     "description" : "Boxing Day",
     "key" : "ca_boxing_day",
     "source_module" : "module:ca_boxing_day",
-    "observed_from" : null,
+    "observed_from" : "2011-12-26",
     "close_time" : null,
     "status" : "CONFIRMED"
   }, {
@@ -17433,7 +17433,7 @@
     "description" : "Christmas Day",
     "key" : "ca_christmas",
     "source_module" : "module:ca_christmas",
-    "observed_from" : null,
+    "observed_from" : "2016-12-25",
     "close_time" : null,
     "status" : "CONFIRMED"
   }, {
@@ -17442,7 +17442,7 @@
     "description" : "Boxing Day",
     "key" : "ca_boxing_day",
     "source_module" : "module:ca_boxing_day",
-    "observed_from" : null,
+    "observed_from" : "2016-12-26",
     "close_time" : null,
     "status" : "CONFIRMED"
   }, {
@@ -23643,7 +23643,7 @@
     "description" : "Christmas Day",
     "key" : "ca_christmas",
     "source_module" : "module:ca_christmas",
-    "observed_from" : null,
+    "observed_from" : "2022-12-25",
     "close_time" : null,
     "status" : "CONFIRMED"
   }, {
@@ -23652,7 +23652,7 @@
     "description" : "Boxing Day",
     "key" : "ca_boxing_day",
     "source_module" : "module:ca_boxing_day",
-    "observed_from" : null,
+    "observed_from" : "2022-12-26",
     "close_time" : null,
     "status" : "CONFIRMED"
   }, {

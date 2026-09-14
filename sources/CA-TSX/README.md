@@ -18,26 +18,31 @@
 ## Modelling decisions recorded against these sources
 
 - **Weekend definition.** Standard Saturday/Sunday weekend for the whole coverage range; no evidence of a different historical weekend for TSX. Uses the shared `weekend_sat_sun` module.
-- **Christmas/Boxing Day ordering when Christmas is a Sunday.** The rule model shifts an event
-  only when its own nominal date falls on a weekend; it has no way to express "an earlier
-  holiday's shift takes priority over a later holiday's fixed weekday date". When Christmas Day
-  (Dec 25) is a Sunday, Boxing Day's own nominal date (Mon Dec 26) is a weekday, so the engine
-  places Boxing Day there directly before resolving Christmas's shift, and Christmas then
-  cascades past the occupied Monday onto Tuesday Dec 27 -- the reverse of what TMX actually
-  does. `tmx-holiday-schedule-2016` states plainly that TSX closed "Monday, December 26, 2016
+- **Christmas/Boxing Day ordering when Christmas is a Sunday.** By default the engine shifts an
+  event only when its own nominal date falls on a weekend, and resolves collisions first come,
+  first served. When Christmas Day (Dec 25) is a Sunday, Boxing Day's own nominal date (Mon
+  Dec 26) is a weekday, so Boxing Day is placed there before Christmas's shift is resolved, and
+  Christmas then cascades past the occupied Monday onto Tuesday Dec 27 -- the reverse of what TMX
+  actually does. `tmx-holiday-schedule-2016` states plainly that TSX closed "Monday, December 26, 2016
   in lieu of Christmas Day on Sunday, December 25, 2016" and "Tuesday, December 27, 2016 in
   lieu of Boxing Day on Monday, December 26, 2016"; `tmx-canada-holiday-2022` corroborates the
-  same pattern for 2022. `calendars/CA-TSX.yaml` corrects this with explicit deltas (remove the
-  engine's date, add the correct one) for every Sunday-Christmas year in coverage: 2005, 2011,
-  2016 and 2022 (the next is 2033, after `coverage.to`). 2005 and 2011 are not independently
-  confirmed against a primary TMX document -- only the same statutory "in lieu" mechanism
-  verified for 2016 and 2022 -- but that mechanism does not vary by year. This is a genuine gap
-  in what the rule model can express (see the final report for this contribution), not a data
-  error; no calendar or module field can encode "shift regardless of this event's own weekend
-  status because a higher-priority holiday's substitute needs the slot".
+  same pattern for 2022. `modules/holidays/ca_christmas.yaml` states the priority
+  directly with `displaces: [ca_boxing_day]` (see `spec/SPEC.md`, "Observance priority"):
+  Christmas's shift may take a weekday slot held only by Boxing Day, and the displaced Boxing Day
+  re-cascades to the next free weekday. This produces Mon Dec 26 / Tue Dec 27 for every
+  Sunday-Christmas year in coverage -- 2005, 2011, 2016 and 2022 (the next is 2033, after
+  `coverage.to`) -- and leaves the Saturday-Christmas years (e.g. 2021: Mon Dec 27 / Tue Dec 28)
+  untouched, since there both holidays are weekend events and the ordinary cascade already
+  orders them correctly. 2005 and 2011 are not independently confirmed against a primary TMX
+  document -- only the same statutory "in lieu" mechanism verified for 2016 and 2022 -- but that
+  mechanism does not vary by year. An earlier revision corrected this with sixteen calendar-level
+  deltas (remove the engine's date, add the correct one, per holiday per year); `displaces`
+  replaced them and the generated dates, types and descriptions are unchanged, with
+  `observed_from` now populated on the four moved Christmas rows and the four moved Boxing Day
+  rows.
 - **Weekend shift policy.** `NEXT_AVAILABLE_WEEKDAY` for the whole calendar. `tmx-holiday-schedule-2021` is the load-bearing source: it shows New Year's Day (Sat Jan 1, 2022 -> Mon Jan 3, 2022), Christmas Day (Sat Dec 25, 2021 -> Mon Dec 27, 2021) and Boxing Day (Sun Dec 26, 2021 -> Tue Dec 28, 2021, cascading past the Monday already claimed by Christmas) all shifting to the next available weekday. `tmx-canada-day-2017` and `tmx-canada-day-2023` confirm Canada Day on a Saturday is likewise observed the following Monday, not the preceding Friday. No event needs a per-event `shift_policy` override.
 - **Civic Holiday is not fixed by statute.** Unlike the other nine closures TSX observes, Civic Holiday (first Monday of August) is not part of the federal `holidays-act-canada` list and is only a locally/voluntarily observed day (e.g. "Simcoe Day" in Toronto). `tsx-calendar-page` confirms TSX currently closes for it, but there is no statutory guarantee it continues. Modelled as two event sources: a confirmed one through `coverage.verified_through` (2026) and a `status: PROJECTED` one for years after, per the rule for holidays not fixed by statute.
 - **National Day for Truth and Reconciliation is not observed.** `tmx-truth-reconciliation-2021` states TSX/TSXV/TSX Alpha remain open with regular hours; `tsx-calendar-page` (2025 and 2026) has no entry for it either. No holiday module is created for it — adding one would invent a closure with no supporting date.
-- **Christmas Eve early close.** Modelled as `EARLY_CLOSE` at 13:00 America/Toronto, `active_years: [[2015, 2026]]`. Directly confirmed for 2015, 2018, 2019, 2020, 2021, 2024, 2025 and 2026 across the TMX press releases and `tsx-calendar-page` found above (2020 via `tmx-holiday-schedule-2020`). That is every year inside `active_years` whose 24 December is a weekday, so no generated occurrence of this event source is unsourced. Not modelled before 2015 (no source checked) or after 2026 (`verified_through`; TSX's own schedule pages describe the early close as requiring board approval each year, so it is not projected forward). When Dec 24 itself falls on a weekend the early close is automatically dropped by the engine (same-date/weekend precedence rules), matching `tmx-holiday-schedule-2023` (no Dec 24, 2023 early-close line because that date is a Sunday).
+- **Christmas Eve early close.** Modelled as `EARLY_CLOSE` at 13:00 America/Toronto, `active_years: [[2015, 2026]]`. Directly confirmed for 2015, 2018, 2019, 2020, 2021, 2024, 2025 and 2026 across the TMX press releases and `tsx-calendar-page` found above (2020 via `tmx-holiday-schedule-2020`). That is every year inside `active_years` whose 24 December is a weekday, so no generated occurrence of this event source is unsourced. Not modelled before 2015 (no source checked) or after 2026 (`verified_through`; TSX's own schedule pages describe the early close as requiring board approval each year, so it is not projected forward). When Dec 24 itself falls on a weekend the early close is dropped, which is the default `shift_policy: DROP` every `EARLY_CLOSE` source has (TMX cancels the half day rather than moving it, unlike LSE -- see `spec/SPEC.md`, "Weekend Shift Policy"), matching `tmx-holiday-schedule-2023` (no Dec 24, 2023 early-close line because that date is a Sunday).
 - **No other early closes.** No source shows any other shortened session (e.g. no Good Friday eve, no pre-Thanksgiving early close), so none are modelled.
 - **`coverage.verified_through`: 2026-12-31.** The last year TMX has published a full holiday list for (`tsx-calendar-page`, `tmx-holiday-schedule-2025`). Holidays whose date is fixed by statute keep `status: CONFIRMED` for years after 2026 because their rule is legally fixed, not merely announced. Two statutes are involved, and it is worth being precise about which: `holidays-act-canada` (federal) fixes New Year's Day, Good Friday, Victoria Day, Canada Day, Labour Day, Thanksgiving Day and Christmas Day. **Family Day and Boxing Day are not in the federal Holidays Act**; they are public holidays under Ontario's *Employment Standards Act, 2000* (Family Day since the Employment Standards Amendment Act (Family Day), 2007 — see `ontario-family-day-2007`), which is the applicable statute for an Ontario-based exchange and is equally date-fixing. Civic Holiday is fixed by neither statute — it is a voluntarily observed municipal day — and is therefore `status: PROJECTED` after 2026 (see above).

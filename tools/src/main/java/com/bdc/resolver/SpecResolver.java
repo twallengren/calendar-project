@@ -219,7 +219,8 @@ public class SpecResolver {
                 es.onlyIfWeekday(),
                 es.closeTime(),
                 es.status(),
-                module.source()));
+                module.source(),
+                es.displaces()));
       } else {
         result.add(es);
       }

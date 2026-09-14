@@ -109,10 +109,10 @@ date,type,description,key,source_module,observed_from,close_time,status
 2022-12-11,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
 2022-12-17,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
 2022-12-18,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
-2022-12-23,EARLY_CLOSE,Christmas Eve (Early Close) (24 December 2022 is a Saturday; half day observed the preceding Friday),gb_lse_christmas_eve_early_close_shifted,module:gb_lse_early_closes,,12:30,CONFIRMED
+2022-12-23,EARLY_CLOSE,Christmas Eve (Early Close),gb_lse_christmas_eve_early_close,module:gb_lse_early_closes,2022-12-24,12:30,CONFIRMED
 2022-12-24,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
 2022-12-25,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
 2022-12-26,CLOSED,Boxing Day,uk_boxing_day,module:uk_boxing_day,,,CONFIRMED
 2022-12-27,CLOSED,Christmas Day,uk_christmas_day,module:uk_christmas_day,2022-12-25,,CONFIRMED
-2022-12-30,EARLY_CLOSE,New Year's Eve (Early Close) (31 December 2022 is a Saturday; half day observed the preceding Friday),gb_lse_new_years_eve_early_close_shifted,module:gb_lse_early_closes,,12:30,CONFIRMED
+2022-12-30,EARLY_CLOSE,New Year's Eve (Early Close),gb_lse_new_years_eve_early_close,module:gb_lse_early_closes,2022-12-31,12:30,CONFIRMED
 2022-12-31,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED

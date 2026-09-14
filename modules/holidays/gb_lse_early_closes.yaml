@@ -9,22 +9,22 @@ id: gb_lse_early_closes
 # date Monday 27 December 2027).
 #
 # When 24 or 31 December itself falls on a Saturday or Sunday, LSE moves the half-day close back
-# to the preceding business day instead of dropping it. Three LSE-published documents show this
-# directly, one per collision year they cover:
+# to the preceding business day instead of dropping it. This is expressed directly by
+# `shift_policy: PREVIOUS_AVAILABLE_BUSINESS_DAY` (see spec/SPEC.md, "Weekend Shift Policy"):
+# the half day moves to the nearest earlier date that is neither a weekend day nor a full
+# closure. Three LSE-published documents show the behaviour directly, one per collision year
+# they cover:
 #   - lse-trading-calendar-2022: LSE column marked Early Close on Fri 23 Dec and Fri 30 Dec 2022
 #     (24 and 31 Dec 2022 are Saturdays).
 #   - lse-trading-calendar-2023: LSE column marked early close on Fri 22 Dec and Fri 29 Dec 2023
 #     (24 and 31 Dec 2023 are Sundays).
 #   - lse-business-days: half day Fri 22 Dec 2028 and Fri 29 Dec 2028 (both Sundays).
-# This calendar model's weekend-shift mechanisms (shift_policy / weekend_shift_policy) only move
-# CLOSED events, not EARLY_CLOSE events, so the shift cannot be expressed as a general rule; each
-# occurrence is listed explicitly below instead.
 #
 # The same collision recurs, within this calendar's coverage, in 2000, 2005, 2006, 2011, 2016 and
 # 2017. No LSE-published document covering those years is still available (the live table only
 # shows the current window and no LSE trading-calendar PDF earlier than 2021 is still served), so
-# those six dates are derived by applying the rule the three documents above establish, not read
-# off a per-year source. See sources/GB-LSE/README.md for the full argument and the alternative
+# those six dates come from applying the rule the three documents above establish, not from a
+# per-year source. See sources/GB-LSE/README.md for the full argument and the alternative
 # (narrowing coverage.from to 2021) if a stricter standard is wanted. The exchange_calendars
 # cross-validation reference computes the same six dates, but it is a reference, not a citation,
 # and is deliberately not listed as a source here.
@@ -45,8 +45,11 @@ event_sources:
         ref: "Christmas Holiday half day, 12:30 (2026 and 2027 rows)"
       - id: lse-trading-calendar-2021
         ref: "LSE column: Early Close Friday 24 December 2021; LSE early-closing time 12:30"
-    shiftable: false
-    only_if_weekday: [MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY]
+      - id: lse-trading-calendar-2022
+        ref: "LSE column: Early Close Friday 23 December 2022 (24 Dec 2022 is a Saturday)"
+      - id: lse-trading-calendar-2023
+        ref: "LSE column: early close Friday 22 December 2023 (24 Dec 2023 is a Sunday)"
+    shift_policy: PREVIOUS_AVAILABLE_BUSINESS_DAY
     rule:
       type: fixed_month_day
       month: 12
@@ -61,75 +64,12 @@ event_sources:
         ref: "New Year's Holiday half day, 12:30 (2026 and 2027 rows)"
       - id: lse-trading-calendar-2021
         ref: "LSE column: Early Close Friday 31 December 2021; LSE early-closing time 12:30"
-    shiftable: false
-    only_if_weekday: [MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY]
+      - id: lse-trading-calendar-2022
+        ref: "LSE column: Early Close Friday 30 December 2022 (31 Dec 2022 is a Saturday)"
+      - id: lse-trading-calendar-2023
+        ref: "LSE column: early close Friday 29 December 2023 (31 Dec 2023 is a Sunday)"
+    shift_policy: PREVIOUS_AVAILABLE_BUSINESS_DAY
     rule:
       type: fixed_month_day
       month: 12
       day: 31
-
-  - key: gb_lse_christmas_eve_early_close_shifted
-    name: Christmas Eve (Early Close)
-    default_classification: EARLY_CLOSE
-    close_time: "12:30"
-    source:
-      - id: lse-trading-calendar-2022
-        ref: "LSE column: Early Close Friday 23 December 2022"
-      - id: lse-trading-calendar-2023
-        ref: "LSE column: early close Friday 22 December 2023"
-      - id: lse-business-days
-        ref: "2028 half day observed Friday 22 December"
-    rule:
-      type: explicit_dates
-      dates:
-        - date: 2000-12-22
-          comment: 24 December 2000 is a Sunday; half day observed the preceding Friday
-        - date: 2005-12-23
-          comment: 24 December 2005 is a Saturday; half day observed the preceding Friday
-        - date: 2006-12-22
-          comment: 24 December 2006 is a Sunday; half day observed the preceding Friday
-        - date: 2011-12-23
-          comment: 24 December 2011 is a Saturday; half day observed the preceding Friday
-        - date: 2016-12-23
-          comment: 24 December 2016 is a Saturday; half day observed the preceding Friday
-        - date: 2017-12-22
-          comment: 24 December 2017 is a Sunday; half day observed the preceding Friday
-        - date: 2022-12-23
-          comment: 24 December 2022 is a Saturday; half day observed the preceding Friday
-        - date: 2023-12-22
-          comment: 24 December 2023 is a Sunday; half day observed the preceding Friday
-        - date: 2028-12-22
-          comment: 24 December 2028 is a Sunday; half day observed the preceding Friday
-
-  - key: gb_lse_new_years_eve_early_close_shifted
-    name: New Year's Eve (Early Close)
-    default_classification: EARLY_CLOSE
-    close_time: "12:30"
-    source:
-      - id: lse-trading-calendar-2022
-        ref: "LSE column: Early Close Friday 30 December 2022"
-      - id: lse-trading-calendar-2023
-        ref: "LSE column: early close Friday 29 December 2023"
-      - id: lse-business-days
-        ref: "2028 half day observed Friday 29 December"
-    rule:
-      type: explicit_dates
-      dates:
-        - date: 2000-12-29
-          comment: 31 December 2000 is a Sunday; half day observed the preceding Friday
-        - date: 2005-12-30
-          comment: 31 December 2005 is a Saturday; half day observed the preceding Friday
-        - date: 2006-12-29
-          comment: 31 December 2006 is a Sunday; half day observed the preceding Friday
-        - date: 2011-12-30
-          comment: 31 December 2011 is a Saturday; half day observed the preceding Friday
-        - date: 2016-12-30
-          comment: 31 December 2016 is a Saturday; half day observed the preceding Friday
-        - date: 2017-12-29
-          comment: 31 December 2017 is a Sunday; half day observed the preceding Friday
-        - date: 2022-12-30
-          comment: 31 December 2022 is a Saturday; half day observed the preceding Friday
-        - date: 2023-12-29
-          comment: 31 December 2023 is a Sunday; half day observed the preceding Friday
-        - date: 2028-12-29
-          comment: 31 December 2028 is a Sunday; half day observed the preceding Friday

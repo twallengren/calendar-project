@@ -148,6 +148,68 @@ class SpecValidatorTest {
   }
 
   @Test
+  void displacesKeysMustExistAndCyclesAreWarned() throws Exception {
+    ValidationResult r =
+        validate(
+            """
+            kind: calendar
+            id: CAL
+            uses: [m]
+            """,
+            """
+            kind: module
+            id: m
+            source: doc
+            event_sources:
+              - key: a
+                name: A
+                displaces: [b, ghost]
+                rule: {type: fixed_month_day, month: 12, day: 25}
+              - key: b
+                name: B
+                displaces: [a]
+                rule: {type: fixed_month_day, month: 12, day: 26}
+            """);
+    List<String> codes = codes(r);
+    assertTrue(codes.contains("UNKNOWN_DISPLACES"), codes.toString());
+    assertTrue(codes.contains("DISPLACES_CYCLE"), codes.toString());
+    assertTrue(r.hasErrors(), "an unknown displaces key is an error: " + r.issues());
+  }
+
+  @Test
+  void dropShiftPolicyOnAClosedSourceIsAnError() throws Exception {
+    ValidationResult r =
+        validate(
+            """
+            kind: calendar
+            id: CAL
+            uses: [m]
+            """,
+            """
+            kind: module
+            id: m
+            source: doc
+            event_sources:
+              - key: a
+                name: A
+                shift_policy: DROP
+                rule: {type: fixed_month_day, month: 12, day: 25}
+              - key: b
+                name: B
+                default_classification: EARLY_CLOSE
+                close_time: "12:30"
+                shift_policy: DROP
+                rule: {type: fixed_month_day, month: 12, day: 24}
+            """);
+    List<String> codes = codes(r);
+    assertTrue(codes.contains("INVALID_SHIFT_POLICY"), codes.toString());
+    assertEquals(
+        1,
+        r.errors().stream().filter(i -> i.code().equals("INVALID_SHIFT_POLICY")).count(),
+        "only the CLOSED source is flagged: " + r.issues());
+  }
+
+  @Test
   void chronologyTableRangeIsChecked() throws Exception {
     ValidationResult r =
         validate(

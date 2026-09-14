@@ -157,6 +157,9 @@ public class SpecEmitter {
     } else if (Boolean.TRUE.equals(source.shiftable())) {
       sourceMap.put("shiftable", true);
     }
+    if (!source.displaces().isEmpty()) {
+      sourceMap.put("displaces", source.displaces());
+    }
     if (source.onlyIfWeekday() != null) {
       sourceMap.put("only_if_weekday", source.onlyIfWeekday().stream().map(Enum::name).toList());
     }

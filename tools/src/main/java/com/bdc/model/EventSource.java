@@ -22,6 +22,9 @@ import java.util.List;
  * @param closeTime local close time for EARLY_CLOSE events (e.g. 13:00)
  * @param status CONFIRMED (announced by an authority) or PROJECTED (computed, may change)
  * @param source structured citations for the authoritative source of this event
+ * @param displaces keys of CLOSED event sources this event outranks: when this event shifts onto a
+ *     weekday slot already held only by events with these keys, it takes the slot and they
+ *     re-cascade forward. Empty means no displacement.
  */
 public record EventSource(
     String key,
@@ -36,7 +39,8 @@ public record EventSource(
     @JsonProperty("close_time") @JsonDeserialize(using = LocalTimeDeserializer.class)
         LocalTime closeTime,
     EventStatus status,
-    @JsonDeserialize(using = SourceListDeserializer.class) List<SourceCitation> source) {
+    @JsonDeserialize(using = SourceListDeserializer.class) List<SourceCitation> source,
+    List<String> displaces) {
 
   /** Represents a range of years. If start is null, it means "from inception". */
   public record YearRange(Integer start, Integer end) {
@@ -71,6 +75,9 @@ public record EventSource(
     if (source == null) {
       source = List.of();
     }
+    if (displaces == null) {
+      displaces = List.of();
+    }
     if (onlyIfWeekday != null && onlyIfWeekday.isEmpty()) {
       onlyIfWeekday = null;
     }
@@ -103,6 +110,35 @@ public record EventSource(
         null,
         null,
         null,
+        null,
+        null);
+  }
+
+  /** Legacy constructor without {@code displaces}. */
+  public EventSource(
+      String key,
+      String name,
+      Rule rule,
+      EventType defaultClassification,
+      Boolean shiftable,
+      List<YearRange> activeYears,
+      WeekendShiftPolicy shiftPolicy,
+      List<DayOfWeek> onlyIfWeekday,
+      LocalTime closeTime,
+      EventStatus status,
+      List<SourceCitation> source) {
+    this(
+        key,
+        name,
+        rule,
+        defaultClassification,
+        shiftable,
+        activeYears,
+        shiftPolicy,
+        onlyIfWeekday,
+        closeTime,
+        status,
+        source,
         null);
   }
 
@@ -116,12 +152,18 @@ public record EventSource(
   }
 
   /**
-   * The shift policy that applies to this source: the explicit {@code shift_policy} if given,
-   * otherwise the calendar default when {@code shiftable}, otherwise NONE.
+   * The shift policy that applies to this source: the explicit {@code shift_policy} if given;
+   * otherwise {@code DROP} for EARLY_CLOSE sources (a half day whose nominal date is not a session
+   * is simply not observed, regardless of {@code shiftable} and of the calendar's {@code
+   * weekend_shift_policy}, which only governs full closures); otherwise the calendar default when
+   * {@code shiftable}, otherwise NONE.
    */
   public WeekendShiftPolicy effectiveShiftPolicy(WeekendShiftPolicy calendarDefault) {
     if (shiftPolicy != null) {
       return shiftPolicy;
+    }
+    if (defaultClassification == EventType.EARLY_CLOSE) {
+      return WeekendShiftPolicy.DROP;
     }
     if (Boolean.TRUE.equals(shiftable) && calendarDefault != null) {
       return calendarDefault;

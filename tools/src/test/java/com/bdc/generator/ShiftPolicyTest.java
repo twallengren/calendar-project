@@ -31,6 +31,38 @@ class ShiftPolicyTest {
         null);
   }
 
+  private static EventSource closedDisplacing(
+      String key, int month, int day, WeekendShiftPolicy policy, String... displaces) {
+    return new EventSource(
+        key,
+        key,
+        new Rule.FixedMonthDay(null, null, month, day, "ISO"),
+        EventType.CLOSED,
+        true,
+        null,
+        policy,
+        null,
+        null,
+        null,
+        null,
+        List.of(displaces));
+  }
+
+  private static EventSource earlyClose(String key, int month, int day, WeekendShiftPolicy policy) {
+    return new EventSource(
+        key,
+        key,
+        new Rule.FixedMonthDay(null, null, month, day, "ISO"),
+        EventType.EARLY_CLOSE,
+        null,
+        null,
+        policy,
+        null,
+        LocalTime.of(12, 30),
+        null,
+        null);
+  }
+
   private static ResolvedSpec spec(
       WeekendPolicy weekend, WeekendShiftPolicy defaultPolicy, EventSource... sources) {
     return new ResolvedSpec(
@@ -406,6 +438,206 @@ class ShiftPolicyTest {
         generator.generate(spec, LocalDate.of(2070, 1, 1), LocalDate.of(2090, 12, 31));
     assertFalse(events.isEmpty());
     assertTrue(events.stream().allMatch(e -> e.date().getYear() <= 2077));
+  }
+
+  // --- EARLY_CLOSE shift policies -------------------------------------------------------
+
+  @Test
+  void earlyCloseDefaultsToDropRegardlessOfCalendarPolicy() {
+    // A fixed_month_day EARLY_CLOSE is `shiftable` by default, but a half day is never moved by
+    // the calendar's CLOSED policy: Sun Dec 24 2028 is simply not observed.
+    ResolvedSpec spec =
+        spec(
+            WeekendPolicy.SAT_SUN,
+            WeekendShiftPolicy.NEXT_AVAILABLE_WEEKDAY,
+            earlyClose("christmas_eve", 12, 24, null));
+    assertEquals(
+        WeekendShiftPolicy.DROP,
+        spec.eventSources().get(0).effectiveShiftPolicy(WeekendShiftPolicy.NEXT_AVAILABLE_WEEKDAY));
+    List<Event> events =
+        nonWeekend(
+            generator.generate(spec, LocalDate.of(2028, 12, 18), LocalDate.of(2028, 12, 31)));
+    assertTrue(events.isEmpty(), "Sunday Dec 24 2028 half day must be dropped: " + events);
+  }
+
+  @Test
+  void dropDiscardsAnEarlyCloseTakenByAClosure() {
+    // Christmas 2027 is a Saturday -> observed Mon Dec 27; the Dec 27 half day (if any) is gone.
+    ResolvedSpec spec =
+        spec(
+            WeekendPolicy.SAT_SUN,
+            WeekendShiftPolicy.NEXT_AVAILABLE_WEEKDAY,
+            closed("christmas", 12, 25, null),
+            earlyClose("year_end_half_day", 12, 27, WeekendShiftPolicy.DROP));
+    List<Event> events =
+        nonWeekend(
+            generator.generate(spec, LocalDate.of(2027, 12, 20), LocalDate.of(2027, 12, 31)));
+    assertEquals(1, events.size(), events.toString());
+    assertEquals(EventType.CLOSED, events.get(0).type());
+    assertEquals(LocalDate.of(2027, 12, 27), events.get(0).date());
+  }
+
+  @Test
+  void previousAvailableBusinessDay_sundayEveMovesBackToFriday() {
+    // LSE: Sun Dec 24 2028 -> Fri Dec 22 2028 (Sat Dec 23 is a weekend day)
+    ResolvedSpec spec =
+        spec(
+            WeekendPolicy.SAT_SUN,
+            WeekendShiftPolicy.NEXT_AVAILABLE_WEEKDAY,
+            earlyClose(
+                "christmas_eve", 12, 24, WeekendShiftPolicy.PREVIOUS_AVAILABLE_BUSINESS_DAY));
+    List<Event> events =
+        nonWeekend(
+            generator.generate(spec, LocalDate.of(2028, 12, 18), LocalDate.of(2028, 12, 31)));
+    assertEquals(1, events.size(), events.toString());
+    assertEquals(LocalDate.of(2028, 12, 22), events.get(0).date());
+    assertEquals(LocalDate.of(2028, 12, 24), events.get(0).observedFrom());
+    assertEquals(EventType.EARLY_CLOSE, events.get(0).type());
+    assertEquals(LocalTime.of(12, 30), events.get(0).closeTime());
+  }
+
+  @Test
+  void previousAvailableBusinessDay_skipsAnObservedClosureOnTheNominalDate() {
+    // Christmas Sun Dec 25 2022 is observed Mon Dec 26. A half day nominally on Fri Dec 24 2021
+    // is a session, but make the collision explicit: Christmas 2021 observed Fri Dec 24 under
+    // NEAREST_WEEKDAY takes the date, so the Dec 24 half day moves back to Thu Dec 23.
+    ResolvedSpec spec =
+        spec(
+            WeekendPolicy.SAT_SUN,
+            WeekendShiftPolicy.NEAREST_WEEKDAY,
+            closed("christmas", 12, 25, WeekendShiftPolicy.NEAREST_WEEKDAY),
+            earlyClose(
+                "christmas_eve", 12, 24, WeekendShiftPolicy.PREVIOUS_AVAILABLE_BUSINESS_DAY));
+    List<Event> events =
+        nonWeekend(
+            generator.generate(spec, LocalDate.of(2021, 12, 20), LocalDate.of(2021, 12, 31)));
+    Event closure =
+        events.stream().filter(e -> e.type() == EventType.CLOSED).findFirst().orElseThrow();
+    assertEquals(LocalDate.of(2021, 12, 24), closure.date());
+    Event half =
+        events.stream().filter(e -> e.type() == EventType.EARLY_CLOSE).findFirst().orElseThrow();
+    assertEquals(LocalDate.of(2021, 12, 23), half.date());
+    assertEquals(LocalDate.of(2021, 12, 24), half.observedFrom());
+  }
+
+  @Test
+  void previousAvailableBusinessDay_droppedWhenNothingFoundWithinSevenDays() {
+    // A week-long closure immediately before the half day's nominal date leaves no session
+    // within the seven-day search window, so the half day is not observed at all.
+    EventSource blockade =
+        new EventSource(
+            "shutdown",
+            "Shutdown",
+            new Rule.FixedMonthDay(null, null, 6, 8, "ISO", null, null, 7),
+            EventType.CLOSED,
+            false,
+            null);
+    ResolvedSpec spec =
+        spec(
+            WeekendPolicy.SAT_SUN,
+            WeekendShiftPolicy.NONE,
+            blockade,
+            earlyClose("half_day", 6, 15, WeekendShiftPolicy.PREVIOUS_AVAILABLE_BUSINESS_DAY));
+    // 2025-06-15 is a Sunday; Jun 8..14 are all CLOSED, so Jun 8..14 and the Sat are unavailable
+    List<Event> events =
+        nonWeekend(generator.generate(spec, LocalDate.of(2025, 6, 1), LocalDate.of(2025, 6, 30)));
+    assertTrue(
+        events.stream().noneMatch(e -> e.type() == EventType.EARLY_CLOSE),
+        "half day must be dropped when no session is found within 7 days: " + events);
+  }
+
+  // --- displaces ------------------------------------------------------------------------
+
+  @Test
+  void displaces_sundayChristmasTakesMondayAndPushesBoxingDayToTuesday() {
+    // TMX 2022: Sun Dec 25 -> Mon Dec 26 "in lieu of Christmas Day"; Boxing Day (nominal Mon
+    // Dec 26, an ordinary weekday) re-cascades to Tue Dec 27 "in lieu of Boxing Day".
+    ResolvedSpec spec =
+        spec(
+            WeekendPolicy.SAT_SUN,
+            WeekendShiftPolicy.NEXT_AVAILABLE_WEEKDAY,
+            closedDisplacing("ca_christmas", 12, 25, null, "ca_boxing_day"),
+            closed("ca_boxing_day", 12, 26, null));
+    List<Event> events =
+        nonWeekend(
+            generator.generate(spec, LocalDate.of(2022, 12, 20), LocalDate.of(2022, 12, 31)));
+    Event christmas =
+        events.stream().filter(e -> e.key().equals("ca_christmas")).findFirst().orElseThrow();
+    Event boxing =
+        events.stream().filter(e -> e.key().equals("ca_boxing_day")).findFirst().orElseThrow();
+    assertEquals(LocalDate.of(2022, 12, 26), christmas.date());
+    assertEquals(LocalDate.of(2022, 12, 25), christmas.observedFrom());
+    assertEquals(LocalDate.of(2022, 12, 27), boxing.date());
+    assertEquals(LocalDate.of(2022, 12, 26), boxing.observedFrom());
+  }
+
+  @Test
+  void displaces_saturdayChristmasNeedsNoDisplacement() {
+    // TMX 2021: Sat Dec 25 -> Mon Dec 27, Sun Dec 26 -> Tue Dec 28, by ordinary cascading.
+    ResolvedSpec spec =
+        spec(
+            WeekendPolicy.SAT_SUN,
+            WeekendShiftPolicy.NEXT_AVAILABLE_WEEKDAY,
+            closedDisplacing("ca_christmas", 12, 25, null, "ca_boxing_day"),
+            closed("ca_boxing_day", 12, 26, null));
+    List<Event> events =
+        nonWeekend(
+            generator.generate(spec, LocalDate.of(2021, 12, 20), LocalDate.of(2021, 12, 31)));
+    assertEquals(
+        List.of(LocalDate.of(2021, 12, 27), LocalDate.of(2021, 12, 28)),
+        events.stream().map(Event::date).toList());
+  }
+
+  @Test
+  void withoutDisplaces_ukOrderingIsUnchanged() {
+    // GB-LSE 2022: Boxing Day keeps its own Monday, Christmas cascades past it onto Tuesday.
+    ResolvedSpec spec =
+        spec(
+            WeekendPolicy.SAT_SUN,
+            WeekendShiftPolicy.NEXT_AVAILABLE_WEEKDAY,
+            closed("uk_christmas", 12, 25, null),
+            closed("uk_boxing_day", 12, 26, null));
+    List<Event> events =
+        nonWeekend(
+            generator.generate(spec, LocalDate.of(2022, 12, 20), LocalDate.of(2022, 12, 31)));
+    Event christmas =
+        events.stream().filter(e -> e.key().equals("uk_christmas")).findFirst().orElseThrow();
+    Event boxing =
+        events.stream().filter(e -> e.key().equals("uk_boxing_day")).findFirst().orElseThrow();
+    assertEquals(LocalDate.of(2022, 12, 27), christmas.date(), "Christmas cascades to Tuesday");
+    assertEquals(LocalDate.of(2022, 12, 26), boxing.date(), "Boxing Day keeps its own Monday");
+    assertNull(boxing.observedFrom());
+  }
+
+  @Test
+  void displaces_onlyTakesASlotHeldExclusivelyByDisplaceableEvents() {
+    // The Monday also carries a closure this event may not displace, so the Sunday holiday
+    // cascades past it as usual rather than evicting anyone.
+    EventSource immovable =
+        new EventSource(
+            "bank_holiday",
+            "Bank Holiday",
+            new Rule.ExplicitDates(
+                null, null, List.of(new Rule.AnnotatedDate(LocalDate.of(2022, 12, 26)))),
+            EventType.CLOSED,
+            false,
+            null);
+    ResolvedSpec spec =
+        spec(
+            WeekendPolicy.SAT_SUN,
+            WeekendShiftPolicy.NEXT_AVAILABLE_WEEKDAY,
+            closedDisplacing("ca_christmas", 12, 25, null, "ca_boxing_day"),
+            closed("ca_boxing_day", 12, 26, null),
+            immovable);
+    List<Event> events =
+        nonWeekend(
+            generator.generate(spec, LocalDate.of(2022, 12, 20), LocalDate.of(2022, 12, 31)));
+    Event christmas =
+        events.stream().filter(e -> e.key().equals("ca_christmas")).findFirst().orElseThrow();
+    assertEquals(LocalDate.of(2022, 12, 27), christmas.date());
+    Event boxing =
+        events.stream().filter(e -> e.key().equals("ca_boxing_day")).findFirst().orElseThrow();
+    assertEquals(LocalDate.of(2022, 12, 26), boxing.date());
   }
 
   @Test

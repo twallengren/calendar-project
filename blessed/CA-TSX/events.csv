@@ -677,8 +677,8 @@ date,type,description,key,source_module,observed_from,close_time,status
 2005-12-18,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
 2005-12-24,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
 2005-12-25,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
-2005-12-26,CLOSED,Christmas Day,ca_christmas,module:ca_christmas,,,CONFIRMED
-2005-12-27,CLOSED,Boxing Day,ca_boxing_day,module:ca_boxing_day,,,CONFIRMED
+2005-12-26,CLOSED,Christmas Day,ca_christmas,module:ca_christmas,2005-12-25,,CONFIRMED
+2005-12-27,CLOSED,Boxing Day,ca_boxing_day,module:ca_boxing_day,2005-12-26,,CONFIRMED
 2005-12-31,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
 2006-01-01,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
 2006-01-02,CLOSED,New Year's Day,ca_new_years_day,module:ca_new_years_day,2006-01-01,,CONFIRMED
@@ -1361,8 +1361,8 @@ date,type,description,key,source_module,observed_from,close_time,status
 2011-12-18,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
 2011-12-24,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
 2011-12-25,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
-2011-12-26,CLOSED,Christmas Day,ca_christmas,module:ca_christmas,,,CONFIRMED
-2011-12-27,CLOSED,Boxing Day,ca_boxing_day,module:ca_boxing_day,,,CONFIRMED
+2011-12-26,CLOSED,Christmas Day,ca_christmas,module:ca_christmas,2011-12-25,,CONFIRMED
+2011-12-27,CLOSED,Boxing Day,ca_boxing_day,module:ca_boxing_day,2011-12-26,,CONFIRMED
 2011-12-31,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
 2012-01-01,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
 2012-01-02,CLOSED,New Year's Day,ca_new_years_day,module:ca_new_years_day,2012-01-01,,CONFIRMED
@@ -1934,8 +1934,8 @@ date,type,description,key,source_module,observed_from,close_time,status
 2016-12-18,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
 2016-12-24,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
 2016-12-25,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
-2016-12-26,CLOSED,Christmas Day,ca_christmas,module:ca_christmas,,,CONFIRMED
-2016-12-27,CLOSED,Boxing Day,ca_boxing_day,module:ca_boxing_day,,,CONFIRMED
+2016-12-26,CLOSED,Christmas Day,ca_christmas,module:ca_christmas,2016-12-25,,CONFIRMED
+2016-12-27,CLOSED,Boxing Day,ca_boxing_day,module:ca_boxing_day,2016-12-26,,CONFIRMED
 2016-12-31,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
 2017-01-01,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
 2017-01-02,CLOSED,New Year's Day,ca_new_years_day,module:ca_new_years_day,2017-01-01,,CONFIRMED
@@ -2624,8 +2624,8 @@ date,type,description,key,source_module,observed_from,close_time,status
 2022-12-18,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
 2022-12-24,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
 2022-12-25,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
-2022-12-26,CLOSED,Christmas Day,ca_christmas,module:ca_christmas,,,CONFIRMED
-2022-12-27,CLOSED,Boxing Day,ca_boxing_day,module:ca_boxing_day,,,CONFIRMED
+2022-12-26,CLOSED,Christmas Day,ca_christmas,module:ca_christmas,2022-12-25,,CONFIRMED
+2022-12-27,CLOSED,Boxing Day,ca_boxing_day,module:ca_boxing_day,2022-12-26,,CONFIRMED
 2022-12-31,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
 2023-01-01,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
 2023-01-02,CLOSED,New Year's Day,ca_new_years_day,module:ca_new_years_day,2023-01-01,,CONFIRMED

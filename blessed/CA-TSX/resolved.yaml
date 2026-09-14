@@ -173,13 +173,19 @@ event_sources:
   origin: module:ca_christmas
   classification: CLOSED
   shiftable: true
+  displaces:
+  - ca_boxing_day
   status: CONFIRMED
   source:
-  - id: holidays-act-canada
-  - id: tmx-holiday-schedule-2020
+  - id: tmx-holiday-schedule-2016
+    ref: "Closed Mon Dec 26, 2016 \"in lieu of Christmas Day on Sunday, December 25,\
+      \ 2016\" and Tue Dec 27, 2016 \"in lieu of Boxing Day on Monday, December 26,\
+      \ 2016\""
+  - id: tmx-canada-holiday-2022
+    ref: Same Mon Dec 26 / Tue Dec 27 ordering for the Sunday Christmas of 2022
   - id: tmx-holiday-schedule-2021
-  - id: tmx-holiday-schedule-2023
-  - id: tmx-holiday-schedule-2025
+    ref: "Sat Dec 25, 2021 observed Mon Dec 27, 2021 (no displacement needed)"
+  - id: holidays-act-canada
   - id: tsx-calendar-page
   rule:
     type: fixed_month_day
@@ -221,68 +227,3 @@ event_sources:
     type: fixed_month_day
     month: 12
     day: 26
-deltas:
-- action: remove
-  key: ca_christmas
-  date: 2005-12-27
-- action: add
-  key: ca_christmas
-  name: Christmas Day
-  date: 2005-12-26
-  classification: CLOSED
-- action: remove
-  key: ca_boxing_day
-  date: 2005-12-26
-- action: add
-  key: ca_boxing_day
-  name: Boxing Day
-  date: 2005-12-27
-  classification: CLOSED
-- action: remove
-  key: ca_christmas
-  date: 2011-12-27
-- action: add
-  key: ca_christmas
-  name: Christmas Day
-  date: 2011-12-26
-  classification: CLOSED
-- action: remove
-  key: ca_boxing_day
-  date: 2011-12-26
-- action: add
-  key: ca_boxing_day
-  name: Boxing Day
-  date: 2011-12-27
-  classification: CLOSED
-- action: remove
-  key: ca_christmas
-  date: 2016-12-27
-- action: add
-  key: ca_christmas
-  name: Christmas Day
-  date: 2016-12-26
-  classification: CLOSED
-- action: remove
-  key: ca_boxing_day
-  date: 2016-12-26
-- action: add
-  key: ca_boxing_day
-  name: Boxing Day
-  date: 2016-12-27
-  classification: CLOSED
-- action: remove
-  key: ca_christmas
-  date: 2022-12-27
-- action: add
-  key: ca_christmas
-  name: Christmas Day
-  date: 2022-12-26
-  classification: CLOSED
-- action: remove
-  key: ca_boxing_day
-  date: 2022-12-26
-- action: add
-  key: ca_boxing_day
-  name: Boxing Day
-  date: 2022-12-27
-  classification: CLOSED
