@@ -1,0 +1,46 @@
+kind: calendar
+id: EU-TARGET
+metadata:
+  name: T2 euro RTGS
+  description: "Euro-denominated T2 central liquidity management and real-time gross\
+    \ settlement operating dates. This date-only calendar models whether the T2 RTGS\
+    \ business date is open for customer and interbank payments; it does not represent\
+    \ TIPS availability, limited liquidity-transfer windows, session times, cutoffs\
+    \ or instrument eligibility. The ECB's current six TARGET closing days are applied\
+    \ without substitute weekdays and are confirmed for 2026-2027."
+  chronology: ISO
+  timezone: Europe/Berlin
+  coverage:
+    from: 2026-01-01
+    to: 2027-12-31
+    quality:
+    - scope: SCHEDULED_CLOSURES
+      from: 2026-01-01
+      to: 2027-12-31
+      quality: VERIFIED
+      evidenceIds:
+      - ecb-t2-opening-hours
+      - ecb-target-holidays-2026-2027
+    - scope: EARLY_CLOSES
+      from: 2026-01-01
+      to: 2027-12-31
+      quality: PROJECTED
+      evidenceIds:
+      - ecb-t2-opening-hours
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2026-01-01
+      to: 2027-12-31
+      quality: PROJECTED
+      evidenceIds:
+      - ecb-t2-opening-hours
+    verified_through: 2027-12-31
+  kind: payment
+  aliases: []
+uses:
+- weekend_sat_sun
+- eu_target_holidays
+classifications: {}
+deltas: []
+extends: []
+event_sources: []
+weekend_shift_policy: NONE

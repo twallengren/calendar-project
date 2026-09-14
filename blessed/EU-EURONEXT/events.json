@@ -9,7 +9,32 @@
   "coverage" : {
     "from" : "2010-01-01",
     "to" : "2030-12-31",
-    "verified_through" : "2026-12-31"
+    "verified_through" : "2026-12-31",
+    "quality" : [ {
+      "scope" : "SCHEDULED_CLOSURES",
+      "from" : "2010-01-01",
+      "to" : "2026-12-31",
+      "quality" : "VERIFIED",
+      "evidence_ids" : [ "nyse-euronext-calendar-2010", "nyse-euronext-calendar-2011", "nyse-euronext-calendar-2012", "nyse-euronext-calendar-2013", "euronext-calendars-hours-archive", "euronext-hours-holidays", "euronext-holiday-calendar-2026" ]
+    }, {
+      "scope" : "SCHEDULED_CLOSURES",
+      "from" : "2027-01-01",
+      "to" : "2030-12-31",
+      "quality" : "PROJECTED",
+      "evidence_ids" : [ "euronext-hours-holidays" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "2010-01-01",
+      "to" : "2030-12-31",
+      "quality" : "PROJECTED",
+      "evidence_ids" : [ "euronext-hours-holidays" ]
+    }, {
+      "scope" : "UNSCHEDULED_EXCEPTIONS",
+      "from" : "2010-01-01",
+      "to" : "2030-12-31",
+      "quality" : "PROJECTED",
+      "evidence_ids" : [ "euronext-hours-holidays" ]
+    } ]
   },
   "event_count" : 2295,
   "events" : [ {

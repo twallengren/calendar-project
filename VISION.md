@@ -4,7 +4,7 @@ This document sketches the direction we see for this project — where it is tod
 
 ## Where we are
 
-A YAML-driven business-day calendar system that compiles declarative specs into deterministic CSV/JSON artifacts. The authenticated GitHub release asset for v11.0.0 contains four calendars; no v12 release has been published. The local source candidate has expanded beyond those published artifacts, so the README market table is a local snapshot pending refresh. Current candidate work includes:
+A YAML-driven business-day calendar system that compiles declarative specs into deterministic CSV/JSON artifacts. The authenticated GitHub release asset for v11.0.0 contains four calendars; no v12 release has been published. The local source candidate has expanded beyond those published artifacts, so the README market table is a prepared local v12 candidate snapshot. Current candidate work includes:
 
 - **Expanded calendar coverage**: Hebrew-based TASE rules, bounded to 2025–2027, plus EU-TARGET, GB-CHAPS and US-FEDWIRE date calendars for 2026–2027. TASE unscheduled-exception coverage remains incomplete throughout, so actual-day answers are UNKNOWN wherever a required scope is incomplete. Payment calendars mark scheduled closures VERIFIED and early closes and unscheduled exceptions PROJECTED.
 - **Seven chronology profiles**: ISO/Gregorian, tabular Hijri, Umm al-Qura, Julian, Persian, fixed-arithmetic civil Hebrew, and a modern Chinese profile at fixed UTC+08:00. Hebrew dates map at civil midnight and do not model sunset; CHINESE_HK is bounded to 1929–2100 and is not a general historical profile. See [native chronology profiles](docs/native-chronologies.md).

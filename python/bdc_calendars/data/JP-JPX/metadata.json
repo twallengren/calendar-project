@@ -14,11 +14,4971 @@
   },
   "coverage": {
     "from": "2010-01-01",
+    "quality": [
+      {
+        "evidence_ids": [
+          "cao-shukujitsu",
+          "jpx-market-holidays"
+        ],
+        "from": "2010-01-01",
+        "quality": "PROJECTED",
+        "scope": "SCHEDULED_CLOSURES",
+        "to": "2018-12-31"
+      },
+      {
+        "evidence_ids": [
+          "jpx-market-holidays-archive",
+          "jpx-market-holidays",
+          "cao-shukujitsu"
+        ],
+        "from": "2019-01-01",
+        "quality": "VERIFIED",
+        "scope": "SCHEDULED_CLOSURES",
+        "to": "2027-12-31"
+      },
+      {
+        "evidence_ids": [
+          "jpx-market-holidays",
+          "cao-shukujitsu-gaiyou"
+        ],
+        "from": "2028-01-01",
+        "quality": "PROJECTED",
+        "scope": "SCHEDULED_CLOSURES",
+        "to": "2030-12-31"
+      },
+      {
+        "evidence_ids": [
+          "jpx-market-holidays"
+        ],
+        "from": "2010-01-01",
+        "quality": "PROJECTED",
+        "scope": "EARLY_CLOSES",
+        "to": "2030-12-31"
+      },
+      {
+        "evidence_ids": [
+          "jpx-system-failure-2020"
+        ],
+        "from": "2010-01-01",
+        "quality": "PROJECTED",
+        "scope": "UNSCHEDULED_EXCEPTIONS",
+        "to": "2030-12-31"
+      }
+    ],
     "to": "2030-12-31",
     "verified_through": "2027-12-31"
   },
   "event_count": 2535,
-  "generated_at": "2026-02-16T21:43:21Z",
+  "event_details": [
+    {
+      "close_time": null,
+      "date": "2010-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-01-11",
+      "description": "Coming of Age Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_coming_of_age_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_coming_of_age_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-02-11",
+      "description": "National Foundation Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_national_foundation_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_national_foundation_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-03-22",
+      "description": "Vernal Equinox Day",
+      "evidence_ids": [
+        "cao-shukujitsu"
+      ],
+      "key": "jp_vernal_equinox_day",
+      "observation_lineage": [
+        "2010-03-21",
+        "2010-03-22"
+      ],
+      "observed_from": "2010-03-21",
+      "source_module": "module:jp_vernal_equinox_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-04-29",
+      "description": "Showa Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_showa_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_showa_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-05-03",
+      "description": "Constitution Memorial Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_constitution_memorial_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_constitution_memorial_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-05-04",
+      "description": "Greenery Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_greenery_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_greenery_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-05-05",
+      "description": "Children's Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_childrens_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_childrens_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-07-19",
+      "description": "Marine Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_marine_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_marine_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-09-20",
+      "description": "Respect for the Aged Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_respect_for_the_aged_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_respect_for_the_aged_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-09-23",
+      "description": "Autumnal Equinox Day",
+      "evidence_ids": [
+        "cao-shukujitsu"
+      ],
+      "key": "jp_autumnal_equinox_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_autumnal_equinox_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-10-11",
+      "description": "Health and Sports Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_health_and_sports_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_sports_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-11-03",
+      "description": "Culture Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_culture_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_culture_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-11-23",
+      "description": "Labor Thanksgiving Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_labour_thanksgiving_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_labour_thanksgiving_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-12-23",
+      "description": "Emperor's Birthday",
+      "evidence_ids": [
+        "cao-shukujitsu"
+      ],
+      "key": "jp_emperors_birthday_akihito",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_emperors_birthday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-12-31",
+      "description": "Market Holiday (year end)",
+      "evidence_ids": [
+        "jpx-market-holidays"
+      ],
+      "key": "jp_jpx_year_end_market_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_jpx_market_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-01-03",
+      "description": "Market Holiday (New Year)",
+      "evidence_ids": [
+        "jpx-market-holidays"
+      ],
+      "key": "jp_jpx_new_year_market_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_jpx_market_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-01-10",
+      "description": "Coming of Age Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_coming_of_age_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_coming_of_age_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-02-11",
+      "description": "National Foundation Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_national_foundation_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_national_foundation_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-03-21",
+      "description": "Vernal Equinox Day",
+      "evidence_ids": [
+        "cao-shukujitsu"
+      ],
+      "key": "jp_vernal_equinox_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_vernal_equinox_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-04-29",
+      "description": "Showa Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_showa_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_showa_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-05-03",
+      "description": "Constitution Memorial Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_constitution_memorial_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_constitution_memorial_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-05-04",
+      "description": "Greenery Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_greenery_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_greenery_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-05-05",
+      "description": "Children's Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_childrens_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_childrens_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-07-18",
+      "description": "Marine Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_marine_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_marine_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-09-19",
+      "description": "Respect for the Aged Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_respect_for_the_aged_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_respect_for_the_aged_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-09-23",
+      "description": "Autumnal Equinox Day",
+      "evidence_ids": [
+        "cao-shukujitsu"
+      ],
+      "key": "jp_autumnal_equinox_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_autumnal_equinox_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-10-10",
+      "description": "Health and Sports Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_health_and_sports_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_sports_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-11-03",
+      "description": "Culture Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_culture_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_culture_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-11-23",
+      "description": "Labor Thanksgiving Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_labour_thanksgiving_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_labour_thanksgiving_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-12-23",
+      "description": "Emperor's Birthday",
+      "evidence_ids": [
+        "cao-shukujitsu"
+      ],
+      "key": "jp_emperors_birthday_akihito",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_emperors_birthday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-01-02",
+      "description": "Market Holiday (New Year)",
+      "evidence_ids": [
+        "jpx-market-holidays"
+      ],
+      "key": "jp_jpx_new_year_market_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_jpx_market_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-01-03",
+      "description": "Market Holiday (New Year)",
+      "evidence_ids": [
+        "jpx-market-holidays"
+      ],
+      "key": "jp_jpx_new_year_market_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_jpx_market_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-01-09",
+      "description": "Coming of Age Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_coming_of_age_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_coming_of_age_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-03-20",
+      "description": "Vernal Equinox Day",
+      "evidence_ids": [
+        "cao-shukujitsu"
+      ],
+      "key": "jp_vernal_equinox_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_vernal_equinox_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-04-30",
+      "description": "Showa Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_showa_day",
+      "observation_lineage": [
+        "2012-04-29",
+        "2012-04-30"
+      ],
+      "observed_from": "2012-04-29",
+      "source_module": "module:jp_showa_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-05-03",
+      "description": "Constitution Memorial Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_constitution_memorial_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_constitution_memorial_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-05-04",
+      "description": "Greenery Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_greenery_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_greenery_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-07-16",
+      "description": "Marine Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_marine_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_marine_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-09-17",
+      "description": "Respect for the Aged Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_respect_for_the_aged_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_respect_for_the_aged_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-10-08",
+      "description": "Health and Sports Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_health_and_sports_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_sports_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-11-23",
+      "description": "Labor Thanksgiving Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_labour_thanksgiving_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_labour_thanksgiving_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-12-24",
+      "description": "Emperor's Birthday",
+      "evidence_ids": [
+        "cao-shukujitsu"
+      ],
+      "key": "jp_emperors_birthday_akihito",
+      "observation_lineage": [
+        "2012-12-23",
+        "2012-12-24"
+      ],
+      "observed_from": "2012-12-23",
+      "source_module": "module:jp_emperors_birthday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-12-31",
+      "description": "Market Holiday (year end)",
+      "evidence_ids": [
+        "jpx-market-holidays"
+      ],
+      "key": "jp_jpx_year_end_market_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_jpx_market_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-01-02",
+      "description": "Market Holiday (New Year)",
+      "evidence_ids": [
+        "jpx-market-holidays"
+      ],
+      "key": "jp_jpx_new_year_market_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_jpx_market_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-01-03",
+      "description": "Market Holiday (New Year)",
+      "evidence_ids": [
+        "jpx-market-holidays"
+      ],
+      "key": "jp_jpx_new_year_market_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_jpx_market_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-01-14",
+      "description": "Coming of Age Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_coming_of_age_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_coming_of_age_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-02-11",
+      "description": "National Foundation Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_national_foundation_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_national_foundation_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-03-20",
+      "description": "Vernal Equinox Day",
+      "evidence_ids": [
+        "cao-shukujitsu"
+      ],
+      "key": "jp_vernal_equinox_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_vernal_equinox_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-04-29",
+      "description": "Showa Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_showa_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_showa_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-05-03",
+      "description": "Constitution Memorial Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_constitution_memorial_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_constitution_memorial_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-05-06",
+      "description": "Children's Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_childrens_day",
+      "observation_lineage": [
+        "2013-05-05",
+        "2013-05-06"
+      ],
+      "observed_from": "2013-05-05",
+      "source_module": "module:jp_childrens_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-07-15",
+      "description": "Marine Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_marine_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_marine_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-09-16",
+      "description": "Respect for the Aged Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_respect_for_the_aged_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_respect_for_the_aged_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-09-23",
+      "description": "Autumnal Equinox Day",
+      "evidence_ids": [
+        "cao-shukujitsu"
+      ],
+      "key": "jp_autumnal_equinox_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_autumnal_equinox_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-10-14",
+      "description": "Health and Sports Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_health_and_sports_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_sports_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-11-04",
+      "description": "Culture Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_culture_day",
+      "observation_lineage": [
+        "2013-11-03",
+        "2013-11-04"
+      ],
+      "observed_from": "2013-11-03",
+      "source_module": "module:jp_culture_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-12-23",
+      "description": "Emperor's Birthday",
+      "evidence_ids": [
+        "cao-shukujitsu"
+      ],
+      "key": "jp_emperors_birthday_akihito",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_emperors_birthday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-12-31",
+      "description": "Market Holiday (year end)",
+      "evidence_ids": [
+        "jpx-market-holidays"
+      ],
+      "key": "jp_jpx_year_end_market_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_jpx_market_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-01-02",
+      "description": "Market Holiday (New Year)",
+      "evidence_ids": [
+        "jpx-market-holidays"
+      ],
+      "key": "jp_jpx_new_year_market_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_jpx_market_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-01-03",
+      "description": "Market Holiday (New Year)",
+      "evidence_ids": [
+        "jpx-market-holidays"
+      ],
+      "key": "jp_jpx_new_year_market_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_jpx_market_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-01-13",
+      "description": "Coming of Age Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_coming_of_age_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_coming_of_age_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-02-11",
+      "description": "National Foundation Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_national_foundation_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_national_foundation_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-03-21",
+      "description": "Vernal Equinox Day",
+      "evidence_ids": [
+        "cao-shukujitsu"
+      ],
+      "key": "jp_vernal_equinox_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_vernal_equinox_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-04-29",
+      "description": "Showa Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_showa_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_showa_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-05-05",
+      "description": "Children's Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_childrens_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_childrens_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-05-06",
+      "description": "Greenery Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_greenery_day",
+      "observation_lineage": [
+        "2014-05-04",
+        "2014-05-06"
+      ],
+      "observed_from": "2014-05-04",
+      "source_module": "module:jp_greenery_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-07-21",
+      "description": "Marine Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_marine_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_marine_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-09-15",
+      "description": "Respect for the Aged Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_respect_for_the_aged_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_respect_for_the_aged_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-09-23",
+      "description": "Autumnal Equinox Day",
+      "evidence_ids": [
+        "cao-shukujitsu"
+      ],
+      "key": "jp_autumnal_equinox_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_autumnal_equinox_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-10-13",
+      "description": "Health and Sports Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_health_and_sports_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_sports_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-11-03",
+      "description": "Culture Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_culture_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_culture_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-11-24",
+      "description": "Labor Thanksgiving Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_labour_thanksgiving_day",
+      "observation_lineage": [
+        "2014-11-23",
+        "2014-11-24"
+      ],
+      "observed_from": "2014-11-23",
+      "source_module": "module:jp_labour_thanksgiving_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-12-23",
+      "description": "Emperor's Birthday",
+      "evidence_ids": [
+        "cao-shukujitsu"
+      ],
+      "key": "jp_emperors_birthday_akihito",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_emperors_birthday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-12-31",
+      "description": "Market Holiday (year end)",
+      "evidence_ids": [
+        "jpx-market-holidays"
+      ],
+      "key": "jp_jpx_year_end_market_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_jpx_market_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-01-02",
+      "description": "Market Holiday (New Year)",
+      "evidence_ids": [
+        "jpx-market-holidays"
+      ],
+      "key": "jp_jpx_new_year_market_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_jpx_market_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-01-12",
+      "description": "Coming of Age Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_coming_of_age_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_coming_of_age_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-02-11",
+      "description": "National Foundation Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_national_foundation_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_national_foundation_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-04-29",
+      "description": "Showa Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_showa_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_showa_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-05-04",
+      "description": "Greenery Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_greenery_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_greenery_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-05-05",
+      "description": "Children's Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_childrens_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_childrens_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-05-06",
+      "description": "Constitution Memorial Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_constitution_memorial_day",
+      "observation_lineage": [
+        "2015-05-03",
+        "2015-05-06"
+      ],
+      "observed_from": "2015-05-03",
+      "source_module": "module:jp_constitution_memorial_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-07-20",
+      "description": "Marine Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_marine_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_marine_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-09-21",
+      "description": "Respect for the Aged Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_respect_for_the_aged_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_respect_for_the_aged_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-09-22",
+      "description": "Citizens' Holiday (between Respect for the Aged Day and Autumnal Equinox Day)",
+      "evidence_ids": [
+        "cao-shukujitsu"
+      ],
+      "key": "jp_citizens_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_citizens_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-09-23",
+      "description": "Autumnal Equinox Day",
+      "evidence_ids": [
+        "cao-shukujitsu"
+      ],
+      "key": "jp_autumnal_equinox_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_autumnal_equinox_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-10-12",
+      "description": "Health and Sports Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_health_and_sports_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_sports_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-11-03",
+      "description": "Culture Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_culture_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_culture_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-11-23",
+      "description": "Labor Thanksgiving Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_labour_thanksgiving_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_labour_thanksgiving_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-12-23",
+      "description": "Emperor's Birthday",
+      "evidence_ids": [
+        "cao-shukujitsu"
+      ],
+      "key": "jp_emperors_birthday_akihito",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_emperors_birthday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-12-31",
+      "description": "Market Holiday (year end)",
+      "evidence_ids": [
+        "jpx-market-holidays"
+      ],
+      "key": "jp_jpx_year_end_market_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_jpx_market_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-01-11",
+      "description": "Coming of Age Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_coming_of_age_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_coming_of_age_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-02-11",
+      "description": "National Foundation Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_national_foundation_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_national_foundation_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-03-21",
+      "description": "Vernal Equinox Day",
+      "evidence_ids": [
+        "cao-shukujitsu"
+      ],
+      "key": "jp_vernal_equinox_day",
+      "observation_lineage": [
+        "2016-03-20",
+        "2016-03-21"
+      ],
+      "observed_from": "2016-03-20",
+      "source_module": "module:jp_vernal_equinox_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-04-29",
+      "description": "Showa Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_showa_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_showa_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-05-03",
+      "description": "Constitution Memorial Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_constitution_memorial_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_constitution_memorial_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-05-04",
+      "description": "Greenery Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_greenery_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_greenery_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-05-05",
+      "description": "Children's Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_childrens_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_childrens_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-07-18",
+      "description": "Marine Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_marine_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_marine_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-08-11",
+      "description": "Mountain Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_mountain_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_mountain_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-09-19",
+      "description": "Respect for the Aged Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_respect_for_the_aged_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_respect_for_the_aged_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-09-22",
+      "description": "Autumnal Equinox Day",
+      "evidence_ids": [
+        "cao-shukujitsu"
+      ],
+      "key": "jp_autumnal_equinox_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_autumnal_equinox_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-10-10",
+      "description": "Health and Sports Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_health_and_sports_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_sports_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-11-03",
+      "description": "Culture Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_culture_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_culture_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-11-23",
+      "description": "Labor Thanksgiving Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_labour_thanksgiving_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_labour_thanksgiving_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-12-23",
+      "description": "Emperor's Birthday",
+      "evidence_ids": [
+        "cao-shukujitsu"
+      ],
+      "key": "jp_emperors_birthday_akihito",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_emperors_birthday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-01-02",
+      "description": "Market Holiday (New Year)",
+      "evidence_ids": [
+        "jpx-market-holidays"
+      ],
+      "key": "jp_jpx_new_year_market_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_jpx_market_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-01-03",
+      "description": "Market Holiday (New Year)",
+      "evidence_ids": [
+        "jpx-market-holidays"
+      ],
+      "key": "jp_jpx_new_year_market_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_jpx_market_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-01-09",
+      "description": "Coming of Age Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_coming_of_age_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_coming_of_age_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-03-20",
+      "description": "Vernal Equinox Day",
+      "evidence_ids": [
+        "cao-shukujitsu"
+      ],
+      "key": "jp_vernal_equinox_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_vernal_equinox_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-05-03",
+      "description": "Constitution Memorial Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_constitution_memorial_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_constitution_memorial_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-05-04",
+      "description": "Greenery Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_greenery_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_greenery_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-05-05",
+      "description": "Children's Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_childrens_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_childrens_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-07-17",
+      "description": "Marine Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_marine_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_marine_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-08-11",
+      "description": "Mountain Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_mountain_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_mountain_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-09-18",
+      "description": "Respect for the Aged Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_respect_for_the_aged_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_respect_for_the_aged_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-10-09",
+      "description": "Health and Sports Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_health_and_sports_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_sports_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-11-03",
+      "description": "Culture Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_culture_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_culture_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-11-23",
+      "description": "Labor Thanksgiving Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_labour_thanksgiving_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_labour_thanksgiving_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-01-02",
+      "description": "Market Holiday (New Year)",
+      "evidence_ids": [
+        "jpx-market-holidays"
+      ],
+      "key": "jp_jpx_new_year_market_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_jpx_market_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-01-03",
+      "description": "Market Holiday (New Year)",
+      "evidence_ids": [
+        "jpx-market-holidays"
+      ],
+      "key": "jp_jpx_new_year_market_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_jpx_market_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-01-08",
+      "description": "Coming of Age Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_coming_of_age_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_coming_of_age_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-02-12",
+      "description": "National Foundation Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_national_foundation_day",
+      "observation_lineage": [
+        "2018-02-11",
+        "2018-02-12"
+      ],
+      "observed_from": "2018-02-11",
+      "source_module": "module:jp_national_foundation_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-03-21",
+      "description": "Vernal Equinox Day",
+      "evidence_ids": [
+        "cao-shukujitsu"
+      ],
+      "key": "jp_vernal_equinox_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_vernal_equinox_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-04-30",
+      "description": "Showa Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_showa_day",
+      "observation_lineage": [
+        "2018-04-29",
+        "2018-04-30"
+      ],
+      "observed_from": "2018-04-29",
+      "source_module": "module:jp_showa_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-05-03",
+      "description": "Constitution Memorial Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_constitution_memorial_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_constitution_memorial_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-05-04",
+      "description": "Greenery Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_greenery_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_greenery_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-07-16",
+      "description": "Marine Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_marine_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_marine_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-09-17",
+      "description": "Respect for the Aged Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_respect_for_the_aged_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_respect_for_the_aged_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-09-24",
+      "description": "Autumnal Equinox Day",
+      "evidence_ids": [
+        "cao-shukujitsu"
+      ],
+      "key": "jp_autumnal_equinox_day",
+      "observation_lineage": [
+        "2018-09-23",
+        "2018-09-24"
+      ],
+      "observed_from": "2018-09-23",
+      "source_module": "module:jp_autumnal_equinox_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-10-08",
+      "description": "Health and Sports Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_health_and_sports_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_sports_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-11-23",
+      "description": "Labor Thanksgiving Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_labour_thanksgiving_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_labour_thanksgiving_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-12-24",
+      "description": "Emperor's Birthday",
+      "evidence_ids": [
+        "cao-shukujitsu"
+      ],
+      "key": "jp_emperors_birthday_akihito",
+      "observation_lineage": [
+        "2018-12-23",
+        "2018-12-24"
+      ],
+      "observed_from": "2018-12-23",
+      "source_module": "module:jp_emperors_birthday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-12-31",
+      "description": "Market Holiday (year end)",
+      "evidence_ids": [
+        "jpx-market-holidays"
+      ],
+      "key": "jp_jpx_year_end_market_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_jpx_market_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-01-02",
+      "description": "Market Holiday (New Year)",
+      "evidence_ids": [
+        "jpx-market-holidays"
+      ],
+      "key": "jp_jpx_new_year_market_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_jpx_market_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-01-03",
+      "description": "Market Holiday (New Year)",
+      "evidence_ids": [
+        "jpx-market-holidays"
+      ],
+      "key": "jp_jpx_new_year_market_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_jpx_market_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-01-14",
+      "description": "Coming of Age Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_coming_of_age_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_coming_of_age_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-02-11",
+      "description": "National Foundation Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_national_foundation_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_national_foundation_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-03-21",
+      "description": "Vernal Equinox Day",
+      "evidence_ids": [
+        "cao-shukujitsu"
+      ],
+      "key": "jp_vernal_equinox_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_vernal_equinox_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-04-29",
+      "description": "Showa Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_showa_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_showa_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-04-30",
+      "description": "Citizens' Holiday (between Showa Day and Accession Day)",
+      "evidence_ids": [
+        "cao-shukujitsu"
+      ],
+      "key": "jp_citizens_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_citizens_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-05-01",
+      "description": "Accession Day (enthronement of Emperor Naruhito)",
+      "evidence_ids": [
+        "cao-shukujitsu"
+      ],
+      "key": "jp_accession_day_2019",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_imperial_transition_2019",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-05-02",
+      "description": "Citizens' Holiday (between Accession Day and Constitution Memorial Day)",
+      "evidence_ids": [
+        "cao-shukujitsu"
+      ],
+      "key": "jp_citizens_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_citizens_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-05-03",
+      "description": "Constitution Memorial Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_constitution_memorial_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_constitution_memorial_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-05-06",
+      "description": "Children's Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_childrens_day",
+      "observation_lineage": [
+        "2019-05-05",
+        "2019-05-06"
+      ],
+      "observed_from": "2019-05-05",
+      "source_module": "module:jp_childrens_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-07-15",
+      "description": "Marine Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_marine_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_marine_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-08-12",
+      "description": "Mountain Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_mountain_day",
+      "observation_lineage": [
+        "2019-08-11",
+        "2019-08-12"
+      ],
+      "observed_from": "2019-08-11",
+      "source_module": "module:jp_mountain_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-09-16",
+      "description": "Respect for the Aged Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_respect_for_the_aged_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_respect_for_the_aged_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-09-23",
+      "description": "Autumnal Equinox Day",
+      "evidence_ids": [
+        "cao-shukujitsu"
+      ],
+      "key": "jp_autumnal_equinox_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_autumnal_equinox_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-10-14",
+      "description": "Health and Sports Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_health_and_sports_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_sports_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-10-22",
+      "description": "Enthronement Ceremony Day (Sokui-rei Seiden no Gi)",
+      "evidence_ids": [
+        "cao-shukujitsu"
+      ],
+      "key": "jp_enthronement_ceremony_day_2019",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_imperial_transition_2019",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-11-04",
+      "description": "Culture Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_culture_day",
+      "observation_lineage": [
+        "2019-11-03",
+        "2019-11-04"
+      ],
+      "observed_from": "2019-11-03",
+      "source_module": "module:jp_culture_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-12-31",
+      "description": "Market Holiday (year end)",
+      "evidence_ids": [
+        "jpx-market-holidays"
+      ],
+      "key": "jp_jpx_year_end_market_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_jpx_market_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-01-02",
+      "description": "Market Holiday (New Year)",
+      "evidence_ids": [
+        "jpx-market-holidays"
+      ],
+      "key": "jp_jpx_new_year_market_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_jpx_market_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-01-03",
+      "description": "Market Holiday (New Year)",
+      "evidence_ids": [
+        "jpx-market-holidays"
+      ],
+      "key": "jp_jpx_new_year_market_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_jpx_market_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-01-13",
+      "description": "Coming of Age Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_coming_of_age_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_coming_of_age_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-02-11",
+      "description": "National Foundation Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_national_foundation_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_national_foundation_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-02-24",
+      "description": "Emperor's Birthday",
+      "evidence_ids": [
+        "cao-shukujitsu"
+      ],
+      "key": "jp_emperors_birthday",
+      "observation_lineage": [
+        "2020-02-23",
+        "2020-02-24"
+      ],
+      "observed_from": "2020-02-23",
+      "source_module": "module:jp_emperors_birthday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-03-20",
+      "description": "Vernal Equinox Day",
+      "evidence_ids": [
+        "cao-shukujitsu"
+      ],
+      "key": "jp_vernal_equinox_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_vernal_equinox_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-04-29",
+      "description": "Showa Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_showa_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_showa_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-05-04",
+      "description": "Greenery Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_greenery_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_greenery_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-05-05",
+      "description": "Children's Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_childrens_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_childrens_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-05-06",
+      "description": "Constitution Memorial Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_constitution_memorial_day",
+      "observation_lineage": [
+        "2020-05-03",
+        "2020-05-06"
+      ],
+      "observed_from": "2020-05-03",
+      "source_module": "module:jp_constitution_memorial_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-07-23",
+      "description": "Marine Day (Tokyo Olympics)",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_marine_day_olympic",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_marine_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-07-24",
+      "description": "Sports Day (Tokyo Olympics)",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_sports_day_olympic",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_sports_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-08-10",
+      "description": "Mountain Day (Tokyo Olympics)",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_mountain_day_olympic",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_mountain_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-09-21",
+      "description": "Respect for the Aged Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_respect_for_the_aged_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_respect_for_the_aged_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-09-22",
+      "description": "Autumnal Equinox Day",
+      "evidence_ids": [
+        "cao-shukujitsu"
+      ],
+      "key": "jp_autumnal_equinox_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_autumnal_equinox_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-10-01",
+      "description": "Market Closure (arrowhead system failure)",
+      "evidence_ids": [
+        "jpx-system-failure-2020"
+      ],
+      "key": "jp_tse_system_failure",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_jpx_special_closures",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-11-03",
+      "description": "Culture Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_culture_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_culture_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-11-23",
+      "description": "Labor Thanksgiving Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_labour_thanksgiving_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_labour_thanksgiving_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-12-31",
+      "description": "Market Holiday (year end)",
+      "evidence_ids": [
+        "jpx-market-holidays"
+      ],
+      "key": "jp_jpx_year_end_market_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_jpx_market_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-01-11",
+      "description": "Coming of Age Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_coming_of_age_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_coming_of_age_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-02-11",
+      "description": "National Foundation Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_national_foundation_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_national_foundation_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-02-23",
+      "description": "Emperor's Birthday",
+      "evidence_ids": [
+        "cao-shukujitsu"
+      ],
+      "key": "jp_emperors_birthday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_emperors_birthday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-04-29",
+      "description": "Showa Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_showa_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_showa_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-05-03",
+      "description": "Constitution Memorial Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_constitution_memorial_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_constitution_memorial_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-05-04",
+      "description": "Greenery Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_greenery_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_greenery_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-05-05",
+      "description": "Children's Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_childrens_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_childrens_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-07-22",
+      "description": "Marine Day (Tokyo Olympics)",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_marine_day_olympic",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_marine_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-07-23",
+      "description": "Sports Day (Tokyo Olympics)",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_sports_day_olympic",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_sports_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-08-09",
+      "description": "Mountain Day (Tokyo Olympics)",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_mountain_day_olympic",
+      "observation_lineage": [
+        "2021-08-08",
+        "2021-08-09"
+      ],
+      "observed_from": "2021-08-08",
+      "source_module": "module:jp_mountain_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-09-20",
+      "description": "Respect for the Aged Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_respect_for_the_aged_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_respect_for_the_aged_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-09-23",
+      "description": "Autumnal Equinox Day",
+      "evidence_ids": [
+        "cao-shukujitsu"
+      ],
+      "key": "jp_autumnal_equinox_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_autumnal_equinox_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-11-03",
+      "description": "Culture Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_culture_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_culture_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-11-23",
+      "description": "Labor Thanksgiving Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_labour_thanksgiving_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_labour_thanksgiving_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-12-31",
+      "description": "Market Holiday (year end)",
+      "evidence_ids": [
+        "jpx-market-holidays"
+      ],
+      "key": "jp_jpx_year_end_market_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_jpx_market_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-01-03",
+      "description": "Market Holiday (New Year)",
+      "evidence_ids": [
+        "jpx-market-holidays"
+      ],
+      "key": "jp_jpx_new_year_market_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_jpx_market_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-01-10",
+      "description": "Coming of Age Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_coming_of_age_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_coming_of_age_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-02-11",
+      "description": "National Foundation Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_national_foundation_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_national_foundation_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-02-23",
+      "description": "Emperor's Birthday",
+      "evidence_ids": [
+        "cao-shukujitsu"
+      ],
+      "key": "jp_emperors_birthday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_emperors_birthday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-03-21",
+      "description": "Vernal Equinox Day",
+      "evidence_ids": [
+        "cao-shukujitsu"
+      ],
+      "key": "jp_vernal_equinox_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_vernal_equinox_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-04-29",
+      "description": "Showa Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_showa_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_showa_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-05-03",
+      "description": "Constitution Memorial Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_constitution_memorial_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_constitution_memorial_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-05-04",
+      "description": "Greenery Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_greenery_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_greenery_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-05-05",
+      "description": "Children's Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_childrens_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_childrens_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-07-18",
+      "description": "Marine Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_marine_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_marine_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-08-11",
+      "description": "Mountain Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_mountain_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_mountain_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-09-19",
+      "description": "Respect for the Aged Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_respect_for_the_aged_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_respect_for_the_aged_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-09-23",
+      "description": "Autumnal Equinox Day",
+      "evidence_ids": [
+        "cao-shukujitsu"
+      ],
+      "key": "jp_autumnal_equinox_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_autumnal_equinox_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-10-10",
+      "description": "Sports Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_sports_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_sports_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-11-03",
+      "description": "Culture Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_culture_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_culture_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-11-23",
+      "description": "Labor Thanksgiving Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_labour_thanksgiving_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_labour_thanksgiving_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-01-02",
+      "description": "Market Holiday (New Year)",
+      "evidence_ids": [
+        "jpx-market-holidays"
+      ],
+      "key": "jp_jpx_new_year_market_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_jpx_market_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-01-03",
+      "description": "Market Holiday (New Year)",
+      "evidence_ids": [
+        "jpx-market-holidays"
+      ],
+      "key": "jp_jpx_new_year_market_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_jpx_market_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-01-09",
+      "description": "Coming of Age Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_coming_of_age_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_coming_of_age_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-02-23",
+      "description": "Emperor's Birthday",
+      "evidence_ids": [
+        "cao-shukujitsu"
+      ],
+      "key": "jp_emperors_birthday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_emperors_birthday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-03-21",
+      "description": "Vernal Equinox Day",
+      "evidence_ids": [
+        "cao-shukujitsu"
+      ],
+      "key": "jp_vernal_equinox_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_vernal_equinox_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-05-03",
+      "description": "Constitution Memorial Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_constitution_memorial_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_constitution_memorial_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-05-04",
+      "description": "Greenery Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_greenery_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_greenery_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-05-05",
+      "description": "Children's Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_childrens_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_childrens_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-07-17",
+      "description": "Marine Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_marine_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_marine_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-08-11",
+      "description": "Mountain Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_mountain_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_mountain_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-09-18",
+      "description": "Respect for the Aged Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_respect_for_the_aged_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_respect_for_the_aged_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-10-09",
+      "description": "Sports Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_sports_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_sports_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-11-03",
+      "description": "Culture Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_culture_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_culture_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-11-23",
+      "description": "Labor Thanksgiving Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_labour_thanksgiving_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_labour_thanksgiving_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-01-02",
+      "description": "Market Holiday (New Year)",
+      "evidence_ids": [
+        "jpx-market-holidays"
+      ],
+      "key": "jp_jpx_new_year_market_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_jpx_market_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-01-03",
+      "description": "Market Holiday (New Year)",
+      "evidence_ids": [
+        "jpx-market-holidays"
+      ],
+      "key": "jp_jpx_new_year_market_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_jpx_market_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-01-08",
+      "description": "Coming of Age Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_coming_of_age_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_coming_of_age_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-02-12",
+      "description": "National Foundation Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_national_foundation_day",
+      "observation_lineage": [
+        "2024-02-11",
+        "2024-02-12"
+      ],
+      "observed_from": "2024-02-11",
+      "source_module": "module:jp_national_foundation_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-02-23",
+      "description": "Emperor's Birthday",
+      "evidence_ids": [
+        "cao-shukujitsu"
+      ],
+      "key": "jp_emperors_birthday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_emperors_birthday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-03-20",
+      "description": "Vernal Equinox Day",
+      "evidence_ids": [
+        "cao-shukujitsu"
+      ],
+      "key": "jp_vernal_equinox_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_vernal_equinox_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-04-29",
+      "description": "Showa Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_showa_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_showa_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-05-03",
+      "description": "Constitution Memorial Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_constitution_memorial_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_constitution_memorial_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-05-06",
+      "description": "Children's Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_childrens_day",
+      "observation_lineage": [
+        "2024-05-05",
+        "2024-05-06"
+      ],
+      "observed_from": "2024-05-05",
+      "source_module": "module:jp_childrens_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-07-15",
+      "description": "Marine Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_marine_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_marine_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-08-12",
+      "description": "Mountain Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_mountain_day",
+      "observation_lineage": [
+        "2024-08-11",
+        "2024-08-12"
+      ],
+      "observed_from": "2024-08-11",
+      "source_module": "module:jp_mountain_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-09-16",
+      "description": "Respect for the Aged Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_respect_for_the_aged_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_respect_for_the_aged_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-09-23",
+      "description": "Autumnal Equinox Day",
+      "evidence_ids": [
+        "cao-shukujitsu"
+      ],
+      "key": "jp_autumnal_equinox_day",
+      "observation_lineage": [
+        "2024-09-22",
+        "2024-09-23"
+      ],
+      "observed_from": "2024-09-22",
+      "source_module": "module:jp_autumnal_equinox_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-10-14",
+      "description": "Sports Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_sports_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_sports_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-11-04",
+      "description": "Culture Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_culture_day",
+      "observation_lineage": [
+        "2024-11-03",
+        "2024-11-04"
+      ],
+      "observed_from": "2024-11-03",
+      "source_module": "module:jp_culture_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-12-31",
+      "description": "Market Holiday (year end)",
+      "evidence_ids": [
+        "jpx-market-holidays"
+      ],
+      "key": "jp_jpx_year_end_market_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_jpx_market_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-01-02",
+      "description": "Market Holiday (New Year)",
+      "evidence_ids": [
+        "jpx-market-holidays"
+      ],
+      "key": "jp_jpx_new_year_market_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_jpx_market_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-01-03",
+      "description": "Market Holiday (New Year)",
+      "evidence_ids": [
+        "jpx-market-holidays"
+      ],
+      "key": "jp_jpx_new_year_market_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_jpx_market_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-01-13",
+      "description": "Coming of Age Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_coming_of_age_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_coming_of_age_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-02-11",
+      "description": "National Foundation Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_national_foundation_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_national_foundation_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-02-24",
+      "description": "Emperor's Birthday",
+      "evidence_ids": [
+        "cao-shukujitsu"
+      ],
+      "key": "jp_emperors_birthday",
+      "observation_lineage": [
+        "2025-02-23",
+        "2025-02-24"
+      ],
+      "observed_from": "2025-02-23",
+      "source_module": "module:jp_emperors_birthday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-03-20",
+      "description": "Vernal Equinox Day",
+      "evidence_ids": [
+        "cao-shukujitsu"
+      ],
+      "key": "jp_vernal_equinox_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_vernal_equinox_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-04-29",
+      "description": "Showa Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_showa_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_showa_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-05-05",
+      "description": "Children's Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_childrens_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_childrens_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-05-06",
+      "description": "Greenery Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_greenery_day",
+      "observation_lineage": [
+        "2025-05-04",
+        "2025-05-06"
+      ],
+      "observed_from": "2025-05-04",
+      "source_module": "module:jp_greenery_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-07-21",
+      "description": "Marine Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_marine_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_marine_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-08-11",
+      "description": "Mountain Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_mountain_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_mountain_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-09-15",
+      "description": "Respect for the Aged Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_respect_for_the_aged_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_respect_for_the_aged_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-09-23",
+      "description": "Autumnal Equinox Day",
+      "evidence_ids": [
+        "cao-shukujitsu"
+      ],
+      "key": "jp_autumnal_equinox_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_autumnal_equinox_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-10-13",
+      "description": "Sports Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_sports_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_sports_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-11-03",
+      "description": "Culture Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_culture_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_culture_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-11-24",
+      "description": "Labor Thanksgiving Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_labour_thanksgiving_day",
+      "observation_lineage": [
+        "2025-11-23",
+        "2025-11-24"
+      ],
+      "observed_from": "2025-11-23",
+      "source_module": "module:jp_labour_thanksgiving_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-12-31",
+      "description": "Market Holiday (year end)",
+      "evidence_ids": [
+        "jpx-market-holidays"
+      ],
+      "key": "jp_jpx_year_end_market_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_jpx_market_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-01-02",
+      "description": "Market Holiday (New Year)",
+      "evidence_ids": [
+        "jpx-market-holidays"
+      ],
+      "key": "jp_jpx_new_year_market_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_jpx_market_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-01-12",
+      "description": "Coming of Age Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_coming_of_age_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_coming_of_age_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-02-11",
+      "description": "National Foundation Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_national_foundation_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_national_foundation_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-02-23",
+      "description": "Emperor's Birthday",
+      "evidence_ids": [
+        "cao-shukujitsu"
+      ],
+      "key": "jp_emperors_birthday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_emperors_birthday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-03-20",
+      "description": "Vernal Equinox Day",
+      "evidence_ids": [
+        "cao-shukujitsu"
+      ],
+      "key": "jp_vernal_equinox_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_vernal_equinox_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-04-29",
+      "description": "Showa Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_showa_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_showa_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-05-04",
+      "description": "Greenery Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_greenery_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_greenery_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-05-05",
+      "description": "Children's Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_childrens_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_childrens_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-05-06",
+      "description": "Constitution Memorial Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_constitution_memorial_day",
+      "observation_lineage": [
+        "2026-05-03",
+        "2026-05-06"
+      ],
+      "observed_from": "2026-05-03",
+      "source_module": "module:jp_constitution_memorial_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-07-20",
+      "description": "Marine Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_marine_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_marine_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-08-11",
+      "description": "Mountain Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_mountain_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_mountain_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-09-21",
+      "description": "Respect for the Aged Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_respect_for_the_aged_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_respect_for_the_aged_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-09-22",
+      "description": "Citizens' Holiday (between Respect for the Aged Day and Autumnal Equinox Day)",
+      "evidence_ids": [
+        "cao-shukujitsu"
+      ],
+      "key": "jp_citizens_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_citizens_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-09-23",
+      "description": "Autumnal Equinox Day",
+      "evidence_ids": [
+        "cao-shukujitsu"
+      ],
+      "key": "jp_autumnal_equinox_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_autumnal_equinox_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-10-12",
+      "description": "Sports Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_sports_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_sports_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-11-03",
+      "description": "Culture Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_culture_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_culture_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-11-23",
+      "description": "Labor Thanksgiving Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_labour_thanksgiving_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_labour_thanksgiving_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-12-31",
+      "description": "Market Holiday (year end)",
+      "evidence_ids": [
+        "jpx-market-holidays"
+      ],
+      "key": "jp_jpx_year_end_market_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_jpx_market_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-01-11",
+      "description": "Coming of Age Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_coming_of_age_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_coming_of_age_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-02-11",
+      "description": "National Foundation Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_national_foundation_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_national_foundation_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-02-23",
+      "description": "Emperor's Birthday",
+      "evidence_ids": [
+        "cao-shukujitsu"
+      ],
+      "key": "jp_emperors_birthday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_emperors_birthday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-03-22",
+      "description": "Vernal Equinox Day",
+      "evidence_ids": [
+        "cao-shukujitsu"
+      ],
+      "key": "jp_vernal_equinox_day",
+      "observation_lineage": [
+        "2027-03-21",
+        "2027-03-22"
+      ],
+      "observed_from": "2027-03-21",
+      "source_module": "module:jp_vernal_equinox_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-04-29",
+      "description": "Showa Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_showa_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_showa_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-05-03",
+      "description": "Constitution Memorial Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_constitution_memorial_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_constitution_memorial_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-05-04",
+      "description": "Greenery Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_greenery_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_greenery_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-05-05",
+      "description": "Children's Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_childrens_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_childrens_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-07-19",
+      "description": "Marine Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_marine_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_marine_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-08-11",
+      "description": "Mountain Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_mountain_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_mountain_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-09-20",
+      "description": "Respect for the Aged Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_respect_for_the_aged_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_respect_for_the_aged_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-09-23",
+      "description": "Autumnal Equinox Day",
+      "evidence_ids": [
+        "cao-shukujitsu"
+      ],
+      "key": "jp_autumnal_equinox_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_autumnal_equinox_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-10-11",
+      "description": "Sports Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_sports_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_sports_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-11-03",
+      "description": "Culture Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_culture_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_culture_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-11-23",
+      "description": "Labor Thanksgiving Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_labour_thanksgiving_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_labour_thanksgiving_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-12-31",
+      "description": "Market Holiday (year end)",
+      "evidence_ids": [
+        "jpx-market-holidays"
+      ],
+      "key": "jp_jpx_year_end_market_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_jpx_market_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2028-01-03",
+      "description": "Market Holiday (New Year)",
+      "evidence_ids": [
+        "jpx-market-holidays"
+      ],
+      "key": "jp_jpx_new_year_market_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_jpx_market_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2028-01-10",
+      "description": "Coming of Age Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_coming_of_age_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_coming_of_age_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2028-02-11",
+      "description": "National Foundation Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_national_foundation_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_national_foundation_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2028-02-23",
+      "description": "Emperor's Birthday",
+      "evidence_ids": [
+        "cao-shukujitsu"
+      ],
+      "key": "jp_emperors_birthday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_emperors_birthday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2028-03-20",
+      "description": "Vernal Equinox Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_vernal_equinox_day_projected",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_vernal_equinox_day",
+      "status": "PROJECTED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2028-05-03",
+      "description": "Constitution Memorial Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_constitution_memorial_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_constitution_memorial_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2028-05-04",
+      "description": "Greenery Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_greenery_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_greenery_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2028-05-05",
+      "description": "Children's Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_childrens_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_childrens_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2028-07-17",
+      "description": "Marine Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_marine_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_marine_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2028-08-11",
+      "description": "Mountain Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_mountain_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_mountain_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2028-09-18",
+      "description": "Respect for the Aged Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_respect_for_the_aged_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_respect_for_the_aged_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2028-09-22",
+      "description": "Autumnal Equinox Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_autumnal_equinox_day_projected",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_autumnal_equinox_day",
+      "status": "PROJECTED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2028-10-09",
+      "description": "Sports Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_sports_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_sports_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2028-11-03",
+      "description": "Culture Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_culture_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_culture_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2028-11-23",
+      "description": "Labor Thanksgiving Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_labour_thanksgiving_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_labour_thanksgiving_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2029-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2029-01-02",
+      "description": "Market Holiday (New Year)",
+      "evidence_ids": [
+        "jpx-market-holidays"
+      ],
+      "key": "jp_jpx_new_year_market_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_jpx_market_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2029-01-03",
+      "description": "Market Holiday (New Year)",
+      "evidence_ids": [
+        "jpx-market-holidays"
+      ],
+      "key": "jp_jpx_new_year_market_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_jpx_market_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2029-01-08",
+      "description": "Coming of Age Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_coming_of_age_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_coming_of_age_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2029-02-12",
+      "description": "National Foundation Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_national_foundation_day",
+      "observation_lineage": [
+        "2029-02-11",
+        "2029-02-12"
+      ],
+      "observed_from": "2029-02-11",
+      "source_module": "module:jp_national_foundation_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2029-02-23",
+      "description": "Emperor's Birthday",
+      "evidence_ids": [
+        "cao-shukujitsu"
+      ],
+      "key": "jp_emperors_birthday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_emperors_birthday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2029-03-20",
+      "description": "Vernal Equinox Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_vernal_equinox_day_projected",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_vernal_equinox_day",
+      "status": "PROJECTED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2029-04-30",
+      "description": "Showa Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_showa_day",
+      "observation_lineage": [
+        "2029-04-29",
+        "2029-04-30"
+      ],
+      "observed_from": "2029-04-29",
+      "source_module": "module:jp_showa_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2029-05-03",
+      "description": "Constitution Memorial Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_constitution_memorial_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_constitution_memorial_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2029-05-04",
+      "description": "Greenery Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_greenery_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_greenery_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2029-07-16",
+      "description": "Marine Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_marine_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_marine_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2029-09-17",
+      "description": "Respect for the Aged Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_respect_for_the_aged_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_respect_for_the_aged_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2029-09-24",
+      "description": "Autumnal Equinox Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_autumnal_equinox_day_projected",
+      "observation_lineage": [
+        "2029-09-23",
+        "2029-09-24"
+      ],
+      "observed_from": "2029-09-23",
+      "source_module": "module:jp_autumnal_equinox_day",
+      "status": "PROJECTED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2029-10-08",
+      "description": "Sports Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_sports_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_sports_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2029-11-23",
+      "description": "Labor Thanksgiving Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_labour_thanksgiving_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_labour_thanksgiving_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2029-12-31",
+      "description": "Market Holiday (year end)",
+      "evidence_ids": [
+        "jpx-market-holidays"
+      ],
+      "key": "jp_jpx_year_end_market_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_jpx_market_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2030-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2030-01-02",
+      "description": "Market Holiday (New Year)",
+      "evidence_ids": [
+        "jpx-market-holidays"
+      ],
+      "key": "jp_jpx_new_year_market_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_jpx_market_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2030-01-03",
+      "description": "Market Holiday (New Year)",
+      "evidence_ids": [
+        "jpx-market-holidays"
+      ],
+      "key": "jp_jpx_new_year_market_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_jpx_market_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2030-01-14",
+      "description": "Coming of Age Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_coming_of_age_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_coming_of_age_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2030-02-11",
+      "description": "National Foundation Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_national_foundation_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_national_foundation_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2030-03-20",
+      "description": "Vernal Equinox Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_vernal_equinox_day_projected",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_vernal_equinox_day",
+      "status": "PROJECTED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2030-04-29",
+      "description": "Showa Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_showa_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_showa_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2030-05-03",
+      "description": "Constitution Memorial Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_constitution_memorial_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_constitution_memorial_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2030-05-06",
+      "description": "Children's Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_childrens_day",
+      "observation_lineage": [
+        "2030-05-05",
+        "2030-05-06"
+      ],
+      "observed_from": "2030-05-05",
+      "source_module": "module:jp_childrens_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2030-07-15",
+      "description": "Marine Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_marine_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_marine_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2030-08-12",
+      "description": "Mountain Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_mountain_day",
+      "observation_lineage": [
+        "2030-08-11",
+        "2030-08-12"
+      ],
+      "observed_from": "2030-08-11",
+      "source_module": "module:jp_mountain_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2030-09-16",
+      "description": "Respect for the Aged Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_respect_for_the_aged_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_respect_for_the_aged_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2030-09-23",
+      "description": "Autumnal Equinox Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_autumnal_equinox_day_projected",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_autumnal_equinox_day",
+      "status": "PROJECTED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2030-10-14",
+      "description": "Sports Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_sports_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_sports_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2030-11-04",
+      "description": "Culture Day",
+      "evidence_ids": [
+        "cao-shukujitsu-gaiyou"
+      ],
+      "key": "jp_culture_day",
+      "observation_lineage": [
+        "2030-11-03",
+        "2030-11-04"
+      ],
+      "observed_from": "2030-11-03",
+      "source_module": "module:jp_culture_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2030-12-31",
+      "description": "Market Holiday (year end)",
+      "evidence_ids": [
+        "jpx-market-holidays"
+      ],
+      "key": "jp_jpx_year_end_market_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:jp_jpx_market_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    }
+  ],
+  "generated_at": "2026-09-14T14:57:31Z",
   "kind": "market",
   "mic": "XTKS",
   "range_end": "2030-12-31",
@@ -49,8 +5009,8 @@
     "calendar:JP-JPX"
   ],
   "source_version": {
-    "git_sha": "3765bcb10d3ebcb7cfc338bcebf94505af25ec1e",
-    "semantic": "11.0.0"
+    "git_sha": "adf8dd99893301852aa3daccfb7f0caee22859f3",
+    "semantic": "12.0.0"
   },
   "timezone": "Asia/Tokyo",
   "weekend_policy": {

@@ -127,7 +127,7 @@ date,type,description,key,source_module,observed_from,close_time,status
 The authenticated GitHub release asset for v11.0.0 contains four calendars; no v12 release has been
 published. The broader calendars and features described below are local candidate content. Hosting
 URLs and package registries can change independently and are not verified by local files or version
-configuration. The generated status table is a local artifact snapshot pending refresh.
+configuration. The generated status table describes the prepared local v12 candidate.
 
 **(a) Static JSON APIs** — `tools site` generates [JSON API v1](spec/SPEC.md#json-api-v1) and
 [JSON API v2](spec/SPEC.md#json-api-v2-and-enriched-assessments) locally from `blessed/` and
@@ -172,7 +172,7 @@ artifacts locally and use Maven Local:
 repositories { mavenLocal() }
 dependencies {
     implementation("io.github.twallengren:bdc-calendar-core:12.0.0")
-    runtimeOnly("io.github.twallengren:bdc-calendar-data:11.0.0")
+    runtimeOnly("io.github.twallengren:bdc-calendar-data:12.0.0")
 }
 ```
 ```java
@@ -273,29 +273,36 @@ algorithms:
 
 ## Market status
 
-This table is a local artifact snapshot pending refresh; its rows describe the current local blessed
-artifacts and are not a remote catalogue. Refresh this table after candidate artifacts are prepared.
+This table describes the prepared local v12 artifacts, not a remote catalogue.
 One row per blessed calendar reports coverage, closure/early-close/projected counts, cited sources, and
 cross-validation results against third-party reference data. Regenerate with
 `tools status --format markdown` after `scripts/bless.sh` (see `spec/SPEC.md` for the JSON shape
 and `tools crossvalidate`, which produces the cross-validation column).
 
+`Verified Through` is a legacy scalar and `Projected` counts raw event rows. Neither establishes
+actual-day completeness. Use the [coverage assessment summary](docs/delivery/COVERAGE.md) and
+`assessment`/`v2` for scope-aware confidence; incomplete dates raise on business-day decisions.
+
 | ID | Name | Kind | Timezone | Coverage | Verified Through | Closures | Early Closes | Projected | Sources | Cross-validation | Release |
 |----|------|------|----------|----------|-------------------|----------|---------------|-----------|---------|-------------------|---------|
-| BE-EURONEXT-BRUSSELS | Euronext Brussels Trading Calendar | market | Europe/Brussels | 2010-01-01 to 2030-12-31 | 2026-12-31 | 127 | 29 | 0 | 8 | exchange_calendars-XBRU: ok (allowlisted=2) | 11.0.0 |
-| CA-TSX | Toronto Stock Exchange | market | America/Toronto | 2000-01-01 to 2030-12-31 | 2026-12-31 | 302 | 8 | 4 | 12 | exchange_calendars-XTSE: ok (allowlisted=9); quantlib-tsx: ok (allowlisted=0) | 11.0.0 |
-| DE-XETRA | Deutsche Börse Xetra | market | Europe/Berlin | 2003-01-01 to 2030-12-31 | 2026-12-31 | 238 | 0 | 0 | 25 | exchange_calendars-XETR: ok (allowlisted=21); quantlib-germany-xetra: ok (allowlisted=33) | 11.0.0 |
-| FR-EURONEXT-PARIS | Euronext Paris Trading Calendar | market | Europe/Paris | 2010-01-01 to 2030-12-31 | 2026-12-31 | 127 | 29 | 0 | 8 | exchange_calendars-XPAR: ok (allowlisted=2) | 11.0.0 |
-| GB-LSE | London Stock Exchange | market | Europe/London | 2000-01-01 to 2030-12-31 | 2028-12-31 | 254 | 62 | 0 | 9 | exchange_calendars-XLON: ok (allowlisted=0); quantlib-uk-exchange: ok (allowlisted=0) | 11.0.0 |
-| HK-HKEX | Hong Kong Exchanges and Clearing | market | Asia/Hong_Kong | 2018-01-01 to 2027-12-31 | 2027-12-31 | 141 | 25 | 0 | 9 | exchange_calendars-XHKG: ok (allowlisted=4); quantlib-hong-kong: ok (allowlisted=17) | 11.0.0 |
-| JP-JPX | Japan Exchange Group (Tokyo Stock Exchange) | market | Asia/Tokyo | 2010-01-01 to 2030-12-31 | 2027-12-31 | 343 | 0 | 6 | 5 | exchange_calendars-XTKS: ok (allowlisted=11); quantlib-japan: ok (allowlisted=1) | 11.0.0 |
-| NL-EURONEXT-AMSTERDAM | Euronext Amsterdam Trading Calendar | market | Europe/Amsterdam | 2010-01-01 to 2030-12-31 | 2026-12-31 | 127 | 29 | 0 | 8 | exchange_calendars-XAMS: ok (allowlisted=2) | 11.0.0 |
-| PT-EURONEXT-LISBON | Euronext Lisbon Trading Calendar | market | Europe/Lisbon | 2010-01-01 to 2030-12-31 | 2026-12-31 | 127 | 29 | 0 | 8 | exchange_calendars-XLIS: ok (allowlisted=2) | 11.0.0 |
-| SA-TADAWUL | Tadawul (Saudi Exchange) Trading Calendar | market | Asia/Riyadh | 2020-01-01 to 2030-12-31 | 2029-12-31 | 187 | 0 | 16 | 2 | exchange_calendars-XSAU: ok (allowlisted=19) | 11.0.0 |
-| US-NYSE | NYSE Trading Calendar | market | America/New_York | 1900-01-01 to 2030-12-31 | 2026-12-31 | 1649 | 126 | 0 | 3 | exchange_calendars-XNYS: ok (allowlisted=9); quantlib-nyse: ok (allowlisted=0) | 11.0.0 |
-| EU-EURONEXT | Euronext Cash Markets Base Calendar | base | Europe/Paris | 2010-01-01 to 2030-12-31 | 2026-12-31 | 127 | 0 | 0 | 8 | none | 11.0.0 |
-| US-CORP-IN-VISIBILITY | US Corporate Calendar with India Visibility | base | America/New_York | 1900-01-01 to 2030-12-31 | 2026-12-31 | 938 | 0 | 0 | 3 (1 unresolved) | none | 11.0.0 |
-| US-MARKET-BASE | US Market Base Calendar | base | America/New_York | 1900-01-01 to 2030-12-31 | 2026-12-31 | 938 | 0 | 0 | 2 (1 unresolved) | none | 11.0.0 |
+| BE-EURONEXT-BRUSSELS | Euronext Brussels Trading Calendar | market | Europe/Brussels | 2010-01-01 to 2030-12-31 | 2026-12-31 | 127 | 29 | 0 | 8 | exchange_calendars-XBRU: ok (allowlisted=14) | 12.0.0 |
+| CA-TSX | Toronto Stock Exchange | market | America/Toronto | 2000-01-01 to 2030-12-31 | 2026-12-31 | 302 | 8 | 4 | 12 | exchange_calendars-XTSE: ok (allowlisted=9); quantlib-tsx: ok (allowlisted=0) | 12.0.0 |
+| DE-XETRA | Deutsche Börse Xetra | market | Europe/Berlin | 2003-01-01 to 2030-12-31 | 2026-12-31 | 238 | 0 | 0 | 25 | exchange_calendars-XETR: ok (allowlisted=21); quantlib-germany-xetra: ok (allowlisted=33) | 12.0.0 |
+| FR-EURONEXT-PARIS | Euronext Paris Trading Calendar | market | Europe/Paris | 2010-01-01 to 2030-12-31 | 2026-12-31 | 127 | 29 | 0 | 8 | exchange_calendars-XPAR: ok (allowlisted=14) | 12.0.0 |
+| GB-LSE | London Stock Exchange | market | Europe/London | 2000-01-01 to 2030-12-31 | 2028-12-31 | 254 | 62 | 0 | 9 | exchange_calendars-XLON: ok (allowlisted=0); quantlib-uk-exchange: ok (allowlisted=0) | 12.0.0 |
+| HK-HKEX | Hong Kong Exchanges and Clearing | market | Asia/Hong_Kong | 2018-01-01 to 2027-12-31 | 2027-12-31 | 141 | 25 | 0 | 11 | exchange_calendars-XHKG: ok (allowlisted=4); quantlib-hong-kong: ok (allowlisted=17) | 12.0.0 |
+| IL-TASE | Tel Aviv Stock Exchange | market | Asia/Jerusalem | 2025-01-01 to 2027-12-31 | 2025-12-31 | 19 | 12 | 0 | 5 | none | 12.0.0 |
+| JP-JPX | Japan Exchange Group (Tokyo Stock Exchange) | market | Asia/Tokyo | 2010-01-01 to 2030-12-31 | 2027-12-31 | 343 | 0 | 6 | 5 | exchange_calendars-XTKS: ok (allowlisted=11); quantlib-japan: ok (allowlisted=1) | 12.0.0 |
+| NL-EURONEXT-AMSTERDAM | Euronext Amsterdam Trading Calendar | market | Europe/Amsterdam | 2010-01-01 to 2030-12-31 | 2026-12-31 | 127 | 29 | 0 | 8 | exchange_calendars-XAMS: ok (allowlisted=14) | 12.0.0 |
+| PT-EURONEXT-LISBON | Euronext Lisbon Trading Calendar | market | Europe/Lisbon | 2010-01-01 to 2030-12-31 | 2026-12-31 | 127 | 29 | 0 | 8 | exchange_calendars-XLIS: ok (allowlisted=14) | 12.0.0 |
+| SA-TADAWUL | Tadawul (Saudi Exchange) Trading Calendar | market | Asia/Riyadh | 2020-01-01 to 2030-12-31 | 2029-12-31 | 187 | 0 | 16 | 3 | exchange_calendars-XSAU: ok (allowlisted=19) | 12.0.0 |
+| US-NYSE | NYSE Trading Calendar | market | America/New_York | 1900-01-01 to 2030-12-31 | 2026-12-31 | 1649 | 127 | 0 | 3 | exchange_calendars-XNYS: ok (allowlisted=8); quantlib-nyse: ok (allowlisted=0) | 12.0.0 |
+| EU-EURONEXT | Euronext Cash Markets Base Calendar | base | Europe/Paris | 2010-01-01 to 2030-12-31 | 2026-12-31 | 127 | 0 | 0 | 8 | none | 12.0.0 |
+| EU-TARGET | T2 euro RTGS | payment | Europe/Berlin | 2026-01-01 to 2027-12-31 | 2027-12-31 | 8 | 0 | 0 | 3 | none | 12.0.0 |
+| GB-CHAPS | CHAPS | payment | Europe/London | 2026-01-01 to 2027-12-31 | 2027-12-31 | 16 | 0 | 0 | 3 | none | 12.0.0 |
+| US-CORP-IN-VISIBILITY | US Corporate Calendar with India Visibility | base | America/New_York | 1900-01-01 to 2030-12-31 | 2026-12-31 | 938 | 0 | 0 | 3 | none | 12.0.0 |
+| US-FEDWIRE | Fedwire Funds Service | payment | America/New_York | 2026-01-01 to 2027-12-31 | 2027-12-31 | 19 | 0 | 0 | 3 | none | 12.0.0 |
+| US-MARKET-BASE | US Market Base Calendar | base | America/New_York | 1900-01-01 to 2030-12-31 | 2026-12-31 | 938 | 0 | 0 | 2 | none | 12.0.0 |
 
 ## Contributing
 

@@ -9,7 +9,32 @@
   "coverage" : {
     "from" : "2018-01-01",
     "to" : "2027-12-31",
-    "verified_through" : "2027-12-31"
+    "verified_through" : "2027-12-31",
+    "quality" : [ {
+      "scope" : "SCHEDULED_CLOSURES",
+      "from" : "2018-01-01",
+      "to" : "2027-12-31",
+      "quality" : "VERIFIED",
+      "evidence_ids" : [ "hkex-calendar", "hkex-calendar-archived", "govhk-general-holidays" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "2018-01-01",
+      "to" : "2027-12-31",
+      "quality" : "VERIFIED",
+      "evidence_ids" : [ "hkex-calendar", "hkex-calendar-archived", "hkex-securities-trading-hours" ]
+    }, {
+      "scope" : "UNSCHEDULED_EXCEPTIONS",
+      "from" : "2018-01-01",
+      "to" : "2024-09-22",
+      "quality" : "INCOMPLETE",
+      "evidence_ids" : [ "hkex-severe-weather-notices" ]
+    }, {
+      "scope" : "UNSCHEDULED_EXCEPTIONS",
+      "from" : "2024-09-23",
+      "to" : "2027-12-31",
+      "quality" : "PROJECTED",
+      "evidence_ids" : [ "hkex-severe-weather-trading" ]
+    } ]
   },
   "event_count" : 1208,
   "events" : [ {
@@ -141,7 +166,7 @@
   }, {
     "date" : "2018-02-16",
     "type" : "CLOSED",
-    "description" : "Lunar New Year (Lunar New Year's Day)",
+    "description" : "Lunar New Year",
     "key" : "hk_lunar_new_year",
     "source_module" : "module:hk_lunar_new_year",
     "observed_from" : null,
@@ -168,10 +193,10 @@
   }, {
     "date" : "2018-02-19",
     "type" : "CLOSED",
-    "description" : "Lunar New Year (The fourth day of Lunar New Year; the second day, 17 February, was a Saturday)",
+    "description" : "Lunar New Year",
     "key" : "hk_lunar_new_year",
     "source_module" : "module:hk_lunar_new_year",
-    "observed_from" : null,
+    "observed_from" : "2018-02-18",
     "close_time" : null,
     "status" : "CONFIRMED"
   }, {
@@ -1221,7 +1246,7 @@
   }, {
     "date" : "2019-02-05",
     "type" : "CLOSED",
-    "description" : "Lunar New Year (Lunar New Year's Day)",
+    "description" : "Lunar New Year",
     "key" : "hk_lunar_new_year",
     "source_module" : "module:hk_lunar_new_year",
     "observed_from" : null,
@@ -1230,7 +1255,7 @@
   }, {
     "date" : "2019-02-06",
     "type" : "CLOSED",
-    "description" : "Lunar New Year (The second day of Lunar New Year)",
+    "description" : "Lunar New Year",
     "key" : "hk_lunar_new_year",
     "source_module" : "module:hk_lunar_new_year",
     "observed_from" : null,
@@ -1239,7 +1264,7 @@
   }, {
     "date" : "2019-02-07",
     "type" : "CLOSED",
-    "description" : "Lunar New Year (The third day of Lunar New Year)",
+    "description" : "Lunar New Year",
     "key" : "hk_lunar_new_year",
     "source_module" : "module:hk_lunar_new_year",
     "observed_from" : null,
@@ -1536,10 +1561,10 @@
   }, {
     "date" : "2019-05-13",
     "type" : "CLOSED",
-    "description" : "The Birthday of the Buddha (observed the day following; 12 May was a Sunday)",
+    "description" : "The Birthday of the Buddha",
     "key" : "hk_buddhas_birthday",
     "source_module" : "module:hk_buddhas_birthday",
-    "observed_from" : null,
+    "observed_from" : "2019-05-12",
     "close_time" : null,
     "status" : "CONFIRMED"
   }, {
@@ -2301,7 +2326,7 @@
   }, {
     "date" : "2020-01-27",
     "type" : "CLOSED",
-    "description" : "Lunar New Year (The third day of Lunar New Year)",
+    "description" : "Lunar New Year",
     "key" : "hk_lunar_new_year",
     "source_module" : "module:hk_lunar_new_year",
     "observed_from" : null,
@@ -2310,10 +2335,10 @@
   }, {
     "date" : "2020-01-28",
     "type" : "CLOSED",
-    "description" : "Lunar New Year (The fourth day of Lunar New Year)",
+    "description" : "Lunar New Year",
     "key" : "hk_lunar_new_year",
     "source_module" : "module:hk_lunar_new_year",
-    "observed_from" : null,
+    "observed_from" : "2020-01-26",
     "close_time" : null,
     "status" : "CONFIRMED"
   }, {
@@ -3093,10 +3118,10 @@
   }, {
     "date" : "2020-10-26",
     "type" : "CLOSED",
-    "description" : "Chung Yeung Festival (observed the day following; 25 October was a Sunday)",
+    "description" : "Chung Yeung Festival",
     "key" : "hk_chung_yeung",
     "source_module" : "module:hk_chung_yeung",
-    "observed_from" : null,
+    "observed_from" : "2020-10-25",
     "close_time" : null,
     "status" : "CONFIRMED"
   }, {
@@ -3417,7 +3442,7 @@
   }, {
     "date" : "2021-02-12",
     "type" : "CLOSED",
-    "description" : "Lunar New Year (Lunar New Year's Day)",
+    "description" : "Lunar New Year",
     "key" : "hk_lunar_new_year",
     "source_module" : "module:hk_lunar_new_year",
     "observed_from" : null,
@@ -3444,10 +3469,10 @@
   }, {
     "date" : "2021-02-15",
     "type" : "CLOSED",
-    "description" : "Lunar New Year (The fourth day of Lunar New Year)",
+    "description" : "Lunar New Year",
     "key" : "hk_lunar_new_year",
     "source_module" : "module:hk_lunar_new_year",
-    "observed_from" : null,
+    "observed_from" : "2021-02-14",
     "close_time" : null,
     "status" : "CONFIRMED"
   }, {
@@ -3588,10 +3613,10 @@
   }, {
     "date" : "2021-04-05",
     "type" : "CLOSED",
-    "description" : "Ching Ming Festival (observed the day following; 4 April was a Sunday)",
+    "description" : "Ching Ming Festival",
     "key" : "hk_ching_ming",
     "source_module" : "module:hk_ching_ming",
-    "observed_from" : null,
+    "observed_from" : "2021-04-04",
     "close_time" : null,
     "status" : "CONFIRMED"
   }, {
@@ -4470,7 +4495,7 @@
   }, {
     "date" : "2022-02-01",
     "type" : "CLOSED",
-    "description" : "Lunar New Year (Lunar New Year's Day)",
+    "description" : "Lunar New Year",
     "key" : "hk_lunar_new_year",
     "source_module" : "module:hk_lunar_new_year",
     "observed_from" : null,
@@ -4479,7 +4504,7 @@
   }, {
     "date" : "2022-02-02",
     "type" : "CLOSED",
-    "description" : "Lunar New Year (The second day of Lunar New Year)",
+    "description" : "Lunar New Year",
     "key" : "hk_lunar_new_year",
     "source_module" : "module:hk_lunar_new_year",
     "observed_from" : null,
@@ -4488,7 +4513,7 @@
   }, {
     "date" : "2022-02-03",
     "type" : "CLOSED",
-    "description" : "Lunar New Year (The third day of Lunar New Year)",
+    "description" : "Lunar New Year",
     "key" : "hk_lunar_new_year",
     "source_module" : "module:hk_lunar_new_year",
     "observed_from" : null,
@@ -4785,10 +4810,10 @@
   }, {
     "date" : "2022-05-09",
     "type" : "CLOSED",
-    "description" : "The Birthday of the Buddha (observed the day following; 8 May was a Sunday)",
+    "description" : "The Birthday of the Buddha",
     "key" : "hk_buddhas_birthday",
     "source_module" : "module:hk_buddhas_birthday",
-    "observed_from" : null,
+    "observed_from" : "2022-05-08",
     "close_time" : null,
     "status" : "CONFIRMED"
   }, {
@@ -5136,10 +5161,10 @@
   }, {
     "date" : "2022-09-12",
     "type" : "CLOSED",
-    "description" : "The day following the Chinese Mid-Autumn Festival (observed the second day following; 11 September was a Sunday)",
+    "description" : "The day following the Chinese Mid-Autumn Festival",
     "key" : "hk_mid_autumn",
     "source_module" : "module:hk_mid_autumn",
-    "observed_from" : null,
+    "observed_from" : "2022-09-11",
     "close_time" : null,
     "status" : "CONFIRMED"
   }, {
@@ -5523,7 +5548,7 @@
   }, {
     "date" : "2023-01-23",
     "type" : "CLOSED",
-    "description" : "Lunar New Year (The second day of Lunar New Year)",
+    "description" : "Lunar New Year",
     "key" : "hk_lunar_new_year",
     "source_module" : "module:hk_lunar_new_year",
     "observed_from" : null,
@@ -5532,7 +5557,7 @@
   }, {
     "date" : "2023-01-24",
     "type" : "CLOSED",
-    "description" : "Lunar New Year (The third day of Lunar New Year)",
+    "description" : "Lunar New Year",
     "key" : "hk_lunar_new_year",
     "source_module" : "module:hk_lunar_new_year",
     "observed_from" : null,
@@ -5541,10 +5566,10 @@
   }, {
     "date" : "2023-01-25",
     "type" : "CLOSED",
-    "description" : "Lunar New Year (The fourth day of Lunar New Year)",
+    "description" : "Lunar New Year",
     "key" : "hk_lunar_new_year",
     "source_module" : "module:hk_lunar_new_year",
-    "observed_from" : null,
+    "observed_from" : "2023-01-22",
     "close_time" : null,
     "status" : "CONFIRMED"
   }, {
@@ -6648,7 +6673,7 @@
   }, {
     "date" : "2024-02-12",
     "type" : "CLOSED",
-    "description" : "Lunar New Year (The third day of Lunar New Year)",
+    "description" : "Lunar New Year",
     "key" : "hk_lunar_new_year",
     "source_module" : "module:hk_lunar_new_year",
     "observed_from" : null,
@@ -6657,10 +6682,10 @@
   }, {
     "date" : "2024-02-13",
     "type" : "CLOSED",
-    "description" : "Lunar New Year (The fourth day of Lunar New Year)",
+    "description" : "Lunar New Year",
     "key" : "hk_lunar_new_year",
     "source_module" : "module:hk_lunar_new_year",
-    "observed_from" : null,
+    "observed_from" : "2024-02-11",
     "close_time" : null,
     "status" : "CONFIRMED"
   }, {
@@ -7710,7 +7735,7 @@
   }, {
     "date" : "2025-01-29",
     "type" : "CLOSED",
-    "description" : "Lunar New Year (Lunar New Year's Day)",
+    "description" : "Lunar New Year",
     "key" : "hk_lunar_new_year",
     "source_module" : "module:hk_lunar_new_year",
     "observed_from" : null,
@@ -7719,7 +7744,7 @@
   }, {
     "date" : "2025-01-30",
     "type" : "CLOSED",
-    "description" : "Lunar New Year (The second day of Lunar New Year)",
+    "description" : "Lunar New Year",
     "key" : "hk_lunar_new_year",
     "source_module" : "module:hk_lunar_new_year",
     "observed_from" : null,
@@ -7728,7 +7753,7 @@
   }, {
     "date" : "2025-01-31",
     "type" : "CLOSED",
-    "description" : "Lunar New Year (The third day of Lunar New Year)",
+    "description" : "Lunar New Year",
     "key" : "hk_lunar_new_year",
     "source_module" : "module:hk_lunar_new_year",
     "observed_from" : null,
@@ -8862,7 +8887,7 @@
   }, {
     "date" : "2026-02-17",
     "type" : "CLOSED",
-    "description" : "Lunar New Year (Lunar New Year's Day)",
+    "description" : "Lunar New Year",
     "key" : "hk_lunar_new_year",
     "source_module" : "module:hk_lunar_new_year",
     "observed_from" : null,
@@ -8871,7 +8896,7 @@
   }, {
     "date" : "2026-02-18",
     "type" : "CLOSED",
-    "description" : "Lunar New Year (The second day of Lunar New Year)",
+    "description" : "Lunar New Year",
     "key" : "hk_lunar_new_year",
     "source_module" : "module:hk_lunar_new_year",
     "observed_from" : null,
@@ -8880,7 +8905,7 @@
   }, {
     "date" : "2026-02-19",
     "type" : "CLOSED",
-    "description" : "Lunar New Year (The third day of Lunar New Year)",
+    "description" : "Lunar New Year",
     "key" : "hk_lunar_new_year",
     "source_module" : "module:hk_lunar_new_year",
     "observed_from" : null,
@@ -9024,10 +9049,10 @@
   }, {
     "date" : "2026-04-06",
     "type" : "CLOSED",
-    "description" : "Ching Ming Festival (observed the day following; 5 April was a Sunday)",
+    "description" : "Ching Ming Festival",
     "key" : "hk_ching_ming",
     "source_module" : "module:hk_ching_ming",
-    "observed_from" : null,
+    "observed_from" : "2026-04-05",
     "close_time" : null,
     "status" : "CONFIRMED"
   }, {
@@ -9177,10 +9202,10 @@
   }, {
     "date" : "2026-05-25",
     "type" : "CLOSED",
-    "description" : "The Birthday of the Buddha (observed the day following; 24 May was a Sunday)",
+    "description" : "The Birthday of the Buddha",
     "key" : "hk_buddhas_birthday",
     "source_module" : "module:hk_buddhas_birthday",
-    "observed_from" : null,
+    "observed_from" : "2026-05-24",
     "close_time" : null,
     "status" : "CONFIRMED"
   }, {
@@ -9591,10 +9616,10 @@
   }, {
     "date" : "2026-10-19",
     "type" : "CLOSED",
-    "description" : "Chung Yeung Festival (observed the day following; 18 October was a Sunday)",
+    "description" : "Chung Yeung Festival",
     "key" : "hk_chung_yeung",
     "source_module" : "module:hk_chung_yeung",
-    "observed_from" : null,
+    "observed_from" : "2026-10-18",
     "close_time" : null,
     "status" : "CONFIRMED"
   }, {

@@ -1,0 +1,135 @@
+{
+  "calendar_id" : "EU-TARGET",
+  "calendar_name" : "T2 euro RTGS",
+  "kind" : "payment",
+  "generated_at" : "2026-09-14T14:57:31Z",
+  "range_start" : "2026-01-01",
+  "range_end" : "2027-12-31",
+  "timezone" : "Europe/Berlin",
+  "coverage" : {
+    "from" : "2026-01-01",
+    "to" : "2027-12-31",
+    "verified_through" : "2027-12-31",
+    "quality" : [ {
+      "scope" : "SCHEDULED_CLOSURES",
+      "from" : "2026-01-01",
+      "to" : "2027-12-31",
+      "quality" : "VERIFIED",
+      "evidence_ids" : [ "ecb-t2-opening-hours", "ecb-target-holidays-2026-2027" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "2026-01-01",
+      "to" : "2027-12-31",
+      "quality" : "PROJECTED",
+      "evidence_ids" : [ "ecb-t2-opening-hours" ]
+    }, {
+      "scope" : "UNSCHEDULED_EXCEPTIONS",
+      "from" : "2026-01-01",
+      "to" : "2027-12-31",
+      "quality" : "PROJECTED",
+      "evidence_ids" : [ "ecb-t2-opening-hours" ]
+    } ]
+  },
+  "event_count" : 216,
+  "resolution_chain" : [ "module:weekend_sat_sun", "module:eu_target_holidays", "calendar:EU-TARGET" ],
+  "counts_by_type" : {
+    "CLOSED" : 8,
+    "WEEKEND" : 208
+  },
+  "counts_by_status" : {
+    "CONFIRMED" : 216
+  },
+  "source_version" : {
+    "semantic" : "12.0.0",
+    "git_sha" : "adf8dd99893301852aa3daccfb7f0caee22859f3"
+  },
+  "event_details" : [ {
+    "date" : "2026-01-01",
+    "type" : "CLOSED",
+    "description" : "New Year's Day",
+    "key" : "eu_target_new_years_day",
+    "source_module" : "module:eu_target_holidays",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "ecb-t2-opening-hours", "ecb-target-holidays-2026-2027" ],
+    "observation_lineage" : [ ]
+  }, {
+    "date" : "2026-04-03",
+    "type" : "CLOSED",
+    "description" : "Good Friday",
+    "key" : "eu_target_good_friday",
+    "source_module" : "module:eu_target_holidays",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "ecb-t2-opening-hours", "ecb-target-holidays-2026-2027" ],
+    "observation_lineage" : [ ]
+  }, {
+    "date" : "2026-04-06",
+    "type" : "CLOSED",
+    "description" : "Easter Monday",
+    "key" : "eu_target_easter_monday",
+    "source_module" : "module:eu_target_holidays",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "ecb-t2-opening-hours", "ecb-target-holidays-2026-2027" ],
+    "observation_lineage" : [ ]
+  }, {
+    "date" : "2026-05-01",
+    "type" : "CLOSED",
+    "description" : "Labour Day",
+    "key" : "eu_target_labour_day",
+    "source_module" : "module:eu_target_holidays",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "ecb-t2-opening-hours", "ecb-target-holidays-2026-2027" ],
+    "observation_lineage" : [ ]
+  }, {
+    "date" : "2026-12-25",
+    "type" : "CLOSED",
+    "description" : "Christmas Day",
+    "key" : "eu_target_christmas_day",
+    "source_module" : "module:eu_target_holidays",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "ecb-t2-opening-hours", "ecb-target-holidays-2026-2027" ],
+    "observation_lineage" : [ ]
+  }, {
+    "date" : "2027-01-01",
+    "type" : "CLOSED",
+    "description" : "New Year's Day",
+    "key" : "eu_target_new_years_day",
+    "source_module" : "module:eu_target_holidays",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "ecb-t2-opening-hours", "ecb-target-holidays-2026-2027" ],
+    "observation_lineage" : [ ]
+  }, {
+    "date" : "2027-03-26",
+    "type" : "CLOSED",
+    "description" : "Good Friday",
+    "key" : "eu_target_good_friday",
+    "source_module" : "module:eu_target_holidays",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "ecb-t2-opening-hours", "ecb-target-holidays-2026-2027" ],
+    "observation_lineage" : [ ]
+  }, {
+    "date" : "2027-03-29",
+    "type" : "CLOSED",
+    "description" : "Easter Monday",
+    "key" : "eu_target_easter_monday",
+    "source_module" : "module:eu_target_holidays",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "ecb-t2-opening-hours", "ecb-target-holidays-2026-2027" ],
+    "observation_lineage" : [ ]
+  } ]
+}

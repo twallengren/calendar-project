@@ -8,8 +8,8 @@
     "to" : "2030-12-31",
     "compared_types" : [ "CLOSED", "EARLY_CLOSE" ],
     "counts" : {
-      "matched" : 130,
-      "allowlisted" : 2,
+      "matched" : 124,
+      "allowlisted" : 14,
       "unexplained" : 0
     },
     "unexplained_rows" : [ ],

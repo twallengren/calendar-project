@@ -9,18 +9,47 @@ metadata:
     \ session only (12:00 noon close) on Christmas Eve, New Year's Eve and Lunar New\
     \ Year's Eve. Hong Kong observance: a general holiday falling on a Sunday is observed\
     \ on the following weekday; a general holiday falling on a Saturday is not substituted.\
-    \ Lunar and solar-term holidays (Lunar New Year, Ching Ming, the Birthday of the\
-    \ Buddha, Tuen Ng, the day following Mid-Autumn, Chung Yeung) have no formula\
-    \ in this model and are transcribed year by year from the Government's gazetted\
-    \ list, so coverage ends at the last gazetted year (2027). Unscheduled closures\
-    \ for typhoons and black rainstorms are out of scope: they are announced on the\
-    \ day, are not part of any published schedule, and are not modelled here (HKEX\
-    \ moved to trading through severe weather on 23 September 2024)."
+    \ Lunar holidays retain CHINESE_HK native origins and Ching Ming uses a bounded\
+    \ HKO reference table. Every resulting closure remains bounded to, and confirmed\
+    \ against, the Government and exchange schedules through the last gazetted year\
+    \ (2027); computed future dates are not published as confirmed holidays. Unscheduled\
+    \ closures for typhoons and black rainstorms are out of scope: they are announced\
+    \ on the day, are not part of any published schedule, and are not modelled here\
+    \ (HKEX moved to trading through severe weather on 23 September 2024)."
   chronology: ISO
   timezone: Asia/Hong_Kong
   coverage:
     from: 2018-01-01
     to: 2027-12-31
+    quality:
+    - scope: SCHEDULED_CLOSURES
+      from: 2018-01-01
+      to: 2027-12-31
+      quality: VERIFIED
+      evidenceIds:
+      - hkex-calendar
+      - hkex-calendar-archived
+      - govhk-general-holidays
+    - scope: EARLY_CLOSES
+      from: 2018-01-01
+      to: 2027-12-31
+      quality: VERIFIED
+      evidenceIds:
+      - hkex-calendar
+      - hkex-calendar-archived
+      - hkex-securities-trading-hours
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2018-01-01
+      to: 2024-09-22
+      quality: INCOMPLETE
+      evidenceIds:
+      - hkex-severe-weather-notices
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2024-09-23
+      to: 2027-12-31
+      quality: PROJECTED
+      evidenceIds:
+      - hkex-severe-weather-trading
     verified_through: 2027-12-31
   kind: market
   mic: XHKG
@@ -29,7 +58,64 @@ uses:
 - weekend_sat_sun
 - hk_hkex_holidays
 classifications: {}
-deltas: []
+deltas:
+- action: remove
+  key: hk_lunar_new_year
+  date: 2027-02-08
+  source:
+  - id: hko-gregorian-lunar-conversion
+    resolvable: true
+    ref: "T2027e.txt: 6 February is the 1st Lunar Month; 8 February is day 3"
+  - id: govhk-general-holidays
+    resolvable: true
+    ref: 2027 gazetted Lunar New Year holidays
+  - id: hkex-calendar
+    resolvable: true
+    ref: 2027 Hong Kong Market is closed rows
+- action: remove
+  key: hk_lunar_new_year
+  date: 2027-02-09
+  source:
+  - id: hko-gregorian-lunar-conversion
+    resolvable: true
+  - id: govhk-general-holidays
+    resolvable: true
+  - id: hkex-calendar
+    resolvable: true
+- action: remove
+  key: hk_lunar_new_year
+  date: 2027-02-10
+  source:
+  - id: hko-gregorian-lunar-conversion
+    resolvable: true
+  - id: govhk-general-holidays
+    resolvable: true
+  - id: hkex-calendar
+    resolvable: true
+- action: add
+  key: hk_lunar_new_year
+  name: Lunar New Year (The third day of Lunar New Year)
+  date: 2027-02-08
+  classification: CLOSED
+  source:
+  - id: hko-gregorian-lunar-conversion
+    resolvable: true
+  - id: govhk-general-holidays
+    resolvable: true
+  - id: hkex-calendar
+    resolvable: true
+- action: add
+  key: hk_lunar_new_year
+  name: Lunar New Year (The fourth day of Lunar New Year)
+  date: 2027-02-09
+  classification: CLOSED
+  source:
+  - id: hko-gregorian-lunar-conversion
+    resolvable: true
+  - id: govhk-general-holidays
+    resolvable: true
+  - id: hkex-calendar
+    resolvable: true
 extends: []
 event_sources: []
 weekend_shift_policy: FORWARD_ONLY

@@ -1,0 +1,358 @@
+{
+  "calendar_id": "US-FEDWIRE",
+  "calendar_name": "Fedwire Funds Service",
+  "counts_by_status": {
+    "CONFIRMED": 227
+  },
+  "counts_by_type": {
+    "CLOSED": 19,
+    "WEEKEND": 208
+  },
+  "coverage": {
+    "from": "2026-01-01",
+    "quality": [
+      {
+        "evidence_ids": [
+          "frfs-fedwire-operating-hours",
+          "frfs-holiday-schedule"
+        ],
+        "from": "2026-01-01",
+        "quality": "VERIFIED",
+        "scope": "SCHEDULED_CLOSURES",
+        "to": "2027-12-31"
+      },
+      {
+        "evidence_ids": [
+          "frfs-fedwire-operating-hours"
+        ],
+        "from": "2026-01-01",
+        "quality": "PROJECTED",
+        "scope": "EARLY_CLOSES",
+        "to": "2027-12-31"
+      },
+      {
+        "evidence_ids": [
+          "frfs-fedwire-operating-hours"
+        ],
+        "from": "2026-01-01",
+        "quality": "PROJECTED",
+        "scope": "UNSCHEDULED_EXCEPTIONS",
+        "to": "2027-12-31"
+      }
+    ],
+    "to": "2027-12-31",
+    "verified_through": "2027-12-31"
+  },
+  "event_count": 227,
+  "event_details": [
+    {
+      "close_time": null,
+      "date": "2026-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "frfs-fedwire-operating-hours",
+        "frfs-holiday-schedule"
+      ],
+      "key": "fedwire_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:us_fedwire_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-01-19",
+      "description": "Martin Luther King Jr. Day",
+      "evidence_ids": [
+        "frfs-fedwire-operating-hours",
+        "frfs-holiday-schedule"
+      ],
+      "key": "fedwire_martin_luther_king_jr_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:us_fedwire_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-02-16",
+      "description": "Washington's Birthday (Presidents Day)",
+      "evidence_ids": [
+        "frfs-fedwire-operating-hours",
+        "frfs-holiday-schedule"
+      ],
+      "key": "fedwire_washingtons_birthday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:us_fedwire_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-05-25",
+      "description": "Memorial Day",
+      "evidence_ids": [
+        "frfs-fedwire-operating-hours",
+        "frfs-holiday-schedule"
+      ],
+      "key": "fedwire_memorial_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:us_fedwire_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-06-19",
+      "description": "Juneteenth National Independence Day",
+      "evidence_ids": [
+        "frfs-fedwire-operating-hours",
+        "frfs-holiday-schedule"
+      ],
+      "key": "fedwire_juneteenth",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:us_fedwire_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-09-07",
+      "description": "Labor Day",
+      "evidence_ids": [
+        "frfs-fedwire-operating-hours",
+        "frfs-holiday-schedule"
+      ],
+      "key": "fedwire_labor_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:us_fedwire_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-10-12",
+      "description": "Columbus Day",
+      "evidence_ids": [
+        "frfs-fedwire-operating-hours",
+        "frfs-holiday-schedule"
+      ],
+      "key": "fedwire_columbus_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:us_fedwire_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-11-11",
+      "description": "Veterans Day",
+      "evidence_ids": [
+        "frfs-fedwire-operating-hours",
+        "frfs-holiday-schedule"
+      ],
+      "key": "fedwire_veterans_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:us_fedwire_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-11-26",
+      "description": "Thanksgiving Day",
+      "evidence_ids": [
+        "frfs-fedwire-operating-hours",
+        "frfs-holiday-schedule"
+      ],
+      "key": "fedwire_thanksgiving_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:us_fedwire_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-12-25",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "frfs-fedwire-operating-hours",
+        "frfs-holiday-schedule"
+      ],
+      "key": "fedwire_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:us_fedwire_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "frfs-fedwire-operating-hours",
+        "frfs-holiday-schedule"
+      ],
+      "key": "fedwire_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:us_fedwire_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-01-18",
+      "description": "Martin Luther King Jr. Day",
+      "evidence_ids": [
+        "frfs-fedwire-operating-hours",
+        "frfs-holiday-schedule"
+      ],
+      "key": "fedwire_martin_luther_king_jr_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:us_fedwire_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-02-15",
+      "description": "Washington's Birthday (Presidents Day)",
+      "evidence_ids": [
+        "frfs-fedwire-operating-hours",
+        "frfs-holiday-schedule"
+      ],
+      "key": "fedwire_washingtons_birthday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:us_fedwire_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-05-31",
+      "description": "Memorial Day",
+      "evidence_ids": [
+        "frfs-fedwire-operating-hours",
+        "frfs-holiday-schedule"
+      ],
+      "key": "fedwire_memorial_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:us_fedwire_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-07-05",
+      "description": "Independence Day",
+      "evidence_ids": [
+        "frfs-fedwire-operating-hours",
+        "frfs-holiday-schedule"
+      ],
+      "key": "fedwire_independence_day",
+      "observation_lineage": [
+        "2027-07-04",
+        "2027-07-05"
+      ],
+      "observed_from": "2027-07-04",
+      "source_module": "module:us_fedwire_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-09-06",
+      "description": "Labor Day",
+      "evidence_ids": [
+        "frfs-fedwire-operating-hours",
+        "frfs-holiday-schedule"
+      ],
+      "key": "fedwire_labor_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:us_fedwire_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-10-11",
+      "description": "Columbus Day",
+      "evidence_ids": [
+        "frfs-fedwire-operating-hours",
+        "frfs-holiday-schedule"
+      ],
+      "key": "fedwire_columbus_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:us_fedwire_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-11-11",
+      "description": "Veterans Day",
+      "evidence_ids": [
+        "frfs-fedwire-operating-hours",
+        "frfs-holiday-schedule"
+      ],
+      "key": "fedwire_veterans_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:us_fedwire_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-11-25",
+      "description": "Thanksgiving Day",
+      "evidence_ids": [
+        "frfs-fedwire-operating-hours",
+        "frfs-holiday-schedule"
+      ],
+      "key": "fedwire_thanksgiving_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:us_fedwire_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    }
+  ],
+  "generated_at": "2026-09-14T14:57:31Z",
+  "kind": "payment",
+  "range_end": "2027-12-31",
+  "range_start": "2026-01-01",
+  "resolution_chain": [
+    "module:weekend_sat_sun",
+    "module:us_fedwire_holidays",
+    "calendar:US-FEDWIRE"
+  ],
+  "source_version": {
+    "git_sha": "adf8dd99893301852aa3daccfb7f0caee22859f3",
+    "semantic": "12.0.0"
+  },
+  "timezone": "America/New_York",
+  "weekend_policy": {
+    "days": [
+      "SATURDAY",
+      "SUNDAY"
+    ],
+    "periods": []
+  }
+}

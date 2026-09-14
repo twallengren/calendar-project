@@ -264,25 +264,39 @@ severity:
 | `MAJOR` | Past or near-term events changed (a correction to already-published data). |
 
 Any severity other than `NONE` blocks merge until a maintainer adds the
-`calendar-change-approved` label after reviewing the diff comment. Adding a brand-new calendar
-is usually `MAJOR` the first time (there is no prior blessed output to diff against for it), so
-expect to ask for that label.
+`calendar-change-approved` label after reviewing the diff comment. The release-impact comparator
+classifies a new calendar as MINOR and examines the union of published and candidate IDs, including
+calendars absent from the older manifest.
 
 Before requesting review, self-check against `.github/PULL_REQUEST_TEMPLATE.md`.
 
 ### 10. Release and bless
 
-Merges to `main` that touch `calendars/`, `modules/`, `chronologies/`, or the tool itself trigger
-`.github/workflows/release.yml`. It re-runs `ci-diff` to decide a semantic version bump (`MAJOR`
-diff -> major version, `MINOR` diff -> minor version, no change -> no release), regenerates
-`blessed/`, archives the previous state to `release-history/`, and cuts a GitHub release with the
-artifacts attached. You do not run this yourself; `scripts/bless.sh` is for local review only.
+After CI succeeds for a qualifying merge to `main`, `.github/workflows/release-pr.yml` prepares
+one reviewable release PR. It compares the candidate with an authenticated immutable published
+release asset. This release-impact comparison is separate from the development `ci-diff` above:
+removals, coverage contractions, changed answers inside existing coverage and incompatible identity
+changes are MAJOR; new calendars, additive aliases and coverage extensions are MINOR; descriptive
+metadata or citation-only changes are PATCH. Exact severity is in `release/impact.json`.
 
-A release to `blessed/`, `release-history/` or the site generator also triggers
-`.github/workflows/pages.yml`, which republishes the [JSON API and site](README.md#get-the-data)
-to GitHub Pages. **Enable GitHub Pages once, before the first run**: only a repository maintainer
-can do this — Settings → Pages → Source: **GitHub Actions**. Until that is set, `pages.yml` runs
-but the deploy step fails; nothing else in the release is affected.
+The PR contains regenerated artifacts, immutable history, synchronized Python data and parity/API
+fixtures, and `release/release.json`. The descriptor fixes the baseline, source SHA, versions,
+generation timestamp and hashes. `scripts/bless.sh` performs strict validation and cross-validation;
+a failed check aborts preparation. Review the complete report and intentional golden changes before
+merging the release PR. Never reconstruct an old published baseline from today's modified data.
+
+`.github/workflows/release.yml` publishes only after CI succeeds on the exact release merge commit.
+It binds tags to that commit, builds once, verifies artifact hashes at every downstream step, and
+resumes matching completed steps while rejecting conflicts. Publication runs are serialized without
+cancelling active work. Dataset, Java core, Python software and wire-schema versions are independent;
+`release/versions.json` records the selected versions. Manual dispatch supports recovery and retries.
+
+Release PR creation requires the repository-scoped GitHub App configured with `RELEASE_APP_ID` and
+`RELEASE_APP_PRIVATE_KEY`; its PRs run normal checks and do not bypass branch protection. Registry
+credentials and repository settings must be configured for the intended publication channels.
+The publication workflow deploys Pages directly. Configure Pages to use **GitHub Actions**;
+there is no separate bot-push-triggered `pages.yml`. A local build is not evidence of remote
+publication: package installation from each registry must succeed before that channel is complete.
 
 ## Code contributions
 

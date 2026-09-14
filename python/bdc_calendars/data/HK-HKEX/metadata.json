@@ -11,11 +11,3232 @@
   },
   "coverage": {
     "from": "2018-01-01",
+    "quality": [
+      {
+        "evidence_ids": [
+          "hkex-calendar",
+          "hkex-calendar-archived",
+          "govhk-general-holidays"
+        ],
+        "from": "2018-01-01",
+        "quality": "VERIFIED",
+        "scope": "SCHEDULED_CLOSURES",
+        "to": "2027-12-31"
+      },
+      {
+        "evidence_ids": [
+          "hkex-calendar",
+          "hkex-calendar-archived",
+          "hkex-securities-trading-hours"
+        ],
+        "from": "2018-01-01",
+        "quality": "VERIFIED",
+        "scope": "EARLY_CLOSES",
+        "to": "2027-12-31"
+      },
+      {
+        "evidence_ids": [
+          "hkex-severe-weather-notices"
+        ],
+        "from": "2018-01-01",
+        "quality": "INCOMPLETE",
+        "scope": "UNSCHEDULED_EXCEPTIONS",
+        "to": "2024-09-22"
+      },
+      {
+        "evidence_ids": [
+          "hkex-severe-weather-trading"
+        ],
+        "from": "2024-09-23",
+        "quality": "PROJECTED",
+        "scope": "UNSCHEDULED_EXCEPTIONS",
+        "to": "2027-12-31"
+      }
+    ],
     "to": "2027-12-31",
     "verified_through": "2027-12-31"
   },
   "event_count": 1208,
-  "generated_at": "2026-02-16T21:43:21Z",
+  "event_details": [
+    {
+      "close_time": null,
+      "date": "2018-01-01",
+      "description": "The first day of January",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": "12:00",
+      "date": "2018-02-15",
+      "description": "Lunar New Year's Eve (Half Day)",
+      "evidence_ids": [
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_hkex_lunar_new_years_eve_early_close",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 30,
+        "month_code": "M12",
+        "year": 2017
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_hkex_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2018-02-16",
+      "description": "Lunar New Year",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_lunar_new_year",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 1,
+        "month_code": "M01",
+        "year": 2018
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_lunar_new_year",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2018-02-19",
+      "description": "Lunar New Year",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_lunar_new_year",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 3,
+        "month_code": "M01",
+        "year": 2018
+      },
+      "observation_lineage": [
+        "2018-02-18",
+        "2018-02-19"
+      ],
+      "observed_from": "2018-02-18",
+      "source_module": "module:hk_lunar_new_year",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-03-30",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-04-02",
+      "description": "Easter Monday",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_easter_monday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_easter_monday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-04-05",
+      "description": "Ching Ming Festival",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_ching_ming",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_ching_ming",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-05-01",
+      "description": "Labour Day",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_labour_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_labour_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2018-05-22",
+      "description": "The Birthday of the Buddha",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_buddhas_birthday",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 8,
+        "month_code": "M04",
+        "year": 2018
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_buddhas_birthday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2018-06-18",
+      "description": "Tuen Ng Festival",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_tuen_ng",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 5,
+        "month_code": "M05",
+        "year": 2018
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_tuen_ng",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-07-02",
+      "description": "Hong Kong Special Administrative Region Establishment Day",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_hksar_establishment_day",
+      "observation_lineage": [
+        "2018-07-01",
+        "2018-07-02"
+      ],
+      "observed_from": "2018-07-01",
+      "source_module": "module:hk_hksar_establishment_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2018-09-25",
+      "description": "The day following the Chinese Mid-Autumn Festival",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_mid_autumn",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 16,
+        "month_code": "M08",
+        "year": 2018
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_mid_autumn",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-10-01",
+      "description": "National Day",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_national_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_national_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2018-10-17",
+      "description": "Chung Yeung Festival",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_chung_yeung",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 9,
+        "month_code": "M09",
+        "year": 2018
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_chung_yeung",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2018-12-24",
+      "description": "Christmas Eve (Half Day)",
+      "evidence_ids": [
+        "hkex-calendar",
+        "hkex-derivatives-holiday-schedule",
+        "hkex-securities-trading-hours"
+      ],
+      "key": "hk_hkex_christmas_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_hkex_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2018-12-25",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_christmas",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-12-26",
+      "description": "The first weekday after Christmas Day",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_first_weekday_after_christmas",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_christmas",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2018-12-31",
+      "description": "New Year's Eve (Half Day)",
+      "evidence_ids": [
+        "hkex-calendar",
+        "hkex-derivatives-holiday-schedule",
+        "hkex-securities-trading-hours"
+      ],
+      "key": "hk_hkex_new_years_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_hkex_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2019-01-01",
+      "description": "The first day of January",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": "12:00",
+      "date": "2019-02-04",
+      "description": "Lunar New Year's Eve (Half Day)",
+      "evidence_ids": [
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_hkex_lunar_new_years_eve_early_close",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 30,
+        "month_code": "M12",
+        "year": 2018
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_hkex_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2019-02-05",
+      "description": "Lunar New Year",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_lunar_new_year",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 1,
+        "month_code": "M01",
+        "year": 2019
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_lunar_new_year",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2019-02-06",
+      "description": "Lunar New Year",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_lunar_new_year",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 2,
+        "month_code": "M01",
+        "year": 2019
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_lunar_new_year",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2019-02-07",
+      "description": "Lunar New Year",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_lunar_new_year",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 3,
+        "month_code": "M01",
+        "year": 2019
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_lunar_new_year",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-04-05",
+      "description": "Ching Ming Festival",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_ching_ming",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_ching_ming",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-04-19",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-04-22",
+      "description": "Easter Monday",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_easter_monday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_easter_monday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-05-01",
+      "description": "Labour Day",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_labour_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_labour_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2019-05-13",
+      "description": "The Birthday of the Buddha",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_buddhas_birthday",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 8,
+        "month_code": "M04",
+        "year": 2019
+      },
+      "observation_lineage": [
+        "2019-05-12",
+        "2019-05-13"
+      ],
+      "observed_from": "2019-05-12",
+      "source_module": "module:hk_buddhas_birthday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2019-06-07",
+      "description": "Tuen Ng Festival",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_tuen_ng",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 5,
+        "month_code": "M05",
+        "year": 2019
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_tuen_ng",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-07-01",
+      "description": "Hong Kong Special Administrative Region Establishment Day",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_hksar_establishment_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_hksar_establishment_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-10-01",
+      "description": "National Day",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_national_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_national_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2019-10-07",
+      "description": "Chung Yeung Festival",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_chung_yeung",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 9,
+        "month_code": "M09",
+        "year": 2019
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_chung_yeung",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2019-12-24",
+      "description": "Christmas Eve (Half Day)",
+      "evidence_ids": [
+        "hkex-calendar",
+        "hkex-derivatives-holiday-schedule",
+        "hkex-securities-trading-hours"
+      ],
+      "key": "hk_hkex_christmas_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_hkex_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2019-12-25",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_christmas",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-12-26",
+      "description": "The first weekday after Christmas Day",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_first_weekday_after_christmas",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_christmas",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2019-12-31",
+      "description": "New Year's Eve (Half Day)",
+      "evidence_ids": [
+        "hkex-calendar",
+        "hkex-derivatives-holiday-schedule",
+        "hkex-securities-trading-hours"
+      ],
+      "key": "hk_hkex_new_years_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_hkex_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2020-01-01",
+      "description": "The first day of January",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": "12:00",
+      "date": "2020-01-24",
+      "description": "Lunar New Year's Eve (Half Day)",
+      "evidence_ids": [
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_hkex_lunar_new_years_eve_early_close",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 30,
+        "month_code": "M12",
+        "year": 2019
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_hkex_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2020-01-27",
+      "description": "Lunar New Year",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_lunar_new_year",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 3,
+        "month_code": "M01",
+        "year": 2020
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_lunar_new_year",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2020-01-28",
+      "description": "Lunar New Year",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_lunar_new_year",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 2,
+        "month_code": "M01",
+        "year": 2020
+      },
+      "observation_lineage": [
+        "2020-01-26",
+        "2020-01-28"
+      ],
+      "observed_from": "2020-01-26",
+      "source_module": "module:hk_lunar_new_year",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-04-10",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-04-13",
+      "description": "Easter Monday",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_easter_monday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_easter_monday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2020-04-30",
+      "description": "The Birthday of the Buddha",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_buddhas_birthday",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 8,
+        "month_code": "M04",
+        "year": 2020
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_buddhas_birthday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-05-01",
+      "description": "Labour Day",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_labour_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_labour_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2020-06-25",
+      "description": "Tuen Ng Festival",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_tuen_ng",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 5,
+        "month_code": "M05",
+        "year": 2020
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_tuen_ng",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-07-01",
+      "description": "Hong Kong Special Administrative Region Establishment Day",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_hksar_establishment_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_hksar_establishment_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-10-01",
+      "description": "National Day",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_national_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_national_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2020-10-02",
+      "description": "The day following the Chinese Mid-Autumn Festival",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_mid_autumn",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 16,
+        "month_code": "M08",
+        "year": 2020
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_mid_autumn",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2020-10-26",
+      "description": "Chung Yeung Festival",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_chung_yeung",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 9,
+        "month_code": "M09",
+        "year": 2020
+      },
+      "observation_lineage": [
+        "2020-10-25",
+        "2020-10-26"
+      ],
+      "observed_from": "2020-10-25",
+      "source_module": "module:hk_chung_yeung",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2020-12-24",
+      "description": "Christmas Eve (Half Day)",
+      "evidence_ids": [
+        "hkex-calendar",
+        "hkex-derivatives-holiday-schedule",
+        "hkex-securities-trading-hours"
+      ],
+      "key": "hk_hkex_christmas_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_hkex_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2020-12-25",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_christmas",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2020-12-31",
+      "description": "New Year's Eve (Half Day)",
+      "evidence_ids": [
+        "hkex-calendar",
+        "hkex-derivatives-holiday-schedule",
+        "hkex-securities-trading-hours"
+      ],
+      "key": "hk_hkex_new_years_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_hkex_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2021-01-01",
+      "description": "The first day of January",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": "12:00",
+      "date": "2021-02-11",
+      "description": "Lunar New Year's Eve (Half Day)",
+      "evidence_ids": [
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_hkex_lunar_new_years_eve_early_close",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 30,
+        "month_code": "M12",
+        "year": 2020
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_hkex_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2021-02-12",
+      "description": "Lunar New Year",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_lunar_new_year",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 1,
+        "month_code": "M01",
+        "year": 2021
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_lunar_new_year",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2021-02-15",
+      "description": "Lunar New Year",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_lunar_new_year",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 3,
+        "month_code": "M01",
+        "year": 2021
+      },
+      "observation_lineage": [
+        "2021-02-14",
+        "2021-02-15"
+      ],
+      "observed_from": "2021-02-14",
+      "source_module": "module:hk_lunar_new_year",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-04-02",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-04-05",
+      "description": "Ching Ming Festival",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_ching_ming",
+      "observation_lineage": [
+        "2021-04-04",
+        "2021-04-05"
+      ],
+      "observed_from": "2021-04-04",
+      "source_module": "module:hk_ching_ming",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-04-06",
+      "description": "The day following Easter Monday (Ching Ming Sunday 4 April observed Monday 5 April; Easter Monday moved on)",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_day_following_easter_monday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_easter_monday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2021-05-19",
+      "description": "The Birthday of the Buddha",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_buddhas_birthday",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 8,
+        "month_code": "M04",
+        "year": 2021
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_buddhas_birthday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2021-06-14",
+      "description": "Tuen Ng Festival",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_tuen_ng",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 5,
+        "month_code": "M05",
+        "year": 2021
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_tuen_ng",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-07-01",
+      "description": "Hong Kong Special Administrative Region Establishment Day",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_hksar_establishment_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_hksar_establishment_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2021-09-22",
+      "description": "The day following the Chinese Mid-Autumn Festival",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_mid_autumn",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 16,
+        "month_code": "M08",
+        "year": 2021
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_mid_autumn",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-10-01",
+      "description": "National Day",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_national_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_national_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2021-10-14",
+      "description": "Chung Yeung Festival",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_chung_yeung",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 9,
+        "month_code": "M09",
+        "year": 2021
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_chung_yeung",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2021-12-24",
+      "description": "Christmas Eve (Half Day)",
+      "evidence_ids": [
+        "hkex-calendar",
+        "hkex-derivatives-holiday-schedule",
+        "hkex-securities-trading-hours"
+      ],
+      "key": "hk_hkex_christmas_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_hkex_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2021-12-27",
+      "description": "The first weekday after Christmas Day",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_first_weekday_after_christmas",
+      "observation_lineage": [
+        "2021-12-26",
+        "2021-12-27"
+      ],
+      "observed_from": "2021-12-26",
+      "source_module": "module:hk_christmas",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2021-12-31",
+      "description": "New Year's Eve (Half Day)",
+      "evidence_ids": [
+        "hkex-calendar",
+        "hkex-derivatives-holiday-schedule",
+        "hkex-securities-trading-hours"
+      ],
+      "key": "hk_hkex_new_years_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_hkex_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": "12:00",
+      "date": "2022-01-31",
+      "description": "Lunar New Year's Eve (Half Day)",
+      "evidence_ids": [
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_hkex_lunar_new_years_eve_early_close",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 29,
+        "month_code": "M12",
+        "year": 2021
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_hkex_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2022-02-01",
+      "description": "Lunar New Year",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_lunar_new_year",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 1,
+        "month_code": "M01",
+        "year": 2022
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_lunar_new_year",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2022-02-02",
+      "description": "Lunar New Year",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_lunar_new_year",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 2,
+        "month_code": "M01",
+        "year": 2022
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_lunar_new_year",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2022-02-03",
+      "description": "Lunar New Year",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_lunar_new_year",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 3,
+        "month_code": "M01",
+        "year": 2022
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_lunar_new_year",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-04-05",
+      "description": "Ching Ming Festival",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_ching_ming",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_ching_ming",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-04-15",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-04-18",
+      "description": "Easter Monday",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_easter_monday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_easter_monday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-05-02",
+      "description": "Labour Day",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_labour_day",
+      "observation_lineage": [
+        "2022-05-01",
+        "2022-05-02"
+      ],
+      "observed_from": "2022-05-01",
+      "source_module": "module:hk_labour_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2022-05-09",
+      "description": "The Birthday of the Buddha",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_buddhas_birthday",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 8,
+        "month_code": "M04",
+        "year": 2022
+      },
+      "observation_lineage": [
+        "2022-05-08",
+        "2022-05-09"
+      ],
+      "observed_from": "2022-05-08",
+      "source_module": "module:hk_buddhas_birthday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2022-06-03",
+      "description": "Tuen Ng Festival",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_tuen_ng",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 5,
+        "month_code": "M05",
+        "year": 2022
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_tuen_ng",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-07-01",
+      "description": "Hong Kong Special Administrative Region Establishment Day",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_hksar_establishment_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_hksar_establishment_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2022-09-12",
+      "description": "The day following the Chinese Mid-Autumn Festival",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_mid_autumn",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 16,
+        "month_code": "M08",
+        "year": 2022
+      },
+      "observation_lineage": [
+        "2022-09-11",
+        "2022-09-12"
+      ],
+      "observed_from": "2022-09-11",
+      "source_module": "module:hk_mid_autumn",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2022-10-04",
+      "description": "Chung Yeung Festival",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_chung_yeung",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 9,
+        "month_code": "M09",
+        "year": 2022
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_chung_yeung",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-12-26",
+      "description": "The first weekday after Christmas Day",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_first_weekday_after_christmas",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_christmas",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-12-27",
+      "description": "The second weekday after Christmas Day (25 December 2022 fell on a Sunday)",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_second_weekday_after_christmas",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_christmas",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-01-02",
+      "description": "The first day of January",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_new_years_day",
+      "observation_lineage": [
+        "2023-01-01",
+        "2023-01-02"
+      ],
+      "observed_from": "2023-01-01",
+      "source_module": "module:hk_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2023-01-23",
+      "description": "Lunar New Year",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_lunar_new_year",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 2,
+        "month_code": "M01",
+        "year": 2023
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_lunar_new_year",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2023-01-24",
+      "description": "Lunar New Year",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_lunar_new_year",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 3,
+        "month_code": "M01",
+        "year": 2023
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_lunar_new_year",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2023-01-25",
+      "description": "Lunar New Year",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_lunar_new_year",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 1,
+        "month_code": "M01",
+        "year": 2023
+      },
+      "observation_lineage": [
+        "2023-01-22",
+        "2023-01-25"
+      ],
+      "observed_from": "2023-01-22",
+      "source_module": "module:hk_lunar_new_year",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-04-05",
+      "description": "Ching Ming Festival",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_ching_ming",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_ching_ming",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-04-07",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-04-10",
+      "description": "Easter Monday",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_easter_monday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_easter_monday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-05-01",
+      "description": "Labour Day",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_labour_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_labour_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2023-05-26",
+      "description": "The Birthday of the Buddha",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_buddhas_birthday",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 8,
+        "month_code": "M04",
+        "year": 2023
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_buddhas_birthday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2023-06-22",
+      "description": "Tuen Ng Festival",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_tuen_ng",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 5,
+        "month_code": "M05",
+        "year": 2023
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_tuen_ng",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-10-02",
+      "description": "National Day",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_national_day",
+      "observation_lineage": [
+        "2023-10-01",
+        "2023-10-02"
+      ],
+      "observed_from": "2023-10-01",
+      "source_module": "module:hk_national_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2023-10-23",
+      "description": "Chung Yeung Festival",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_chung_yeung",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 9,
+        "month_code": "M09",
+        "year": 2023
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_chung_yeung",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-12-25",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_christmas",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-12-26",
+      "description": "The first weekday after Christmas Day",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_first_weekday_after_christmas",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_christmas",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-01-01",
+      "description": "The first day of January",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": "12:00",
+      "date": "2024-02-09",
+      "description": "Lunar New Year's Eve (Half Day)",
+      "evidence_ids": [
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_hkex_lunar_new_years_eve_early_close",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 30,
+        "month_code": "M12",
+        "year": 2023
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_hkex_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2024-02-12",
+      "description": "Lunar New Year",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_lunar_new_year",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 3,
+        "month_code": "M01",
+        "year": 2024
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_lunar_new_year",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2024-02-13",
+      "description": "Lunar New Year",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_lunar_new_year",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 2,
+        "month_code": "M01",
+        "year": 2024
+      },
+      "observation_lineage": [
+        "2024-02-11",
+        "2024-02-13"
+      ],
+      "observed_from": "2024-02-11",
+      "source_module": "module:hk_lunar_new_year",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-03-29",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-04-01",
+      "description": "Easter Monday",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_easter_monday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_easter_monday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-04-04",
+      "description": "Ching Ming Festival",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_ching_ming",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_ching_ming",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-05-01",
+      "description": "Labour Day",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_labour_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_labour_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2024-05-15",
+      "description": "The Birthday of the Buddha",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_buddhas_birthday",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 8,
+        "month_code": "M04",
+        "year": 2024
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_buddhas_birthday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2024-06-10",
+      "description": "Tuen Ng Festival",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_tuen_ng",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 5,
+        "month_code": "M05",
+        "year": 2024
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_tuen_ng",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-07-01",
+      "description": "Hong Kong Special Administrative Region Establishment Day",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_hksar_establishment_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_hksar_establishment_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2024-09-18",
+      "description": "The day following the Chinese Mid-Autumn Festival",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_mid_autumn",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 16,
+        "month_code": "M08",
+        "year": 2024
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_mid_autumn",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-10-01",
+      "description": "National Day",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_national_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_national_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2024-10-11",
+      "description": "Chung Yeung Festival",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_chung_yeung",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 9,
+        "month_code": "M09",
+        "year": 2024
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_chung_yeung",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2024-12-24",
+      "description": "Christmas Eve (Half Day)",
+      "evidence_ids": [
+        "hkex-calendar",
+        "hkex-derivatives-holiday-schedule",
+        "hkex-securities-trading-hours"
+      ],
+      "key": "hk_hkex_christmas_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_hkex_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2024-12-25",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_christmas",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-12-26",
+      "description": "The first weekday after Christmas Day",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_first_weekday_after_christmas",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_christmas",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2024-12-31",
+      "description": "New Year's Eve (Half Day)",
+      "evidence_ids": [
+        "hkex-calendar",
+        "hkex-derivatives-holiday-schedule",
+        "hkex-securities-trading-hours"
+      ],
+      "key": "hk_hkex_new_years_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_hkex_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2025-01-01",
+      "description": "The first day of January",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": "12:00",
+      "date": "2025-01-28",
+      "description": "Lunar New Year's Eve (Half Day)",
+      "evidence_ids": [
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_hkex_lunar_new_years_eve_early_close",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 29,
+        "month_code": "M12",
+        "year": 2024
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_hkex_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2025-01-29",
+      "description": "Lunar New Year",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_lunar_new_year",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 1,
+        "month_code": "M01",
+        "year": 2025
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_lunar_new_year",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2025-01-30",
+      "description": "Lunar New Year",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_lunar_new_year",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 2,
+        "month_code": "M01",
+        "year": 2025
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_lunar_new_year",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2025-01-31",
+      "description": "Lunar New Year",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_lunar_new_year",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 3,
+        "month_code": "M01",
+        "year": 2025
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_lunar_new_year",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-04-04",
+      "description": "Ching Ming Festival",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_ching_ming",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_ching_ming",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-04-18",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-04-21",
+      "description": "Easter Monday",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_easter_monday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_easter_monday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-05-01",
+      "description": "Labour Day",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_labour_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_labour_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2025-05-05",
+      "description": "The Birthday of the Buddha",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_buddhas_birthday",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 8,
+        "month_code": "M04",
+        "year": 2025
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_buddhas_birthday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-07-01",
+      "description": "Hong Kong Special Administrative Region Establishment Day",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_hksar_establishment_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_hksar_establishment_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-10-01",
+      "description": "National Day",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_national_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_national_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2025-10-07",
+      "description": "The day following the Chinese Mid-Autumn Festival",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_mid_autumn",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 16,
+        "month_code": "M08",
+        "year": 2025
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_mid_autumn",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2025-10-29",
+      "description": "Chung Yeung Festival",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_chung_yeung",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 9,
+        "month_code": "M09",
+        "year": 2025
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_chung_yeung",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2025-12-24",
+      "description": "Christmas Eve (Half Day)",
+      "evidence_ids": [
+        "hkex-calendar",
+        "hkex-derivatives-holiday-schedule",
+        "hkex-securities-trading-hours"
+      ],
+      "key": "hk_hkex_christmas_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_hkex_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2025-12-25",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_christmas",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-12-26",
+      "description": "The first weekday after Christmas Day",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_first_weekday_after_christmas",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_christmas",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2025-12-31",
+      "description": "New Year's Eve (Half Day)",
+      "evidence_ids": [
+        "hkex-calendar",
+        "hkex-derivatives-holiday-schedule",
+        "hkex-securities-trading-hours"
+      ],
+      "key": "hk_hkex_new_years_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_hkex_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2026-01-01",
+      "description": "The first day of January",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": "12:00",
+      "date": "2026-02-16",
+      "description": "Lunar New Year's Eve (Half Day)",
+      "evidence_ids": [
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_hkex_lunar_new_years_eve_early_close",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 29,
+        "month_code": "M12",
+        "year": 2025
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_hkex_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2026-02-17",
+      "description": "Lunar New Year",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_lunar_new_year",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 1,
+        "month_code": "M01",
+        "year": 2026
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_lunar_new_year",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2026-02-18",
+      "description": "Lunar New Year",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_lunar_new_year",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 2,
+        "month_code": "M01",
+        "year": 2026
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_lunar_new_year",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2026-02-19",
+      "description": "Lunar New Year",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_lunar_new_year",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 3,
+        "month_code": "M01",
+        "year": 2026
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_lunar_new_year",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-04-03",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-04-06",
+      "description": "Ching Ming Festival",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_ching_ming",
+      "observation_lineage": [
+        "2026-04-05",
+        "2026-04-06"
+      ],
+      "observed_from": "2026-04-05",
+      "source_module": "module:hk_ching_ming",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-04-07",
+      "description": "The day following Easter Monday (Ching Ming Sunday 5 April observed Monday 6 April; Easter Monday moved on)",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_day_following_easter_monday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_easter_monday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-05-01",
+      "description": "Labour Day",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_labour_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_labour_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2026-05-25",
+      "description": "The Birthday of the Buddha",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_buddhas_birthday",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 8,
+        "month_code": "M04",
+        "year": 2026
+      },
+      "observation_lineage": [
+        "2026-05-24",
+        "2026-05-25"
+      ],
+      "observed_from": "2026-05-24",
+      "source_module": "module:hk_buddhas_birthday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2026-06-19",
+      "description": "Tuen Ng Festival",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_tuen_ng",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 5,
+        "month_code": "M05",
+        "year": 2026
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_tuen_ng",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-07-01",
+      "description": "Hong Kong Special Administrative Region Establishment Day",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_hksar_establishment_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_hksar_establishment_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-10-01",
+      "description": "National Day",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_national_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_national_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2026-10-19",
+      "description": "Chung Yeung Festival",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_chung_yeung",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 9,
+        "month_code": "M09",
+        "year": 2026
+      },
+      "observation_lineage": [
+        "2026-10-18",
+        "2026-10-19"
+      ],
+      "observed_from": "2026-10-18",
+      "source_module": "module:hk_chung_yeung",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2026-12-24",
+      "description": "Christmas Eve (Half Day)",
+      "evidence_ids": [
+        "hkex-calendar",
+        "hkex-derivatives-holiday-schedule",
+        "hkex-securities-trading-hours"
+      ],
+      "key": "hk_hkex_christmas_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_hkex_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2026-12-25",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_christmas",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2026-12-31",
+      "description": "New Year's Eve (Half Day)",
+      "evidence_ids": [
+        "hkex-calendar",
+        "hkex-derivatives-holiday-schedule",
+        "hkex-securities-trading-hours"
+      ],
+      "key": "hk_hkex_new_years_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_hkex_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2027-01-01",
+      "description": "The first day of January",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": "12:00",
+      "date": "2027-02-05",
+      "description": "Lunar New Year's Eve (Half Day)",
+      "evidence_ids": [
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_hkex_lunar_new_years_eve_early_close",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 29,
+        "month_code": "M12",
+        "year": 2026
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_hkex_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2027-02-08",
+      "description": "Lunar New Year (The third day of Lunar New Year)",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_lunar_new_year",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_lunar_new_year",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-02-09",
+      "description": "Lunar New Year (The fourth day of Lunar New Year)",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_lunar_new_year",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_lunar_new_year",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-03-26",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-03-29",
+      "description": "Easter Monday",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_easter_monday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_easter_monday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-04-05",
+      "description": "Ching Ming Festival",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_ching_ming",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_ching_ming",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2027-05-13",
+      "description": "The Birthday of the Buddha",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_buddhas_birthday",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 8,
+        "month_code": "M04",
+        "year": 2027
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_buddhas_birthday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2027-06-09",
+      "description": "Tuen Ng Festival",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_tuen_ng",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 5,
+        "month_code": "M05",
+        "year": 2027
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_tuen_ng",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-07-01",
+      "description": "Hong Kong Special Administrative Region Establishment Day",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_hksar_establishment_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_hksar_establishment_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2027-09-16",
+      "description": "The day following the Chinese Mid-Autumn Festival",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_mid_autumn",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 16,
+        "month_code": "M08",
+        "year": 2027
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_mid_autumn",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-10-01",
+      "description": "National Day",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_national_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_national_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "modern-chinese-fixed-utc+08:00",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2027-10-08",
+      "description": "Chung Yeung Festival",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar",
+        "hko-gregorian-lunar-conversion"
+      ],
+      "key": "hk_chung_yeung",
+      "nominal_native_date": {
+        "chronology_id": "CHINESE_HK",
+        "day": 9,
+        "month_code": "M09",
+        "year": 2027
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_chung_yeung",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2027-12-24",
+      "description": "Christmas Eve (Half Day)",
+      "evidence_ids": [
+        "hkex-calendar",
+        "hkex-derivatives-holiday-schedule",
+        "hkex-securities-trading-hours"
+      ],
+      "key": "hk_hkex_christmas_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_hkex_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2027-12-27",
+      "description": "The first weekday after Christmas Day",
+      "evidence_ids": [
+        "govhk-general-holidays",
+        "hkex-calendar"
+      ],
+      "key": "hk_first_weekday_after_christmas",
+      "observation_lineage": [
+        "2027-12-26",
+        "2027-12-27"
+      ],
+      "observed_from": "2027-12-26",
+      "source_module": "module:hk_christmas",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2027-12-31",
+      "description": "New Year's Eve (Half Day)",
+      "evidence_ids": [
+        "hkex-calendar",
+        "hkex-derivatives-holiday-schedule",
+        "hkex-securities-trading-hours"
+      ],
+      "key": "hk_hkex_new_years_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:hk_hkex_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    }
+  ],
+  "generated_at": "2026-09-14T14:57:31Z",
   "kind": "market",
   "mic": "XHKG",
   "range_end": "2027-12-31",
@@ -40,8 +3261,8 @@
     "calendar:HK-HKEX"
   ],
   "source_version": {
-    "git_sha": "3765bcb10d3ebcb7cfc338bcebf94505af25ec1e",
-    "semantic": "11.0.0"
+    "git_sha": "adf8dd99893301852aa3daccfb7f0caee22859f3",
+    "semantic": "12.0.0"
   },
   "timezone": "Asia/Hong_Kong",
   "weekend_policy": {

@@ -6515,6 +6515,7 @@ date,type,description,key,source_module,observed_from,close_time,status
 1975-12-14,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
 1975-12-20,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
 1975-12-21,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+1975-12-24,EARLY_CLOSE,Early Close (Christmas Eve),nyse_early_close_oneoff_1400,module:us_nyse_historical_early_closes,,14:00,CONFIRMED
 1975-12-25,CLOSED,Christmas Day,christmas,module:christmas,,,CONFIRMED
 1975-12-27,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
 1975-12-28,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED

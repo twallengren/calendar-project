@@ -163,7 +163,7 @@ Differences worth knowing before you switch:
 
 ```python
 bdc.__version__       # '0.12.0' (Python package/API version)
-bdc.data_version      # '11.0.0' (bundled blessed data release in this wheel)
+bdc.data_version      # '12.0.0' (bundled data in this local recovery candidate)
 bdc.data_git_sha      # the calendar-project commit the data came from
 bdc.data_generation_date
 ```

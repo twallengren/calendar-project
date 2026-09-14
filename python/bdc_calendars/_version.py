@@ -4,10 +4,10 @@
 __version__ = "0.12.0"
 
 #: Release version of the bundled calendar data.
-DATA_VERSION = "11.0.0"
+DATA_VERSION = "12.0.0"
 
 #: calendar-project commit the data was generated from.
-DATA_GIT_SHA = "3765bcb10d3ebcb7cfc338bcebf94505af25ec1e"
+DATA_GIT_SHA = "adf8dd99893301852aa3daccfb7f0caee22859f3"
 
 #: Date the data was generated.
-DATA_GENERATION_DATE = "2026-02-16"
+DATA_GENERATION_DATE = "2026-09-14"

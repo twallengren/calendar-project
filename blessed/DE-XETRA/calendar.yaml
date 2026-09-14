@@ -9,6 +9,60 @@ metadata:
   coverage:
     from: 2003-01-01
     to: 2030-12-31
+    quality:
+    - scope: SCHEDULED_CLOSURES
+      from: 2003-01-01
+      to: 2026-12-31
+      quality: VERIFIED
+      evidenceIds:
+      - xetra-trading-calendar-2003
+      - xetra-trading-calendar-2004
+      - xetra-trading-calendar-2005
+      - xetra-trading-calendar-2006
+      - xetra-trading-calendar-2007
+      - xetra-trading-calendar-2008
+      - xetra-trading-calendar-2009
+      - xetra-trading-calendar-2010
+      - xetra-trading-calendar-2011
+      - xetra-trading-calendar-2012
+      - xetra-trading-calendar-2013
+      - xetra-trading-calendar-2014
+      - xetra-trading-calendar-2015
+      - xetra-trading-calendar-2016
+      - xetra-trading-calendar-2017
+      - xetra-trading-calendar-2018
+      - xetra-trading-calendar-2019
+      - xetra-trading-calendar-2020
+      - xetra-trading-calendar-2021
+      - xetra-trading-calendar-2022
+      - xetra-trading-calendar-2023
+      - xetra-trading-calendar-2024
+      - xetra-trading-calendar-2025
+      - xetra-trading-calendar-2026
+    - scope: SCHEDULED_CLOSURES
+      from: 2027-01-01
+      to: 2030-12-31
+      quality: PROJECTED
+      evidenceIds:
+      - xetra-cash-market-calendar-page
+    - scope: EARLY_CLOSES
+      from: 2003-01-01
+      to: 2009-12-31
+      quality: PROJECTED
+      evidenceIds:
+      - xetra-cash-market-calendar-page
+    - scope: EARLY_CLOSES
+      from: 2010-01-01
+      to: 2030-12-31
+      quality: INCOMPLETE
+      evidenceIds:
+      - xetra-cash-market-calendar-page
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2003-01-01
+      to: 2030-12-31
+      quality: PROJECTED
+      evidenceIds:
+      - xetra-cash-market-calendar-page
     verified_through: 2026-12-31
   kind: market
   mic: XETR

@@ -13,8 +13,8 @@ The delivery plan supplied on 2026-09-14 is the acceptance contract. A local imp
 | Canonical source register and /v2 | Astra integration | Coverage / provenance contracts | Canonical JSON tables and checksums; native event provenance compiled and consumed occurrence-by-occurrence; v2 daily assessments and CLI | Java/Python focused regressions passing; full verification/review pending |
 | TASE integration | Sol TASE agent | Hebrew provider acceptance | Native Hebrew rules, 2026 weekend transition and bounded authoritative schedules integrated; unsupported early closes removed | Root reviewed primary PDFs and CLI/Python/MCP representation/v2/HTML parity; actual state explicitly unknown where exception coverage is incomplete; not released |
 | Chinese/HKEX integration | Astra design / Sol implementation | Bounded TASE gate and regional profile | Integrated bounded ICU profile, HKO fixtures and Qingming table; native holidays plus authoritative 2027 overrides | Terra gate accepted; actual browser and native consumer checks pass; not released |
-| Financial operations and payment calendars | Sol operations / Sol payment / Astra integration | Both native-market gates accepted | Integrated Java/Python/CLI/MCP conventions and rich traversal results; TARGET, Fedwire and CHAPS 2026–2027 source calendars | Terra accepted financial boundary fixes; root reviewed primary payment sources; final synchronized candidate checks pending; not released |
-| Recovery packages and remote installation | Release / verification | Milestone 1 review, CI exact SHA, credentials | Earlier 15-calendar candidate passed Java/Python and local wheel/JAR smoke tests; final 18-calendar candidate preparation pending | Not published; remote access remains blocked |
+| Financial operations and payment calendars | Sol operations / Sol payment / Astra integration | Both native-market gates accepted | Integrated Java/Python/CLI/MCP conventions and rich traversal results; TARGET, Fedwire and CHAPS 2026–2027 source calendars | Terra accepted financial boundary fixes; root reviewed primary payment sources; final synchronized candidate checks passed; not released |
+| Recovery packages and remote installation | Release / verification | Milestone 1 review, CI exact SHA, credentials | Final 18-calendar candidate prepared from adf8dd9; release Java build, Python, browser, installed wheel/JAR and reproducibility checks passed | Not published; remote access remains blocked |
 
 ## Gates
 
@@ -96,3 +96,54 @@ Final acceptance requires regenerated fixtures for every candidate calendar, inc
 results and typed failures, live MCP payment/joint examples, actual browser execution at both site
 prefixes, and a second identical blessing verified against the immutable descriptor. These checks
 must run after synchronization; skipped tests against the older checkout bundle do not count.
+
+## Final local acceptance — v12 recovery candidate
+
+Prepared dataset/Java-data **12.0.0**, Java-core **12.0.0**, and Python **0.12.0** from corrected
+source **adf8dd99893301852aa3daccfb7f0caee22859f3**, with generation timestamp
+**2026-09-14T14:57:31Z**. The original incident commit remains **8d95201**. The immutable baseline
+is the authenticated v11 asset described above. `release/release.json` binds that evidence, source,
+versions, history and all generated/supporting hashes. The release report is MAJOR: four existing
+published IDs changed and fourteen IDs were added. Modern record fields are compared completely;
+legacy three-column records have explicit schema expansion and counted, deterministic allocations.
+
+The final candidate contains 18 calendars: 12 markets, 3 payment calendars and 3 compositional
+bases. Default Java data and the site publish the 15 market/payment calendars; Python and parity
+fixtures also include the bases. Compared with the older 14-calendar local artifacts, complete CSV
+counters change only for the NYSE 1975-12-24 14:00 early close, 31 HKEX description/observation
+updates, and the four new calendars. The larger published-to-candidate report remains the release
+severity authority. API goldens intentionally add the four calendars, update v12 identity/checksums,
+and reflect enriched output; the browser fixture now covers every market/payment pair.
+
+Final checks passed:
+
+- Full `./gradlew build :tools:installDist -Prelease=true` (including strict JSON stdout regression,
+  chronology regeneration membership/bytes, generator range properties and Java/browser fixtures).
+- Python **220 passed, 1 skipped**; the skip is one optional pandas branch. All 18 Java-produced
+  financial/parity fixtures and native/payment MCP subprocess tests executed without data skips.
+- Strict validation and every configured cross-validation comparison: zero unexplained differences.
+- A second identical `scripts/bless.sh` followed by descriptor verification: all bound bytes match.
+- Chrome execution and JSON/ICS link checks at both `/` and `/calendar-project/`.
+- Native artifact/CLI/Python/MCP representation/v2/HTML parity for TASE and both HKEX native and
+  authoritative ISO-override examples. Payment CLI JSON matches Python completely; every payment
+  v2 day has the expected PROJECTED confidence.
+- Release core/data JARs execute using only the JDK, including native provenance and payment/date
+  operations. The wheel built from its sdist installs, contains byte-exact bundled data, and runs
+  native/payment MCP subprocess queries. Canonical licence and dependency notices match in all
+  package formats. These are local installation checks, not registry installation evidence.
+- Full candidate tar.gz and ZIP archives are byte-identical across repeated builds after changing
+  filesystem timestamps. Source comparison/release policy suite: 44 passing regressions.
+
+The explicit [coverage assessment snapshot](COVERAGE.md) records confidence counts over every
+covered date. TASE remains actual-state UNKNOWN throughout its initial interval; other bounded
+historical gaps also remain explicit. This is an accepted safety boundary, not a claim of complete
+historical incident coverage.
+
+**External release status: blocked, not published.** Source branch
+`delivery/trustworthy-native-foundation` is pushed. The prepared branch is
+`delivery/recovery-v12-final`. GitHub's connector rejected PR creation with HTTP 403
+`Resource not accessible by integration`; SSH branch pushes succeed. No branch-protection bypass,
+merge, tag, GitHub release, Pages deployment or registry publication has been performed. An
+authorized repository actor must open/review the prepared PR (or enable the connector's PR access),
+configure the repository release App and intended publication channels, and let CI pass on the
+exact merge SHA. Remote PyPI/Maven installation remains required before publication is complete.

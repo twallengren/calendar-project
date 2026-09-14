@@ -1196,6 +1196,7 @@ date,type,description,key,source_module,observed_from,close_time,status
 1975-07-04,CLOSED,Independence Day,independence_day,module:independence_day,,,CONFIRMED
 1975-09-01,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
 1975-11-27,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+1975-12-24,EARLY_CLOSE,Early Close (Christmas Eve),nyse_early_close_oneoff_1400,module:us_nyse_historical_early_closes,,14:00,CONFIRMED
 1975-12-25,CLOSED,Christmas Day,christmas,module:christmas,,,CONFIRMED
 1976-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
 1976-02-16,CLOSED,Presidents Day,presidents_day,module:presidents_day,,,CONFIRMED
