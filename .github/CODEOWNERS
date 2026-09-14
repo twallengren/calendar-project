@@ -26,3 +26,9 @@
 /modules/holidays/de_xetra_*       @twallengren
 /modules/groups/de_xetra_*         @twallengren
 /sources/DE-XETRA/                 @twallengren
+
+# HK-HKEX
+/calendars/HK-HKEX.yaml            @twallengren
+/modules/groups/hk_hkex_holidays.yaml  @twallengren
+/modules/holidays/hk_*             @twallengren
+/sources/HK-HKEX/                  @twallengren

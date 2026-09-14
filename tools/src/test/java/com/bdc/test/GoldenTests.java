@@ -170,6 +170,23 @@ class GoldenTests {
     productionCalendarRunner.assertCsvGoldenMatch("GB-LSE", 2028);
   }
 
+  // HK-HKEX years that exercise Hong Kong's observance rules:
+  // 2022 Sun 25 Dec (gazetted as Mon 26 Dec "first weekday after Christmas Day" plus Tue 27 Dec
+  // "second weekday after Christmas Day"), Sat 1 Jan and Sat 1 Oct not observed, Sun 1 May ->
+  // Mon 2 May, and the Lunar New Year's Eve half day on Mon 31 Jan with no December half days
+  // (24 and 31 December both fall on a Saturday);
+  // 2027 Sat 25 Dec not observed with Sun 26 Dec -> Mon 27 Dec, Sat 1 May and Sat 6 Feb (Lunar
+  // New Year's Day) not observed, and Christmas Eve / New Year's Eve half days on Fridays.
+  @Test
+  void hkHkex2022() throws IOException {
+    productionCalendarRunner.assertCsvGoldenMatch("HK-HKEX", 2022);
+  }
+
+  @Test
+  void hkHkex2027() throws IOException {
+    productionCalendarRunner.assertCsvGoldenMatch("HK-HKEX", 2027);
+  }
+
   // DE-XETRA years: 2017 exercises the discretionary Whit Monday and German Unity Day
   // closures plus the one-off 2017 Reformation Day; 2021 has Christmas Day on a Saturday
   // (weekend_shift_policy: NONE means it is not observed on an adjacent weekday).

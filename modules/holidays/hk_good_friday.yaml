@@ -1,0 +1,29 @@
+kind: module
+id: hk_good_friday
+
+# Good Friday. A Hong Kong general holiday (General Holidays Ordinance, Cap. 149, Schedule),
+# computed from Western Easter. Always a Friday, so weekend observance never applies.
+#
+# "The day following Good Friday" is also a general holiday, but it is always a Saturday and
+# therefore never a trading day; it is not modelled (see sources/HK-HKEX/README.md).
+# Source: govhk-general-holidays / govhk-general-holidays-archived (gazetted dates),
+# hkex-calendar (market closed).
+
+source:
+  - id: govhk-general-holidays
+  - id: hkex-calendar
+
+references:
+  - key: easter
+    formula: EASTER_WESTERN
+
+event_sources:
+  - key: hk_good_friday
+    name: Good Friday
+    default_classification: CLOSED
+    rule:
+      type: relative_to_reference
+      key: hk_good_friday
+      name: Good Friday
+      reference: easter
+      offset_days: -2

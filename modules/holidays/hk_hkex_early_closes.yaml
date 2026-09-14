@@ -1,0 +1,84 @@
+kind: module
+id: hk_hkex_early_closes
+
+# Half-day trading sessions on the Hong Kong securities market: Christmas Eve, New Year's Eve and
+# Lunar New Year's Eve. HKEX's own trading-hours page states the rule -- "There is no Extended
+# Morning Session and Afternoon Session on the eves of Christmas, New Year and Lunar New Year" --
+# and gives the half-day close as the 12:00 noon closing auction (12:00 to a random close between
+# 12:08 and 12:10 p.m.), so 12:00 is the local close time recorded here.
+#
+# Christmas Eve (24 December) and New Year's Eve (31 December) are plain calendar dates, modelled
+# as a recurring rule restricted to Monday-Friday: when 24 or 31 December falls on a Saturday or
+# Sunday there is simply no session and no half day is moved anywhere (unlike the London Stock
+# Exchange, which shifts the half day back to the preceding business day). Every occurrence the
+# rule produces inside coverage is individually confirmed against hkex-calendar, except the two
+# 2027 dates, which are confirmed by hkex-derivatives-holiday-schedule ("24 December 2027
+# (Friday) - Eve of Christmas Day", "31 December 2027 (Friday) - Eve of New Year").
+#
+# Lunar New Year's Eve is a lunar date with no formula in this model, so each occurrence is taken
+# from HKEX's own calendar entry ("Half-Day Trading Day - Afternoon Session is Closed on Lunar New
+# Year's Eve"). 2023 has no entry because Lunar New Year's Eve 2023 fell on Saturday 21 January.
+# Source: hkex-securities-trading-hours (rule and close time), hkex-calendar (dated occurrences),
+# hkex-derivatives-holiday-schedule (2027 Christmas/New Year eves).
+
+source:
+  - id: hkex-securities-trading-hours
+
+event_sources:
+  - key: hk_hkex_christmas_eve_early_close
+    name: Christmas Eve (Half Day)
+    default_classification: EARLY_CLOSE
+    close_time: "12:00"
+    shiftable: false
+    only_if_weekday: [MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY]
+    source:
+      - id: hkex-securities-trading-hours
+        ref: "no Extended Morning Session and Afternoon Session on the eves of Christmas, New Year and Lunar New Year"
+      - id: hkex-calendar
+        ref: "Half-Day Trading Day - Afternoon Session is Closed on Christmas's Eve"
+      - id: hkex-derivatives-holiday-schedule
+        ref: "24 December 2027 (Friday) - Eve of Christmas Day"
+    rule:
+      type: fixed_month_day
+      month: 12
+      day: 24
+
+  - key: hk_hkex_new_years_eve_early_close
+    name: New Year's Eve (Half Day)
+    default_classification: EARLY_CLOSE
+    close_time: "12:00"
+    shiftable: false
+    only_if_weekday: [MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY]
+    source:
+      - id: hkex-securities-trading-hours
+        ref: "no Extended Morning Session and Afternoon Session on the eves of Christmas, New Year and Lunar New Year"
+      - id: hkex-calendar
+        ref: "Half-Day Trading Day - Afternoon Session is Closed on New Year's Eve"
+      - id: hkex-derivatives-holiday-schedule
+        ref: "31 December 2027 (Friday) - Eve of New Year"
+    rule:
+      type: fixed_month_day
+      month: 12
+      day: 31
+
+  - key: hk_hkex_lunar_new_years_eve_early_close
+    name: Lunar New Year's Eve (Half Day)
+    default_classification: EARLY_CLOSE
+    close_time: "12:00"
+    shiftable: false
+    status: CONFIRMED
+    source:
+      - id: hkex-calendar
+        ref: "Half-Day Trading Day - Afternoon Session is Closed on Lunar New Year's Eve"
+    rule:
+      type: explicit_dates
+      dates:
+        - 2018-02-15
+        - 2019-02-04
+        - 2020-01-24
+        - 2021-02-11
+        - 2022-01-31
+        - 2024-02-09
+        - 2025-01-28
+        - 2026-02-16
+        - 2027-02-05

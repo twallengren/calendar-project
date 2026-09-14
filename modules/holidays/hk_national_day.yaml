@@ -1,0 +1,22 @@
+kind: module
+id: hk_national_day
+
+# National Day (1 October). A Hong Kong general holiday (General Holidays Ordinance, Cap. 149,
+# Schedule). Sunday -> following Monday ("the day following National Day", 2 October 2023); a
+# Saturday 1 October is not substituted (2022), so FORWARD_ONLY is exact.
+# Source: govhk-general-holidays / govhk-general-holidays-archived (gazetted dates),
+# hkex-calendar (market closed).
+
+source:
+  - id: govhk-general-holidays
+  - id: hkex-calendar
+
+event_sources:
+  - key: hk_national_day
+    name: National Day
+    default_classification: CLOSED
+    shift_policy: FORWARD_ONLY
+    rule:
+      type: fixed_month_day
+      month: 10
+      day: 1

@@ -1,0 +1,18 @@
+kind: module
+id: hk_hkex_holidays
+
+uses:
+  - hk_new_years_day
+  - hk_lunar_new_year
+  - hk_ching_ming
+  - hk_good_friday
+  - hk_easter_monday
+  - hk_labour_day
+  - hk_buddhas_birthday
+  - hk_tuen_ng
+  - hk_hksar_establishment_day
+  - hk_mid_autumn
+  - hk_national_day
+  - hk_chung_yeung
+  - hk_christmas
+  - hk_hkex_early_closes
