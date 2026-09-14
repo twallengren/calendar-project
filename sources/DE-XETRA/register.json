@@ -1,0 +1,280 @@
+{
+  "schema_version": "1.0",
+  "entries": [
+    {
+      "id": "xetra-trading-calendar-2003",
+      "title": "Trading Calendar 2003",
+      "publisher": "Deutsche Börse",
+      "location": "https://www.cashmarket.deutsche-boerse.com/resource/blob/281596/5b55d45d540890eca7203536c2dba5ad/data/trading-calendar-2003.pdf",
+      "retrieved": "2026-09-14",
+      "covers": "2003",
+      "notes": "Oldest trading calendar in Deutsche Börse's own archive; no earlier PDF is published, so coverage starts here.",
+      "local_files": [],
+      "support_intervals": []
+    },
+    {
+      "id": "xetra-trading-calendar-2004",
+      "title": "Trading Calendar 2004",
+      "publisher": "Deutsche Börse",
+      "location": "https://www.cashmarket.deutsche-boerse.com/resource/blob/286010/e0ff72fcb9036a40eca9030e82d83549/data/trading-calendar-2004.pdf",
+      "retrieved": "2026-09-14",
+      "covers": "2004",
+      "notes": "",
+      "local_files": [],
+      "support_intervals": []
+    },
+    {
+      "id": "xetra-trading-calendar-2005",
+      "title": "Trading Calendar 2005",
+      "publisher": "Deutsche Börse",
+      "location": "https://www.cashmarket.deutsche-boerse.com/resource/blob/286002/47ddd319590963d891277839a9f0748c/data/trading-calendar-2005.pdf",
+      "retrieved": "2026-09-14",
+      "covers": "2005",
+      "notes": "",
+      "local_files": [],
+      "support_intervals": []
+    },
+    {
+      "id": "xetra-trading-calendar-2006",
+      "title": "Trading Calendar 2006",
+      "publisher": "Deutsche Börse",
+      "location": "https://www.cashmarket.deutsche-boerse.com/resource/blob/281580/cc6ce175449badd3fb8a5e05a220fa0a/data/trading-calendar-2006.pdf",
+      "retrieved": "2026-09-14",
+      "covers": "2006",
+      "notes": "",
+      "local_files": [],
+      "support_intervals": []
+    },
+    {
+      "id": "xetra-trading-calendar-2007",
+      "title": "Trading Calendar 2007",
+      "publisher": "Deutsche Börse",
+      "location": "https://www.cashmarket.deutsche-boerse.com/resource/blob/285982/a5d5a6044baa59bb7f1d574dc17591a1/data/trading-calendar-2007.pdf",
+      "retrieved": "2026-09-14",
+      "covers": "2007",
+      "notes": "Only year 2003-2013 in which Whit Monday (28 May 2007) is a listed exception.",
+      "local_files": [],
+      "support_intervals": []
+    },
+    {
+      "id": "xetra-trading-calendar-2008",
+      "title": "Trading Calendar 2008",
+      "publisher": "Deutsche Börse",
+      "location": "https://www.cashmarket.deutsche-boerse.com/resource/blob/281570/d69b8163f1cf22dfd0147f56b7c4b557/data/trading-calendar-2008.pdf",
+      "retrieved": "2026-09-14",
+      "covers": "2008",
+      "notes": "First year the PDF distinguishes \"settlement days\" from full closures.",
+      "local_files": [],
+      "support_intervals": []
+    },
+    {
+      "id": "xetra-trading-calendar-2009",
+      "title": "Trading Calendar 2009",
+      "publisher": "Deutsche Börse",
+      "location": "https://www.cashmarket.deutsche-boerse.com/resource/blob/285992/ae41d04bf3c9163bf0190fdd43ed053e/data/trading-calendar-2009.pdf",
+      "retrieved": "2026-09-14",
+      "covers": "2009",
+      "notes": "",
+      "local_files": [],
+      "support_intervals": []
+    },
+    {
+      "id": "xetra-trading-calendar-2010",
+      "title": "Trading Calendar 2010",
+      "publisher": "Deutsche Börse",
+      "location": "https://www.cashmarket.deutsche-boerse.com/resource/blob/286014/22da6e6e049dfccee1e394cf2181b757/data/trading-calendar-2010.pdf",
+      "retrieved": "2026-09-14",
+      "covers": "2010",
+      "notes": "",
+      "local_files": [],
+      "support_intervals": []
+    },
+    {
+      "id": "xetra-trading-calendar-2011",
+      "title": "Trading Calendar 2011",
+      "publisher": "Deutsche Börse",
+      "location": "https://www.cashmarket.deutsche-boerse.com/resource/blob/285988/816cf6168a13ed9d2f06964a4ac29d1f/data/trading-calendar-2011.pdf",
+      "retrieved": "2026-09-14",
+      "covers": "2011",
+      "notes": "German Unity Day (3 Oct 2011, a Monday) not listed - confirms no closure that year.",
+      "local_files": [],
+      "support_intervals": []
+    },
+    {
+      "id": "xetra-trading-calendar-2012",
+      "title": "Trading Calendar 2012",
+      "publisher": "Deutsche Börse",
+      "location": "https://www.cashmarket.deutsche-boerse.com/resource/blob/281590/2420eeaa55be56d9f11a165184e34597/data/trading-calendar-2012.pdf",
+      "retrieved": "2026-09-14",
+      "covers": "2012",
+      "notes": "",
+      "local_files": [],
+      "support_intervals": []
+    },
+    {
+      "id": "xetra-trading-calendar-2013",
+      "title": "Trading Calendar 2013",
+      "publisher": "Deutsche Börse",
+      "location": "https://www.cashmarket.deutsche-boerse.com/resource/blob/286022/49f43e63783f95e0039204ddf618e9ad/data/trading-calendar-2013.pdf",
+      "retrieved": "2026-09-14",
+      "covers": "2013",
+      "notes": "",
+      "local_files": [],
+      "support_intervals": []
+    },
+    {
+      "id": "xetra-trading-calendar-2014",
+      "title": "Trading Calendar 2014",
+      "publisher": "Deutsche Börse",
+      "location": "https://www.cashmarket.deutsche-boerse.com/resource/blob/281576/967747fbc75fa120c2142e05d2e40711/data/trading-calendar-2014.pdf",
+      "retrieved": "2026-09-14",
+      "covers": "2014",
+      "notes": "German Unity Day (3 Oct, a Friday) reappears as a settlement day; Whit Monday (9 June, a Monday) still not listed.",
+      "local_files": [],
+      "support_intervals": []
+    },
+    {
+      "id": "xetra-trading-calendar-2015",
+      "title": "Trading Calendar 2015",
+      "publisher": "Deutsche Börse",
+      "location": "https://www.cashmarket.deutsche-boerse.com/resource/blob/252786/26a3eefdbb8b939be91ec1d3d1986347/data/trading-calendar-2015.pdf",
+      "retrieved": "2026-09-14",
+      "covers": "2015",
+      "notes": "Whit Monday (25 May) reappears as a settlement day. German Unity Day fell on Saturday 3 Oct 2015, so its status that year cannot be confirmed from this document (immaterial: a Saturday is already non-trading under the weekend policy).",
+      "local_files": [],
+      "support_intervals": []
+    },
+    {
+      "id": "xetra-trading-calendar-2016",
+      "title": "Trading Calendar 2016",
+      "publisher": "Deutsche Börse",
+      "location": "https://www.cashmarket.deutsche-boerse.com/resource/blob/259998/85c710e77ed5d595695f5b1d6418eac7/data/trading-calendar-2016.pdf",
+      "retrieved": "2026-09-14",
+      "covers": "2016",
+      "notes": "Both Whit Monday (16 May) and German Unity Day (3 Oct) listed as settlement days.",
+      "local_files": [],
+      "support_intervals": []
+    },
+    {
+      "id": "xetra-trading-calendar-2017",
+      "title": "Trading Calendar 2017",
+      "publisher": "Deutsche Börse",
+      "location": "https://www.cashmarket.deutsche-boerse.com/resource/blob/336572/247517da046f56e5b4dae39723f29b00/data/trading-calendar-2017.pdf",
+      "retrieved": "2026-09-14",
+      "covers": "2017",
+      "notes": "Also lists 31 October (Reformation Day) as a one-off settlement day: the 500th anniversary of the Reformation was a nationwide statutory holiday in Germany for 2017 only.",
+      "local_files": [],
+      "support_intervals": []
+    },
+    {
+      "id": "xetra-trading-calendar-2018",
+      "title": "Trading Calendar 2018",
+      "publisher": "Deutsche Börse",
+      "location": "https://www.cashmarket.deutsche-boerse.com/resource/blob/154430/366c1c9be4ce7cdb923bbf246db1d1bf/data/trading-calendar-2018.pdf",
+      "retrieved": "2026-09-14",
+      "covers": "2018",
+      "notes": "",
+      "local_files": [],
+      "support_intervals": []
+    },
+    {
+      "id": "xetra-trading-calendar-2019",
+      "title": "Trading Calendar 2019",
+      "publisher": "Deutsche Börse",
+      "location": "https://www.cashmarket.deutsche-boerse.com/resource/blob/1406548/6de0eba301a5433abb110fa3c96a5778/data/xetra-trading-calendar-2019.pdf",
+      "retrieved": "2026-09-14",
+      "covers": "2019",
+      "notes": "",
+      "local_files": [],
+      "support_intervals": []
+    },
+    {
+      "id": "xetra-trading-calendar-2020",
+      "title": "Trading Calendar 2020",
+      "publisher": "Deutsche Börse",
+      "location": "https://www.cashmarket.deutsche-boerse.com/resource/blob/1665534/112856375187d3e93671aa3d731d09d3/data/xetra-trading-calendar-2020.pdf",
+      "retrieved": "2026-09-14",
+      "covers": "2020",
+      "notes": "Whit Monday (1 June) listed as a settlement day. German Unity Day fell on Saturday 3 Oct 2020 and is not listed, so its status that year cannot be confirmed from this document (immaterial: a Saturday is already non-trading).",
+      "local_files": [],
+      "support_intervals": []
+    },
+    {
+      "id": "xetra-trading-calendar-2021",
+      "title": "Trading Calendar 2021",
+      "publisher": "Deutsche Börse",
+      "location": "https://www.cashmarket.deutsche-boerse.com/resource/blob/2344982/ddbcd31a616628a7ffa09dc709467ec4/data/xetra-trading-calendar-2021.pdf",
+      "retrieved": "2026-09-14",
+      "covers": "2021",
+      "notes": "Last year Whit Monday (24 May) is listed as a settlement day. The full exceptions sentence is \"1 January, 2 April, 5 April, 24 May, 24 December and 31 December\" — German Unity Day is **not** listed (3 Oct 2021 was a Sunday), so 2021 confirms nothing about that holiday either way.",
+      "local_files": [],
+      "support_intervals": []
+    },
+    {
+      "id": "xetra-trading-calendar-2022",
+      "title": "Trading calendar 2022",
+      "publisher": "Deutsche Börse",
+      "location": "https://www.cashmarket.deutsche-boerse.com/resource/blob/2833162/2f53999770c09ce9c0bee8194c1fe60d/data/xetra-trading-calendar-2022.pdf",
+      "retrieved": "2026-09-14",
+      "covers": "2022",
+      "notes": "Whit Monday (6 June, a Monday) and German Unity Day (3 Oct, a Monday) both weekdays and both absent from the exceptions list: confirms Xetra trades on both from 2022.",
+      "local_files": [],
+      "support_intervals": []
+    },
+    {
+      "id": "xetra-trading-calendar-2023",
+      "title": "Trading calendar 2023",
+      "publisher": "Deutsche Börse",
+      "location": "https://www.cashmarket.deutsche-boerse.com/resource/blob/3317408/4c8fbfbfeea62fd44600f6fe3f14f84e/data/xetra-trading-calendar-2023.pdf",
+      "retrieved": "2026-09-14",
+      "covers": "2023",
+      "notes": "",
+      "local_files": [],
+      "support_intervals": []
+    },
+    {
+      "id": "xetra-trading-calendar-2024",
+      "title": "Trading calendar 2024",
+      "publisher": "Deutsche Börse",
+      "location": "https://www.cashmarket.deutsche-boerse.com/resource/blob/3559262/98ebe1fde231df56c9f116bc766533b2/data/xetra-trading-calendar-2024.pdf",
+      "retrieved": "2026-09-14",
+      "covers": "2024",
+      "notes": "",
+      "local_files": [],
+      "support_intervals": []
+    },
+    {
+      "id": "xetra-trading-calendar-2025",
+      "title": "Trading calendar 2025",
+      "publisher": "Deutsche Börse",
+      "location": "https://www.cashmarket.deutsche-boerse.com/resource/blob/4064968/4079a2d5a9fec324905942b807b398ed/data/xetra-trading-calendar-2025.pdf",
+      "retrieved": "2026-09-14",
+      "covers": "2025",
+      "notes": "",
+      "local_files": [],
+      "support_intervals": []
+    },
+    {
+      "id": "xetra-trading-calendar-2026",
+      "title": "Trading calendar 2026",
+      "publisher": "Deutsche Börse",
+      "location": "https://www.cashmarket.deutsche-boerse.com/resource/blob/4580826/3e974decb414d6769cc2bc8e601f6c9a/data/xetra-trading-calendar-2026.pdf",
+      "retrieved": "2026-09-14",
+      "covers": "2026",
+      "notes": "Latest published calendar; explicitly notes Ascension Day, Whit Monday and Corpus Christi are ordinary trading days. `coverage.verified_through` is set to this year.",
+      "local_files": [],
+      "support_intervals": []
+    },
+    {
+      "id": "xetra-cash-market-calendar-page",
+      "title": "Trading calendar and trading hours (Xetra)",
+      "publisher": "Deutsche Börse",
+      "location": "https://www.cashmarket.deutsche-boerse.com/cash-en/trading/trading-calendar-and-trading-hours",
+      "retrieved": "2026-09-14",
+      "covers": "current and next year",
+      "notes": "Landing page; confirms the 2026 exceptions list and that regular trading occurs on Ascension Day, Whit Monday and Corpus Christi in 2026.",
+      "local_files": [],
+      "support_intervals": []
+    }
+  ]
+}

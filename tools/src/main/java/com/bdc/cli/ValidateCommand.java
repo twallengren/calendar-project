@@ -65,6 +65,12 @@ public class ValidateCommand implements Callable<Integer> {
       defaultValue = "modules")
   private Path modulesDir;
 
+  @Option(
+      names = "--sources-dir",
+      defaultValue = "sources",
+      description = "Canonical evidence register directory")
+  private Path sourcesDir;
+
   @Override
   public Integer call() {
     try {
@@ -95,10 +101,15 @@ public class ValidateCommand implements Callable<Integer> {
       }
 
       SpecValidator specValidator = new SpecValidator(registry);
+      com.bdc.validation.SourceRegisterValidator sourceValidator =
+          new com.bdc.validation.SourceRegisterValidator(sourcesDir);
       GeneratedOutputValidator outputValidator = new GeneratedOutputValidator();
       Map<String, ValidationResult> results = new LinkedHashMap<>();
       for (String id : ids) {
         ValidationResult result = specValidator.validate(id);
+        if (!result.hasErrors()) {
+          sourceValidator.validate(new SpecResolver(registry).resolve(id), result);
+        }
         if (!result.hasErrors() && !skipGeneration) {
           try {
             SpecResolver resolver = new SpecResolver(registry);

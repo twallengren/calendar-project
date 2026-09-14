@@ -1,0 +1,113 @@
+{
+  "schema_version": "1.0",
+  "entries": [
+    {
+      "id": "euronext-hours-holidays",
+      "title": "Trading hours & Holidays",
+      "publisher": "Euronext",
+      "location": "https://live.euronext.com/en/resources/trading-hours-holidays (also https://www.euronext.com/en/trading/trading-hours-holidays)",
+      "retrieved": "2026-09-14",
+      "covers": "2019–2026",
+      "notes": "Per-venue closed / half trading day / full trading day tables for 2022–2026 and bullet lists for 2019–2021, plus the 14:05 CET half-day close time. Primary source for 2019 onwards.",
+      "local_files": [],
+      "support_intervals": []
+    },
+    {
+      "id": "euronext-holiday-calendar-2026",
+      "title": "2026 Holiday Calendar for Euronext's Cash and Derivatives markets (IF251107CADE)",
+      "publisher": "Euronext",
+      "location": "`euronext-holiday-calendar-2026.pdf` (https://connect2.euronext.com/sites/default/files/2025-11/IF251107CADE%202026%20Holiday%20Calendar%20for%20Euronexts%20Cash%20and%20Derivatives%20markets_1.pdf)",
+      "retrieved": "2026-09-14",
+      "covers": "2026",
+      "notes": "The last year Euronext has published. Fixes `coverage.verified_through` at 2026-12-31.",
+      "local_files": [
+        {
+          "path": "EU-EURONEXT/euronext-holiday-calendar-2026.pdf",
+          "sha256": "617bc559510ef3a3d86d4a8b804422d0ba4c4dae43782a0a728d57a23fc4b1c5"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "euronext-holiday-calendar-2018",
+      "title": "Euronext announces 2018 holiday calendar for its cash and derivatives markets (20 October 2017)",
+      "publisher": "Euronext",
+      "location": "`euronext-holiday-calendar-2018.pdf` (https://www.euronext.com/sites/www.euronext.com/files/17.10.20.holiday_calendar_2018.pdf)",
+      "retrieved": "2026-09-14",
+      "covers": "2018",
+      "notes": "Press release; states the 14:05 CET half-day close for 24 and 31 December 2018.",
+      "local_files": [
+        {
+          "path": "EU-EURONEXT/euronext-holiday-calendar-2018.pdf",
+          "sha256": "5da0ba7c3a46e4344795e5885dd4795a8b6e78eb6b8f23528bab70c1b52de38b"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "euronext-calendars-hours-archive",
+      "title": "Resources > Calendars & Hours: Calendar of business days (archived euronext.com pages)",
+      "publisher": "Euronext",
+      "location": "https://web.archive.org/web/20141218183351/https://www.euronext.com/en/holidays-and-hours (2014, 2015), https://web.archive.org/web/20160304211631/https://www.euronext.com/en/calendars-hours (2016), https://web.archive.org/web/20170805211203/https://www.euronext.com/en/calendars-hours (2017), https://web.archive.org/web/20181014221808/https://www.euronext.com/en/calendars-hours (2017, 2018)",
+      "retrieved": "2026-09-14",
+      "covers": "2014–2018",
+      "notes": "The euronext.com holiday page as captured by the Internet Archive; the live page no longer carries years before 2019. Source for the 14:00 → 14:05 CET half-day close change (14:05 from the 2014 page onwards) and for the 31 December 2015 full closure.",
+      "local_files": [],
+      "support_intervals": []
+    },
+    {
+      "id": "nyse-euronext-calendar-2013",
+      "title": "NYSE Euronext announces its 2013 Holiday Calendar and early Closing",
+      "publisher": "NYSE Euronext",
+      "location": "https://www.euronext.com/en/about/media/euronext-press-releases/nyse-euronext-announces-its-2013-holiday-calendar-and-early",
+      "retrieved": "2026-09-14",
+      "covers": "2013",
+      "notes": "Last year with a 14:00 CET half-day close.",
+      "local_files": [],
+      "support_intervals": []
+    },
+    {
+      "id": "nyse-euronext-calendar-2012",
+      "title": "Trading announcement: Calendar of cash business days 2012 (PAR\\_20111114\\_07899\\_EUR, 14 November 2011)",
+      "publisher": "NYSE Euronext",
+      "location": "`calendar-of-cash-business-days-2012.pdf` (https://www.euronext.com/sites/www.euronext.com/files/calendar_2012.pdf, via the Internet Archive)",
+      "retrieved": "2026-09-14",
+      "covers": "2012",
+      "notes": "Rule Book I notice. Also published as a press release: https://www.euronext.com/en/about/media/euronext-press-releases/nyse-euronext-announces-its-2012-holiday-calendar-and-early",
+      "local_files": [
+        {
+          "path": "EU-EURONEXT/calendar-of-cash-business-days-2012.pdf",
+          "sha256": "4da0f4141496d2d39a52379157ef1d1f98c5920a5f5eb353f7d2cd19952de035"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "nyse-euronext-calendar-2011",
+      "title": "NYSE Euronext annonce le Calendrier 2011 de ses marchés européens",
+      "publisher": "NYSE Euronext",
+      "location": "https://www.euronext.com/en/about/media/euronext-press-releases/nyse-euronext-annonce-le-calendrier-2011-de-ses-marches",
+      "retrieved": "2026-09-14",
+      "covers": "2011",
+      "notes": "Lists only Good Friday, Easter Monday and 26 December as closures; 24 and 31 December 2011 were Saturdays and 23 and 30 December closed at the usual 17:35 CET.",
+      "local_files": [],
+      "support_intervals": []
+    },
+    {
+      "id": "nyse-euronext-calendar-2010",
+      "title": "Trading announcement: Calendar of cash business days 2010 (PAR\\_20091015\\_05039\\_EUR, 15 October 2009)",
+      "publisher": "NYSE Euronext",
+      "location": "`calendar-of-cash-business-days-2010.pdf` (https://www.euronext.com/sites/www.euronext.com/files/calendar_of_cash_business_days_15_oct_2009.pdf, via the Internet Archive)",
+      "retrieved": "2026-09-14",
+      "covers": "2010",
+      "notes": "Rule Book I notice; earliest year in coverage.",
+      "local_files": [
+        {
+          "path": "EU-EURONEXT/calendar-of-cash-business-days-2010.pdf",
+          "sha256": "0cc923a604d6e263348d77b88953dce05cd885f91bbd692dbf7933b9a83229cb"
+        }
+      ],
+      "support_intervals": []
+    }
+  ]
+}

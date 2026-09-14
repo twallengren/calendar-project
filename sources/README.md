@@ -30,3 +30,19 @@ or, for a one-off external reference: `{title, publisher, url, retrieved, note}`
 
 Regenerate the third-party cross-validation data with `scripts/reference/export_reference_calendars.py`
 (see `tools/src/test/resources/reference/README.md`).
+
+## Canonical register
+
+Each `sources/<MARKET>/register.json` is the canonical source table. `README.md` retains the
+surrounding explanatory prose; its table is generated with `python3 scripts/sources.py` and
+checked in CI with `python3 scripts/sources.py --check`. The site reads the JSON table directly.
+
+Entries retain id, title, publisher, location, retrieved date, coverage note and modelling notes.
+`local_files` gives paths relative to `sources/` with SHA-256 checksums. Strict validation rejects
+missing or modified evidence files and unresolved rule/delta citation IDs. Re-downloading a file
+requires review and a deliberate checksum update; it never changes its publication date.
+
+`support_intervals` is reserved for reviewed `{from, to, scope}` claims. The mechanical migration
+leaves this list empty: free-text `covers` notes do not establish confidence or completeness.
+Scheduled source-review CI reports ageing evidence and approaching coverage bounds. Those warnings
+request human evidence review; they do not upgrade projected schedules to confirmed dates.

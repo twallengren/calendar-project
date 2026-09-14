@@ -1201,3 +1201,15 @@ This keeps the same output usable at `/` and `/calendar-project/`. CI executes t
 algorithm over HTTP using `python3 scripts/verification/browser.py --site build/browser-site`.
 The historical `--settlement T+N` spelling computes a business-date offset, not instrument-specific
 settlement eligibility, sessions or cutoffs.
+
+### Canonical evidence register
+
+`source.id` resolves against `sources/<MARKET>/register.json`; this machine-readable table is
+canonical, while the surrounding README prose remains authored. `python3 scripts/sources.py`
+regenerates the human table and `--check` verifies it. Each registered local evidence file has a
+SHA-256 checksum and a path constrained to `sources/`. Missing files, checksum drift and unknown
+citation IDs fail validation. An inline URL does not excuse a misspelled source ID.
+
+All delta variants accept additive `source: [...]` citations, with the same shape as an event
+source. Existing Java constructors remain available. `validate --strict` rejects uncited deltas;
+the NYSE Good Friday removals cite its published holiday history.

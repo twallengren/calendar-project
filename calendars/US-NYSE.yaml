@@ -24,9 +24,15 @@ deltas:
   - action: remove
     key: good_friday
     date: 1898-04-08
+    source:
+      - id: nyse-history-2008
   - action: remove
     key: good_friday
     date: 1906-04-13
+    source:
+      - id: nyse-history-2008
   - action: remove
     key: good_friday
     date: 1907-03-29
+    source:
+      - id: nyse-history-2008

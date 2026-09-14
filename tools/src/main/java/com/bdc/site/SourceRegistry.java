@@ -164,7 +164,12 @@ public final class SourceRegistry {
           continue;
         }
         String id = dir.getFileName().toString();
-        Market market = parse(id, Files.readString(readme, StandardCharsets.UTF_8));
+        String markdown = Files.readString(readme, StandardCharsets.UTF_8);
+        Path register = dir.resolve("register.json");
+        if (Files.isRegularFile(register)) {
+          markdown = com.bdc.source.SourceRegister.read(register, sourcesDir).markdown(markdown);
+        }
+        Market market = parse(id, markdown);
         markets.put(id, market);
         for (List<String> row : market.rows()) {
           String citationId = row.isEmpty() ? null : MarkdownRenderer.rowAnchor(row.get(0));
@@ -192,6 +197,12 @@ public final class SourceRegistry {
           if (!id.isEmpty()) {
             ids.add(id);
           }
+        }
+      }
+      for (JsonNode delta : root.path("deltas")) {
+        for (JsonNode source : delta.path("source")) {
+          String id = source.path("id").asText("");
+          if (!id.isEmpty()) ids.add(id);
         }
       }
       List<String> sorted = new ArrayList<>(ids);

@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0",
+  "entries": [
+    {
+      "id": "convention",
+      "title": "Saturday-Sunday weekend",
+      "publisher": "n/a",
+      "location": "n/a",
+      "retrieved": "n/a",
+      "covers": "all years",
+      "notes": "Standard weekend definition; no external source.",
+      "local_files": [],
+      "support_intervals": []
+    },
+    {
+      "id": "india-gazette-holidays",
+      "title": "Central Government holiday lists (gazetted)",
+      "publisher": "Government of India, Ministry of Personnel",
+      "location": "https://dopt.gov.in/ (annual holiday circulars)",
+      "retrieved": "2026-02-15",
+      "covers": "2024-2026",
+      "notes": "Diwali (Lakshmi Puja) dates; 2027 onward are the widely published projected dates and should be confirmed each year.",
+      "local_files": [],
+      "support_intervals": []
+    },
+    {
+      "id": "nyse-history-2008",
+      "title": "History of New York Stock Exchange Holidays",
+      "publisher": "NYSE",
+      "location": "see `sources/US-NYSE/README.md`",
+      "retrieved": "2022-01-14",
+      "covers": "1885-2007",
+      "notes": "Cited by the shared US holiday modules this calendar composes.",
+      "local_files": [
+        {
+          "path": "US-NYSE/README.md",
+          "sha256": "5c708c6ff65ffdc3ee463d497e981d46508ea58244b9ffefb111be61a02513eb"
+        }
+      ],
+      "support_intervals": []
+    }
+  ]
+}

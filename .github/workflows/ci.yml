@@ -63,6 +63,9 @@ jobs:
           pip install -e "python/[test,mcp]"
           pytest python/ -q
 
+      - name: Check canonical source tables
+        run: python3 scripts/sources.py --check
+
       - name: Validate all calendars
         run: |
           set +e
