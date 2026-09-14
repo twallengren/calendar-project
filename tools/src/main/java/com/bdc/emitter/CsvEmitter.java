@@ -7,11 +7,24 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Writes events as CSV.
+ *
+ * <p>Columns: {@code date[,<chronology>_date],type,description,key,source_module,observed_from,
+ * close_time,status}. The first three columns are stable; consumers should address columns by
+ * header name.
+ */
 public class CsvEmitter {
 
-  private static final String HEADER = "date,type,description";
+  public static final List<String> BASE_COLUMNS = List.of("date", "type", "description");
+  public static final List<String> EXTRA_COLUMNS =
+      List.of("key", "source_module", "observed_from", "close_time", "status");
+
+  private static final DateTimeFormatter TIME = DateTimeFormatter.ofPattern("HH:mm");
 
   public void emit(List<Event> events, Path outputPath) throws IOException {
     emit(events, outputPath, null);
@@ -51,13 +64,20 @@ public class CsvEmitter {
   }
 
   private String getHeader(String outputChronology) {
+    List<String> columns = new ArrayList<>();
+    columns.add("date");
     if (outputChronology != null) {
-      return "date," + outputChronology.toLowerCase() + "_date,type,description";
+      columns.add(outputChronology.toLowerCase() + "_date");
     }
-    return HEADER;
+    columns.add("type");
+    columns.add("description");
+    columns.addAll(EXTRA_COLUMNS);
+    return String.join(",", columns);
   }
 
   private String formatRow(Event event, String outputChronology) {
+    List<String> cells = new ArrayList<>();
+    cells.add(event.date().toString());
     if (outputChronology != null) {
       String altDateStr;
       try {
@@ -68,15 +88,19 @@ public class CsvEmitter {
       } catch (IllegalArgumentException e) {
         altDateStr = "";
       }
-      return String.format(
-          "%s,%s,%s,%s",
-          event.date().toString(), altDateStr, event.type().name(), escapeCsv(event.description()));
+      cells.add(altDateStr);
     }
-    return String.format(
-        "%s,%s,%s", event.date().toString(), event.type().name(), escapeCsv(event.description()));
+    cells.add(event.type().name());
+    cells.add(escapeCsv(event.description()));
+    cells.add(escapeCsv(event.key()));
+    cells.add(escapeCsv(event.sourceModule()));
+    cells.add(event.observedFrom() != null ? event.observedFrom().toString() : "");
+    cells.add(event.closeTime() != null ? TIME.format(event.closeTime()) : "");
+    cells.add(event.status() != null ? event.status().name() : "");
+    return String.join(",", cells);
   }
 
-  private String escapeCsv(String value) {
+  static String escapeCsv(String value) {
     if (value == null) {
       return "";
     }

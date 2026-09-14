@@ -1,0 +1,39 @@
+kind: module
+id: ca_civic_holiday
+
+# Civic Holiday: first Monday of August. Unlike the calendar's other closures, this is not
+# fixed by the federal Holidays Act or any Ontario statute -- it is a voluntarily observed
+# day (e.g. "Simcoe Day" in Toronto). tsx-calendar-page confirms TSX currently closes for it
+# (Aug 3, 2026; Aug 4, 2025), but since there is no statutory guarantee it continues, years
+# after coverage.verified_through are modelled as a separate, PROJECTED event source rather
+# than assumed CONFIRMED like the statutory holidays.
+
+source:
+  - id: tsx-calendar-page
+    ref: "Civic Holiday: Aug 3, 2026; Aug 4, 2025"
+
+event_sources:
+  - key: ca_civic_holiday
+    name: Civic Holiday
+    default_classification: CLOSED
+    active_years:
+      - [null, 2026]
+    rule:
+      type: nth_weekday_of_month
+      month: 8
+      weekday: MONDAY
+      nth: 1
+
+  - key: ca_civic_holiday_projected
+    name: Civic Holiday
+    default_classification: CLOSED
+    status: PROJECTED
+    active_years:
+      - [2027, null]
+    rule:
+      type: nth_weekday_of_month
+      key: ca_civic_holiday_projected
+      name: Civic Holiday
+      month: 8
+      weekday: MONDAY
+      nth: 1

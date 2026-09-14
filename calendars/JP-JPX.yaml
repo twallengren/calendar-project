@@ -1,0 +1,29 @@
+kind: calendar
+id: JP-JPX
+
+metadata:
+  name: Japan Exchange Group (Tokyo Stock Exchange)
+  description: >-
+    Tokyo Stock Exchange cash equity market trading calendar (MIC XTKS), operated by Japan
+    Exchange Group. Closed on Saturdays, Sundays, Japanese national holidays, and JPX's own
+    year-end and New Year market holidays (December 31 and January 2-3).
+  chronology: ISO
+  timezone: Asia/Tokyo
+  mic: XTKS
+  aliases: [XJPX]
+  coverage:
+    from: 2010-01-01
+    to: 2030-12-31
+    # The Cabinet Office's list of national holidays runs to 2027; the two equinox days beyond it
+    # are projections. 2010 is the first year with no half-day sessions - see
+    # sources/JP-JPX/README.md for why coverage does not start earlier.
+    verified_through: 2027-12-31
+
+# 振替休日, Art. 3(2) of the Act on National Holidays: a national holiday on a Sunday is observed
+# on the nearest following day that is not a holiday, cascading past the holidays in between
+# (Sunday May 3 2026 -> Wednesday May 6). A Saturday holiday is not observed at all.
+weekend_shift_policy: NEXT_AVAILABLE_FROM_LAST_WEEKEND_DAY
+
+uses:
+  - weekend_sat_sun
+  - jp_jpx_holidays

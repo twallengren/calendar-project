@@ -1,0 +1,21 @@
+kind: module
+id: jp_respect_for_the_aged_day
+
+# 敬老の日 (Keiro no Hi), third Monday of September since 2003 ("Happy Monday" reform); September 15
+# before that, which predates this calendar's coverage. Always a Monday, so it never shifts. Its
+# movement between September 15 and 21 is what occasionally creates a citizens' holiday on the day
+# before the Autumnal Equinox (see jp_citizens_holidays).
+
+source:
+  - id: cao-shukujitsu-gaiyou
+    ref: "第2条 敬老の日 9月の第3月曜日"
+
+event_sources:
+  - key: jp_respect_for_the_aged_day
+    name: Respect for the Aged Day
+    default_classification: CLOSED
+    rule:
+      type: nth_weekday_of_month
+      month: 9
+      weekday: MONDAY
+      nth: 3

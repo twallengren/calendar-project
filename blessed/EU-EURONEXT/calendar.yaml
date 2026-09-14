@@ -1,0 +1,22 @@
+kind: calendar
+id: EU-EURONEXT
+metadata:
+  name: Euronext Cash Markets Base Calendar
+  description: "Shared holiday calendar for the Euronext cash markets (Amsterdam,\
+    \ Brussels, Lisbon, Paris)"
+  chronology: ISO
+  timezone: Europe/Paris
+  coverage:
+    from: 2010-01-01
+    to: 2030-12-31
+    verified_through: 2026-12-31
+  kind: base
+  aliases: []
+uses:
+- weekend_sat_sun
+- euronext_holidays
+classifications: {}
+deltas: []
+extends: []
+event_sources: []
+weekend_shift_policy: NONE

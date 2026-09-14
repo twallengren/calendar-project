@@ -1,6 +1,10 @@
 kind: module
 id: presidents_day
 
+source:
+  - id: nyse-history-2008
+    ref: "Washington's Birthday: observed on Mondays since 1971"
+
 event_sources:
   - key: presidents_day
     name: Presidents Day

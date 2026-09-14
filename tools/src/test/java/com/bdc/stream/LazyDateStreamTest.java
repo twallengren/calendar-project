@@ -236,4 +236,85 @@ class LazyDateStreamTest {
     List<Event> events = stream.eventsOn(LocalDate.of(2025, 6, 15));
     assertNotNull(events);
   }
+
+  @org.junit.jupiter.api.Test
+  void eventsOn_seesHolidayShiftedFromAdjacentYear() throws Exception {
+    com.bdc.loader.SpecRegistry registry = new com.bdc.loader.SpecRegistry();
+    registry.loadCalendarsFromDirectory(java.nio.file.Path.of("calendars"));
+    registry.loadModulesFromDirectory(java.nio.file.Path.of("modules"));
+    com.bdc.model.ResolvedSpec nyse =
+        new com.bdc.resolver.SpecResolver(registry).resolve("US-NYSE");
+    LazyDateStream nyseStream = new LazyDateStream(nyse);
+    // Christmas 2021 observed Friday Dec 24: a single-day lookup must see it
+    java.util.List<com.bdc.model.Event> events =
+        nyseStream.eventsOn(java.time.LocalDate.of(2021, 12, 24));
+    org.junit.jupiter.api.Assertions.assertEquals(1, events.size(), events.toString());
+    org.junit.jupiter.api.Assertions.assertEquals(
+        com.bdc.model.EventType.CLOSED, events.get(0).type());
+    org.junit.jupiter.api.Assertions.assertFalse(
+        nyseStream.isBusinessDay(java.time.LocalDate.of(2021, 12, 24)));
+    org.junit.jupiter.api.Assertions.assertTrue(
+        nyseStream.isBusinessDay(java.time.LocalDate.of(2021, 12, 31)));
+  }
+
+  // === Coverage contract ===
+
+  @Test
+  void range_withoutDeclaredCoverage_isUnboundedAndNeverThrows() {
+    // SIMPLE declares no coverage block
+    assertEquals(LocalDate.MIN, stream.range().start());
+    assertEquals(LocalDate.MAX, stream.range().end());
+    assertDoesNotThrow(() -> stream.isBusinessDay(LocalDate.of(1850, 6, 3)));
+    assertTrue(stream.verifiedThrough().isEmpty());
+    assertEquals(com.bdc.model.EventStatus.CONFIRMED, stream.status(LocalDate.of(1850, 6, 3)));
+  }
+
+  @Test
+  void coverage_isEnforcedWhenDeclared() throws Exception {
+    LazyDateStream nyse = productionStream("US-NYSE");
+    assertEquals(LocalDate.of(1900, 1, 1), nyse.range().start());
+    assertEquals(LocalDate.of(2030, 12, 31), nyse.range().end());
+
+    LocalDate outside = LocalDate.of(2031, 1, 2);
+    OutsideCoverageException e =
+        assertThrows(OutsideCoverageException.class, () -> nyse.isBusinessDay(outside));
+    assertEquals("US-NYSE", e.calendarId());
+    assertEquals(outside, e.date());
+    assertEquals(nyse.range(), e.range());
+    assertThrows(OutsideCoverageException.class, () -> nyse.eventsOn(outside));
+    assertThrows(
+        OutsideCoverageException.class,
+        () -> nyse.eventsInRange(LocalDate.of(2030, 12, 1), outside));
+    // status never throws
+    assertEquals(com.bdc.model.EventStatus.UNKNOWN, nyse.status(outside));
+    // a bounded search that would walk out of coverage throws rather than guessing
+    assertThrows(
+        OutsideCoverageException.class, () -> nyse.nextBusinessDay(LocalDate.of(2030, 12, 31)));
+  }
+
+  @Test
+  void status_afterVerifiedThrough_isProjected() throws Exception {
+    LazyDateStream nyse = productionStream("US-NYSE");
+    assertEquals(LocalDate.of(2026, 12, 31), nyse.verifiedThrough().orElseThrow());
+    assertEquals(com.bdc.model.EventStatus.CONFIRMED, nyse.status(LocalDate.of(2026, 12, 30)));
+    assertEquals(com.bdc.model.EventStatus.PROJECTED, nyse.status(LocalDate.of(2027, 1, 4)));
+  }
+
+  @Test
+  void earlyClose_reportsCloseTime() throws Exception {
+    LazyDateStream nyse = productionStream("US-NYSE");
+    // The day after Thanksgiving 2026 is a 13:00 close
+    LocalDate halfDay = LocalDate.of(2026, 11, 27);
+    assertTrue(nyse.isEarlyClose(halfDay));
+    assertEquals(java.time.LocalTime.of(13, 0), nyse.closeTime(halfDay).orElseThrow());
+    assertTrue(nyse.isBusinessDay(halfDay), "an early close is still a business day");
+    assertFalse(nyse.isEarlyClose(LocalDate.of(2026, 11, 26)));
+  }
+
+  private static LazyDateStream productionStream(String id) throws Exception {
+    SpecRegistry productionRegistry = new SpecRegistry();
+    productionRegistry.loadCalendarsFromDirectory(Path.of("calendars"));
+    productionRegistry.loadModulesFromDirectory(Path.of("modules"));
+    return new LazyDateStream(new SpecResolver(productionRegistry).resolve(id));
+  }
 }

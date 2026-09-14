@@ -1,0 +1,28 @@
+kind: module
+id: de_xetra_good_friday
+
+# Good Friday. Xetra: closed every year 2003-2026 without exception (confirmed against every
+# trading calendar in sources/DE-XETRA/README.md). Not shiftable: Good Friday always falls on a
+# Friday, so weekend shifting never applies.
+
+source:
+  - id: xetra-trading-calendar-2003
+    ref: "exceptions sentence: Good Friday date"
+  - id: xetra-trading-calendar-2026
+    ref: "exceptions sentence: Good Friday date"
+
+references:
+  - key: easter
+    formula: EASTER_WESTERN
+
+event_sources:
+  - key: de_xetra_good_friday
+    name: Good Friday
+    default_classification: CLOSED
+    shift_policy: NONE
+    rule:
+      type: relative_to_reference
+      key: de_xetra_good_friday
+      name: Good Friday
+      reference: easter
+      offset_days: -2

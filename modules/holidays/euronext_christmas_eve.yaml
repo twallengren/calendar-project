@@ -1,0 +1,51 @@
+kind: module
+id: euronext_christmas_eve
+
+# Christmas Eve (24 December) half trading day on the Euronext cash markets, for the venues
+# whose local wall clock is CET/CEST (Amsterdam, Brussels, Paris). Euronext publishes the
+# close time as "14:05 CET"; see euronext_christmas_eve_lisbon for the Europe/Lisbon
+# (WET/WEST) equivalent.
+#
+# The close time moved from 14:00 to 14:05: the NYSE Euronext trading announcements and press
+# releases for 2010, 2012 and 2013 say "the markets will close at 14:00 CET", while the
+# Euronext "Calendar of business days" pages from 2014 onwards say "closing by 14:05 CET".
+#
+# The half day is never moved to another weekday: 24 December 2011, 2016 and 2022 (Sat) and
+# 2017 and 2023 (Sun) carry no Euronext half day, and the yearly calendars explicitly record
+# the neighbouring Friday as closing "at the usual times" for these four venues (only Dublin
+# takes a substitute half day). Hence only_if_weekday and no shifting.
+
+event_sources:
+  - key: euronext_christmas_eve
+    name: Christmas Eve (half trading day)
+    default_classification: EARLY_CLOSE
+    shiftable: false
+    shift_policy: NONE
+    close_time: "14:00"
+    only_if_weekday: [MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY]
+    active_years:
+      - [null, 2013]
+    source:
+      - id: nyse-euronext-calendar-2013
+        ref: "24 December 2013 at 14:00 CET"
+    rule:
+      type: fixed_month_day
+      month: 12
+      day: 24
+
+  - key: euronext_christmas_eve_1405
+    name: Christmas Eve (half trading day)
+    default_classification: EARLY_CLOSE
+    shiftable: false
+    shift_policy: NONE
+    close_time: "14:05"
+    only_if_weekday: [MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY]
+    active_years:
+      - [2014, null]
+    source:
+      - id: euronext-hours-holidays
+        ref: "half trading day, all instruments closing by 14:05 CET"
+    rule:
+      type: fixed_month_day
+      month: 12
+      day: 24

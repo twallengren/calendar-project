@@ -198,4 +198,60 @@ class MetadataEmitterTest {
     assertTrue(json.has("generated_at"));
     assertFalse(json.get("generated_at").asText().isEmpty());
   }
+
+  @Test
+  void emit_kindDefaultsToMarket() throws Exception {
+    ResolvedSpec spec = createMinimalSpec("TEST", "Test");
+    Path outputPath = tempDir.resolve("metadata.json");
+
+    emitter.emit(spec, List.of(), LocalDate.of(2025, 1, 1), LocalDate.of(2025, 12, 31), outputPath);
+
+    JsonNode json = mapper.readTree(outputPath.toFile());
+    assertEquals("market", json.get("kind").asText());
+  }
+
+  @Test
+  void emit_declaredKindIsEmitted() throws Exception {
+    CalendarSpec.Metadata metadata =
+        new CalendarSpec.Metadata("Base", null, "ISO", null, null, "base");
+    ResolvedSpec spec =
+        new ResolvedSpec(
+            "TEST-BASE", metadata, null, null, null, null, null, null, List.of("calendar:TEST"));
+    Path outputPath = tempDir.resolve("metadata.json");
+
+    emitter.emit(spec, List.of(), LocalDate.of(2025, 1, 1), LocalDate.of(2025, 12, 31), outputPath);
+
+    JsonNode json = mapper.readTree(outputPath.toFile());
+    assertEquals("base", json.get("kind").asText());
+  }
+
+  @Test
+  void emit_micAndAliasesAreWritten() throws Exception {
+    CalendarSpec.Metadata metadata =
+        new CalendarSpec.Metadata(
+            "LSE", null, "ISO", null, null, "market", "XLON", List.of("LSEG"));
+    ResolvedSpec spec =
+        new ResolvedSpec(
+            "GB-LSE", metadata, null, null, null, null, null, null, List.of("calendar:GB-LSE"));
+    Path outputPath = tempDir.resolve("metadata.json");
+
+    emitter.emit(spec, List.of(), LocalDate.of(2025, 1, 1), LocalDate.of(2025, 12, 31), outputPath);
+
+    JsonNode json = mapper.readTree(outputPath.toFile());
+    assertEquals("XLON", json.get("mic").asText());
+    assertEquals(1, json.get("aliases").size());
+    assertEquals("LSEG", json.get("aliases").get(0).asText());
+  }
+
+  @Test
+  void emit_omitsMicAndAliasesWhenAbsent() throws Exception {
+    ResolvedSpec spec = createMinimalSpec("TEST", "Test");
+    Path outputPath = tempDir.resolve("metadata.json");
+
+    emitter.emit(spec, List.of(), LocalDate.of(2025, 1, 1), LocalDate.of(2025, 12, 31), outputPath);
+
+    JsonNode json = mapper.readTree(outputPath.toFile());
+    assertFalse(json.has("mic"));
+    assertFalse(json.has("aliases"));
+  }
 }

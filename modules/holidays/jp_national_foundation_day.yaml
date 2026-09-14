@@ -1,0 +1,18 @@
+kind: module
+id: jp_national_foundation_day
+
+# 建国記念の日 (Kenkoku Kinen no Hi), February 11. Art. 2 leaves the date to a Cabinet Order;
+# Cabinet Order No. 376 of 1966 fixes it at February 11.
+
+source:
+  - id: cao-shukujitsu-gaiyou
+    ref: "建国記念の日となる日を定める政令: 2月11日"
+
+event_sources:
+  - key: jp_national_foundation_day
+    name: National Foundation Day
+    default_classification: CLOSED
+    rule:
+      type: fixed_month_day
+      month: 2
+      day: 11

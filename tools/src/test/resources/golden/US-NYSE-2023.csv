@@ -1,0 +1,118 @@
+date,type,description,key,source_module,observed_from,close_time,status
+2023-01-01,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2023-01-02,CLOSED,New Year's Day,new_years_day,module:new_years_day,2023-01-01,,CONFIRMED
+2023-01-07,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2023-01-08,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2023-01-14,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2023-01-15,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2023-01-16,CLOSED,Martin Luther King Jr. Day,mlk_day,module:mlk_day,,,CONFIRMED
+2023-01-21,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2023-01-22,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2023-01-28,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2023-01-29,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2023-02-04,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2023-02-05,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2023-02-11,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2023-02-12,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2023-02-18,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2023-02-19,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2023-02-20,CLOSED,Presidents Day,presidents_day,module:presidents_day,,,CONFIRMED
+2023-02-25,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2023-02-26,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2023-03-04,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2023-03-05,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2023-03-11,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2023-03-12,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2023-03-18,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2023-03-19,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2023-03-25,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2023-03-26,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2023-04-01,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2023-04-02,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2023-04-07,CLOSED,Good Friday,good_friday,module:good_friday,,,CONFIRMED
+2023-04-08,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2023-04-09,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2023-04-15,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2023-04-16,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2023-04-22,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2023-04-23,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2023-04-29,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2023-04-30,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2023-05-06,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2023-05-07,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2023-05-13,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2023-05-14,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2023-05-20,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2023-05-21,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2023-05-27,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2023-05-28,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2023-05-29,CLOSED,Memorial Day,memorial_day,module:memorial_day,,,CONFIRMED
+2023-06-03,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2023-06-04,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2023-06-10,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2023-06-11,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2023-06-17,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2023-06-18,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2023-06-19,CLOSED,Juneteenth National Independence Day,juneteenth,module:juneteenth,,,CONFIRMED
+2023-06-24,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2023-06-25,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2023-07-01,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2023-07-02,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2023-07-03,EARLY_CLOSE,Independence Day Eve (Early Close),independence_day_eve,module:independence_day_eve,,13:00,CONFIRMED
+2023-07-04,CLOSED,Independence Day,independence_day,module:independence_day,,,CONFIRMED
+2023-07-08,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2023-07-09,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2023-07-15,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2023-07-16,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2023-07-22,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2023-07-23,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2023-07-29,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2023-07-30,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2023-08-05,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2023-08-06,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2023-08-12,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2023-08-13,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2023-08-19,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2023-08-20,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2023-08-26,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2023-08-27,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2023-09-02,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2023-09-03,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2023-09-04,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+2023-09-09,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2023-09-10,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2023-09-16,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2023-09-17,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2023-09-23,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2023-09-24,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2023-09-30,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2023-10-01,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2023-10-07,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2023-10-08,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2023-10-14,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2023-10-15,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2023-10-21,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2023-10-22,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2023-10-28,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2023-10-29,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2023-11-04,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2023-11-05,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2023-11-11,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2023-11-12,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2023-11-18,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2023-11-19,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2023-11-23,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+2023-11-24,EARLY_CLOSE,Day After Thanksgiving (Early Close),day_after_thanksgiving,module:day_after_thanksgiving,,13:00,CONFIRMED
+2023-11-25,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2023-11-26,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2023-12-02,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2023-12-03,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2023-12-09,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2023-12-10,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2023-12-16,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2023-12-17,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2023-12-23,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2023-12-24,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2023-12-25,CLOSED,Christmas Day,christmas,module:christmas,,,CONFIRMED
+2023-12-30,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2023-12-31,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED

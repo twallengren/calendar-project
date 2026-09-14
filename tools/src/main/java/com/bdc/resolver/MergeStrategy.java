@@ -7,6 +7,10 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Merge rules used by the resolver. Event sources are keyed by {@code key}; a later declaration
+ * (parent → module → local calendar) replaces an earlier one with the same key.
+ */
 public class MergeStrategy {
 
   public static List<EventSource> mergeEventSources(
@@ -21,6 +25,21 @@ public class MergeStrategy {
     }
 
     return new ArrayList<>(merged.values());
+  }
+
+  /**
+   * Merges {@code overlay} into {@code target} (later wins by key) and records the declaring origin
+   * of each key in {@code origins}.
+   */
+  public static void mergeInto(
+      Map<String, EventSource> target,
+      Map<String, String> origins,
+      List<EventSource> overlay,
+      String origin) {
+    for (EventSource source : overlay) {
+      target.put(source.key(), source);
+      origins.put(source.key(), origin);
+    }
   }
 
   public static Map<String, EventType> mergeClassifications(

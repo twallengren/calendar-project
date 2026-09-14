@@ -1,0 +1,20 @@
+kind: module
+id: uk_boxing_day
+
+# Boxing Day (26 December). England & Wales: closed every year, established by the Banking and
+# Financial Dealings Act 1971 (dcms-mayday-preconsultation, section 2.1 table). Weekend
+# observance inherits the calendar's NEXT_AVAILABLE_WEEKDAY policy, cascading with Christmas Day
+# (see uk_christmas_day.yaml).
+# Source: govuk-bank-holidays.
+
+source:
+  - id: govuk-bank-holidays
+
+event_sources:
+  - key: uk_boxing_day
+    name: Boxing Day
+    default_classification: CLOSED
+    rule:
+      type: fixed_month_day
+      month: 12
+      day: 26

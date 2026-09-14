@@ -1,0 +1,36 @@
+kind: module
+id: jp_imperial_transition_2019
+
+# One-off holidays for the 2019 imperial transition, created by 天皇の即位の日及び即位礼正殿の儀の
+# 行われる日を休日とする法律 (Act No. 99 of 2018). cao-shukujitsu lists both as 休日（祝日扱い）:
+# holidays treated as 国民の祝日, which is what made 2019-04-30 and 2019-05-02 citizens' holidays
+# under Art. 3(3) (see jp_citizens_holidays).
+#
+# JPX's 2019 listing names April 30 "Abdication Day", May 1 "Accession Day" and October 22
+# "Enthronement Ceremony Day". April 30 is modelled as a citizens' holiday, following the
+# Cabinet Office's classification.
+
+source:
+  - id: cao-shukujitsu
+    ref: "休日（祝日扱い） rows for 2019-05-01 and 2019-10-22"
+
+event_sources:
+  - key: jp_accession_day_2019
+    name: Accession Day
+    default_classification: CLOSED
+    status: CONFIRMED
+    rule:
+      type: explicit_dates
+      dates:
+        - date: 2019-05-01
+          comment: enthronement of Emperor Naruhito
+
+  - key: jp_enthronement_ceremony_day_2019
+    name: Enthronement Ceremony Day
+    default_classification: CLOSED
+    status: CONFIRMED
+    rule:
+      type: explicit_dates
+      dates:
+        - date: 2019-10-22
+          comment: Sokui-rei Seiden no Gi

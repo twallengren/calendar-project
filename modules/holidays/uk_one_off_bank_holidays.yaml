@@ -1,0 +1,45 @@
+kind: module
+id: uk_one_off_bank_holidays
+
+# One-off national bank holidays granted by Royal Proclamation within this calendar's coverage.
+# All fall on ordinary weekdays, so no weekend shifting applies.
+#   - Friday 29 April 2011: Royal Wedding of Prince William and Catherine Middleton
+#   - Monday 19 September 2022: State Funeral of Queen Elizabeth II
+#   - Monday 8 May 2023: Coronation of King Charles III (additional to, not a move of, that
+#     year's ordinary Early May Bank Holiday on 1 May -- see uk_early_may_bank_holiday.yaml)
+# The 31 December 1999 Millennium bank holiday predates this calendar's 2000-01-01 coverage and
+# is not modeled; see sources/GB-LSE/README.md.
+# Source: dcms-diamond-jubilee-ia (2011), govuk-bank-holidays (2022, 2023).
+
+source:
+  - id: govuk-bank-holidays
+
+event_sources:
+  - key: uk_royal_wedding_2011
+    name: Royal Wedding Bank Holiday
+    default_classification: CLOSED
+    source:
+      - id: dcms-diamond-jubilee-ia
+        ref: "\"the Royal Wedding on April 29th 2011\""
+      - id: dcms-mayday-preconsultation
+        ref: "section 2.3: 2011 had 4 bank holidays due to the Royal Wedding"
+    rule:
+      type: explicit_dates
+      dates:
+        - 2011-04-29
+
+  - key: uk_state_funeral_2022
+    name: State Funeral of Queen Elizabeth II
+    default_classification: CLOSED
+    rule:
+      type: explicit_dates
+      dates:
+        - 2022-09-19
+
+  - key: uk_coronation_2023
+    name: Coronation of King Charles III
+    default_classification: CLOSED
+    rule:
+      type: explicit_dates
+      dates:
+        - 2023-05-08

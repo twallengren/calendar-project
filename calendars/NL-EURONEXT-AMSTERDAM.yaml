@@ -1,0 +1,27 @@
+kind: calendar
+id: NL-EURONEXT-AMSTERDAM
+
+# Euronext Amsterdam (XAMS), one of the four Euronext cash markets that share the holiday calendar in
+# EU-EURONEXT. No closure in the Euronext yearly calendars for 2010-2026 applies to Euronext Amsterdam
+# and not to the other three, so this calendar adds no closures of its own.
+# Its local wall clock is CET/CEST, the zone Euronext quotes the half-day close in,
+# so it uses the plain half-day modules.
+
+metadata:
+  name: Euronext Amsterdam Trading Calendar
+  description: Euronext Amsterdam (XAMS) cash market trading calendar
+  kind: market
+  chronology: ISO
+  timezone: Europe/Amsterdam
+  mic: XAMS
+  coverage:
+    from: 2010-01-01
+    to: 2030-12-31
+    verified_through: 2026-12-31
+
+extends:
+  - EU-EURONEXT
+
+uses:
+  - euronext_christmas_eve
+  - euronext_new_years_eve

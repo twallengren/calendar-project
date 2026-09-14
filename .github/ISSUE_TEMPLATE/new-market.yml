@@ -1,0 +1,61 @@
+name: New market
+description: Propose adding a new exchange or business-day calendar
+title: "[new market]: "
+labels:
+  - new-market
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for proposing a new market. See `CONTRIBUTING.md` ("Add a market in an
+        afternoon") for how a new calendar gets built once this is scoped.
+  - type: input
+    id: market-id
+    attributes:
+      label: Market id / MIC
+      description: >
+        The ISO country code and exchange mnemonic you'd propose (e.g. GB-LSE), and the
+        market's MIC code if it has one (e.g. XLON).
+      placeholder: "GB-LSE / XLON"
+    validations:
+      required: true
+  - type: input
+    id: market-name
+    attributes:
+      label: Market name
+      placeholder: London Stock Exchange
+    validations:
+      required: true
+  - type: input
+    id: primary-source
+    attributes:
+      label: Primary source URL
+      description: The authoritative document or page this market's holidays would be sourced from.
+      placeholder: https://www.londonstockexchange.com/...
+    validations:
+      required: true
+  - type: input
+    id: timezone
+    attributes:
+      label: Timezone
+      description: IANA timezone id for this market.
+      placeholder: Europe/London
+    validations:
+      required: true
+  - type: textarea
+    id: unusual-rules
+    attributes:
+      label: Anything unusual about this market's calendar?
+      description: >
+        Lunar-calendar-driven closures, ad-hoc government declarations, non-standard weekend
+        days, multiple trading sessions, and similar cases are especially useful to flag early,
+        since they sometimes need a spec change before the market can be added.
+    validations:
+      required: false
+  - type: checkboxes
+    id: ownership
+    attributes:
+      label: Ownership
+      options:
+        - label: I would like to adopt this market (see GOVERNANCE.md) and review data PRs for it.
+          required: false

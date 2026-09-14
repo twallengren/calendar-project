@@ -1,0 +1,21 @@
+kind: module
+id: ca_new_years_day
+
+# New Year's Day, January 1. Fixed by the federal Holidays Act (holidays-act-canada).
+# When it falls on a weekend it is observed on the next available weekday: the 2021-11-30
+# TMX release confirms Sat Jan 1, 2022 was observed Mon Jan 3, 2022 (not the preceding
+# Friday), so this uses the calendar's default NEXT_AVAILABLE_WEEKDAY shift policy.
+
+source:
+  - id: holidays-act-canada
+  - id: tmx-holiday-schedule-2021
+    ref: "Sat Jan 1, 2022 observed Mon Jan 3, 2022"
+
+event_sources:
+  - key: ca_new_years_day
+    name: New Year's Day
+    default_classification: CLOSED
+    rule:
+      type: fixed_month_day
+      month: 1
+      day: 1

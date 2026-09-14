@@ -1,0 +1,19 @@
+kind: module
+id: jp_coming_of_age_day
+
+# 成人の日 (Seijin no Hi), second Monday of January since 2000 ("Happy Monday" reform); January 15
+# before that, which predates this calendar's coverage. Always a Monday, so it never shifts.
+
+source:
+  - id: cao-shukujitsu-gaiyou
+    ref: "第2条 成人の日 1月の第2月曜日"
+
+event_sources:
+  - key: jp_coming_of_age_day
+    name: Coming of Age Day
+    default_classification: CLOSED
+    rule:
+      type: nth_weekday_of_month
+      month: 1
+      weekday: MONDAY
+      nth: 2

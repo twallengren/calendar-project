@@ -1,0 +1,33 @@
+{
+  "calendar_id" : "US-NYSE",
+  "status" : "ok",
+  "results" : [ {
+    "source" : "exchange_calendars-XNYS",
+    "library_version" : "exchange_calendars 4.11, python 3.13.12, 2026-09-12",
+    "from" : "1971-01-01",
+    "to" : "2030-12-31",
+    "compared_types" : [ "CLOSED", "EARLY_CLOSE" ],
+    "counts" : {
+      "matched" : 620,
+      "allowlisted" : 9,
+      "unexplained" : 0
+    },
+    "unexplained_rows" : [ ],
+    "stale_allowlist_rows" : [ ],
+    "status" : "ok"
+  }, {
+    "source" : "quantlib-nyse",
+    "library_version" : "QuantLib 1.43, python 3.13.12, 2026-09-12",
+    "from" : "1980-01-01",
+    "to" : "2030-12-25",
+    "compared_types" : [ "CLOSED" ],
+    "counts" : {
+      "matched" : 456,
+      "allowlisted" : 0,
+      "unexplained" : 0
+    },
+    "unexplained_rows" : [ ],
+    "stale_allowlist_rows" : [ ],
+    "status" : "ok"
+  } ]
+}

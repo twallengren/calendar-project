@@ -5,6 +5,10 @@ id: thanksgiving
 # - Before 1940: Last Thursday of November
 # - 1940-present: 4th Thursday of November (officially set by Congress in 1941)
 
+source:
+  - id: nyse-history-2008
+    ref: "Thanksgiving Day: closed every year"
+
 event_sources:
   # Pre-1940: Last Thursday of November
   - key: thanksgiving_pre1940

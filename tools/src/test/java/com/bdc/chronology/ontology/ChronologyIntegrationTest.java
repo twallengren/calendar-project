@@ -60,15 +60,15 @@ class ChronologyIntegrationTest {
   void dateRangeYearRange_worksWithRegistry() {
     DateRange range = new DateRange(LocalDate.of(2024, 1, 1), LocalDate.of(2025, 12, 31));
 
-    int[] isoYears = range.yearRange("ISO");
+    int[] isoYears = ChronologyTranslator.getYearRange(range.start(), range.end(), "ISO");
     assertEquals(2024, isoYears[0]);
     assertEquals(2025, isoYears[1]);
 
-    int[] hijriYears = range.yearRange("HIJRI");
+    int[] hijriYears = ChronologyTranslator.getYearRange(range.start(), range.end(), "HIJRI");
     assertTrue(hijriYears[0] <= 1445);
     assertTrue(hijriYears[1] >= 1447);
 
-    int[] julianYears = range.yearRange("JULIAN");
+    int[] julianYears = ChronologyTranslator.getYearRange(range.start(), range.end(), "JULIAN");
     assertEquals(2023, julianYears[0]); // Julian year starts later
     assertEquals(2025, julianYears[1]);
   }
@@ -166,27 +166,14 @@ class ChronologyIntegrationTest {
   }
 
   @Test
-  void translatorGetYearRange_matchesDateRange() {
-    LocalDate start = LocalDate.of(2024, 1, 1);
-    LocalDate end = LocalDate.of(2025, 12, 31);
+  void translatorGetYearRange_spansTheEndpointYears() {
+    DateRange range = new DateRange(LocalDate.of(2024, 1, 1), LocalDate.of(2025, 12, 31));
 
-    int[] rangeFromTranslator = ChronologyTranslator.getYearRange(start, end, "HIJRI");
-    int[] rangeFromDateRange = new DateRange(start, end).yearRange("HIJRI");
+    int[] hijriYears = ChronologyTranslator.getYearRange(range.start(), range.end(), "HIJRI");
 
-    assertEquals(rangeFromDateRange[0], rangeFromTranslator[0]);
-    assertEquals(rangeFromDateRange[1], rangeFromTranslator[1]);
-  }
-
-  @Test
-  void deprecatedHijriYearRange_stillWorks() {
-    DateRange range = new DateRange(LocalDate.of(2024, 1, 1), LocalDate.of(2024, 12, 31));
-
-    @SuppressWarnings("deprecation")
-    int[] deprecated = range.hijriYearRange();
-    int[] newMethod = range.yearRange("HIJRI");
-
-    assertEquals(deprecated[0], newMethod[0]);
-    assertEquals(deprecated[1], newMethod[1]);
+    assertEquals(ChronologyTranslator.getYear(range.start(), "HIJRI"), hijriYears[0]);
+    assertEquals(ChronologyTranslator.getYear(range.end(), "HIJRI"), hijriYears[1]);
+    assertTrue(hijriYears[0] < hijriYears[1]);
   }
 
   @Test

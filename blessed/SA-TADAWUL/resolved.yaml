@@ -5,12 +5,31 @@ metadata:
   description: Saudi Stock Exchange (Tadawul) trading calendar with Fri-Sat weekends
     and Islamic holidays
   chronology: UMM_AL_QURA
+  timezone: Asia/Riyadh
+  mic: XSAU
+  aliases:
+  - TADAWUL
+  coverage:
+    from: 2020-01-01
+    to: 2030-12-31
+    verified_through: 2029-12-31
 weekend_policy:
   days:
+  - THURSDAY
   - FRIDAY
   - SATURDAY
+  periods:
+  - days:
+    - THURSDAY
+    - FRIDAY
+    to: 2013-06-28
+  - days:
+    - FRIDAY
+    - SATURDAY
+    from: 2013-06-29
+weekend_shift_policy: NEAREST_WEEKDAY
 resolution_chain:
-- module:weekend_fri_sat
+- module:saudi_weekends
 - module:saudi_founding_day
 - module:saudi_national_day
 - module:eid_al_fitr
@@ -20,24 +39,38 @@ resolution_chain:
 event_sources:
 - key: saudi_founding_day
   name: Saudi Founding Day
+  origin: module:saudi_founding_day
   classification: CLOSED
+  shift_policy: NEAREST_WEEKDAY
+  status: CONFIRMED
   active_years:
   - - 2022
     - null
+  source:
+  - id: saudi-exchange-announcements
   rule:
     type: fixed_month_day
     month: 2
     day: 22
 - key: saudi_national_day
   name: Saudi National Day
+  origin: module:saudi_national_day
   classification: CLOSED
+  shift_policy: NEAREST_WEEKDAY
+  status: CONFIRMED
+  source:
+  - id: saudi-exchange-announcements
   rule:
     type: fixed_month_day
     month: 9
     day: 23
-- key: eid_al_fitr_historical
+- key: eid_al_fitr
   name: Eid al-Fitr
+  origin: module:eid_al_fitr
   classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: saudi-exchange-announcements
   rule:
     type: explicit_dates
     dates:
@@ -94,53 +127,55 @@ event_sources:
     - 2026-03-21
     - 2026-03-22
     - 2026-03-23
-- key: eid_al_fitr_projected_1
+    - 2027-03-05
+    - 2027-03-06
+    - 2027-03-07
+    - 2027-03-08
+    - 2027-03-09
+    - 2027-03-10
+    - 2027-03-11
+    - 2027-03-12
+    - 2027-03-13
+    - 2028-02-25
+    - 2028-02-26
+    - 2028-02-27
+    - 2028-02-28
+    - 2028-02-29
+    - 2028-03-01
+    - 2028-03-02
+    - 2028-03-03
+    - 2028-03-04
+    - 2029-02-12
+    - 2029-02-13
+    - 2029-02-14
+    - 2029-02-15
+    - 2029-02-16
+    - 2029-02-17
+    - 2029-02-18
+- key: eid_al_fitr_projected
   name: Eid al-Fitr
+  origin: module:eid_al_fitr
   classification: CLOSED
+  status: PROJECTED
   active_years:
-  - - 2027
+  - - 2030
     - null
+  source:
+  - id: saudi-exchange-announcements
   rule:
     type: fixed_month_day
-    month: 10
-    day: 1
+    month: 9
+    day: 28
     chronology: UMM_AL_QURA
-- key: eid_al_fitr_projected_2
-  name: Eid al-Fitr
-  classification: CLOSED
-  active_years:
-  - - 2027
-    - null
-  rule:
-    type: fixed_month_day
-    month: 10
-    day: 2
-    chronology: UMM_AL_QURA
-- key: eid_al_fitr_projected_3
-  name: Eid al-Fitr
-  classification: CLOSED
-  active_years:
-  - - 2027
-    - null
-  rule:
-    type: fixed_month_day
-    month: 10
-    day: 3
-    chronology: UMM_AL_QURA
-- key: eid_al_fitr_projected_4
-  name: Eid al-Fitr
-  classification: CLOSED
-  active_years:
-  - - 2027
-    - null
-  rule:
-    type: fixed_month_day
-    month: 10
-    day: 4
-    chronology: UMM_AL_QURA
-- key: eid_al_adha_historical
+    end_month: 10
+    end_day: 4
+- key: eid_al_adha
   name: Eid al-Adha
+  origin: module:eid_al_adha
   classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: saudi-exchange-announcements
   rule:
     type: explicit_dates
     dates:
@@ -192,58 +227,45 @@ event_sources:
     - 2026-05-28
     - 2026-05-29
     - 2026-05-30
-- key: arafat_day_projected
-  name: Arafat Day
-  classification: CLOSED
-  active_years:
-  - - 2027
-    - null
-  rule:
-    type: fixed_month_day
-    month: 12
-    day: 9
-    chronology: UMM_AL_QURA
-- key: eid_al_adha_projected_1
+    - 2027-05-14
+    - 2027-05-15
+    - 2027-05-16
+    - 2027-05-17
+    - 2027-05-18
+    - 2027-05-19
+    - 2027-05-20
+    - 2027-05-21
+    - 2027-05-22
+    - 2028-05-03
+    - 2028-05-04
+    - 2028-05-05
+    - 2028-05-06
+    - 2028-05-07
+    - 2028-05-08
+    - 2028-05-09
+    - 2029-04-20
+    - 2029-04-21
+    - 2029-04-22
+    - 2029-04-23
+    - 2029-04-24
+    - 2029-04-25
+    - 2029-04-26
+    - 2029-04-27
+    - 2029-04-28
+- key: eid_al_adha_projected
   name: Eid al-Adha
+  origin: module:eid_al_adha
   classification: CLOSED
+  status: PROJECTED
   active_years:
-  - - 2027
+  - - 2030
     - null
+  source:
+  - id: saudi-exchange-announcements
   rule:
     type: fixed_month_day
     month: 12
-    day: 10
+    day: 5
     chronology: UMM_AL_QURA
-- key: eid_al_adha_projected_2
-  name: Eid al-Adha
-  classification: CLOSED
-  active_years:
-  - - 2027
-    - null
-  rule:
-    type: fixed_month_day
-    month: 12
-    day: 11
-    chronology: UMM_AL_QURA
-- key: eid_al_adha_projected_3
-  name: Eid al-Adha
-  classification: CLOSED
-  active_years:
-  - - 2027
-    - null
-  rule:
-    type: fixed_month_day
-    month: 12
-    day: 12
-    chronology: UMM_AL_QURA
-- key: eid_al_adha_projected_4
-  name: Eid al-Adha
-  classification: CLOSED
-  active_years:
-  - - 2027
-    - null
-  rule:
-    type: fixed_month_day
-    month: 12
-    day: 13
-    chronology: UMM_AL_QURA
+    end_month: 12
+    end_day: 13

@@ -1,6 +1,10 @@
 kind: module
 id: mlk_day
 
+source:
+  - id: nyse-history-2008
+    ref: "Martin Luther King, Jr. Day: closed all day beginning in 1998"
+
 event_sources:
   - key: mlk_day
     name: Martin Luther King Jr. Day

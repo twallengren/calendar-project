@@ -1,7 +1,6 @@
 plugins {
     java
     application
-    id("com.diffplug.spotless") version "6.25.0"
 }
 
 group = "com.bdc"
@@ -18,9 +17,9 @@ repositories {
 }
 
 dependencies {
+    implementation(project(":core"))
     implementation("com.fasterxml.jackson.core:jackson-databind:2.17.0")
     implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.17.0")
-    implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-csv:2.17.0")
     implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.17.0")
     implementation("info.picocli:picocli:4.7.5")
     annotationProcessor("info.picocli:picocli-codegen:4.7.5")
@@ -28,6 +27,7 @@ dependencies {
     testImplementation(platform("org.junit:junit-bom:5.10.2"))
     testImplementation("org.junit.jupiter:junit-jupiter")
     testImplementation("net.jqwik:jqwik:1.8.2")
+    testRuntimeOnly(project(":data"))
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
@@ -42,16 +42,29 @@ tasks.named<Test>("test") {
     systemProperty("updateGoldens", System.getProperty("updateGoldens", "false"))
 }
 
+tasks.register<Test>("fastTest") {
+    description = "Runs tests excluding slow (jqwik) and cross-validation tests"
+    group = "verification"
+
+    testClassesDirs = sourceSets.test.get().output.classesDirs
+    classpath = sourceSets.test.get().runtimeClasspath
+
+    useJUnitPlatform {
+        excludeTags("slow", "cross-validation")
+    }
+    workingDir = rootProject.projectDir
+    // Pass system properties to tests
+    systemProperty("updateGoldens", System.getProperty("updateGoldens", "false"))
+}
+
 tasks.named<JavaExec>("run") {
     standardInput = System.`in`
     workingDir = rootProject.projectDir
+    notCompatibleWithConfigurationCache("uses System.in for interactive input")
 }
 
-spotless {
-    java {
-        googleJavaFormat()
-    }
-}
+// Spotless (Google Java Format, UNIX line endings) is configured for every module in the
+// root build script.
 
 // Chronology code generation - generated sources go to src/main/java-generated
 // This directory is committed to version control so the code is always available
@@ -83,6 +96,8 @@ tasks.register<JavaExec>("generateChronologies") {
     doFirst {
         outputDir.mkdirs()
     }
+
+    notCompatibleWithConfigurationCache("JavaExec task that regenerates committed sources")
 }
 
 // Note: For bootstrap, run 'gradle compileJava' first without generated sources,

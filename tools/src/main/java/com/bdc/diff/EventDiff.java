@@ -9,7 +9,8 @@ public record EventDiff(
     EventType newType,
     String oldDescription,
     String newDescription,
-    DiffKind kind) {
+    DiffKind kind,
+    String key) {
   public enum DiffKind {
     ADDED,
     REMOVED,
@@ -17,11 +18,19 @@ public record EventDiff(
   }
 
   public static EventDiff added(LocalDate date, EventType type, String description) {
-    return new EventDiff(date, null, type, null, description, DiffKind.ADDED);
+    return added(date, type, description, null);
+  }
+
+  public static EventDiff added(LocalDate date, EventType type, String description, String key) {
+    return new EventDiff(date, null, type, null, description, DiffKind.ADDED, key);
   }
 
   public static EventDiff removed(LocalDate date, EventType type, String description) {
-    return new EventDiff(date, type, null, description, null, DiffKind.REMOVED);
+    return removed(date, type, description, null);
+  }
+
+  public static EventDiff removed(LocalDate date, EventType type, String description, String key) {
+    return new EventDiff(date, type, null, description, null, DiffKind.REMOVED, key);
   }
 
   public static EventDiff modified(
@@ -30,7 +39,18 @@ public record EventDiff(
       EventType newType,
       String oldDescription,
       String newDescription) {
-    return new EventDiff(date, oldType, newType, oldDescription, newDescription, DiffKind.MODIFIED);
+    return modified(date, oldType, newType, oldDescription, newDescription, null);
+  }
+
+  public static EventDiff modified(
+      LocalDate date,
+      EventType oldType,
+      EventType newType,
+      String oldDescription,
+      String newDescription,
+      String key) {
+    return new EventDiff(
+        date, oldType, newType, oldDescription, newDescription, DiffKind.MODIFIED, key);
   }
 
   public boolean isHistorical(LocalDate cutoffDate) {

@@ -284,4 +284,51 @@ class CalendarDiffEngineTest {
     assertEquals(DiffSeverity.MAJOR, diff.severity());
     assertEquals(2, diff.additions().size());
   }
+
+  @Test
+  void keyedIdentity_reportsRemovalOfSecondEventOnSameDate() {
+    LocalDate d = LocalDate.of(2021, 12, 24);
+    List<Event> blessed =
+        List.of(
+            new Event(
+                d, EventType.CLOSED, "Christmas Day", "b", "christmas", null, null, null, null),
+            new Event(
+                d,
+                EventType.EARLY_CLOSE,
+                "Christmas Eve",
+                "b",
+                "christmas_eve",
+                null,
+                null,
+                null,
+                null));
+    List<Event> generated =
+        List.of(
+            new Event(
+                d, EventType.CLOSED, "Christmas Day", "g", "christmas", null, null, null, null));
+
+    CalendarDiff diff =
+        engine.compare("TEST", generated, blessed, cutoffDate, blessedRangeStart, blessedRangeEnd);
+
+    assertEquals(DiffSeverity.MAJOR, diff.severity());
+    assertEquals(1, diff.removals().size());
+    assertEquals("christmas_eve", diff.removals().get(0).key());
+    assertEquals(0, diff.modifications().size());
+  }
+
+  @Test
+  void keyedIdentity_identicalMultiRowDatesAreNone() {
+    LocalDate d = LocalDate.of(1914, 9, 7);
+    List<Event> a =
+        List.of(
+            new Event(d, EventType.CLOSED, "Labor Day", "b", "labor_day", null, null, null, null),
+            new Event(d, EventType.CLOSED, "WWI", "b", "wwi", null, null, null, null));
+    List<Event> b =
+        List.of(
+            new Event(d, EventType.CLOSED, "Labor Day", "g", "labor_day", null, null, null, null),
+            new Event(d, EventType.CLOSED, "WWI", "g", "wwi", null, null, null, null));
+    CalendarDiff diff =
+        engine.compare("TEST", b, a, cutoffDate, blessedRangeStart, blessedRangeEnd);
+    assertEquals(DiffSeverity.NONE, diff.severity());
+  }
 }

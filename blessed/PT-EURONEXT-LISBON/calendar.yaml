@@ -1,0 +1,22 @@
+kind: calendar
+id: PT-EURONEXT-LISBON
+metadata:
+  name: Euronext Lisbon Trading Calendar
+  description: Euronext Lisbon (XLIS) cash market trading calendar
+  chronology: ISO
+  timezone: Europe/Lisbon
+  coverage:
+    from: 2010-01-01
+    to: 2030-12-31
+    verified_through: 2026-12-31
+  kind: market
+  mic: XLIS
+  aliases: []
+uses:
+- euronext_christmas_eve_lisbon
+- euronext_new_years_eve_lisbon
+classifications: {}
+deltas: []
+extends:
+- EU-EURONEXT
+event_sources: []

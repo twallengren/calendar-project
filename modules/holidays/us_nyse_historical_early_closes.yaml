@@ -1,0 +1,144 @@
+kind: module
+id: us_nyse_historical_early_closes
+
+# One-off early closes of the New York Stock Exchange that no recurring rule produces, with the
+# local close time. Regular Christmas Eve, day-after-Thanksgiving and Independence-Day-eve early
+# closes live in their own modules.
+#
+# Source: nyse-history-2008 (special closings list, "Closed at ..." entries). Late opens listed
+# in the same document ("Opened at ...") are not modelled.
+
+source:
+  - id: nyse-history-2008
+    ref: special closings list, "Closed at" entries
+
+event_sources:
+  - key: nyse_early_close_oneoff_1300
+    name: Early Close
+    default_classification: EARLY_CLOSE
+    close_time: "13:00"
+    rule:
+      type: explicit_dates
+      dates:
+        - date: 1908-06-26
+          comment: Funeral of former President Grover Cleveland
+        - date: 1929-11-06
+          comment: Member firm clerical backlog
+        - date: 1929-11-07
+          comment: Member firm clerical backlog
+        - date: 1929-11-08
+          comment: Member firm clerical backlog
+        - date: 1929-11-11
+          comment: Member firm clerical backlog
+        - date: 1929-11-12
+          comment: Member firm clerical backlog
+        - date: 1929-11-13
+          comment: Member firm clerical backlog
+        - date: 1929-11-14
+          comment: Member firm clerical backlog
+        - date: 1929-11-15
+          comment: Member firm clerical backlog
+        - date: 1929-11-18
+          comment: Member firm clerical backlog
+        - date: 1929-11-19
+          comment: Member firm clerical backlog
+        - date: 1929-11-20
+          comment: Member firm clerical backlog
+        - date: 1929-11-21
+          comment: Member firm clerical backlog
+        - date: 1929-11-22
+          comment: Member firm clerical backlog
+        - date: 1951-12-24
+          comment: Christmas Eve
+        - date: 1997-12-26
+          comment: Friday after Christmas
+        - date: 1999-12-31
+          comment: New Year's Eve
+        - date: 2003-12-26
+          comment: Friday after Christmas
+
+  - key: nyse_early_close_oneoff_1400
+    name: Early Close
+    default_classification: EARLY_CLOSE
+    close_time: "14:00"
+    rule:
+      type: explicit_dates
+      dates:
+        - date: 1928-05-21
+          comment: Member firm clerical backlog
+        - date: 1928-05-22
+          comment: Member firm clerical backlog
+        - date: 1928-05-23
+          comment: Member firm clerical backlog
+        - date: 1928-05-24
+          comment: Member firm clerical backlog
+        - date: 1928-05-25
+          comment: Member firm clerical backlog
+        - date: 1933-07-26
+          comment: Volume activity (also opened late)
+        - date: 1933-07-27
+          comment: Volume activity (also opened late)
+        - date: 1933-07-28
+          comment: Volume activity (also opened late)
+        - date: 1964-10-23
+          comment: Funeral of former President Herbert Hoover
+        - date: 1967-02-07
+          comment: Snowstorm (also opened late)
+        - date: 1974-12-24
+          comment: Christmas Eve
+
+  - key: nyse_early_close_oneoff_1407
+    name: Early Close
+    default_classification: EARLY_CLOSE
+    close_time: "14:07"
+    rule:
+      type: explicit_dates
+      dates:
+        - date: 1963-11-22
+          comment: Assassination of President John F. Kennedy
+
+  - key: nyse_early_close_oneoff_1430
+    name: Early Close
+    default_classification: EARLY_CLOSE
+    close_time: "14:30"
+    rule:
+      type: explicit_dates
+      dates:
+        - date: 1918-11-07
+          comment: False armistice report
+        - date: 1925-09-18
+          comment: Funeral of Seymour L. Cromwell
+
+  - key: nyse_early_close_oneoff_1230
+    name: Early Close
+    default_classification: EARLY_CLOSE
+    close_time: "12:30"
+    rule:
+      type: explicit_dates
+      dates:
+        - date: 1919-01-07
+          comment: Funeral of former President Theodore Roosevelt
+        - date: 1924-02-06
+          comment: Funeral of former President Woodrow Wilson
+        - date: 1930-03-11
+          comment: Funeral of former President William Howard Taft
+        - date: 1933-08-04
+          comment: Gas fumes on trading floor (closed shortly after 12:30 pm)
+
+  - key: nyse_early_close_oneoff_1200
+    name: Early Close
+    default_classification: EARLY_CLOSE
+    close_time: "12:00"
+    rule:
+      type: explicit_dates
+      dates:
+        - date: 1917-08-29
+          comment: Parade of National Guard
+        - date: 1917-10-24
+          comment: Liberty Day
+        - date: 1918-04-26
+          comment: Liberty Day
+        - date: 1920-09-16
+          comment: Wall Street explosion
+        - date: 1933-09-13
+          comment: NRA demonstration

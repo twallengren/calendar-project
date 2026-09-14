@@ -1,0 +1,121 @@
+date,type,description,key,source_module,observed_from,close_time,status
+2027-01-01,CLOSED,The first day of January,hk_new_years_day,module:hk_new_years_day,,,CONFIRMED
+2027-01-02,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2027-01-03,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2027-01-09,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2027-01-10,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2027-01-16,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2027-01-17,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2027-01-23,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2027-01-24,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2027-01-30,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2027-01-31,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2027-02-05,EARLY_CLOSE,Lunar New Year's Eve (Half Day),hk_hkex_lunar_new_years_eve_early_close,module:hk_hkex_early_closes,,12:00,CONFIRMED
+2027-02-06,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2027-02-07,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2027-02-08,CLOSED,Lunar New Year (The third day of Lunar New Year),hk_lunar_new_year,module:hk_lunar_new_year,,,CONFIRMED
+2027-02-09,CLOSED,Lunar New Year (The fourth day of Lunar New Year),hk_lunar_new_year,module:hk_lunar_new_year,,,CONFIRMED
+2027-02-13,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2027-02-14,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2027-02-20,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2027-02-21,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2027-02-27,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2027-02-28,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2027-03-06,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2027-03-07,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2027-03-13,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2027-03-14,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2027-03-20,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2027-03-21,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2027-03-26,CLOSED,Good Friday,hk_good_friday,module:hk_good_friday,,,CONFIRMED
+2027-03-27,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2027-03-28,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2027-03-29,CLOSED,Easter Monday,hk_easter_monday,module:hk_easter_monday,,,CONFIRMED
+2027-04-03,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2027-04-04,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2027-04-05,CLOSED,Ching Ming Festival,hk_ching_ming,module:hk_ching_ming,,,CONFIRMED
+2027-04-10,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2027-04-11,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2027-04-17,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2027-04-18,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2027-04-24,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2027-04-25,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2027-05-01,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2027-05-02,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2027-05-08,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2027-05-09,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2027-05-13,CLOSED,The Birthday of the Buddha,hk_buddhas_birthday,module:hk_buddhas_birthday,,,CONFIRMED
+2027-05-15,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2027-05-16,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2027-05-22,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2027-05-23,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2027-05-29,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2027-05-30,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2027-06-05,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2027-06-06,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2027-06-09,CLOSED,Tuen Ng Festival,hk_tuen_ng,module:hk_tuen_ng,,,CONFIRMED
+2027-06-12,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2027-06-13,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2027-06-19,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2027-06-20,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2027-06-26,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2027-06-27,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2027-07-01,CLOSED,Hong Kong Special Administrative Region Establishment Day,hk_hksar_establishment_day,module:hk_hksar_establishment_day,,,CONFIRMED
+2027-07-03,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2027-07-04,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2027-07-10,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2027-07-11,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2027-07-17,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2027-07-18,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2027-07-24,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2027-07-25,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2027-07-31,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2027-08-01,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2027-08-07,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2027-08-08,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2027-08-14,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2027-08-15,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2027-08-21,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2027-08-22,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2027-08-28,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2027-08-29,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2027-09-04,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2027-09-05,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2027-09-11,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2027-09-12,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2027-09-16,CLOSED,The day following the Chinese Mid-Autumn Festival,hk_mid_autumn,module:hk_mid_autumn,,,CONFIRMED
+2027-09-18,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2027-09-19,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2027-09-25,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2027-09-26,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2027-10-01,CLOSED,National Day,hk_national_day,module:hk_national_day,,,CONFIRMED
+2027-10-02,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2027-10-03,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2027-10-08,CLOSED,Chung Yeung Festival,hk_chung_yeung,module:hk_chung_yeung,,,CONFIRMED
+2027-10-09,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2027-10-10,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2027-10-16,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2027-10-17,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2027-10-23,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2027-10-24,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2027-10-30,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2027-10-31,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2027-11-06,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2027-11-07,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2027-11-13,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2027-11-14,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2027-11-20,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2027-11-21,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2027-11-27,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2027-11-28,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2027-12-04,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2027-12-05,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2027-12-11,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2027-12-12,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2027-12-18,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2027-12-19,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2027-12-24,EARLY_CLOSE,Christmas Eve (Half Day),hk_hkex_christmas_eve_early_close,module:hk_hkex_early_closes,,12:00,CONFIRMED
+2027-12-25,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2027-12-26,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2027-12-27,CLOSED,The first weekday after Christmas Day,hk_first_weekday_after_christmas,module:hk_christmas,2027-12-26,,CONFIRMED
+2027-12-31,EARLY_CLOSE,New Year's Eve (Half Day),hk_hkex_new_years_eve_early_close,module:hk_hkex_early_closes,,12:00,CONFIRMED

@@ -1,0 +1,24 @@
+# Known differences between our JP-JPX data and the reference datasets.
+# source,side,date,type,reason
+#
+# exchange_calendars 4.11's XTKS calendar carries the two equinox holidays as a hard-coded table
+# that ends with 2025; from 2026 it emits no Vernal or Autumnal Equinox Day at all, and it
+# therefore also misses the citizens' holiday that the 2026 equinox creates. Every other JP-JPX
+# closure from 2026 to 2030 matches it exactly. 2026 and 2027 are published by JPX itself
+# (jpx-market-holidays) and by the Cabinet Office (cao-shukujitsu); 2028-2030 are our
+# EQUINOX_*_JP projections, which QuantLib's Japan() calendar agrees with for every year.
+exchange_calendars-XTKS,ours,2026-03-20,CLOSED,JPX lists "Mar. 20 (Fri.) Vernal Equinox" for 2026; exchange_calendars has no equinox data past 2025
+exchange_calendars-XTKS,ours,2026-09-22,CLOSED,JPX notes "September 22 2026 is a holiday in accordance with Rule 3 Paragraph 3 of Act on National Holidays"; exchange_calendars misses it because it lacks the Sep 23 equinox
+exchange_calendars-XTKS,ours,2026-09-23,CLOSED,JPX lists "Sep. 23 (Wed.) Autumnal Equinox" for 2026; exchange_calendars has no equinox data past 2025
+exchange_calendars-XTKS,ours,2027-03-22,CLOSED,JPX lists "Mar. 22 (Mon.) Vernal Equinox (Mar. 21) observed" for 2027; exchange_calendars has no equinox data past 2025
+exchange_calendars-XTKS,ours,2027-09-23,CLOSED,JPX lists "Sep. 23 (Thu.) Autumnal Equinox" for 2027; exchange_calendars has no equinox data past 2025
+exchange_calendars-XTKS,ours,2028-03-20,CLOSED,EQUINOX_VERNAL_JP projection (status PROJECTED); exchange_calendars has no equinox data past 2025
+exchange_calendars-XTKS,ours,2028-09-22,CLOSED,EQUINOX_AUTUMNAL_JP projection (status PROJECTED); exchange_calendars has no equinox data past 2025
+exchange_calendars-XTKS,ours,2029-03-20,CLOSED,EQUINOX_VERNAL_JP projection (status PROJECTED); exchange_calendars has no equinox data past 2025
+exchange_calendars-XTKS,ours,2029-09-24,CLOSED,EQUINOX_AUTUMNAL_JP projection observed Monday (Sep 23 2029 is a Sunday); exchange_calendars has no equinox data past 2025
+exchange_calendars-XTKS,ours,2030-03-20,CLOSED,EQUINOX_VERNAL_JP projection (status PROJECTED); exchange_calendars has no equinox data past 2025
+exchange_calendars-XTKS,ours,2030-09-23,CLOSED,EQUINOX_AUTUMNAL_JP projection (status PROJECTED); exchange_calendars has no equinox data past 2025
+#
+# QuantLib's Japan() is the Japanese national-holiday calendar, not the exchange's: it models
+# scheduled holidays only and has no notion of an unscheduled market outage.
+quantlib-japan,ours,2020-10-01,CLOSED,TSE could not open the arrowhead cash equity system and provided no trading for the entire day (jpx-system-failure-2020); QuantLib Japan() models scheduled holidays only

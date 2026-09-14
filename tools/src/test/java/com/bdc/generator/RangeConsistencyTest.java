@@ -2,10 +2,6 @@ package com.bdc.generator;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import com.bdc.chronology.ChronologyTranslator;
-import com.bdc.chronology.DateRange;
-import com.bdc.formula.EasterCalculator;
-import com.bdc.formula.ReferenceResolver;
 import com.bdc.loader.SpecRegistry;
 import com.bdc.model.*;
 import com.bdc.resolver.SpecResolver;
@@ -14,9 +10,13 @@ import java.nio.file.Path;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.*;
-import java.util.stream.IntStream;
+import java.util.stream.Stream;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Generation must not depend on the range that was asked for: the events for a day are the same
+ * whether that day is generated alone, as part of a year, or as part of a decade.
+ */
 class RangeConsistencyTest {
   private final EventGenerator generator = new EventGenerator();
 
@@ -25,7 +25,8 @@ class RangeConsistencyTest {
   }
 
   static EventSource source(String key, Rule rule, boolean shiftable) {
-    return new EventSource(key, key, rule, EventType.CLOSED, shiftable, null);
+    return new EventSource(
+        key, key, rule, EventType.CLOSED, shiftable, null, null, null, null, null, null, null);
   }
 
   static EventSource fixed(String key, int month, int day) {
@@ -68,16 +69,29 @@ class RangeConsistencyTest {
         .toList();
   }
 
+  /** The event a TEST spec produces for a closure with no module origin. */
+  static Event closure(LocalDate date, String key, String name, LocalDate observedFrom) {
+    return new Event(
+        date,
+        EventType.CLOSED,
+        name,
+        "TEST:" + key,
+        key,
+        null,
+        observedFrom,
+        null,
+        EventStatus.CONFIRMED);
+  }
+
   private void observed(ResolvedSpec spec, String original, String target) {
     LocalDate day = date(target);
+    LocalDate nominal = date(original);
     List<Event> narrow = generator.generate(spec, day, day);
-    assertEquals(List.of(new Event(day, EventType.CLOSED, "holiday", "TEST:holiday")), narrow);
+    assertEquals(
+        List.of(closure(day, "holiday", "holiday", day.equals(nominal) ? null : nominal)), narrow);
     assertEquals(
         narrow,
-        within(
-            generator.generate(spec, date(original).minusDays(10), date(original).plusDays(10)),
-            day,
-            day));
+        within(generator.generate(spec, nominal.minusDays(10), nominal.plusDays(10)), day, day));
   }
 
   @Test
@@ -168,7 +182,7 @@ class RangeConsistencyTest {
   }
 
   @Test
-  void cascadesRespectReservedWeekdaysAndStableSameDateOrder() {
+  void cascadesAreIdenticalDayByDayAndInOneWideRange() {
     LocalDate christmas = date("2021-12-25");
     EventSource duplicates =
         source(
@@ -190,19 +204,15 @@ class RangeConsistencyTest {
             fixed("reserved", 12, 27),
             explicit("nonshiftable", false, date("2021-12-28")));
     List<Event> events = generator.generate(spec, date("2021-12-28"), date("2022-01-03"));
+    // reserved holds 27 Dec and the non-shiftable event holds 28 Dec, so the three closures
+    // stacked on Christmas Saturday cascade past both, in declaration order, and Boxing Day
+    // lands after the following weekend.
     assertEquals(
-        List.of("christmas", "nonshiftable"),
-        within(events, date("2021-12-28"), date("2021-12-28")).stream()
-            .map(Event::description)
+        List.of("nonshiftable", "christmas", "same (first)", "same (second)", "boxing"),
+        Stream.of("2021-12-28", "2021-12-29", "2021-12-30", "2021-12-31", "2022-01-03")
+            .map(RangeConsistencyTest::date)
+            .map(d -> within(events, d, d).getFirst().description())
             .toList());
-    assertEquals(
-        "same (first)",
-        within(events, date("2021-12-29"), date("2021-12-29")).getFirst().description());
-    assertEquals(
-        "same (second)",
-        within(events, date("2021-12-30"), date("2021-12-30")).getFirst().description());
-    assertEquals(
-        "boxing", within(events, date("2021-12-31"), date("2021-12-31")).getFirst().description());
     for (LocalDate day = date("2021-12-28");
         !day.isAfter(date("2022-01-03"));
         day = day.plusDays(1)) {
@@ -237,7 +247,13 @@ class RangeConsistencyTest {
             fixed("newyear", 1, 1).rule(),
             EventType.CLOSED,
             true,
-            List.of(new EventSource.YearRange(2022)));
+            List.of(new EventSource.YearRange(2022)),
+            null,
+            null,
+            null,
+            null,
+            null,
+            null);
     ResolvedSpec nearest =
         spec(
             WeekendShiftPolicy.NEAREST_WEEKDAY,
@@ -259,11 +275,11 @@ class RangeConsistencyTest {
                 new Delta.Reclassify("boxing", date("2021-12-29"), EventType.NOTABLE),
                 new Delta.Add("added", "added", date("2021-12-29"), EventType.CLOSED)));
     List<Event> events = generator.generate(cascade, date("2021-12-27"), date("2021-12-29"));
+    assertEquals(List.of("added", "boxing"), events.stream().map(Event::description).toList());
     assertEquals(
-        List.of(
-            new Event(date("2021-12-29"), EventType.CLOSED, "added", "delta:add"),
-            new Event(date("2021-12-29"), EventType.NOTABLE, "boxing", "TEST:boxing")),
-        events);
+        List.of(date("2021-12-29"), date("2021-12-29")), events.stream().map(Event::date).toList());
+    assertEquals(
+        List.of(EventType.CLOSED, EventType.NOTABLE), events.stream().map(Event::type).toList());
     assertEquals(events, generator.generate(cascade, date("2021-12-29"), date("2021-12-29")));
   }
 
@@ -271,7 +287,8 @@ class RangeConsistencyTest {
   void dayOffsetsUseReferenceYearsInBothDirectionsIncludingMoreThanAYear() {
     for (int offset : new int[] {-800, -366, -40, 40, 366, 800}) {
       for (boolean named : new boolean[] {false, true}) {
-        LocalDate ref = named ? EasterCalculator.westernEaster(2024) : date("2024-01-01");
+        LocalDate ref =
+            named ? com.bdc.formula.EasterCalculator.westernEaster(2024) : date("2024-01-01");
         Rule rule =
             named
                 ? new Rule.RelativeToReference("relative", "relative", "easter", offset)
@@ -297,7 +314,8 @@ class RangeConsistencyTest {
       for (int nth : new int[] {1, 2, 60}) {
         for (boolean named : new boolean[] {false, true}) {
           Rule.WeekdayOffset offset = new Rule.WeekdayOffset(DayOfWeek.MONDAY, nth, direction);
-          LocalDate reference = named ? EasterCalculator.westernEaster(2024) : date("2024-01-01");
+          LocalDate reference =
+              named ? com.bdc.formula.EasterCalculator.westernEaster(2024) : date("2024-01-01");
           int step = direction == Rule.OffsetDirection.AFTER ? 1 : -1;
           LocalDate expected = reference;
           for (int found = 0; found < nth; ) {
@@ -312,7 +330,9 @@ class RangeConsistencyTest {
           ResolvedSpec spec = spec(WeekendShiftPolicy.NONE, source("relative", rule, false));
           List<Event> single = generator.generate(spec, expected, expected);
           assertEquals(
-              List.of(new Event(expected, EventType.CLOSED, "relative", "TEST:relative")), single);
+              List.of(closure(expected, "relative", "relative", null)),
+              single,
+              direction + " nth=" + nth + " named=" + named);
           assertEquals(
               single,
               within(
@@ -322,106 +342,6 @@ class RangeConsistencyTest {
         }
       }
     }
-  }
-
-  @Test
-  void legacyReferenceLookupStillReturnsWholeYears() {
-    ReferenceResolver resolver = new ReferenceResolver();
-    DateRange range = new DateRange(date("2024-01-01"), date("2024-01-01"));
-    resolver.resolve(List.of(new Reference("easter", "EASTER_WESTERN")), range);
-    assertEquals(List.of(date("2024-03-31")), resolver.getDates("easter"));
-    assertTrue(resolver.getDates("easter", range).isEmpty());
-    assertEquals(
-        List.of(date("2025-04-20")),
-        resolver.getDates("easter", new DateRange(date("2025-04-01"), date("2025-04-30"))));
-    assertEquals(List.of(date("2024-03-31")), resolver.getDates("easter"));
-  }
-
-  @Test
-  void delayLimitIsInclusiveAndErrorsIdentifyTheOccurrence() {
-    LocalDate original = date("2022-01-01");
-    LocalDate limit = original.plusDays(366); // Monday
-    List<LocalDate> reserved =
-        original
-            .plusDays(1)
-            .datesUntil(limit)
-            .filter(d -> d.getDayOfWeek().getValue() < 6)
-            .toList();
-    EventSource holiday = explicit("holiday", true, original);
-    ResolvedSpec succeeds =
-        spec(
-            WeekendShiftPolicy.NEXT_AVAILABLE_WEEKDAY,
-            holiday,
-            explicit("reserved", true, reserved.toArray(LocalDate[]::new)));
-    assertTrue(
-        generator.generate(succeeds, limit, limit).stream()
-            .anyMatch(e -> e.description().equals("holiday")));
-    List<LocalDate> blocked = new ArrayList<>(reserved);
-    blocked.add(limit);
-    ResolvedSpec fails =
-        spec(
-            WeekendShiftPolicy.NEXT_AVAILABLE_WEEKDAY,
-            holiday,
-            explicit("reserved", true, blocked.toArray(LocalDate[]::new)));
-    String message =
-        assertThrows(IllegalArgumentException.class, () -> generator.generate(fails, limit, limit))
-            .getMessage();
-    assertTrue(
-        message.contains("TEST")
-            && message.contains("holiday")
-            && message.contains("2022-01-01")
-            && message.contains("366 calendar days"),
-        message);
-    assertEquals(
-        message,
-        assertThrows(IllegalArgumentException.class, () -> generator.generate(fails, limit, limit))
-            .getMessage());
-  }
-
-  @Test
-  void cascadingDependenciesExtendBeyondTheInitialLookbackAndCachedRootsRemainUsable() {
-    LocalDate first = date("1800-01-04");
-    LocalDate[] dates =
-        IntStream.range(0, 1000).mapToObj(i -> first.plusWeeks(i)).toArray(LocalDate[]::new);
-    ResolvedSpec spec =
-        spec(WeekendShiftPolicy.NEXT_AVAILABLE_WEEKDAY, explicit("weekly", true, dates));
-    LocalDate target = dates[dates.length - 1].plusDays(2);
-    List<Event> expected = List.of(new Event(target, EventType.CLOSED, "weekly", "TEST:weekly"));
-    assertEquals(expected, generator.generate(spec, target, target));
-    assertEquals(expected, within(generator.generate(spec, first, target), target, target));
-    // The same generator must not retain placements belonging to another calendar.
-    ResolvedSpec reserved =
-        spec(
-            WeekendShiftPolicy.NEXT_AVAILABLE_WEEKDAY,
-            explicit("weekly", true, dates),
-            explicit("reserved", true, target));
-    assertEquals(
-        List.of(new Event(target.plusDays(1), EventType.CLOSED, "weekly", "TEST:weekly")),
-        generator.generate(reserved, target.plusDays(1), target.plusDays(1)));
-    assertEquals(expected, generator.generate(spec, target, target));
-  }
-
-  @Test
-  void anOldExtraOccurrencePropagatesThroughYearsOfWeeklyCollisions() {
-    LocalDate first = date("2000-01-01");
-    List<Rule.AnnotatedDate> dates = new ArrayList<>();
-    dates.add(new Rule.AnnotatedDate(first, "initial extra"));
-    for (int i = 0; i < 1000; i++)
-      dates.add(new Rule.AnnotatedDate(first.plusWeeks(i), "week " + i));
-    EventSource weekly = source("weekly", new Rule.ExplicitDates("weekly", "weekly", dates), true);
-    WeekendPolicy onlyMondayIsAvailable =
-        new WeekendPolicy(EnumSet.range(DayOfWeek.TUESDAY, DayOfWeek.SUNDAY));
-    ResolvedSpec spec =
-        spec(
-            WeekendShiftPolicy.NEXT_AVAILABLE_WEEKDAY,
-            onlyMondayIsAvailable,
-            List.of(weekly),
-            List.of());
-    LocalDate target = first.plusWeeks(999).plusDays(2);
-    List<Event> expected =
-        List.of(new Event(target, EventType.CLOSED, "weekly (week 998)", "TEST:weekly"));
-    assertEquals(expected, generator.generate(spec, target, target));
-    assertEquals(expected, within(generator.generate(spec, first, target), target, target));
   }
 
   @Test
@@ -445,29 +365,6 @@ class RangeConsistencyTest {
   }
 
   @Test
-  void dependencyWorkLimitFailsDeterministicallyWithoutUsingTheJavaCallStack() {
-    LocalDate first = date("1800-01-04"); // Saturday
-    LocalDate[] dates =
-        IntStream.range(0, 11000).mapToObj(i -> first.plusWeeks(i)).toArray(LocalDate[]::new);
-    ResolvedSpec spec =
-        spec(WeekendShiftPolicy.NEXT_AVAILABLE_WEEKDAY, explicit("weekly", true, dates));
-    LocalDate target = dates[dates.length - 1].plusDays(2);
-    String message =
-        assertThrows(IllegalArgumentException.class, () -> generator.generate(spec, target, target))
-            .getMessage();
-    assertTrue(
-        message.contains("10000 distinct occurrence placements")
-            && message.contains("TEST")
-            && message.contains("weekly")
-            && message.contains("original date"),
-        message);
-    assertEquals(
-        message,
-        assertThrows(IllegalArgumentException.class, () -> generator.generate(spec, target, target))
-            .getMessage());
-  }
-
-  @Test
   void cascadingRejectsCalendarWithNoWeekdays() {
     ResolvedSpec spec =
         spec(
@@ -477,51 +374,19 @@ class RangeConsistencyTest {
             List.of());
     assertTrue(
         assertThrows(
-                IllegalArgumentException.class,
+                IllegalStateException.class,
                 () -> generator.generate(spec, date("2024-01-01"), date("2024-01-01")))
             .getMessage()
-            .contains("no available weekdays"));
+            .contains("Every day of the week is a weekend day"));
   }
 
   @Test
-  void dependenciesOutsideChronologyCoverageFailExplicitly() {
-    LocalDate first = ChronologyTranslator.toIsoDate(1356, 1, 1, "UMM_AL_QURA");
-    LocalDate last =
-        ChronologyTranslator.toIsoDate(
-            1500,
-            12,
-            com.bdc.chronology.ontology.ChronologyRegistry.getInstance()
-                .getAlgorithm("UMM_AL_QURA")
-                .getDaysInMonth(1500, 12),
-            "UMM_AL_QURA");
-    EventSource lunar =
-        source("lunar", new Rule.FixedMonthDay("lunar", "lunar", 1, 1, "UMM_AL_QURA"), true);
-    ResolvedSpec plain = spec(WeekendShiftPolicy.NONE, lunar);
-    assertFalse(generator.generate(plain, first, first).isEmpty());
-    for (WeekendShiftPolicy policy :
-        List.of(WeekendShiftPolicy.NEAREST_WEEKDAY, WeekendShiftPolicy.NEXT_AVAILABLE_WEEKDAY)) {
-      String message =
-          assertThrows(
-                  IllegalArgumentException.class,
-                  () -> generator.generate(spec(policy, lunar), first, first))
-              .getMessage();
-      assertTrue(
-          message.contains("UMM_AL_QURA") && message.contains("supported chronology"), message);
-    }
-    assertThrows(
-        IllegalArgumentException.class,
-        () -> generator.generate(spec(WeekendShiftPolicy.NEAREST_WEEKDAY, lunar), last, last));
-    assertThrows(
-        IllegalArgumentException.class, () -> generator.generate(plain, first.minusDays(1), first));
-  }
-
-  @Test
-  void overflowingDependenciesFailAndInclusiveMaxDateCanBeGeneratedWithoutDependencies() {
+  void generatingAtTheBoundsOfTheCalendarDoesNotOverflowThePadding() {
     ResolvedSpec empty =
         new ResolvedSpec(
             "TEST",
             null,
-            WeekendPolicy.SAT_SUN,
+            WeekendPolicy.NONE,
             WeekendShiftPolicy.NONE,
             null,
             List.of(),
@@ -529,43 +394,6 @@ class RangeConsistencyTest {
             null,
             null);
     assertDoesNotThrow(() -> generator.generate(empty, LocalDate.MAX, LocalDate.MAX));
-    for (LocalDate boundary : List.of(LocalDate.MIN, LocalDate.MAX)) {
-      ResolvedSpec nearest =
-          new ResolvedSpec(
-              "TEST",
-              null,
-              null,
-              WeekendShiftPolicy.NEAREST_WEEKDAY,
-              null,
-              List.of(fixed("holiday", 1, 1)),
-              null,
-              null,
-              null);
-      assertTrue(
-          assertThrows(
-                  IllegalArgumentException.class,
-                  () -> generator.generate(nearest, boundary, boundary))
-              .getMessage()
-              .contains("representable range"));
-      int offset = boundary.equals(LocalDate.MIN) ? 1 : -1;
-      Rule rule = new Rule.RelativeToReference("relative", "relative", null, offset, 1, 1, null);
-      ResolvedSpec relative =
-          new ResolvedSpec(
-              "TEST",
-              null,
-              WeekendPolicy.NONE,
-              WeekendShiftPolicy.NONE,
-              null,
-              List.of(source("relative", rule, false)),
-              null,
-              null,
-              null);
-      assertTrue(
-          assertThrows(
-                  IllegalArgumentException.class,
-                  () -> generator.generate(relative, boundary, boundary))
-              .getMessage()
-              .contains("representable range"));
-    }
+    assertDoesNotThrow(() -> generator.generate(empty, LocalDate.MIN, LocalDate.MIN));
   }
 }

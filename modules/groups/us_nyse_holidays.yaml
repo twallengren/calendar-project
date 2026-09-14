@@ -1,6 +1,9 @@
 kind: module
 id: us_nyse_holidays
 
+# Everything the New York Stock Exchange closes or closes early for: the shared US market
+# holidays, NYSE-specific holidays, early closes, and one-off historical closings.
+
 uses:
   - us_market_base
   - mlk_day
@@ -9,4 +12,7 @@ uses:
   - juneteenth
   - day_after_thanksgiving
   - christmas_eve
-  - us_historical_closures  # One-off historical closures (9/11, funerals, etc.)
+  - independence_day_eve
+  - us_historical_closures       # One-off closings shared by US markets (9/11, funerals, weather)
+  - us_nyse_special_closings_pre1960
+  - us_nyse_historical_early_closes

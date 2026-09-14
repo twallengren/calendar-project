@@ -372,6 +372,12 @@ public class ChronologyCodeGenerator {
     sb.append("    return ID;\n");
     sb.append("  }\n\n");
 
+    // supportedYearRange - lookup tables only cover the years present in the table
+    sb.append("  @Override\n");
+    sb.append("  public java.util.Optional<int[]> supportedYearRange() {\n");
+    sb.append("    return java.util.Optional.of(new int[] {MIN_YEAR, MAX_YEAR});\n");
+    sb.append("  }\n\n");
+
     // isLeapYear - for Hijri, a leap year has 355 days (vs 354)
     sb.append("  @Override\n");
     sb.append("  public boolean isLeapYear(int year) {\n");

@@ -1,0 +1,117 @@
+date,type,description,key,source_module,observed_from,close_time,status
+2028-01-01,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2028-01-02,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2028-01-03,CLOSED,New Year's Day,uk_new_years_day,module:uk_new_years_day,2028-01-01,,CONFIRMED
+2028-01-08,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2028-01-09,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2028-01-15,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2028-01-16,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2028-01-22,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2028-01-23,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2028-01-29,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2028-01-30,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2028-02-05,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2028-02-06,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2028-02-12,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2028-02-13,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2028-02-19,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2028-02-20,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2028-02-26,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2028-02-27,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2028-03-04,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2028-03-05,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2028-03-11,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2028-03-12,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2028-03-18,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2028-03-19,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2028-03-25,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2028-03-26,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2028-04-01,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2028-04-02,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2028-04-08,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2028-04-09,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2028-04-14,CLOSED,Good Friday,good_friday,module:uk_good_friday,,,CONFIRMED
+2028-04-15,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2028-04-16,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2028-04-17,CLOSED,Easter Monday,easter_monday,module:uk_easter_monday,,,CONFIRMED
+2028-04-22,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2028-04-23,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2028-04-29,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2028-04-30,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2028-05-01,CLOSED,Early May Bank Holiday,uk_early_may_bank_holiday,module:uk_early_may_bank_holiday,,,CONFIRMED
+2028-05-06,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2028-05-07,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2028-05-13,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2028-05-14,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2028-05-20,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2028-05-21,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2028-05-27,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2028-05-28,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2028-05-29,CLOSED,Spring Bank Holiday,uk_spring_bank_holiday,module:uk_spring_bank_holiday,,,CONFIRMED
+2028-06-03,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2028-06-04,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2028-06-10,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2028-06-11,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2028-06-17,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2028-06-18,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2028-06-24,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2028-06-25,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2028-07-01,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2028-07-02,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2028-07-08,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2028-07-09,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2028-07-15,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2028-07-16,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2028-07-22,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2028-07-23,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2028-07-29,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2028-07-30,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2028-08-05,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2028-08-06,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2028-08-12,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2028-08-13,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2028-08-19,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2028-08-20,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2028-08-26,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2028-08-27,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2028-08-28,CLOSED,Summer Bank Holiday,uk_summer_bank_holiday,module:uk_summer_bank_holiday,,,CONFIRMED
+2028-09-02,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2028-09-03,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2028-09-09,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2028-09-10,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2028-09-16,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2028-09-17,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2028-09-23,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2028-09-24,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2028-09-30,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2028-10-01,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2028-10-07,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2028-10-08,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2028-10-14,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2028-10-15,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2028-10-21,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2028-10-22,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2028-10-28,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2028-10-29,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2028-11-04,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2028-11-05,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2028-11-11,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2028-11-12,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2028-11-18,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2028-11-19,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2028-11-25,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2028-11-26,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2028-12-02,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2028-12-03,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2028-12-09,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2028-12-10,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2028-12-16,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2028-12-17,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2028-12-22,EARLY_CLOSE,Christmas Eve (Early Close),gb_lse_christmas_eve_early_close,module:gb_lse_early_closes,2028-12-24,12:30,CONFIRMED
+2028-12-23,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2028-12-24,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2028-12-25,CLOSED,Christmas Day,uk_christmas_day,module:uk_christmas_day,,,CONFIRMED
+2028-12-26,CLOSED,Boxing Day,uk_boxing_day,module:uk_boxing_day,,,CONFIRMED
+2028-12-29,EARLY_CLOSE,New Year's Eve (Early Close),gb_lse_new_years_eve_early_close,module:gb_lse_early_closes,2028-12-31,12:30,CONFIRMED
+2028-12-30,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2028-12-31,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED

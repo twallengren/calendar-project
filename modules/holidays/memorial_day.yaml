@@ -1,6 +1,10 @@
 kind: module
 id: memorial_day
 
+source:
+  - id: nyse-history-2008
+    ref: "Decoration/Memorial Day: observed on Mondays since 1971"
+
 event_sources:
   - key: memorial_day
     name: Memorial Day

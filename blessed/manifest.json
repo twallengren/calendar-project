@@ -4,33 +4,123 @@
   "blessed_by": "github-actions",
   "calendars": {
     "US-MARKET-BASE": {
+      "kind": "base",
       "range_start": "1900-01-01",
       "range_end": "2030-12-31",
-      "event_count": 14502,
-      "checksum": "sha256:4af9d43ef4c49acb80ba3833be1e4b4c188fdd37db3fa53b96f9200f075b3fcd"
+      "event_count": 14608,
+      "checksum": "sha256:65c615ae26d7226e020992eae8bcce81303e243f17a961bdf43188252f3ac285"
     },
     "US-NYSE": {
+      "kind": "market",
       "range_start": "1900-01-01",
       "range_end": "2030-12-31",
-      "event_count": 15394,
-      "checksum": "sha256:250f4f74b9ca8af8f11f0f8287a141497ce3489b48c35cf6eccb71dcf2a625e6"
+      "event_count": 12836,
+      "checksum": "sha256:1c9c599763a4a964592dcce6dbca29b940a02ece883fd4937dcdf408199e5763"
     },
     "US-CORP-IN-VISIBILITY": {
+      "kind": "base",
       "range_start": "1900-01-01",
       "range_end": "2030-12-31",
-      "event_count": 14507,
-      "checksum": "sha256:c544b57cd781077abbb5cd6af390eaf86aa475514ebfd995027f9a91f9d9464a"
+      "event_count": 14615,
+      "checksum": "sha256:8aabf506cf8db5a01a72b37c72e08050c6bc9989454a26f8fec1fd272392c7e4"
     },
     "SA-TADAWUL": {
+      "kind": "market",
       "range_start": "2020-01-01",
       "range_end": "2030-12-31",
-      "event_count": 1255,
-      "checksum": "sha256:760aa7c94acd65266d3caf48774c95cad8528ce575c5cfb5b672931206552ab4"
+      "event_count": 1271,
+      "checksum": "sha256:7abe60d0b866382dae15d4ab78bab9286fdceb737781776c08abcf3972a4bbe1"
+    },
+    "GB-LSE": {
+      "range_start": "2000-01-01",
+      "range_end": "2030-12-31",
+      "event_count": 3552,
+      "checksum": "sha256:307f5d8fa3df7d3028acb3d3138f2b8d65cf41fa692769914e1b350d3b70ec0e",
+      "kind": "market"
+    },
+    "DE-XETRA": {
+      "range_start": "2003-01-01",
+      "range_end": "2030-12-31",
+      "event_count": 3112,
+      "checksum": "sha256:7cb017d87e960494675fdc1caaff4363a8f05c96301331781dc94ad38f777677",
+      "kind": "market"
+    },
+    "CA-TSX": {
+      "range_start": "2000-01-01",
+      "range_end": "2030-12-31",
+      "event_count": 3546,
+      "checksum": "sha256:e3990abc8d46393df7fd25ed647770bff025f0dc03034d88792aed52592b00c4",
+      "kind": "market"
+    },
+    "EU-EURONEXT": {
+      "kind": "base",
+      "range_start": "2010-01-01",
+      "range_end": "2030-12-31",
+      "event_count": 2295,
+      "checksum": "sha256:7e0f74b19585a15a6bc7f9feea841c734af5169779c987776a2d3db3f1200ac3"
+    },
+    "FR-EURONEXT-PARIS": {
+      "kind": "market",
+      "range_start": "2010-01-01",
+      "range_end": "2030-12-31",
+      "event_count": 2324,
+      "checksum": "sha256:2911e892195b38a6e9b53785ee42e6edcea6d5b11915ef44ef0f42684d8ec79d"
+    },
+    "NL-EURONEXT-AMSTERDAM": {
+      "kind": "market",
+      "range_start": "2010-01-01",
+      "range_end": "2030-12-31",
+      "event_count": 2324,
+      "checksum": "sha256:2911e892195b38a6e9b53785ee42e6edcea6d5b11915ef44ef0f42684d8ec79d"
+    },
+    "BE-EURONEXT-BRUSSELS": {
+      "kind": "market",
+      "range_start": "2010-01-01",
+      "range_end": "2030-12-31",
+      "event_count": 2324,
+      "checksum": "sha256:2911e892195b38a6e9b53785ee42e6edcea6d5b11915ef44ef0f42684d8ec79d"
+    },
+    "PT-EURONEXT-LISBON": {
+      "kind": "market",
+      "range_start": "2010-01-01",
+      "range_end": "2030-12-31",
+      "event_count": 2324,
+      "checksum": "sha256:5f1f1df0a89a74e2108aa4c765f35bfde3a3b6c6d2510ad2935b4af49a65d2dc"
+    },
+    "JP-JPX": {
+      "range_start": "2010-01-01",
+      "range_end": "2030-12-31",
+      "event_count": 2535,
+      "checksum": "sha256:ee9a4d5d130a9576191305125565b68ea8fc85e8aa51153b31d1705b1a18c8ad",
+      "kind": "market"
+    },
+    "HK-HKEX": {
+      "range_start": "2018-01-01",
+      "range_end": "2027-12-31",
+      "event_count": 1208,
+      "checksum": "sha256:f5691051cb8b3d9c599423961872296fa85d53ff72d9b355f2f2f273cb085f0a",
+      "kind": "market"
     }
   },
   "release_version": {
     "semantic": "11.0.0",
     "git_sha": "3765bcb10d3ebcb7cfc338bcebf94505af25ec1e",
     "generation_date": "2026-02-16"
+  },
+  "aliases": {
+    "XAMS": "NL-EURONEXT-AMSTERDAM",
+    "XBRU": "BE-EURONEXT-BRUSSELS",
+    "XETR": "DE-XETRA",
+    "XHKG": "HK-HKEX",
+    "XLIS": "PT-EURONEXT-LISBON",
+    "XLON": "GB-LSE",
+    "XNYS": "US-NYSE",
+    "XPAR": "FR-EURONEXT-PARIS",
+    "XSAU": "SA-TADAWUL",
+    "XTKS": "JP-JPX",
+    "XTSE": "CA-TSX",
+    "NYSE": "US-NYSE",
+    "TADAWUL": "SA-TADAWUL",
+    "XJPX": "JP-JPX"
   }
 }

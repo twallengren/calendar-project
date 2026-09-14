@@ -1,14 +1,24 @@
 {
   "calendar_id" : "US-MARKET-BASE",
   "calendar_name" : "US Market Base Calendar",
-  "generated_at" : "2026-02-16T21:43:20.764615529Z",
+  "kind" : "base",
+  "generated_at" : "2026-02-16T21:43:21Z",
   "range_start" : "1900-01-01",
   "range_end" : "2030-12-31",
-  "event_count" : 14502,
+  "timezone" : "America/New_York",
+  "coverage" : {
+    "from" : "1900-01-01",
+    "to" : "2030-12-31",
+    "verified_through" : "2026-12-31"
+  },
+  "event_count" : 14608,
   "resolution_chain" : [ "module:weekend_sat_sun", "module:new_years_day", "module:memorial_day", "module:independence_day", "module:labor_day", "module:thanksgiving", "module:christmas", "module:decoration_day", "module:washingtons_birthday", "module:lincolns_birthday", "module:flag_day", "module:armistice_veterans_day", "module:columbus_day", "module:us_market_base", "calendar:US-MARKET-BASE" ],
   "counts_by_type" : {
-    "CLOSED" : 1030,
-    "WEEKEND" : 13472
+    "CLOSED" : 938,
+    "WEEKEND" : 13670
+  },
+  "counts_by_status" : {
+    "CONFIRMED" : 14608
   },
   "source_version" : {
     "semantic" : "11.0.0",

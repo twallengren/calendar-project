@@ -1,0 +1,40 @@
+kind: module
+id: de_xetra_whit_monday
+
+# Whit Monday / Pfingstmontag (Monday after Pentecost, Easter + 50 days). Unlike the other
+# German public holidays, Xetra's observance of Whit Monday is an annual, exchange-discretionary
+# decision rather than a standing rule: reading every trading calendar Deutsche Börse has
+# published from 2003 through 2026 (sources/DE-XETRA/README.md) shows it is a listed non-trading
+# ("settlement") day only in 2007 and 2015-2021 inclusive; it is an ordinary trading day in
+# 2003-2006, 2008-2014, and every year from 2022 onward. Because there is no computable pattern,
+# this is modelled as an explicit list of the confirmed closure dates rather than a
+# relative_to_reference rule with active_years - and nothing is projected for years after 2021,
+# since the most recent sourced years (2022 onward) show Xetra trading through Whit Monday.
+# Always shift_policy: NONE (Whit Monday is always a Monday, so this never matters in practice).
+
+source:
+  - id: xetra-trading-calendar-2007
+    ref: "exceptions sentence: 28 May (only 2003-2013 occurrence)"
+  - id: xetra-trading-calendar-2015
+    ref: "exceptions sentence: 25 May (settlement day); first year of the 2015-2021 run"
+  - id: xetra-trading-calendar-2021
+    ref: "exceptions sentence: 24 May (settlement day); last confirmed occurrence"
+  - id: xetra-trading-calendar-2022
+    ref: "exceptions sentence omits 6 June (a Monday); confirms no closure from 2022"
+
+event_sources:
+  - key: de_xetra_whit_monday
+    name: Whit Monday
+    default_classification: CLOSED
+    shift_policy: NONE
+    rule:
+      type: explicit_dates
+      dates:
+        - 2007-05-28
+        - 2015-05-25
+        - 2016-05-16
+        - 2017-06-05
+        - 2018-05-21
+        - 2019-06-10
+        - 2020-06-01
+        - 2021-05-24

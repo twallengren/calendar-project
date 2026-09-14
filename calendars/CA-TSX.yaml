@@ -1,0 +1,27 @@
+kind: calendar
+id: CA-TSX
+
+metadata:
+  name: Toronto Stock Exchange
+  description: Toronto Stock Exchange (TSX, MIC XTSE) trading calendar
+  chronology: ISO
+  timezone: America/Toronto
+  mic: XTSE
+  coverage:
+    from: 2000-01-01
+    to: 2030-12-31
+    verified_through: 2026-12-31
+
+# UK/Canadian-style cascading observance: a holiday on a weekend moves to the next
+# available weekday (see sources/CA-TSX/README.md, tmx-holiday-schedule-2021).
+weekend_shift_policy: NEXT_AVAILABLE_WEEKDAY
+
+uses:
+  - weekend_sat_sun
+  - ca_tsx_holidays
+
+# Christmas/Boxing Day ordering when Christmas Day falls on a Sunday is expressed on the
+# ca_christmas event source itself (`displaces: [ca_boxing_day]`, see modules/holidays/
+# ca_christmas.yaml and spec/SPEC.md "Observance priority"): Christmas takes the Monday
+# "in lieu of Christmas Day" and Boxing Day re-cascades to the Tuesday. Nothing needs
+# correcting at the calendar level any more.

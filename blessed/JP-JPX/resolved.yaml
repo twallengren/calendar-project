@@ -1,0 +1,495 @@
+kind: resolved_calendar
+id: JP-JPX
+metadata:
+  name: Japan Exchange Group (Tokyo Stock Exchange)
+  description: "Tokyo Stock Exchange cash equity market trading calendar (MIC XTKS),\
+    \ operated by Japan Exchange Group. Closed on Saturdays, Sundays, Japanese national\
+    \ holidays, and JPX's own year-end and New Year market holidays (December 31 and\
+    \ January 2-3)."
+  chronology: ISO
+  timezone: Asia/Tokyo
+  mic: XTKS
+  aliases:
+  - XJPX
+  coverage:
+    from: 2010-01-01
+    to: 2030-12-31
+    verified_through: 2027-12-31
+weekend_policy:
+  days:
+  - SATURDAY
+  - SUNDAY
+weekend_shift_policy: NEXT_AVAILABLE_FROM_LAST_WEEKEND_DAY
+resolution_chain:
+- module:weekend_sat_sun
+- module:jp_new_years_day
+- module:jp_coming_of_age_day
+- module:jp_national_foundation_day
+- module:jp_emperors_birthday
+- module:jp_vernal_equinox_day
+- module:jp_showa_day
+- module:jp_constitution_memorial_day
+- module:jp_greenery_day
+- module:jp_childrens_day
+- module:jp_marine_day
+- module:jp_mountain_day
+- module:jp_respect_for_the_aged_day
+- module:jp_autumnal_equinox_day
+- module:jp_sports_day
+- module:jp_culture_day
+- module:jp_labour_thanksgiving_day
+- module:jp_citizens_holidays
+- module:jp_imperial_transition_2019
+- module:jp_jpx_market_holidays
+- module:jp_jpx_special_closures
+- module:jp_jpx_holidays
+- calendar:JP-JPX
+references:
+- key: vernal_equinox
+  formula: EQUINOX_VERNAL_JP
+- key: autumnal_equinox
+  formula: EQUINOX_AUTUMNAL_JP
+event_sources:
+- key: jp_new_years_day
+  name: New Year's Day
+  origin: module:jp_new_years_day
+  classification: CLOSED
+  shift_policy: NONE
+  only_if_weekday:
+  - MONDAY
+  - TUESDAY
+  - WEDNESDAY
+  - THURSDAY
+  - FRIDAY
+  status: CONFIRMED
+  source:
+  - id: cao-shukujitsu-gaiyou
+    ref: 第2条 元日 1月1日
+  rule:
+    type: fixed_month_day
+    month: 1
+    day: 1
+- key: jp_coming_of_age_day
+  name: Coming of Age Day
+  origin: module:jp_coming_of_age_day
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: cao-shukujitsu-gaiyou
+    ref: 第2条 成人の日 1月の第2月曜日
+  rule:
+    type: nth_weekday_of_month
+    month: 1
+    weekday: MONDAY
+    nth: 2
+- key: jp_national_foundation_day
+  name: National Foundation Day
+  origin: module:jp_national_foundation_day
+  classification: CLOSED
+  shiftable: true
+  status: CONFIRMED
+  source:
+  - id: cao-shukujitsu-gaiyou
+    ref: "建国記念の日となる日を定める政令: 2月11日"
+  rule:
+    type: fixed_month_day
+    month: 2
+    day: 11
+- key: jp_emperors_birthday_akihito
+  name: Emperor's Birthday
+  origin: module:jp_emperors_birthday
+  classification: CLOSED
+  shiftable: true
+  status: CONFIRMED
+  active_years:
+  - - null
+    - 2018
+  source:
+  - id: cao-shukujitsu
+    ref: "天皇誕生日 rows, 2010-2027"
+  rule:
+    type: fixed_month_day
+    month: 12
+    day: 23
+- key: jp_emperors_birthday
+  name: Emperor's Birthday
+  origin: module:jp_emperors_birthday
+  classification: CLOSED
+  shiftable: true
+  status: CONFIRMED
+  active_years:
+  - - 2020
+    - null
+  source:
+  - id: cao-shukujitsu
+    ref: "天皇誕生日 rows, 2010-2027"
+  rule:
+    type: fixed_month_day
+    month: 2
+    day: 23
+- key: jp_vernal_equinox_day
+  name: Vernal Equinox Day
+  origin: module:jp_vernal_equinox_day
+  classification: CLOSED
+  shift_policy: NEXT_AVAILABLE_FROM_LAST_WEEKEND_DAY
+  status: CONFIRMED
+  active_years:
+  - - null
+    - 2027
+  source:
+  - id: cao-shukujitsu
+    ref: "春分の日 rows, 2010-2027"
+  rule:
+    type: relative_to_reference
+    reference: vernal_equinox
+    offset_days: 0
+- key: jp_vernal_equinox_day_projected
+  name: Vernal Equinox Day
+  origin: module:jp_vernal_equinox_day
+  classification: CLOSED
+  shift_policy: NEXT_AVAILABLE_FROM_LAST_WEEKEND_DAY
+  status: PROJECTED
+  active_years:
+  - - 2028
+    - null
+  source:
+  - id: cao-shukujitsu-gaiyou
+    ref: 「春分の日」及び「秋分の日」について - date fixed annually by the National Astronomical Observatory
+  rule:
+    type: relative_to_reference
+    reference: vernal_equinox
+    offset_days: 0
+- key: jp_showa_day
+  name: Showa Day
+  origin: module:jp_showa_day
+  classification: CLOSED
+  shiftable: true
+  status: CONFIRMED
+  source:
+  - id: cao-shukujitsu-gaiyou
+    ref: 第2条 昭和の日 4月29日
+  rule:
+    type: fixed_month_day
+    month: 4
+    day: 29
+- key: jp_constitution_memorial_day
+  name: Constitution Memorial Day
+  origin: module:jp_constitution_memorial_day
+  classification: CLOSED
+  shiftable: true
+  status: CONFIRMED
+  source:
+  - id: cao-shukujitsu-gaiyou
+    ref: 第2条 憲法記念日 5月3日
+  rule:
+    type: fixed_month_day
+    month: 5
+    day: 3
+- key: jp_greenery_day
+  name: Greenery Day
+  origin: module:jp_greenery_day
+  classification: CLOSED
+  shiftable: true
+  status: CONFIRMED
+  source:
+  - id: cao-shukujitsu-gaiyou
+    ref: 第2条 みどりの日 5月4日
+  rule:
+    type: fixed_month_day
+    month: 5
+    day: 4
+- key: jp_childrens_day
+  name: Children's Day
+  origin: module:jp_childrens_day
+  classification: CLOSED
+  shiftable: true
+  status: CONFIRMED
+  source:
+  - id: cao-shukujitsu-gaiyou
+    ref: 第2条 こどもの日 5月5日
+  rule:
+    type: fixed_month_day
+    month: 5
+    day: 5
+- key: jp_marine_day
+  name: Marine Day
+  origin: module:jp_marine_day
+  classification: CLOSED
+  status: CONFIRMED
+  active_years:
+  - - null
+    - 2019
+  - - 2022
+    - null
+  source:
+  - id: cao-shukujitsu-gaiyou
+    ref: 第2条 海の日 7月の第3月曜日
+  rule:
+    type: nth_weekday_of_month
+    month: 7
+    weekday: MONDAY
+    nth: 3
+- key: jp_marine_day_olympic
+  name: Marine Day
+  origin: module:jp_marine_day
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: cao-shukujitsu-gaiyou
+    ref: "令和2年及び3年における「国民の祝日」の移動について: 海の日 2020-07-23, 2021-07-22"
+  rule:
+    type: explicit_dates
+    dates:
+    - date: 2020-07-23
+      comment: Tokyo Olympics
+    - date: 2021-07-22
+      comment: Tokyo Olympics
+- key: jp_mountain_day
+  name: Mountain Day
+  origin: module:jp_mountain_day
+  classification: CLOSED
+  shiftable: true
+  status: CONFIRMED
+  active_years:
+  - - 2016
+    - 2019
+  - - 2022
+    - null
+  source:
+  - id: cao-shukujitsu-gaiyou
+    ref: 第2条 山の日 8月11日
+  rule:
+    type: fixed_month_day
+    month: 8
+    day: 11
+- key: jp_mountain_day_olympic
+  name: Mountain Day
+  origin: module:jp_mountain_day
+  classification: CLOSED
+  shift_policy: NEXT_AVAILABLE_FROM_LAST_WEEKEND_DAY
+  status: CONFIRMED
+  source:
+  - id: cao-shukujitsu-gaiyou
+    ref: "令和2年及び3年における「国民の祝日」の移動について: 山の日 2020-08-10, 2021-08-08 (8月9日は休日)"
+  rule:
+    type: explicit_dates
+    dates:
+    - date: 2020-08-10
+      comment: Tokyo Olympics
+    - date: 2021-08-08
+      comment: Tokyo Olympics
+- key: jp_respect_for_the_aged_day
+  name: Respect for the Aged Day
+  origin: module:jp_respect_for_the_aged_day
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: cao-shukujitsu-gaiyou
+    ref: 第2条 敬老の日 9月の第3月曜日
+  rule:
+    type: nth_weekday_of_month
+    month: 9
+    weekday: MONDAY
+    nth: 3
+- key: jp_autumnal_equinox_day
+  name: Autumnal Equinox Day
+  origin: module:jp_autumnal_equinox_day
+  classification: CLOSED
+  shift_policy: NEXT_AVAILABLE_FROM_LAST_WEEKEND_DAY
+  status: CONFIRMED
+  active_years:
+  - - null
+    - 2027
+  source:
+  - id: cao-shukujitsu
+    ref: "秋分の日 rows, 2010-2027"
+  rule:
+    type: relative_to_reference
+    reference: autumnal_equinox
+    offset_days: 0
+- key: jp_autumnal_equinox_day_projected
+  name: Autumnal Equinox Day
+  origin: module:jp_autumnal_equinox_day
+  classification: CLOSED
+  shift_policy: NEXT_AVAILABLE_FROM_LAST_WEEKEND_DAY
+  status: PROJECTED
+  active_years:
+  - - 2028
+    - null
+  source:
+  - id: cao-shukujitsu-gaiyou
+    ref: 「春分の日」及び「秋分の日」について - date fixed annually by the National Astronomical Observatory
+  rule:
+    type: relative_to_reference
+    reference: autumnal_equinox
+    offset_days: 0
+- key: jp_health_and_sports_day
+  name: Health and Sports Day
+  origin: module:jp_sports_day
+  classification: CLOSED
+  status: CONFIRMED
+  active_years:
+  - - null
+    - 2019
+  source:
+  - id: cao-shukujitsu-gaiyou
+    ref: 第2条 スポーツの日 10月の第2月曜日
+  rule:
+    type: nth_weekday_of_month
+    month: 10
+    weekday: MONDAY
+    nth: 2
+- key: jp_sports_day
+  name: Sports Day
+  origin: module:jp_sports_day
+  classification: CLOSED
+  status: CONFIRMED
+  active_years:
+  - - 2022
+    - null
+  source:
+  - id: cao-shukujitsu-gaiyou
+    ref: 第2条 スポーツの日 10月の第2月曜日
+  rule:
+    type: nth_weekday_of_month
+    month: 10
+    weekday: MONDAY
+    nth: 2
+- key: jp_sports_day_olympic
+  name: Sports Day
+  origin: module:jp_sports_day
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: cao-shukujitsu-gaiyou
+    ref: "令和2年及び3年における「国民の祝日」の移動について: スポーツの日 2020-07-24, 2021-07-23"
+  rule:
+    type: explicit_dates
+    dates:
+    - date: 2020-07-24
+      comment: Tokyo Olympics
+    - date: 2021-07-23
+      comment: Tokyo Olympics
+- key: jp_culture_day
+  name: Culture Day
+  origin: module:jp_culture_day
+  classification: CLOSED
+  shiftable: true
+  status: CONFIRMED
+  source:
+  - id: cao-shukujitsu-gaiyou
+    ref: 第2条 文化の日 11月3日
+  rule:
+    type: fixed_month_day
+    month: 11
+    day: 3
+- key: jp_labour_thanksgiving_day
+  name: Labor Thanksgiving Day
+  origin: module:jp_labour_thanksgiving_day
+  classification: CLOSED
+  shiftable: true
+  status: CONFIRMED
+  source:
+  - id: cao-shukujitsu-gaiyou
+    ref: 第2条 勤労感謝の日 11月23日
+  rule:
+    type: fixed_month_day
+    month: 11
+    day: 23
+- key: jp_citizens_holiday
+  name: Citizens' Holiday
+  origin: module:jp_citizens_holidays
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: cao-shukujitsu
+    ref: "休日 rows for 2015-09-22, 2019-04-30, 2019-05-02, 2026-09-22"
+  rule:
+    type: explicit_dates
+    dates:
+    - date: 2015-09-22
+      comment: between Respect for the Aged Day and Autumnal Equinox Day
+    - date: 2019-04-30
+      comment: between Showa Day and Accession Day
+    - date: 2019-05-02
+      comment: between Accession Day and Constitution Memorial Day
+    - date: 2026-09-22
+      comment: between Respect for the Aged Day and Autumnal Equinox Day
+- key: jp_accession_day_2019
+  name: Accession Day
+  origin: module:jp_imperial_transition_2019
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: cao-shukujitsu
+    ref: 休日（祝日扱い） rows for 2019-05-01 and 2019-10-22
+  rule:
+    type: explicit_dates
+    dates:
+    - date: 2019-05-01
+      comment: enthronement of Emperor Naruhito
+- key: jp_enthronement_ceremony_day_2019
+  name: Enthronement Ceremony Day
+  origin: module:jp_imperial_transition_2019
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: cao-shukujitsu
+    ref: 休日（祝日扱い） rows for 2019-05-01 and 2019-10-22
+  rule:
+    type: explicit_dates
+    dates:
+    - date: 2019-10-22
+      comment: Sokui-rei Seiden no Gi
+- key: jp_jpx_new_year_market_holiday
+  name: Market Holiday (New Year)
+  origin: module:jp_jpx_market_holidays
+  classification: CLOSED
+  shift_policy: NONE
+  only_if_weekday:
+  - MONDAY
+  - TUESDAY
+  - WEDNESDAY
+  - THURSDAY
+  - FRIDAY
+  status: CONFIRMED
+  source:
+  - id: jpx-market-holidays
+    ref: Jan. 2 / Jan. 3 / Dec. 31 "Market Holiday"
+  rule:
+    type: fixed_month_day
+    month: 1
+    day: 2
+    end_month: 1
+    end_day: 3
+- key: jp_jpx_year_end_market_holiday
+  name: Market Holiday (year end)
+  origin: module:jp_jpx_market_holidays
+  classification: CLOSED
+  shift_policy: NONE
+  only_if_weekday:
+  - MONDAY
+  - TUESDAY
+  - WEDNESDAY
+  - THURSDAY
+  - FRIDAY
+  status: CONFIRMED
+  source:
+  - id: jpx-market-holidays
+    ref: Jan. 2 / Jan. 3 / Dec. 31 "Market Holiday"
+  rule:
+    type: fixed_month_day
+    month: 12
+    day: 31
+- key: jp_tse_system_failure
+  name: Market Closure
+  origin: module:jp_jpx_special_closures
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: jpx-system-failure-2020
+  rule:
+    type: explicit_dates
+    dates:
+    - date: 2020-10-01
+      comment: arrowhead system failure

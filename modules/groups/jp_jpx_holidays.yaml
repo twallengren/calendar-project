@@ -1,0 +1,37 @@
+kind: module
+id: jp_jpx_holidays
+
+# Everything the Tokyo Stock Exchange cash equity market closes for: the sixteen 国民の祝日 of the
+# Act on National Holidays, the 休日 the Act derives from them (substitute holidays come from the
+# calendar's shift policy, citizens' holidays are enumerated), the one-off holidays of the 2019
+# imperial transition, JPX's own year-end and New Year market holidays, and unscheduled closures.
+#
+# Substitute holidays (振替休日) are not a module: they are produced by
+# weekend_shift_policy: NEXT_AVAILABLE_FROM_LAST_WEEKEND_DAY on calendars/JP-JPX.yaml.
+
+uses:
+  # 国民の祝日, in calendar order
+  - jp_new_years_day                 # Jan 1
+  - jp_coming_of_age_day             # 2nd Monday of January
+  - jp_national_foundation_day       # Feb 11
+  - jp_emperors_birthday             # Feb 23 (2020-), Dec 23 (-2018)
+  - jp_vernal_equinox_day            # 春分日
+  - jp_showa_day                     # Apr 29
+  - jp_constitution_memorial_day     # May 3
+  - jp_greenery_day                  # May 4
+  - jp_childrens_day                 # May 5
+  - jp_marine_day                    # 3rd Monday of July
+  - jp_mountain_day                  # Aug 11
+  - jp_respect_for_the_aged_day      # 3rd Monday of September
+  - jp_autumnal_equinox_day          # 秋分日
+  - jp_sports_day                    # 2nd Monday of October
+  - jp_culture_day                   # Nov 3
+  - jp_labour_thanksgiving_day       # Nov 23
+
+  # 休日 that are not 国民の祝日, and one-off holidays
+  - jp_citizens_holidays             # Art. 3(3), enumerated from the Cabinet Office list
+  - jp_imperial_transition_2019      # 2019-05-01 and 2019-10-22
+
+  # Exchange-specific
+  - jp_jpx_market_holidays           # Jan 2, Jan 3, Dec 31
+  - jp_jpx_special_closures          # 2020-10-01 arrowhead system failure

@@ -1,0 +1,22 @@
+kind: module
+id: euronext_good_friday
+
+# Good Friday on the Euronext cash markets. Listed as a closure for every venue in every
+# yearly Euronext calendar from 2010 through 2026.
+
+source:
+  - id: euronext-hours-holidays
+    ref: "Calendar of business days, yearly tables"
+
+references:
+  - key: easter
+    formula: EASTER_WESTERN
+
+event_sources:
+  - key: euronext_good_friday
+    name: Good Friday
+    default_classification: CLOSED
+    rule:
+      type: relative_to_reference
+      reference: easter
+      offset_days: -2

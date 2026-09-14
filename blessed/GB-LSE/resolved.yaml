@@ -1,0 +1,271 @@
+kind: resolved_calendar
+id: GB-LSE
+metadata:
+  name: London Stock Exchange
+  description: London Stock Exchange (LSE) trading calendar (MIC XLON)
+  chronology: ISO
+  timezone: Europe/London
+  mic: XLON
+  coverage:
+    from: 2000-01-01
+    to: 2030-12-31
+    verified_through: 2028-12-31
+weekend_policy:
+  days:
+  - SATURDAY
+  - SUNDAY
+weekend_shift_policy: NEXT_AVAILABLE_WEEKDAY
+resolution_chain:
+- module:weekend_sat_sun
+- module:uk_new_years_day
+- module:uk_good_friday
+- module:uk_easter_monday
+- module:uk_early_may_bank_holiday
+- module:uk_spring_bank_holiday
+- module:uk_jubilee_bank_holiday
+- module:uk_summer_bank_holiday
+- module:uk_christmas_day
+- module:uk_boxing_day
+- module:uk_one_off_bank_holidays
+- module:gb_lse_early_closes
+- module:gb_lse_holidays
+- calendar:GB-LSE
+references:
+- key: easter
+  formula: EASTER_WESTERN
+event_sources:
+- key: uk_new_years_day
+  name: New Year's Day
+  origin: module:uk_new_years_day
+  classification: CLOSED
+  shiftable: true
+  status: CONFIRMED
+  source:
+  - id: govuk-bank-holidays
+  rule:
+    type: fixed_month_day
+    month: 1
+    day: 1
+- key: good_friday
+  name: Good Friday
+  origin: module:uk_good_friday
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: govuk-bank-holidays
+  rule:
+    type: relative_to_reference
+    reference: easter
+    offset_days: -2
+- key: easter_monday
+  name: Easter Monday
+  origin: module:uk_easter_monday
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: govuk-bank-holidays
+  rule:
+    type: relative_to_reference
+    reference: easter
+    offset_days: 1
+- key: uk_early_may_bank_holiday
+  name: Early May Bank Holiday
+  origin: module:uk_early_may_bank_holiday
+  classification: CLOSED
+  status: CONFIRMED
+  active_years:
+  - - 2000
+    - 2019
+  - - 2021
+    - null
+  source:
+  - id: govuk-bank-holidays
+  rule:
+    type: nth_weekday_of_month
+    month: 5
+    weekday: MONDAY
+    nth: 1
+- key: uk_early_may_bank_holiday_moved
+  name: Early May Bank Holiday
+  origin: module:uk_early_may_bank_holiday
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: govuk-bank-holidays
+  rule:
+    type: explicit_dates
+    dates:
+    - date: 2020-05-08
+      comment: VE Day 75th anniversary
+- key: uk_spring_bank_holiday
+  name: Spring Bank Holiday
+  origin: module:uk_spring_bank_holiday
+  classification: CLOSED
+  status: CONFIRMED
+  active_years:
+  - - 2000
+    - 2001
+  - - 2003
+    - 2011
+  - - 2013
+    - 2021
+  - - 2023
+    - null
+  source:
+  - id: govuk-bank-holidays
+  rule:
+    type: nth_weekday_of_month
+    month: 5
+    weekday: MONDAY
+    nth: -1
+- key: uk_spring_bank_holiday_moved
+  name: Spring Bank Holiday
+  origin: module:uk_spring_bank_holiday
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: dcms-diamond-jubilee-ia
+    ref: spring bank holiday moved to Monday 3 June 2002 and Monday 4 June 2012
+  - id: govuk-bank-holidays
+    ref: 2022-06-02 Spring bank holiday
+  rule:
+    type: explicit_dates
+    dates:
+    - date: 2002-06-03
+      comment: Moved for the Golden Jubilee
+    - date: 2012-06-04
+      comment: Moved for the Diamond Jubilee
+    - date: 2022-06-02
+      comment: Moved for the Platinum Jubilee
+- key: uk_jubilee_bank_holiday
+  name: Jubilee Bank Holiday
+  origin: module:uk_jubilee_bank_holiday
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: dcms-diamond-jubilee-ia
+  - id: govuk-bank-holidays
+    ref: 2022-06-03 Platinum Jubilee bank holiday
+  rule:
+    type: explicit_dates
+    dates:
+    - date: 2002-06-04
+      comment: Golden Jubilee
+    - date: 2012-06-05
+      comment: Diamond Jubilee
+    - date: 2022-06-03
+      comment: Platinum Jubilee
+- key: uk_summer_bank_holiday
+  name: Summer Bank Holiday
+  origin: module:uk_summer_bank_holiday
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: govuk-bank-holidays
+  rule:
+    type: nth_weekday_of_month
+    month: 8
+    weekday: MONDAY
+    nth: -1
+- key: uk_christmas_day
+  name: Christmas Day
+  origin: module:uk_christmas_day
+  classification: CLOSED
+  shiftable: true
+  status: CONFIRMED
+  source:
+  - id: govuk-bank-holidays
+  rule:
+    type: fixed_month_day
+    month: 12
+    day: 25
+- key: uk_boxing_day
+  name: Boxing Day
+  origin: module:uk_boxing_day
+  classification: CLOSED
+  shiftable: true
+  status: CONFIRMED
+  source:
+  - id: govuk-bank-holidays
+  rule:
+    type: fixed_month_day
+    month: 12
+    day: 26
+- key: uk_royal_wedding_2011
+  name: Royal Wedding Bank Holiday
+  origin: module:uk_one_off_bank_holidays
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: dcms-diamond-jubilee-ia
+    ref: '"the Royal Wedding on April 29th 2011"'
+  - id: dcms-mayday-preconsultation
+    ref: "section 2.3: 2011 had 4 bank holidays due to the Royal Wedding"
+  rule:
+    type: explicit_dates
+    dates:
+    - 2011-04-29
+- key: uk_state_funeral_2022
+  name: State Funeral of Queen Elizabeth II
+  origin: module:uk_one_off_bank_holidays
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: govuk-bank-holidays
+  rule:
+    type: explicit_dates
+    dates:
+    - 2022-09-19
+- key: uk_coronation_2023
+  name: Coronation of King Charles III
+  origin: module:uk_one_off_bank_holidays
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: govuk-bank-holidays
+  rule:
+    type: explicit_dates
+    dates:
+    - 2023-05-08
+- key: gb_lse_christmas_eve_early_close
+  name: Christmas Eve (Early Close)
+  origin: module:gb_lse_early_closes
+  classification: EARLY_CLOSE
+  shift_policy: PREVIOUS_AVAILABLE_BUSINESS_DAY
+  close_time: 12:30
+  status: CONFIRMED
+  source:
+  - id: lse-business-days
+    ref: "Christmas Holiday half day, 12:30 (2026 and 2027 rows)"
+  - id: lse-trading-calendar-2021
+    ref: "LSE column: Early Close Friday 24 December 2021; LSE early-closing time\
+      \ 12:30"
+  - id: lse-trading-calendar-2022
+    ref: "LSE column: Early Close Friday 23 December 2022 (24 Dec 2022 is a Saturday)"
+  - id: lse-trading-calendar-2023
+    ref: "LSE column: early close Friday 22 December 2023 (24 Dec 2023 is a Sunday)"
+  rule:
+    type: fixed_month_day
+    month: 12
+    day: 24
+- key: gb_lse_new_years_eve_early_close
+  name: New Year's Eve (Early Close)
+  origin: module:gb_lse_early_closes
+  classification: EARLY_CLOSE
+  shift_policy: PREVIOUS_AVAILABLE_BUSINESS_DAY
+  close_time: 12:30
+  status: CONFIRMED
+  source:
+  - id: lse-business-days
+    ref: "New Year's Holiday half day, 12:30 (2026 and 2027 rows)"
+  - id: lse-trading-calendar-2021
+    ref: "LSE column: Early Close Friday 31 December 2021; LSE early-closing time\
+      \ 12:30"
+  - id: lse-trading-calendar-2022
+    ref: "LSE column: Early Close Friday 30 December 2022 (31 Dec 2022 is a Saturday)"
+  - id: lse-trading-calendar-2023
+    ref: "LSE column: early close Friday 29 December 2023 (31 Dec 2023 is a Sunday)"
+  rule:
+    type: fixed_month_day
+    month: 12
+    day: 31

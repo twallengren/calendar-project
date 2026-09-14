@@ -1,0 +1,2 @@
+exchange_calendars==4.11
+QuantLib==1.43

@@ -1,0 +1,26 @@
+kind: calendar
+id: JP-JPX
+metadata:
+  name: Japan Exchange Group (Tokyo Stock Exchange)
+  description: "Tokyo Stock Exchange cash equity market trading calendar (MIC XTKS),\
+    \ operated by Japan Exchange Group. Closed on Saturdays, Sundays, Japanese national\
+    \ holidays, and JPX's own year-end and New Year market holidays (December 31 and\
+    \ January 2-3)."
+  chronology: ISO
+  timezone: Asia/Tokyo
+  coverage:
+    from: 2010-01-01
+    to: 2030-12-31
+    verified_through: 2027-12-31
+  kind: market
+  mic: XTKS
+  aliases:
+  - XJPX
+uses:
+- weekend_sat_sun
+- jp_jpx_holidays
+classifications: {}
+deltas: []
+extends: []
+event_sources: []
+weekend_shift_policy: NEXT_AVAILABLE_FROM_LAST_WEEKEND_DAY

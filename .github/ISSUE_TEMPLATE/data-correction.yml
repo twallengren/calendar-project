@@ -1,0 +1,44 @@
+name: Data correction
+description: Report a wrong date, missing holiday, or other data error in an existing calendar
+title: "[data correction]: "
+labels:
+  - data-correction
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please include a source. "I think this is wrong" is a good reason to open this issue;
+        it is not enough on its own to fix the data. See `CONTRIBUTING.md` ("Data corrections").
+  - type: input
+    id: market-id
+    attributes:
+      label: Market id / MIC
+      placeholder: "US-NYSE / XNYS"
+    validations:
+      required: true
+  - type: input
+    id: dates-affected
+    attributes:
+      label: Dates affected
+      description: One date, a list, or a range.
+      placeholder: "2024-07-03"
+    validations:
+      required: true
+  - type: textarea
+    id: current-vs-correct
+    attributes:
+      label: What the data currently says vs. what it should say
+      placeholder: |
+        Currently: CLOSED on 2024-07-03
+        Should be: EARLY_CLOSE at 13:00 on 2024-07-03
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: >
+        A link to (or copy of) the authoritative document, circular, or gazette notice that
+        shows the correct data. This becomes a row in sources/<MARKET>/README.md.
+    validations:
+      required: true

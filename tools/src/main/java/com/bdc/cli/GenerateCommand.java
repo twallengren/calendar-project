@@ -1,18 +1,18 @@
 package com.bdc.cli;
 
-import com.bdc.artifact.ArtifactStore;
 import com.bdc.emitter.CsvEmitter;
+import com.bdc.emitter.JsonEventsEmitter;
 import com.bdc.emitter.MetadataEmitter;
 import com.bdc.emitter.SpecEmitter;
 import com.bdc.generator.EventGenerator;
 import com.bdc.loader.SpecRegistry;
-import com.bdc.model.BitemporalMeta;
 import com.bdc.model.CalendarSpec;
 import com.bdc.model.Event;
 import com.bdc.model.ResolvedSpec;
 import com.bdc.resolver.SpecResolver;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.time.Instant;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.concurrent.Callable;
@@ -40,19 +40,8 @@ public class GenerateCommand implements Callable<Integer> {
 
   @Option(
       names = {"--out", "-o"},
-      description = "Output directory (mutually exclusive with --store)")
+      description = "Output directory")
   private Path outputDir;
-
-  @Option(
-      names = {"--store", "-s"},
-      description = "Store as a timestamped artifact in artifacts/generated/")
-  private boolean store;
-
-  @Option(
-      names = {"--artifacts-dir"},
-      description = "Artifacts directory",
-      defaultValue = "artifacts")
-  private Path artifactsDir;
 
   @Option(
       names = {"--calendars-dir"},
@@ -82,26 +71,29 @@ public class GenerateCommand implements Callable<Integer> {
   private String outputChronology;
 
   @Option(
+      names = {"--generated-at"},
+      description =
+          "Timestamp to record as generated_at (ISO instant). Pass a fixed value to make"
+              + " metadata.json reproducible")
+  private Instant generatedAt;
+
+  @Option(
       names = {"--include-specs"},
-      description = "Include calendar.yaml and resolved.yaml in output (only applies with --out)")
+      description = "Include calendar.yaml and resolved.yaml in output")
   private boolean includeSpecs;
 
   @Override
   public Integer call() {
     try {
-      if (!store && outputDir == null) {
-        System.err.println("Error: Either --out or --store must be specified");
+      if (outputDir == null) {
+        System.err.println("Error: --out must be specified");
         return 1;
-      }
-
-      if (store && includeSpecs) {
-        System.err.println(
-            "Warning: --include-specs is ignored when using --store (specs are stored separately)");
       }
 
       SpecRegistry registry = new SpecRegistry();
       registry.loadCalendarsFromDirectory(calendarsDir);
       registry.loadModulesFromDirectory(modulesDir);
+      registry.assertNoLoadErrors();
 
       SpecResolver resolver = new SpecResolver(registry);
       ResolvedSpec resolved = resolver.resolve(calendarId);
@@ -109,67 +101,46 @@ public class GenerateCommand implements Callable<Integer> {
       EventGenerator generator = new EventGenerator();
       List<Event> events = generator.generate(resolved, from, to);
 
-      if (store) {
-        // Store as bitemporal artifact
-        BitemporalMeta meta =
-            sourceVersion != null
-                ? BitemporalMeta.now(
-                    sourceVersion,
-                    BitemporalMeta.now().toolVersion(),
-                    System.getProperty("user.name", "unknown"))
-                : BitemporalMeta.now();
+      // Emit to specified output directory
+      Files.createDirectories(outputDir);
 
-        ArtifactStore artifactStore = new ArtifactStore(artifactsDir);
+      // Emit CSV
+      CsvEmitter csvEmitter = new CsvEmitter();
+      Path csvPath = outputDir.resolve("events.csv");
+      csvEmitter.emit(events, csvPath, outputChronology);
 
-        // Also store the resolved spec
-        Path resolvedPath = artifactStore.storeResolvedSpec(resolved, meta);
+      // Emit JSON events
+      JsonEventsEmitter jsonEmitter = new JsonEventsEmitter();
+      Path jsonPath = outputDir.resolve("events.json");
+      jsonEmitter.emit(resolved, events, from, to, jsonPath);
 
-        // Store generated events
-        Path storedDir =
-            artifactStore.storeGeneratedEvents(calendarId, from, to, events, resolved, meta);
+      // Emit metadata
+      MetadataEmitter metadataEmitter = new MetadataEmitter(generatedAt);
+      Path metadataPath = outputDir.resolve("metadata.json");
+      metadataEmitter.emit(resolved, events, from, to, metadataPath, sourceVersion, releaseVersion);
 
-        System.out.println("Generated " + events.size() + " events");
-        System.out.println("  Resolved spec: " + resolvedPath);
-        System.out.println("  Events stored at: " + storedDir);
-        System.out.println("  Transaction time: " + meta.transactionTime());
-        System.out.println("  Valid range: " + from + " to " + to);
-      } else {
-        // Emit to specified output directory
-        Files.createDirectories(outputDir);
+      System.out.println("Generated " + events.size() + " events");
+      System.out.println("  CSV: " + csvPath);
+      System.out.println("  JSON: " + jsonPath);
+      System.out.println("  Metadata: " + metadataPath);
 
-        // Emit CSV
-        CsvEmitter csvEmitter = new CsvEmitter();
-        Path csvPath = outputDir.resolve("events.csv");
-        csvEmitter.emit(events, csvPath, outputChronology);
+      // Emit spec files if requested
+      if (includeSpecs) {
+        SpecEmitter specEmitter = new SpecEmitter();
+        CalendarSpec calendarSpec = registry.getCalendar(calendarId).orElse(null);
 
-        // Emit metadata
-        MetadataEmitter metadataEmitter = new MetadataEmitter();
-        Path metadataPath = outputDir.resolve("metadata.json");
-        metadataEmitter.emit(
-            resolved, events, from, to, metadataPath, sourceVersion, releaseVersion);
-
-        System.out.println("Generated " + events.size() + " events");
-        System.out.println("  CSV: " + csvPath);
-        System.out.println("  Metadata: " + metadataPath);
-
-        // Emit spec files if requested
-        if (includeSpecs) {
-          SpecEmitter specEmitter = new SpecEmitter();
-          CalendarSpec calendarSpec = registry.getCalendar(calendarId).orElse(null);
-
-          if (calendarSpec != null) {
-            Path calendarPath = outputDir.resolve("calendar.yaml");
-            specEmitter.emitCalendarSpec(calendarSpec, calendarPath);
-            System.out.println("  Calendar spec: " + calendarPath);
-          } else {
-            System.err.println(
-                "  Warning: Calendar spec not found in registry, skipping calendar.yaml");
-          }
-
-          Path resolvedPath = outputDir.resolve("resolved.yaml");
-          specEmitter.emitResolvedSpec(resolved, resolvedPath);
-          System.out.println("  Resolved spec: " + resolvedPath);
+        if (calendarSpec != null) {
+          Path calendarPath = outputDir.resolve("calendar.yaml");
+          specEmitter.emitCalendarSpec(calendarSpec, calendarPath);
+          System.out.println("  Calendar spec: " + calendarPath);
+        } else {
+          System.err.println(
+              "  Warning: Calendar spec not found in registry, skipping calendar.yaml");
         }
+
+        Path resolvedPath = outputDir.resolve("resolved.yaml");
+        specEmitter.emitResolvedSpec(resolved, resolvedPath);
+        System.out.println("  Resolved spec: " + resolvedPath);
       }
 
       return 0;

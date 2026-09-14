@@ -1,0 +1,20 @@
+kind: module
+id: ca_thanksgiving
+
+# Thanksgiving Day: second Monday of October, fixed by the federal Holidays Act.
+# tsx-calendar-page confirms Oct 12, 2026 and Oct 13, 2025.
+
+source:
+  - id: holidays-act-canada
+  - id: tsx-calendar-page
+    ref: "Thanksgiving Day: Oct 12, 2026; Oct 13, 2025"
+
+event_sources:
+  - key: ca_thanksgiving
+    name: Thanksgiving Day
+    default_classification: CLOSED
+    rule:
+      type: nth_weekday_of_month
+      month: 10
+      weekday: MONDAY
+      nth: 2

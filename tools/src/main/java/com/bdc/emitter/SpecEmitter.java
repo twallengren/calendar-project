@@ -1,7 +1,13 @@
 package com.bdc.emitter;
 
 import com.bdc.model.CalendarSpec;
+import com.bdc.model.Delta;
+import com.bdc.model.EventSource;
 import com.bdc.model.ResolvedSpec;
+import com.bdc.model.Rule;
+import com.bdc.model.SourceCitation;
+import com.bdc.model.WeekendPeriod;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
@@ -10,13 +16,19 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Emits calendar and resolved specs as YAML. The resolved form is a faithful, regenerable input.
+ */
 public class SpecEmitter {
+
+  private static final DateTimeFormatter TIME = DateTimeFormatter.ofPattern("HH:mm");
 
   private final ObjectMapper yamlMapper;
 
@@ -24,11 +36,13 @@ public class SpecEmitter {
     YAMLFactory yamlFactory =
         new YAMLFactory()
             .disable(YAMLGenerator.Feature.WRITE_DOC_START_MARKER)
+            .disable(YAMLGenerator.Feature.USE_NATIVE_TYPE_ID) // deltas as `action: remove`
             .enable(YAMLGenerator.Feature.MINIMIZE_QUOTES);
     this.yamlMapper =
         new ObjectMapper(yamlFactory)
             .registerModule(new JavaTimeModule())
-            .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+            .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
+            .setSerializationInclusion(JsonInclude.Include.NON_NULL);
   }
 
   public void emitCalendarSpec(CalendarSpec spec, Path outputPath) throws IOException {
@@ -44,7 +58,15 @@ public class SpecEmitter {
     if (parent != null) {
       Files.createDirectories(parent);
     }
+    yamlMapper.writeValue(outputPath.toFile(), resolvedToMap(spec));
+  }
 
+  public String resolvedToString(ResolvedSpec spec) throws IOException {
+    return yamlMapper.writeValueAsString(resolvedToMap(spec));
+  }
+
+  /** Builds the resolved-calendar document. */
+  public static Map<String, Object> resolvedToMap(ResolvedSpec spec) {
     Map<String, Object> resolved = new LinkedHashMap<>();
     resolved.put("kind", "resolved_calendar");
     resolved.put("id", spec.id());
@@ -54,6 +76,25 @@ public class SpecEmitter {
       metadata.put("name", spec.metadata().name());
       metadata.put("description", spec.metadata().description());
       metadata.put("chronology", spec.metadata().chronology());
+      if (spec.metadata().timezone() != null) {
+        metadata.put("timezone", spec.metadata().timezone());
+      }
+      if (spec.metadata().mic() != null) {
+        metadata.put("mic", spec.metadata().mic());
+      }
+      if (spec.metadata().aliases() != null && !spec.metadata().aliases().isEmpty()) {
+        metadata.put("aliases", spec.metadata().aliases());
+      }
+      CalendarSpec.Coverage cov = spec.metadata().coverage();
+      if (cov != null) {
+        Map<String, Object> covMap = new LinkedHashMap<>();
+        if (cov.from() != null) covMap.put("from", cov.from().toString());
+        if (cov.to() != null) covMap.put("to", cov.to().toString());
+        if (cov.verifiedThrough() != null) {
+          covMap.put("verified_through", cov.verifiedThrough().toString());
+        }
+        metadata.put("coverage", covMap);
+      }
       resolved.put("metadata", metadata);
     }
 
@@ -61,8 +102,20 @@ public class SpecEmitter {
       Map<String, Object> weekendPolicy = new LinkedHashMap<>();
       weekendPolicy.put(
           "days", spec.weekendPolicy().weekendDays().stream().map(Enum::name).toList());
+      if (spec.weekendPolicy().isEffectiveDated()) {
+        List<Map<String, Object>> periods = new ArrayList<>();
+        for (WeekendPeriod p : spec.weekendPolicy().periods()) {
+          Map<String, Object> pm = new LinkedHashMap<>();
+          pm.put("days", p.days().stream().map(Enum::name).toList());
+          if (p.from() != null) pm.put("from", p.from().toString());
+          if (p.to() != null) pm.put("to", p.to().toString());
+          periods.add(pm);
+        }
+        weekendPolicy.put("periods", periods);
+      }
       resolved.put("weekend_policy", weekendPolicy);
     }
+    resolved.put("weekend_shift_policy", spec.weekendShiftPolicy().name());
 
     resolved.put("resolution_chain", spec.resolutionChain());
 
@@ -80,29 +133,7 @@ public class SpecEmitter {
     if (!spec.eventSources().isEmpty()) {
       List<Map<String, Object>> sources = new ArrayList<>();
       for (var source : spec.eventSources()) {
-        Map<String, Object> sourceMap = new LinkedHashMap<>();
-        sourceMap.put("key", source.key());
-        sourceMap.put("name", source.name());
-        if (source.defaultClassification() != null) {
-          sourceMap.put("classification", source.defaultClassification().name());
-        }
-        if (source.activeYears() != null && !source.activeYears().isEmpty()) {
-          List<Object> yearsOutput = new ArrayList<>();
-          for (var range : source.activeYears()) {
-            if (range.start() != null && range.end() != null && range.start().equals(range.end())) {
-              // Single year
-              yearsOutput.add(range.start());
-            } else {
-              // Range - use Arrays.asList to allow nulls
-              yearsOutput.add(Arrays.asList(range.start(), range.end()));
-            }
-          }
-          sourceMap.put("active_years", yearsOutput);
-        }
-        if (source.rule() != null) {
-          sourceMap.put("rule", ruleToMap(source.rule()));
-        }
-        sources.add(sourceMap);
+        sources.add(eventSourceToMap(source, spec.sourceOrigins().get(source.key())));
       }
       resolved.put("event_sources", sources);
     }
@@ -114,28 +145,97 @@ public class SpecEmitter {
       }
       resolved.put("deltas", deltas);
     }
-
-    yamlMapper.writeValue(outputPath.toFile(), resolved);
+    return resolved;
   }
 
-  private Map<String, Object> ruleToMap(com.bdc.model.Rule rule) {
+  public static Map<String, Object> eventSourceToMap(EventSource source, String origin) {
+    Map<String, Object> sourceMap = new LinkedHashMap<>();
+    sourceMap.put("key", source.key());
+    sourceMap.put("name", source.name());
+    if (origin != null) {
+      sourceMap.put("origin", origin);
+    }
+    if (source.defaultClassification() != null) {
+      sourceMap.put("classification", source.defaultClassification().name());
+    }
+    if (source.shiftPolicy() != null) {
+      sourceMap.put("shift_policy", source.shiftPolicy().name());
+    } else if (Boolean.TRUE.equals(source.shiftable())) {
+      sourceMap.put("shiftable", true);
+    }
+    if (!source.displaces().isEmpty()) {
+      sourceMap.put("displaces", source.displaces());
+    }
+    if (source.onlyIfWeekday() != null) {
+      sourceMap.put("only_if_weekday", source.onlyIfWeekday().stream().map(Enum::name).toList());
+    }
+    if (source.closeTime() != null) {
+      sourceMap.put("close_time", TIME.format(source.closeTime()));
+    }
+    if (source.status() != null) {
+      sourceMap.put("status", source.status().name());
+    }
+    if (source.activeYears() != null && !source.activeYears().isEmpty()) {
+      List<Object> yearsOutput = new ArrayList<>();
+      for (var range : source.activeYears()) {
+        if (range.start() != null && range.end() != null && range.start().equals(range.end())) {
+          yearsOutput.add(range.start());
+        } else {
+          yearsOutput.add(Arrays.asList(range.start(), range.end()));
+        }
+      }
+      sourceMap.put("active_years", yearsOutput);
+    }
+    if (!source.source().isEmpty()) {
+      List<Map<String, Object>> citations = new ArrayList<>();
+      for (SourceCitation c : source.source()) {
+        Map<String, Object> cm = new LinkedHashMap<>();
+        if (c.id() != null) cm.put("id", c.id());
+        if (c.title() != null) cm.put("title", c.title());
+        if (c.publisher() != null) cm.put("publisher", c.publisher());
+        if (c.url() != null) cm.put("url", c.url());
+        if (c.file() != null) cm.put("file", c.file());
+        if (c.retrieved() != null) cm.put("retrieved", c.retrieved().toString());
+        if (c.ref() != null) cm.put("ref", c.ref());
+        if (c.note() != null) cm.put("note", c.note());
+        citations.add(cm);
+      }
+      sourceMap.put("source", citations);
+    }
+    if (source.rule() != null) {
+      sourceMap.put("rule", ruleToMap(source.rule()));
+    }
+    return sourceMap;
+  }
+
+  public static Map<String, Object> ruleToMap(Rule rule) {
     Map<String, Object> map = new LinkedHashMap<>();
     switch (rule) {
-      case com.bdc.model.Rule.FixedMonthDay r -> {
+      case Rule.FixedMonthDay r -> {
         map.put("type", "fixed_month_day");
         map.put("month", r.month());
         map.put("day", r.day());
         if (r.chronology() != null && !"ISO".equalsIgnoreCase(r.chronology())) {
           map.put("chronology", r.chronology());
         }
+        if (r.hasEndDate()) {
+          map.put("end_month", r.endMonth());
+          map.put("end_day", r.endDay());
+        }
+        if (r.durationDays() != null) {
+          map.put("duration_days", r.durationDays());
+        }
       }
-      case com.bdc.model.Rule.NthWeekdayOfMonth r -> {
+      case Rule.NthWeekdayOfMonth r -> {
         map.put("type", "nth_weekday_of_month");
         map.put("month", r.month());
         map.put("weekday", r.weekday().name());
         map.put("nth", r.nth());
+        if (r.durationDays() != null) {
+          map.put("duration_days", r.durationDays());
+        }
       }
-      case com.bdc.model.Rule.ExplicitDates r -> {
+      case Rule.ExplicitDates r -> {
         map.put("type", "explicit_dates");
         map.put(
             "dates",
@@ -146,37 +246,55 @@ public class SpecEmitter {
                         Map<String, Object> dateMap = new LinkedHashMap<>();
                         dateMap.put("date", ad.date().toString());
                         dateMap.put("comment", ad.comment());
-                        return dateMap;
+                        return (Object) dateMap;
                       }
                       return ad.date().toString();
                     })
                 .toList());
       }
-      case com.bdc.model.Rule.RelativeToReference r -> {
+      case Rule.RelativeToReference r -> {
         map.put("type", "relative_to_reference");
-        map.put("reference", r.reference());
-        map.put("offset_days", r.offsetDays());
+        if (r.usesNamedReference()) {
+          map.put("reference", r.reference());
+        }
+        if (r.usesFixedReference()) {
+          map.put("reference_month", r.referenceMonth());
+          map.put("reference_day", r.referenceDay());
+        }
+        if (r.offsetDays() != null) {
+          map.put("offset_days", r.offsetDays());
+        }
+        if (r.usesWeekdayOffset()) {
+          Map<String, Object> wo = new LinkedHashMap<>();
+          wo.put("weekday", r.offsetWeekday().weekday().name());
+          wo.put("nth", r.offsetWeekday().nth());
+          wo.put("direction", r.offsetWeekday().direction().name());
+          map.put("offset_weekday", wo);
+        }
+        if (r.durationDays() != null) {
+          map.put("duration_days", r.durationDays());
+        }
       }
     }
     return map;
   }
 
-  private Map<String, Object> deltaToMap(com.bdc.model.Delta delta) {
+  public static Map<String, Object> deltaToMap(Delta delta) {
     Map<String, Object> map = new LinkedHashMap<>();
     switch (delta) {
-      case com.bdc.model.Delta.Add d -> {
+      case Delta.Add d -> {
         map.put("action", "add");
         map.put("key", d.key());
         map.put("name", d.name());
         map.put("date", d.date().toString());
         map.put("classification", d.classification().name());
       }
-      case com.bdc.model.Delta.Remove d -> {
+      case Delta.Remove d -> {
         map.put("action", "remove");
         map.put("key", d.key());
         map.put("date", d.date().toString());
       }
-      case com.bdc.model.Delta.Reclassify d -> {
+      case Delta.Reclassify d -> {
         map.put("action", "reclassify");
         map.put("key", d.key());
         map.put("date", d.date().toString());

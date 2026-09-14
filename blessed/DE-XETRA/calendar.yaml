@@ -1,0 +1,23 @@
+kind: calendar
+id: DE-XETRA
+metadata:
+  name: Deutsche Börse Xetra
+  description: Deutsche Börse Xetra / Börse Frankfurt cash market trading calendar
+    (MIC XETR)
+  chronology: ISO
+  timezone: Europe/Berlin
+  coverage:
+    from: 2003-01-01
+    to: 2030-12-31
+    verified_through: 2026-12-31
+  kind: market
+  mic: XETR
+  aliases: []
+uses:
+- weekend_sat_sun
+- de_xetra_holidays
+classifications: {}
+deltas: []
+extends: []
+event_sources: []
+weekend_shift_policy: NONE

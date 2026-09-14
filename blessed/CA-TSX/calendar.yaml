@@ -1,0 +1,22 @@
+kind: calendar
+id: CA-TSX
+metadata:
+  name: Toronto Stock Exchange
+  description: "Toronto Stock Exchange (TSX, MIC XTSE) trading calendar"
+  chronology: ISO
+  timezone: America/Toronto
+  coverage:
+    from: 2000-01-01
+    to: 2030-12-31
+    verified_through: 2026-12-31
+  kind: market
+  mic: XTSE
+  aliases: []
+uses:
+- weekend_sat_sun
+- ca_tsx_holidays
+classifications: {}
+deltas: []
+extends: []
+event_sources: []
+weekend_shift_policy: NEXT_AVAILABLE_WEEKDAY

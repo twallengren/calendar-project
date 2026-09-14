@@ -1,0 +1,875 @@
+/*
+ * One hand-written stylesheet for the whole site. No framework, no build step, no fingerprinting:
+ * what is served is what is in the repository.
+ *
+ * Light and dark come from prefers-color-scheme only — there is no theme toggle and therefore no
+ * theme state to persist, which keeps every page correct with JavaScript disabled.
+ */
+
+:root {
+  color-scheme: light dark;
+
+  --bg: #fbfaf8;
+  --surface: #ffffff;
+  --surface-2: #f3f1ed;
+  --ink: #1b1a17;
+  --ink-muted: #5d594f;
+  --rule: #ddd8cf;
+  --rule-strong: #c4bdb0;
+  --accent: #1f4f7a;
+  --accent-ink: #ffffff;
+
+  --closed: #a8321f;
+  --closed-bg: #fbe6e1;
+  --early: #8a5a06;
+  --early-bg: #fdf0d9;
+  --weekend-bg: #eceae4;
+  --ok: #1f6b3a;
+  --ok-bg: #e2f2e6;
+
+  --measure: 78rem;
+  --radius: 6px;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    "Noto Sans", sans-serif;
+  --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #14151a;
+    --surface: #1b1d23;
+    --surface-2: #23262e;
+    --ink: #e9e7e2;
+    --ink-muted: #a6a29a;
+    --rule: #343841;
+    --rule-strong: #4a4f5a;
+    --accent: #8fc0ee;
+    --accent-ink: #10141a;
+
+    --closed: #ff9c86;
+    --closed-bg: #3b201b;
+    --early: #f0c274;
+    --early-bg: #3a2e17;
+    --weekend-bg: #242730;
+    --ok: #86d3a1;
+    --ok-bg: #1b2f22;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+a {
+  color: var(--accent);
+  text-underline-offset: 2px;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+code {
+  font-family: var(--mono);
+  font-size: 0.875em;
+  background: var(--surface-2);
+  padding: 0.08em 0.32em;
+  border-radius: 3px;
+  overflow-wrap: anywhere;
+}
+
+h1 {
+  font-size: clamp(1.6rem, 1.1rem + 2vw, 2.4rem);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.5rem;
+}
+
+h2 {
+  font-size: 1.15rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.35rem;
+  margin: 2.5rem 0 1rem;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--accent);
+  color: var(--accent-ink);
+  padding: 0.6rem 1rem;
+  z-index: 10;
+}
+
+.skip-link:focus {
+  left: 0;
+}
+
+/* ---------- chrome ---------- */
+
+.masthead,
+.breadcrumbs,
+main,
+.site-footer {
+  max-width: var(--measure);
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+.masthead {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  align-items: baseline;
+  justify-content: space-between;
+  padding-block: 1.25rem 0.75rem;
+}
+
+.wordmark {
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.masthead nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.9rem;
+}
+
+.breadcrumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  list-style: none;
+  margin: 0 0 0.5rem;
+  padding: 0;
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+}
+
+.breadcrumbs li + li::before {
+  content: "/";
+  margin-right: 0.4rem;
+  color: var(--rule-strong);
+}
+
+main {
+  padding-block: 1rem 3rem;
+}
+
+.lede {
+  font-size: 1.05rem;
+  color: var(--ink-muted);
+  max-width: 60ch;
+  margin-top: 0;
+}
+
+.site-footer {
+  border-top: 1px solid var(--rule);
+  padding-block: 1.5rem 3rem;
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+}
+
+.site-footer p {
+  margin: 0 0 0.5rem;
+  max-width: 70ch;
+}
+
+.muted {
+  color: var(--ink-muted);
+}
+
+/* ---------- tables ---------- */
+
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+table.events,
+table.markets {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.9rem;
+}
+
+table.events th,
+table.events td,
+table.markets th,
+table.markets td {
+  text-align: left;
+  padding: 0.5rem 0.7rem;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+}
+
+table.events thead th,
+table.markets thead th {
+  background: var(--surface-2);
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  white-space: nowrap;
+  position: sticky;
+  top: 0;
+}
+
+table.events tbody tr:last-child td,
+table.events tbody tr:last-child th,
+table.markets tbody tr:last-child td,
+table.markets tbody tr:last-child th {
+  border-bottom: 0;
+}
+
+table.events tbody th,
+table.markets tbody th {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+td.num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+td.nowrap {
+  white-space: nowrap;
+}
+
+/* The market table has ten columns; keeping it inside the measure beats horizontal scrolling, so
+   its headings and market names wrap even though every other table keeps them on one line. */
+table.markets {
+  font-size: 0.82rem;
+}
+
+table.markets thead th,
+table.markets tbody th {
+  white-space: normal;
+}
+
+table.markets tbody th {
+  min-width: 9rem;
+}
+
+table.markets .badge {
+  display: block;
+  width: fit-content;
+  font-size: 0.66rem;
+  margin-bottom: 0.15rem;
+}
+
+td.links a {
+  display: inline-block;
+  margin-right: 0.4rem;
+  white-space: nowrap;
+}
+
+/* ---------- badges, facts ---------- */
+
+.badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  padding: 0.12rem 0.45rem;
+  border-radius: 999px;
+  white-space: nowrap;
+  background: var(--surface-2);
+  color: var(--ink-muted);
+}
+
+.badge.closed {
+  background: var(--closed-bg);
+  color: var(--closed);
+}
+
+.badge.early-close {
+  background: var(--early-bg);
+  color: var(--early);
+}
+
+.badge.projected {
+  background: transparent;
+  color: var(--ink-muted);
+  border: 1px dashed var(--rule-strong);
+}
+
+.badge.ok {
+  background: var(--ok-bg);
+  color: var(--ok);
+}
+
+.badge.warn {
+  background: var(--closed-bg);
+  color: var(--closed);
+}
+
+dl.facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 1px;
+  margin: 0;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+dl.facts > div {
+  background: var(--surface);
+  padding: 0.7rem 0.85rem;
+}
+
+dl.facts dt {
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+dl.facts dd {
+  margin: 0.15rem 0 0;
+  font-weight: 600;
+}
+
+.checksum {
+  font-size: 0.7rem;
+  font-weight: 400;
+  overflow-wrap: anywhere;
+}
+
+/* One citation per line: each entry carries its document title next to the id, so a wrapping flex
+   row of chips would run the two together. */
+.source-ids {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem;
+}
+
+.source-ids li {
+  padding: 0.15rem 0;
+  border-bottom: 1px solid var(--rule);
+  font-size: 0.92rem;
+}
+
+.source-ids li:last-child {
+  border-bottom: 0;
+}
+
+.cta {
+  font-weight: 600;
+}
+
+/* ---------- year grid ---------- */
+
+.legend {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.1rem;
+  padding: 0;
+  margin: 0 0 1rem;
+  font-size: 0.82rem;
+  color: var(--ink-muted);
+}
+
+.legend li {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.swatch {
+  width: 0.85rem;
+  height: 0.85rem;
+  border-radius: 3px;
+  border: 1px solid var(--rule-strong);
+  background: var(--surface);
+}
+
+.swatch.closed {
+  background: var(--closed-bg);
+  border-color: var(--closed);
+}
+
+.swatch.early-close {
+  background: var(--early-bg);
+  border-color: var(--early);
+}
+
+.swatch.weekend {
+  background: var(--weekend-bg);
+}
+
+.swatch.projected {
+  background: repeating-linear-gradient(
+    135deg,
+    var(--surface),
+    var(--surface) 3px,
+    var(--rule-strong) 3px,
+    var(--rule-strong) 4px
+  );
+}
+
+.year-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+@media (max-width: 60rem) {
+  .year-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 34rem) {
+  .year-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+table.month {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  font-size: 0.8rem;
+  table-layout: fixed;
+}
+
+table.month caption {
+  text-align: left;
+  font-weight: 700;
+  padding: 0.45rem 0.6rem;
+  border-bottom: 1px solid var(--rule);
+  background: var(--surface-2);
+}
+
+table.month th {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--ink-muted);
+  padding: 0.3rem 0;
+  text-align: center;
+}
+
+table.month th abbr {
+  text-decoration: none;
+  border: 0;
+}
+
+td.day,
+td.pad {
+  text-align: center;
+  padding: 0;
+  height: 1.9rem;
+  border: 1px solid transparent;
+}
+
+td.day time {
+  display: block;
+  padding: 0.35rem 0;
+  font-variant-numeric: tabular-nums;
+}
+
+td.day a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  font-weight: 700;
+}
+
+td.day a:hover time {
+  text-decoration: underline;
+}
+
+td.weekend {
+  background: var(--weekend-bg);
+  color: var(--ink-muted);
+}
+
+td.closed {
+  background: var(--closed-bg);
+  color: var(--closed);
+}
+
+td.early-close {
+  background: var(--early-bg);
+  color: var(--early);
+}
+
+td.day.projected {
+  border-color: var(--rule-strong);
+  border-style: dashed;
+}
+
+td.day:target {
+  outline: 3px solid var(--accent);
+  outline-offset: -3px;
+}
+
+/* ---------- year navigation ---------- */
+
+.year-nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem 0 0.75rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.year-nav .current {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.year-nav .step.disabled {
+  color: var(--ink-muted);
+}
+
+.year-picker ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15rem 0.45rem;
+  padding: 0.6rem 0.7rem;
+  margin: 0 0 1.25rem;
+  font-size: 0.82rem;
+  font-variant-numeric: tabular-nums;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  max-height: 9rem;
+  overflow-y: auto;
+}
+
+/* site.js sets [hidden] on the link list once the <select> is in place; a display rule on the
+   element would otherwise win over the user-agent's [hidden] rule and show both controls. */
+.year-picker ul[hidden] {
+  display: none;
+}
+
+.year-picker a[aria-current="page"] {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+/* The <select> that site.js swaps in when scripting is available. */
+.year-picker form {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 0 1.25rem;
+  font-size: 0.9rem;
+}
+
+.year-picker select {
+  font: inherit;
+  padding: 0.3rem 0.5rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--rule-strong);
+  background: var(--surface);
+  color: var(--ink);
+}
+
+.year-picker button,
+.copy-link {
+  font: inherit;
+  font-size: 0.85rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--rule-strong);
+  background: var(--surface-2);
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.copy-link {
+  margin-left: 0.5rem;
+}
+
+/* ---------- date page ---------- */
+
+.verdict {
+  font-size: 1.15rem;
+  font-weight: 600;
+  border-left: 4px solid var(--rule-strong);
+  padding: 0.5rem 0 0.5rem 0.9rem;
+  max-width: 60ch;
+}
+
+.verdict.closed {
+  border-color: var(--closed);
+}
+
+.verdict.early-close {
+  border-color: var(--early);
+}
+
+.around {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  gap: 0.75rem;
+}
+
+.around .step {
+  display: block;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  background: var(--surface);
+  text-decoration: none;
+}
+
+.around .step .label {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.around .step.disabled {
+  color: var(--ink-muted);
+  font-size: 0.85rem;
+}
+
+.downloads ul {
+  padding-left: 1.1rem;
+  max-width: 70ch;
+}
+
+.downloads li {
+  margin-bottom: 0.3rem;
+}
+
+/* ---------- changelog ---------- */
+
+.release-list td .badge {
+  margin-right: 0.3rem;
+}
+
+.severity-NONE {
+  color: var(--ok);
+}
+
+.severity-MINOR {
+  color: var(--early);
+}
+
+.severity-MAJOR {
+  color: var(--closed);
+  font-weight: 700;
+}
+
+.truncation {
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+  margin-top: 0.4rem;
+}
+
+/* ---------- contributor-preview diff banner ---------- */
+
+.diff-banner {
+  margin: 0 0 1.2rem;
+  padding: 0.6rem 0.9rem;
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius);
+  background: var(--surface-2);
+  font-size: 0.92rem;
+}
+
+.diff-banner.severity-MINOR {
+  border-color: var(--early);
+  background: var(--early-bg);
+}
+
+.diff-banner.severity-MAJOR {
+  border-color: var(--closed);
+  background: var(--closed-bg);
+}
+
+.diff-banner a {
+  font-weight: 600;
+}
+
+/* ---------- compare, settlement, sources ---------- */
+
+.pair-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.8rem;
+  padding: 0;
+  margin: 0 0 1rem;
+  font-size: 0.92rem;
+}
+
+/* The year header inside a compare table: a row that groups the dates below it rather than a
+   second table per year, so the whole page stays one scannable list. */
+table.compare .year-row th {
+  background: var(--surface-2);
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  text-transform: none;
+  color: var(--ink-muted);
+}
+
+.settlement-form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.7rem;
+  margin: 0 0 0.8rem;
+}
+
+.settlement-form label {
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+}
+
+.settlement-form input {
+  font: inherit;
+  padding: 0.25rem 0.4rem;
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--ink);
+}
+
+.settlement-form input[type="number"] {
+  width: 4.5rem;
+}
+
+.settlement-form button {
+  font: inherit;
+  padding: 0.28rem 0.8rem;
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius);
+  background: var(--surface-2);
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.settlement-answer {
+  font-weight: 600;
+  margin: 0 0 0.4rem;
+}
+
+.settlement-steps {
+  margin: 0 0 1rem;
+  padding-left: 1.4rem;
+  font-size: 0.9rem;
+  font-family: var(--mono);
+}
+
+.settlement-steps li.closed {
+  color: var(--closed);
+}
+
+/* Source registers are rendered from Markdown, so they carry ordinary prose elements the rest of
+   the site does not use. */
+.markdown h2 {
+  margin-top: 1.8rem;
+}
+
+.markdown code {
+  font-family: var(--mono);
+  font-size: 0.88em;
+}
+
+.markdown pre {
+  background: var(--surface-2);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: 0.7rem 0.9rem;
+  overflow-x: auto;
+}
+
+.markdown table.events td {
+  vertical-align: top;
+  font-size: 0.86rem;
+}
+
+.markdown table.events td:first-child {
+  white-space: nowrap;
+}
+
+.markdown li {
+  margin-bottom: 0.4rem;
+}
+
+/* ---------- print ---------- */
+
+@media print {
+  :root {
+    --bg: #fff;
+    --surface: #fff;
+    --surface-2: #fff;
+    --ink: #000;
+    --ink-muted: #333;
+    --rule: #999;
+  }
+
+  .masthead nav,
+  .skip-link,
+  .year-picker,
+  .year-nav,
+  .around,
+  .copy-link,
+  .site-footer p:last-child {
+    display: none;
+  }
+
+  body {
+    font-size: 11pt;
+  }
+
+  .year-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  table.month,
+  section {
+    break-inside: avoid;
+  }
+
+  a {
+    color: #000;
+    text-decoration: none;
+  }
+}

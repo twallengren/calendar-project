@@ -1,0 +1,12 @@
+# Known differences between our NL-EURONEXT-AMSTERDAM data and the reference datasets.
+# source,side,date,type,reason
+#
+# 31 December 2015. exchange_calendars applies its standing "New Year's Eve is an early close
+# from 2002" rule to every year. Euronext's own "Calendar of business days 2015" instead lists
+# "Thursday 31 December 2015 - New Year's Eve" among the days the markets are closed, and
+# announces a half trading day for 24 December only (sources/EU-EURONEXT/README.md,
+# euronext-calendars-hours-archive). The CAC 40, AEX and BEL 20 index histories have no
+# session that day. The Euronext notice wins, so we record a full closure and drop the early
+# close.
+exchange_calendars-XAMS,ours,2015-12-31,CLOSED,Euronext Calendar of business days 2015 lists 31 December 2015 as a market closure; the PDF/notice wins over exchange_calendars' generic New Year's Eve early-close rule
+exchange_calendars-XAMS,theirs,2015-12-31,EARLY_CLOSE,Euronext announced a half trading day for 24 December 2015 only; 31 December 2015 was a full closure per the same notice

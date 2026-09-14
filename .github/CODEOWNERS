@@ -1,0 +1,55 @@
+# See GOVERNANCE.md ("Adopt a market") for what ownership means here.
+# Owners are requested for review on PRs touching their market's files; maintainers
+# still make the final merge decision.
+
+# US-NYSE
+/calendars/US-NYSE.yaml            @twallengren
+/modules/**/nyse*                  @twallengren
+/modules/holidays/us_*             @twallengren
+/sources/US-NYSE/                  @twallengren
+
+# SA-TADAWUL
+/calendars/SA-TADAWUL.yaml         @twallengren
+/modules/holidays/eid_*            @twallengren
+/modules/holidays/saudi_*          @twallengren
+/modules/policies/saudi_weekends.yaml  @twallengren
+/sources/SA-TADAWUL/               @twallengren
+
+# GB-LSE
+/calendars/GB-LSE.yaml              @twallengren
+/modules/groups/gb_lse_holidays.yaml @twallengren
+/modules/holidays/gb_lse_*          @twallengren
+/modules/holidays/uk_*              @twallengren
+/sources/GB-LSE/                    @twallengren
+# DE-XETRA
+/calendars/DE-XETRA.yaml           @twallengren
+/modules/holidays/de_xetra_*       @twallengren
+/modules/groups/de_xetra_*         @twallengren
+/sources/DE-XETRA/                 @twallengren
+
+# CA-TSX
+/calendars/CA-TSX.yaml              @twallengren
+/modules/groups/ca_tsx_holidays.yaml  @twallengren
+/modules/holidays/ca_*              @twallengren
+/sources/CA-TSX/                    @twallengren
+
+# Euronext cash markets (EU-EURONEXT and the Amsterdam/Brussels/Lisbon/Paris venues)
+/calendars/EU-EURONEXT.yaml        @twallengren
+/calendars/FR-EURONEXT-PARIS.yaml  @twallengren
+/calendars/NL-EURONEXT-AMSTERDAM.yaml  @twallengren
+/calendars/BE-EURONEXT-BRUSSELS.yaml   @twallengren
+/calendars/PT-EURONEXT-LISBON.yaml @twallengren
+/modules/**/euronext_*             @twallengren
+/sources/EU-EURONEXT/              @twallengren
+
+# JP-JPX
+/calendars/JP-JPX.yaml             @twallengren
+/modules/holidays/jp_*             @twallengren
+/modules/groups/jp_jpx_holidays.yaml  @twallengren
+/sources/JP-JPX/                   @twallengren
+
+# HK-HKEX
+/calendars/HK-HKEX.yaml            @twallengren
+/modules/groups/hk_hkex_holidays.yaml  @twallengren
+/modules/holidays/hk_*             @twallengren
+/sources/HK-HKEX/                  @twallengren

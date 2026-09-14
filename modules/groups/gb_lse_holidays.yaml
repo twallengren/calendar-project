@@ -1,0 +1,15 @@
+kind: module
+id: gb_lse_holidays
+
+uses:
+  - uk_new_years_day
+  - uk_good_friday
+  - uk_easter_monday
+  - uk_early_may_bank_holiday
+  - uk_spring_bank_holiday
+  - uk_jubilee_bank_holiday
+  - uk_summer_bank_holiday
+  - uk_christmas_day
+  - uk_boxing_day
+  - uk_one_off_bank_holidays
+  - gb_lse_early_closes

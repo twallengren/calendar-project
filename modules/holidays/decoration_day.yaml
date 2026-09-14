@@ -1,19 +1,24 @@
 kind: module
 id: decoration_day
 
-# Decoration Day was observed on May 30th from 1868 until 1970
-# In 1971, the Uniform Monday Holiday Act moved it to the last Monday of May
-# and renamed it Memorial Day
+# Decoration Day (May 30), closed every year since 1873. In 1971 the Uniform Monday Holiday
+# Act moved it to the last Monday of May as Memorial Day. A Sunday May 30 was observed Monday;
+# a Saturday May 30 was a closed Saturday session (see us_nyse_special_closings_pre1960 for the
+# Friday observances).
+# Source: nyse-history-2008.
+
+source:
+  - id: nyse-history-2008
+    ref: Decoration/Memorial Day
 
 event_sources:
   - key: decoration_day
     name: Decoration Day
     default_classification: CLOSED
+    shift_policy: FORWARD_ONLY
     active_years:
       - [1900, 1970]
     rule:
       type: fixed_month_day
-      key: decoration_day
-      name: Decoration Day
       month: 5
       day: 30

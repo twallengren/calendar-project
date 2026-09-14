@@ -1,42 +1,60 @@
 package com.bdc.stream;
 
+import com.bdc.chronology.DateRange;
 import com.bdc.generator.EventGenerator;
+import com.bdc.model.CalendarSpec;
 import com.bdc.model.Event;
 import com.bdc.model.EventType;
 import com.bdc.model.ResolvedSpec;
-import java.time.DayOfWeek;
+import com.bdc.model.WeekendPolicy;
 import java.time.LocalDate;
 import java.util.*;
 
 /**
- * A lazy (compute-on-demand) implementation of DateStream.
+ * A lazy (compute-on-demand) implementation of {@link DateStream}.
  *
- * <p>Events are generated on-the-fly when requested, using the provided ResolvedSpec. This is
- * efficient for queries but may be slower for repeated access patterns. A small cache is maintained
- * to improve performance for repeated queries.
+ * <p>Events are generated on-the-fly from the provided ResolvedSpec. Single-day lookups generate a
+ * window of roughly three months around the requested date and cache every day of it, so walking
+ * forwards or backwards day by day (next/previous business day) does not regenerate per day.
+ *
+ * <p>The out-of-range contract is enforced only when the resolved spec declares {@code coverage}; a
+ * calendar without a coverage block is unbounded and answers for any date the rules can be expanded
+ * to.
  */
 public class LazyDateStream implements DateStream {
 
+  private static final int WINDOW_DAYS = 45;
+
   private final ResolvedSpec spec;
   private final EventGenerator generator;
-  private final Set<DayOfWeek> weekendDays;
+  private final WeekendPolicy weekend;
+  private final DateRange range;
+  private final LocalDate verifiedThrough;
 
-  // Simple cache for recent queries
+  // Cache of per-day events for recently generated windows
   private final Map<LocalDate, List<Event>> dayCache =
-      new LinkedHashMap<>(100, 0.75f, true) {
+      new LinkedHashMap<>(256, 0.75f, true) {
         @Override
         protected boolean removeEldestEntry(Map.Entry<LocalDate, List<Event>> eldest) {
-          return size() > 365; // Cache up to 1 year of daily lookups
+          return size() > 2000;
         }
       };
 
   public LazyDateStream(ResolvedSpec spec) {
     this.spec = spec;
     this.generator = new EventGenerator();
-    this.weekendDays =
-        spec.weekendPolicy() != null
-            ? spec.weekendPolicy().weekendDays()
-            : Set.of(DayOfWeek.SATURDAY, DayOfWeek.SUNDAY);
+    this.weekend = spec.weekendPolicy() != null ? spec.weekendPolicy() : WeekendPolicy.SAT_SUN;
+    CalendarSpec.Coverage coverage = spec.coverage();
+    if (coverage == null) {
+      this.range = new DateRange(LocalDate.MIN, LocalDate.MAX);
+      this.verifiedThrough = null;
+    } else {
+      this.range =
+          new DateRange(
+              coverage.from() != null ? coverage.from() : LocalDate.MIN,
+              coverage.to() != null ? coverage.to() : LocalDate.MAX);
+      this.verifiedThrough = coverage.verifiedThrough();
+    }
   }
 
   @Override
@@ -45,117 +63,57 @@ public class LazyDateStream implements DateStream {
   }
 
   @Override
+  public DateRange range() {
+    return range;
+  }
+
+  @Override
+  public Optional<LocalDate> verifiedThrough() {
+    return Optional.ofNullable(verifiedThrough);
+  }
+
+  private void checkRange(LocalDate date) {
+    if (!range.contains(date)) {
+      throw new OutsideCoverageException(spec.id(), date, range);
+    }
+  }
+
+  @Override
   public List<Event> eventsInRange(LocalDate from, LocalDate to) {
     if (from.isAfter(to)) {
       throw new IllegalArgumentException("from must not be after to");
     }
+    checkRange(from);
+    checkRange(to);
     return generator.generate(spec, from, to);
   }
 
   @Override
-  public Optional<Event> eventOn(LocalDate date) {
-    List<Event> events = eventsOn(date);
-    return events.isEmpty() ? Optional.empty() : Optional.of(events.get(0));
-  }
-
-  @Override
   public List<Event> eventsOn(LocalDate date) {
-    return dayCache.computeIfAbsent(date, d -> generator.generate(spec, d, d));
+    checkRange(date);
+    List<Event> cached = dayCache.get(date);
+    if (cached != null) {
+      return cached;
+    }
+    LocalDate from = date.minusDays(WINDOW_DAYS);
+    LocalDate to = date.plusDays(WINDOW_DAYS);
+    Map<LocalDate, List<Event>> byDate = new HashMap<>();
+    for (Event event : generator.generate(spec, from, to)) {
+      byDate.computeIfAbsent(event.date(), d -> new ArrayList<>()).add(event);
+    }
+    for (LocalDate d = from; !d.isAfter(to); d = d.plusDays(1)) {
+      dayCache.put(d, List.copyOf(byDate.getOrDefault(d, List.of())));
+    }
+    return dayCache.get(date);
   }
 
   @Override
   public boolean isBusinessDay(LocalDate date) {
-    // First check if it's a weekend
-    if (weekendDays.contains(date.getDayOfWeek())) {
+    checkRange(date);
+    if (weekend.isWeekend(date)) {
       return false;
     }
-
-    // Then check if there's a CLOSED event on this date
-    List<Event> events = eventsOn(date);
-    return events.stream().noneMatch(e -> e.type() == EventType.CLOSED);
-  }
-
-  @Override
-  public LocalDate nextBusinessDay(LocalDate from) {
-    LocalDate candidate = from.plusDays(1);
-    // Safety limit to prevent infinite loop
-    int maxDays = 30;
-    while (!isBusinessDay(candidate) && maxDays > 0) {
-      candidate = candidate.plusDays(1);
-      maxDays--;
-    }
-    if (maxDays == 0 && !isBusinessDay(candidate)) {
-      throw new IllegalStateException("Could not find a business day within 30 days after " + from);
-    }
-    return candidate;
-  }
-
-  @Override
-  public LocalDate prevBusinessDay(LocalDate from) {
-    LocalDate candidate = from.minusDays(1);
-    // Safety limit to prevent infinite loop
-    int maxDays = 30;
-    while (!isBusinessDay(candidate) && maxDays > 0) {
-      candidate = candidate.minusDays(1);
-      maxDays--;
-    }
-    if (maxDays == 0 && !isBusinessDay(candidate)) {
-      throw new IllegalStateException(
-          "Could not find a business day within 30 days before " + from);
-    }
-    return candidate;
-  }
-
-  @Override
-  public LocalDate nthBusinessDay(LocalDate from, int n) {
-    if (n == 0) {
-      return from;
-    }
-
-    LocalDate current = from;
-    int remaining = Math.abs(n);
-    boolean forward = n > 0;
-
-    while (remaining > 0) {
-      current = forward ? current.plusDays(1) : current.minusDays(1);
-      if (isBusinessDay(current)) {
-        remaining--;
-      }
-    }
-
-    return current;
-  }
-
-  @Override
-  public long businessDaysInRange(LocalDate from, LocalDate to) {
-    if (from.isAfter(to)) {
-      throw new IllegalArgumentException("from must not be after to");
-    }
-
-    // Get all CLOSED events in range
-    List<Event> closedEvents =
-        eventsInRange(from, to).stream().filter(e -> e.type() == EventType.CLOSED).toList();
-
-    Set<LocalDate> closedDates = new HashSet<>();
-    for (Event event : closedEvents) {
-      closedDates.add(event.date());
-    }
-
-    long count = 0;
-    LocalDate current = from;
-    while (!current.isAfter(to)) {
-      if (!weekendDays.contains(current.getDayOfWeek()) && !closedDates.contains(current)) {
-        count++;
-      }
-      current = current.plusDays(1);
-    }
-
-    return count;
-  }
-
-  @Override
-  public long eventCountInRange(LocalDate from, LocalDate to) {
-    return eventsInRange(from, to).size();
+    return eventsOn(date).stream().noneMatch(e -> e.type() == EventType.CLOSED);
   }
 
   /** Clear the internal cache. */

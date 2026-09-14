@@ -1,0 +1,42 @@
+# Known differences between our HK-HKEX data and the reference datasets.
+# source,side,date,type,reason
+#
+# --- exchange_calendars XHKG -------------------------------------------------
+# Four unscheduled severe-weather closures. None of these dates is a general holiday in the
+# Hong Kong Government's gazetted list (govhk-general-holidays / -archived) and none appears on
+# any HKEX published holiday schedule (hkex-calendar, hkex-stock-connect-calendar): they are
+# same-day cancellations announced under HKEX's severe weather arrangements, which this calendar
+# deliberately does not model (see the calendar description and sources/HK-HKEX/README.md).
+# HKEX's own notice for the last of them - "Securities and Derivatives Market Trading
+# Arrangements under Typhoon Signal No. 8", 06 Sep 2024 (hkex-severe-weather-notices) - shows the
+# mechanism: the session is cancelled on the day, by announcement, not by schedule. HKEX stopped
+# closing the market for severe weather on 23 September 2024, so no later date can be affected.
+exchange_calendars-XHKG,theirs,2020-10-13,CLOSED,Unscheduled severe-weather closure; not a gazetted general holiday and not on any HKEX published holiday schedule - out of scope for this calendar
+exchange_calendars-XHKG,theirs,2021-10-13,CLOSED,Unscheduled severe-weather closure; not a gazetted general holiday and not on any HKEX published holiday schedule - out of scope for this calendar
+exchange_calendars-XHKG,theirs,2023-07-17,CLOSED,Unscheduled severe-weather closure; not a gazetted general holiday and not on any HKEX published holiday schedule - out of scope for this calendar
+exchange_calendars-XHKG,theirs,2024-09-06,CLOSED,Unscheduled severe-weather closure under Typhoon Signal No. 8 per HKEX market communication 06 Sep 2024; not a gazetted general holiday - out of scope for this calendar
+#
+# --- QuantLib HongKong(HKEx) -------------------------------------------------
+# QuantLib models Hong Kong's lunar and solar-term holidays from hard-coded per-year lists. Its
+# 1.43 table stops after 2025, so for 2026 and 2027 it emits only the Gregorian and Easter-derived
+# holidays; and it misses four substituted dates in earlier years. Every date below is in the
+# Hong Kong Government's gazetted general holidays list for that year (govhk-general-holidays /
+# govhk-general-holidays-archived) and is confirmed closed by HKEX's own calendar (hkex-calendar /
+# hkex-calendar-archived). QuantLib has no closure that we lack.
+quantlib-hong-kong,ours,2019-05-13,CLOSED,Gazetted "The day following the Birthday of the Buddha" (12 May 2019 was a Sunday); QuantLib omits the substituted day
+quantlib-hong-kong,ours,2021-04-06,CLOSED,Gazetted "The day following Easter Monday" (Ching Ming Sunday 4 Apr observed Mon 5 Apr displaced it); QuantLib omits the displaced day
+quantlib-hong-kong,ours,2021-12-27,CLOSED,Gazetted "The first weekday after Christmas Day" (26 Dec 2021 was a Sunday); QuantLib omits the substituted day
+quantlib-hong-kong,ours,2022-12-27,CLOSED,Gazetted "The second weekday after Christmas Day" (25 Dec 2022 was a Sunday); QuantLib omits the extra gazetted day
+quantlib-hong-kong,ours,2026-02-17,CLOSED,Gazetted "Lunar New Year's Day" 2026; QuantLib's hard-coded lunar/solar-term table stops after 2025
+quantlib-hong-kong,ours,2026-02-18,CLOSED,Gazetted "The second day of Lunar New Year" 2026; QuantLib's hard-coded lunar/solar-term table stops after 2025
+quantlib-hong-kong,ours,2026-02-19,CLOSED,Gazetted "The third day of Lunar New Year" 2026; QuantLib's hard-coded lunar/solar-term table stops after 2025
+quantlib-hong-kong,ours,2026-04-07,CLOSED,Gazetted "The day following Easter Monday" 2026 (Ching Ming Sunday 5 Apr observed Mon 6 Apr displaced it); QuantLib keeps Easter Monday on 6 Apr and has no displaced day
+quantlib-hong-kong,ours,2026-05-25,CLOSED,Gazetted "The day following the Birthday of the Buddha" 2026; QuantLib's hard-coded lunar/solar-term table stops after 2025
+quantlib-hong-kong,ours,2026-06-19,CLOSED,Gazetted "Tuen Ng Festival" 2026; QuantLib's hard-coded lunar/solar-term table stops after 2025
+quantlib-hong-kong,ours,2026-10-19,CLOSED,Gazetted "The day following Chung Yeung Festival" 2026; QuantLib's hard-coded lunar/solar-term table stops after 2025
+quantlib-hong-kong,ours,2027-02-08,CLOSED,Gazetted "The third day of Lunar New Year" 2027; QuantLib's hard-coded lunar/solar-term table stops after 2025
+quantlib-hong-kong,ours,2027-02-09,CLOSED,Gazetted "The fourth day of Lunar New Year" 2027; QuantLib's hard-coded lunar/solar-term table stops after 2025
+quantlib-hong-kong,ours,2027-04-05,CLOSED,Gazetted "Ching Ming Festival" 2027; QuantLib's hard-coded lunar/solar-term table stops after 2025
+quantlib-hong-kong,ours,2027-05-13,CLOSED,Gazetted "The Birthday of the Buddha" 2027; QuantLib's hard-coded lunar/solar-term table stops after 2025
+quantlib-hong-kong,ours,2027-06-09,CLOSED,Gazetted "Tuen Ng Festival" 2027; QuantLib's hard-coded lunar/solar-term table stops after 2025
+quantlib-hong-kong,ours,2027-09-16,CLOSED,Gazetted "The day following the Chinese Mid-Autumn Festival" 2027; QuantLib's hard-coded lunar/solar-term table stops after 2025

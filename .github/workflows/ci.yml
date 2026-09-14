@@ -38,18 +38,49 @@ jobs:
       - name: Build
         id: build
         run: |
-          ./gradlew :tools:build
+          ./gradlew build
           ./gradlew :tools:installDist
           echo "tools-path=tools/build/install/tools/bin/tools" >> $GITHUB_OUTPUT
 
       - name: Run tests
-        run: ./gradlew :tools:test
+        run: ./gradlew test
 
-      - name: Validate example calendars
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          # The optional `mcp` extra (python/tests/test_mcp.py) requires the
+          # official MCP SDK, which needs Python >=3.10; bdc-calendars itself
+          # still supports 3.9+.
+          python-version: '3.10'
+
+      # Exercises the bdc-calendars package: its own API tests, the parity
+      # fixtures dumped from the Java query API, a check that the data
+      # bundled in python/bdc_calendars/data/ still re-derives from blessed/,
+      # and (via the mcp extra) the bdc-calendars-mcp server.
+      - name: Python package tests
         run: |
-          ./tools/build/install/tools/bin/tools validate US-MARKET-BASE
-          ./tools/build/install/tools/bin/tools validate US-NYSE
-          ./tools/build/install/tools/bin/tools validate US-CORP-IN-VISIBILITY
+          python -m pip install --upgrade pip
+          pip install -e "python/[test,mcp]"
+          pytest python/ -q
+
+      - name: Validate all calendars
+        run: |
+          set +e
+          ./tools/build/install/tools/bin/tools validate --all --strict --format json > validate-result.json
+          EXIT_CODE=$?
+          set -e
+          ./tools/build/install/tools/bin/tools validate --all --strict || true
+          if [ $EXIT_CODE -ne 0 ]; then
+            echo "::error::Calendar validation failed (exit $EXIT_CODE). See validate-result.json"
+            exit $EXIT_CODE
+          fi
+
+      - name: Upload validation results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: validate-result
+          path: validate-result.json
 
       - name: Upload test results
         uses: actions/upload-artifact@v4
@@ -135,6 +166,40 @@ jobs:
             diff-result.json
             diff-report.md
 
+      # Renders a browsable site for exactly the calendars the diff flagged, generated over each
+      # one's blessed range so the comparison in `tools site --compare-to` lines up with the
+      # blessed baseline rather than being swamped by "removed" rows for dates outside a narrower
+      # window. Never deployed anywhere public — it is only ever handed back as a workflow
+      # artifact, including for PRs from forks.
+      - name: Generate site preview for changed calendars
+        if: steps.diff.outputs.has_changes == 'true'
+        run: |
+          set -e
+          T=./tools/build/install/tools/bin/tools
+          mkdir -p preview-generated
+
+          CALENDAR_IDS=$(jq -r '.calendars | to_entries[] | select(.value.severity != "NONE") | .key' diff-result.json)
+          if [ -z "$CALENDAR_IDS" ]; then
+            echo "No changed calendars found in diff-result.json; nothing to preview"
+          fi
+          for ID in $CALENDAR_IDS; do
+            RANGE_START=$(jq -r --arg id "$ID" '.calendars[$id].range_start' blessed/manifest.json)
+            RANGE_END=$(jq -r --arg id "$ID" '.calendars[$id].range_end' blessed/manifest.json)
+            echo "Generating $ID over $RANGE_START..$RANGE_END for the site preview"
+            "$T" generate "$ID" --from "$RANGE_START" --to "$RANGE_END" \
+              --out "preview-generated/$ID" --include-specs
+          done
+
+          "$T" site --blessed-dir preview-generated --compare-to blessed --out preview-site
+
+      - name: Upload site preview artifact
+        if: steps.diff.outputs.has_changes == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-preview
+          path: preview-site
+          retention-days: 14
+
       - name: Post PR comment
         if: steps.diff.outputs.has_changes == 'true'
         uses: actions/github-script@v7
@@ -159,6 +224,8 @@ jobs:
             if (truncated) {
               body += '\n\n---\n⚠️ **Report truncated due to size.** See the full report in the [workflow artifacts](https://github.com/' + context.repo.owner + '/' + context.repo.repo + '/actions/runs/' + context.runId + ').';
             }
+            const runUrl = 'https://github.com/' + context.repo.owner + '/' + context.repo.repo + '/actions/runs/' + context.runId;
+            body += '\n\n---\nPreview: download the `site-preview` artifact and run `tools serve --dir site-preview` — ' + runUrl;
             body += '\n\n---\n*Generated at: ' + new Date().toISOString() + '*';
 
             // Find existing comment

@@ -1,0 +1,48 @@
+name: Source update
+description: An existing source document changed, moved, or was superseded
+title: "[source update]: "
+labels:
+  - source-update
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this when a source already listed in a `sources/<MARKET>/README.md` table needs
+        updating (a new URL, a newer edition, a broken link), as opposed to a specific date
+        being wrong (use "Data correction" for that).
+  - type: input
+    id: market-id
+    attributes:
+      label: Market id / MIC
+      placeholder: "US-NYSE / XNYS"
+    validations:
+      required: true
+  - type: input
+    id: source-id
+    attributes:
+      label: Existing source id
+      description: The `id` column value in sources/<MARKET>/README.md, if this updates an existing row.
+      placeholder: nyse-hours
+    validations:
+      required: false
+  - type: input
+    id: primary-source
+    attributes:
+      label: Updated source URL
+      placeholder: https://www.nyse.com/markets/hours-calendars
+    validations:
+      required: true
+  - type: textarea
+    id: what-changed
+    attributes:
+      label: What changed
+      description: New edition, moved page, newly announced dates, corrected publisher, etc.
+    validations:
+      required: true
+  - type: input
+    id: retrieved
+    attributes:
+      label: Date you retrieved this source
+      placeholder: "2026-09-13"
+    validations:
+      required: true

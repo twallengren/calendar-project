@@ -71,6 +71,11 @@ public class LookupTableAlgorithm implements ChronologyAlgorithm {
   }
 
   @Override
+  public java.util.Optional<int[]> supportedYearRange() {
+    return java.util.Optional.of(new int[] {minYear, maxYear});
+  }
+
+  @Override
   public long toJdn(int year, int month, int day) {
     if (!isValidDate(year, month, day)) {
       throw new IllegalArgumentException(

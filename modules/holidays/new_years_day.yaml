@@ -1,13 +1,23 @@
 kind: module
 id: new_years_day
 
+# New Year's Day (January 1). NYSE: closed every year.
+# Observance: a Sunday January 1 is observed on Monday. A Saturday January 1 is NOT observed
+# on Friday December 31, because under NYSE Rule 51 (adopted July 3, 1959) the Exchange stays
+# open on the preceding Friday when it ends a monthly or yearly accounting period. Before
+# 1959 the Friday observances that did occur are listed in us_nyse_special_closings_pre1960.
+# Source: nyse-history-2008 (holiday table and Rule 51 note).
+
+source:
+  - id: nyse-history-2008
+    ref: "New Year's Day; Rule 51 note"
+
 event_sources:
   - key: new_years_day
     name: New Year's Day
     default_classification: CLOSED
+    shift_policy: FORWARD_ONLY
     rule:
       type: fixed_month_day
-      key: new_years_day
-      name: New Year's Day
       month: 1
       day: 1

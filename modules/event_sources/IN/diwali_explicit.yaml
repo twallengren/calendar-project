@@ -1,10 +1,18 @@
 kind: module
 id: diwali_explicit
 
+# Diwali (Lakshmi Puja day) dates for visibility in US calendars. Dates follow the Government of
+# India gazetted holiday lists; 2027 onward are the widely published projected dates.
+# Source: india-gazette-holidays.
+
+source:
+  - id: india-gazette-holidays
+
 event_sources:
   - key: diwali
     name: Diwali
     default_classification: NOTABLE
+    shiftable: false
     rule:
       type: explicit_dates
       key: diwali

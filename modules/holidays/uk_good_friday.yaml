@@ -1,0 +1,28 @@
+kind: module
+id: uk_good_friday
+
+# Good Friday. England & Wales: closed every year; a common-law holiday, not listed in the 1971
+# Act itself (dcms-mayday-preconsultation, section 2.1 table). Always a Friday, so it never
+# requires weekend shifting.
+# Source: dcms-mayday-preconsultation (legal basis), govuk-bank-holidays (observed dates).
+
+source:
+  - id: dcms-mayday-preconsultation
+    ref: "section 2.1 table: Good Friday established by common law in England and Wales"
+
+references:
+  - key: easter
+    formula: EASTER_WESTERN
+
+event_sources:
+  - key: good_friday
+    name: Good Friday
+    default_classification: CLOSED
+    source:
+      - id: govuk-bank-holidays
+    rule:
+      type: relative_to_reference
+      key: good_friday
+      name: Good Friday
+      reference: easter
+      offset_days: -2

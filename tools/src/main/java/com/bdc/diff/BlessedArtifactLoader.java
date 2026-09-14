@@ -1,8 +1,7 @@
 package com.bdc.diff;
 
-import com.bdc.csv.EventCsvReader;
+import com.bdc.emitter.EventsCsvReader;
 import com.bdc.model.Event;
-import com.bdc.model.EventType;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
@@ -70,19 +69,6 @@ public class BlessedArtifactLoader {
       // New calendar with no blessed artifacts yet — treat as empty baseline
       return List.of();
     }
-
-    EventCsvReader.Table table = new EventCsvReader().read(csvPath);
-    int dateColumn = table.header().indexOf("date");
-    int typeColumn = table.header().indexOf("type");
-    int descriptionColumn = table.header().indexOf("description");
-    return table.records().stream()
-        .map(
-            row ->
-                new Event(
-                    LocalDate.parse(row.get(dateColumn)),
-                    EventType.valueOf(row.get(typeColumn)),
-                    row.get(descriptionColumn),
-                    "blessed"))
-        .toList();
+    return new EventsCsvReader().read(csvPath, "blessed");
   }
 }

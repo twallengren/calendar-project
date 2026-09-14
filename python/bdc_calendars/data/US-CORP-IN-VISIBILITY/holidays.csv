@@ -1,0 +1,946 @@
+date,type,description,key,source_module,observed_from,close_time,status
+1900-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1900-02-12,CLOSED,Lincoln's Birthday,lincolns_birthday,module:lincolns_birthday,,,CONFIRMED
+1900-02-22,CLOSED,Washington's Birthday,washingtons_birthday,module:washingtons_birthday,,,CONFIRMED
+1900-05-30,CLOSED,Decoration Day,decoration_day,module:decoration_day,,,CONFIRMED
+1900-07-04,CLOSED,Independence Day,independence_day_pre1959,module:independence_day,,,CONFIRMED
+1900-09-03,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1900-11-29,CLOSED,Thanksgiving Day,thanksgiving_pre1940,module:thanksgiving,,,CONFIRMED
+1900-12-25,CLOSED,Christmas Day,christmas_pre1959,module:christmas,,,CONFIRMED
+1901-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1901-02-12,CLOSED,Lincoln's Birthday,lincolns_birthday,module:lincolns_birthday,,,CONFIRMED
+1901-02-22,CLOSED,Washington's Birthday,washingtons_birthday,module:washingtons_birthday,,,CONFIRMED
+1901-05-30,CLOSED,Decoration Day,decoration_day,module:decoration_day,,,CONFIRMED
+1901-07-04,CLOSED,Independence Day,independence_day_pre1959,module:independence_day,,,CONFIRMED
+1901-09-02,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1901-11-28,CLOSED,Thanksgiving Day,thanksgiving_pre1940,module:thanksgiving,,,CONFIRMED
+1901-12-25,CLOSED,Christmas Day,christmas_pre1959,module:christmas,,,CONFIRMED
+1902-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1902-02-12,CLOSED,Lincoln's Birthday,lincolns_birthday,module:lincolns_birthday,,,CONFIRMED
+1902-05-30,CLOSED,Decoration Day,decoration_day,module:decoration_day,,,CONFIRMED
+1902-07-04,CLOSED,Independence Day,independence_day_pre1959,module:independence_day,,,CONFIRMED
+1902-09-01,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1902-11-27,CLOSED,Thanksgiving Day,thanksgiving_pre1940,module:thanksgiving,,,CONFIRMED
+1902-12-25,CLOSED,Christmas Day,christmas_pre1959,module:christmas,,,CONFIRMED
+1903-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1903-02-12,CLOSED,Lincoln's Birthday,lincolns_birthday,module:lincolns_birthday,,,CONFIRMED
+1903-02-23,CLOSED,Washington's Birthday,washingtons_birthday,module:washingtons_birthday,1903-02-22,,CONFIRMED
+1903-09-07,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1903-11-26,CLOSED,Thanksgiving Day,thanksgiving_pre1940,module:thanksgiving,,,CONFIRMED
+1903-12-25,CLOSED,Christmas Day,christmas_pre1959,module:christmas,,,CONFIRMED
+1904-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1904-02-12,CLOSED,Lincoln's Birthday,lincolns_birthday,module:lincolns_birthday,,,CONFIRMED
+1904-02-22,CLOSED,Washington's Birthday,washingtons_birthday,module:washingtons_birthday,,,CONFIRMED
+1904-05-30,CLOSED,Decoration Day,decoration_day,module:decoration_day,,,CONFIRMED
+1904-07-04,CLOSED,Independence Day,independence_day_pre1959,module:independence_day,,,CONFIRMED
+1904-09-05,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1904-11-24,CLOSED,Thanksgiving Day,thanksgiving_pre1940,module:thanksgiving,,,CONFIRMED
+1904-12-26,CLOSED,Christmas Day,christmas_pre1959,module:christmas,1904-12-25,,CONFIRMED
+1905-01-02,CLOSED,New Year's Day,new_years_day,module:new_years_day,1905-01-01,,CONFIRMED
+1905-02-13,CLOSED,Lincoln's Birthday,lincolns_birthday,module:lincolns_birthday,1905-02-12,,CONFIRMED
+1905-02-22,CLOSED,Washington's Birthday,washingtons_birthday,module:washingtons_birthday,,,CONFIRMED
+1905-05-30,CLOSED,Decoration Day,decoration_day,module:decoration_day,,,CONFIRMED
+1905-07-04,CLOSED,Independence Day,independence_day_pre1959,module:independence_day,,,CONFIRMED
+1905-09-04,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1905-11-30,CLOSED,Thanksgiving Day,thanksgiving_pre1940,module:thanksgiving,,,CONFIRMED
+1905-12-25,CLOSED,Christmas Day,christmas_pre1959,module:christmas,,,CONFIRMED
+1906-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1906-02-12,CLOSED,Lincoln's Birthday,lincolns_birthday,module:lincolns_birthday,,,CONFIRMED
+1906-02-22,CLOSED,Washington's Birthday,washingtons_birthday,module:washingtons_birthday,,,CONFIRMED
+1906-05-30,CLOSED,Decoration Day,decoration_day,module:decoration_day,,,CONFIRMED
+1906-07-04,CLOSED,Independence Day,independence_day_pre1959,module:independence_day,,,CONFIRMED
+1906-09-03,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1906-11-29,CLOSED,Thanksgiving Day,thanksgiving_pre1940,module:thanksgiving,,,CONFIRMED
+1906-12-25,CLOSED,Christmas Day,christmas_pre1959,module:christmas,,,CONFIRMED
+1907-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1907-02-12,CLOSED,Lincoln's Birthday,lincolns_birthday,module:lincolns_birthday,,,CONFIRMED
+1907-02-22,CLOSED,Washington's Birthday,washingtons_birthday,module:washingtons_birthday,,,CONFIRMED
+1907-05-30,CLOSED,Decoration Day,decoration_day,module:decoration_day,,,CONFIRMED
+1907-07-04,CLOSED,Independence Day,independence_day_pre1959,module:independence_day,,,CONFIRMED
+1907-09-02,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1907-11-28,CLOSED,Thanksgiving Day,thanksgiving_pre1940,module:thanksgiving,,,CONFIRMED
+1907-12-25,CLOSED,Christmas Day,christmas_pre1959,module:christmas,,,CONFIRMED
+1908-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1908-02-12,CLOSED,Lincoln's Birthday,lincolns_birthday,module:lincolns_birthday,,,CONFIRMED
+1908-09-07,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1908-11-26,CLOSED,Thanksgiving Day,thanksgiving_pre1940,module:thanksgiving,,,CONFIRMED
+1908-12-25,CLOSED,Christmas Day,christmas_pre1959,module:christmas,,,CONFIRMED
+1909-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1909-02-12,CLOSED,Lincoln's Birthday,lincolns_birthday,module:lincolns_birthday,,,CONFIRMED
+1909-02-22,CLOSED,Washington's Birthday,washingtons_birthday,module:washingtons_birthday,,,CONFIRMED
+1909-05-31,CLOSED,Decoration Day,decoration_day,module:decoration_day,1909-05-30,,CONFIRMED
+1909-07-05,CLOSED,Independence Day,independence_day_pre1959,module:independence_day,1909-07-04,,CONFIRMED
+1909-09-06,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1909-10-12,CLOSED,Columbus Day,columbus_day,module:columbus_day,,,CONFIRMED
+1909-11-25,CLOSED,Thanksgiving Day,thanksgiving_pre1940,module:thanksgiving,,,CONFIRMED
+1910-02-22,CLOSED,Washington's Birthday,washingtons_birthday,module:washingtons_birthday,,,CONFIRMED
+1910-05-30,CLOSED,Decoration Day,decoration_day,module:decoration_day,,,CONFIRMED
+1910-07-04,CLOSED,Independence Day,independence_day_pre1959,module:independence_day,,,CONFIRMED
+1910-09-05,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1910-10-12,CLOSED,Columbus Day,columbus_day,module:columbus_day,,,CONFIRMED
+1910-11-24,CLOSED,Thanksgiving Day,thanksgiving_pre1940,module:thanksgiving,,,CONFIRMED
+1910-12-26,CLOSED,Christmas Day,christmas_pre1959,module:christmas,1910-12-25,,CONFIRMED
+1911-01-02,CLOSED,New Year's Day,new_years_day,module:new_years_day,1911-01-01,,CONFIRMED
+1911-02-13,CLOSED,Lincoln's Birthday,lincolns_birthday,module:lincolns_birthday,1911-02-12,,CONFIRMED
+1911-02-22,CLOSED,Washington's Birthday,washingtons_birthday,module:washingtons_birthday,,,CONFIRMED
+1911-05-30,CLOSED,Decoration Day,decoration_day,module:decoration_day,,,CONFIRMED
+1911-07-04,CLOSED,Independence Day,independence_day_pre1959,module:independence_day,,,CONFIRMED
+1911-09-04,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1911-10-12,CLOSED,Columbus Day,columbus_day,module:columbus_day,,,CONFIRMED
+1911-11-30,CLOSED,Thanksgiving Day,thanksgiving_pre1940,module:thanksgiving,,,CONFIRMED
+1911-12-25,CLOSED,Christmas Day,christmas_pre1959,module:christmas,,,CONFIRMED
+1912-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1912-02-12,CLOSED,Lincoln's Birthday,lincolns_birthday,module:lincolns_birthday,,,CONFIRMED
+1912-02-22,CLOSED,Washington's Birthday,washingtons_birthday,module:washingtons_birthday,,,CONFIRMED
+1912-05-30,CLOSED,Decoration Day,decoration_day,module:decoration_day,,,CONFIRMED
+1912-07-04,CLOSED,Independence Day,independence_day_pre1959,module:independence_day,,,CONFIRMED
+1912-09-02,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1912-11-28,CLOSED,Thanksgiving Day,thanksgiving_pre1940,module:thanksgiving,,,CONFIRMED
+1912-12-25,CLOSED,Christmas Day,christmas_pre1959,module:christmas,,,CONFIRMED
+1913-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1913-02-12,CLOSED,Lincoln's Birthday,lincolns_birthday,module:lincolns_birthday,,,CONFIRMED
+1913-05-30,CLOSED,Decoration Day,decoration_day,module:decoration_day,,,CONFIRMED
+1913-07-04,CLOSED,Independence Day,independence_day_pre1959,module:independence_day,,,CONFIRMED
+1913-09-01,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1913-10-13,CLOSED,Columbus Day,columbus_day,module:columbus_day,1913-10-12,,CONFIRMED
+1913-11-27,CLOSED,Thanksgiving Day,thanksgiving_pre1940,module:thanksgiving,,,CONFIRMED
+1913-12-25,CLOSED,Christmas Day,christmas_pre1959,module:christmas,,,CONFIRMED
+1914-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1914-02-12,CLOSED,Lincoln's Birthday,lincolns_birthday,module:lincolns_birthday,,,CONFIRMED
+1914-02-23,CLOSED,Washington's Birthday,washingtons_birthday,module:washingtons_birthday,1914-02-22,,CONFIRMED
+1914-09-07,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1914-10-12,CLOSED,Columbus Day,columbus_day,module:columbus_day,,,CONFIRMED
+1914-11-26,CLOSED,Thanksgiving Day,thanksgiving_pre1940,module:thanksgiving,,,CONFIRMED
+1914-12-25,CLOSED,Christmas Day,christmas_pre1959,module:christmas,,,CONFIRMED
+1915-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1915-02-12,CLOSED,Lincoln's Birthday,lincolns_birthday,module:lincolns_birthday,,,CONFIRMED
+1915-02-22,CLOSED,Washington's Birthday,washingtons_birthday,module:washingtons_birthday,,,CONFIRMED
+1915-05-31,CLOSED,Decoration Day,decoration_day,module:decoration_day,1915-05-30,,CONFIRMED
+1915-07-05,CLOSED,Independence Day,independence_day_pre1959,module:independence_day,1915-07-04,,CONFIRMED
+1915-09-06,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1915-10-12,CLOSED,Columbus Day,columbus_day,module:columbus_day,,,CONFIRMED
+1915-11-25,CLOSED,Thanksgiving Day,thanksgiving_pre1940,module:thanksgiving,,,CONFIRMED
+1916-02-22,CLOSED,Washington's Birthday,washingtons_birthday,module:washingtons_birthday,,,CONFIRMED
+1916-05-30,CLOSED,Decoration Day,decoration_day,module:decoration_day,,,CONFIRMED
+1916-06-14,CLOSED,Flag Day,flag_day,module:flag_day,,,CONFIRMED
+1916-07-04,CLOSED,Independence Day,independence_day_pre1959,module:independence_day,,,CONFIRMED
+1916-09-04,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1916-10-12,CLOSED,Columbus Day,columbus_day,module:columbus_day,,,CONFIRMED
+1916-11-30,CLOSED,Thanksgiving Day,thanksgiving_pre1940,module:thanksgiving,,,CONFIRMED
+1916-12-25,CLOSED,Christmas Day,christmas_pre1959,module:christmas,,,CONFIRMED
+1917-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1917-02-12,CLOSED,Lincoln's Birthday,lincolns_birthday,module:lincolns_birthday,,,CONFIRMED
+1917-02-22,CLOSED,Washington's Birthday,washingtons_birthday,module:washingtons_birthday,,,CONFIRMED
+1917-05-30,CLOSED,Decoration Day,decoration_day,module:decoration_day,,,CONFIRMED
+1917-06-14,CLOSED,Flag Day,flag_day,module:flag_day,,,CONFIRMED
+1917-07-04,CLOSED,Independence Day,independence_day_pre1959,module:independence_day,,,CONFIRMED
+1917-09-03,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1917-10-12,CLOSED,Columbus Day,columbus_day,module:columbus_day,,,CONFIRMED
+1917-11-29,CLOSED,Thanksgiving Day,thanksgiving_pre1940,module:thanksgiving,,,CONFIRMED
+1917-12-25,CLOSED,Christmas Day,christmas_pre1959,module:christmas,,,CONFIRMED
+1918-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1918-02-12,CLOSED,Lincoln's Birthday,lincolns_birthday,module:lincolns_birthday,,,CONFIRMED
+1918-02-22,CLOSED,Washington's Birthday,washingtons_birthday,module:washingtons_birthday,,,CONFIRMED
+1918-05-30,CLOSED,Decoration Day,decoration_day,module:decoration_day,,,CONFIRMED
+1918-06-14,CLOSED,Flag Day,flag_day,module:flag_day,,,CONFIRMED
+1918-07-04,CLOSED,Independence Day,independence_day_pre1959,module:independence_day,,,CONFIRMED
+1918-09-02,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1918-11-11,CLOSED,Armistice Day,armistice_veterans_day,module:armistice_veterans_day,,,CONFIRMED
+1918-11-28,CLOSED,Thanksgiving Day,thanksgiving_pre1940,module:thanksgiving,,,CONFIRMED
+1918-12-25,CLOSED,Christmas Day,christmas_pre1959,module:christmas,,,CONFIRMED
+1919-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1919-02-12,CLOSED,Lincoln's Birthday,lincolns_birthday,module:lincolns_birthday,,,CONFIRMED
+1919-05-30,CLOSED,Decoration Day,decoration_day,module:decoration_day,,,CONFIRMED
+1919-07-04,CLOSED,Independence Day,independence_day_pre1959,module:independence_day,,,CONFIRMED
+1919-09-01,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1919-10-13,CLOSED,Columbus Day,columbus_day,module:columbus_day,1919-10-12,,CONFIRMED
+1919-11-27,CLOSED,Thanksgiving Day,thanksgiving_pre1940,module:thanksgiving,,,CONFIRMED
+1919-12-25,CLOSED,Christmas Day,christmas_pre1959,module:christmas,,,CONFIRMED
+1920-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1920-02-12,CLOSED,Lincoln's Birthday,lincolns_birthday,module:lincolns_birthday,,,CONFIRMED
+1920-02-23,CLOSED,Washington's Birthday,washingtons_birthday,module:washingtons_birthday,1920-02-22,,CONFIRMED
+1920-05-31,CLOSED,Decoration Day,decoration_day,module:decoration_day,1920-05-30,,CONFIRMED
+1920-06-14,CLOSED,Flag Day,flag_day,module:flag_day,,,CONFIRMED
+1920-07-05,CLOSED,Independence Day,independence_day_pre1959,module:independence_day,1920-07-04,,CONFIRMED
+1920-09-06,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1920-10-12,CLOSED,Columbus Day,columbus_day,module:columbus_day,,,CONFIRMED
+1920-11-25,CLOSED,Thanksgiving Day,thanksgiving_pre1940,module:thanksgiving,,,CONFIRMED
+1921-02-22,CLOSED,Washington's Birthday,washingtons_birthday,module:washingtons_birthday,,,CONFIRMED
+1921-05-30,CLOSED,Decoration Day,decoration_day,module:decoration_day,,,CONFIRMED
+1921-06-14,CLOSED,Flag Day,flag_day,module:flag_day,,,CONFIRMED
+1921-07-04,CLOSED,Independence Day,independence_day_pre1959,module:independence_day,,,CONFIRMED
+1921-09-05,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1921-10-12,CLOSED,Columbus Day,columbus_day,module:columbus_day,,,CONFIRMED
+1921-11-11,CLOSED,Armistice Day,armistice_veterans_day,module:armistice_veterans_day,,,CONFIRMED
+1921-11-24,CLOSED,Thanksgiving Day,thanksgiving_pre1940,module:thanksgiving,,,CONFIRMED
+1921-12-26,CLOSED,Christmas Day,christmas_pre1959,module:christmas,1921-12-25,,CONFIRMED
+1922-01-02,CLOSED,New Year's Day,new_years_day,module:new_years_day,1922-01-01,,CONFIRMED
+1922-02-13,CLOSED,Lincoln's Birthday,lincolns_birthday,module:lincolns_birthday,1922-02-12,,CONFIRMED
+1922-02-22,CLOSED,Washington's Birthday,washingtons_birthday,module:washingtons_birthday,,,CONFIRMED
+1922-05-30,CLOSED,Decoration Day,decoration_day,module:decoration_day,,,CONFIRMED
+1922-06-14,CLOSED,Flag Day,flag_day,module:flag_day,,,CONFIRMED
+1922-07-04,CLOSED,Independence Day,independence_day_pre1959,module:independence_day,,,CONFIRMED
+1922-09-04,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1922-10-12,CLOSED,Columbus Day,columbus_day,module:columbus_day,,,CONFIRMED
+1922-11-30,CLOSED,Thanksgiving Day,thanksgiving_pre1940,module:thanksgiving,,,CONFIRMED
+1922-12-25,CLOSED,Christmas Day,christmas_pre1959,module:christmas,,,CONFIRMED
+1923-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1923-02-12,CLOSED,Lincoln's Birthday,lincolns_birthday,module:lincolns_birthday,,,CONFIRMED
+1923-02-22,CLOSED,Washington's Birthday,washingtons_birthday,module:washingtons_birthday,,,CONFIRMED
+1923-05-30,CLOSED,Decoration Day,decoration_day,module:decoration_day,,,CONFIRMED
+1923-06-14,CLOSED,Flag Day,flag_day,module:flag_day,,,CONFIRMED
+1923-07-04,CLOSED,Independence Day,independence_day_pre1959,module:independence_day,,,CONFIRMED
+1923-09-03,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1923-10-12,CLOSED,Columbus Day,columbus_day,module:columbus_day,,,CONFIRMED
+1923-11-29,CLOSED,Thanksgiving Day,thanksgiving_pre1940,module:thanksgiving,,,CONFIRMED
+1923-12-25,CLOSED,Christmas Day,christmas_pre1959,module:christmas,,,CONFIRMED
+1924-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1924-02-12,CLOSED,Lincoln's Birthday,lincolns_birthday,module:lincolns_birthday,,,CONFIRMED
+1924-02-22,CLOSED,Washington's Birthday,washingtons_birthday,module:washingtons_birthday,,,CONFIRMED
+1924-05-30,CLOSED,Decoration Day,decoration_day,module:decoration_day,,,CONFIRMED
+1924-07-04,CLOSED,Independence Day,independence_day_pre1959,module:independence_day,,,CONFIRMED
+1924-09-01,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1924-10-13,CLOSED,Columbus Day,columbus_day,module:columbus_day,1924-10-12,,CONFIRMED
+1924-11-27,CLOSED,Thanksgiving Day,thanksgiving_pre1940,module:thanksgiving,,,CONFIRMED
+1924-12-25,CLOSED,Christmas Day,christmas_pre1959,module:christmas,,,CONFIRMED
+1925-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1925-02-12,CLOSED,Lincoln's Birthday,lincolns_birthday,module:lincolns_birthday,,,CONFIRMED
+1925-02-23,CLOSED,Washington's Birthday,washingtons_birthday,module:washingtons_birthday,1925-02-22,,CONFIRMED
+1925-06-15,CLOSED,Flag Day,flag_day,module:flag_day,1925-06-14,,CONFIRMED
+1925-09-07,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1925-10-12,CLOSED,Columbus Day,columbus_day,module:columbus_day,,,CONFIRMED
+1925-11-26,CLOSED,Thanksgiving Day,thanksgiving_pre1940,module:thanksgiving,,,CONFIRMED
+1925-12-25,CLOSED,Christmas Day,christmas_pre1959,module:christmas,,,CONFIRMED
+1926-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1926-02-12,CLOSED,Lincoln's Birthday,lincolns_birthday,module:lincolns_birthday,,,CONFIRMED
+1926-02-22,CLOSED,Washington's Birthday,washingtons_birthday,module:washingtons_birthday,,,CONFIRMED
+1926-05-31,CLOSED,Decoration Day,decoration_day,module:decoration_day,1926-05-30,,CONFIRMED
+1926-06-14,CLOSED,Flag Day,flag_day,module:flag_day,,,CONFIRMED
+1926-07-05,CLOSED,Independence Day,independence_day_pre1959,module:independence_day,1926-07-04,,CONFIRMED
+1926-09-06,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1926-10-12,CLOSED,Columbus Day,columbus_day,module:columbus_day,,,CONFIRMED
+1926-11-25,CLOSED,Thanksgiving Day,thanksgiving_pre1940,module:thanksgiving,,,CONFIRMED
+1927-02-22,CLOSED,Washington's Birthday,washingtons_birthday,module:washingtons_birthday,,,CONFIRMED
+1927-05-30,CLOSED,Decoration Day,decoration_day,module:decoration_day,,,CONFIRMED
+1927-06-14,CLOSED,Flag Day,flag_day,module:flag_day,,,CONFIRMED
+1927-07-04,CLOSED,Independence Day,independence_day_pre1959,module:independence_day,,,CONFIRMED
+1927-09-05,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1927-10-12,CLOSED,Columbus Day,columbus_day,module:columbus_day,,,CONFIRMED
+1927-11-24,CLOSED,Thanksgiving Day,thanksgiving_pre1940,module:thanksgiving,,,CONFIRMED
+1927-12-26,CLOSED,Christmas Day,christmas_pre1959,module:christmas,1927-12-25,,CONFIRMED
+1928-01-02,CLOSED,New Year's Day,new_years_day,module:new_years_day,1928-01-01,,CONFIRMED
+1928-02-13,CLOSED,Lincoln's Birthday,lincolns_birthday,module:lincolns_birthday,1928-02-12,,CONFIRMED
+1928-02-22,CLOSED,Washington's Birthday,washingtons_birthday,module:washingtons_birthday,,,CONFIRMED
+1928-05-30,CLOSED,Decoration Day,decoration_day,module:decoration_day,,,CONFIRMED
+1928-06-14,CLOSED,Flag Day,flag_day,module:flag_day,,,CONFIRMED
+1928-07-04,CLOSED,Independence Day,independence_day_pre1959,module:independence_day,,,CONFIRMED
+1928-09-03,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1928-10-12,CLOSED,Columbus Day,columbus_day,module:columbus_day,,,CONFIRMED
+1928-11-29,CLOSED,Thanksgiving Day,thanksgiving_pre1940,module:thanksgiving,,,CONFIRMED
+1928-12-25,CLOSED,Christmas Day,christmas_pre1959,module:christmas,,,CONFIRMED
+1929-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1929-02-12,CLOSED,Lincoln's Birthday,lincolns_birthday,module:lincolns_birthday,,,CONFIRMED
+1929-02-22,CLOSED,Washington's Birthday,washingtons_birthday,module:washingtons_birthday,,,CONFIRMED
+1929-05-30,CLOSED,Decoration Day,decoration_day,module:decoration_day,,,CONFIRMED
+1929-06-14,CLOSED,Flag Day,flag_day,module:flag_day,,,CONFIRMED
+1929-07-04,CLOSED,Independence Day,independence_day_pre1959,module:independence_day,,,CONFIRMED
+1929-09-02,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1929-11-28,CLOSED,Thanksgiving Day,thanksgiving_pre1940,module:thanksgiving,,,CONFIRMED
+1929-12-25,CLOSED,Christmas Day,christmas_pre1959,module:christmas,,,CONFIRMED
+1930-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1930-02-12,CLOSED,Lincoln's Birthday,lincolns_birthday,module:lincolns_birthday,,,CONFIRMED
+1930-05-30,CLOSED,Decoration Day,decoration_day,module:decoration_day,,,CONFIRMED
+1930-07-04,CLOSED,Independence Day,independence_day_pre1959,module:independence_day,,,CONFIRMED
+1930-09-01,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1930-10-13,CLOSED,Columbus Day,columbus_day,module:columbus_day,1930-10-12,,CONFIRMED
+1930-11-27,CLOSED,Thanksgiving Day,thanksgiving_pre1940,module:thanksgiving,,,CONFIRMED
+1930-12-25,CLOSED,Christmas Day,christmas_pre1959,module:christmas,,,CONFIRMED
+1931-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1931-02-12,CLOSED,Lincoln's Birthday,lincolns_birthday,module:lincolns_birthday,,,CONFIRMED
+1931-02-23,CLOSED,Washington's Birthday,washingtons_birthday,module:washingtons_birthday,1931-02-22,,CONFIRMED
+1931-06-15,CLOSED,Flag Day,flag_day,module:flag_day,1931-06-14,,CONFIRMED
+1931-09-07,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1931-10-12,CLOSED,Columbus Day,columbus_day,module:columbus_day,,,CONFIRMED
+1931-11-26,CLOSED,Thanksgiving Day,thanksgiving_pre1940,module:thanksgiving,,,CONFIRMED
+1931-12-25,CLOSED,Christmas Day,christmas_pre1959,module:christmas,,,CONFIRMED
+1932-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1932-02-12,CLOSED,Lincoln's Birthday,lincolns_birthday,module:lincolns_birthday,,,CONFIRMED
+1932-02-22,CLOSED,Washington's Birthday,washingtons_birthday,module:washingtons_birthday,,,CONFIRMED
+1932-05-30,CLOSED,Decoration Day,decoration_day,module:decoration_day,,,CONFIRMED
+1932-06-14,CLOSED,Flag Day,flag_day,module:flag_day,,,CONFIRMED
+1932-07-04,CLOSED,Independence Day,independence_day_pre1959,module:independence_day,,,CONFIRMED
+1932-09-05,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1932-10-12,CLOSED,Columbus Day,columbus_day,module:columbus_day,,,CONFIRMED
+1932-11-24,CLOSED,Thanksgiving Day,thanksgiving_pre1940,module:thanksgiving,,,CONFIRMED
+1932-12-26,CLOSED,Christmas Day,christmas_pre1959,module:christmas,1932-12-25,,CONFIRMED
+1933-01-02,CLOSED,New Year's Day,new_years_day,module:new_years_day,1933-01-01,,CONFIRMED
+1933-02-13,CLOSED,Lincoln's Birthday,lincolns_birthday,module:lincolns_birthday,1933-02-12,,CONFIRMED
+1933-02-22,CLOSED,Washington's Birthday,washingtons_birthday,module:washingtons_birthday,,,CONFIRMED
+1933-05-30,CLOSED,Decoration Day,decoration_day,module:decoration_day,,,CONFIRMED
+1933-06-14,CLOSED,Flag Day,flag_day,module:flag_day,,,CONFIRMED
+1933-07-04,CLOSED,Independence Day,independence_day_pre1959,module:independence_day,,,CONFIRMED
+1933-09-04,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1933-10-12,CLOSED,Columbus Day,columbus_day,module:columbus_day,,,CONFIRMED
+1933-11-30,CLOSED,Thanksgiving Day,thanksgiving_pre1940,module:thanksgiving,,,CONFIRMED
+1933-12-25,CLOSED,Christmas Day,christmas_pre1959,module:christmas,,,CONFIRMED
+1934-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1934-02-12,CLOSED,Lincoln's Birthday,lincolns_birthday,module:lincolns_birthday,,,CONFIRMED
+1934-02-22,CLOSED,Washington's Birthday,washingtons_birthday,module:washingtons_birthday,,,CONFIRMED
+1934-05-30,CLOSED,Decoration Day,decoration_day,module:decoration_day,,,CONFIRMED
+1934-06-14,CLOSED,Flag Day,flag_day,module:flag_day,,,CONFIRMED
+1934-07-04,CLOSED,Independence Day,independence_day_pre1959,module:independence_day,,,CONFIRMED
+1934-09-03,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1934-10-12,CLOSED,Columbus Day,columbus_day,module:columbus_day,,,CONFIRMED
+1934-11-12,CLOSED,Armistice Day,armistice_veterans_day,module:armistice_veterans_day,1934-11-11,,CONFIRMED
+1934-11-29,CLOSED,Thanksgiving Day,thanksgiving_pre1940,module:thanksgiving,,,CONFIRMED
+1934-12-25,CLOSED,Christmas Day,christmas_pre1959,module:christmas,,,CONFIRMED
+1935-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1935-02-12,CLOSED,Lincoln's Birthday,lincolns_birthday,module:lincolns_birthday,,,CONFIRMED
+1935-02-22,CLOSED,Washington's Birthday,washingtons_birthday,module:washingtons_birthday,,,CONFIRMED
+1935-05-30,CLOSED,Decoration Day,decoration_day,module:decoration_day,,,CONFIRMED
+1935-06-14,CLOSED,Flag Day,flag_day,module:flag_day,,,CONFIRMED
+1935-07-04,CLOSED,Independence Day,independence_day_pre1959,module:independence_day,,,CONFIRMED
+1935-09-02,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1935-11-11,CLOSED,Armistice Day,armistice_veterans_day,module:armistice_veterans_day,,,CONFIRMED
+1935-11-28,CLOSED,Thanksgiving Day,thanksgiving_pre1940,module:thanksgiving,,,CONFIRMED
+1935-12-25,CLOSED,Christmas Day,christmas_pre1959,module:christmas,,,CONFIRMED
+1936-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1936-02-12,CLOSED,Lincoln's Birthday,lincolns_birthday,module:lincolns_birthday,,,CONFIRMED
+1936-06-15,CLOSED,Flag Day,flag_day,module:flag_day,1936-06-14,,CONFIRMED
+1936-09-07,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1936-10-12,CLOSED,Columbus Day,columbus_day,module:columbus_day,,,CONFIRMED
+1936-11-11,CLOSED,Armistice Day,armistice_veterans_day,module:armistice_veterans_day,,,CONFIRMED
+1936-11-26,CLOSED,Thanksgiving Day,thanksgiving_pre1940,module:thanksgiving,,,CONFIRMED
+1936-12-25,CLOSED,Christmas Day,christmas_pre1959,module:christmas,,,CONFIRMED
+1937-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1937-02-12,CLOSED,Lincoln's Birthday,lincolns_birthday,module:lincolns_birthday,,,CONFIRMED
+1937-02-22,CLOSED,Washington's Birthday,washingtons_birthday,module:washingtons_birthday,,,CONFIRMED
+1937-05-31,CLOSED,Decoration Day,decoration_day,module:decoration_day,1937-05-30,,CONFIRMED
+1937-06-14,CLOSED,Flag Day,flag_day,module:flag_day,,,CONFIRMED
+1937-07-05,CLOSED,Independence Day,independence_day_pre1959,module:independence_day,1937-07-04,,CONFIRMED
+1937-09-06,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1937-10-12,CLOSED,Columbus Day,columbus_day,module:columbus_day,,,CONFIRMED
+1937-11-11,CLOSED,Armistice Day,armistice_veterans_day,module:armistice_veterans_day,,,CONFIRMED
+1937-11-25,CLOSED,Thanksgiving Day,thanksgiving_pre1940,module:thanksgiving,,,CONFIRMED
+1938-02-22,CLOSED,Washington's Birthday,washingtons_birthday,module:washingtons_birthday,,,CONFIRMED
+1938-05-30,CLOSED,Decoration Day,decoration_day,module:decoration_day,,,CONFIRMED
+1938-06-14,CLOSED,Flag Day,flag_day,module:flag_day,,,CONFIRMED
+1938-07-04,CLOSED,Independence Day,independence_day_pre1959,module:independence_day,,,CONFIRMED
+1938-09-05,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1938-10-12,CLOSED,Columbus Day,columbus_day,module:columbus_day,,,CONFIRMED
+1938-11-11,CLOSED,Armistice Day,armistice_veterans_day,module:armistice_veterans_day,,,CONFIRMED
+1938-11-24,CLOSED,Thanksgiving Day,thanksgiving_pre1940,module:thanksgiving,,,CONFIRMED
+1938-12-26,CLOSED,Christmas Day,christmas_pre1959,module:christmas,1938-12-25,,CONFIRMED
+1939-01-02,CLOSED,New Year's Day,new_years_day,module:new_years_day,1939-01-01,,CONFIRMED
+1939-02-13,CLOSED,Lincoln's Birthday,lincolns_birthday,module:lincolns_birthday,1939-02-12,,CONFIRMED
+1939-02-22,CLOSED,Washington's Birthday,washingtons_birthday,module:washingtons_birthday,,,CONFIRMED
+1939-05-30,CLOSED,Decoration Day,decoration_day,module:decoration_day,,,CONFIRMED
+1939-06-14,CLOSED,Flag Day,flag_day,module:flag_day,,,CONFIRMED
+1939-07-04,CLOSED,Independence Day,independence_day_pre1959,module:independence_day,,,CONFIRMED
+1939-09-04,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1939-10-12,CLOSED,Columbus Day,columbus_day,module:columbus_day,,,CONFIRMED
+1939-11-30,CLOSED,Thanksgiving Day,thanksgiving_pre1940,module:thanksgiving,,,CONFIRMED
+1939-12-25,CLOSED,Christmas Day,christmas_pre1959,module:christmas,,,CONFIRMED
+1940-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1940-02-12,CLOSED,Lincoln's Birthday,lincolns_birthday,module:lincolns_birthday,,,CONFIRMED
+1940-02-22,CLOSED,Washington's Birthday,washingtons_birthday,module:washingtons_birthday,,,CONFIRMED
+1940-05-30,CLOSED,Decoration Day,decoration_day,module:decoration_day,,,CONFIRMED
+1940-06-14,CLOSED,Flag Day,flag_day,module:flag_day,,,CONFIRMED
+1940-07-04,CLOSED,Independence Day,independence_day_pre1959,module:independence_day,,,CONFIRMED
+1940-09-02,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1940-11-11,CLOSED,Armistice Day,armistice_veterans_day,module:armistice_veterans_day,,,CONFIRMED
+1940-11-28,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+1940-12-25,CLOSED,Christmas Day,christmas_pre1959,module:christmas,,,CONFIRMED
+1941-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1941-02-12,CLOSED,Lincoln's Birthday,lincolns_birthday,module:lincolns_birthday,,,CONFIRMED
+1941-05-30,CLOSED,Decoration Day,decoration_day,module:decoration_day,,,CONFIRMED
+1941-07-04,CLOSED,Independence Day,independence_day_pre1959,module:independence_day,,,CONFIRMED
+1941-09-01,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1941-10-13,CLOSED,Columbus Day,columbus_day,module:columbus_day,1941-10-12,,CONFIRMED
+1941-11-11,CLOSED,Armistice Day,armistice_veterans_day,module:armistice_veterans_day,,,CONFIRMED
+1941-11-27,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+1941-12-25,CLOSED,Christmas Day,christmas_pre1959,module:christmas,,,CONFIRMED
+1942-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1942-02-12,CLOSED,Lincoln's Birthday,lincolns_birthday,module:lincolns_birthday,,,CONFIRMED
+1942-02-23,CLOSED,Washington's Birthday,washingtons_birthday,module:washingtons_birthday,1942-02-22,,CONFIRMED
+1942-06-15,CLOSED,Flag Day,flag_day,module:flag_day,1942-06-14,,CONFIRMED
+1942-09-07,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1942-10-12,CLOSED,Columbus Day,columbus_day,module:columbus_day,,,CONFIRMED
+1942-11-11,CLOSED,Armistice Day,armistice_veterans_day,module:armistice_veterans_day,,,CONFIRMED
+1942-11-26,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+1942-12-25,CLOSED,Christmas Day,christmas_pre1959,module:christmas,,,CONFIRMED
+1943-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1943-02-12,CLOSED,Lincoln's Birthday,lincolns_birthday,module:lincolns_birthday,,,CONFIRMED
+1943-02-22,CLOSED,Washington's Birthday,washingtons_birthday,module:washingtons_birthday,,,CONFIRMED
+1943-05-31,CLOSED,Decoration Day,decoration_day,module:decoration_day,1943-05-30,,CONFIRMED
+1943-06-14,CLOSED,Flag Day,flag_day,module:flag_day,,,CONFIRMED
+1943-07-05,CLOSED,Independence Day,independence_day_pre1959,module:independence_day,1943-07-04,,CONFIRMED
+1943-09-06,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1943-10-12,CLOSED,Columbus Day,columbus_day,module:columbus_day,,,CONFIRMED
+1943-11-11,CLOSED,Armistice Day,armistice_veterans_day,module:armistice_veterans_day,,,CONFIRMED
+1943-11-25,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+1944-02-22,CLOSED,Washington's Birthday,washingtons_birthday,module:washingtons_birthday,,,CONFIRMED
+1944-05-30,CLOSED,Decoration Day,decoration_day,module:decoration_day,,,CONFIRMED
+1944-06-14,CLOSED,Flag Day,flag_day,module:flag_day,,,CONFIRMED
+1944-07-04,CLOSED,Independence Day,independence_day_pre1959,module:independence_day,,,CONFIRMED
+1944-09-04,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1944-10-12,CLOSED,Columbus Day,columbus_day,module:columbus_day,,,CONFIRMED
+1944-11-23,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+1944-12-25,CLOSED,Christmas Day,christmas_pre1959,module:christmas,,,CONFIRMED
+1945-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1945-02-12,CLOSED,Lincoln's Birthday,lincolns_birthday,module:lincolns_birthday,,,CONFIRMED
+1945-02-22,CLOSED,Washington's Birthday,washingtons_birthday,module:washingtons_birthday,,,CONFIRMED
+1945-05-30,CLOSED,Decoration Day,decoration_day,module:decoration_day,,,CONFIRMED
+1945-06-14,CLOSED,Flag Day,flag_day,module:flag_day,,,CONFIRMED
+1945-07-04,CLOSED,Independence Day,independence_day_pre1959,module:independence_day,,,CONFIRMED
+1945-09-03,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1945-10-12,CLOSED,Columbus Day,columbus_day,module:columbus_day,,,CONFIRMED
+1945-11-12,CLOSED,Armistice Day,armistice_veterans_day,module:armistice_veterans_day,1945-11-11,,CONFIRMED
+1945-11-22,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+1945-12-25,CLOSED,Christmas Day,christmas_pre1959,module:christmas,,,CONFIRMED
+1946-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1946-02-12,CLOSED,Lincoln's Birthday,lincolns_birthday,module:lincolns_birthday,,,CONFIRMED
+1946-02-22,CLOSED,Washington's Birthday,washingtons_birthday,module:washingtons_birthday,,,CONFIRMED
+1946-05-30,CLOSED,Decoration Day,decoration_day,module:decoration_day,,,CONFIRMED
+1946-06-14,CLOSED,Flag Day,flag_day,module:flag_day,,,CONFIRMED
+1946-07-04,CLOSED,Independence Day,independence_day_pre1959,module:independence_day,,,CONFIRMED
+1946-09-02,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1946-11-11,CLOSED,Armistice Day,armistice_veterans_day,module:armistice_veterans_day,,,CONFIRMED
+1946-11-28,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+1946-12-25,CLOSED,Christmas Day,christmas_pre1959,module:christmas,,,CONFIRMED
+1947-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1947-02-12,CLOSED,Lincoln's Birthday,lincolns_birthday,module:lincolns_birthday,,,CONFIRMED
+1947-05-30,CLOSED,Decoration Day,decoration_day,module:decoration_day,,,CONFIRMED
+1947-07-04,CLOSED,Independence Day,independence_day_pre1959,module:independence_day,,,CONFIRMED
+1947-09-01,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1947-10-13,CLOSED,Columbus Day,columbus_day,module:columbus_day,1947-10-12,,CONFIRMED
+1947-11-11,CLOSED,Armistice Day,armistice_veterans_day,module:armistice_veterans_day,,,CONFIRMED
+1947-11-27,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+1947-12-25,CLOSED,Christmas Day,christmas_pre1959,module:christmas,,,CONFIRMED
+1948-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1948-02-12,CLOSED,Lincoln's Birthday,lincolns_birthday,module:lincolns_birthday,,,CONFIRMED
+1948-02-23,CLOSED,Washington's Birthday,washingtons_birthday,module:washingtons_birthday,1948-02-22,,CONFIRMED
+1948-05-31,CLOSED,Decoration Day,decoration_day,module:decoration_day,1948-05-30,,CONFIRMED
+1948-06-14,CLOSED,Flag Day,flag_day,module:flag_day,,,CONFIRMED
+1948-07-05,CLOSED,Independence Day,independence_day_pre1959,module:independence_day,1948-07-04,,CONFIRMED
+1948-09-06,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1948-10-12,CLOSED,Columbus Day,columbus_day,module:columbus_day,,,CONFIRMED
+1948-11-11,CLOSED,Armistice Day,armistice_veterans_day,module:armistice_veterans_day,,,CONFIRMED
+1948-11-25,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+1949-02-22,CLOSED,Washington's Birthday,washingtons_birthday,module:washingtons_birthday,,,CONFIRMED
+1949-05-30,CLOSED,Decoration Day,decoration_day,module:decoration_day,,,CONFIRMED
+1949-06-14,CLOSED,Flag Day,flag_day,module:flag_day,,,CONFIRMED
+1949-07-04,CLOSED,Independence Day,independence_day_pre1959,module:independence_day,,,CONFIRMED
+1949-09-05,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1949-10-12,CLOSED,Columbus Day,columbus_day,module:columbus_day,,,CONFIRMED
+1949-11-11,CLOSED,Armistice Day,armistice_veterans_day,module:armistice_veterans_day,,,CONFIRMED
+1949-11-24,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+1949-12-26,CLOSED,Christmas Day,christmas_pre1959,module:christmas,1949-12-25,,CONFIRMED
+1950-01-02,CLOSED,New Year's Day,new_years_day,module:new_years_day,1950-01-01,,CONFIRMED
+1950-02-13,CLOSED,Lincoln's Birthday,lincolns_birthday,module:lincolns_birthday,1950-02-12,,CONFIRMED
+1950-02-22,CLOSED,Washington's Birthday,washingtons_birthday,module:washingtons_birthday,,,CONFIRMED
+1950-05-30,CLOSED,Decoration Day,decoration_day,module:decoration_day,,,CONFIRMED
+1950-06-14,CLOSED,Flag Day,flag_day,module:flag_day,,,CONFIRMED
+1950-07-04,CLOSED,Independence Day,independence_day_pre1959,module:independence_day,,,CONFIRMED
+1950-09-04,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1950-10-12,CLOSED,Columbus Day,columbus_day,module:columbus_day,,,CONFIRMED
+1950-11-23,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+1950-12-25,CLOSED,Christmas Day,christmas_pre1959,module:christmas,,,CONFIRMED
+1951-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1951-02-12,CLOSED,Lincoln's Birthday,lincolns_birthday,module:lincolns_birthday,,,CONFIRMED
+1951-02-22,CLOSED,Washington's Birthday,washingtons_birthday,module:washingtons_birthday,,,CONFIRMED
+1951-05-30,CLOSED,Decoration Day,decoration_day,module:decoration_day,,,CONFIRMED
+1951-06-14,CLOSED,Flag Day,flag_day,module:flag_day,,,CONFIRMED
+1951-07-04,CLOSED,Independence Day,independence_day_pre1959,module:independence_day,,,CONFIRMED
+1951-09-03,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1951-10-12,CLOSED,Columbus Day,columbus_day,module:columbus_day,,,CONFIRMED
+1951-11-12,CLOSED,Armistice Day,armistice_veterans_day,module:armistice_veterans_day,1951-11-11,,CONFIRMED
+1951-11-22,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+1951-12-25,CLOSED,Christmas Day,christmas_pre1959,module:christmas,,,CONFIRMED
+1952-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1952-02-12,CLOSED,Lincoln's Birthday,lincolns_birthday,module:lincolns_birthday,,,CONFIRMED
+1952-02-22,CLOSED,Washington's Birthday,washingtons_birthday,module:washingtons_birthday,,,CONFIRMED
+1952-05-30,CLOSED,Decoration Day,decoration_day,module:decoration_day,,,CONFIRMED
+1952-07-04,CLOSED,Independence Day,independence_day_pre1959,module:independence_day,,,CONFIRMED
+1952-09-01,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1952-10-13,CLOSED,Columbus Day,columbus_day,module:columbus_day,1952-10-12,,CONFIRMED
+1952-11-11,CLOSED,Armistice Day,armistice_veterans_day,module:armistice_veterans_day,,,CONFIRMED
+1952-11-27,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+1952-12-25,CLOSED,Christmas Day,christmas_pre1959,module:christmas,,,CONFIRMED
+1953-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1953-02-12,CLOSED,Lincoln's Birthday,lincolns_birthday,module:lincolns_birthday,,,CONFIRMED
+1953-02-23,CLOSED,Washington's Birthday,washingtons_birthday,module:washingtons_birthday,1953-02-22,,CONFIRMED
+1953-06-15,CLOSED,Flag Day,flag_day,module:flag_day,1953-06-14,,CONFIRMED
+1953-09-07,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1953-10-12,CLOSED,Columbus Day,columbus_day,module:columbus_day,,,CONFIRMED
+1953-11-11,CLOSED,Armistice Day,armistice_veterans_day,module:armistice_veterans_day,,,CONFIRMED
+1953-11-26,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+1953-12-25,CLOSED,Christmas Day,christmas_pre1959,module:christmas,,,CONFIRMED
+1954-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1954-02-22,CLOSED,Washington's Birthday,washingtons_birthday,module:washingtons_birthday,,,CONFIRMED
+1954-05-31,CLOSED,Decoration Day,decoration_day,module:decoration_day,1954-05-30,,CONFIRMED
+1954-07-05,CLOSED,Independence Day,independence_day_pre1959,module:independence_day,1954-07-04,,CONFIRMED
+1954-09-06,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1954-11-25,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+1955-02-22,CLOSED,Washington's Birthday,washingtons_birthday,module:washingtons_birthday,,,CONFIRMED
+1955-05-30,CLOSED,Decoration Day,decoration_day,module:decoration_day,,,CONFIRMED
+1955-07-04,CLOSED,Independence Day,independence_day_pre1959,module:independence_day,,,CONFIRMED
+1955-09-05,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1955-11-24,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+1955-12-26,CLOSED,Christmas Day,christmas_pre1959,module:christmas,1955-12-25,,CONFIRMED
+1956-01-02,CLOSED,New Year's Day,new_years_day,module:new_years_day,1956-01-01,,CONFIRMED
+1956-02-22,CLOSED,Washington's Birthday,washingtons_birthday,module:washingtons_birthday,,,CONFIRMED
+1956-05-30,CLOSED,Decoration Day,decoration_day,module:decoration_day,,,CONFIRMED
+1956-07-04,CLOSED,Independence Day,independence_day_pre1959,module:independence_day,,,CONFIRMED
+1956-09-03,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1956-11-22,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+1956-12-25,CLOSED,Christmas Day,christmas_pre1959,module:christmas,,,CONFIRMED
+1957-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1957-02-22,CLOSED,Washington's Birthday,washingtons_birthday,module:washingtons_birthday,,,CONFIRMED
+1957-05-30,CLOSED,Decoration Day,decoration_day,module:decoration_day,,,CONFIRMED
+1957-07-04,CLOSED,Independence Day,independence_day_pre1959,module:independence_day,,,CONFIRMED
+1957-09-02,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1957-11-28,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+1957-12-25,CLOSED,Christmas Day,christmas_pre1959,module:christmas,,,CONFIRMED
+1958-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1958-05-30,CLOSED,Decoration Day,decoration_day,module:decoration_day,,,CONFIRMED
+1958-07-04,CLOSED,Independence Day,independence_day_pre1959,module:independence_day,,,CONFIRMED
+1958-09-01,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1958-11-27,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+1958-12-25,CLOSED,Christmas Day,christmas_pre1959,module:christmas,,,CONFIRMED
+1959-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1959-02-23,CLOSED,Washington's Birthday,washingtons_birthday,module:washingtons_birthday,1959-02-22,,CONFIRMED
+1959-07-03,CLOSED,Independence Day,independence_day,module:independence_day,1959-07-04,,CONFIRMED
+1959-09-07,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1959-11-26,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+1959-12-25,CLOSED,Christmas Day,christmas,module:christmas,,,CONFIRMED
+1960-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1960-02-22,CLOSED,Washington's Birthday,washingtons_birthday,module:washingtons_birthday,,,CONFIRMED
+1960-05-30,CLOSED,Decoration Day,decoration_day,module:decoration_day,,,CONFIRMED
+1960-07-04,CLOSED,Independence Day,independence_day,module:independence_day,,,CONFIRMED
+1960-09-05,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1960-11-24,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+1960-12-26,CLOSED,Christmas Day,christmas,module:christmas,1960-12-25,,CONFIRMED
+1961-01-02,CLOSED,New Year's Day,new_years_day,module:new_years_day,1961-01-01,,CONFIRMED
+1961-02-22,CLOSED,Washington's Birthday,washingtons_birthday,module:washingtons_birthday,,,CONFIRMED
+1961-05-30,CLOSED,Decoration Day,decoration_day,module:decoration_day,,,CONFIRMED
+1961-07-04,CLOSED,Independence Day,independence_day,module:independence_day,,,CONFIRMED
+1961-09-04,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1961-11-23,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+1961-12-25,CLOSED,Christmas Day,christmas,module:christmas,,,CONFIRMED
+1962-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1962-02-22,CLOSED,Washington's Birthday,washingtons_birthday,module:washingtons_birthday,,,CONFIRMED
+1962-05-30,CLOSED,Decoration Day,decoration_day,module:decoration_day,,,CONFIRMED
+1962-07-04,CLOSED,Independence Day,independence_day,module:independence_day,,,CONFIRMED
+1962-09-03,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1962-11-22,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+1962-12-25,CLOSED,Christmas Day,christmas,module:christmas,,,CONFIRMED
+1963-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1963-02-22,CLOSED,Washington's Birthday,washingtons_birthday,module:washingtons_birthday,,,CONFIRMED
+1963-05-30,CLOSED,Decoration Day,decoration_day,module:decoration_day,,,CONFIRMED
+1963-07-04,CLOSED,Independence Day,independence_day,module:independence_day,,,CONFIRMED
+1963-09-02,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1963-11-28,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+1963-12-25,CLOSED,Christmas Day,christmas,module:christmas,,,CONFIRMED
+1964-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1964-07-03,CLOSED,Independence Day,independence_day,module:independence_day,1964-07-04,,CONFIRMED
+1964-09-07,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1964-11-26,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+1964-12-25,CLOSED,Christmas Day,christmas,module:christmas,,,CONFIRMED
+1965-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1965-02-22,CLOSED,Washington's Birthday,washingtons_birthday,module:washingtons_birthday,,,CONFIRMED
+1965-05-31,CLOSED,Decoration Day,decoration_day,module:decoration_day,1965-05-30,,CONFIRMED
+1965-07-05,CLOSED,Independence Day,independence_day,module:independence_day,1965-07-04,,CONFIRMED
+1965-09-06,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1965-11-25,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+1965-12-24,CLOSED,Christmas Day,christmas,module:christmas,1965-12-25,,CONFIRMED
+1966-02-22,CLOSED,Washington's Birthday,washingtons_birthday,module:washingtons_birthday,,,CONFIRMED
+1966-05-30,CLOSED,Decoration Day,decoration_day,module:decoration_day,,,CONFIRMED
+1966-07-04,CLOSED,Independence Day,independence_day,module:independence_day,,,CONFIRMED
+1966-09-05,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1966-11-24,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+1966-12-26,CLOSED,Christmas Day,christmas,module:christmas,1966-12-25,,CONFIRMED
+1967-01-02,CLOSED,New Year's Day,new_years_day,module:new_years_day,1967-01-01,,CONFIRMED
+1967-02-22,CLOSED,Washington's Birthday,washingtons_birthday,module:washingtons_birthday,,,CONFIRMED
+1967-05-30,CLOSED,Decoration Day,decoration_day,module:decoration_day,,,CONFIRMED
+1967-07-04,CLOSED,Independence Day,independence_day,module:independence_day,,,CONFIRMED
+1967-09-04,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1967-11-23,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+1967-12-25,CLOSED,Christmas Day,christmas,module:christmas,,,CONFIRMED
+1968-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1968-02-22,CLOSED,Washington's Birthday,washingtons_birthday,module:washingtons_birthday,,,CONFIRMED
+1968-05-30,CLOSED,Decoration Day,decoration_day,module:decoration_day,,,CONFIRMED
+1968-07-04,CLOSED,Independence Day,independence_day,module:independence_day,,,CONFIRMED
+1968-09-02,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1968-11-28,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+1968-12-25,CLOSED,Christmas Day,christmas,module:christmas,,,CONFIRMED
+1969-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1969-05-30,CLOSED,Decoration Day,decoration_day,module:decoration_day,,,CONFIRMED
+1969-07-04,CLOSED,Independence Day,independence_day,module:independence_day,,,CONFIRMED
+1969-09-01,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1969-11-27,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+1969-12-25,CLOSED,Christmas Day,christmas,module:christmas,,,CONFIRMED
+1970-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1970-02-23,CLOSED,Washington's Birthday,washingtons_birthday,module:washingtons_birthday,1970-02-22,,CONFIRMED
+1970-07-03,CLOSED,Independence Day,independence_day,module:independence_day,1970-07-04,,CONFIRMED
+1970-09-07,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1970-11-26,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+1970-12-25,CLOSED,Christmas Day,christmas,module:christmas,,,CONFIRMED
+1971-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1971-05-31,CLOSED,Memorial Day,memorial_day,module:memorial_day,,,CONFIRMED
+1971-07-05,CLOSED,Independence Day,independence_day,module:independence_day,1971-07-04,,CONFIRMED
+1971-09-06,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1971-11-25,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+1971-12-24,CLOSED,Christmas Day,christmas,module:christmas,1971-12-25,,CONFIRMED
+1972-05-29,CLOSED,Memorial Day,memorial_day,module:memorial_day,,,CONFIRMED
+1972-07-04,CLOSED,Independence Day,independence_day,module:independence_day,,,CONFIRMED
+1972-09-04,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1972-11-23,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+1972-12-25,CLOSED,Christmas Day,christmas,module:christmas,,,CONFIRMED
+1973-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1973-05-28,CLOSED,Memorial Day,memorial_day,module:memorial_day,,,CONFIRMED
+1973-07-04,CLOSED,Independence Day,independence_day,module:independence_day,,,CONFIRMED
+1973-09-03,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1973-11-22,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+1973-12-25,CLOSED,Christmas Day,christmas,module:christmas,,,CONFIRMED
+1974-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1974-05-27,CLOSED,Memorial Day,memorial_day,module:memorial_day,,,CONFIRMED
+1974-07-04,CLOSED,Independence Day,independence_day,module:independence_day,,,CONFIRMED
+1974-09-02,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1974-11-28,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+1974-12-25,CLOSED,Christmas Day,christmas,module:christmas,,,CONFIRMED
+1975-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1975-05-26,CLOSED,Memorial Day,memorial_day,module:memorial_day,,,CONFIRMED
+1975-07-04,CLOSED,Independence Day,independence_day,module:independence_day,,,CONFIRMED
+1975-09-01,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1975-11-27,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+1975-12-25,CLOSED,Christmas Day,christmas,module:christmas,,,CONFIRMED
+1976-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1976-05-31,CLOSED,Memorial Day,memorial_day,module:memorial_day,,,CONFIRMED
+1976-07-05,CLOSED,Independence Day,independence_day,module:independence_day,1976-07-04,,CONFIRMED
+1976-09-06,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1976-11-25,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+1976-12-24,CLOSED,Christmas Day,christmas,module:christmas,1976-12-25,,CONFIRMED
+1977-05-30,CLOSED,Memorial Day,memorial_day,module:memorial_day,,,CONFIRMED
+1977-07-04,CLOSED,Independence Day,independence_day,module:independence_day,,,CONFIRMED
+1977-09-05,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1977-11-24,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+1977-12-26,CLOSED,Christmas Day,christmas,module:christmas,1977-12-25,,CONFIRMED
+1978-01-02,CLOSED,New Year's Day,new_years_day,module:new_years_day,1978-01-01,,CONFIRMED
+1978-05-29,CLOSED,Memorial Day,memorial_day,module:memorial_day,,,CONFIRMED
+1978-07-04,CLOSED,Independence Day,independence_day,module:independence_day,,,CONFIRMED
+1978-09-04,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1978-11-23,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+1978-12-25,CLOSED,Christmas Day,christmas,module:christmas,,,CONFIRMED
+1979-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1979-05-28,CLOSED,Memorial Day,memorial_day,module:memorial_day,,,CONFIRMED
+1979-07-04,CLOSED,Independence Day,independence_day,module:independence_day,,,CONFIRMED
+1979-09-03,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1979-11-22,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+1979-12-25,CLOSED,Christmas Day,christmas,module:christmas,,,CONFIRMED
+1980-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1980-05-26,CLOSED,Memorial Day,memorial_day,module:memorial_day,,,CONFIRMED
+1980-07-04,CLOSED,Independence Day,independence_day,module:independence_day,,,CONFIRMED
+1980-09-01,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1980-11-27,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+1980-12-25,CLOSED,Christmas Day,christmas,module:christmas,,,CONFIRMED
+1981-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1981-05-25,CLOSED,Memorial Day,memorial_day,module:memorial_day,,,CONFIRMED
+1981-07-03,CLOSED,Independence Day,independence_day,module:independence_day,1981-07-04,,CONFIRMED
+1981-09-07,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1981-11-26,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+1981-12-25,CLOSED,Christmas Day,christmas,module:christmas,,,CONFIRMED
+1982-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1982-05-31,CLOSED,Memorial Day,memorial_day,module:memorial_day,,,CONFIRMED
+1982-07-05,CLOSED,Independence Day,independence_day,module:independence_day,1982-07-04,,CONFIRMED
+1982-09-06,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1982-11-25,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+1982-12-24,CLOSED,Christmas Day,christmas,module:christmas,1982-12-25,,CONFIRMED
+1983-05-30,CLOSED,Memorial Day,memorial_day,module:memorial_day,,,CONFIRMED
+1983-07-04,CLOSED,Independence Day,independence_day,module:independence_day,,,CONFIRMED
+1983-09-05,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1983-11-24,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+1983-12-26,CLOSED,Christmas Day,christmas,module:christmas,1983-12-25,,CONFIRMED
+1984-01-02,CLOSED,New Year's Day,new_years_day,module:new_years_day,1984-01-01,,CONFIRMED
+1984-05-28,CLOSED,Memorial Day,memorial_day,module:memorial_day,,,CONFIRMED
+1984-07-04,CLOSED,Independence Day,independence_day,module:independence_day,,,CONFIRMED
+1984-09-03,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1984-11-22,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+1984-12-25,CLOSED,Christmas Day,christmas,module:christmas,,,CONFIRMED
+1985-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1985-05-27,CLOSED,Memorial Day,memorial_day,module:memorial_day,,,CONFIRMED
+1985-07-04,CLOSED,Independence Day,independence_day,module:independence_day,,,CONFIRMED
+1985-09-02,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1985-11-28,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+1985-12-25,CLOSED,Christmas Day,christmas,module:christmas,,,CONFIRMED
+1986-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1986-05-26,CLOSED,Memorial Day,memorial_day,module:memorial_day,,,CONFIRMED
+1986-07-04,CLOSED,Independence Day,independence_day,module:independence_day,,,CONFIRMED
+1986-09-01,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1986-11-27,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+1986-12-25,CLOSED,Christmas Day,christmas,module:christmas,,,CONFIRMED
+1987-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1987-05-25,CLOSED,Memorial Day,memorial_day,module:memorial_day,,,CONFIRMED
+1987-07-03,CLOSED,Independence Day,independence_day,module:independence_day,1987-07-04,,CONFIRMED
+1987-09-07,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1987-11-26,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+1987-12-25,CLOSED,Christmas Day,christmas,module:christmas,,,CONFIRMED
+1988-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1988-05-30,CLOSED,Memorial Day,memorial_day,module:memorial_day,,,CONFIRMED
+1988-07-04,CLOSED,Independence Day,independence_day,module:independence_day,,,CONFIRMED
+1988-09-05,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1988-11-24,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+1988-12-26,CLOSED,Christmas Day,christmas,module:christmas,1988-12-25,,CONFIRMED
+1989-01-02,CLOSED,New Year's Day,new_years_day,module:new_years_day,1989-01-01,,CONFIRMED
+1989-05-29,CLOSED,Memorial Day,memorial_day,module:memorial_day,,,CONFIRMED
+1989-07-04,CLOSED,Independence Day,independence_day,module:independence_day,,,CONFIRMED
+1989-09-04,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1989-11-23,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+1989-12-25,CLOSED,Christmas Day,christmas,module:christmas,,,CONFIRMED
+1990-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1990-05-28,CLOSED,Memorial Day,memorial_day,module:memorial_day,,,CONFIRMED
+1990-07-04,CLOSED,Independence Day,independence_day,module:independence_day,,,CONFIRMED
+1990-09-03,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1990-11-22,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+1990-12-25,CLOSED,Christmas Day,christmas,module:christmas,,,CONFIRMED
+1991-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1991-05-27,CLOSED,Memorial Day,memorial_day,module:memorial_day,,,CONFIRMED
+1991-07-04,CLOSED,Independence Day,independence_day,module:independence_day,,,CONFIRMED
+1991-09-02,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1991-11-28,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+1991-12-25,CLOSED,Christmas Day,christmas,module:christmas,,,CONFIRMED
+1992-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1992-05-25,CLOSED,Memorial Day,memorial_day,module:memorial_day,,,CONFIRMED
+1992-07-03,CLOSED,Independence Day,independence_day,module:independence_day,1992-07-04,,CONFIRMED
+1992-09-07,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1992-11-26,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+1992-12-25,CLOSED,Christmas Day,christmas,module:christmas,,,CONFIRMED
+1993-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1993-05-31,CLOSED,Memorial Day,memorial_day,module:memorial_day,,,CONFIRMED
+1993-07-05,CLOSED,Independence Day,independence_day,module:independence_day,1993-07-04,,CONFIRMED
+1993-09-06,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1993-11-25,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+1993-12-24,CLOSED,Christmas Day,christmas,module:christmas,1993-12-25,,CONFIRMED
+1994-05-30,CLOSED,Memorial Day,memorial_day,module:memorial_day,,,CONFIRMED
+1994-07-04,CLOSED,Independence Day,independence_day,module:independence_day,,,CONFIRMED
+1994-09-05,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1994-11-24,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+1994-12-26,CLOSED,Christmas Day,christmas,module:christmas,1994-12-25,,CONFIRMED
+1995-01-02,CLOSED,New Year's Day,new_years_day,module:new_years_day,1995-01-01,,CONFIRMED
+1995-05-29,CLOSED,Memorial Day,memorial_day,module:memorial_day,,,CONFIRMED
+1995-07-04,CLOSED,Independence Day,independence_day,module:independence_day,,,CONFIRMED
+1995-09-04,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1995-11-23,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+1995-12-25,CLOSED,Christmas Day,christmas,module:christmas,,,CONFIRMED
+1996-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1996-05-27,CLOSED,Memorial Day,memorial_day,module:memorial_day,,,CONFIRMED
+1996-07-04,CLOSED,Independence Day,independence_day,module:independence_day,,,CONFIRMED
+1996-09-02,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1996-11-28,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+1996-12-25,CLOSED,Christmas Day,christmas,module:christmas,,,CONFIRMED
+1997-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1997-05-26,CLOSED,Memorial Day,memorial_day,module:memorial_day,,,CONFIRMED
+1997-07-04,CLOSED,Independence Day,independence_day,module:independence_day,,,CONFIRMED
+1997-09-01,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1997-11-27,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+1997-12-25,CLOSED,Christmas Day,christmas,module:christmas,,,CONFIRMED
+1998-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1998-05-25,CLOSED,Memorial Day,memorial_day,module:memorial_day,,,CONFIRMED
+1998-07-03,CLOSED,Independence Day,independence_day,module:independence_day,1998-07-04,,CONFIRMED
+1998-09-07,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1998-11-26,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+1998-12-25,CLOSED,Christmas Day,christmas,module:christmas,,,CONFIRMED
+1999-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+1999-05-31,CLOSED,Memorial Day,memorial_day,module:memorial_day,,,CONFIRMED
+1999-07-05,CLOSED,Independence Day,independence_day,module:independence_day,1999-07-04,,CONFIRMED
+1999-09-06,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+1999-11-25,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+1999-12-24,CLOSED,Christmas Day,christmas,module:christmas,1999-12-25,,CONFIRMED
+2000-05-29,CLOSED,Memorial Day,memorial_day,module:memorial_day,,,CONFIRMED
+2000-07-04,CLOSED,Independence Day,independence_day,module:independence_day,,,CONFIRMED
+2000-09-04,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+2000-11-23,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+2000-12-25,CLOSED,Christmas Day,christmas,module:christmas,,,CONFIRMED
+2001-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+2001-05-28,CLOSED,Memorial Day,memorial_day,module:memorial_day,,,CONFIRMED
+2001-07-04,CLOSED,Independence Day,independence_day,module:independence_day,,,CONFIRMED
+2001-09-03,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+2001-11-22,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+2001-12-25,CLOSED,Christmas Day,christmas,module:christmas,,,CONFIRMED
+2002-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+2002-05-27,CLOSED,Memorial Day,memorial_day,module:memorial_day,,,CONFIRMED
+2002-07-04,CLOSED,Independence Day,independence_day,module:independence_day,,,CONFIRMED
+2002-09-02,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+2002-11-28,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+2002-12-25,CLOSED,Christmas Day,christmas,module:christmas,,,CONFIRMED
+2003-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+2003-05-26,CLOSED,Memorial Day,memorial_day,module:memorial_day,,,CONFIRMED
+2003-07-04,CLOSED,Independence Day,independence_day,module:independence_day,,,CONFIRMED
+2003-09-01,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+2003-11-27,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+2003-12-25,CLOSED,Christmas Day,christmas,module:christmas,,,CONFIRMED
+2004-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+2004-05-31,CLOSED,Memorial Day,memorial_day,module:memorial_day,,,CONFIRMED
+2004-07-05,CLOSED,Independence Day,independence_day,module:independence_day,2004-07-04,,CONFIRMED
+2004-09-06,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+2004-11-25,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+2004-12-24,CLOSED,Christmas Day,christmas,module:christmas,2004-12-25,,CONFIRMED
+2005-05-30,CLOSED,Memorial Day,memorial_day,module:memorial_day,,,CONFIRMED
+2005-07-04,CLOSED,Independence Day,independence_day,module:independence_day,,,CONFIRMED
+2005-09-05,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+2005-11-24,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+2005-12-26,CLOSED,Christmas Day,christmas,module:christmas,2005-12-25,,CONFIRMED
+2006-01-02,CLOSED,New Year's Day,new_years_day,module:new_years_day,2006-01-01,,CONFIRMED
+2006-05-29,CLOSED,Memorial Day,memorial_day,module:memorial_day,,,CONFIRMED
+2006-07-04,CLOSED,Independence Day,independence_day,module:independence_day,,,CONFIRMED
+2006-09-04,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+2006-11-23,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+2006-12-25,CLOSED,Christmas Day,christmas,module:christmas,,,CONFIRMED
+2007-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+2007-05-28,CLOSED,Memorial Day,memorial_day,module:memorial_day,,,CONFIRMED
+2007-07-04,CLOSED,Independence Day,independence_day,module:independence_day,,,CONFIRMED
+2007-09-03,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+2007-11-22,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+2007-12-25,CLOSED,Christmas Day,christmas,module:christmas,,,CONFIRMED
+2008-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+2008-05-26,CLOSED,Memorial Day,memorial_day,module:memorial_day,,,CONFIRMED
+2008-07-04,CLOSED,Independence Day,independence_day,module:independence_day,,,CONFIRMED
+2008-09-01,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+2008-11-27,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+2008-12-25,CLOSED,Christmas Day,christmas,module:christmas,,,CONFIRMED
+2009-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+2009-05-25,CLOSED,Memorial Day,memorial_day,module:memorial_day,,,CONFIRMED
+2009-07-03,CLOSED,Independence Day,independence_day,module:independence_day,2009-07-04,,CONFIRMED
+2009-09-07,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+2009-11-26,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+2009-12-25,CLOSED,Christmas Day,christmas,module:christmas,,,CONFIRMED
+2010-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+2010-05-31,CLOSED,Memorial Day,memorial_day,module:memorial_day,,,CONFIRMED
+2010-07-05,CLOSED,Independence Day,independence_day,module:independence_day,2010-07-04,,CONFIRMED
+2010-09-06,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+2010-11-25,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+2010-12-24,CLOSED,Christmas Day,christmas,module:christmas,2010-12-25,,CONFIRMED
+2011-05-30,CLOSED,Memorial Day,memorial_day,module:memorial_day,,,CONFIRMED
+2011-07-04,CLOSED,Independence Day,independence_day,module:independence_day,,,CONFIRMED
+2011-09-05,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+2011-11-24,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+2011-12-26,CLOSED,Christmas Day,christmas,module:christmas,2011-12-25,,CONFIRMED
+2012-01-02,CLOSED,New Year's Day,new_years_day,module:new_years_day,2012-01-01,,CONFIRMED
+2012-05-28,CLOSED,Memorial Day,memorial_day,module:memorial_day,,,CONFIRMED
+2012-07-04,CLOSED,Independence Day,independence_day,module:independence_day,,,CONFIRMED
+2012-09-03,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+2012-11-22,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+2012-12-25,CLOSED,Christmas Day,christmas,module:christmas,,,CONFIRMED
+2013-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+2013-05-27,CLOSED,Memorial Day,memorial_day,module:memorial_day,,,CONFIRMED
+2013-07-04,CLOSED,Independence Day,independence_day,module:independence_day,,,CONFIRMED
+2013-09-02,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+2013-11-28,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+2013-12-25,CLOSED,Christmas Day,christmas,module:christmas,,,CONFIRMED
+2014-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+2014-05-26,CLOSED,Memorial Day,memorial_day,module:memorial_day,,,CONFIRMED
+2014-07-04,CLOSED,Independence Day,independence_day,module:independence_day,,,CONFIRMED
+2014-09-01,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+2014-11-27,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+2014-12-25,CLOSED,Christmas Day,christmas,module:christmas,,,CONFIRMED
+2015-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+2015-05-25,CLOSED,Memorial Day,memorial_day,module:memorial_day,,,CONFIRMED
+2015-07-03,CLOSED,Independence Day,independence_day,module:independence_day,2015-07-04,,CONFIRMED
+2015-09-07,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+2015-11-26,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+2015-12-25,CLOSED,Christmas Day,christmas,module:christmas,,,CONFIRMED
+2016-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+2016-05-30,CLOSED,Memorial Day,memorial_day,module:memorial_day,,,CONFIRMED
+2016-07-04,CLOSED,Independence Day,independence_day,module:independence_day,,,CONFIRMED
+2016-09-05,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+2016-11-24,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+2016-12-26,CLOSED,Christmas Day,christmas,module:christmas,2016-12-25,,CONFIRMED
+2017-01-02,CLOSED,New Year's Day,new_years_day,module:new_years_day,2017-01-01,,CONFIRMED
+2017-05-29,CLOSED,Memorial Day,memorial_day,module:memorial_day,,,CONFIRMED
+2017-07-04,CLOSED,Independence Day,independence_day,module:independence_day,,,CONFIRMED
+2017-09-04,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+2017-11-23,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+2017-12-25,CLOSED,Christmas Day,christmas,module:christmas,,,CONFIRMED
+2018-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+2018-05-28,CLOSED,Memorial Day,memorial_day,module:memorial_day,,,CONFIRMED
+2018-07-04,CLOSED,Independence Day,independence_day,module:independence_day,,,CONFIRMED
+2018-09-03,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+2018-11-22,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+2018-12-25,CLOSED,Christmas Day,christmas,module:christmas,,,CONFIRMED
+2019-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+2019-05-27,CLOSED,Memorial Day,memorial_day,module:memorial_day,,,CONFIRMED
+2019-07-04,CLOSED,Independence Day,independence_day,module:independence_day,,,CONFIRMED
+2019-09-02,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+2019-11-28,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+2019-12-25,CLOSED,Christmas Day,christmas,module:christmas,,,CONFIRMED
+2020-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+2020-05-25,CLOSED,Memorial Day,memorial_day,module:memorial_day,,,CONFIRMED
+2020-07-03,CLOSED,Independence Day,independence_day,module:independence_day,2020-07-04,,CONFIRMED
+2020-09-07,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+2020-11-26,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+2020-12-25,CLOSED,Christmas Day,christmas,module:christmas,,,CONFIRMED
+2021-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+2021-05-31,CLOSED,Memorial Day,memorial_day,module:memorial_day,,,CONFIRMED
+2021-07-05,CLOSED,Independence Day,independence_day,module:independence_day,2021-07-04,,CONFIRMED
+2021-09-06,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+2021-11-25,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+2021-12-24,CLOSED,Christmas Day,christmas,module:christmas,2021-12-25,,CONFIRMED
+2022-05-30,CLOSED,Memorial Day,memorial_day,module:memorial_day,,,CONFIRMED
+2022-07-04,CLOSED,Independence Day,independence_day,module:independence_day,,,CONFIRMED
+2022-09-05,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+2022-11-24,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+2022-12-26,CLOSED,Christmas Day,christmas,module:christmas,2022-12-25,,CONFIRMED
+2023-01-02,CLOSED,New Year's Day,new_years_day,module:new_years_day,2023-01-01,,CONFIRMED
+2023-05-29,CLOSED,Memorial Day,memorial_day,module:memorial_day,,,CONFIRMED
+2023-07-04,CLOSED,Independence Day,independence_day,module:independence_day,,,CONFIRMED
+2023-09-04,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+2023-11-23,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+2023-12-25,CLOSED,Christmas Day,christmas,module:christmas,,,CONFIRMED
+2024-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+2024-05-27,CLOSED,Memorial Day,memorial_day,module:memorial_day,,,CONFIRMED
+2024-07-04,CLOSED,Independence Day,independence_day,module:independence_day,,,CONFIRMED
+2024-09-02,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+2024-11-01,NOTABLE,Diwali,diwali,module:diwali_explicit,,,CONFIRMED
+2024-11-28,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+2024-12-25,CLOSED,Christmas Day,christmas,module:christmas,,,CONFIRMED
+2025-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+2025-05-26,CLOSED,Memorial Day,memorial_day,module:memorial_day,,,CONFIRMED
+2025-07-04,CLOSED,Independence Day,independence_day,module:independence_day,,,CONFIRMED
+2025-09-01,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+2025-10-20,NOTABLE,Diwali,diwali,module:diwali_explicit,,,CONFIRMED
+2025-11-27,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+2025-12-25,CLOSED,Christmas Day,christmas,module:christmas,,,CONFIRMED
+2026-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+2026-05-25,CLOSED,Memorial Day,memorial_day,module:memorial_day,,,CONFIRMED
+2026-07-03,CLOSED,Independence Day,independence_day,module:independence_day,2026-07-04,,CONFIRMED
+2026-09-07,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+2026-11-08,NOTABLE,Diwali,diwali,module:diwali_explicit,,,CONFIRMED
+2026-11-26,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+2026-12-25,CLOSED,Christmas Day,christmas,module:christmas,,,CONFIRMED
+2027-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+2027-05-31,CLOSED,Memorial Day,memorial_day,module:memorial_day,,,CONFIRMED
+2027-07-05,CLOSED,Independence Day,independence_day,module:independence_day,2027-07-04,,CONFIRMED
+2027-09-06,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+2027-10-29,NOTABLE,Diwali,diwali,module:diwali_explicit,,,CONFIRMED
+2027-11-25,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+2027-12-24,CLOSED,Christmas Day,christmas,module:christmas,2027-12-25,,CONFIRMED
+2028-05-29,CLOSED,Memorial Day,memorial_day,module:memorial_day,,,CONFIRMED
+2028-07-04,CLOSED,Independence Day,independence_day,module:independence_day,,,CONFIRMED
+2028-09-04,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+2028-10-17,NOTABLE,Diwali,diwali,module:diwali_explicit,,,CONFIRMED
+2028-11-23,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+2028-12-25,CLOSED,Christmas Day,christmas,module:christmas,,,CONFIRMED
+2029-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+2029-05-28,CLOSED,Memorial Day,memorial_day,module:memorial_day,,,CONFIRMED
+2029-07-04,CLOSED,Independence Day,independence_day,module:independence_day,,,CONFIRMED
+2029-09-03,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+2029-11-05,NOTABLE,Diwali,diwali,module:diwali_explicit,,,CONFIRMED
+2029-11-22,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+2029-12-25,CLOSED,Christmas Day,christmas,module:christmas,,,CONFIRMED
+2030-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
+2030-05-27,CLOSED,Memorial Day,memorial_day,module:memorial_day,,,CONFIRMED
+2030-07-04,CLOSED,Independence Day,independence_day,module:independence_day,,,CONFIRMED
+2030-09-02,CLOSED,Labor Day,labor_day,module:labor_day,,,CONFIRMED
+2030-10-26,NOTABLE,Diwali,diwali,module:diwali_explicit,,,CONFIRMED
+2030-11-28,CLOSED,Thanksgiving Day,thanksgiving,module:thanksgiving,,,CONFIRMED
+2030-12-25,CLOSED,Christmas Day,christmas,module:christmas,,,CONFIRMED

@@ -5,9 +5,16 @@ metadata:
   name: Tadawul (Saudi Exchange) Trading Calendar
   description: Saudi Stock Exchange (Tadawul) trading calendar with Fri-Sat weekends and Islamic holidays
   chronology: UMM_AL_QURA
+  timezone: Asia/Riyadh
+  mic: XSAU
+  aliases: [TADAWUL]
+  coverage:
+    from: 2020-01-01
+    to: 2030-12-31
+    verified_through: 2029-12-31
 
 weekend_shift_policy: NEAREST_WEEKDAY
 
 uses:
-  - weekend_fri_sat
+  - saudi_weekends
   - tadawul_holidays

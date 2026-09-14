@@ -1,9 +1,14 @@
 #!/bin/bash
-# Pre-commit hook to ensure staged Java files are formatted.
+# Pre-commit hook.
 #
-# Note: This runs spotlessApply on the entire tools module, which may reformat
-# unstaged files in your working tree. Only the originally staged files are
-# re-added to the commit.
+# 1. Ensures staged Java files are formatted (spotlessApply).
+# 2. When any staged file is under calendars/, modules/, chronologies/, or sources/,
+#    validates every calendar and aborts the commit on failure, so a bad holiday
+#    definition or a broken citation never gets committed.
+#
+# Note: spotlessApply runs on the entire tools module, which may reformat unstaged
+# files in your working tree. Only the originally staged files are re-added to the
+# commit.
 
 # Get the list of staged Java files
 STAGED_JAVA_FILES=$(git diff --cached --name-only --diff-filter=ACM | grep '\.java$')
@@ -27,6 +32,30 @@ if [ -n "$STAGED_JAVA_FILES" ]; then
     done
 
     echo "Formatting applied. Note: unstaged files may also have been reformatted."
+fi
+
+# Get the list of staged data files (calendar specs, modules, chronologies, sources)
+STAGED_DATA_FILES=$(git diff --cached --name-only --diff-filter=ACM | grep -E '^(calendars|modules|chronologies|sources)/')
+
+if [ -n "$STAGED_DATA_FILES" ]; then
+    echo "Staged changes under calendars/, modules/, chronologies/, or sources/;"
+    echo "running validate --all --strict..."
+
+    ./gradlew :tools:installDist --quiet
+
+    if [ $? -ne 0 ]; then
+        echo "Build failed (installDist). Fix the build before committing."
+        exit 1
+    fi
+
+    tools/build/install/tools/bin/tools validate --all --strict
+
+    if [ $? -ne 0 ]; then
+        echo "validate --all --strict failed. Fix the calendar data before committing."
+        exit 1
+    fi
+
+    echo "Calendar validation passed."
 fi
 
 exit 0

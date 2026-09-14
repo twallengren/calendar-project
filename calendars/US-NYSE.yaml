@@ -5,10 +5,28 @@ metadata:
   name: NYSE Trading Calendar
   description: New York Stock Exchange trading calendar
   chronology: ISO
+  timezone: America/New_York
+  mic: XNYS
+  aliases: [NYSE]
+  coverage:
+    from: 1900-01-01
+    to: 2030-12-31
+    verified_through: 2026-12-31
 
 weekend_shift_policy: NEAREST_WEEKDAY
 
 uses:
-  - weekend_sat_sun
+  - nyse_weekends
   - us_nyse_holidays
-  - us_historical_closures
+
+deltas:
+  # Good Friday was not observed in 1898, 1906 and 1907 (nyse-history-2008).
+  - action: remove
+    key: good_friday
+    date: 1898-04-08
+  - action: remove
+    key: good_friday
+    date: 1906-04-13
+  - action: remove
+    key: good_friday
+    date: 1907-03-29

@@ -4,7 +4,18 @@ id: US-MARKET-BASE
 metadata:
   name: US Market Base Calendar
   description: Base calendar for US markets with core holidays
+  kind: base
   chronology: ISO
+  timezone: America/New_York
+  coverage:
+    from: 1900-01-01
+    to: 2030-12-31
+    verified_through: 2026-12-31
+
+# US markets observe Sunday holidays on Monday and (since 1959) Saturday holidays on Friday,
+# except New Year's Day (see new_years_day). This base calendar uses a plain Sat-Sun weekend;
+# before May 1952 the NYSE held Saturday sessions, which only US-NYSE models.
+weekend_shift_policy: NEAREST_WEEKDAY
 
 uses:
   - weekend_sat_sun

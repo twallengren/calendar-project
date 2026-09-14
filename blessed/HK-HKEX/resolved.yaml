@@ -1,0 +1,435 @@
+kind: resolved_calendar
+id: HK-HKEX
+metadata:
+  name: Hong Kong Exchanges and Clearing
+  description: "Securities market of The Stock Exchange of Hong Kong Limited, operated\
+    \ by Hong Kong Exchanges and Clearing Limited (MIC XHKG). Trading runs Monday\
+    \ to Friday; the market is closed on every Hong Kong general holiday (General\
+    \ Holidays Ordinance, Cap. 149) that falls on a weekday, and trades a morning\
+    \ session only (12:00 noon close) on Christmas Eve, New Year's Eve and Lunar New\
+    \ Year's Eve. Hong Kong observance: a general holiday falling on a Sunday is observed\
+    \ on the following weekday; a general holiday falling on a Saturday is not substituted.\
+    \ Lunar and solar-term holidays (Lunar New Year, Ching Ming, the Birthday of the\
+    \ Buddha, Tuen Ng, the day following Mid-Autumn, Chung Yeung) have no formula\
+    \ in this model and are transcribed year by year from the Government's gazetted\
+    \ list, so coverage ends at the last gazetted year (2027). Unscheduled closures\
+    \ for typhoons and black rainstorms are out of scope: they are announced on the\
+    \ day, are not part of any published schedule, and are not modelled here (HKEX\
+    \ moved to trading through severe weather on 23 September 2024)."
+  chronology: ISO
+  timezone: Asia/Hong_Kong
+  mic: XHKG
+  coverage:
+    from: 2018-01-01
+    to: 2027-12-31
+    verified_through: 2027-12-31
+weekend_policy:
+  days:
+  - SATURDAY
+  - SUNDAY
+weekend_shift_policy: FORWARD_ONLY
+resolution_chain:
+- module:weekend_sat_sun
+- module:hk_new_years_day
+- module:hk_lunar_new_year
+- module:hk_ching_ming
+- module:hk_good_friday
+- module:hk_easter_monday
+- module:hk_labour_day
+- module:hk_buddhas_birthday
+- module:hk_tuen_ng
+- module:hk_hksar_establishment_day
+- module:hk_mid_autumn
+- module:hk_national_day
+- module:hk_chung_yeung
+- module:hk_christmas
+- module:hk_hkex_early_closes
+- module:hk_hkex_holidays
+- calendar:HK-HKEX
+references:
+- key: easter
+  formula: EASTER_WESTERN
+event_sources:
+- key: hk_new_years_day
+  name: The first day of January
+  origin: module:hk_new_years_day
+  classification: CLOSED
+  shift_policy: FORWARD_ONLY
+  status: CONFIRMED
+  source:
+  - id: govhk-general-holidays
+  - id: hkex-calendar
+  rule:
+    type: fixed_month_day
+    month: 1
+    day: 1
+- key: hk_lunar_new_year
+  name: Lunar New Year
+  origin: module:hk_lunar_new_year
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: govhk-general-holidays
+  - id: hkex-calendar
+  rule:
+    type: explicit_dates
+    dates:
+    - date: 2018-02-16
+      comment: Lunar New Year's Day
+    - date: 2018-02-19
+      comment: "The fourth day of Lunar New Year; the second day, 17 February, was\
+        \ a Saturday"
+    - date: 2019-02-05
+      comment: Lunar New Year's Day
+    - date: 2019-02-06
+      comment: The second day of Lunar New Year
+    - date: 2019-02-07
+      comment: The third day of Lunar New Year
+    - date: 2020-01-27
+      comment: The third day of Lunar New Year
+    - date: 2020-01-28
+      comment: The fourth day of Lunar New Year
+    - date: 2021-02-12
+      comment: Lunar New Year's Day
+    - date: 2021-02-15
+      comment: The fourth day of Lunar New Year
+    - date: 2022-02-01
+      comment: Lunar New Year's Day
+    - date: 2022-02-02
+      comment: The second day of Lunar New Year
+    - date: 2022-02-03
+      comment: The third day of Lunar New Year
+    - date: 2023-01-23
+      comment: The second day of Lunar New Year
+    - date: 2023-01-24
+      comment: The third day of Lunar New Year
+    - date: 2023-01-25
+      comment: The fourth day of Lunar New Year
+    - date: 2024-02-12
+      comment: The third day of Lunar New Year
+    - date: 2024-02-13
+      comment: The fourth day of Lunar New Year
+    - date: 2025-01-29
+      comment: Lunar New Year's Day
+    - date: 2025-01-30
+      comment: The second day of Lunar New Year
+    - date: 2025-01-31
+      comment: The third day of Lunar New Year
+    - date: 2026-02-17
+      comment: Lunar New Year's Day
+    - date: 2026-02-18
+      comment: The second day of Lunar New Year
+    - date: 2026-02-19
+      comment: The third day of Lunar New Year
+    - date: 2027-02-08
+      comment: The third day of Lunar New Year
+    - date: 2027-02-09
+      comment: The fourth day of Lunar New Year
+- key: hk_ching_ming
+  name: Ching Ming Festival
+  origin: module:hk_ching_ming
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: govhk-general-holidays
+  - id: hkex-calendar
+  rule:
+    type: explicit_dates
+    dates:
+    - 2018-04-05
+    - 2019-04-05
+    - date: 2021-04-05
+      comment: observed the day following; 4 April was a Sunday
+    - 2022-04-05
+    - 2023-04-05
+    - 2024-04-04
+    - 2025-04-04
+    - date: 2026-04-06
+      comment: observed the day following; 5 April was a Sunday
+    - 2027-04-05
+- key: hk_good_friday
+  name: Good Friday
+  origin: module:hk_good_friday
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: govhk-general-holidays
+  - id: hkex-calendar
+  rule:
+    type: relative_to_reference
+    reference: easter
+    offset_days: -2
+- key: hk_easter_monday
+  name: Easter Monday
+  origin: module:hk_easter_monday
+  classification: CLOSED
+  status: CONFIRMED
+  active_years:
+  - - null
+    - 2020
+  - - 2022
+    - 2025
+  - - 2027
+    - null
+  source:
+  - id: govhk-general-holidays
+  - id: hkex-calendar
+  rule:
+    type: relative_to_reference
+    reference: easter
+    offset_days: 1
+- key: hk_day_following_easter_monday
+  name: The day following Easter Monday
+  origin: module:hk_easter_monday
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: govhk-general-holidays
+  - id: hkex-calendar
+  rule:
+    type: explicit_dates
+    dates:
+    - date: 2021-04-06
+      comment: Ching Ming Sunday 4 April observed Monday 5 April; Easter Monday moved
+        on
+    - date: 2026-04-07
+      comment: Ching Ming Sunday 5 April observed Monday 6 April; Easter Monday moved
+        on
+- key: hk_labour_day
+  name: Labour Day
+  origin: module:hk_labour_day
+  classification: CLOSED
+  shift_policy: FORWARD_ONLY
+  status: CONFIRMED
+  source:
+  - id: govhk-general-holidays
+  - id: hkex-calendar
+  rule:
+    type: fixed_month_day
+    month: 5
+    day: 1
+- key: hk_buddhas_birthday
+  name: The Birthday of the Buddha
+  origin: module:hk_buddhas_birthday
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: govhk-general-holidays
+  - id: hkex-calendar
+  rule:
+    type: explicit_dates
+    dates:
+    - 2018-05-22
+    - date: 2019-05-13
+      comment: observed the day following; 12 May was a Sunday
+    - 2020-04-30
+    - 2021-05-19
+    - date: 2022-05-09
+      comment: observed the day following; 8 May was a Sunday
+    - 2023-05-26
+    - 2024-05-15
+    - 2025-05-05
+    - date: 2026-05-25
+      comment: observed the day following; 24 May was a Sunday
+    - 2027-05-13
+- key: hk_tuen_ng
+  name: Tuen Ng Festival
+  origin: module:hk_tuen_ng
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: govhk-general-holidays
+  - id: hkex-calendar
+  rule:
+    type: explicit_dates
+    dates:
+    - 2018-06-18
+    - 2019-06-07
+    - 2020-06-25
+    - 2021-06-14
+    - 2022-06-03
+    - 2023-06-22
+    - 2024-06-10
+    - 2026-06-19
+    - 2027-06-09
+- key: hk_hksar_establishment_day
+  name: Hong Kong Special Administrative Region Establishment Day
+  origin: module:hk_hksar_establishment_day
+  classification: CLOSED
+  shift_policy: FORWARD_ONLY
+  status: CONFIRMED
+  source:
+  - id: govhk-general-holidays
+  - id: hkex-calendar
+  rule:
+    type: fixed_month_day
+    month: 7
+    day: 1
+- key: hk_mid_autumn
+  name: The day following the Chinese Mid-Autumn Festival
+  origin: module:hk_mid_autumn
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: govhk-general-holidays
+  - id: hkex-calendar
+  rule:
+    type: explicit_dates
+    dates:
+    - 2018-09-25
+    - 2020-10-02
+    - 2021-09-22
+    - date: 2022-09-12
+      comment: observed the second day following; 11 September was a Sunday
+    - 2024-09-18
+    - 2025-10-07
+    - 2027-09-16
+- key: hk_national_day
+  name: National Day
+  origin: module:hk_national_day
+  classification: CLOSED
+  shift_policy: FORWARD_ONLY
+  status: CONFIRMED
+  source:
+  - id: govhk-general-holidays
+  - id: hkex-calendar
+  rule:
+    type: fixed_month_day
+    month: 10
+    day: 1
+- key: hk_chung_yeung
+  name: Chung Yeung Festival
+  origin: module:hk_chung_yeung
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: govhk-general-holidays
+  - id: hkex-calendar
+  rule:
+    type: explicit_dates
+    dates:
+    - 2018-10-17
+    - 2019-10-07
+    - date: 2020-10-26
+      comment: observed the day following; 25 October was a Sunday
+    - 2021-10-14
+    - 2022-10-04
+    - 2023-10-23
+    - 2024-10-11
+    - 2025-10-29
+    - date: 2026-10-19
+      comment: observed the day following; 18 October was a Sunday
+    - 2027-10-08
+- key: hk_christmas_day
+  name: Christmas Day
+  origin: module:hk_christmas
+  classification: CLOSED
+  shift_policy: FORWARD_ONLY
+  status: CONFIRMED
+  active_years:
+  - - null
+    - 2021
+  - - 2023
+    - null
+  source:
+  - id: govhk-general-holidays
+  - id: hkex-calendar
+  rule:
+    type: fixed_month_day
+    month: 12
+    day: 25
+- key: hk_first_weekday_after_christmas
+  name: The first weekday after Christmas Day
+  origin: module:hk_christmas
+  classification: CLOSED
+  shift_policy: FORWARD_ONLY
+  status: CONFIRMED
+  source:
+  - id: govhk-general-holidays
+  - id: hkex-calendar
+  rule:
+    type: fixed_month_day
+    month: 12
+    day: 26
+- key: hk_second_weekday_after_christmas
+  name: The second weekday after Christmas Day
+  origin: module:hk_christmas
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: govhk-general-holidays
+  - id: hkex-calendar
+  rule:
+    type: explicit_dates
+    dates:
+    - date: 2022-12-27
+      comment: 25 December 2022 fell on a Sunday
+- key: hk_hkex_christmas_eve_early_close
+  name: Christmas Eve (Half Day)
+  origin: module:hk_hkex_early_closes
+  classification: EARLY_CLOSE
+  only_if_weekday:
+  - MONDAY
+  - TUESDAY
+  - WEDNESDAY
+  - THURSDAY
+  - FRIDAY
+  close_time: 12:00
+  status: CONFIRMED
+  source:
+  - id: hkex-securities-trading-hours
+    ref: "no Extended Morning Session and Afternoon Session on the eves of Christmas,\
+      \ New Year and Lunar New Year"
+  - id: hkex-calendar
+    ref: Half-Day Trading Day - Afternoon Session is Closed on Christmas's Eve
+  - id: hkex-derivatives-holiday-schedule
+    ref: 24 December 2027 (Friday) - Eve of Christmas Day
+  rule:
+    type: fixed_month_day
+    month: 12
+    day: 24
+- key: hk_hkex_new_years_eve_early_close
+  name: New Year's Eve (Half Day)
+  origin: module:hk_hkex_early_closes
+  classification: EARLY_CLOSE
+  only_if_weekday:
+  - MONDAY
+  - TUESDAY
+  - WEDNESDAY
+  - THURSDAY
+  - FRIDAY
+  close_time: 12:00
+  status: CONFIRMED
+  source:
+  - id: hkex-securities-trading-hours
+    ref: "no Extended Morning Session and Afternoon Session on the eves of Christmas,\
+      \ New Year and Lunar New Year"
+  - id: hkex-calendar
+    ref: Half-Day Trading Day - Afternoon Session is Closed on New Year's Eve
+  - id: hkex-derivatives-holiday-schedule
+    ref: 31 December 2027 (Friday) - Eve of New Year
+  rule:
+    type: fixed_month_day
+    month: 12
+    day: 31
+- key: hk_hkex_lunar_new_years_eve_early_close
+  name: Lunar New Year's Eve (Half Day)
+  origin: module:hk_hkex_early_closes
+  classification: EARLY_CLOSE
+  close_time: 12:00
+  status: CONFIRMED
+  source:
+  - id: hkex-calendar
+    ref: Half-Day Trading Day - Afternoon Session is Closed on Lunar New Year's Eve
+  rule:
+    type: explicit_dates
+    dates:
+    - 2018-02-15
+    - 2019-02-04
+    - 2020-01-24
+    - 2021-02-11
+    - 2022-01-31
+    - 2024-02-09
+    - 2025-01-28
+    - 2026-02-16
+    - 2027-02-05

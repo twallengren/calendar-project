@@ -1,9 +1,9 @@
 package com.bdc.generator;
 
 import com.bdc.chronology.ChronologyTranslator;
-import com.bdc.chronology.DateArithmetic;
 import com.bdc.chronology.DateRange;
 import com.bdc.chronology.ontology.ChronologyRegistry;
+import com.bdc.chronology.ontology.algorithms.ChronologyAlgorithm;
 import com.bdc.formula.ReferenceResolver;
 import com.bdc.model.Occurrence;
 import com.bdc.model.Rule;
@@ -14,7 +14,15 @@ import java.time.YearMonth;
 import java.time.temporal.TemporalAdjusters;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
+/**
+ * Expands rules into dated occurrences within a range.
+ *
+ * <p>Multi-day rules ({@code end_month}/{@code end_day} or {@code duration_days}) yield one
+ * occurrence per day, all sharing the rule's key and name. Dates that do not exist in a given year
+ * (Feb 29, the 30th of a short lunar month) are skipped; everything else is an error.
+ */
 public class RuleExpander {
 
   private ReferenceResolver referenceResolver;
@@ -24,17 +32,12 @@ public class RuleExpander {
   }
 
   public List<Occurrence> expand(Rule rule, DateRange range, String provenance) {
-    try {
-      return switch (rule) {
-        case Rule.ExplicitDates r -> expandExplicitDates(r, range, provenance);
-        case Rule.FixedMonthDay r -> expandFixedMonthDay(r, range, provenance);
-        case Rule.NthWeekdayOfMonth r -> expandNthWeekday(r, range, provenance);
-        case Rule.RelativeToReference r -> expandRelativeToReference(r, range, provenance);
-      };
-    } catch (DateTimeException | ArithmeticException e) {
-      throw new IllegalArgumentException(
-          provenance + ": required rule date outside representable range for " + range, e);
-    }
+    return switch (rule) {
+      case Rule.ExplicitDates r -> expandExplicitDates(r, range, provenance);
+      case Rule.FixedMonthDay r -> expandFixedMonthDay(r, range, provenance);
+      case Rule.NthWeekdayOfMonth r -> expandNthWeekday(r, range, provenance);
+      case Rule.RelativeToReference r -> expandRelativeToReference(r, range, provenance);
+    };
   }
 
   private List<Occurrence> expandExplicitDates(
@@ -54,36 +57,76 @@ public class RuleExpander {
       Rule.FixedMonthDay rule, DateRange range, String provenance) {
     List<Occurrence> occurrences = new ArrayList<>();
     String chronology = rule.chronology();
-
-    // Get the year range in the target chronology
-    int[] years;
-    try {
-      years =
-          "ISO".equalsIgnoreCase(chronology) ? range.isoYearRange() : range.yearRange(chronology);
-    } catch (RuntimeException e) {
+    ChronologyRegistry registry = ChronologyRegistry.getInstance();
+    if (!registry.hasChronology(chronology)) {
       throw new IllegalArgumentException(
-          provenance
-              + ": required dependency range "
-              + range
-              + " outside supported chronology "
-              + chronology,
-          e);
+          "Unknown chronology '" + chronology + "' in rule '" + rule.key() + "'");
     }
+
+    int[] years = clampedYearRange(range, chronology);
     for (int year = years[0]; year <= years[1]; year++) {
-      // Invalid month days (e.g. February 29) are absent; conversion failures are errors.
-      if (ChronologyRegistry.getInstance()
-          .getAlgorithm(chronology)
-          .isValidDate(year, rule.month(), rule.day())) {
-        // Convert from target chronology to ISO date
-        LocalDate isoDate =
-            ChronologyTranslator.toIsoDate(year, rule.month(), rule.day(), chronology);
-        if (range.contains(isoDate)) {
-          occurrences.add(new Occurrence(rule.key(), isoDate, rule.name(), provenance));
-        }
+      LocalDate start;
+      try {
+        start = ChronologyTranslator.toIsoDate(year, rule.month(), rule.day(), chronology);
+      } catch (IllegalArgumentException | DateTimeException e) {
+        // Date does not exist this year (Feb 29, day 30 of a 29-day lunar month)
+        continue;
       }
+
+      LocalDate end = start;
+      if (rule.hasEndDate()) {
+        try {
+          end = ChronologyTranslator.toIsoDate(year, rule.endMonth(), rule.endDay(), chronology);
+          if (end.isBefore(start)) {
+            end =
+                ChronologyTranslator.toIsoDate(
+                    year + 1, rule.endMonth(), rule.endDay(), chronology);
+          }
+        } catch (IllegalArgumentException | DateTimeException e) {
+          continue;
+        }
+      } else if (rule.spanDays() > 1) {
+        end = start.plusDays(rule.spanDays() - 1);
+      }
+      addSpan(occurrences, rule, start, end, range, provenance);
     }
 
     return occurrences;
+  }
+
+  /**
+   * The chronology years touched by {@code range}, clamped to the chronology's supported range for
+   * table-based chronologies. Returns an empty range ({@code [1, 0]}) when the request lies
+   * entirely outside the table.
+   */
+  static int[] clampedYearRange(DateRange range, String chronology) {
+    ChronologyRegistry registry = ChronologyRegistry.getInstance();
+    try {
+      return ChronologyTranslator.getYearRange(range.start(), range.end(), chronology);
+    } catch (IllegalArgumentException outOfTable) {
+      ChronologyAlgorithm algorithm = registry.getAlgorithm(chronology);
+      Optional<int[]> supported = algorithm.supportedYearRange();
+      if (supported.isEmpty()) {
+        throw outOfTable;
+      }
+      int min = supported.get()[0];
+      int max = supported.get()[1];
+      LocalDate tableStart = registry.toIsoDate(min, 1, 1, chronology);
+      LocalDate tableEnd =
+          registry.toIsoDate(max, 12, algorithm.getDaysInMonth(max, 12), chronology);
+      if (range.end().isBefore(tableStart) || range.start().isAfter(tableEnd)) {
+        return new int[] {1, 0};
+      }
+      int startYear =
+          range.start().isBefore(tableStart)
+              ? min
+              : registry.fromIsoDate(range.start(), chronology).year();
+      int endYear =
+          range.end().isAfter(tableEnd)
+              ? max
+              : registry.fromIsoDate(range.end(), chronology).year();
+      return new int[] {startYear, endYear};
+    }
   }
 
   private List<Occurrence> expandNthWeekday(
@@ -93,8 +136,8 @@ public class RuleExpander {
 
     for (int year = years[0]; year <= years[1]; year++) {
       LocalDate date = nthWeekdayOfMonth(year, rule.month(), rule.weekday(), rule.nth());
-      if (date != null && range.contains(date)) {
-        occurrences.add(new Occurrence(rule.key(), date, rule.name(), provenance));
+      if (date != null) {
+        addSpan(occurrences, rule, date, date.plusDays(rule.spanDays() - 1), range, provenance);
       }
     }
 
@@ -115,36 +158,12 @@ public class RuleExpander {
       return first.with(TemporalAdjusters.lastInMonth(weekday));
     }
 
+    // nth == 0 or nth < -1 is rejected by validation; produce nothing here
     return null;
   }
 
   private List<Occurrence> expandRelativeToReference(
       Rule.RelativeToReference rule, DateRange range, String provenance) {
-    long minOffset;
-    long maxOffset;
-    if (rule.usesWeekdayOffset()) {
-      Rule.WeekdayOffset offset = rule.offsetWeekday();
-      if (offset.nth() < 1) {
-        throw new IllegalArgumentException(
-            "WeekdayOffset nth must be at least 1, got: " + offset.nth());
-      }
-      minOffset = 7L * (offset.nth() - 1) + 1;
-      maxOffset = 7L * offset.nth();
-      if (offset.direction() == Rule.OffsetDirection.BEFORE) {
-        long oldMin = minOffset;
-        minOffset = -maxOffset;
-        maxOffset = -oldMin;
-      }
-    } else if (rule.offsetDays() != null) {
-      minOffset = maxOffset = rule.offsetDays();
-    } else {
-      throw new IllegalArgumentException(
-          "RelativeToReference must have either offsetDays or offsetWeekday");
-    }
-    DateRange referenceRange =
-        new DateRange(
-            DateArithmetic.plusDays(range.start(), -maxOffset, provenance),
-            DateArithmetic.plusDays(range.end(), -minOffset, provenance));
     List<LocalDate> refDates;
 
     if (rule.usesNamedReference()) {
@@ -155,15 +174,16 @@ public class RuleExpander {
       if (!referenceResolver.hasReference(rule.reference())) {
         throw new IllegalArgumentException("Unknown reference: " + rule.reference());
       }
-      refDates = referenceResolver.getDates(rule.reference(), referenceRange);
+      refDates = referenceResolver.getDates(rule.reference());
     } else if (rule.usesFixedReference()) {
       // Fixed month/day reference - generate for each year in range
       refDates = new ArrayList<>();
-      int[] years = referenceRange.isoYearRange();
+      int[] years = range.isoYearRange();
       for (int year = years[0]; year <= years[1]; year++) {
-        if (YearMonth.of(year, rule.referenceMonth()).isValidDay(rule.referenceDay())) {
-          LocalDate refDate = LocalDate.of(year, rule.referenceMonth(), rule.referenceDay());
-          if (referenceRange.contains(refDate)) refDates.add(refDate);
+        try {
+          refDates.add(LocalDate.of(year, rule.referenceMonth(), rule.referenceDay()));
+        } catch (DateTimeException e) {
+          // Skip invalid dates (e.g., Feb 29 in non-leap years)
         }
       }
     } else {
@@ -177,17 +197,28 @@ public class RuleExpander {
       if (rule.usesWeekdayOffset()) {
         date = calculateWeekdayOffset(refDate, rule.offsetWeekday());
       } else if (rule.offsetDays() != null) {
-        date = DateArithmetic.plusDays(refDate, rule.offsetDays(), provenance);
+        date = refDate.plusDays(rule.offsetDays());
       } else {
         throw new IllegalArgumentException(
             "RelativeToReference must have either offsetDays or offsetWeekday");
       }
-
-      if (range.contains(date)) {
-        occurrences.add(new Occurrence(rule.key(), date, rule.name(), provenance));
-      }
+      addSpan(occurrences, rule, date, date.plusDays(rule.spanDays() - 1), range, provenance);
     }
     return occurrences;
+  }
+
+  private static void addSpan(
+      List<Occurrence> occurrences,
+      Rule rule,
+      LocalDate start,
+      LocalDate end,
+      DateRange range,
+      String provenance) {
+    for (LocalDate d = start; !d.isAfter(end); d = d.plusDays(1)) {
+      if (range.contains(d)) {
+        occurrences.add(new Occurrence(rule.key(), d, rule.name(), provenance));
+      }
+    }
   }
 
   /**
@@ -207,11 +238,18 @@ public class RuleExpander {
       throw new IllegalArgumentException("WeekdayOffset nth must be at least 1, got: " + nth);
     }
 
-    int sign = direction == Rule.OffsetDirection.AFTER ? 1 : -1;
-    int distance =
-        Math.floorMod(sign * (targetWeekday.getValue() - refDate.getDayOfWeek().getValue()), 7);
-    if (distance == 0) distance = 7;
-    return DateArithmetic.plusDays(
-        refDate, sign * (distance + 7L * (nth - 1)), "Weekday reference offset");
+    if (direction == Rule.OffsetDirection.AFTER) {
+      LocalDate current = refDate.plusDays(1);
+      while (current.getDayOfWeek() != targetWeekday) {
+        current = current.plusDays(1);
+      }
+      return current.plusWeeks(nth - 1);
+    } else {
+      LocalDate current = refDate.minusDays(1);
+      while (current.getDayOfWeek() != targetWeekday) {
+        current = current.minusDays(1);
+      }
+      return current.minusWeeks(nth - 1);
+    }
   }
 }

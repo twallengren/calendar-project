@@ -1,0 +1,48 @@
+kind: module
+id: jp_sports_day
+
+# 体育の日 / スポーツの日, second Monday of October since 2000 ("Happy Monday" reform); October 10
+# before that, which predates this calendar's coverage. Renamed from 体育の日 ("Health and Sports
+# Day" in JPX's English listings) to スポーツの日 ("Sports Day") with effect from 2020, and moved by
+# special measures law for the Tokyo Olympics in 2020 (to July 24) and 2021 (to July 23) only.
+
+source:
+  - id: cao-shukujitsu-gaiyou
+    ref: "第2条 スポーツの日 10月の第2月曜日"
+
+event_sources:
+  - key: jp_health_and_sports_day
+    name: Health and Sports Day
+    default_classification: CLOSED
+    active_years:
+      - [null, 2019]
+    rule:
+      type: nth_weekday_of_month
+      month: 10
+      weekday: MONDAY
+      nth: 2
+
+  - key: jp_sports_day
+    name: Sports Day
+    default_classification: CLOSED
+    active_years:
+      - [2022, null]
+    rule:
+      type: nth_weekday_of_month
+      month: 10
+      weekday: MONDAY
+      nth: 2
+
+  - key: jp_sports_day_olympic
+    name: Sports Day
+    default_classification: CLOSED
+    source:
+      - id: cao-shukujitsu-gaiyou
+        ref: "令和2年及び3年における「国民の祝日」の移動について: スポーツの日 2020-07-24, 2021-07-23"
+    rule:
+      type: explicit_dates
+      dates:
+        - date: 2020-07-24
+          comment: Tokyo Olympics
+        - date: 2021-07-23
+          comment: Tokyo Olympics
