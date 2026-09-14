@@ -24,7 +24,7 @@ CALENDARS=("$@")
 if [ ${#CALENDARS[@]} -eq 0 ]; then
   while IFS= read -r calendar; do
     CALENDARS+=("$calendar")
-  done < <(python3 -c 'import json,sys; m=json.load(open(sys.argv[1])); print("\n".join(sorted(key for key,c in m["calendars"].items() if c.get("kind", "market") != "base")))' "$REPO_ROOT/blessed/manifest.json")
+  done < <(python3 -c 'import json,sys; m=json.load(open(sys.argv[1])); print("\n".join(sorted(m["calendars"])))' "$REPO_ROOT/blessed/manifest.json")
 fi
 
 echo "Building the Java toolchain..."

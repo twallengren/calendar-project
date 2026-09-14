@@ -14,6 +14,7 @@ import sys
 from pathlib import Path
 
 import pytest
+import bdc_calendars as bdc
 
 mcp_client = pytest.importorskip("mcp")
 from mcp import ClientSession  # noqa: E402
@@ -84,8 +85,25 @@ async def test_assess_day_exposes_completeness_contract():
             )
             assert payload["state"] == "OPEN"
             assert payload["scheduled_state"] == "OPEN"
-            assert payload["effective_confidence"] == "CONFIRMED"
+            expected = "PROJECTED" if bdc.get_calendar("US-NYSE").coverage_intervals else "CONFIRMED"
+            assert payload["effective_confidence"] == expected
             assert payload["completeness"]["SCHEDULED_CLOSURES"] == "PROJECTED"
+
+
+@pytest.mark.anyio
+@pytest.mark.skipif("IL-TASE" not in bdc.list_calendars(), reason="native TASE data not bundled yet")
+async def test_native_tase_assessment_and_unknown_error_through_stdio():
+    async with stdio_client(SERVER_PARAMS) as (read, write):
+        async with ClientSession(read, write) as session:
+            await session.initialize()
+            payload = await _call(session, "assess_day", {"calendar": "IL-TASE", "date": "2025-09-23"})
+            assert payload["state"] == "UNKNOWN"
+            assert payload["scheduled_state"] == "CLOSED"
+            event = next(event for event in payload["events"] if event["nominal_native_date"])
+            assert event["nominal_native_date"] == dict(chronology_id="HEBREW", year=5786, month_code="TISHRI", day=1)
+            assert event["evidence_ids"]
+            error = await _call(session, "is_business_day", {"calendar": "IL-TASE", "date": "2025-09-23"})
+            assert error["error"] == "UnresolvedDateError"
 
 
 @pytest.mark.anyio

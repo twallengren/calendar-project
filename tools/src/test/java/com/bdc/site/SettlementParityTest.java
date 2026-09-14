@@ -18,6 +18,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeSet;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -73,16 +74,20 @@ class SettlementParityTest {
   /** A day the walk did not count, and which of the two calendars were shut on it. */
   record Skip(LocalDate date, List<String> closed) {}
 
+  @BeforeAll
+  static void updateFixtureWhenRequested() throws IOException {
+    if (Boolean.getBoolean("updateGoldens")) {
+      List<String> markets = marketIds();
+      Files.createDirectories(FIXTURE.getParent());
+      Files.writeString(
+          FIXTURE, toJson(generate(markets, streams(markets))), StandardCharsets.UTF_8);
+    }
+  }
+
   @Test
   void fixtureAnswersMatchJointDateStream() throws IOException {
     List<String> markets = marketIds();
     Map<String, DateStream> streams = streams(markets);
-
-    if (Boolean.getBoolean("updateGoldens")) {
-      List<Case> generated = generate(markets, streams);
-      Files.createDirectories(FIXTURE.getParent());
-      Files.writeString(FIXTURE, toJson(generated), StandardCharsets.UTF_8);
-    }
 
     assertTrue(
         Files.isRegularFile(FIXTURE),
@@ -149,10 +154,11 @@ class SettlementParityTest {
   @Test
   void fixtureCoversDaysBothMarketsAreShut() throws IOException {
     List<Case> cases = readFixture();
-    long withSkips = cases.stream().filter(one -> !one.skipped().isEmpty()).count();
     assertTrue(
-        withSkips > cases.size() / 2,
-        "most cases should walk past at least one closure or weekend, got " + withSkips);
+        cases.stream()
+            .flatMap(one -> one.skipped().stream())
+            .anyMatch(skip -> skip.closed().size() == 2),
+        "resolved cases must exercise a day when both members are closed");
   }
 
   // === Cases ===

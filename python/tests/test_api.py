@@ -309,8 +309,11 @@ def test_explicit_incomplete_scope_preserves_scheduled_state_and_refuses_boolean
 
 def test_status(nyse):
     assert nyse.verified_through == dt.date(2026, 12, 31)
-    assert nyse.status(dt.date(2025, 7, 4)) == "CONFIRMED"
-    assert nyse.status(dt.date(2026, 12, 31)) == "CONFIRMED"
+    # Audited scope quality supersedes the legacy scalar verification horizon.
+    modern_status = "PROJECTED" if nyse.coverage_intervals else "CONFIRMED"
+    assert nyse.status(dt.date(2007, 6, 1)) == "CONFIRMED"
+    assert nyse.status(dt.date(2025, 7, 4)) == modern_status
+    assert nyse.status(dt.date(2026, 12, 31)) == modern_status
     assert nyse.status(dt.date(2028, 6, 1)) == "PROJECTED"
     assert nyse.status(dt.date(2031, 1, 1)) == "UNKNOWN"
     assert nyse.status(dt.date(1899, 12, 31)) == "UNKNOWN"
@@ -420,7 +423,8 @@ def test_joint_settlement_crosses_both_markets(joint):
 
 
 def test_joint_status_is_as_good_as_its_worst_member(joint):
-    assert joint.status(dt.date(2026, 3, 2)) == "CONFIRMED"
+    modern_status = "PROJECTED" if bdc.get_calendar(NYSE).coverage_intervals else "CONFIRMED"
+    assert joint.status(dt.date(2026, 3, 2)) == modern_status
     assert joint.status(dt.date(2028, 6, 1)) == "PROJECTED"  # past the NYSE horizon
     assert joint.status(dt.date(2019, 1, 1)) == "UNKNOWN"  # outside SA-TADAWUL
 
