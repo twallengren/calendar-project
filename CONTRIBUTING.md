@@ -21,9 +21,10 @@ manifest/reference-export entries:
 It reuses the Saturday-Sunday weekend module by default. Use `--weekend FRI_SAT` to reuse the
 Friday-Saturday policy, `--weekend custom` to create a policy module, `--from` and `--to` to set
 the initial range, `--dry-run` to preview, and `--force` only when replacing existing scaffold
-files. The scaffold leaves TODOs for evidence and calendar rules; it does not create
-`register.json` or golden tests. Complete the canonical source register and the steps below
-before treating the calendar as ready to validate.
+files. The scaffold creates a canonical `register.json` and generated README table with a TODO
+source entry; it leaves evidence and calendar rules for you to complete, and does not create golden
+tests. Complete the source register and the steps below before treating the calendar as ready to
+validate.
 
 ### 1. Pick your ids
 
@@ -101,9 +102,9 @@ metadata:
     from: 2000-01-01
     to: 2030-12-31
     quality:
-      - {scope: SCHEDULED_CLOSURES, from: 2020-01-01, to: 2025-12-31, quality: VERIFIED, evidence_ids: [lse-schedules]}
-      - {scope: EARLY_CLOSES, from: 2020-01-01, to: 2025-12-31, quality: VERIFIED, evidence_ids: [lse-schedules]}
-      - {scope: UNSCHEDULED_EXCEPTIONS, from: 2020-01-01, to: 2025-12-31, quality: INCOMPLETE, evidence_ids: []}
+      - {scope: SCHEDULED_CLOSURES, from: 2000-01-01, to: 2030-12-31, quality: INCOMPLETE, evidence_ids: []}
+      - {scope: EARLY_CLOSES, from: 2000-01-01, to: 2030-12-31, quality: INCOMPLETE, evidence_ids: []}
+      - {scope: UNSCHEDULED_EXCEPTIONS, from: 2000-01-01, to: 2030-12-31, quality: INCOMPLETE, evidence_ids: []}
 
 weekend_shift_policy: NEXT_AVAILABLE_WEEKDAY
 
