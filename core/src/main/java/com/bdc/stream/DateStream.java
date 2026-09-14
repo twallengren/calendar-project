@@ -335,18 +335,15 @@ public interface DateStream {
     }
     EventStatus effectiveConfidence = confidence;
     DayState actual = incomplete ? DayState.UNKNOWN : scheduled;
-    List<String> evidenceIds = List.copyOf(evidence);
     List<EventDetails> details =
         eventDetailsOn(date).stream()
             .map(
                 detail -> {
-                  Set<String> ids = new java.util.TreeSet<>(evidenceIds);
-                  ids.addAll(detail.evidenceIds());
                   return new EventDetails(
                       detail.event(),
                       detail.rawStatus(),
                       effectiveConfidence,
-                      List.copyOf(ids),
+                      detail.evidenceIds(),
                       detail.nominalNativeDate(),
                       detail.chronologyProfile(),
                       detail.chronologyProvider(),

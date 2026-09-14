@@ -380,16 +380,17 @@ public class QueryCommand implements Callable<Integer> {
                   () ->
                       new IllegalArgumentException(
                           "No published artifact of " + id + " matches '" + asOf + "'"));
-      System.out.println(
-          "Using artifact "
-              + snapshot.calendarId()
-              + " "
-              + snapshot.id()
-              + " (v"
-              + snapshot.version()
-              + ", archived "
-              + snapshot.archivedAt()
-              + ")");
+      (assessmentDate == null ? System.out : System.err)
+          .println(
+              "Using artifact "
+                  + snapshot.calendarId()
+                  + " "
+                  + snapshot.id()
+                  + " (v"
+                  + snapshot.version()
+                  + ", archived "
+                  + snapshot.archivedAt()
+                  + ")");
       return store.stream(snapshot);
     }
     if (resolver == null) {

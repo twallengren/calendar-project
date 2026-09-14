@@ -13,7 +13,7 @@
 #     python/scripts/generate_parity_fixture.sh
 #
 # Optional: BDC_SAMPLES (dates sampled per calendar, default 1000) and a list of
-# calendar ids as positional arguments (default: US-NYSE SA-TADAWUL).
+# calendar ids as positional arguments (default: every bundled market).
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -22,7 +22,9 @@ FIXTURE_DIR="$REPO_ROOT/python/tests/fixtures"
 
 CALENDARS=("$@")
 if [ ${#CALENDARS[@]} -eq 0 ]; then
-  CALENDARS=(US-NYSE SA-TADAWUL)
+  while IFS= read -r calendar; do
+    CALENDARS+=("$calendar")
+  done < <(python3 -c 'import json,sys; m=json.load(open(sys.argv[1])); print("\n".join(sorted(key for key,c in m["calendars"].items() if c.get("kind", "market") == "market")))' "$REPO_ROOT/blessed/manifest.json")
 fi
 
 echo "Building the Java toolchain..."
@@ -42,6 +44,7 @@ for CAL in "${CALENDARS[@]}"; do
   BDC_OUT="$FIXTURE_DIR/parity_${CAL}.json" \
   BDC_SAMPLES="${BDC_SAMPLES:-1000}" \
     jshell --class-path "$LIB_DIR/*" --feedback concise "$SCRIPT_DIR/generate_parity_fixture.jsh"
+  python3 -c 'import json,sys; d=json.load(open(sys.argv[1])); assert d["fixture_schema"] == 2 and d["queries"]' "$FIXTURE_DIR/parity_${CAL}.json"
 done
 
 echo

@@ -33,6 +33,17 @@ class QueryCommandTest {
   }
 
   @Test
+  void assessmentFromArtifactIsOneParseableJsonDocument() throws Exception {
+    int code =
+        new CommandLine(new QueryCommand())
+            .execute("US-NYSE", "--as-of", "blessed", "--assess-day", "2025-09-23");
+    assertEquals(0, code);
+    var day = new com.fasterxml.jackson.databind.ObjectMapper().readTree(stdout.toString());
+    assertEquals("2025-09-23", day.path("date").asText());
+    assertTrue(stderr.toString().contains("Using artifact"));
+  }
+
+  @Test
   void call_isBusinessDay_weekday_printsBusinessDay() {
     QueryCommand cmd = new QueryCommand();
     CommandLine cmdLine = new CommandLine(cmd);

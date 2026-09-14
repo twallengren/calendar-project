@@ -144,7 +144,8 @@ public final class BusinessCalendars {
 
     LocalDate verifiedThrough = null;
     List<CoverageInterval> coverageIntervals = List.of();
-    if (metadata.get("coverage") instanceof Map<?, ?> coverage) {
+    {
+      Map<?, ?> coverage = CoverageIntervals.coverageObject(metadata.get("coverage"));
       Object declared = coverage.get("verified_through");
       if (declared != null) {
         verifiedThrough = LocalDate.parse(String.valueOf(declared));

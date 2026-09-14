@@ -132,6 +132,18 @@ class DateStreamTrustTest {
     assertEquals(DayState.UNKNOWN, stream.assessment(DAY).state());
   }
 
+  @Test
+  void malformedQualityCannotFallBackToLegacyOpenAnswers() {
+    for (Object malformed : List.of(Map.of(), "INCOMPLETE", 0)) {
+      assertThrows(IllegalArgumentException.class, () -> CoverageIntervals.fromJson(malformed));
+    }
+    assertEquals(List.of(), CoverageIntervals.fromJson(null));
+    for (Object malformed : List.of(List.of(), "", 0, false)) {
+      assertThrows(
+          IllegalArgumentException.class, () -> CoverageIntervals.coverageObject(malformed));
+    }
+  }
+
   private static CoverageInterval interval(CompletenessScope scope, CoverageQuality quality) {
     return new CoverageInterval(
         scope, RANGE.start(), RANGE.end(), quality, List.of("fixture-source"));

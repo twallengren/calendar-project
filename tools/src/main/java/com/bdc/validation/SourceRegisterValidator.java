@@ -14,6 +14,7 @@ import java.util.List;
 public final class SourceRegisterValidator {
   private final Path sourcesRoot;
   private final List<SourceRegister> registers = new ArrayList<>();
+  private final java.util.Map<String, SourceRegister> byCalendar = new java.util.LinkedHashMap<>();
 
   public SourceRegisterValidator(Path sourcesRoot) throws IOException {
     this.sourcesRoot = sourcesRoot;
@@ -24,7 +25,9 @@ public final class SourceRegisterValidator {
         Path register = dir.resolve("register.json");
         if (!Files.isRegularFile(register))
           throw new IOException("Missing canonical source register: " + register);
-        registers.add(SourceRegister.read(register, sourcesRoot));
+        SourceRegister loaded = SourceRegister.read(register, sourcesRoot);
+        registers.add(loaded);
+        byCalendar.put(dir.getFileName().toString(), loaded);
       }
     }
   }
@@ -35,7 +38,8 @@ public final class SourceRegisterValidator {
         if (interval.quality() == com.bdc.trust.CoverageQuality.VERIFIED) {
           List<com.bdc.chronology.DateRange> support = new ArrayList<>();
           for (String id : interval.evidenceIds())
-            for (var register : registers) support.addAll(register.support(id, interval.scope()));
+            for (var register : select(spec, id, result))
+              support.addAll(register.support(id, interval.scope()));
           support.sort(java.util.Comparator.comparing(com.bdc.chronology.DateRange::start));
           java.time.LocalDate cursor = interval.from();
           boolean covered = false;
@@ -61,7 +65,7 @@ public final class SourceRegisterValidator {
                     + " exceeds cited source support intervals");
         }
         for (String id : interval.evidenceIds()) {
-          if (registers.stream().noneMatch(register -> register.contains(id)))
+          if (select(spec, id, result).isEmpty())
             result.error(
                 "UNRESOLVED_COVERAGE_SOURCE",
                 spec.id(),
@@ -71,19 +75,38 @@ public final class SourceRegisterValidator {
     }
     for (var event : spec.eventSources()) {
       for (SourceCitation source : event.source())
-        check(source, spec.id() + "/" + event.key(), result);
+        check(spec, source, spec.id() + "/" + event.key(), result);
     }
     for (Delta delta : spec.deltas()) {
       if (delta.source().isEmpty())
         result.warning("MISSING_DELTA_SOURCE", spec.id(), "Delta has no citation: " + delta);
-      for (SourceCitation source : delta.source()) check(source, spec.id() + "/delta", result);
+      for (SourceCitation source : delta.source())
+        check(spec, source, spec.id() + "/delta", result);
     }
   }
 
-  private void check(SourceCitation source, String location, ValidationResult result) {
+  private List<SourceRegister> select(ResolvedSpec spec, String id, ValidationResult result) {
+    SourceRegister own = byCalendar.get(spec.id());
+    if (own != null && own.contains(id)) return List.of(own);
+    for (String origin : spec.resolutionChain().reversed()) {
+      if (!origin.startsWith("calendar:")) continue;
+      SourceRegister parent = byCalendar.get(origin.substring("calendar:".length()));
+      if (parent != null && parent.contains(id)) return List.of(parent);
+    }
+    var candidates = registers.stream().filter(register -> register.contains(id)).toList();
+    if (candidates.size() > 1) {
+      result.error(
+          "AMBIGUOUS_SOURCE", spec.id(), "Source id resolves to unrelated registers: " + id);
+      return List.of();
+    }
+    return candidates;
+  }
+
+  private void check(
+      ResolvedSpec spec, SourceCitation source, String location, ValidationResult result) {
     if (source.id() != null
         && !source.id().isBlank()
-        && registers.stream().noneMatch(register -> register.contains(source.id()))) {
+        && select(spec, source.id(), result).isEmpty()) {
       result.error("UNRESOLVED_SOURCE", location, "Source id is not registered: " + source.id());
     }
     if (source.file() != null && !source.file().isBlank()) {

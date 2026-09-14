@@ -366,8 +366,7 @@ class BusinessCalendar:
                 else CONFIRMED
             )
         details = [
-            detail._replace(effective_status=confidence,
-                evidence_ids=sorted(set(evidence) | set(detail.evidence_ids)))
+            detail._replace(effective_status=confidence)
             for detail in self.event_details_on(day)
         ]
         evidence = sorted(set(evidence).union(*(set(detail.evidence_ids) for detail in details)))

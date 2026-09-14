@@ -9,6 +9,11 @@
 import com.bdc.artifact.ReleaseHistoryStore;
 import com.bdc.model.Event;
 import com.bdc.stream.DateStream;
+import com.bdc.stream.OutsideCoverageException;
+import com.bdc.stream.UnresolvedDateException;
+import com.bdc.emitter.AssessmentEmitter;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.function.Supplier;
 import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -20,6 +25,7 @@ String CAL = System.getenv("BDC_CALENDAR");
 Path ROOT = Path.of(System.getenv("BDC_REPO_ROOT"));
 Path OUT = Path.of(System.getenv("BDC_OUT"));
 int SAMPLES = Integer.parseInt(System.getenv().getOrDefault("BDC_SAMPLES", "1000"));
+ObjectMapper mapper = new ObjectMapper();
 
 String esc(String s) {
     if (s == null) return "null";
@@ -61,9 +67,19 @@ String nav(DateStream s, String op, LocalDate d, int n) {
             default -> s.nthBusinessDay(d, n);
         };
         return esc(r.toString());
-    } catch (RuntimeException ex) {
-        return "null";
+    } catch (OutsideCoverageException ex) {
+        return failure(ex);
     }
+}
+
+String failure(OutsideCoverageException ex) {
+    return "{\"error\":" + esc(ex instanceof UnresolvedDateException ? "UnresolvedDateError" : "OutsideCoverageError")
+        + ",\"date\":" + esc(ex.date().toString()) + "}";
+}
+
+String query(Supplier<Object> call) throws Exception {
+    try { return mapper.writeValueAsString(call.get()); }
+    catch (OutsideCoverageException ex) { return failure(ex); }
 }
 
 var store = new ReleaseHistoryStore(ROOT.resolve("release-history"), ROOT.resolve("blessed"));
@@ -75,6 +91,7 @@ LocalDate end = stream.range().end();
 Files.createDirectories(OUT.getParent());
 PrintWriter out = new PrintWriter(Files.newBufferedWriter(OUT, StandardCharsets.UTF_8));
 out.print("{\"calendar_id\":" + esc(stream.calendarId()));
+out.print(",\"fixture_schema\":2");
 out.print(",\"version\":" + esc(snapshot.version()));
 out.print(",\"range\":[" + esc(start.toString()) + "," + esc(end.toString()) + "]");
 out.print(",\"verified_through\":" + opt(stream.verifiedThrough().orElse(null)));
@@ -100,16 +117,17 @@ for (long i = 0; i <= span; i += step) {
     if (!first) out.print(",");
     first = false;
     out.print("{\"d\":" + esc(d.toString()));
-    out.print(",\"b\":" + stream.isBusinessDay(d));
+    out.print(",\"assessment\":" + mapper.writeValueAsString(AssessmentEmitter.row(stream.assessment(d))));
+    out.print(",\"b\":" + query(() -> stream.isBusinessDay(d)));
     out.print(",\"n\":" + nav(stream, "next", d, 0));
     out.print(",\"p\":" + nav(stream, "prev", d, 0));
     out.print(",\"f5\":" + nav(stream, "nth", d, 5));
     out.print(",\"b5\":" + nav(stream, "nth", d, -5));
     out.print(",\"s\":" + esc(stream.status(d).toString()));
-    out.print(",\"c\":" + opt(stream.closeTime(d).orElse(null)));
-    out.print(",\"ec\":" + stream.isEarlyClose(d));
+    out.print(",\"c\":" + query(() -> stream.closeTime(d).map(Object::toString).orElse(null)));
+    out.print(",\"ec\":" + query(() -> stream.isEarlyClose(d)));
     LocalDate windowEnd = d.plusDays(30).isAfter(end) ? end : d.plusDays(30);
-    out.print(",\"cnt\":" + stream.businessDaysInRange(d, windowEnd));
+    out.print(",\"cnt\":" + query(() -> stream.businessDaysInRange(d, windowEnd)));
     out.print(",\"we\":" + esc(windowEnd.toString()));
     out.print(",\"ev\":[");
     boolean firstEvent = true;

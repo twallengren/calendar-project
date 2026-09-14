@@ -11,6 +11,11 @@ import com.bdc.model.Event;
 import com.bdc.model.EventStatus;
 import com.bdc.stream.CsvDateStream;
 import com.bdc.stream.DateStream;
+import com.bdc.stream.UnresolvedDateException;
+import com.bdc.trust.CoverageIntervals;
+import com.bdc.trust.DayAssessment;
+import com.bdc.trust.EventDetails;
+import com.bdc.trust.PublishedEventDetails;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -42,7 +47,7 @@ class BusinessCalendarsTest {
   void datesAfterVerifiedThroughAreProjected() {
     DateStream nyse = BusinessCalendars.of("US-NYSE");
     LocalDate verified = nyse.verifiedThrough().orElseThrow();
-    assertEquals(EventStatus.CONFIRMED, nyse.status(verified));
+    assertEquals(nyse.assessment(verified).effectiveConfidence(), nyse.status(verified));
     assertEquals(EventStatus.PROJECTED, nyse.status(verified.plusDays(1)));
   }
 
@@ -120,14 +125,26 @@ class BusinessCalendarsTest {
 
       for (LocalDate date = from; !date.isAfter(to); date = date.plusDays(1)) {
         String where = calendarId + " on " + date;
-        assertEquals(published.isBusinessDay(date), bundled.isBusinessDay(date), where);
-        assertEquals(published.isEarlyClose(date), bundled.isEarlyClose(date), where);
-        assertEquals(published.closeTime(date), bundled.closeTime(date), where);
+        assertEquals(
+            publicAssessment(published.assessment(date)),
+            publicAssessment(bundled.assessment(date)),
+            where + ": assessment");
+        if (published.status(date) == EventStatus.UNKNOWN) {
+          LocalDate unresolved = date;
+          assertThrows(UnresolvedDateException.class, () -> published.isBusinessDay(unresolved));
+          assertThrows(UnresolvedDateException.class, () -> bundled.isBusinessDay(unresolved));
+          assertThrows(UnresolvedDateException.class, () -> bundled.isEarlyClose(unresolved));
+          assertThrows(UnresolvedDateException.class, () -> bundled.closeTime(unresolved));
+        } else {
+          assertEquals(published.isBusinessDay(date), bundled.isBusinessDay(date), where);
+          assertEquals(published.isEarlyClose(date), bundled.isEarlyClose(date), where);
+          assertEquals(published.closeTime(date), bundled.closeTime(date), where);
+        }
         assertEquals(published.status(date), bundled.status(date), where);
         assertEquals(
-            published.eventsOn(date).size(),
-            bundled.eventsOn(date).size(),
-            where + ": event count");
+            published.eventsOn(date).stream().map(BusinessCalendarsTest::publicEvent).toList(),
+            bundled.eventsOn(date).stream().map(BusinessCalendarsTest::publicEvent).toList(),
+            where + ": complete events");
         datesChecked++;
       }
       calendarsChecked++;
@@ -151,11 +168,55 @@ class BusinessCalendarsTest {
         && coverage.get("verified_through") != null) {
       verifiedThrough = LocalDate.parse(String.valueOf(coverage.get("verified_through")));
     }
-    return new CsvDateStream(calendarId, events, range, verifiedThrough);
+    Object quality =
+        metadata.get("coverage") instanceof Map<?, ?> coverage ? coverage.get("quality") : null;
+    return new CsvDateStream(
+        calendarId,
+        events,
+        range,
+        verifiedThrough,
+        CoverageIntervals.fromJson(quality),
+        PublishedEventDetails.read(metadata.get("event_details")));
   }
 
   private static LocalDate max(LocalDate a, LocalDate b) {
     return a.isAfter(b) ? a : b;
+  }
+
+  private static Event publicEvent(Event event) {
+    return new Event(
+        event.date(),
+        event.type(),
+        event.description(),
+        "",
+        event.key(),
+        event.sourceModule(),
+        event.observedFrom(),
+        event.closeTime(),
+        event.status());
+  }
+
+  private static DayAssessment publicAssessment(DayAssessment day) {
+    return new DayAssessment(
+        day.date(),
+        day.state(),
+        day.scheduledState(),
+        day.effectiveConfidence(),
+        day.completeness(),
+        day.evidenceIds(),
+        day.events().stream()
+            .map(
+                detail ->
+                    new EventDetails(
+                        publicEvent(detail.event()),
+                        detail.rawStatus(),
+                        detail.effectiveStatus(),
+                        detail.evidenceIds(),
+                        detail.nominalNativeDate(),
+                        detail.chronologyProfile(),
+                        detail.chronologyProvider(),
+                        detail.observationLineage()))
+            .toList());
   }
 
   private static LocalDate min(LocalDate a, LocalDate b) {

@@ -4,9 +4,7 @@ import com.bdc.chronology.DateRange;
 import com.bdc.emitter.EventsCsvReader;
 import com.bdc.model.Event;
 import com.bdc.stream.CsvDateStream;
-import com.bdc.trust.CompletenessScope;
 import com.bdc.trust.CoverageInterval;
-import com.bdc.trust.CoverageQuality;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
@@ -238,26 +236,10 @@ public class ReleaseHistoryStore {
 
   /** Explicit scope-specific quality intervals recorded in metadata, or empty for legacy data. */
   public List<CoverageInterval> coverageIntervals(Snapshot snapshot) throws IOException {
-    JsonNode rows = metadata(snapshot).path("coverage").path("quality");
-    if (!rows.isArray()) {
-      return List.of();
-    }
-    List<CoverageInterval> result = new ArrayList<>();
-    for (JsonNode row : rows) {
-      List<String> evidence = new ArrayList<>();
-      JsonNode evidenceNode = row.path("evidence_ids");
-      if (evidenceNode.isArray()) {
-        evidenceNode.forEach(id -> evidence.add(id.asText()));
-      }
-      result.add(
-          new CoverageInterval(
-              CompletenessScope.valueOf(row.path("scope").asText()),
-              LocalDate.parse(row.path("from").asText()),
-              LocalDate.parse(row.path("to").asText()),
-              CoverageQuality.valueOf(row.path("quality").asText()),
-              evidence));
-    }
-    return List.copyOf(result);
+    var coverage =
+        com.bdc.trust.CoverageIntervals.coverageObject(
+            mapper.convertValue(metadata(snapshot).get("coverage"), Object.class));
+    return com.bdc.trust.CoverageIntervals.fromJson(coverage.get("quality"));
   }
 
   /** The {@code coverage.verified_through} recorded in the snapshot's metadata.json, if any. */

@@ -46,3 +46,15 @@ def test_closed_first_joint_member_cannot_hide_unknown_second_member():
     joint = JointCalendar([closed, unknown])
     with pytest.raises(UnresolvedDateError):
         joint.is_business_day(DAY)
+
+
+@pytest.mark.parametrize("quality", [{}, "INCOMPLETE", 0, False])
+def test_malformed_quality_cannot_become_legacy_open(quality):
+    with pytest.raises(ValueError, match="coverage.quality"):
+        CalendarData("TEST", dict(range_start=str(DAY), range_end=str(DAY), coverage=dict(quality=quality)), [])
+
+
+@pytest.mark.parametrize("coverage", [[], "", 0, False])
+def test_malformed_coverage_cannot_become_legacy_open(coverage):
+    with pytest.raises(ValueError, match="coverage must be an object"):
+        CalendarData("TEST", dict(range_start=str(DAY), range_end=str(DAY), coverage=coverage), [])

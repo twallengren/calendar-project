@@ -162,7 +162,11 @@ class CalendarData:
         self.weekend_policy = WeekendPolicy.from_json(metadata.get("weekend_policy"))
         self.range_from = _date(metadata["range_start"])
         self.range_to = _date(metadata["range_end"])
-        coverage = metadata.get("coverage") or {}
+        coverage = metadata.get("coverage")
+        if coverage is None:
+            coverage = {}
+        if not isinstance(coverage, dict):
+            raise ValueError("coverage must be an object")
         verified = coverage.get("verified_through")
         self.verified_through = _date(verified) if verified else None
         self.coverage_intervals = tuple(_coverage_intervals(coverage.get("quality")))
@@ -209,11 +213,17 @@ def _time(value: str) -> _dt.time:
 
 
 def _coverage_intervals(rows: Any) -> List[CoverageInterval]:
-    if not rows:
+    if rows is None:
         return []
+    if not isinstance(rows, list):
+        raise ValueError("coverage.quality must be an array")
     result = []
     for row in rows:
+        if not isinstance(row, dict):
+            raise ValueError("coverage.quality entries must be objects")
         evidence = row.get("evidence_ids", row.get("evidenceIds", []))
+        if not isinstance(evidence, list):
+            raise ValueError("coverage evidence_ids must be an array")
         result.append(
             CoverageInterval(
                 scope=row["scope"],
