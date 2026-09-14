@@ -165,7 +165,8 @@ jobs:
           git commit -m "chore: prepare release ${RELEASE_TAG}"
           git push --force-with-lease origin "HEAD:refs/heads/$BRANCH"
           BODY_FILE=$(mktemp)
-          jq -r '"Prepares `\(.release_tag)` from `\(.source_sha)` against the verified release asset for `\(.baseline.ref)`.\n\nRelease kind: **\(.release_kind)**. Dataset impact: **\(.impact.severity)**. The complete report, baseline evidence, and generated hashes are committed in `release/`."' release/release.json > "$BODY_FILE"
+          REPORT_URL="https://github.com/${GITHUB_REPOSITORY}/blob/${BRANCH}/release/impact.json"
+          jq -r --arg report_url "$REPORT_URL" '"Prepares `\(.release_tag)` from `\(.source_sha)` against the verified release asset for `\(.baseline.ref)`.\n\nRelease kind: **\(.release_kind)**. Dataset impact: **\(.impact.severity)**. Review the exhaustive [release impact report](\($report_url)); baseline evidence and generated hashes are committed beside it in `release/`."' release/release.json > "$BODY_FILE"
           PR=$(gh pr list --head "$BRANCH" --base main --state open --json number --jq '.[0].number // empty')
           if [ -n "$PR" ]; then
             gh pr edit "$PR" --title "Prepare release ${RELEASE_TAG}" --body-file "$BODY_FILE"

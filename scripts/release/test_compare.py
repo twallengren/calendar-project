@@ -1,6 +1,7 @@
 import csv
 import json
 import os
+import random
 import tempfile
 import unittest
 
@@ -103,7 +104,21 @@ class ReleaseCompareTest(unittest.TestCase):
         changed = self.row(close_time="13:00")
         self.write_dataset(self.old, {"CAL": {"rows": [row, row]}})
         self.write_dataset(self.new, {"CAL": {"rows": [row, changed]}})
-        self.assertEqual("MAJOR", self.severity())
+        report = compare.compare(self.old, self.new)
+        self.assertEqual("MAJOR", report["severity"])
+        changes = report["calendars"]["CAL"]["record_changes"]["within_overlap"]
+        self.assertEqual(1, changes["old_only_count"])
+        self.assertEqual(1, changes["new_only_count"])
+        self.assertEqual({"CLOSED": 1}, changes["old_only_by_type"])
+        self.assertEqual({"CLOSED": 1}, changes["new_only_by_type"])
+        self.assertEqual(set(HEADER), set(changes["old_only"][0]["record"]))
+        self.assertEqual("13:00", changes["new_only"][0]["record"]["close_time"])
+
+        permuted_old = self.old + "-permuted"
+        permuted_new = self.new + "-permuted"
+        self.write_dataset(permuted_old, {"CAL": {"rows": [row, row]}})
+        self.write_dataset(permuted_new, {"CAL": {"rows": [changed, row]}})
+        self.assertEqual(report, compare.compare(permuted_old, permuted_new))
 
     def test_extension_and_new_alias_are_minor(self):
         self.write_dataset(self.old, {"CAL": {"end": "2025-12-31"}})
@@ -125,7 +140,12 @@ class ReleaseCompareTest(unittest.TestCase):
                 }
             },
         )
-        self.assertEqual("MINOR", self.severity())
+        report = compare.compare(self.old, self.new)
+        self.assertEqual("MINOR", report["severity"])
+        outside = report["calendars"]["CAL"]["record_changes"]["outside_overlap"]
+        self.assertEqual(0, outside["old_only_count"])
+        self.assertEqual(1, outside["new_only_count"])
+        self.assertEqual("2026-06-01", outside["new_only"][0]["record"]["date"])
 
     def test_contraction_removal_and_alias_retarget_are_major(self):
         self.write_dataset(
@@ -154,7 +174,72 @@ class ReleaseCompareTest(unittest.TestCase):
             writer.writeheader()
             writer.writerow(row)
         self.write_dataset(self.new, {"CAL": {"rows": [self.row(close_time="13:00")]}})
-        self.assertEqual("MINOR", self.severity())
+        report = compare.compare(self.old, self.new)
+        self.assertEqual("MINOR", report["severity"])
+        changes = report["calendars"]["CAL"]["record_changes"]
+        self.assertEqual(HEADER[:3], changes["compared_fields"])
+        self.assertEqual(sorted(HEADER[3:]), changes["schema_changes"]["added_fields"])
+        self.assertIn("deterministic representatives", changes["comparison_note"])
+        self.assertIn("not inferred modification pairs", changes["comparison_note"])
+        self.assertEqual(0, changes["within_overlap"]["old_only_count"])
+        self.assertEqual(0, changes["within_overlap"]["new_only_count"])
+
+    def test_manifest_identity_fallback_is_used_on_both_sides(self):
+        self.write_dataset(self.old, {"CAL": {"kind": "market"}})
+        self.write_dataset(self.new, {"CAL": {"kind": "base"}})
+        old_metadata = os.path.join(self.old, "CAL", "metadata.json")
+        with open(old_metadata, encoding="utf-8") as handle:
+            metadata = json.load(handle)
+        del metadata["kind"]
+        with open(old_metadata, "w", encoding="utf-8") as handle:
+            json.dump(metadata, handle)
+        for root, kind in ((self.old, "market"), (self.new, "base")):
+            path = os.path.join(root, "manifest.json")
+            with open(path, encoding="utf-8") as handle:
+                manifest = json.load(handle)
+            manifest["calendars"]["CAL"]["kind"] = kind
+            with open(path, "w", encoding="utf-8") as handle:
+                json.dump(manifest, handle)
+
+        report = compare.compare(self.old, self.new)
+        self.assertEqual("MAJOR", report["severity"])
+        self.assertIn("identity metadata changed: kind", report["calendars"]["CAL"]["reasons"])
+
+    def test_permutations_and_random_duplicate_multiplicity_are_stable(self):
+        randomizer = random.Random(730144)
+        rows = []
+        for index in range(80):
+            row = self.row(
+                date="2025-{:02d}-{:02d}".format(index // 28 + 1, index % 28 + 1),
+                key="key-{}".format(index % 13),
+                close_time="13:00" if index % 4 == 0 else "",
+            )
+            rows.extend([row] * (index % 3 + 1))
+        shuffled = list(rows)
+        randomizer.shuffle(shuffled)
+        self.write_dataset(self.old, {"CAL": {"rows": rows}})
+        self.write_dataset(self.new, {"CAL": {"rows": shuffled}})
+        second_new = self.new + "-second-permutation"
+        second_shuffle = list(rows)
+        randomizer.shuffle(second_shuffle)
+        self.write_dataset(second_new, {"CAL": {"rows": second_shuffle}})
+
+        report = compare.compare(self.old, self.new)
+        self.assertEqual("NONE", report["severity"])
+        self.assertNotIn("record_changes", report["calendars"]["CAL"])
+        self.assertEqual(report, compare.compare(self.old, second_new))
+
+    def test_added_calendar_reports_every_complete_record_and_duplicate(self):
+        self.write_dataset(self.old, {})
+        row = self.row(close_time="12:30")
+        self.write_dataset(self.new, {"ADDED": {"rows": [row, row]}})
+
+        report = compare.compare(self.old, self.new)
+        changes = report["calendars"]["ADDED"]["record_changes"]["outside_overlap"]
+        self.assertEqual(0, changes["old_only_count"])
+        self.assertEqual(2, changes["new_only_count"])
+        self.assertEqual(2, changes["new_only"][0]["count"])
+        self.assertEqual(set(HEADER), set(changes["new_only"][0]["record"]))
 
     def test_event_details_are_counted_order_independently_and_filtered_to_overlap(self):
         details = [
@@ -225,6 +310,24 @@ class ReleaseCompareTest(unittest.TestCase):
                 handle.write(text)
         report = compare.compare(self.old, self.new, old_sources, new_sources)
         self.assertEqual("PATCH", report["severity"])
+
+    def test_missing_baseline_sources_report_unavailable_without_false_change(self):
+        self.write_dataset(self.old, {"CAL": {}})
+        self.write_dataset(self.new, {"CAL": {}})
+        new_sources = os.path.join(self.temporary.name, "new-sources")
+        os.makedirs(new_sources)
+        with open(os.path.join(new_sources, "register.json"), "w", encoding="utf-8") as handle:
+            json.dump({"sources": [{"id": "new"}]}, handle)
+
+        report = compare.compare(
+            self.old,
+            self.new,
+            os.path.join(self.temporary.name, "missing-baseline-sources"),
+            new_sources,
+        )
+        self.assertEqual("NONE", report["severity"])
+        self.assertEqual(["baseline source evidence unavailable"], report["sources"])
+        self.assertNotIn("canonical source documentation changed", report["sources"])
 
     def test_non_utf8_source_originals_are_compared_as_bytes(self):
         self.write_dataset(self.old, {"CAL": {}})

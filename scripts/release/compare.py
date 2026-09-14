@@ -87,6 +87,104 @@ def _rows(
     return result
 
 
+def _project_rows(
+    rows: collections.Counter,
+    source_fields: Tuple[str, ...],
+    projected_fields: Tuple[str, ...],
+) -> collections.Counter:
+    indexes = tuple(source_fields.index(field) for field in projected_fields)
+    result: collections.Counter = collections.Counter()
+    for record, count in rows.items():
+        result[tuple(record[index] for index in indexes)] += count
+    return result
+
+
+def _record_entries(
+    rows: collections.Counter, fields: Tuple[str, ...]
+) -> list[Dict[str, Any]]:
+    return [
+        {
+            "count": rows[record],
+            "record": dict(zip(fields, record)),
+        }
+        for record in sorted(rows)
+        if rows[record]
+    ]
+
+
+def _allocate_projected_delta(
+    rows: collections.Counter,
+    source_fields: Tuple[str, ...],
+    projected_fields: Tuple[str, ...],
+    projected_delta: collections.Counter,
+) -> collections.Counter:
+    """Select complete side-specific records for an already-computed projected delta."""
+    remaining = projected_delta.copy()
+    indexes = tuple(source_fields.index(field) for field in projected_fields)
+    result: collections.Counter = collections.Counter()
+    for record in sorted(rows):
+        projected = tuple(record[index] for index in indexes)
+        count = min(rows[record], remaining[projected])
+        if count:
+            result[record] += count
+            remaining[projected] -= count
+    if sum(remaining.values()):
+        raise AssertionError("failed to allocate projected record delta")
+    return result
+
+
+def _change_block(
+    old_rows: collections.Counter,
+    old_fields: Tuple[str, ...],
+    new_rows: collections.Counter,
+    new_fields: Tuple[str, ...],
+    compared_fields: Tuple[str, ...] | None,
+) -> Dict[str, Any]:
+    if compared_fields is None:
+        old_only = old_rows
+        new_only = new_rows
+    else:
+        old_projected = _project_rows(old_rows, old_fields, compared_fields)
+        new_projected = _project_rows(new_rows, new_fields, compared_fields)
+        old_only = _allocate_projected_delta(
+            old_rows, old_fields, compared_fields, old_projected - new_projected
+        )
+        new_only = _allocate_projected_delta(
+            new_rows, new_fields, compared_fields, new_projected - old_projected
+        )
+
+    old_entries = _record_entries(old_only, old_fields)
+    new_entries = _record_entries(new_only, new_fields)
+    return {
+        "old_only_count": sum(item["count"] for item in old_entries),
+        "new_only_count": sum(item["count"] for item in new_entries),
+        "old_only_by_type": _counts_by_type(old_entries),
+        "new_only_by_type": _counts_by_type(new_entries),
+        "old_only": old_entries,
+        "new_only": new_entries,
+    }
+
+
+def _counts_by_type(entries: list[Dict[str, Any]]) -> Dict[str, int]:
+    counts: collections.Counter = collections.Counter()
+    for item in entries:
+        event_type = item["record"].get("type", "")
+        counts[event_type] += item["count"]
+    return dict(sorted(counts.items()))
+
+
+def _has_record_changes(block: Mapping[str, Any]) -> bool:
+    return bool(block["old_only_count"] or block["new_only_count"])
+
+
+def _effective_metadata_value(
+    metadata: Mapping[str, Any], manifest_entry: Mapping[str, Any], field: str
+) -> Any:
+    """Read identity from metadata, falling back to its same-release manifest entry."""
+    value = metadata.get(field)
+    return value if value is not None else manifest_entry.get(field)
+
+
 def _range(entry: Mapping[str, Any], metadata: Mapping[str, Any]) -> Tuple[str, str]:
     start = str(entry.get("range_start") or metadata.get("range_start") or "")
     end = str(entry.get("range_end") or metadata.get("range_end") or "")
@@ -223,17 +321,43 @@ def compare(
     for calendar_id in sorted(set(old_calendars) | set(new_calendars)):
         reasons = []
         severity = "NONE"
+        old_entry = old_calendars.get(calendar_id)
+        new_entry = new_calendars.get(calendar_id)
+        old_meta = _metadata(baseline_root, calendar_id) if old_entry is not None else {}
+        new_meta = _metadata(candidate_root, calendar_id) if new_entry is not None else {}
+        old_range = _range(old_entry, old_meta) if old_entry is not None else None
+        new_range = _range(new_entry, new_meta) if new_entry is not None else None
+        old_fields = _header(baseline_root, calendar_id) if old_entry is not None else ()
+        new_fields = _header(candidate_root, calendar_id) if new_entry is not None else ()
+        old_rows = (
+            _rows(baseline_root, calendar_id, old_range[0], old_range[1], old_fields)
+            if old_range is not None
+            else collections.Counter()
+        )
+        new_rows = (
+            _rows(candidate_root, calendar_id, new_range[0], new_range[1], new_fields)
+            if new_range is not None
+            else collections.Counter()
+        )
+        record_changes: Dict[str, Any] = {
+            "compared_fields": [],
+            "schema_changes": {"removed_fields": [], "added_fields": []},
+        }
         if calendar_id not in new_calendars:
             severity = "MAJOR"
             reasons.append("calendar removed")
+            record_changes["outside_overlap"] = _change_block(
+                old_rows, old_fields, collections.Counter(), (), None
+            )
         elif calendar_id not in old_calendars:
             severity = "MINOR"
             reasons.append("calendar added")
+            record_changes["outside_overlap"] = _change_block(
+                collections.Counter(), (), new_rows, new_fields, None
+            )
         else:
-            old_meta = _metadata(baseline_root, calendar_id)
-            new_meta = _metadata(candidate_root, calendar_id)
-            old_start, old_end = _range(old_calendars[calendar_id], old_meta)
-            new_start, new_end = _range(new_calendars[calendar_id], new_meta)
+            old_start, old_end = old_range
+            new_start, new_end = new_range
 
             if new_start > old_start or new_end < old_end:
                 severity = _raise(severity, "MAJOR")
@@ -252,10 +376,18 @@ def compare(
 
             overlap_start = max(old_start, new_start)
             overlap_end = min(old_end, new_end)
-            old_fields = _header(baseline_root, calendar_id)
-            new_fields = _header(candidate_root, calendar_id)
             missing_fields = set(old_fields) - set(new_fields)
             added_fields = set(new_fields) - set(old_fields)
+            record_changes["schema_changes"] = {
+                "removed_fields": sorted(missing_fields),
+                "added_fields": sorted(added_fields),
+            }
+            if missing_fields or added_fields:
+                record_changes["comparison_note"] = (
+                    "Record deltas are computed only on compared_fields. Within groups whose "
+                    "records are indistinguishable on those fields, side-specific complete-record "
+                    "allocations are deterministic representatives, not inferred modification pairs."
+                )
             if missing_fields:
                 severity = _raise(severity, "MAJOR")
                 reasons.append("published CSV fields removed: {}".format(sorted(missing_fields)))
@@ -264,20 +396,43 @@ def compare(
                 reasons.append("published CSV fields added: {}".format(sorted(added_fields)))
             if overlap_start <= overlap_end:
                 comparable_fields = tuple(field for field in old_fields if field in new_fields)
-                old_rows = _rows(
-                    baseline_root, calendar_id, overlap_start, overlap_end, comparable_fields
+                record_changes["compared_fields"] = list(comparable_fields)
+                old_overlap_rows = _rows(
+                    baseline_root, calendar_id, overlap_start, overlap_end, old_fields
                 )
-                new_rows = _rows(
-                    candidate_root, calendar_id, overlap_start, overlap_end, comparable_fields
+                new_overlap_rows = _rows(
+                    candidate_root, calendar_id, overlap_start, overlap_end, new_fields
                 )
-                if old_rows != new_rows:
+                within_overlap = _change_block(
+                    old_overlap_rows,
+                    old_fields,
+                    new_overlap_rows,
+                    new_fields,
+                    comparable_fields,
+                )
+                record_changes["within_overlap"] = {
+                    "from": overlap_start,
+                    "to": overlap_end,
+                    **within_overlap,
+                }
+                if _has_record_changes(within_overlap):
                     severity = _raise(severity, "MAJOR")
-                    removed = sum((old_rows - new_rows).values())
-                    added = sum((new_rows - old_rows).values())
+                    removed = within_overlap["old_only_count"]
+                    added = within_overlap["new_only_count"]
                     reasons.append(
                         "published records changed inside existing coverage "
                         "({} removed, {} added)".format(removed, added)
                     )
+
+                outside_overlap = _change_block(
+                    old_rows - old_overlap_rows,
+                    old_fields,
+                    new_rows - new_overlap_rows,
+                    new_fields,
+                    None,
+                )
+                if _has_record_changes(outside_overlap):
+                    record_changes["outside_overlap"] = outside_overlap
 
                 old_details = _event_details(old_meta.get("event_details"), overlap_start, overlap_end)
                 new_details = _event_details(new_meta.get("event_details"), overlap_start, overlap_end)
@@ -291,11 +446,18 @@ def compare(
                     severity = _raise(severity, "MAJOR")
                     reasons.append("published event provenance changed inside existing coverage")
 
+            else:
+                record_changes["outside_overlap"] = _change_block(
+                    old_rows, old_fields, new_rows, new_fields, None
+                )
+
             for field in IDENTITY_FIELDS:
-                if field not in old_meta and field in new_meta:
+                before = _effective_metadata_value(old_meta, old_entry, field)
+                after = _effective_metadata_value(new_meta, new_entry, field)
+                if before is None and after is not None:
                     severity = _raise(severity, "MINOR")
                     reasons.append("identity metadata added: {}".format(field))
-                elif field in old_meta and old_meta.get(field) != new_meta.get(field):
+                elif before != after:
                     severity = _raise(severity, "MAJOR")
                     reasons.append("identity metadata changed: {}".format(field))
             old_aliases = set(old_meta.get("aliases") or [])
@@ -326,7 +488,15 @@ def compare(
             severity = _raise(severity, coverage_severity)
             reasons.extend(coverage_reasons)
 
+        has_schema_changes = any(record_changes["schema_changes"].values())
+        has_row_changes = any(
+            _has_record_changes(record_changes[key])
+            for key in ("within_overlap", "outside_overlap")
+            if key in record_changes
+        )
         reports[calendar_id] = {"severity": severity, "reasons": reasons}
+        if has_schema_changes or has_row_changes:
+            reports[calendar_id]["record_changes"] = record_changes
         overall = _raise(overall, severity)
 
     old_aliases = baseline.get("aliases", {}) or {}
@@ -343,7 +513,17 @@ def compare(
             alias_reasons.append("alias {} added".format(alias))
 
     source_reasons = []
-    if _source_snapshot(baseline_sources) != _source_snapshot(candidate_sources):
+    baseline_sources_available = bool(baseline_sources and os.path.isdir(baseline_sources))
+    candidate_sources_available = bool(candidate_sources and os.path.isdir(candidate_sources))
+    if not baseline_sources_available:
+        source_reasons.append("baseline source evidence unavailable")
+    if not candidate_sources_available:
+        source_reasons.append("candidate source evidence unavailable")
+    if (
+        baseline_sources_available
+        and candidate_sources_available
+        and _source_snapshot(baseline_sources) != _source_snapshot(candidate_sources)
+    ):
         overall = _raise(overall, "PATCH")
         source_reasons.append("canonical source documentation changed")
 
