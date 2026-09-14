@@ -25,6 +25,7 @@ All Gradle commands run from the repo root (the `tools/` build uses `workingDir 
 ./gradlew :tools:run --args="changelog --blessed-dir blessed --release-history-dir release-history --out site/"  # build changelog site from release history
 ./gradlew :tools:run --args="site --api-only --out site"  # write the /v1/ JSON API + .ics files from blessed/ (see spec/SPEC.md#json-api-v1)
 # .github/workflows/pages.yml deploys `tools site --out site/` (JSON API + HTML) to GitHub Pages on every push to main touching blessed/, release-history/, tools/src/main/, or sources/
+./gradlew :tools:run --args="site --out site --base-url https://twallengren.github.io/calendar-project/"  # full static site: /v1/ API, changelog, then HTML pages rendered from that API (com.bdc.site; hand-written styles.css/site.js in tools/src/main/resources/site/)
 scripts/bless.sh                     # regenerate blessed/ reproducibly (no-op leaves git clean)
 ./gradlew :tools:run --args="crossvalidate --all --out blessed"   # writes blessed/<ID>/cross_validation.json; ./gradlew :tools:run --args="status --format markdown" renders the Market status table in README.md
 ```

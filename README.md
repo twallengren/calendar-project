@@ -173,6 +173,18 @@ calendar looked like as of an earlier release (audit, backtest reproducibility),
 ./gradlew :tools:run --args="history releases US-NYSE"
 ```
 
+## Browse
+
+`./gradlew :tools:run --args="site --out site --base-url <url>"` builds the whole public site into
+one directory with no framework, no build step and no backend: the [`/v1/` JSON
+API](spec/SPEC.md#json-api-v1), the release changelog, and a browsable HTML page per market
+(`/<ID>/`), per year (`/<ID>/<year>/` — a month grid plus a dated closure table) and per closure
+(`/<ID>/<date>/`), with `sitemap.xml` and `robots.txt`. The pages render from the published JSON
+API rather than from `blessed/` directly, so browsing the site exercises the same contract external
+consumers depend on. Serve it locally with `python3 -m http.server -d site` — every page works with
+JavaScript disabled. Hosted at `https://twallengren.github.io/calendar-project/` once GitHub Pages
+is switched on (Pages deployment is not wired up yet).
+
 ## Chronology Support
 
 The system supports multiple calendar systems through a YAML-based ontology:
