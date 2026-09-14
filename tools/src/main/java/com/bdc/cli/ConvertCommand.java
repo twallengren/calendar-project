@@ -48,6 +48,8 @@ public final class ConvertCommand implements Callable<Integer> {
           .getOut()
           .println(
               new ObjectMapper()
+                  .enable(
+                      com.fasterxml.jackson.databind.SerializationFeature.ORDER_MAP_ENTRIES_BY_KEYS)
                   .setPropertyNamingStrategy(
                       com.fasterxml.jackson.databind.PropertyNamingStrategies.SNAKE_CASE)
                   .writeValueAsString(

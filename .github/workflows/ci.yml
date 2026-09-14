@@ -66,6 +66,9 @@ jobs:
       - name: Check canonical source tables
         run: python3 scripts/sources.py --check
 
+      - name: Verify native artifacts across independent JVMs
+        run: python3 scripts/verification/native_reproducibility.py
+
       - name: Validate all calendars
         run: |
           set +e

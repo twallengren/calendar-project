@@ -239,21 +239,7 @@ public class SpecEmitter {
       }
       case Rule.NativeExplicitDates r -> {
         map.put("type", "native_explicit_dates");
-        map.put(
-            "dates",
-            r.dates().stream()
-                .map(
-                    d ->
-                        Map.of(
-                            "chronology_id",
-                            d.chronologyId(),
-                            "year",
-                            d.year(),
-                            "month_code",
-                            d.monthCode(),
-                            "day",
-                            d.day()))
-                .toList());
+        map.put("dates", r.dates().stream().map(NativeDateFields::of).toList());
       }
       case Rule.FixedMonthDay r -> {
         map.put("type", "fixed_month_day");

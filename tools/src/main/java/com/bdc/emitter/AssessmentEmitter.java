@@ -16,7 +16,9 @@ public final class AssessmentEmitter {
     result.put("scheduled_state", day.scheduledState().name());
     result.put("effective_confidence", day.effectiveConfidence().name());
     Map<String, String> completeness = new LinkedHashMap<>();
-    day.completeness().forEach((scope, quality) -> completeness.put(scope.name(), quality.name()));
+    day.completeness().entrySet().stream()
+        .sorted(Map.Entry.comparingByKey())
+        .forEach(entry -> completeness.put(entry.getKey().name(), entry.getValue().name()));
     result.put("completeness", completeness);
     result.put("evidence_ids", day.evidenceIds());
     result.put("events", day.events().stream().map(AssessmentEmitter::event).toList());
@@ -39,19 +41,7 @@ public final class AssessmentEmitter {
     row.put(
         "observation_lineage", detail.observationLineage().stream().map(Object::toString).toList());
     var nativeDate = detail.nominalNativeDate();
-    row.put(
-        "nominal_native_date",
-        nativeDate == null
-            ? null
-            : Map.of(
-                "chronology_id",
-                nativeDate.chronologyId(),
-                "year",
-                nativeDate.year(),
-                "month_code",
-                nativeDate.monthCode(),
-                "day",
-                nativeDate.day()));
+    row.put("nominal_native_date", NativeDateFields.of(nativeDate));
     row.put("chronology_profile", detail.chronologyProfile());
     row.put("chronology_provider", detail.chronologyProvider());
     return row;
