@@ -8,6 +8,7 @@ BASELINE_DIR=""
 BASELINE_EVIDENCE=""
 SOURCE_SHA=$(git rev-parse HEAD)
 GENERATED_AT=""
+SOFTWARE_ONLY=false
 while [ $# -gt 0 ]; do
   case "$1" in
     --baseline-ref) BASELINE_REF="$2"; shift 2 ;;
@@ -15,6 +16,7 @@ while [ $# -gt 0 ]; do
     --baseline-evidence) BASELINE_EVIDENCE="$2"; shift 2 ;;
     --source-sha) SOURCE_SHA="$2"; shift 2 ;;
     --generated-at) GENERATED_AT="$2"; shift 2 ;;
+    --software-only) SOFTWARE_ONLY=true; shift ;;
     *) echo "unknown option: $1" >&2; exit 2 ;;
   esac
 done
@@ -53,6 +55,17 @@ python3 scripts/release/archive_baseline.py \
 cp "$BASELINE_EVIDENCE" release/baseline-evidence.json
 BASELINE_EVIDENCE=release/baseline-evidence.json
 
+DATA_SOURCE_SHA="$SOURCE_SHA"
+if [ "$SOFTWARE_ONLY" = true ]; then
+  python3 scripts/release/software_impact.py \
+    --baseline "$BASELINE_DIR" \
+    --candidate blessed \
+    --previous-revision "HEAD^" \
+    --output release/impact.json
+  DATA_SOURCE_SHA=$(jq -er '.release_version.git_sha' "$BASELINE_DIR/manifest.json")
+  python3 python/scripts/sync_data.py
+  python3 python/scripts/sync_data.py --check
+else
 scripts/bless.sh \
   --version "$DATA_VERSION" \
   --sha "$SOURCE_SHA" \
@@ -105,10 +118,21 @@ python3 scripts/release/version_policy.py \
   --baseline "$BASELINE_VERSION" \
   --candidate "$DATA_VERSION" \
   --severity "$SEVERITY"
+python3 scripts/release/package_version_policy.py \
+  --baseline-descriptor "$BASELINE_DIR/release.json"
 
 # bless.sh synchronizes the final candidate into the Python package. Generate
 # parity fixtures from that exact data before hashing the review descriptor.
 python/scripts/generate_parity_fixture.sh
+
+# These API goldens embed the published version and enriched event metadata.
+./gradlew :tools:test \
+  --tests 'com.bdc.site.ApiEmitterTest' \
+  -DupdateGoldens=true \
+  --rerun-tasks
+./gradlew :tools:test \
+  --tests 'com.bdc.site.ApiEmitterTest' \
+  --rerun-tasks
 
 # This browser fixture is generated from JointDateStream and must describe the
 # exact candidate data, including unresolved-day failures.
@@ -119,6 +143,7 @@ python/scripts/generate_parity_fixture.sh
 ./gradlew :tools:test \
   --tests 'com.bdc.site.SettlementParityTest' \
   --rerun-tasks
+fi
 
 python3 scripts/release/descriptor.py \
   --baseline-ref "$BASELINE_REF" \
@@ -126,6 +151,7 @@ python3 scripts/release/descriptor.py \
   --baseline-version "$BASELINE_VERSION" \
   --baseline-evidence "$BASELINE_EVIDENCE" \
   --source-sha "$SOURCE_SHA" \
+  --data-source-sha "$DATA_SOURCE_SHA" \
   --generated-at "$GENERATED_AT" \
   --data-version "$DATA_VERSION"
 

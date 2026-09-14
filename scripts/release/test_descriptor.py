@@ -15,6 +15,9 @@ class DescriptorVerificationTest(unittest.TestCase):
                     {
                         "schema_version": "1.0",
                         "source_sha": "a" * 40,
+                        "data_source_sha": "a" * 40,
+                        "release_kind": "DATASET",
+                        "release_tag": "v999.0.0",
                         "generation_timestamp": "2026-01-01T00:00:00Z",
                         "versions": {
                             "data": "999.0.0",

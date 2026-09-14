@@ -81,6 +81,15 @@ jobs:
             echo "release=true" >> "$GITHUB_OUTPUT"
           else
             echo "release=false" >> "$GITHUB_OUTPUT"
+            if git diff --name-only "HEAD^" HEAD | grep -Eq \
+              '^(calendars/|modules/|chronologies/|sources/|tools/src/|data/|scripts/bless\.sh|scripts/release/)'; then
+              echo "candidate=dataset" >> "$GITHUB_OUTPUT"
+            elif git diff --name-only "HEAD^" HEAD | grep -Eq \
+              '^(core/src/|python/bdc_calendars/|python/pyproject\.toml|release/versions\.json)'; then
+              echo "candidate=software" >> "$GITHUB_OUTPUT"
+            else
+              echo "candidate=dataset" >> "$GITHUB_OUTPUT"
+            fi
           fi
 
       - name: Download and verify the actual published baseline
@@ -118,14 +127,18 @@ jobs:
           BASELINE_REF: ${{ steps.baseline.outputs.ref }}
           SOURCE_SHA: ${{ steps.inputs.outputs.source_sha }}
           GENERATED_AT: ${{ steps.inputs.outputs.generated_at }}
+          CANDIDATE_KIND: ${{ steps.kind.outputs.candidate }}
         run: |
+          EXTRA=()
+          if [ "$CANDIDATE_KIND" = software ]; then EXTRA+=(--software-only); fi
           set +e
           scripts/release/prepare.sh \
             --baseline-ref "$BASELINE_REF" \
             --baseline-dir "$RUNNER_TEMP/published-baseline" \
             --baseline-evidence "$RUNNER_TEMP/baseline-evidence.json" \
             --source-sha "$SOURCE_SHA" \
-            --generated-at "$GENERATED_AT"
+            --generated-at "$GENERATED_AT" \
+            "${EXTRA[@]}"
           STATUS=$?
           set -e
           if [ "$STATUS" -eq 10 ]; then
@@ -140,7 +153,7 @@ jobs:
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
-          VERSION=$(jq -r '.versions.data' release/release.json)
+          RELEASE_TAG=$(jq -r '.release_tag' release/release.json)
           BRANCH=release/next
           git fetch origin "refs/heads/$BRANCH:refs/remotes/origin/$BRANCH" || true
           git switch -C "$BRANCH"
@@ -148,13 +161,14 @@ jobs:
           git config user.email "calendar-release[bot]@users.noreply.github.com"
           git add blessed release release-history python/bdc_calendars
           git add tools/src/main/resources/site/settlement-fixture.json
-          git commit -m "chore: prepare calendar data v${VERSION}"
+          git add tools/src/test/resources/golden/site
+          git commit -m "chore: prepare release ${RELEASE_TAG}"
           git push --force-with-lease origin "HEAD:refs/heads/$BRANCH"
           BODY_FILE=$(mktemp)
-          jq -r '"Prepares data v\(.versions.data) from `\(.source_sha)` against the verified release asset for `\(.baseline.ref)`.\n\nRelease impact: **\(.impact.severity)**. The complete report, baseline evidence, and generated hashes are committed in `release/`."' release/release.json > "$BODY_FILE"
+          jq -r '"Prepares `\(.release_tag)` from `\(.source_sha)` against the verified release asset for `\(.baseline.ref)`.\n\nRelease kind: **\(.release_kind)**. Dataset impact: **\(.impact.severity)**. The complete report, baseline evidence, and generated hashes are committed in `release/`."' release/release.json > "$BODY_FILE"
           PR=$(gh pr list --head "$BRANCH" --base main --state open --json number --jq '.[0].number // empty')
           if [ -n "$PR" ]; then
-            gh pr edit "$PR" --title "Release calendar data v${VERSION}" --body-file "$BODY_FILE"
+            gh pr edit "$PR" --title "Prepare release ${RELEASE_TAG}" --body-file "$BODY_FILE"
           else
-            gh pr create --head "$BRANCH" --base main --title "Release calendar data v${VERSION}" --body-file "$BODY_FILE"
+            gh pr create --head "$BRANCH" --base main --title "Prepare release ${RELEASE_TAG}" --body-file "$BODY_FILE"
           fi

@@ -58,6 +58,9 @@ def supporting_hashes() -> Dict[str, str]:
     paths = [
         "python/bdc_calendars/_version.py",
         "tools/src/main/resources/site/settlement-fixture.json",
+        "tools/src/test/resources/golden/site/index.json",
+        "tools/src/test/resources/golden/site/US-NYSE/2026.json",
+        "tools/src/test/resources/golden/site/US-NYSE/holidays-recent.ics",
     ]
     for directory, names, files in os.walk("python/bdc_calendars/data"):
         names.sort()
@@ -157,8 +160,12 @@ def read_versions(path: str) -> Dict[str, Any]:
 
 
 def build(args: argparse.Namespace) -> Dict[str, Any]:
-    if not SHA.fullmatch(args.baseline_commit) or not SHA.fullmatch(args.source_sha):
-        raise ValueError("baseline commit and source SHA must be full 40-character Git SHAs")
+    if (
+        not SHA.fullmatch(args.baseline_commit)
+        or not SHA.fullmatch(args.source_sha)
+        or not SHA.fullmatch(args.data_source_sha)
+    ):
+        raise ValueError("baseline, source, and data source must be full 40-character Git SHAs")
     if not args.generated_at.endswith("Z"):
         raise ValueError("generation timestamp must be a UTC instant ending in Z")
     dt.datetime.fromisoformat(args.generated_at[:-1] + "+00:00")
@@ -173,8 +180,17 @@ def build(args: argparse.Namespace) -> Dict[str, Any]:
         raise ValueError("baseline evidence does not match the requested baseline")
     with open(args.impact, encoding="utf-8") as handle:
         impact = json.load(handle)
+    release_kind = impact.get("release_kind", "DATASET")
+    release_tag = impact.get("release_tag", "v" + args.data_version)
+    if release_kind not in ("DATASET", "SOFTWARE"):
+        raise ValueError("release impact has invalid release kind")
+    if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._-]*", release_tag):
+        raise ValueError("release impact has invalid release tag")
     if impact["severity"] == "NONE":
-        raise ValueError("refusing to describe a release with no publishable change")
+        if release_kind != "SOFTWARE" or not impact.get("software_changes"):
+            raise ValueError("NONE impact requires explicit software changes")
+    elif release_kind != "DATASET":
+        raise ValueError("dataset impact cannot be labelled as a software release")
     if impact.get("baseline_data_version") != args.baseline_version:
         raise ValueError("impact report does not describe the requested baseline version")
     if versions["data"] != args.data_version:
@@ -189,6 +205,9 @@ def build(args: argparse.Namespace) -> Dict[str, Any]:
             "evidence_sha256": digest(args.baseline_evidence),
         },
         "source_sha": args.source_sha,
+        "data_source_sha": args.data_source_sha,
+        "release_kind": release_kind,
+        "release_tag": release_tag,
         "generation_timestamp": args.generated_at,
         "versions": {
             "data": args.data_version,
@@ -216,6 +235,14 @@ def verify(path: str, artifacts: str, impact: str) -> None:
         raise ValueError("unsupported release descriptor schema")
     if not SHA.fullmatch(str(descriptor.get("source_sha", ""))):
         raise ValueError("release descriptor has invalid source SHA")
+    if not SHA.fullmatch(str(descriptor.get("data_source_sha", ""))):
+        raise ValueError("release descriptor has invalid data source SHA")
+    release_kind = descriptor.get("release_kind")
+    release_tag = descriptor.get("release_tag")
+    if release_kind not in ("DATASET", "SOFTWARE") or not re.fullmatch(
+        r"[A-Za-z0-9][A-Za-z0-9._-]*", str(release_tag or "")
+    ):
+        raise ValueError("release descriptor has invalid release identity")
     generated_at = str(descriptor.get("generation_timestamp", ""))
     if not generated_at.endswith("Z"):
         raise ValueError("release descriptor has invalid UTC generation timestamp")
@@ -260,10 +287,20 @@ def verify(path: str, artifacts: str, impact: str) -> None:
         raise ValueError("release baseline tag no longer resolves to the declared commit")
     with open(impact, encoding="utf-8") as handle:
         impact_value = json.load(handle)
-    if impact_value.get("severity") not in ("PATCH", "MINOR", "MAJOR"):
+    if impact_value.get("severity") not in ("NONE", "PATCH", "MINOR", "MAJOR"):
         raise ValueError("release impact has invalid severity")
     if descriptor.get("impact", {}).get("severity") != impact_value.get("severity"):
         raise ValueError("release descriptor severity does not match impact report")
+    if (
+        impact_value.get("release_kind", "DATASET") != release_kind
+        or impact_value.get("release_tag", "v" + declared["data"]) != release_tag
+    ):
+        raise ValueError("release descriptor identity does not match impact report")
+    if impact_value.get("severity") == "NONE":
+        if release_kind != "SOFTWARE" or not impact_value.get("software_changes"):
+            raise ValueError("NONE impact does not identify package changes")
+    elif release_kind != "DATASET":
+        raise ValueError("non-dataset release has dataset impact")
     if (
         impact_value.get("baseline_data_version") != baseline.get("data_version")
         or impact_value.get("candidate_data_version") != declared["data"]
@@ -271,12 +308,18 @@ def verify(path: str, artifacts: str, impact: str) -> None:
         raise ValueError("impact report versions do not match release descriptor")
     manifest = _load_json(os.path.join(artifacts, "manifest.json"))
     release = manifest.get("release_version", {})
-    if release.get("semantic") != declared["data"] or release.get("git_sha") != descriptor["source_sha"]:
+    if (
+        release.get("semantic") != declared["data"]
+        or release.get("git_sha") != descriptor["data_source_sha"]
+    ):
         raise ValueError("blessed manifest version/source do not match release descriptor")
     for calendar_id in manifest.get("calendars", {}):
         metadata = _load_json(os.path.join(artifacts, calendar_id, "metadata.json"))
         source = metadata.get("source_version", {})
-        if source.get("semantic") != declared["data"] or source.get("git_sha") != descriptor["source_sha"]:
+        if (
+            source.get("semantic") != declared["data"]
+            or source.get("git_sha") != descriptor["data_source_sha"]
+        ):
             raise ValueError("{} metadata version/source does not match descriptor".format(calendar_id))
 
 
@@ -292,6 +335,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     parser.add_argument("--baseline-version")
     parser.add_argument("--baseline-evidence")
     parser.add_argument("--source-sha")
+    parser.add_argument("--data-source-sha")
     parser.add_argument("--generated-at")
     parser.add_argument("--data-version")
     args = parser.parse_args(argv)
@@ -305,6 +349,7 @@ def main(argv: Sequence[str] | None = None) -> int:
                 "baseline_version",
                 "baseline_evidence",
                 "source_sha",
+                "data_source_sha",
                 "generated_at",
                 "data_version",
             )

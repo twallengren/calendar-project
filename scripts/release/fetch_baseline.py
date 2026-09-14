@@ -113,11 +113,11 @@ def prove_tag_equivalence(output, tag):
     checked = 0
     for directory, _names, files in os.walk(output):
         for name in files:
-            if name == "manifest.json":
-                continue
             path = os.path.join(directory, name)
             relative = os.path.relpath(path, output).replace(os.sep, "/")
-            if relative.startswith("sources/") or relative in ("LICENSE", "DATA_LICENSE", "NOTICE"):
+            if relative == "manifest.json":
+                tagged_path = "blessed/manifest.json"
+            elif relative.startswith("sources/") or relative in ("LICENSE", "DATA_LICENSE", "NOTICE"):
                 tagged_path = relative
             elif relative in ("release.json", "impact.json", "baseline-evidence.json"):
                 tagged_path = "release/" + relative
@@ -174,11 +174,14 @@ def main():
         raise SystemExit("checksums.txt does not authenticate the selected archive")
     safe_extract(payload, args.output)
 
+    had_manifest = os.path.isfile(os.path.join(args.output, "manifest.json"))
     versions = set()
     source_shas = set()
+    calendar_ids = set()
     for name in os.listdir(args.output):
         metadata_path = os.path.join(args.output, name, "metadata.json")
         if os.path.isfile(metadata_path):
+            calendar_ids.add(name)
             with open(metadata_path, encoding="utf-8") as handle:
                 source = json.load(handle)["source_version"]
             versions.add(source["semantic"])
@@ -188,7 +191,18 @@ def main():
     version = versions.pop()
     source_sha = source_shas.pop()
     tag_files = prove_tag_equivalence(args.output, args.tag) if args.prove_tag_equivalence else None
-    synthesize_manifest(args.output, version, source_sha, release["published_at"])
+    if had_manifest:
+        with open(os.path.join(args.output, "manifest.json"), encoding="utf-8") as handle:
+            manifest = json.load(handle)
+        declared = manifest.get("release_version", {})
+        if (
+            declared.get("semantic") != version
+            or declared.get("git_sha") != source_sha
+            or set(manifest.get("calendars", {})) != calendar_ids
+        ):
+            raise SystemExit("published manifest disagrees with its calendar payload")
+    else:
+        synthesize_manifest(args.output, version, source_sha, release["published_at"])
     evidence = {
         "schema_version": "1.0",
         "repository": args.repository,

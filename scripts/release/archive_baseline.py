@@ -60,10 +60,16 @@ def publication_ledger(history, entry):
         if release.get("data_version") == entry["data_version"]
     ]
     if matches:
-        if matches[0] != entry:
+        existing_identity = dict(matches[0])
+        observed = existing_identity.pop("observed_current_at", None)
+        candidate_identity = dict(entry)
+        candidate_identity.pop("observed_current_at", None)
+        if existing_identity != candidate_identity:
             raise ValueError(
                 "publication ledger conflicts with authenticated release " + entry["data_version"]
             )
+        if not observed:
+            raise ValueError("existing publication ledger lacks its observation bound")
         return ledger, False
     ledger["releases"].append(entry)
     ledger["releases"].sort(

@@ -36,6 +36,10 @@ jobs:
       data_version: ${{ steps.gate.outputs.data_version }}
       python_version: ${{ steps.gate.outputs.python_version }}
       java_core_version: ${{ steps.gate.outputs.java_core_version }}
+      release_tag: ${{ steps.gate.outputs.release_tag }}
+      release_kind: ${{ steps.gate.outputs.release_kind }}
+      publish_python: ${{ steps.gate.outputs.publish_python }}
+      publish_maven: ${{ steps.gate.outputs.publish_maven }}
     steps:
       - name: Resolve exact CI-tested commit
         id: resolve
@@ -99,6 +103,15 @@ jobs:
           echo "data_version=$(jq -r .versions.data release/release.json)" >> "$GITHUB_OUTPUT"
           echo "python_version=$(jq -r .versions.python release/release.json)" >> "$GITHUB_OUTPUT"
           echo "java_core_version=$(jq -r .versions.java_core release/release.json)" >> "$GITHUB_OUTPUT"
+          echo "release_tag=$(jq -r .release_tag release/release.json)" >> "$GITHUB_OUTPUT"
+          echo "release_kind=$(jq -r .release_kind release/release.json)" >> "$GITHUB_OUTPUT"
+          if [ "$(jq -r .release_kind release/release.json)" = DATASET ]; then
+            echo "publish_python=true" >> "$GITHUB_OUTPUT"
+            echo "publish_maven=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "publish_python=$(jq -r '.software_changes | has("python")' release/impact.json)" >> "$GITHUB_OUTPUT"
+            echo "publish_maven=$(jq -r '.software_changes | has("java_core")' release/impact.json)" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Reuse a verified build from an earlier attempt
         if: steps.gate.outputs.release == 'true'
@@ -237,32 +250,41 @@ jobs:
         with:
           name: publication-${{ needs.build-once.outputs.commit }}
           path: publication
+      - name: Verify the complete persisted publication
+        run: python3 scripts/release/verify_publication.py publication "${{ needs.build-once.outputs.commit }}"
       - name: Bind tag and assets to the exact commit, idempotently
         env:
           GH_TOKEN: ${{ github.token }}
           COMMIT: ${{ needs.build-once.outputs.commit }}
           VERSION: ${{ needs.build-once.outputs.data_version }}
+          RELEASE_TAG: ${{ needs.build-once.outputs.release_tag }}
+          RELEASE_KIND: ${{ needs.build-once.outputs.release_kind }}
         run: |
-          TAG="v$VERSION"
+          TAG="$RELEASE_TAG"
           if git rev-parse "refs/tags/$TAG" >/dev/null 2>&1; then
             test "$(git rev-list -n 1 "$TAG")" = "$COMMIT" || { echo "Conflicting tag $TAG" >&2; exit 1; }
           else
             git config user.name "calendar-release[bot]"
             git config user.email "calendar-release[bot]@users.noreply.github.com"
-            git tag -a "$TAG" "$COMMIT" -m "Calendar data $VERSION"
+            git tag -a "$TAG" "$COMMIT" -m "Calendar release $TAG"
             git push origin "refs/tags/$TAG"
           fi
           if gh release view "$TAG" >/dev/null 2>&1; then
             python3 scripts/release/verify_github_release.py "$TAG" publication
           else
+            LATEST=()
+            if [ "$RELEASE_KIND" = SOFTWARE ]; then LATEST+=(--latest=false); fi
             gh release create "$TAG" publication/assets/* publication/java/* publication/python/* publication/checksums.txt publication/build-receipt.json \
-              --verify-tag --title "Calendar data v$VERSION" \
+              --verify-tag "${LATEST[@]}" --title "Calendar release $TAG" \
               --notes "Built from exact commit \`$COMMIT\`. See release/release.json for immutable inputs and hashes."
           fi
 
   publish-python:
     needs: [build-once, github-release]
-    if: needs.build-once.outputs.release == 'true' && vars.PYPI_PUBLISH == 'true'
+    if: >-
+      needs.build-once.outputs.release == 'true' &&
+      needs.build-once.outputs.publish_python == 'true' &&
+      vars.PYPI_PUBLISH == 'true'
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -279,6 +301,8 @@ jobs:
         with:
           name: publication-${{ needs.build-once.outputs.commit }}
           path: publication
+      - name: Verify the complete persisted publication
+        run: python3 scripts/release/verify_publication.py publication "${{ needs.build-once.outputs.commit }}"
       - name: Reject an existing version with different files
         run: python3 scripts/release/verify_pypi.py "${{ needs.build-once.outputs.python_version }}" publication/python
       - uses: pypa/gh-action-pypi-publish@release/v1
@@ -298,7 +322,10 @@ jobs:
 
   publish-maven:
     needs: [build-once, github-release]
-    if: needs.build-once.outputs.release == 'true' && vars.MAVEN_PUBLISH == 'true'
+    if: >-
+      needs.build-once.outputs.release == 'true' &&
+      needs.build-once.outputs.publish_maven == 'true' &&
+      vars.MAVEN_PUBLISH == 'true'
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -307,10 +334,17 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: ${{ needs.build-once.outputs.commit }}
+      - uses: actions/setup-java@v4
+        with:
+          java-version: ${{ env.JAVA_VERSION }}
+          distribution: ${{ env.JAVA_DISTRIBUTION }}
+      - uses: gradle/actions/setup-gradle@v4
       - uses: actions/download-artifact@v4
         with:
           name: publication-${{ needs.build-once.outputs.commit }}
           path: publication
+      - name: Verify the complete persisted publication
+        run: python3 scripts/release/verify_publication.py publication "${{ needs.build-once.outputs.commit }}"
       - name: Upload once and resume the recorded Central deployment
         env:
           GH_TOKEN: ${{ github.token }}
@@ -319,12 +353,13 @@ jobs:
           MAVEN_SIGNING_KEY: ${{ secrets.MAVEN_SIGNING_KEY }}
           VERSION: ${{ needs.build-once.outputs.data_version }}
           COMMIT: ${{ needs.build-once.outputs.commit }}
+          RELEASE_TAG: ${{ needs.build-once.outputs.release_tag }}
         run: |
           test -n "$MAVEN_SIGNING_KEY" || {
             echo "MAVEN_PUBLISH requires a non-empty MAVEN_SIGNING_KEY" >&2
             exit 1
           }
-          TAG="v$VERSION"
+          TAG="$RELEASE_TAG"
           for ATTEMPT in $(seq 1 12); do
             set +e
             python3 scripts/release/prepare_maven_upload.py \
@@ -350,6 +385,7 @@ jobs:
           mkdir -p publication/maven-state
           if gh release download "$TAG" --pattern maven-deployment.json --dir publication/maven-state >/dev/null 2>&1; then
             test "$(jq -r .bundle_sha256 publication/maven-state/maven-deployment.json)" = "$BUNDLE_SHA"
+            test "$(jq -r .commit publication/maven-state/maven-deployment.json)" = "$COMMIT"
             DEPLOYMENT_ID=$(jq -r .deployment_id publication/maven-state/maven-deployment.json)
           else
             AUTH=$(printf '%s:%s' "$CENTRAL_USERNAME" "$CENTRAL_PASSWORD" | base64 | tr -d '\n')
@@ -393,10 +429,15 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.build-once.outputs.commit }}
       - uses: actions/download-artifact@v4
         with:
           name: publication-${{ needs.build-once.outputs.commit }}
           path: publication
+      - name: Verify the complete persisted publication
+        run: python3 scripts/release/verify_publication.py publication "${{ needs.build-once.outputs.commit }}"
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

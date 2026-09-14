@@ -66,6 +66,8 @@ class ArchiveBaselineTest(unittest.TestCase):
         self.assertEqual("2026-09-14T10:00:00Z", ledger["releases"][0]["observed_current_at"])
         self.assertTrue(ledger["releases"][0]["atomic_dataset"])
         self.assertEqual(["TEST"], ledger["releases"][0]["calendar_ids"])
+        self.entry["observed_current_at"] = "2026-09-15T10:00:00Z"
+        self._write_evidence()
         self._run()
         self.assertEqual(first, ledger_path.read_bytes())
 
