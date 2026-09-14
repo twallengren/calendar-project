@@ -1,0 +1,8 @@
+# US-MARKET-BASE sources
+
+This base calendar composes the shared US market holiday modules, which cite the NYSE sources in
+`sources/US-NYSE/README.md`. The only citation it introduces itself is the weekend convention.
+
+| id | title | publisher | url / file | retrieved | covers | notes |
+|----|-------|-----------|------------|-----------|--------|-------|
+| `convention` | Saturday-Sunday weekend | n/a | n/a | n/a | all years | Standard weekend definition; no external source. |

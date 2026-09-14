@@ -9,6 +9,11 @@ without one).
 |-----------|--------|
 | `US-NYSE/` | New York Stock Exchange (also backs `US-MARKET-BASE` and `US-CORP-IN-VISIBILITY`) |
 | `SA-TADAWUL/` | Saudi Exchange (Tadawul) |
+| `US-CORP-IN-VISIBILITY/` | US corporate calendar with India visibility (base) |
+| `US-MARKET-BASE/` | US market base calendar (shared modules) |
+| `HK-HKEX/` | Hong Kong Exchanges and Clearing |
+| `JP-JPX/` | Japan Exchange Group (Tokyo Stock Exchange) |
+| `EU-EURONEXT/` | Euronext cash markets (base for Paris, Amsterdam, Brussels, Lisbon) |
 | `GB-LSE/` | London Stock Exchange |
 | `DE-XETRA/` | Deutsche Börse Xetra / Börse Frankfurt |
 | `CA-TSX/` | Toronto Stock Exchange (TMX Group) |

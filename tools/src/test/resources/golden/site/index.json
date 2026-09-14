@@ -100,6 +100,26 @@
     "years" : [ 2000, 2030 ],
     "href" : "/v1/calendars/GB-LSE/manifest.json"
   }, {
+    "id" : "HK-HKEX",
+    "name" : "Hong Kong Exchanges and Clearing",
+    "timezone" : "Asia/Hong_Kong",
+    "coverage" : {
+      "from" : "2018-01-01",
+      "to" : "2027-12-31",
+      "verified_through" : "2027-12-31"
+    },
+    "counts_by_type" : {
+      "CLOSED" : 141,
+      "WEEKEND" : 1042,
+      "EARLY_CLOSE" : 25
+    },
+    "counts_by_status" : {
+      "CONFIRMED" : 1208
+    },
+    "checksum" : "sha256:f5691051cb8b3d9c599423961872296fa85d53ff72d9b355f2f2f273cb085f0a",
+    "years" : [ 2018, 2027 ],
+    "href" : "/v1/calendars/HK-HKEX/manifest.json"
+  }, {
     "id" : "JP-JPX",
     "name" : "Japan Exchange Group (Tokyo Stock Exchange)",
     "timezone" : "Asia/Tokyo",

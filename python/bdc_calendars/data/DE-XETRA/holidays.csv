@@ -152,7 +152,6 @@ date,type,description,key,source_module,observed_from,close_time,status
 2020-04-13,CLOSED,Easter Monday,de_xetra_easter_monday,module:de_xetra_easter_monday,,,CONFIRMED
 2020-05-01,CLOSED,Labour Day,de_xetra_labour_day,module:de_xetra_labour_day,,,CONFIRMED
 2020-06-01,CLOSED,Whit Monday,de_xetra_whit_monday,module:de_xetra_whit_monday,,,CONFIRMED
-2020-10-03,CLOSED,Day of German Unity,de_xetra_german_unity_day,module:de_xetra_german_unity_day,,,CONFIRMED
 2020-12-24,CLOSED,Christmas Eve,de_xetra_christmas_eve,module:de_xetra_christmas_eve,,,CONFIRMED
 2020-12-25,CLOSED,Christmas Day,de_xetra_christmas_day,module:de_xetra_christmas_day,,,CONFIRMED
 2020-12-26,CLOSED,Boxing Day,de_xetra_boxing_day,module:de_xetra_boxing_day,,,CONFIRMED
@@ -162,7 +161,6 @@ date,type,description,key,source_module,observed_from,close_time,status
 2021-04-05,CLOSED,Easter Monday,de_xetra_easter_monday,module:de_xetra_easter_monday,,,CONFIRMED
 2021-05-01,CLOSED,Labour Day,de_xetra_labour_day,module:de_xetra_labour_day,,,CONFIRMED
 2021-05-24,CLOSED,Whit Monday,de_xetra_whit_monday,module:de_xetra_whit_monday,,,CONFIRMED
-2021-10-03,CLOSED,Day of German Unity,de_xetra_german_unity_day,module:de_xetra_german_unity_day,,,CONFIRMED
 2021-12-24,CLOSED,Christmas Eve,de_xetra_christmas_eve,module:de_xetra_christmas_eve,,,CONFIRMED
 2021-12-25,CLOSED,Christmas Day,de_xetra_christmas_day,module:de_xetra_christmas_day,,,CONFIRMED
 2021-12-26,CLOSED,Boxing Day,de_xetra_boxing_day,module:de_xetra_boxing_day,,,CONFIRMED
