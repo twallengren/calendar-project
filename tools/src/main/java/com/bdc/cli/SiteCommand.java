@@ -8,6 +8,7 @@ import com.bdc.diff.DiffSeverity;
 import com.bdc.diff.EventDiff;
 import com.bdc.model.Event;
 import com.bdc.site.ApiEmitter;
+import com.bdc.site.ApiV2Emitter;
 import com.bdc.site.ChangelogBuilder;
 import com.bdc.site.ChangelogHtmlRenderer;
 import com.bdc.site.ChangelogJsonEmitter;
@@ -133,7 +134,8 @@ public class SiteCommand implements Callable<Integer> {
 
       ApiEmitter emitter = new ApiEmitter(blessedDir, releaseHistoryDir, outDir, includeBase, at);
       emitter.emit();
-      System.out.println("Generated JSON API v1: " + outDir.resolve("v1"));
+      new ApiV2Emitter().emit(blessedDir, releaseHistoryDir, outDir, includeBase, at);
+      System.out.println("Generated JSON APIs v1 and v2: " + outDir.resolve("v1"));
       if (apiOnly) {
         return 0;
       }

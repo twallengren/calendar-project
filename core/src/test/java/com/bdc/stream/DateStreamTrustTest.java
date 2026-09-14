@@ -93,6 +93,23 @@ class DateStreamTrustTest {
     assertEquals(List.of("exchange-calendar"), parsed.get(0).evidenceIds());
   }
 
+  @Test
+  void closedFirstMemberCannotHideUnknownSecondMember() {
+    var closed =
+        new CsvDateStream(
+            "CLOSED", List.of(new Event(DAY, EventType.CLOSED, "Holiday", "fixture")), RANGE);
+    var unknown =
+        new CsvDateStream(
+            "UNKNOWN",
+            List.of(),
+            RANGE,
+            null,
+            List.of(interval(CompletenessScope.SCHEDULED_CLOSURES, CoverageQuality.INCOMPLETE)));
+    var joint = JointDateStream.joint(List.of(closed, unknown));
+    assertThrows(UnresolvedDateException.class, () -> joint.isBusinessDay(DAY));
+    assertEquals(DayState.UNKNOWN, joint.assessment(DAY).state());
+  }
+
   private static CoverageInterval interval(CompletenessScope scope, CoverageQuality quality) {
     return new CoverageInterval(
         scope, RANGE.start(), RANGE.end(), quality, List.of("fixture-source"));

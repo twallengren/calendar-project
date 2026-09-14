@@ -1213,3 +1213,13 @@ citation IDs fail validation. An inline URL does not excuse a misspelled source 
 All delta variants accept additive `source: [...]` citations, with the same shape as an event
 source. Existing Java constructors remain available. `validate --strict` rejects uncited deltas;
 the NYSE Good Friday removals cite its published holiday history.
+
+### JSON API v2 and enriched assessments
+
+`v2/index.json` advertises relative links to `calendars/<ID>/manifest.json`; each manifest advertises relative year links. The wire schema is `2.0`, independently of `data_version`. Each year contains an inclusive `days` array bounded by the artifact range. Every day reports `state`, `scheduled_state`, `effective_confidence`, scope-keyed `completeness`, `evidence_ids` and enriched `events`. `UNKNOWN` preserves the scheduled answer separately; it must never be interpreted as `OPEN`.
+
+Event details retain complete published fields, `raw_status`, effective day status, evidence IDs, nominal native date (`chronology_id`, `year`, `month_code`, `day`), chronology profile/provider and observation lineage. These fields are also available through Java `DateStream.assessment` / `eventDetailsOn`, Python `assessment` / `event_details_on`, MCP `assess_day`, and CLI `query <ID> --assess-day <ISO-date>`. Existing Event constructors and Python event tuples remain unchanged. Compiler metadata's additive `event_details` contains one occurrence for every non-weekend CSV record; loaders reject missing or surplus occurrences instead of attaching evidence ambiguously. Legacy artifacts have no native provenance; it is not reconstructed from an observed ISO date.
+
+`explicit_quality: false` in a v2 manifest identifies a legacy artifact without scope-specific evidence. Such artifacts retain the legacy query compatibility behavior; their completeness is reported as projected, never represented as proof of historical completeness. Newly audited artifacts carry explicit scope intervals. Where any required scope is incomplete or absent within explicit intervals, boolean, navigation and count operations raise `UnresolvedDateException` / `UnresolvedDateError`, subclasses of the existing coverage exceptions. Joint operations cannot hide an unknown member behind another member's closed day. Zero-offset operations retain their existing unchanged-date behavior.
+
+The browser business-date helper reads the same quality intervals from the additive v1 manifest metadata and rejects unresolved dates anywhere in its traversal, including gaps within a published year. `/v1` remains available during migration; `/v2` carries the new explicit daily-state semantics.

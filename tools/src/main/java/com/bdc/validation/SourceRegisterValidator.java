@@ -30,6 +30,17 @@ public final class SourceRegisterValidator {
   }
 
   public void validate(ResolvedSpec spec, ValidationResult result) {
+    if (spec.coverage() != null) {
+      for (var interval : spec.coverage().quality()) {
+        for (String id : interval.evidenceIds()) {
+          if (registers.stream().noneMatch(register -> register.contains(id)))
+            result.error(
+                "UNRESOLVED_COVERAGE_SOURCE",
+                spec.id(),
+                "Coverage evidence id is not registered: " + id);
+        }
+      }
+    }
     for (var event : spec.eventSources()) {
       for (SourceCitation source : event.source())
         check(source, spec.id() + "/" + event.key(), result);

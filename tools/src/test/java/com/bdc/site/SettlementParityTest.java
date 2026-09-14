@@ -62,7 +62,13 @@ class SettlementParityTest {
 
   /** One fixture case: the question, the answer, and the closures walked past on the way. */
   record Case(
-      String a, String b, LocalDate tradeDate, int n, LocalDate settles, List<Skip> skipped) {}
+      String a,
+      String b,
+      LocalDate tradeDate,
+      int n,
+      LocalDate settles,
+      List<Skip> skipped,
+      LocalDate errorDate) {}
 
   /** A day the walk did not count, and which of the two calendars were shut on it. */
   record Skip(LocalDate date, List<String> closed) {}
@@ -89,7 +95,8 @@ class SettlementParityTest {
     List<String> mismatches = new ArrayList<>();
     for (Case expected : cases) {
       Case actual = answer(streams, expected.a(), expected.b(), expected.tradeDate(), expected.n());
-      if (!actual.settles().equals(expected.settles())) {
+      if (!java.util.Objects.equals(actual.settles(), expected.settles())
+          || !java.util.Objects.equals(actual.errorDate(), expected.errorDate())) {
         mismatches.add(
             expected.a()
                 + "+"
@@ -177,7 +184,12 @@ class SettlementParityTest {
       Map<String, DateStream> streams, String a, String b, LocalDate tradeDate, int n) {
     JointDateStream joint =
         (JointDateStream) JointDateStream.joint(List.of(streams.get(a), streams.get(b)));
-    LocalDate settles = joint.nthBusinessDay(tradeDate, n);
+    LocalDate settles;
+    try {
+      settles = joint.nthBusinessDay(tradeDate, n);
+    } catch (com.bdc.stream.OutsideCoverageException error) {
+      return new Case(a, b, tradeDate, n, null, List.of(), error.date());
+    }
     List<Skip> skipped = new ArrayList<>();
     for (LocalDate date = tradeDate.plusDays(1); !date.isAfter(settles); date = date.plusDays(1)) {
       List<String> closed = joint.closedMembers(date).stream().map(DateStream::calendarId).toList();
@@ -185,7 +197,7 @@ class SettlementParityTest {
         skipped.add(new Skip(date, closed));
       }
     }
-    return new Case(a, b, tradeDate, n, settles, List.copyOf(skipped));
+    return new Case(a, b, tradeDate, n, settles, List.copyOf(skipped), null);
   }
 
   static List<List<String>> pairs(List<String> markets) {
@@ -249,8 +261,11 @@ class SettlementParityTest {
               node.path("b").asText(),
               LocalDate.parse(node.path("trade_date").asText()),
               node.path("n").asInt(),
-              LocalDate.parse(node.path("settles").asText()),
-              List.copyOf(skipped)));
+              node.path("settles").isNull() ? null : LocalDate.parse(node.path("settles").asText()),
+              List.copyOf(skipped),
+              node.hasNonNull("error_date")
+                  ? LocalDate.parse(node.path("error_date").asText())
+                  : null));
     }
     return List.copyOf(cases);
   }
@@ -276,9 +291,11 @@ class SettlementParityTest {
           .append(one.tradeDate())
           .append("\",\"n\":")
           .append(one.n())
-          .append(",\"settles\":\"")
-          .append(one.settles())
-          .append("\",\"skipped\":[");
+          .append(",\"settles\":")
+          .append(one.settles() == null ? "null" : "\"" + one.settles() + "\"");
+      if (one.errorDate() != null)
+        json.append(",\"error_date\":\"").append(one.errorDate()).append("\"");
+      json.append(",\"skipped\":[");
       for (int s = 0; s < one.skipped().size(); s++) {
         Skip skip = one.skipped().get(s);
         json.append(s == 0 ? "" : ",")

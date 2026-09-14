@@ -231,7 +231,9 @@ public class ReleaseHistoryStore {
         loadEvents(snapshot),
         range(snapshot),
         verifiedThrough(snapshot).orElse(null),
-        coverageIntervals(snapshot));
+        coverageIntervals(snapshot),
+        com.bdc.trust.PublishedEventDetails.read(
+            mapper.convertValue(metadata(snapshot).get("event_details"), Object.class)));
   }
 
   /** Explicit scope-specific quality intervals recorded in metadata, or empty for legacy data. */

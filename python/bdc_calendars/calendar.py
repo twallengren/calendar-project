@@ -366,18 +366,11 @@ class BusinessCalendar:
                 else CONFIRMED
             )
         details = [
-            EventDetails(
-                event,
-                event.status,
-                confidence,
-                list(evidence),
-                None,
-                None,
-                None,
-                ([event.observed_from, event.date] if event.observed_from else []),
-            )
-            for event in events
+            detail._replace(effective_status=confidence,
+                evidence_ids=sorted(set(evidence) | set(detail.evidence_ids)))
+            for detail in self.event_details_on(day)
         ]
+        evidence = sorted(set(evidence).union(*(set(detail.evidence_ids) for detail in details)))
         return DayAssessment(
             day,
             STATE_UNKNOWN if incomplete else scheduled,
@@ -438,6 +431,12 @@ class BusinessCalendar:
         window = self.range
         if not window.contains(date):
             raise OutsideCoverageError(self.calendar_id, date, window.start, window.end)
+
+    def event_details_on(self, date: DateLike) -> List[EventDetails]:
+        """Raw retained provenance; assessment() supplies effective confidence."""
+        return [EventDetails(event, event.status, event.status, [], None, None, None,
+            [event.observed_from, event.date] if event.observed_from else [])
+            for event in self.events_on(date)]
 
     def _require_resolved(self, date: _dt.date) -> None:
         assessment = self.assessment(date)
@@ -510,6 +509,15 @@ class SingleCalendar(BusinessCalendar):
         day = _as_date(date)
         self._check_range(day)
         return self._events_on_unchecked(day)
+
+    def event_details_on(self, date: DateLike) -> List[EventDetails]:
+        day = _as_date(date)
+        self._check_range(day)
+        if day not in self._data.details_by_date:
+            return super().event_details_on(day)
+        details = list(self._data.details_by_date[day])
+        details.extend(detail for detail in super().event_details_on(day) if detail.event.type == "WEEKEND")
+        return details
 
     def _events_on_unchecked(self, day: _dt.date) -> List[Event]:
         # Weekend rows are the ones dropped from the shipped data. The artifact
@@ -647,6 +655,7 @@ class JointCalendar(BusinessCalendar):
     def is_business_day(self, date: DateLike) -> bool:
         day = _as_date(date)
         self._check_range(day)
+        self._require_resolved(day)
         return all(member.is_business_day(day) for member in self._members)
 
     def close_time(self, date: DateLike) -> Optional[_dt.time]:

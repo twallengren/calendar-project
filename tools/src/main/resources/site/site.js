@@ -60,7 +60,27 @@
   /* A date is a business day when it carries no CLOSED row and is not a weekend day under the
      policy in effect on it. EARLY_CLOSE days are business days. */
   function isBusinessDay(calendar, iso, name) {
+    if ((calendar.from && iso < calendar.from) || (calendar.to && iso > calendar.to)) {
+      throw coverageError(calendar.id, iso);
+    }
+    var quality = calendar.quality || [];
+    if (quality.length) {
+      ["SCHEDULED_CLOSURES", "EARLY_CLOSES", "UNSCHEDULED_EXCEPTIONS"].forEach(function (scope) {
+        var matches = quality.filter(function (row) {
+          return row.scope === scope && iso >= row.from && iso <= row.to;
+        });
+        if (!matches.length || matches.some(function (row) { return row.quality === "INCOMPLETE"; })) {
+          throw coverageError(calendar.id, iso);
+        }
+      });
+    }
     return !calendar.closed[iso] && !isWeekend(calendar, iso, name);
+  }
+
+  function coverageError(id, iso) {
+    var error = new Error(id + " has unresolved or missing coverage for " + iso);
+    error.date = iso;
+    return error;
   }
 
   /*
@@ -85,7 +105,7 @@
       var closed = [];
       for (var i = 0; i < calendars.length; i++) {
         if (!calendars[i].years[iso.slice(0, 4)]) {
-          throw new Error(calendars[i].id + " has no published data for " + iso);
+          throw coverageError(calendars[i].id, iso);
         }
         if (!isBusinessDay(calendars[i], iso, name)) {
           closed.push(calendars[i].id);
@@ -121,6 +141,7 @@
         calendar.weekend = periodsOf(manifest.weekend_policy);
         calendar.from = manifest.range_start;
         calendar.to = manifest.range_end;
+        calendar.quality = (manifest.coverage || {}).quality || [];
       });
     }
     var jobs = [calendar.pending.manifest];
@@ -267,9 +288,10 @@
           try {
             got = settle(calendars, one.trade_date, one.n);
           } catch (error) {
-            failures.push(describe(one) + ": threw " + error.message);
+            if (one.error_date !== error.date) failures.push(describe(one) + ": threw " + error.message);
             return;
           }
+          if (one.error_date) { failures.push(describe(one) + ": expected coverage failure"); return; }
           if (got.settles !== one.settles) {
             failures.push(describe(one) + ": expected " + one.settles + ", got " + got.settles);
           }

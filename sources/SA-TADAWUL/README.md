@@ -3,8 +3,8 @@
 | id | title | publisher | url / file | retrieved | covers | notes |
 |----|-------|-----------|------------|-----------|--------|-------|
 | `saudi-exchange-announcements` | Saudi Exchange holiday announcements | Saudi Exchange (Tadawul) | https://www.saudiexchange.sa/ (Market Announcements, "Holiday"); transcript in `saudi-exchange-announcements.md` | 2026-02-15 | 2020 Eid al-Fitr; 2021–2029 | Each available announcement states the last trading day before and the first trading day after an Eid closure, and the observed date of National Day and Founding Day. The live archive lacks the 2020 Eid al-Adha notice. The 2027–2029 Eid dates are published in advance "according to the Umm al-Qura calendar" and are treated as CONFIRMED. |
-| `argaam-tadawul-eid-adha-2020` | Tadawul to close 7 days for Eid Al-Adha holiday | Argaam | https://www.argaam.com/en/article/articledetail/id/1387677 | 2026-09-14 | 29 July–4 August 2020 | Contemporary report that attributes the closure and 5 August resumption to Tadawul. It establishes that the current calendar is incomplete, but is not used to confirm exact rows without the exchange's primary notice. |
 | `saudi-weekend-change-2013` | Royal Decree changing the weekend to Friday–Saturday | Saudi Press Agency | https://www.spa.gov.sa/ (23 June 2013) | 2026-09-12 | from 2013-06-29 | The Saudi Exchange's first Friday–Saturday weekend was 28–29 June 2013. Before that the weekend was Thursday–Friday. |
+| `argaam-tadawul-eid-adha-2020` | Tadawul to close 7 days for Eid Al-Adha holiday | Argaam | https://www.argaam.com/en/article/articledetail/id/1387677 | 2026-09-14 | 29 July–4 August 2020 | Contemporary report that attributes the closure and 5 August resumption to Tadawul. It establishes that the current calendar is incomplete, but is not used to confirm exact rows without the exchange's primary notice. |
 
 ## Modelling decisions recorded against these sources
 

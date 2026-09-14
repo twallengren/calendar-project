@@ -33,17 +33,12 @@ public final class EventDetailsEmitter {
           provenance.observationLineage().stream().map(Object::toString).toList());
       var nativeDate = provenance.nominalNativeDate();
       if (nativeDate != null) {
-        row.put(
-            "nominal_native_date",
-            Map.of(
-                "chronology_id",
-                nativeDate.chronologyId(),
-                "year",
-                nativeDate.year(),
-                "month_code",
-                nativeDate.monthCode(),
-                "day",
-                nativeDate.day()));
+        Map<String, Object> nativeRow = new LinkedHashMap<>();
+        nativeRow.put("chronology_id", nativeDate.chronologyId());
+        nativeRow.put("year", nativeDate.year());
+        nativeRow.put("month_code", nativeDate.monthCode());
+        nativeRow.put("day", nativeDate.day());
+        row.put("nominal_native_date", nativeRow);
         row.put("chronology_profile", provenance.chronologyProfile());
         row.put("chronology_provider", provenance.chronologyProvider());
       }

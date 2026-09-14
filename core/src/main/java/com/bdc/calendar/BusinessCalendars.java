@@ -151,7 +151,13 @@ public final class BusinessCalendars {
       }
       coverageIntervals = CoverageIntervals.fromJson(coverage.get("quality"));
     }
-    return new CsvDateStream(calendarId, events, range, verifiedThrough, coverageIntervals);
+    return new CsvDateStream(
+        calendarId,
+        events,
+        range,
+        verifiedThrough,
+        coverageIntervals,
+        com.bdc.trust.PublishedEventDetails.read(metadata.get("event_details")));
   }
 
   /**

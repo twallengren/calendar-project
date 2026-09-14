@@ -24,7 +24,8 @@ from typing import Any, Dict, List, Mapping, NamedTuple, Optional, Tuple
 
 from ._weekend import WeekendPolicy
 from .errors import CalendarNotFoundError
-from .trust import CoverageInterval
+from .trust import CoverageInterval, EventDetails, NativeDate
+from collections import defaultdict, deque
 
 try:  # Python >= 3.9
     from importlib.resources import files as _files
@@ -125,6 +126,7 @@ class CalendarData:
         "calendar_id",
         "metadata",
         "events_by_date",
+        "details_by_date",
         "weekend_policy",
         "range_from",
         "range_to",
@@ -141,6 +143,22 @@ class CalendarData:
         self.events_by_date: Dict[_dt.date, List[Event]] = {}
         for event in rows:
             self.events_by_date.setdefault(event.date, []).append(event)
+        self.details_by_date = {}
+        if "event_details" in metadata:
+            remaining = defaultdict(deque)
+            for detail in metadata["event_details"]:
+                remaining[_event_from_row(detail)].append(detail)
+            for event in rows:
+                if not remaining[event]:
+                    raise ValueError("Missing event provenance occurrence: {!r}".format(event))
+                detail = remaining[event].popleft()
+                native = detail.get("nominal_native_date")
+                value = EventDetails(event, event.status, event.status, list(detail.get("evidence_ids", [])),
+                    NativeDate(**native) if native else None, detail.get("chronology_profile"),
+                    detail.get("chronology_provider"), [_date(x) for x in detail.get("observation_lineage", [])])
+                self.details_by_date.setdefault(event.date, []).append(value)
+            if any(remaining.values()):
+                raise ValueError("Event provenance contains extra occurrences")
         self.weekend_policy = WeekendPolicy.from_json(metadata.get("weekend_policy"))
         self.range_from = _date(metadata["range_start"])
         self.range_to = _date(metadata["range_end"])
@@ -169,20 +187,17 @@ def _parse_events(text: str) -> List[Event]:
     reader = csv.DictReader(text.splitlines())
     events: List[Event] = []
     for row in reader:
-        events.append(
-            Event(
-                date=_date(row["date"]),
-                type=row["type"],
-                description=row.get("description") or "",
-                key=row.get("key") or None,
-                source_module=row.get("source_module") or None,
-                observed_from=_date(row["observed_from"]) if row.get("observed_from") else None,
-                close_time=_time(row["close_time"]) if row.get("close_time") else None,
-                status=row.get("status") or "CONFIRMED",
-            )
-        )
+        events.append(_event_from_row(row))
     events.sort(key=lambda e: e.date)
     return events
+
+
+def _event_from_row(row) -> Event:
+    return Event(date=_date(row["date"]), type=row["type"], description=row.get("description") or "",
+        key=row.get("key") or None, source_module=row.get("source_module") or None,
+        observed_from=_date(row["observed_from"]) if row.get("observed_from") else None,
+        close_time=_time(row["close_time"]) if row.get("close_time") else None,
+        status=row.get("status") or "CONFIRMED")
 
 
 def _date(value: str) -> _dt.date:

@@ -50,6 +50,25 @@ def verify(site, chrome):
                         body = response.read()
                         if key not in ('ics', 'ics_recent'):
                             json.loads(body)
+            v2_url = base + 'v2/index.json'
+            with urllib.request.urlopen(v2_url) as response:
+                v2 = json.load(response)
+            assert v2['schema_version'] == '2.0'
+            for entry in v2['calendars']:
+                manifest_url = urljoin(v2_url, entry['href'])
+                assert manifest_url.startswith(base + 'v2/'), manifest_url
+                with urllib.request.urlopen(manifest_url) as response:
+                    manifest = json.load(response)
+                for year in manifest['years']:
+                    url = urljoin(manifest_url, year['href'])
+                    assert url.startswith(base + 'v2/'), url
+                    with urllib.request.urlopen(url) as response:
+                        document = json.load(response)
+                    for day in document['days']:
+                        incomplete = 'INCOMPLETE' in day['completeness'].values()
+                        assert (day['state'] == 'UNKNOWN') == incomplete, (url, day['date'])
+                        if incomplete:
+                            assert day['effective_confidence'] == 'UNKNOWN'
             with tempfile.TemporaryDirectory(prefix='bdc-browser-') as profile:
                 result = subprocess.run([
                     chrome, '--headless', '--disable-gpu', '--disable-dev-shm-usage',

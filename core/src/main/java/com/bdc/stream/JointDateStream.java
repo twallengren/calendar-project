@@ -173,6 +173,7 @@ public final class JointDateStream implements DateStream {
   @Override
   public boolean isBusinessDay(LocalDate date) {
     checkRange(date);
+    requireResolved(date);
     for (DateStream member : members) {
       if (!member.isBusinessDay(date)) {
         return false;

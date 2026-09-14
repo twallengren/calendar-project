@@ -337,23 +337,50 @@ public interface DateStream {
     DayState actual = incomplete ? DayState.UNKNOWN : scheduled;
     List<String> evidenceIds = List.copyOf(evidence);
     List<EventDetails> details =
-        rawEvents.stream()
+        eventDetailsOn(date).stream()
             .map(
-                event ->
-                    new EventDetails(
-                        event,
-                        event.status(),
-                        effectiveConfidence,
-                        evidenceIds,
-                        null,
-                        null,
-                        null,
-                        event.observedFrom() == null
-                            ? List.of()
-                            : List.of(event.observedFrom(), event.date())))
+                detail -> {
+                  Set<String> ids = new java.util.TreeSet<>(evidenceIds);
+                  ids.addAll(detail.evidenceIds());
+                  return new EventDetails(
+                      detail.event(),
+                      detail.rawStatus(),
+                      effectiveConfidence,
+                      List.copyOf(ids),
+                      detail.nominalNativeDate(),
+                      detail.chronologyProfile(),
+                      detail.chronologyProvider(),
+                      detail.observationLineage());
+                })
             .toList();
+    details.forEach(detail -> evidence.addAll(detail.evidenceIds()));
     return new DayAssessment(
-        date, actual, scheduled, effectiveConfidence, completeness, evidenceIds, details);
+        date,
+        actual,
+        scheduled,
+        effectiveConfidence,
+        completeness,
+        evidence.stream().sorted().toList(),
+        details);
+  }
+
+  /** Raw event provenance, with assessment() supplying effective day confidence separately. */
+  default List<EventDetails> eventDetailsOn(LocalDate date) {
+    return eventsOn(date).stream()
+        .map(
+            event ->
+                new EventDetails(
+                    event,
+                    event.status(),
+                    event.status(),
+                    List.of(),
+                    null,
+                    null,
+                    null,
+                    event.observedFrom() == null
+                        ? List.of()
+                        : List.of(event.observedFrom(), event.date())))
+        .toList();
   }
 
   /** Refuses boolean/session answers when an explicitly modelled scope is incomplete. */

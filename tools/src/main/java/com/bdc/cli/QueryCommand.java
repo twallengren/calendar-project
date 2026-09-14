@@ -2,6 +2,7 @@ package com.bdc.cli;
 
 import com.bdc.artifact.ReleaseHistoryStore;
 import com.bdc.chronology.DateRange;
+import com.bdc.emitter.AssessmentEmitter;
 import com.bdc.loader.SpecRegistry;
 import com.bdc.model.Event;
 import com.bdc.model.EventStatus;
@@ -10,6 +11,7 @@ import com.bdc.stream.DateStream;
 import com.bdc.stream.JointDateStream;
 import com.bdc.stream.LazyDateStream;
 import com.bdc.stream.OutsideCoverageException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.nio.file.Path;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -100,6 +102,12 @@ public class QueryCommand implements Callable<Integer> {
   private LocalDate statusDate;
 
   @Option(
+      names = "--assess-day",
+      description =
+          "Print a JSON day assessment, including unknown state, evidence and native provenance")
+  private LocalDate assessmentDate;
+
+  @Option(
       names = {"--verified-through"},
       description = "Print the covered range and the date the data is verified through")
   private boolean verifiedThrough;
@@ -166,6 +174,12 @@ public class QueryCommand implements Callable<Integer> {
   public Integer call() {
     try {
       boolean anyQuery = false;
+      if (assessmentDate != null) {
+        anyQuery = true;
+        System.out.println(
+            new ObjectMapper()
+                .writeValueAsString(AssessmentEmitter.row(stream().assessment(assessmentDate))));
+      }
 
       if (isBusinessDayDate != null) {
         anyQuery = true;
@@ -277,7 +291,9 @@ public class QueryCommand implements Callable<Integer> {
               .append(stream.verifiedThrough().orElseThrow())
               .append(")");
         } else if (status == EventStatus.UNKNOWN) {
-          line.append(" (outside ").append(formatRange(stream.range())).append(")");
+          if (stream.range().contains(statusDate))
+            line.append(" (incomplete coverage; use --assess-day for details)");
+          else line.append(" (outside ").append(formatRange(stream.range())).append(")");
         }
         System.out.println(line);
       }
@@ -493,6 +509,8 @@ public class QueryCommand implements Callable<Integer> {
         "  --settlement T+N --from <trade date>  Settlement date and the closures in between");
     System.out.println("  --is-early-close <date>      Check for a shortened session");
     System.out.println("  --close-time <date>          Early close time, if any");
+    System.out.println(
+        "  --assess-day <date>          JSON state, confidence, evidence and native provenance");
     System.out.println("  --status <date>              CONFIRMED, PROJECTED or UNKNOWN");
     System.out.println("  --verified-through           Covered range and verified-through date");
     System.out.println(

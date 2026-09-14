@@ -33,14 +33,22 @@ public class LazyDateStream implements DateStream {
   private final LocalDate verifiedThrough;
   private final List<CoverageInterval> coverageIntervals;
 
-  // Cache of per-day events for recently generated windows
-  private final Map<LocalDate, List<Event>> dayCache =
+  private record CachedDay(List<Event> events, List<com.bdc.trust.EventDetails> details) {}
+
+  // Keep rows and provenance in one cache entry so eviction cannot separate them.
+  private final Map<LocalDate, CachedDay> dayCache =
       new LinkedHashMap<>(256, 0.75f, true) {
         @Override
-        protected boolean removeEldestEntry(Map.Entry<LocalDate, List<Event>> eldest) {
+        protected boolean removeEldestEntry(Map.Entry<LocalDate, CachedDay> eldest) {
           return size() > 2000;
         }
       };
+
+  @Override
+  public List<com.bdc.trust.EventDetails> eventDetailsOn(LocalDate date) {
+    eventsOn(date);
+    return dayCache.get(date).details();
+  }
 
   public LazyDateStream(ResolvedSpec spec) {
     this.spec = spec;
@@ -100,20 +108,41 @@ public class LazyDateStream implements DateStream {
   @Override
   public List<Event> eventsOn(LocalDate date) {
     checkRange(date);
-    List<Event> cached = dayCache.get(date);
+    CachedDay cached = dayCache.get(date);
     if (cached != null) {
-      return cached;
+      return cached.events();
     }
-    LocalDate from = date.minusDays(WINDOW_DAYS);
-    LocalDate to = date.plusDays(WINDOW_DAYS);
+    LocalDate from =
+        LocalDate.ofEpochDay(Math.max(range.start().toEpochDay(), date.toEpochDay() - WINDOW_DAYS));
+    LocalDate to =
+        LocalDate.ofEpochDay(Math.min(range.end().toEpochDay(), date.toEpochDay() + WINDOW_DAYS));
     Map<LocalDate, List<Event>> byDate = new HashMap<>();
-    for (Event event : generator.generate(spec, from, to)) {
+    Map<LocalDate, List<com.bdc.trust.EventDetails>> enriched = new HashMap<>();
+    for (var compiled : generator.generateWithDetails(spec, from, to)) {
+      Event event = compiled.event();
+      var p = compiled.provenance();
       byDate.computeIfAbsent(event.date(), d -> new ArrayList<>()).add(event);
+      enriched
+          .computeIfAbsent(event.date(), d -> new ArrayList<>())
+          .add(
+              new com.bdc.trust.EventDetails(
+                  event,
+                  event.status(),
+                  event.status(),
+                  p.evidenceIds(),
+                  p.nominalNativeDate(),
+                  p.chronologyProfile(),
+                  p.chronologyProvider(),
+                  p.observationLineage()));
     }
     for (LocalDate d = from; !d.isAfter(to); d = d.plusDays(1)) {
-      dayCache.put(d, List.copyOf(byDate.getOrDefault(d, List.of())));
+      dayCache.put(
+          d,
+          new CachedDay(
+              List.copyOf(byDate.getOrDefault(d, List.of())),
+              List.copyOf(enriched.getOrDefault(d, List.of()))));
     }
-    return dayCache.get(date);
+    return dayCache.get(date).events();
   }
 
   @Override

@@ -99,6 +99,17 @@
       "notes": "The Government's machine-readable feed of the same gazetted general holidays, linked from the gov.hk holiday pages. Used as an independent transcription check on 2025-2027; it matched the HTML pages row for row.",
       "local_files": [],
       "support_intervals": []
+    },
+    {
+      "id": "hkex-severe-weather-trading",
+      "title": "HKEX to Implement Severe Weather Trading in Securities and Derivatives Markets from 23 September 2024",
+      "publisher": "Hong Kong Exchanges and Clearing Limited",
+      "location": "https://www.hkex.com.hk/News/Market-Communications/2024/240618news?sc_lang=en",
+      "retrieved": "2026-09-14",
+      "covers": "from 2024-09-23",
+      "notes": "HKEX states that its securities and derivatives markets remain open and operational during severe weather under the arrangements effective 23 September 2024.",
+      "local_files": [],
+      "support_intervals": []
     }
   ]
 }
