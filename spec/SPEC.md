@@ -1145,9 +1145,11 @@ releases in practice, since holiday data that far back is already settled.
 `ci-diff` compares the events generated from the specs against the blessed baseline for the same
 range. Every occurrence takes part: events are grouped by identity - `(date, key)` when both sides
 carry event keys, by date alone for a legacy baseline written before the key column existed - and
-within one identity the occurrences are compared as a multiset of `(type, description)`. Nothing
-else is compared: provenance and the enrichment columns a published artifact does not retain take
-no part, so a description or type change is a difference and a change of source module is not.
+within one identity the occurrences are compared as a multiset of the complete published value:
+`(type, description, source_module, observed_from, close_time, status)`. Only the reader's synthetic
+in-memory provenance label is excluded. A source-module, observation, close-time or status change
+is therefore visible even when the date and description stay the same. Missing legacy columns use
+the CSV reader's documented defaults; newly supplied enrichment is a publishable change.
 
 Exact matches cancel one occurrence at a time. If exactly one occurrence then remains on each
 side, the pair is reported as a modification; otherwise every leftover is reported individually as
@@ -1163,7 +1165,7 @@ that moves to another date is a removal and an addition. So, for occurrences sha
 
 No event can therefore hide another on the same date, and repeated changes keep their counts.
 The report is sorted by date, key, old and new type (in event-type enum order) and old and new
-description, so it never depends on the order the events arrive in.
+description and published enrichment fields, so it never depends on the order the events arrive in.
 
 Removals and modifications are MAJOR. Additions inside the compared blessed range are MAJOR;
 additions only outside it (a backfill or an extension) are MINOR. A calendar with no blessed
@@ -1180,3 +1182,22 @@ doubled quotes, ignores blank lines, `#` comment lines and a leading UTF-8 byte 
 fails with the file and line number on a malformed row, an invalid ISO date or an unknown event
 type rather than skipping it.
 
+
+### Reference cross-validation
+
+Reference exporters expose `date,type,close_time`; comparisons count each occurrence of this tuple,
+exclude effective weekend days on both sides, and honour the declared comparison types and range.
+An empty reference is an error, not a clean validation. Missing close time differs from a supplied
+time. An exact match cancels once, and each unexplained remaining occurrence is reported separately.
+
+Legacy allowlists use `source,side,date,type,reason`; each entry excuses one occurrence. New precise
+allowlists can use `source,side,date,type,close_time,reason`, including an empty close time for a
+full closure. A stale occurrence fails validation. Close-time discrepancies must cite evidence and
+must not be hidden by a broad date-only exception.
+
+API link values are resolved against the URL of the JSON document containing them. For example,
+`v1/index.json` links to `calendars/US-NYSE/manifest.json`, and that manifest links to `2026.json`.
+This keeps the same output usable at `/` and `/calendar-project/`. CI executes the shipped browser
+algorithm over HTTP using `python3 scripts/verification/browser.py --site build/browser-site`.
+The historical `--settlement T+N` spelling computes a business-date offset, not instrument-specific
+settlement eligibility, sessions or cutoffs.

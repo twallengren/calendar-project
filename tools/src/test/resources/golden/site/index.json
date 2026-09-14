@@ -20,7 +20,7 @@
     },
     "checksum" : "sha256:2911e892195b38a6e9b53785ee42e6edcea6d5b11915ef44ef0f42684d8ec79d",
     "years" : [ 2010, 2030 ],
-    "href" : "/v1/calendars/BE-EURONEXT-BRUSSELS/manifest.json"
+    "href" : "calendars/BE-EURONEXT-BRUSSELS/manifest.json"
   }, {
     "id" : "CA-TSX",
     "name" : "Toronto Stock Exchange",
@@ -43,7 +43,7 @@
     },
     "checksum" : "sha256:e3990abc8d46393df7fd25ed647770bff025f0dc03034d88792aed52592b00c4",
     "years" : [ 2000, 2030 ],
-    "href" : "/v1/calendars/CA-TSX/manifest.json"
+    "href" : "calendars/CA-TSX/manifest.json"
   }, {
     "id" : "DE-XETRA",
     "name" : "Deutsche Börse Xetra",
@@ -64,7 +64,7 @@
     },
     "checksum" : "sha256:7cb017d87e960494675fdc1caaff4363a8f05c96301331781dc94ad38f777677",
     "years" : [ 2003, 2030 ],
-    "href" : "/v1/calendars/DE-XETRA/manifest.json"
+    "href" : "calendars/DE-XETRA/manifest.json"
   }, {
     "id" : "FR-EURONEXT-PARIS",
     "name" : "Euronext Paris Trading Calendar",
@@ -86,7 +86,7 @@
     },
     "checksum" : "sha256:2911e892195b38a6e9b53785ee42e6edcea6d5b11915ef44ef0f42684d8ec79d",
     "years" : [ 2010, 2030 ],
-    "href" : "/v1/calendars/FR-EURONEXT-PARIS/manifest.json"
+    "href" : "calendars/FR-EURONEXT-PARIS/manifest.json"
   }, {
     "id" : "GB-LSE",
     "name" : "London Stock Exchange",
@@ -108,7 +108,7 @@
     },
     "checksum" : "sha256:307f5d8fa3df7d3028acb3d3138f2b8d65cf41fa692769914e1b350d3b70ec0e",
     "years" : [ 2000, 2030 ],
-    "href" : "/v1/calendars/GB-LSE/manifest.json"
+    "href" : "calendars/GB-LSE/manifest.json"
   }, {
     "id" : "HK-HKEX",
     "name" : "Hong Kong Exchanges and Clearing",
@@ -130,7 +130,7 @@
     },
     "checksum" : "sha256:f5691051cb8b3d9c599423961872296fa85d53ff72d9b355f2f2f273cb085f0a",
     "years" : [ 2018, 2027 ],
-    "href" : "/v1/calendars/HK-HKEX/manifest.json"
+    "href" : "calendars/HK-HKEX/manifest.json"
   }, {
     "id" : "JP-JPX",
     "name" : "Japan Exchange Group (Tokyo Stock Exchange)",
@@ -152,7 +152,7 @@
     },
     "checksum" : "sha256:ee9a4d5d130a9576191305125565b68ea8fc85e8aa51153b31d1705b1a18c8ad",
     "years" : [ 2010, 2030 ],
-    "href" : "/v1/calendars/JP-JPX/manifest.json"
+    "href" : "calendars/JP-JPX/manifest.json"
   }, {
     "id" : "NL-EURONEXT-AMSTERDAM",
     "name" : "Euronext Amsterdam Trading Calendar",
@@ -174,7 +174,7 @@
     },
     "checksum" : "sha256:2911e892195b38a6e9b53785ee42e6edcea6d5b11915ef44ef0f42684d8ec79d",
     "years" : [ 2010, 2030 ],
-    "href" : "/v1/calendars/NL-EURONEXT-AMSTERDAM/manifest.json"
+    "href" : "calendars/NL-EURONEXT-AMSTERDAM/manifest.json"
   }, {
     "id" : "PT-EURONEXT-LISBON",
     "name" : "Euronext Lisbon Trading Calendar",
@@ -196,7 +196,7 @@
     },
     "checksum" : "sha256:5f1f1df0a89a74e2108aa4c765f35bfde3a3b6c6d2510ad2935b4af49a65d2dc",
     "years" : [ 2010, 2030 ],
-    "href" : "/v1/calendars/PT-EURONEXT-LISBON/manifest.json"
+    "href" : "calendars/PT-EURONEXT-LISBON/manifest.json"
   }, {
     "id" : "SA-TADAWUL",
     "name" : "Tadawul (Saudi Exchange) Trading Calendar",
@@ -218,7 +218,7 @@
     },
     "checksum" : "sha256:7abe60d0b866382dae15d4ab78bab9286fdceb737781776c08abcf3972a4bbe1",
     "years" : [ 2020, 2030 ],
-    "href" : "/v1/calendars/SA-TADAWUL/manifest.json"
+    "href" : "calendars/SA-TADAWUL/manifest.json"
   }, {
     "id" : "US-NYSE",
     "name" : "NYSE Trading Calendar",
@@ -240,7 +240,7 @@
     },
     "checksum" : "sha256:1c9c599763a4a964592dcce6dbca29b940a02ece883fd4937dcdf408199e5763",
     "years" : [ 1900, 2030 ],
-    "href" : "/v1/calendars/US-NYSE/manifest.json"
+    "href" : "calendars/US-NYSE/manifest.json"
   } ],
   "release" : {
     "semantic" : "11.0.0",

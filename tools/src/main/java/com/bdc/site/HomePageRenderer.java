@@ -32,7 +32,7 @@ public final class HomePageRenderer {
               <li><a href="changelog/index.html">Changelog</a> — what changed in every release,
               generated from the release history.</li>
               <li><a href="compare/index.html">Compare two markets</a> — the days one market trades
-              while another is closed, and a T+N settlement helper for trades between them.</li>
+              while another is closed, and a T+N business-date offset helper.</li>
               <li><a href="sources/index.html">Sources</a> — the register of gazettes, circulars and
               exchange notices behind each calendar.</li>
               <li><a href="{{contributingUrl}}">Contributing</a> — how to add a market or correct

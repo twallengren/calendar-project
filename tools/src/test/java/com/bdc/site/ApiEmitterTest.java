@@ -47,6 +47,29 @@ class ApiEmitterTest {
   }
 
   @Test
+  void apiLinksResolveAtBothRootAndProjectPrefix() throws Exception {
+    JsonNode index = mapper.readTree(v1.resolve("index.json").toFile());
+    for (String prefix : List.of("/", "/calendar-project/")) {
+      java.net.URI indexUri =
+          java.net.URI.create("https://example.test" + prefix + "v1/index.json");
+      for (JsonNode entry : index.path("calendars")) {
+        java.net.URI manifestUri = indexUri.resolve(entry.path("href").asText());
+        assertTrue(manifestUri.getPath().startsWith(prefix + "v1/"));
+        Path manifestPath = outDir.resolve(manifestUri.getPath().substring(prefix.length()));
+        JsonNode manifest = mapper.readTree(manifestPath.toFile());
+        for (JsonNode link : manifest.path("links")) {
+          String value = link.asText().replace("{year}", manifest.path("years").get(0).asText());
+          java.net.URI target = manifestUri.resolve(value);
+          assertTrue(target.getPath().startsWith(prefix + "v1/"));
+          assertTrue(
+              Files.exists(outDir.resolve(target.getPath().substring(prefix.length()))),
+              target.toString());
+        }
+      }
+    }
+  }
+
+  @Test
   void writesExpectedFileSetForNyse() {
     assertTrue(Files.exists(v1.resolve("index.json")));
     Path calDir = v1.resolve("calendars/US-NYSE");

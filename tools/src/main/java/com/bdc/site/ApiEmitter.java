@@ -187,7 +187,7 @@ public class ApiEmitter {
       entry.put(
           "years",
           years.isEmpty() ? List.of() : List.of(Collections.min(years), Collections.max(years)));
-      entry.put("href", "/v1/calendars/" + id + "/manifest.json");
+      entry.put("href", "calendars/" + id + "/manifest.json");
       indexCalendars.add(entry);
 
       writePinnedReleases(historyStore, id, coverage, v1Dir);
@@ -255,11 +255,11 @@ public class ApiEmitter {
     manifest.put("years", years);
 
     Map<String, Object> links = new LinkedHashMap<>();
-    links.put("year_template", "/v1/calendars/" + id + "/{year}.json");
-    links.put("holidays", "/v1/calendars/" + id + "/holidays.json");
-    links.put("all", "/v1/calendars/" + id + "/all.json");
-    links.put("ics", "/v1/calendars/" + id + "/holidays.ics");
-    links.put("ics_recent", "/v1/calendars/" + id + "/holidays-recent.ics");
+    links.put("year_template", "{year}.json");
+    links.put("holidays", "holidays.json");
+    links.put("all", "all.json");
+    links.put("ics", "holidays.ics");
+    links.put("ics_recent", "holidays-recent.ics");
     manifest.put("links", links);
     return manifest;
   }

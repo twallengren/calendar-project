@@ -37,9 +37,9 @@ import java.util.Map;
  * weekend policies, already stated on both market pages, and would bury the holiday differences
  * these pages exist to show.
  *
- * <p>The T+N settlement helper on each page is the one piece that is not pre-rendered: it is
- * progressive enhancement in {@code site.js} that fetches the two calendars' year files and walks
- * the joint stream in the browser, mirroring {@code JointDateStream} exactly (see {@code
+ * <p>The T+N business-date offset helper on each page is the one piece that is not pre-rendered: it
+ * is progressive enhancement in {@code site.js} that fetches the two calendars' year files and
+ * walks the joint stream in the browser, mirroring {@code JointDateStream} exactly (see {@code
  * spec/SPEC.md#joint-calendars-several-calendars-at-once}). With scripting off the form is simply
  * absent and the page names the CLI command that answers the same question.
  */
@@ -57,11 +57,12 @@ public final class ComparePageRenderer {
             {{{summary}}}
           </section>
           <section class="settlement" aria-labelledby="settlement-heading">
-            <h2 id="settlement-heading">Settlement date (T+N)</h2>
+            <h2 id="settlement-heading">Business-date offset (T+N)</h2>
             <div data-settlement data-a="{{a}}" data-b="{{b}}" data-api="{{api}}"
                  data-min="{{min}}" data-max="{{max}}"></div>
-            <p>A trade between these two markets can only settle on a day <em>both</em> are open, so
-            T+N counts business days on the joint calendar. From a command line:</p>
+            <p>T+N counts dates on which both calendars are open. This date-only calculation does
+            not establish instrument-specific settlement eligibility, operating sessions or cutoffs.
+            From a command line:</p>
             <pre><code>tools query {{a}},{{b}} --settlement T+2 --from {{example}}</code></pre>
           </section>
           <section aria-labelledby="a-open-heading">
@@ -80,7 +81,7 @@ public final class ComparePageRenderer {
           """
           <h1>Compare two markets</h1>
           <p class="lede">{{pairCount}} pairs of the {{marketCount}} published markets, each with
-          the days one trades while the other is closed and a T+N settlement helper for trades
+          the days one trades while the other is closed and a T+N business-date offset helper for trades
           between them.</p>
           {{{sections}}}
           <p class="muted"><a href="settlement-selftest.html">Settlement self-test</a> — runs the
@@ -92,7 +93,7 @@ public final class ComparePageRenderer {
       HtmlTemplate.of(
           """
           <h1>Settlement self-test</h1>
-          <p class="lede">The T+N settlement helper on every compare page is written once, in
+          <p class="lede">The T+N business-date offset helper on every compare page is written once, in
           <a href="../site.js"><code>site.js</code></a>, and must agree with
           <code>JointDateStream</code> — the same code the <code>query --settlement</code> CLI
           answers from. This page runs the browser implementation against a fixture of {{caseCount}}
@@ -213,7 +214,7 @@ public final class ComparePageRenderer {
             + window.firstYear()
             + " to "
             + window.lastYear()
-            + ", with a T+N settlement helper.";
+            + ", with a T+N business-date offset helper.";
 
     String body =
         PAIR.render(
@@ -278,7 +279,7 @@ public final class ComparePageRenderer {
         "compare/",
         "Compare two trading calendars",
         "Every pair of published markets, with the days one trades while the other is closed and a"
-            + " T+N settlement helper.",
+            + " T+N business-date offset helper.",
         List.of(
             new PageLayout.Crumb("Markets", "../index.html"),
             new PageLayout.Crumb("Compare", null)),

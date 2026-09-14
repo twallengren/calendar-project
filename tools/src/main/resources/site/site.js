@@ -169,9 +169,9 @@
      from the page or the API is written with textContent below. */
   var FORM =
     '<form class="settlement-form">' +
-    '<label for="sd">Trade date</label><input id="sd" type="date" required>' +
+    '<label for="sd">Start date</label><input id="sd" type="date" required>' +
     '<label for="sn">T+</label><input id="sn" type="number" min="0" max="10" value="2">' +
-    "<button type=\"submit\">Settle</button></form>" +
+    "<button type=\"submit\">Calculate</button></form>" +
     '<div class="settlement-result" role="status"></div>';
 
   function mountSettlement(mount) {
@@ -206,7 +206,7 @@
           render(result, ids, tradeIso, steps, settle(calendars, tradeIso, steps));
         })
         .catch(function (error) {
-          result.textContent = "Could not settle: " + error.message;
+          result.textContent = "Could not calculate: " + error.message;
         });
     });
   }
@@ -216,7 +216,7 @@
     var headline = document.createElement("p");
     headline.className = "settlement-answer";
     headline.textContent =
-      "T+" + n + " from " + tradeIso + " settles " + answer.settles + " on " + ids.join(" + ");
+      "T+" + n + " from " + tradeIso + " reaches " + answer.settles + " on " + ids.join(" + ");
     result.appendChild(headline);
 
     var list = document.createElement("ol");

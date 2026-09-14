@@ -13,8 +13,6 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.EnumSet;
-import java.util.HashSet;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -54,7 +52,8 @@ public class CrossValidator {
       throws IOException {
     List<Event> reference = new EventsCsvReader().read(referenceFile, "reference");
     if (reference.isEmpty()) {
-      return emptyResult(calendarId, referenceFile);
+      throw new IOException(
+          "Reference contains no events and cannot establish coverage: " + referenceFile);
     }
     Header header = readHeader(referenceFile, reference);
     LocalDate from = header.from();
@@ -83,7 +82,8 @@ public class CrossValidator {
       throws IOException {
     List<Event> reference = new EventsCsvReader().read(referenceFile, "reference");
     if (reference.isEmpty()) {
-      return emptyResult(calendarId, referenceFile);
+      throw new IOException(
+          "Reference contains no events and cannot establish coverage: " + referenceFile);
     }
     Header header = readHeader(referenceFile, reference);
     return compare(
@@ -109,63 +109,29 @@ public class CrossValidator {
       throws IOException {
     Set<EventType> comparedTypes = header.comparedTypes();
 
-    Map<String, Event> ourRows = new TreeMap<>();
-    for (Event e : ours) {
-      if (comparedTypes.contains(e.type())
-          && !e.date().isBefore(from)
-          && !e.date().isAfter(to)
-          && !weekendPolicy.isWeekend(e.date())) {
-        ourRows.put(e.date() + "|" + e.type(), e);
-      }
-    }
-    Map<String, Event> refRows = new TreeMap<>();
-    for (Event e : reference) {
-      if (comparedTypes.contains(e.type())
-          && !e.date().isBefore(from)
-          && !e.date().isAfter(to)
-          && !weekendPolicy.isWeekend(e.date())) {
-        refRows.put(e.date() + "|" + e.type(), e);
-      }
-    }
-
-    Map<String, AllowEntry> allow = loadAllowlist(referenceFile.getParent(), header.sourceName());
-
+    Map<String, Integer> ourRows = countedRows(ours, weekendPolicy, from, to, comparedTypes);
+    Map<String, Integer> refRows = countedRows(reference, weekendPolicy, from, to, comparedTypes);
+    Map<String, Integer> allow = loadAllowlist(referenceFile.getParent(), header.sourceName());
     List<String> unexplained = new ArrayList<>();
-    Set<String> usedAllow = new HashSet<>();
     int matched = 0;
-
-    for (var entry : ourRows.entrySet()) {
-      String id = entry.getKey();
-      if (refRows.containsKey(id)) {
-        matched++;
-        continue;
-      }
-      String allowKey = "ours|" + id;
-      if (allow.containsKey(allowKey)) {
-        usedAllow.add(allowKey);
-      } else {
-        Event e = entry.getValue();
-        unexplained.add("ours-only  " + id + "  " + e.description() + " [" + e.key() + "]");
-      }
+    int allowlisted = 0;
+    Set<String> identities = new java.util.TreeSet<>(ourRows.keySet());
+    identities.addAll(refRows.keySet());
+    for (String id : identities) {
+      int oursCount = ourRows.getOrDefault(id, 0);
+      int theirsCount = refRows.getOrDefault(id, 0);
+      int common = Math.min(oursCount, theirsCount);
+      matched += common;
+      allowlisted += explain("ours", id, oursCount - common, allow, unexplained);
+      allowlisted += explain("theirs", id, theirsCount - common, allow, unexplained);
     }
-    for (String id : refRows.keySet()) {
-      if (ourRows.containsKey(id)) {
-        continue; // already counted as matched above
-      }
-      String allowKey = "theirs|" + id;
-      if (allow.containsKey(allowKey)) {
-        usedAllow.add(allowKey);
-      } else {
-        unexplained.add("theirs-only " + id);
-      }
-    }
-
     List<String> stale = new ArrayList<>();
-    for (String key : allow.keySet()) {
-      if (!usedAllow.contains(key)) {
-        stale.add("stale allowlist entry (no longer differs): " + key);
-      }
-    }
+    allow.forEach(
+        (key, count) -> {
+          for (int i = 0; i < count; i++) {
+            stale.add("stale allowlist entry (no longer differs): " + key);
+          }
+        });
 
     return new CrossValidationResult(
         calendarId,
@@ -175,23 +141,50 @@ public class CrossValidator {
         to,
         comparedTypes,
         matched,
-        usedAllow.size(),
+        allowlisted,
         unexplained,
         stale);
   }
 
-  private static CrossValidationResult emptyResult(String calendarId, Path referenceFile) {
-    return new CrossValidationResult(
-        calendarId,
-        sourceNameOf(referenceFile),
-        null,
-        null,
-        null,
-        Set.of(),
-        0,
-        0,
-        List.of(),
-        List.of());
+  private static Map<String, Integer> countedRows(
+      List<Event> events,
+      WeekendPolicy weekendPolicy,
+      LocalDate from,
+      LocalDate to,
+      Set<EventType> comparedTypes) {
+    Map<String, Integer> rows = new TreeMap<>();
+    for (Event e : events) {
+      if (comparedTypes.contains(e.type())
+          && !e.date().isBefore(from)
+          && !e.date().isAfter(to)
+          && !weekendPolicy.isWeekend(e.date())) {
+        String id =
+            e.date()
+                + "|"
+                + e.type()
+                + "|"
+                + (e.closeTime() == null ? "" : e.closeTime().toString());
+        rows.merge(id, 1, Integer::sum);
+      }
+    }
+    return rows;
+  }
+
+  private static int explain(
+      String side, String id, int count, Map<String, Integer> allow, List<String> unexplained) {
+    // Legacy allowlist rows omit close_time. Each row excuses exactly one occurrence;
+    // an extra duplicate must still be reviewed, even if its date is already allowlisted.
+    String exactKey = side + "|" + id;
+    String legacyKey = side + "|" + id.substring(0, id.lastIndexOf('|'));
+    int exact = Math.min(count, allow.getOrDefault(exactKey, 0));
+    allow.computeIfPresent(exactKey, (k, remaining) -> remaining - exact);
+    int legacy = Math.min(count - exact, allow.getOrDefault(legacyKey, 0));
+    allow.computeIfPresent(legacyKey, (k, remaining) -> remaining - legacy);
+    int used = exact + legacy;
+    for (int i = used; i < count; i++) {
+      unexplained.add(side + "-only " + id);
+    }
+    return used;
   }
 
   private static String sourceNameOf(Path referenceFile) {
@@ -228,20 +221,28 @@ public class CrossValidator {
    * the reference file name without extension (or {@code *} for all); {@code side} is {@code ours}
    * (we have it, they do not) or {@code theirs}.
    */
-  private static Map<String, AllowEntry> loadAllowlist(Path dir, String sourceName)
+  private static Map<String, Integer> loadAllowlist(Path dir, String sourceName)
       throws IOException {
-    Map<String, AllowEntry> result = new LinkedHashMap<>();
+    Map<String, Integer> result = new TreeMap<>();
     Path path = dir.resolve("allowlist.csv");
     if (!Files.exists(path)) {
       return result;
     }
+    boolean withCloseTime = false;
     for (String line : Files.readAllLines(path)) {
       String trimmed = line.strip();
-      if (trimmed.isEmpty() || trimmed.startsWith("#") || trimmed.startsWith("source,")) {
+      if (trimmed.startsWith("source,")) {
+        withCloseTime = trimmed.equals("source,side,date,type,close_time,reason");
+        if (!withCloseTime && !trimmed.equals("source,side,date,type,reason")) {
+          throw new IllegalArgumentException("Unknown allowlist header: " + trimmed);
+        }
         continue;
       }
-      String[] parts = trimmed.split(",", 5);
-      if (parts.length < 5) {
+      if (trimmed.isEmpty() || trimmed.startsWith("#")) {
+        continue;
+      }
+      String[] parts = trimmed.split(",", withCloseTime ? 6 : 5);
+      if (parts.length < (withCloseTime ? 6 : 5)) {
         throw new IllegalArgumentException("allowlist row needs 5 columns: " + line);
       }
       if (!parts[0].equals("*") && !parts[0].equals(sourceName)) {
@@ -252,8 +253,22 @@ public class CrossValidator {
               parts[1].strip(),
               LocalDate.parse(parts[2].strip()),
               EventType.valueOf(parts[3].strip()),
-              parts[4].strip());
-      result.put(entry.side() + "|" + entry.date() + "|" + entry.type(), entry);
+              parts[withCloseTime ? 5 : 4].strip());
+      if (!Set.of("ours", "theirs").contains(entry.side()) || entry.reason().isBlank()) {
+        throw new IllegalArgumentException("allowlist row needs a valid side and reason: " + line);
+      }
+      String closeTime =
+          withCloseTime && !parts[4].isBlank()
+              ? java.time.LocalTime.parse(parts[4].strip()).toString()
+              : "";
+      String key =
+          entry.side()
+              + "|"
+              + entry.date()
+              + "|"
+              + entry.type()
+              + (withCloseTime ? "|" + closeTime : "");
+      result.merge(key, 1, Integer::sum);
     }
     return result;
   }

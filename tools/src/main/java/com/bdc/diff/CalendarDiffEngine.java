@@ -13,13 +13,12 @@ import java.util.*;
  * one date are compared individually and a changed description or type is reported as a
  * modification. Legacy baselines without keys fall back to date-only identity.
  *
- * <p>Within one identity, occurrences are compared as a multiset of {@code (type, description)}:
+ * <p>Within one identity, occurrences are compared as a multiset of complete published records:
  * exact matches cancel one occurrence at a time, so no event can hide another on the same date and
  * duplicate-dated events keep their counts. If exactly one occurrence remains on each side the pair
  * is reported as a modification; otherwise every leftover is reported individually as a removal or
- * an addition - similar types or names are never used to guess a pairing. Provenance and the other
- * columns a published artifact does not retain take no part in the comparison, and the result does
- * not depend on the order the events arrive in.
+ * an addition. Synthetic in-memory provenance labels are excluded; published source module,
+ * observed date, close time and status participate in equality and deterministic report ordering.
  */
 public class CalendarDiffEngine {
 
@@ -59,14 +58,42 @@ public class CalendarDiffEngine {
         EventValue before = unmatchedRemovals.getFirst();
         EventValue after = unmatchedAdditions.getFirst();
         modifications.add(
-            EventDiff.modified(
-                date, before.type(), after.type(), before.description(), after.description(), key));
+            new EventDiff(
+                date,
+                before.type(),
+                after.type(),
+                before.description(),
+                after.description(),
+                EventDiff.DiffKind.MODIFIED,
+                key,
+                before.fields(),
+                after.fields()));
       } else {
         for (EventValue value : unmatchedAdditions) {
-          additions.add(EventDiff.added(date, value.type(), value.description(), key));
+          additions.add(
+              new EventDiff(
+                  date,
+                  null,
+                  value.type(),
+                  null,
+                  value.description(),
+                  EventDiff.DiffKind.ADDED,
+                  key,
+                  null,
+                  value.fields()));
         }
         for (EventValue value : unmatchedRemovals) {
-          removals.add(EventDiff.removed(date, value.type(), value.description(), key));
+          removals.add(
+              new EventDiff(
+                  date,
+                  value.type(),
+                  null,
+                  value.description(),
+                  null,
+                  EventDiff.DiffKind.REMOVED,
+                  key,
+                  value.fields(),
+                  null));
         }
       }
     }
@@ -90,7 +117,7 @@ public class CalendarDiffEngine {
   }
 
   /** The fields a published artifact retains, and so the only ones a comparison may look at. */
-  private record EventValue(EventType type, String description) {}
+  private record EventValue(EventType type, String description, EventDiff.PublishedFields fields) {}
 
   /**
    * Cancels occurrences present on both sides, one at a time. Fills {@code additionsOut} with the
@@ -100,10 +127,13 @@ public class CalendarDiffEngine {
       List<Event> before, List<Event> after, List<EventValue> additionsOut) {
     Map<EventValue, Integer> remaining = new LinkedHashMap<>();
     for (Event e : before) {
-      remaining.merge(new EventValue(e.type(), e.description()), 1, Integer::sum);
+      remaining.merge(
+          new EventValue(e.type(), e.description(), EventDiff.PublishedFields.of(e)),
+          1,
+          Integer::sum);
     }
     for (Event e : after) {
-      EventValue value = new EventValue(e.type(), e.description());
+      EventValue value = new EventValue(e.type(), e.description(), EventDiff.PublishedFields.of(e));
       int count = remaining.getOrDefault(value, 0);
       if (count == 0) {
         additionsOut.add(value);
@@ -132,7 +162,9 @@ public class CalendarDiffEngine {
           .thenComparing(
               EventDiff::oldDescription, Comparator.nullsFirst(Comparator.naturalOrder()))
           .thenComparing(
-              EventDiff::newDescription, Comparator.nullsFirst(Comparator.naturalOrder()));
+              EventDiff::newDescription, Comparator.nullsFirst(Comparator.naturalOrder()))
+          .thenComparing(d -> d.oldFields() == null ? "" : d.oldFields().toString())
+          .thenComparing(d -> d.newFields() == null ? "" : d.newFields().toString());
 
   private static Map<String, List<Event>> index(List<Event> events, boolean useKeys) {
     Map<String, List<Event>> byId = new LinkedHashMap<>();

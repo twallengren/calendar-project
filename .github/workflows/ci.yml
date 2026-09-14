@@ -75,6 +75,11 @@ jobs:
             exit $EXIT_CODE
           fi
 
+      - name: Execute browser parity and project-prefix API links
+        run: |
+          tools/build/install/tools/bin/tools site --out build/browser-site --base-url https://twallengren.github.io/calendar-project/ --generated-at 2026-09-14T00:00:00Z
+          python3 scripts/verification/browser.py --site build/browser-site
+
       - name: Upload validation results
         uses: actions/upload-artifact@v4
         if: always()
