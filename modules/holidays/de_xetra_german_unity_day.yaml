@@ -4,19 +4,29 @@ id: de_xetra_german_unity_day
 # Day of German Unity / Tag der Deutschen Einheit (October 3). Like Whit Monday, this is an
 # annual, exchange-discretionary closure rather than a standing rule: reading every trading
 # calendar Deutsche Börse has published from 2003 through 2026 (sources/DE-XETRA/README.md)
-# shows it is a listed non-trading ("settlement") day only in 2014 and 2016-2021 inclusive; it
-# is an ordinary trading day in 2003-2013 and every year from 2022 onward. (3 October 2015 fell
-# on a Saturday, so that year's status cannot be confirmed from the source and is omitted below;
-# it makes no output difference since Saturday is already non-trading under the weekend policy.)
+# shows it is a listed non-trading ("settlement") day only in 2014 and 2016-2019 inclusive; it
+# is an ordinary trading day in 2003-2013 and every year from 2022 onward.
+#
+# Three years in the 2014-2021 window cannot be confirmed either way, because the trading
+# calendars only ever list weekday exceptions and 3 October fell on a weekend: 2015 (Saturday),
+# 2020 (Saturday) and 2021 (Sunday). The 2020 and 2021 calendars' exceptions sentences do not
+# mention 3 October at all (2020: "1 January, 10 April, 13 April, 1 May, 1 June, 24 December,
+# 25 December, and 31 December"; 2021: "1 January, 2 April, 5 April, 24 May, 24 December and
+# 31 December"). All three are therefore omitted below rather than assumed, which is also what
+# this module already did for 2015. Omitting them makes no output difference: a Saturday or
+# Sunday is already non-trading under the weekend policy.
+#
 # Modelled as an explicit list of confirmed closure dates rather than a fixed_month_day rule
-# with guessed active_years. Nothing is projected for years after 2021.
+# with guessed active_years. Nothing is projected for years after the last confirmed occurrence.
 # Always shift_policy: NONE.
 
 source:
   - id: xetra-trading-calendar-2014
     ref: "exceptions sentence: 3 October (settlement day); first occurrence in the sourced range"
-  - id: xetra-trading-calendar-2021
+  - id: xetra-trading-calendar-2019
     ref: "exceptions sentence: 3 October (settlement day); last confirmed occurrence"
+  - id: xetra-trading-calendar-2021
+    ref: "exceptions sentence omits 3 October (a Sunday in 2021); status unconfirmable, not assumed"
   - id: xetra-trading-calendar-2022
     ref: "exceptions sentence omits 3 October (a Monday); confirms no closure from 2022"
 
@@ -33,5 +43,3 @@ event_sources:
         - 2017-10-03
         - 2018-10-03
         - 2019-10-03
-        - 2020-10-03
-        - 2021-10-03

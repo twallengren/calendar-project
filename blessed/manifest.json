@@ -42,7 +42,7 @@
       "range_start": "2003-01-01",
       "range_end": "2030-12-31",
       "event_count": 3112,
-      "checksum": "sha256:3dcda6443c0f21e5a8dfa8650f46de6af60ff7bb654e28b9022c11d4c03d876b",
+      "checksum": "sha256:7cb017d87e960494675fdc1caaff4363a8f05c96301331781dc94ad38f777677",
       "kind": "market"
     },
     "CA-TSX": {

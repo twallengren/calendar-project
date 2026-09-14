@@ -17798,10 +17798,10 @@
     "status" : "CONFIRMED"
   }, {
     "date" : "2020-10-03",
-    "type" : "CLOSED",
-    "description" : "Day of German Unity",
-    "key" : "de_xetra_german_unity_day",
-    "source_module" : "module:de_xetra_german_unity_day",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED"
@@ -18806,10 +18806,10 @@
     "status" : "CONFIRMED"
   }, {
     "date" : "2021-10-03",
-    "type" : "CLOSED",
-    "description" : "Day of German Unity",
-    "key" : "de_xetra_german_unity_day",
-    "source_module" : "module:de_xetra_german_unity_day",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED"

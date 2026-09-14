@@ -82,7 +82,7 @@ date,type,description,key,source_module,observed_from,close_time,status
 2021-09-25,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
 2021-09-26,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
 2021-10-02,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
-2021-10-03,CLOSED,Day of German Unity,de_xetra_german_unity_day,module:de_xetra_german_unity_day,,,CONFIRMED
+2021-10-03,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
 2021-10-09,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
 2021-10-10,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
 2021-10-16,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED

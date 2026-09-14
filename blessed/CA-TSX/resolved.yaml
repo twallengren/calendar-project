@@ -176,6 +176,7 @@ event_sources:
   status: CONFIRMED
   source:
   - id: holidays-act-canada
+  - id: tmx-holiday-schedule-2020
   - id: tmx-holiday-schedule-2021
   - id: tmx-holiday-schedule-2023
   - id: tmx-holiday-schedule-2025
@@ -196,6 +197,7 @@ event_sources:
     - 2026
   source:
   - id: holidays-act-canada
+  - id: tmx-holiday-schedule-2020
   - id: tmx-holiday-schedule-2021
   - id: tmx-holiday-schedule-2023
   - id: tmx-holiday-schedule-2025

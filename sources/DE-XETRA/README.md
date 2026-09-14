@@ -27,8 +27,8 @@ given year can only be confirmed independently when it falls on a weekday that y
 | `xetra-trading-calendar-2017` | Trading Calendar 2017 | Deutsche Börse | https://www.cashmarket.deutsche-boerse.com/resource/blob/336572/247517da046f56e5b4dae39723f29b00/data/trading-calendar-2017.pdf | 2026-09-14 | 2017 | Also lists 31 October (Reformation Day) as a one-off settlement day: the 500th anniversary of the Reformation was a nationwide statutory holiday in Germany for 2017 only. |
 | `xetra-trading-calendar-2018` | Trading Calendar 2018 | Deutsche Börse | https://www.cashmarket.deutsche-boerse.com/resource/blob/154430/366c1c9be4ce7cdb923bbf246db1d1bf/data/trading-calendar-2018.pdf | 2026-09-14 | 2018 | |
 | `xetra-trading-calendar-2019` | Trading Calendar 2019 | Deutsche Börse | https://www.cashmarket.deutsche-boerse.com/resource/blob/1406548/6de0eba301a5433abb110fa3c96a5778/data/xetra-trading-calendar-2019.pdf | 2026-09-14 | 2019 | |
-| `xetra-trading-calendar-2020` | Trading Calendar 2020 | Deutsche Börse | https://www.cashmarket.deutsche-boerse.com/resource/blob/1665534/112856375187d3e93671aa3d731d09d3/data/xetra-trading-calendar-2020.pdf | 2026-09-14 | 2020 | |
-| `xetra-trading-calendar-2021` | Trading Calendar 2021 | Deutsche Börse | https://www.cashmarket.deutsche-boerse.com/resource/blob/2344982/ddbcd31a616628a7ffa09dc709467ec4/data/xetra-trading-calendar-2021.pdf | 2026-09-14 | 2021 | Last year both Whit Monday (24 May) and German Unity Day (3 Oct, fell mid-week in nearby years) are listed as settlement days. |
+| `xetra-trading-calendar-2020` | Trading Calendar 2020 | Deutsche Börse | https://www.cashmarket.deutsche-boerse.com/resource/blob/1665534/112856375187d3e93671aa3d731d09d3/data/xetra-trading-calendar-2020.pdf | 2026-09-14 | 2020 | Whit Monday (1 June) listed as a settlement day. German Unity Day fell on Saturday 3 Oct 2020 and is not listed, so its status that year cannot be confirmed from this document (immaterial: a Saturday is already non-trading). |
+| `xetra-trading-calendar-2021` | Trading Calendar 2021 | Deutsche Börse | https://www.cashmarket.deutsche-boerse.com/resource/blob/2344982/ddbcd31a616628a7ffa09dc709467ec4/data/xetra-trading-calendar-2021.pdf | 2026-09-14 | 2021 | Last year Whit Monday (24 May) is listed as a settlement day. The full exceptions sentence is "1 January, 2 April, 5 April, 24 May, 24 December and 31 December" — German Unity Day is **not** listed (3 Oct 2021 was a Sunday), so 2021 confirms nothing about that holiday either way. |
 | `xetra-trading-calendar-2022` | Trading calendar 2022 | Deutsche Börse | https://www.cashmarket.deutsche-boerse.com/resource/blob/2833162/2f53999770c09ce9c0bee8194c1fe60d/data/xetra-trading-calendar-2022.pdf | 2026-09-14 | 2022 | Whit Monday (6 June, a Monday) and German Unity Day (3 Oct, a Monday) both weekdays and both absent from the exceptions list: confirms Xetra trades on both from 2022. |
 | `xetra-trading-calendar-2023` | Trading calendar 2023 | Deutsche Börse | https://www.cashmarket.deutsche-boerse.com/resource/blob/3317408/4c8fbfbfeea62fd44600f6fe3f14f84e/data/xetra-trading-calendar-2023.pdf | 2026-09-14 | 2023 | |
 | `xetra-trading-calendar-2024` | Trading calendar 2024 | Deutsche Börse | https://www.cashmarket.deutsche-boerse.com/resource/blob/3559262/98ebe1fde231df56c9f116bc766533b2/data/xetra-trading-calendar-2024.pdf | 2026-09-14 | 2024 | |
@@ -57,9 +57,14 @@ given year can only be confirmed independently when it falls on a weekday that y
     It is absent in 2003-2006, 2008-2014, and 2022 onward (`xetra-trading-calendar-2022`
     explicitly notes 2022's Whit Monday, 6 June, was a Monday and is not in the exceptions
     list).
-  - German Unity Day (3 October) is a listed exception in 2014 and 2016-2021 inclusive (2015's
-    3 October fell on a Saturday, so that year cannot be confirmed either way from the PDF, and
-    it makes no output difference). It is absent in 2003-2013 and from 2022 onward.
+  - German Unity Day (3 October) is a listed exception in 2014 and 2016-2019 inclusive. It is
+    absent in 2003-2013 and from 2022 onward (`xetra-trading-calendar-2022` omits 3 October, a
+    Monday that year). Three years in between cannot be confirmed either way because 3 October
+    fell on a weekend and the PDFs only ever list weekday exceptions: 2015 (Saturday), 2020
+    (Saturday) and 2021 (Sunday). All three are omitted from
+    `de_xetra_german_unity_day.yaml` rather than assumed. This makes no output difference — a
+    Saturday or Sunday is already non-trading under the weekend policy — and it is also why
+    neither cross-validation reference lists a German Unity Day closure for those years.
   Because neither holiday follows a computable rule, both are modelled with `explicit_dates`
   listing only the years directly confirmed as closures above, rather than a recurring rule with
   guessed `active_years`. No occurrences are projected for years after 2021 for either holiday,
@@ -77,9 +82,17 @@ given year can only be confirmed independently when it falls on a weekday that y
   Friday, Easter Monday, Labour Day, Christmas Eve, Christmas Day, Boxing Day and New Year's Eve
   are observed without exception in every one of the 24 sourced years (2003-2026), so their
   rule-derived occurrences for 2027-2030 are left `status: CONFIRMED` (the default) rather than
-  `PROJECTED`: they are fixed statutory German holidays (or, for Good Friday/Easter Monday,
-  astronomically fixed relative to Easter) that Xetra has never once traded through in the
-  sourced history. Whit Monday and German Unity Day are not projected at all past their last
+  `PROJECTED`, matching how `US-NYSE` projects its own recurring closures and early closes past
+  its `verified_through`. Note the distinction inside that list: New Year's Day, Labour Day,
+  Christmas Day and Boxing Day are statutory German public holidays, and Good Friday/Easter
+  Monday are statutory and astronomically fixed relative to Easter, so projecting them is safe
+  on the law alone. **24 and 31 December are not statutory German public holidays** — they are
+  ordinary working days that Deutsche Börse chooses not to trade — so their 2027-2030
+  occurrences rest on an unbroken 24-year exchange practice rather than on a statute. If this
+  project tightens the `verified_through` convention (CONTRIBUTING.md says everything past
+  `verified_through` "should be `status: PROJECTED`", which no market pack currently does), those
+  two are the DE-XETRA event sources that should be split into a confirmed range plus a
+  `PROJECTED` tail. Whit Monday and German Unity Day are not projected at all past their last
   confirmed occurrence, since they are exchange-discretionary rather than rule-derived.
 - **No early closes are modelled.** No sourced trading calendar states a shortened session close
   time for any date. The 2026 landing page mentions that "deviating hours may apply on December
