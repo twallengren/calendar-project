@@ -32,9 +32,10 @@ import java.util.Map;
  * they work with scripting off, they are indexable, and they are the same artifacts the JSON API
  * publishes. Keeping them small is a constraint, not an aspiration — each page carries only the
  * mismatched days over the intersection of the two coverage ranges, limited to the years both
- * calendars publish a {@code v1} year file for, weekend rows excluded (a weekend mismatch is a
- * property of the weekend policy, restated on every page it would appear on, and would bury the
- * holiday differences that are the point).
+ * calendars publish a {@code v1} year file for, and only days that are a working day for the closed
+ * market too. A difference that is just the two weekends failing to line up is a property of the
+ * weekend policies, already stated on both market pages, and would bury the holiday differences
+ * these pages exist to show.
  *
  * <p>The T+N settlement helper on each page is the one piece that is not pre-rendered: it is
  * progressive enhancement in {@code site.js} that fetches the two calendars' year files and walks
