@@ -737,18 +737,19 @@ markets are open.
 
 ### Settlement in the browser
 
-The compare pages on the published site carry a T+N settlement form that answers from the JSON API
+The compare pages carry a T+N business-date offset form that answers from the JSON API
 in the reader's browser. It is a *reimplementation* of the joint stream — no Java runs — so this
 section is the contract it implements, and the reference for any other client that walks the
 published files directly rather than calling a library. The implementation lives in
 `tools/src/main/resources/site/site.js`.
 
-Inputs, per calendar, both fetched from `/v1/`:
+Inputs, per calendar, fetched from `/v1/`:
 
 | Input | File | Use |
 |-------|------|-----|
 | `weekend_policy` | `calendars/<ID>/manifest.json` | which weekdays are non-trading, effective-dated |
-| `CLOSED` rows | `calendars/<ID>/<year>.json` | full-day closures, by date |
+| `CLOSED` rows and event `status` | `calendars/<ID>/<year>.json` | full-day closures and raw projected status, by date |
+| `coverage.quality`, coverage bounds | `calendars/<ID>/manifest.json` | scope completeness and confidence on each examined date |
 
 Fetch the year file for the trade date's year **and the following year**: a T+10 walk from late
 December crosses the boundary, and a year the API does not publish is outside coverage.
@@ -767,14 +768,20 @@ The algorithm:
 4. **Walk.** `N = 0` returns the trade date unchanged, business day or not. Otherwise walk forward
    one day at a time from the trade date, never counting the trade date itself, decrementing the
    remaining count on each joint business day; the date where the count reaches zero is the
-   settlement date. Report every day walked past, and for each, which calendars were closed on it.
+   resulting business date. Report every day walked past, and for each, which calendars were closed on it.
    Bound the walk at `366 * N + 366` days and fail rather than loop.
 5. **Out of range.** If the walk reaches a year the API does not publish for one of the calendars,
    raise rather than treat the missing rows as "open" — the out-of-range contract above applies
-   unchanged to a browser client.
+   unchanged to a browser client. Missing or incomplete quality for any explicitly modelled scope
+   also stops the walk, even when another member is closed.
+6. **Confidence.** Return the weakest confidence across every examined date, including closed dates
+   skipped along the way. The detailed result records `effective_confidence` and `examined_dates`.
+   For zero offsets, assess the unchanged input without claiming it is a business date; confidence
+   can be `UNKNOWN`. This helper establishes neither instrument-specific eligibility nor sessions
+   or cutoffs.
 
 This must agree with `JointDateStream` date for date. `/compare/settlement-selftest.html` ships a
-fixture of fifty (pair, trade date, N) cases whose answers were computed in Java, runs the browser
+fixture covering every published market/payment pair with (pair, start date, N) cases whose answers were computed in Java, runs the browser
 algorithm against the published API on page load, and reports pass/fail in the page; the fixture
 itself is regenerated and re-checked against `JointDateStream` by `SettlementParityTest`.
 
@@ -1113,8 +1120,8 @@ are omitted (rather than written as `null`) when not applicable, to keep the min
 reasonable size — a missing key means the same thing as an explicit `null`.
 
 A calendar's `kind` (`metadata.json`'s `kind` field, falling back to `manifest.json`'s per-calendar
-entry) controls whether it is published; `kind` is optional and defaults to `market`. Only
-`market` calendars are published by default; `--include-base` publishes `base`-kind calendars too.
+entry) controls whether it is published; `kind` is optional and defaults to `market`. Both
+`market` and `payment` calendars are published by default; `--include-base` publishes `base`-kind calendars too.
 A calendar that is not published has **no** entry under `v1/calendars/<ID>/` or
 `v1/releases/<semver>/calendars/<ID>/` at all: `index.json` is the definitive list of what exists
 under `v1/calendars/`.

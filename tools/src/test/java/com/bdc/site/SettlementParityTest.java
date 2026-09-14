@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.bdc.artifact.ReleaseHistoryStore;
+import com.bdc.model.EventStatus;
 import com.bdc.stream.DateStream;
 import com.bdc.stream.JointDateStream;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -69,7 +70,8 @@ class SettlementParityTest {
       int n,
       LocalDate settles,
       List<Skip> skipped,
-      LocalDate errorDate) {}
+      LocalDate errorDate,
+      EventStatus effectiveConfidence) {}
 
   /** A day the walk did not count, and which of the two calendars were shut on it. */
   record Skip(LocalDate date, List<String> closed) {}
@@ -101,7 +103,8 @@ class SettlementParityTest {
     for (Case expected : cases) {
       Case actual = answer(streams, expected.a(), expected.b(), expected.tradeDate(), expected.n());
       if (!java.util.Objects.equals(actual.settles(), expected.settles())
-          || !java.util.Objects.equals(actual.errorDate(), expected.errorDate())) {
+          || !java.util.Objects.equals(actual.errorDate(), expected.errorDate())
+          || actual.effectiveConfidence() != expected.effectiveConfidence()) {
         mismatches.add(
             expected.a()
                 + "+"
@@ -194,16 +197,20 @@ class SettlementParityTest {
     try {
       settles = joint.nthBusinessDay(tradeDate, n);
     } catch (com.bdc.stream.OutsideCoverageException error) {
-      return new Case(a, b, tradeDate, n, null, List.of(), error.date());
+      return new Case(a, b, tradeDate, n, null, List.of(), error.date(), EventStatus.UNKNOWN);
     }
     List<Skip> skipped = new ArrayList<>();
+    EventStatus confidence =
+        n == 0 ? joint.assessment(tradeDate).effectiveConfidence() : EventStatus.CONFIRMED;
     for (LocalDate date = tradeDate.plusDays(1); !date.isAfter(settles); date = date.plusDays(1)) {
+      if (joint.assessment(date).effectiveConfidence() == EventStatus.PROJECTED)
+        confidence = EventStatus.PROJECTED;
       List<String> closed = joint.closedMembers(date).stream().map(DateStream::calendarId).toList();
       if (!closed.isEmpty()) {
         skipped.add(new Skip(date, closed));
       }
     }
-    return new Case(a, b, tradeDate, n, settles, List.copyOf(skipped), null);
+    return new Case(a, b, tradeDate, n, settles, List.copyOf(skipped), null, confidence);
   }
 
   static List<List<String>> pairs(List<String> markets) {
@@ -272,7 +279,8 @@ class SettlementParityTest {
               List.copyOf(skipped),
               node.hasNonNull("error_date")
                   ? LocalDate.parse(node.path("error_date").asText())
-                  : null));
+                  : null,
+              EventStatus.valueOf(node.path("effective_confidence").asText("UNKNOWN"))));
     }
     return List.copyOf(cases);
   }
@@ -302,6 +310,7 @@ class SettlementParityTest {
           .append(one.settles() == null ? "null" : "\"" + one.settles() + "\"");
       if (one.errorDate() != null)
         json.append(",\"error_date\":\"").append(one.errorDate()).append("\"");
+      json.append(",\"effective_confidence\":\"").append(one.effectiveConfidence()).append("\"");
       json.append(",\"skipped\":[");
       for (int s = 0; s < one.skipped().size(); s++) {
         Skip skip = one.skipped().get(s);

@@ -440,7 +440,6 @@ public final class ComparePageRenderer {
   }
 
   private String summary(CalendarData a, CalendarData b, Window window, int aOpen, int bOpen) {
-    LocalDate verified = earliest(a.coverage().verifiedThrough(), b.coverage().verifiedThrough());
     StringBuilder html = new StringBuilder();
     html.append("<dl class=\"facts\">\n");
     html.append("<div><dt>Shared coverage</dt><dd>")
@@ -448,12 +447,13 @@ public final class ComparePageRenderer {
         .append(" to ")
         .append(window.to())
         .append("</dd></div>\n");
-    html.append("<div><dt>Joint verified through</dt><dd>")
-        .append(
-            verified == null
-                ? "&mdash;"
-                : "<time datetime=\"" + verified + "\">" + verified + "</time>")
-        .append("</dd></div>\n");
+    for (CalendarData calendar : List.of(a, b)) {
+      html.append("<div><dt>")
+          .append(HtmlTemplate.escape(calendar.id()))
+          .append(" coverage quality</dt><dd>")
+          .append(HtmlTemplate.escape(calendar.coverageSummary()))
+          .append("</dd></div>\n");
+    }
     html.append("<div><dt>Open in ")
         .append(HtmlTemplate.escape(a.id()))
         .append(", closed in ")
@@ -470,8 +470,8 @@ public final class ComparePageRenderer {
         .append("</dd></div>\n");
     html.append("</dl>\n");
     html.append(
-        "<p class=\"muted\">Dates after the joint verified-through date are projected from the"
-            + " rules and have not been checked against a published notice.</p>\n");
+        "<p class=\"muted\">Quality is assessed separately for scheduled closures, early closes and"
+            + " unscheduled exceptions. An incomplete date stops a business-date calculation.</p>\n");
     return html.toString();
   }
 
