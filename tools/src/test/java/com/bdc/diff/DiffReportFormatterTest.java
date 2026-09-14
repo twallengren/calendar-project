@@ -70,6 +70,39 @@ class DiffReportFormatterTest {
   }
 
   @Test
+  void duplicateMultilineDescriptionsRemainDistinctRowsAndCounts() throws Exception {
+    String description = "Name | quoted \"value\"\nsecond & <line>";
+    EventDiff added = EventDiff.added(cutoffDate, EventType.CLOSED, description);
+    EventDiff removed = EventDiff.removed(cutoffDate, EventType.CLOSED, description);
+    EventDiff modified =
+        EventDiff.modified(
+            cutoffDate, EventType.CLOSED, EventType.NOTABLE, description, description);
+    CalendarDiff calendar =
+        new CalendarDiff(
+            "TEST",
+            DiffSeverity.MAJOR,
+            List.of(added, added),
+            List.of(removed, removed),
+            List.of(modified, modified),
+            cutoffDate,
+            blessedRangeStart,
+            blessedRangeEnd);
+    DiffReport report = DiffReport.create(Map.of("TEST", calendar), "test", "test");
+    JsonNode json = mapper.readTree(formatter.formatAsJson(report)).path("calendars").path("TEST");
+    assertEquals(2, json.path("additions").size());
+    assertEquals(2, json.path("removals").size());
+    assertEquals(2, json.path("modifications").size());
+    assertEquals(description, json.path("additions").get(0).path("new_description").asText());
+    String markdown = new DiffReportFormatter(1).formatAsMarkdown(report);
+    assertTrue(markdown.contains("| TEST | :red_circle: MAJOR | 2 | 2 | 2 |"));
+    assertTrue(
+        markdown.contains("Name \\| quoted \"value\"<br>second &amp; &lt;line&gt;"), markdown);
+    assertTrue(markdown.contains("...and 1 more added events"));
+    assertTrue(markdown.contains("...and 1 more removed events"));
+    assertTrue(markdown.contains("...and 1 more modified events"));
+  }
+
+  @Test
   void formatAsJson_emptyReport_returnsValidJson() throws Exception {
     DiffReport report = createEmptyReport();
 

@@ -256,7 +256,7 @@ but the deploy step fails; nothing else in the release is affected.
 - Add tests for new logic. Run the full suite with `./gradlew :tools:test`, or a single class
   with `./gradlew :tools:test --tests "ClassName"`.
 - New rule types, chronology algorithms, or CLI commands should update `spec/SPEC.md` and
-  `CLAUDE.md` alongside the code.
+  `AGENTS.md` alongside the code.
 
 ## Data corrections
 

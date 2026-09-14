@@ -1,4 +1,4 @@
-# Thin wrappers around the Gradle commands documented in README.md and CLAUDE.md.
+# Thin wrappers around the Gradle commands documented in README.md and AGENTS.md.
 # All recipes run from the repository root. Requires https://github.com/casey/just
 # Optional: the project works fully without it, using ./gradlew directly.
 

@@ -410,6 +410,30 @@ Shift Policy*). NOTABLE and PERIOD_MARKER events are
 informational and are always kept; a weekend day with only informational events still gets its
 WEEKEND row. `validate` reports two CLOSED events on one date as a warning.
 
+### Date range consistency
+
+Generation uses inclusive output ranges, and the result does not depend on the range asked for.
+Whenever both requests succeed, generating a narrower range returns exactly the events of a wider
+generation filtered to that narrower range - same types, descriptions, `observed_from` values,
+duplicate rows and provenance - and two adjacent ranges concatenate to the range that spans them.
+Exports, single-day queries, business-day counts and date navigation all use the same engine, so
+they agree with each other by construction.
+
+This holds because rules are expanded over a *padded* range rather than the requested one, and the
+result filtered back to the request at the end. The padding is a year either side - enough for the
+chronology-year rounding rule expansion does, for the at most one week a shift moves an event
+backwards, and for the at most 60 days a `NEXT_AVAILABLE_WEEKDAY` cascade moves one forwards -
+plus the furthest reach of any `relative_to_reference` rule in the calendar, since an offset of
+800 days or a 60th weekday after a fixed date reaches past a year. A fixed one-year window is not
+enough: with one, whether a long-offset occurrence appeared at all depended on the requested
+range.
+
+Active years are evaluated on each occurrence's original, unshifted ISO date. Observation happens
+before deltas: removing an event with a delta does not free the date it was observed on for
+another event, and a delta addition does not block a cascade. Invalid recurring month days, such
+as February 29 in a non-leap year or day 30 of a 29-day lunar month, remain absent rather than
+being moved.
+
 Example:
 
 ```yaml
@@ -1115,3 +1139,44 @@ releases in practice, since holiday data that far back is already settled.
   `release-history/`.
 - Consumers should poll `index.json` and compare `checksum` to detect changes rather than
   re-fetching every file on a schedule.
+
+## Artifact comparison
+
+`ci-diff` compares the events generated from the specs against the blessed baseline for the same
+range. Every occurrence takes part: events are grouped by identity - `(date, key)` when both sides
+carry event keys, by date alone for a legacy baseline written before the key column existed - and
+within one identity the occurrences are compared as a multiset of `(type, description)`. Nothing
+else is compared: provenance and the enrichment columns a published artifact does not retain take
+no part, so a description or type change is a difference and a change of source module is not.
+
+Exact matches cancel one occurrence at a time. If exactly one occurrence then remains on each
+side, the pair is reported as a modification; otherwise every leftover is reported individually as
+a removal or an addition, and similar names or types are never used to guess a pairing. An event
+that moves to another date is a removal and an addition. So, for occurrences sharing one identity:
+
+| Blessed | Generated | Report |
+|---|---|---|
+| A | A, B | add B |
+| A, A, A | A | remove A twice |
+| A, A | A, B | modify one A to B |
+| A, A | B, B | remove A twice, add B twice |
+
+No event can therefore hide another on the same date, and repeated changes keep their counts.
+The report is sorted by date, key, old and new type (in event-type enum order) and old and new
+description, so it never depends on the order the events arrive in.
+
+Removals and modifications are MAJOR. Additions inside the compared blessed range are MAJOR;
+additions only outside it (a backfill or an extension) are MINOR. A calendar with no blessed
+`events.csv` at all is MINOR: nothing consumes it yet. `ci-diff` exits 0 for NONE, 1 for MINOR,
+2 for MAJOR and 3 for an error.
+
+The JSON report carries every change. The Markdown report's summary counts likewise count every
+occurrence even when the detail tables are truncated, and descriptions are escaped for table cells
+(`|` escaped, `&`/`<`/`>` as entities, newlines as `<br>`).
+
+Blessed and reference CSVs are read by `EventsCsvReader`, which addresses columns by header name
+(so column order and extra columns do not matter), accepts quoted fields with embedded commas and
+doubled quotes, ignores blank lines, `#` comment lines and a leading UTF-8 byte order mark, and
+fails with the file and line number on a malformed row, an invalid ISO date or an unknown event
+type rather than skipping it.
+

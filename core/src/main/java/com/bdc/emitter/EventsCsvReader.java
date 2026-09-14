@@ -17,11 +17,11 @@ import java.util.Map;
  * Reads an events CSV written by {@link CsvEmitter} (any version) or a reference CSV of the same
  * shape.
  *
- * <p>Columns are addressed by header name. {@code date} and {@code type} are required; {@code
- * description} defaults to empty; {@code key}, {@code source_module}, {@code observed_from}, {@code
- * close_time} and {@code status} are optional. Lines starting with {@code #} are ignored so that
- * reference files can carry a provenance header. Quoted fields with embedded commas and doubled
- * quotes are supported.
+ * <p>Columns are addressed by header name. A leading UTF-8 byte order mark is ignored. {@code date}
+ * and {@code type} are required; {@code description} defaults to empty; {@code key}, {@code
+ * source_module}, {@code observed_from}, {@code close_time} and {@code status} are optional. Lines
+ * starting with {@code #} are ignored so that reference files can carry a provenance header. Quoted
+ * fields with embedded commas and doubled quotes are supported.
  */
 public class EventsCsvReader {
 
@@ -30,7 +30,12 @@ public class EventsCsvReader {
   }
 
   public List<Event> read(Path path, String provenance) throws IOException {
-    return parse(Files.readAllLines(path), provenance);
+    try {
+      return parse(Files.readAllLines(path), provenance);
+    } catch (IllegalArgumentException e) {
+      // A malformed artifact must name the file it came from, not just the line.
+      throw new IllegalArgumentException(path + ": " + e.getMessage(), e);
+    }
   }
 
   public List<Event> parse(List<String> lines, String provenance) {
@@ -39,7 +44,7 @@ public class EventsCsvReader {
     int lineNo = 0;
     for (String raw : lines) {
       lineNo++;
-      String line = raw.strip();
+      String line = (lineNo == 1 ? stripByteOrderMark(raw) : raw).strip();
       if (line.isEmpty() || line.startsWith("#")) {
         continue;
       }
@@ -81,6 +86,11 @@ public class EventsCsvReader {
       }
     }
     return events;
+  }
+
+  /** A UTF-8 BOM at the start of a file is not part of the first header name. */
+  private static String stripByteOrderMark(String line) {
+    return line.startsWith("\uFEFF") ? line.substring(1) : line;
   }
 
   private static String cell(List<String> cells, Map<String, Integer> columns, String name) {

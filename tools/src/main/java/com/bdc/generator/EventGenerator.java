@@ -17,9 +17,11 @@ import java.util.stream.Collectors;
  * <p>Pipeline:
  *
  * <ol>
- *   <li>Expand every rule over a padded range (one year either side) so that shifts and offsets
- *       that cross the requested boundaries are computed correctly; filter by {@code active_years}
- *       (on the nominal, pre-shift year) and {@code only_if_weekday}.
+ *   <li>Expand every rule over a {@linkplain #paddedRange padded range} - a year either side, plus
+ *       the furthest reach of any rule in the spec - so that shifts and offsets that cross the
+ *       requested boundaries are computed correctly and the result does not depend on the range
+ *       asked for; filter by {@code active_years} (on the nominal, pre-shift year) and {@code
+ *       only_if_weekday}.
  *   <li>Place CLOSED occurrences. Those that fall on a weekend and have a non-NONE shift policy are
  *       moved according to that policy; {@code NEXT_AVAILABLE_WEEKDAY} and {@code
  *       NEXT_AVAILABLE_FROM_LAST_WEEKEND_DAY} cascade past every other closure already placed. A
@@ -45,7 +47,7 @@ public class EventGenerator {
 
   public List<Event> generate(ResolvedSpec spec, LocalDate from, LocalDate to) {
     DateRange requested = new DateRange(from, to);
-    DateRange padded = new DateRange(from.minusYears(1), to.plusYears(1));
+    DateRange padded = paddedRange(spec, from, to);
 
     ReferenceResolver refResolver = new ReferenceResolver();
     refResolver.resolve(spec.references(), padded);
@@ -138,7 +140,8 @@ public class EventGenerator {
     }
 
     // 6. Weekend rows for weekend dates that are not full closures
-    for (LocalDate date = from; !date.isAfter(to); date = date.plusDays(1)) {
+    // (walked this way so that a range ending on LocalDate.MAX does not overflow)
+    for (LocalDate date = from; ; date = date.plusDays(1)) {
       if (weekend.isWeekend(date) && !closedDates.contains(date)) {
         DayOfWeek dow = date.getDayOfWeek();
         String dayName = dow.getDisplayName(TextStyle.FULL, Locale.ENGLISH);
@@ -154,10 +157,61 @@ public class EventGenerator {
                 null,
                 EventStatus.CONFIRMED));
       }
+      if (date.equals(to)) {
+        break;
+      }
     }
 
     // 7. Sort deterministically
     return events.stream().sorted().collect(Collectors.toList());
+  }
+
+  /**
+   * The range rules are expanded over: the requested range widened far enough that every occurrence
+   * able to land inside it is generated, whatever range was asked for.
+   *
+   * <p>A year either side covers rule-to-observed displacement (a weekend shift moves a date by at
+   * most a week backwards and, cascading, by at most {@link #CASCADE_LIMIT_DAYS} forwards) and the
+   * chronology-year rounding that {@link RuleExpander} does. A {@code relative_to_reference} rule
+   * can reach further than that - an offset of 800 days, or a 60th weekday after a fixed date - so
+   * the padding also covers the furthest reach of any rule in the spec. Without this, whether such
+   * an occurrence appeared depended on the requested range.
+   */
+  private static DateRange paddedRange(ResolvedSpec spec, LocalDate from, LocalDate to) {
+    long pad = 366 + maxRuleReachDays(spec);
+    return new DateRange(minusDaysClamped(from, pad), plusDaysClamped(to, pad));
+  }
+
+  /** How far, in days, the furthest rule in the spec can place an occurrence from its reference. */
+  private static long maxRuleReachDays(ResolvedSpec spec) {
+    long reach = CASCADE_LIMIT_DAYS;
+    for (EventSource source : spec.eventSources()) {
+      Rule rule = source.rule();
+      if (rule == null) {
+        continue;
+      }
+      long own = rule.spanDays();
+      if (rule instanceof Rule.RelativeToReference relative) {
+        if (relative.offsetDays() != null) {
+          own += Math.abs((long) relative.offsetDays());
+        }
+        if (relative.offsetWeekday() != null) {
+          own += 7L * Math.abs((long) relative.offsetWeekday().nth()) + 7L;
+        }
+      }
+      reach = Math.max(reach, own);
+    }
+    return reach;
+  }
+
+  private static LocalDate minusDaysClamped(LocalDate date, long days) {
+    long available = ChronoUnit.DAYS.between(LocalDate.MIN, date);
+    return date.minusDays(Math.min(days, available));
+  }
+
+  private static LocalDate plusDaysClamped(LocalDate date, long days) {
+    long available = ChronoUnit.DAYS.between(date, LocalDate.MAX);
+    return date.plusDays(Math.min(days, available));
   }
 
   private static WeekendShiftPolicy shiftPolicyFor(
@@ -179,6 +233,9 @@ public class EventGenerator {
 
   /** Guard against a {@code displaces} cycle turning placement into an infinite chain. */
   private static final int MAX_DISPLACEMENT_DEPTH = 16;
+
+  /** How far forward a cascade of closures may push an observed date. */
+  static final int CASCADE_LIMIT_DAYS = 60;
 
   /**
    * Puts a shifted closure on its observed date, evicting any lower-priority closures it displaces.
@@ -332,7 +389,7 @@ public class EventGenerator {
       Set<String> displaces) {
     LocalDate candidate = lastWeekendDay.plusDays(1);
     int guard = 0;
-    while (guard++ < 60 && !isAvailable(candidate, weekend, closed, displaces)) {
+    while (guard++ < CASCADE_LIMIT_DAYS && !isAvailable(candidate, weekend, closed, displaces)) {
       candidate = candidate.plusDays(1);
     }
     return candidate;

@@ -77,6 +77,18 @@ public class DiffReportFormatter {
         .collect(Collectors.toList());
   }
 
+  private String markdownDescription(String description) {
+    return description
+        .replace("&", "&amp;")
+        .replace("<", "&lt;")
+        .replace(">", "&gt;")
+        .replace("\\", "\\\\")
+        .replace("|", "\\|")
+        .replace("\r\n", "<br>")
+        .replace("\n", "<br>")
+        .replace("\r", "<br>");
+  }
+
   public String formatAsMarkdown(DiffReport report) {
     StringBuilder sb = new StringBuilder();
 
@@ -145,7 +157,7 @@ public class DiffReportFormatter {
               .append(" | ")
               .append(e.oldType())
               .append(" | ")
-              .append(e.oldDescription())
+              .append(markdownDescription(e.oldDescription()))
               .append(" | ")
               .append(e.isHistorical(diff.cutoffDate()) ? "Yes" : "No")
               .append(" |\n");
@@ -173,7 +185,7 @@ public class DiffReportFormatter {
               .append(" | ")
               .append(e.newType())
               .append(" | ")
-              .append(e.newDescription())
+              .append(markdownDescription(e.newDescription()))
               .append(" | ")
               .append(e.isHistorical(diff.cutoffDate()) ? "Yes" : "No")
               .append(" |\n");
@@ -203,9 +215,9 @@ public class DiffReportFormatter {
               .append(" | ")
               .append(e.newType())
               .append(" | ")
-              .append(e.oldDescription())
+              .append(markdownDescription(e.oldDescription()))
               .append(" | ")
-              .append(e.newDescription())
+              .append(markdownDescription(e.newDescription()))
               .append(" |\n");
           modificationCount++;
         }
