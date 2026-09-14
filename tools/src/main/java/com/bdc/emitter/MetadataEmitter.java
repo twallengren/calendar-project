@@ -120,11 +120,14 @@ public class MetadataEmitter {
     }
     CalendarSpec.Coverage coverage = spec.coverage();
     if (coverage != null) {
-      Map<String, String> cov = new LinkedHashMap<>();
+      Map<String, Object> cov = new LinkedHashMap<>();
       if (coverage.from() != null) cov.put("from", coverage.from().toString());
       if (coverage.to() != null) cov.put("to", coverage.to().toString());
       if (coverage.verifiedThrough() != null) {
         cov.put("verified_through", coverage.verifiedThrough().toString());
+      }
+      if (!coverage.quality().isEmpty()) {
+        cov.put("quality", CoverageSerialization.toMaps(coverage.quality()));
       }
       metadata.put("coverage", cov);
     }

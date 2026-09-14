@@ -257,6 +257,56 @@ def test_holidays_outside_coverage_raises(nyse):
 # --- Status and coverage -----------------------------------------------------
 
 
+def test_explicit_incomplete_scope_preserves_scheduled_state_and_refuses_boolean_answer():
+    from bdc_calendars._loader import CalendarData
+    from bdc_calendars.calendar import SingleCalendar
+
+    metadata = {
+        "range_start": "2020-01-01",
+        "range_end": "2020-12-31",
+        "coverage": {
+            "verified_through": "2020-12-31",
+            "quality": [
+                {
+                    "scope": "SCHEDULED_CLOSURES",
+                    "from": "2020-01-01",
+                    "to": "2020-12-31",
+                    "quality": "INCOMPLETE",
+                    "evidence_ids": ["missing-primary"],
+                },
+                {
+                    "scope": "EARLY_CLOSES",
+                    "from": "2020-01-01",
+                    "to": "2020-12-31",
+                    "quality": "PROJECTED",
+                    "evidence_ids": [],
+                },
+                {
+                    "scope": "UNSCHEDULED_EXCEPTIONS",
+                    "from": "2020-01-01",
+                    "to": "2020-12-31",
+                    "quality": "PROJECTED",
+                    "evidence_ids": [],
+                },
+            ],
+        },
+    }
+    calendar = SingleCalendar(CalendarData("TEST", metadata, []))
+    day = dt.date(2020, 7, 30)
+
+    assessment = calendar.assessment(day)
+    assert assessment.state == "UNKNOWN"
+    assert assessment.scheduled_state == "OPEN"
+    assert assessment.effective_confidence == "UNKNOWN"
+    assert assessment.evidence_ids == ["missing-primary"]
+    with pytest.raises(bdc.UnresolvedDateError) as excinfo:
+        calendar.is_business_day(day)
+    assert isinstance(excinfo.value, bdc.OutsideCoverageError)
+    assert excinfo.value.incomplete_scopes == ["SCHEDULED_CLOSURES"]
+    with pytest.raises(bdc.UnresolvedDateError):
+        calendar.event_count_in_range(day, day)
+
+
 def test_status(nyse):
     assert nyse.verified_through == dt.date(2026, 12, 31)
     assert nyse.status(dt.date(2025, 7, 4)) == "CONFIRMED"

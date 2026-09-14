@@ -1,5 +1,7 @@
 package com.bdc.model;
 
+import com.bdc.trust.CompletenessScope;
+import com.bdc.trust.CoverageInterval;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -106,8 +108,12 @@ public record CalendarSpec(
    * @param verifiedThrough last date up to which the data has been checked against sources
    */
   public record Coverage(
-      LocalDate from, LocalDate to, @JsonProperty("verified_through") LocalDate verifiedThrough) {
+      LocalDate from,
+      LocalDate to,
+      @JsonProperty("verified_through") LocalDate verifiedThrough,
+      List<CoverageInterval> quality) {
     public Coverage {
+      quality = quality == null ? List.of() : List.copyOf(quality);
       if (from != null && to != null && from.isAfter(to)) {
         throw new IllegalArgumentException("coverage.from must not be after coverage.to");
       }
@@ -115,6 +121,28 @@ public record CalendarSpec(
         throw new IllegalArgumentException(
             "coverage.verified_through must not be after coverage.to");
       }
+      for (CoverageInterval interval : quality) {
+        if ((from != null && interval.from().isBefore(from))
+            || (to != null && interval.to().isAfter(to))) {
+          throw new IllegalArgumentException("coverage quality interval lies outside coverage");
+        }
+      }
+      for (CompletenessScope scope : CompletenessScope.values()) {
+        List<CoverageInterval> scoped =
+            quality.stream()
+                .filter(interval -> interval.scope() == scope)
+                .sorted(java.util.Comparator.comparing(CoverageInterval::from))
+                .toList();
+        for (int i = 1; i < scoped.size(); i++) {
+          if (!scoped.get(i).from().isAfter(scoped.get(i - 1).to())) {
+            throw new IllegalArgumentException("coverage quality intervals overlap for " + scope);
+          }
+        }
+      }
+    }
+
+    public Coverage(LocalDate from, LocalDate to, LocalDate verifiedThrough) {
+      this(from, to, verifiedThrough, List.of());
     }
 
     public boolean contains(LocalDate date) {

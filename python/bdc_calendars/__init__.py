@@ -38,7 +38,13 @@ from .calendar import (
     list_aliases,
     list_calendars,
 )
-from .errors import BdcCalendarError, CalendarNotFoundError, OutsideCoverageError
+from .errors import (
+    BdcCalendarError,
+    CalendarNotFoundError,
+    OutsideCoverageError,
+    UnresolvedDateError,
+)
+from .trust import CoverageInterval, DayAssessment, EventDetails, NativeDate
 
 #: Release version of the bundled calendar data, e.g. ``"11.0.0"``.
 data_version = DATA_VERSION
@@ -68,6 +74,11 @@ __all__ = [
     "BdcCalendarError",
     "CalendarNotFoundError",
     "OutsideCoverageError",
+    "UnresolvedDateError",
+    "CoverageInterval",
+    "DayAssessment",
+    "EventDetails",
+    "NativeDate",
     "CONFIRMED",
     "PROJECTED",
     "UNKNOWN",

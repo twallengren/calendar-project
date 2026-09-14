@@ -4,6 +4,9 @@ import com.bdc.chronology.DateRange;
 import com.bdc.emitter.EventsCsvReader;
 import com.bdc.model.Event;
 import com.bdc.stream.CsvDateStream;
+import com.bdc.trust.CompletenessScope;
+import com.bdc.trust.CoverageInterval;
+import com.bdc.trust.CoverageQuality;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
@@ -35,9 +38,32 @@ public class ReleaseHistoryStore {
 
   /** One published version of one calendar. */
   public record Snapshot(
-      String calendarId, String id, Instant archivedAt, String gitSha, String version, Path dir) {
+      String calendarId,
+      String id,
+      Instant archivedAt,
+      String gitSha,
+      String version,
+      Path dir,
+      Optional<Instant> validFrom,
+      Optional<Instant> validUntil) {
+    public Snapshot {
+      validFrom = validFrom == null ? Optional.empty() : validFrom;
+      validUntil = validUntil == null ? Optional.empty() : validUntil;
+      if (validFrom.isPresent()
+          && validUntil.isPresent()
+          && !validFrom.orElseThrow().isBefore(validUntil.orElseThrow())) {
+        throw new IllegalArgumentException("snapshot valid_from must be before valid_until");
+      }
+    }
+
     public boolean isBlessed() {
       return "blessed".equals(id);
+    }
+
+    /** Whether this publication is evidenced as current at {@code instant}. */
+    public boolean contains(Instant instant) {
+      return validFrom.map(from -> !instant.isBefore(from)).orElse(false)
+          && validUntil.map(until -> instant.isBefore(until)).orElse(true);
     }
   }
 
@@ -62,9 +88,19 @@ public class ReleaseHistoryStore {
             continue;
           }
           Instant ts = Instant.from(DIR_TIMESTAMP.parse(m.group(1)));
+          Optional<Instant> validFrom = publicationInstant(dir, "valid_from", "published_at");
+          Optional<Instant> validUntil =
+              publicationInstant(dir, "valid_until").or(() -> Optional.of(ts));
           snapshots.add(
               new Snapshot(
-                  calendarId, dir.getFileName().toString(), ts, m.group(2), m.group(3), dir));
+                  calendarId,
+                  dir.getFileName().toString(),
+                  ts,
+                  m.group(2),
+                  m.group(3),
+                  dir,
+                  validFrom,
+                  validUntil));
         }
       }
     }
@@ -90,7 +126,15 @@ public class ReleaseHistoryStore {
             : Instant.EPOCH;
     String sha = root.path("release_version").path("git_sha").asText("unknown");
     String version = root.path("release_version").path("semantic").asText("unknown");
-    return Optional.of(new Snapshot(calendarId, "blessed", blessedAt, sha, version, calDir));
+    Optional<Instant> validFrom =
+        firstInstant(root, "valid_from", "published_at")
+            .or(() -> firstInstant(root.path("release_version"), "valid_from", "published_at"));
+    if (validFrom.isEmpty()) {
+      validFrom = publicationInstant(calDir, "valid_from", "published_at");
+    }
+    return Optional.of(
+        new Snapshot(
+            calendarId, "blessed", blessedAt, sha, version, calDir, validFrom, Optional.empty()));
   }
 
   /**
@@ -117,20 +161,43 @@ public class ReleaseHistoryStore {
     if (asOf == null) {
       return Optional.empty();
     }
-    // Snapshots are archived when they are superseded: a snapshot archived at time T was the
-    // current release from the previous archive time up to T. The blessed release is current from
-    // the last archive time onward.
-    List<Snapshot> chronological = new ArrayList<>(snapshots);
-    chronological.sort(Comparator.comparing(Snapshot::archivedAt));
-    for (Snapshot s : chronological) {
-      if (s.isBlessed()) {
-        continue;
-      }
-      if (!asOf.isAfter(s.archivedAt())) {
-        return Optional.of(s);
+    // An archive timestamp proves when a snapshot stopped being current; it does not prove when
+    // that release became current. Date-based history therefore uses only explicit publication
+    // evidence. Legacy snapshots remain available through their exact version or directory id.
+    return snapshots.stream()
+        .filter(snapshot -> snapshot.contains(asOf))
+        .max(Comparator.comparing(snapshot -> snapshot.validFrom().orElse(Instant.MIN)));
+  }
+
+  private Optional<Instant> publicationInstant(Path snapshotDir, String... fields)
+      throws IOException {
+    for (String name : List.of("publication.json", "release.json")) {
+      Path descriptor = snapshotDir.resolve(name);
+      if (Files.exists(descriptor)) {
+        Optional<Instant> value = firstInstant(mapper.readTree(descriptor.toFile()), fields);
+        if (value.isPresent()) {
+          return value;
+        }
       }
     }
-    return snapshots.stream().filter(Snapshot::isBlessed).findFirst();
+    Path metadata = snapshotDir.resolve("metadata.json");
+    if (Files.exists(metadata)) {
+      JsonNode root = mapper.readTree(metadata.toFile());
+      Optional<Instant> value = firstInstant(root.path("publication"), fields);
+      if (value.isPresent()) {
+        return value;
+      }
+    }
+    return Optional.empty();
+  }
+
+  private static Optional<Instant> firstInstant(JsonNode node, String... fields) {
+    for (String field : fields) {
+      if (node.hasNonNull(field)) {
+        return Optional.of(Instant.parse(node.path(field).asText()));
+      }
+    }
+    return Optional.empty();
   }
 
   private static Instant parseInstant(String selector) {
@@ -163,7 +230,32 @@ public class ReleaseHistoryStore {
         snapshot.calendarId(),
         loadEvents(snapshot),
         range(snapshot),
-        verifiedThrough(snapshot).orElse(null));
+        verifiedThrough(snapshot).orElse(null),
+        coverageIntervals(snapshot));
+  }
+
+  /** Explicit scope-specific quality intervals recorded in metadata, or empty for legacy data. */
+  public List<CoverageInterval> coverageIntervals(Snapshot snapshot) throws IOException {
+    JsonNode rows = metadata(snapshot).path("coverage").path("quality");
+    if (!rows.isArray()) {
+      return List.of();
+    }
+    List<CoverageInterval> result = new ArrayList<>();
+    for (JsonNode row : rows) {
+      List<String> evidence = new ArrayList<>();
+      JsonNode evidenceNode = row.path("evidence_ids");
+      if (evidenceNode.isArray()) {
+        evidenceNode.forEach(id -> evidence.add(id.asText()));
+      }
+      result.add(
+          new CoverageInterval(
+              CompletenessScope.valueOf(row.path("scope").asText()),
+              LocalDate.parse(row.path("from").asText()),
+              LocalDate.parse(row.path("to").asText()),
+              CoverageQuality.valueOf(row.path("quality").asText()),
+              evidence));
+    }
+    return List.copyOf(result);
   }
 
   /** The {@code coverage.verified_through} recorded in the snapshot's metadata.json, if any. */

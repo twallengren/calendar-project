@@ -23,6 +23,30 @@ metadata:
     from: 2018-01-01
     to: 2027-12-31
     verified_through: 2027-12-31
+    quality:
+      - scope: SCHEDULED_CLOSURES
+        from: 2018-01-01
+        to: 2027-12-31
+        quality: VERIFIED
+        evidence_ids: [hkex-calendar, hkex-calendar-archived, govhk-general-holidays]
+      - scope: EARLY_CLOSES
+        from: 2018-01-01
+        to: 2027-12-31
+        quality: VERIFIED
+        evidence_ids: [hkex-calendar, hkex-calendar-archived, hkex-securities-trading-hours]
+      # Before severe-weather trading began, same-day typhoon/rainstorm cancellations were
+      # possible and are absent from this scheduled calendar. Known examples therefore make the
+      # actual day state incomplete even though assessment() can still report scheduled_state.
+      - scope: UNSCHEDULED_EXCEPTIONS
+        from: 2018-01-01
+        to: 2024-09-22
+        quality: INCOMPLETE
+        evidence_ids: [hkex-severe-weather-notices]
+      - scope: UNSCHEDULED_EXCEPTIONS
+        from: 2024-09-23
+        to: 2027-12-31
+        quality: PROJECTED
+        evidence_ids: [hkex-severe-weather-trading]
 
 # Hong Kong observance under the General Holidays Ordinance: a general holiday that falls on a
 # Sunday (the last day of the weekend block) is observed on the following weekday; a general

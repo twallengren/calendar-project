@@ -24,6 +24,7 @@ from typing import Any, Dict, List, Mapping, NamedTuple, Optional, Tuple
 
 from ._weekend import WeekendPolicy
 from .errors import CalendarNotFoundError
+from .trust import CoverageInterval
 
 try:  # Python >= 3.9
     from importlib.resources import files as _files
@@ -128,6 +129,7 @@ class CalendarData:
         "range_from",
         "range_to",
         "verified_through",
+        "coverage_intervals",
         "timezone",
         "name",
         "kind",
@@ -145,6 +147,7 @@ class CalendarData:
         coverage = metadata.get("coverage") or {}
         verified = coverage.get("verified_through")
         self.verified_through = _date(verified) if verified else None
+        self.coverage_intervals = tuple(_coverage_intervals(coverage.get("quality")))
         self.timezone = metadata.get("timezone")
         self.name = metadata.get("calendar_name", calendar_id)
         self.kind = metadata.get("kind", "market")
@@ -188,3 +191,21 @@ def _date(value: str) -> _dt.date:
 
 def _time(value: str) -> _dt.time:
     return _dt.time.fromisoformat(value)
+
+
+def _coverage_intervals(rows: Any) -> List[CoverageInterval]:
+    if not rows:
+        return []
+    result = []
+    for row in rows:
+        evidence = row.get("evidence_ids", row.get("evidenceIds", []))
+        result.append(
+            CoverageInterval(
+                scope=row["scope"],
+                start=_date(row["from"]),
+                end=_date(row["to"]),
+                quality=row["quality"],
+                evidence_ids=list(evidence),
+            )
+        )
+    return result

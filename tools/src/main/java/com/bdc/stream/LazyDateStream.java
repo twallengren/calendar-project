@@ -7,6 +7,7 @@ import com.bdc.model.Event;
 import com.bdc.model.EventType;
 import com.bdc.model.ResolvedSpec;
 import com.bdc.model.WeekendPolicy;
+import com.bdc.trust.CoverageInterval;
 import java.time.LocalDate;
 import java.util.*;
 
@@ -30,6 +31,7 @@ public class LazyDateStream implements DateStream {
   private final WeekendPolicy weekend;
   private final DateRange range;
   private final LocalDate verifiedThrough;
+  private final List<CoverageInterval> coverageIntervals;
 
   // Cache of per-day events for recently generated windows
   private final Map<LocalDate, List<Event>> dayCache =
@@ -48,12 +50,14 @@ public class LazyDateStream implements DateStream {
     if (coverage == null) {
       this.range = new DateRange(LocalDate.MIN, LocalDate.MAX);
       this.verifiedThrough = null;
+      this.coverageIntervals = List.of();
     } else {
       this.range =
           new DateRange(
               coverage.from() != null ? coverage.from() : LocalDate.MIN,
               coverage.to() != null ? coverage.to() : LocalDate.MAX);
       this.verifiedThrough = coverage.verifiedThrough();
+      this.coverageIntervals = coverage.quality();
     }
   }
 
@@ -70,6 +74,11 @@ public class LazyDateStream implements DateStream {
   @Override
   public Optional<LocalDate> verifiedThrough() {
     return Optional.ofNullable(verifiedThrough);
+  }
+
+  @Override
+  public List<CoverageInterval> coverageIntervals() {
+    return coverageIntervals;
   }
 
   private void checkRange(LocalDate date) {
@@ -110,6 +119,7 @@ public class LazyDateStream implements DateStream {
   @Override
   public boolean isBusinessDay(LocalDate date) {
     checkRange(date);
+    requireResolved(date);
     if (weekend.isWeekend(date)) {
       return false;
     }

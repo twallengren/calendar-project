@@ -9,6 +9,7 @@ __all__ = [
     "BdcCalendarError",
     "CalendarNotFoundError",
     "OutsideCoverageError",
+    "UnresolvedDateError",
 ]
 
 
@@ -56,5 +57,27 @@ class OutsideCoverageError(BdcCalendarError, ValueError):
         self.range_to = range_to
         message = "{} is outside the covered range of {} ({} to {})".format(
             date, calendar_id, range_from, range_to
+        )
+        ValueError.__init__(self, message)
+
+
+class UnresolvedDateError(OutsideCoverageError):
+    """The date is in range but one or more completeness scopes are unresolved."""
+
+    def __init__(
+        self,
+        calendar_id: str,
+        date: _dt.date,
+        range_from: _dt.date,
+        range_to: _dt.date,
+        incomplete_scopes: list,
+    ) -> None:
+        self.calendar_id = calendar_id
+        self.date = date
+        self.range_from = range_from
+        self.range_to = range_to
+        self.incomplete_scopes = list(incomplete_scopes)
+        message = "{} has incomplete calendar coverage for {}: {}".format(
+            date, calendar_id, ", ".join(self.incomplete_scopes)
         )
         ValueError.__init__(self, message)

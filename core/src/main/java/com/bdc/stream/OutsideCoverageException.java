@@ -23,7 +23,10 @@ public class OutsideCoverageException extends IllegalArgumentException {
   private final transient DateRange range;
 
   public OutsideCoverageException(String calendarId, LocalDate date, DateRange range) {
-    super(
+    this(
+        calendarId,
+        date,
+        range,
         date
             + " is outside the covered range of "
             + calendarId
@@ -32,6 +35,11 @@ public class OutsideCoverageException extends IllegalArgumentException {
             + " to "
             + range.end()
             + ")");
+  }
+
+  protected OutsideCoverageException(
+      String calendarId, LocalDate date, DateRange range, String message) {
+    super(message);
     this.calendarId = calendarId;
     this.date = date;
     this.range = range;

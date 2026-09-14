@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import json
 import sys
+from pathlib import Path
 
 import pytest
 
@@ -18,11 +19,16 @@ mcp_client = pytest.importorskip("mcp")
 from mcp import ClientSession  # noqa: E402
 from mcp.client.stdio import StdioServerParameters, stdio_client  # noqa: E402
 
-SERVER_PARAMS = StdioServerParameters(command=sys.executable, args=["-m", "bdc_calendars.mcp.server"])
+SERVER_PARAMS = StdioServerParameters(
+    command=sys.executable,
+    args=["-m", "bdc_calendars.mcp.server"],
+    env={"PYTHONPATH": str(Path(__file__).resolve().parents[1])},
+)
 
 EXPECTED_TOOLS = {
     "list_calendars",
     "calendar_info",
+    "assess_day",
     "is_business_day",
     "next_business_day",
     "previous_business_day",
@@ -66,6 +72,20 @@ async def test_is_business_day_us_nyse():
             assert payload["is_business_day"] is True
             assert "data_version" in payload
             assert "reason" not in payload
+
+
+@pytest.mark.anyio
+async def test_assess_day_exposes_completeness_contract():
+    async with stdio_client(SERVER_PARAMS) as (read, write):
+        async with ClientSession(read, write) as session:
+            await session.initialize()
+            payload = await _call(
+                session, "assess_day", {"calendar": "US-NYSE", "date": "2021-12-31"}
+            )
+            assert payload["state"] == "OPEN"
+            assert payload["scheduled_state"] == "OPEN"
+            assert payload["effective_confidence"] == "CONFIRMED"
+            assert payload["completeness"]["SCHEDULED_CLOSURES"] == "PROJECTED"
 
 
 @pytest.mark.anyio

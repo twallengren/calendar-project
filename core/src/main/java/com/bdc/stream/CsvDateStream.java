@@ -3,6 +3,7 @@ package com.bdc.stream;
 import com.bdc.chronology.DateRange;
 import com.bdc.model.Event;
 import com.bdc.model.EventType;
+import com.bdc.trust.CoverageInterval;
 import java.time.LocalDate;
 import java.util.*;
 
@@ -18,6 +19,7 @@ public class CsvDateStream implements DateStream {
   private final String calendarId;
   private final DateRange range;
   private final LocalDate verifiedThrough;
+  private final List<CoverageInterval> coverageIntervals;
   private final NavigableMap<LocalDate, List<Event>> byDate = new TreeMap<>();
 
   public CsvDateStream(String calendarId, List<Event> events, DateRange range) {
@@ -30,9 +32,19 @@ public class CsvDateStream implements DateStream {
    */
   public CsvDateStream(
       String calendarId, List<Event> events, DateRange range, LocalDate verifiedThrough) {
+    this(calendarId, events, range, verifiedThrough, List.of());
+  }
+
+  public CsvDateStream(
+      String calendarId,
+      List<Event> events,
+      DateRange range,
+      LocalDate verifiedThrough,
+      List<CoverageInterval> coverageIntervals) {
     this.calendarId = calendarId;
     this.range = range;
     this.verifiedThrough = verifiedThrough;
+    this.coverageIntervals = coverageIntervals == null ? List.of() : List.copyOf(coverageIntervals);
     for (Event e : events) {
       byDate.computeIfAbsent(e.date(), d -> new ArrayList<>()).add(e);
     }
@@ -51,6 +63,11 @@ public class CsvDateStream implements DateStream {
   @Override
   public Optional<LocalDate> verifiedThrough() {
     return Optional.ofNullable(verifiedThrough);
+  }
+
+  @Override
+  public List<CoverageInterval> coverageIntervals() {
+    return coverageIntervals;
   }
 
   private void checkRange(LocalDate date) {
@@ -80,6 +97,7 @@ public class CsvDateStream implements DateStream {
   @Override
   public boolean isBusinessDay(LocalDate date) {
     checkRange(date);
+    requireResolved(date);
     return eventsOn(date).stream()
         .noneMatch(e -> e.type() == EventType.CLOSED || e.type() == EventType.WEEKEND);
   }

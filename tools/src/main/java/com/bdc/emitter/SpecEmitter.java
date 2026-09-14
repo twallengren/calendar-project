@@ -93,6 +93,9 @@ public class SpecEmitter {
         if (cov.verifiedThrough() != null) {
           covMap.put("verified_through", cov.verifiedThrough().toString());
         }
+        if (!cov.quality().isEmpty()) {
+          covMap.put("quality", CoverageSerialization.toMaps(cov.quality()));
+        }
         metadata.put("coverage", covMap);
       }
       resolved.put("metadata", metadata);

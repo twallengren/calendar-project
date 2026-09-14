@@ -24,7 +24,19 @@ from typing import List, NamedTuple, Optional, Sequence, Tuple, Union
 from . import _loader
 from ._loader import Event
 from ._weekend import DAY_NAMES, WeekendPolicy
-from .errors import OutsideCoverageError
+from .errors import OutsideCoverageError, UnresolvedDateError
+from .trust import (
+    CLOSED,
+    COMPLETENESS_SCOPES,
+    EARLY_CLOSE,
+    INCOMPLETE,
+    OPEN,
+    PROJECTED as QUALITY_PROJECTED,
+    UNKNOWN as STATE_UNKNOWN,
+    CoverageInterval,
+    DayAssessment,
+    EventDetails,
+)
 
 __all__ = [
     "BusinessCalendar",
@@ -105,6 +117,11 @@ class BusinessCalendar:
         Dates after it are :data:`PROJECTED`, whatever the underlying rows say.
         """
         raise NotImplementedError
+
+    @property
+    def coverage_intervals(self) -> Sequence[CoverageInterval]:
+        """Explicit scope-specific quality intervals; empty for legacy artifacts."""
+        return ()
 
     # --- Core queries --------------------------------------------------------
 
@@ -230,7 +247,16 @@ class BusinessCalendar:
 
     def event_count_in_range(self, start: DateLike, end: DateLike) -> int:
         """The number of events in ``[start, end]``, weekend rows included."""
-        return len(self.events_in_range(start, end))
+        first = _as_date(start, "start")
+        last = _as_date(end, "end")
+        if first > last:
+            raise ValueError("from must not be after to")
+        day = first
+        one = _dt.timedelta(days=1)
+        while day <= last:
+            self._require_resolved(day)
+            day += one
+        return len(self.events_in_range(first, last))
 
     # --- Session detail ------------------------------------------------------
 
@@ -243,9 +269,11 @@ class BusinessCalendar:
         closed date both answer ``None`` (use :meth:`is_business_day` to tell
         them apart).
         """
+        day = _as_date(date)
+        self._require_resolved(day)
         times = [
             event.close_time
-            for event in self.events_on(date)
+            for event in self.events_on(day)
             if event.type == "EARLY_CLOSE" and event.close_time is not None
         ]
         return min(times) if times else None
@@ -271,6 +299,8 @@ class BusinessCalendar:
         day = _as_date(date)
         if not self.range.contains(day):
             return UNKNOWN
+        if self.coverage_intervals:
+            return self.assessment(day).effective_confidence
         verified = self.verified_through
         if verified is not None and day > verified:
             return PROJECTED
@@ -278,6 +308,85 @@ class BusinessCalendar:
             if event.status == PROJECTED:
                 return PROJECTED
         return CONFIRMED
+
+    def assessment(self, date: DateLike) -> DayAssessment:
+        """Return actual, scheduled and completeness state without raising."""
+        day = _as_date(date)
+        if not self.range.contains(day):
+            return DayAssessment(
+                day,
+                STATE_UNKNOWN,
+                STATE_UNKNOWN,
+                UNKNOWN,
+                {scope: INCOMPLETE for scope in COMPLETENESS_SCOPES},
+                [],
+                [],
+            )
+        events = self.events_on(day)
+        scheduled = _scheduled_state(events)
+        explicit = bool(self.coverage_intervals)
+        completeness = {}
+        evidence = []
+        for scope in COMPLETENESS_SCOPES:
+            matching = [
+                interval
+                for interval in self.coverage_intervals
+                if interval.scope == scope and interval.contains(day)
+            ]
+            qualities = [interval.quality for interval in matching]
+            quality = (
+                INCOMPLETE
+                if INCOMPLETE in qualities
+                else QUALITY_PROJECTED
+                if QUALITY_PROJECTED in qualities
+                else qualities[0]
+                if qualities
+                else QUALITY_PROJECTED
+                if not explicit
+                else INCOMPLETE
+            )
+            completeness[scope] = quality
+            for interval in matching:
+                for evidence_id in interval.evidence_ids:
+                    if evidence_id not in evidence:
+                        evidence.append(evidence_id)
+        incomplete = INCOMPLETE in completeness.values()
+        raw_projected = any(event.status == PROJECTED for event in events)
+        if incomplete:
+            confidence = UNKNOWN
+        elif QUALITY_PROJECTED in completeness.values() or raw_projected:
+            confidence = PROJECTED
+        else:
+            confidence = CONFIRMED
+        if not explicit:
+            confidence = (
+                PROJECTED
+                if (self.verified_through is not None and day > self.verified_through)
+                or raw_projected
+                else CONFIRMED
+            )
+        details = [
+            EventDetails(
+                event,
+                event.status,
+                confidence,
+                list(evidence),
+                None,
+                None,
+                None,
+                ([event.observed_from, event.date] if event.observed_from else []),
+            )
+            for event in events
+        ]
+        return DayAssessment(
+            day,
+            STATE_UNKNOWN if incomplete else scheduled,
+            scheduled,
+            confidence,
+            completeness,
+            evidence,
+            details,
+        )
 
     # --- Convenience ---------------------------------------------------------
 
@@ -330,6 +439,18 @@ class BusinessCalendar:
         if not window.contains(date):
             raise OutsideCoverageError(self.calendar_id, date, window.start, window.end)
 
+    def _require_resolved(self, date: _dt.date) -> None:
+        assessment = self.assessment(date)
+        if assessment.state != STATE_UNKNOWN:
+            return
+        self._check_range(date)
+        incomplete = [
+            scope for scope, quality in assessment.completeness.items() if quality == INCOMPLETE
+        ]
+        raise UnresolvedDateError(
+            self.calendar_id, date, self.range.start, self.range.end, incomplete
+        )
+
     def __repr__(self) -> str:
         return "<{} {} {}>".format(type(self).__name__, self.calendar_id, self.range)
 
@@ -378,6 +499,10 @@ class SingleCalendar(BusinessCalendar):
     @property
     def verified_through(self) -> Optional[_dt.date]:
         return self._data.verified_through
+
+    @property
+    def coverage_intervals(self) -> Sequence[CoverageInterval]:
+        return self._data.coverage_intervals
 
     # --- Core queries --------------------------------------------------------
 
@@ -431,6 +556,7 @@ class SingleCalendar(BusinessCalendar):
     def is_business_day(self, date: DateLike) -> bool:
         day = _as_date(date)
         self._check_range(day)
+        self._require_resolved(day)
         if self._data.weekend_policy.is_weekend(day):
             return False
         rows = self._data.events_by_date.get(day)
@@ -540,6 +666,52 @@ class JointCalendar(BusinessCalendar):
                 projected = True
         return PROJECTED if projected else CONFIRMED
 
+    def assessment(self, date: DateLike) -> DayAssessment:
+        day = _as_date(date)
+        if not self.range.contains(day):
+            return super().assessment(day)
+        assessments = [member.assessment(day) for member in self._members]
+        completeness = {}
+        evidence = []
+        for scope in COMPLETENESS_SCOPES:
+            qualities = [item.completeness[scope] for item in assessments]
+            completeness[scope] = (
+                INCOMPLETE
+                if INCOMPLETE in qualities
+                else QUALITY_PROJECTED if QUALITY_PROJECTED in qualities else "VERIFIED"
+            )
+        for item in assessments:
+            for evidence_id in item.evidence_ids:
+                if evidence_id not in evidence:
+                    evidence.append(evidence_id)
+        scheduled = (
+            CLOSED
+            if any(item.scheduled_state == CLOSED for item in assessments)
+            else EARLY_CLOSE
+            if any(item.scheduled_state == EARLY_CLOSE for item in assessments)
+            else OPEN
+        )
+        confidence = (
+            UNKNOWN
+            if any(item.effective_confidence == UNKNOWN for item in assessments)
+            else PROJECTED
+            if any(item.effective_confidence == PROJECTED for item in assessments)
+            else CONFIRMED
+        )
+        details = []
+        for member, item in zip(self._members, assessments):
+            for detail in item.events:
+                details.append(detail._replace(event=_qualify(member, detail.event)))
+        return DayAssessment(
+            day,
+            STATE_UNKNOWN if confidence == UNKNOWN else scheduled,
+            scheduled,
+            confidence,
+            completeness,
+            evidence,
+            details,
+        )
+
 
 def _qualify(member: BusinessCalendar, event: Event) -> Event:
     """Re-labels a member event so its origin stays visible in the joint stream."""
@@ -548,6 +720,14 @@ def _qualify(member: BusinessCalendar, event: Event) -> Event:
     else:
         source = "{}/{}".format(member.calendar_id, event.source_module)
     return event._replace(source_module=source)
+
+
+def _scheduled_state(events: Sequence[Event]) -> str:
+    if any(event.type in ("CLOSED", "WEEKEND") for event in events):
+        return CLOSED
+    if any(event.type == "EARLY_CLOSE" for event in events):
+        return EARLY_CLOSE
+    return OPEN
 
 
 # --- Factories ---------------------------------------------------------------

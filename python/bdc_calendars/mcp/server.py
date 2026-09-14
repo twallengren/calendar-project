@@ -76,6 +76,32 @@ def _event_dict(event: Event) -> Dict[str, Any]:
     }
 
 
+def _assessment_dict(assessment: bdc.DayAssessment) -> Dict[str, Any]:
+    return {
+        "date": _iso(assessment.date),
+        "state": assessment.state,
+        "scheduled_state": assessment.scheduled_state,
+        "effective_confidence": assessment.effective_confidence,
+        "completeness": dict(assessment.completeness),
+        "evidence_ids": list(assessment.evidence_ids),
+        "events": [
+            {
+                **_event_dict(detail.event),
+                "raw_status": detail.raw_status,
+                "effective_status": detail.effective_status,
+                "evidence_ids": list(detail.evidence_ids),
+                "nominal_native_date": detail.nominal_native_date._asdict()
+                if detail.nominal_native_date
+                else None,
+                "chronology_profile": detail.chronology_profile,
+                "chronology_provider": detail.chronology_provider,
+                "observation_lineage": [_iso(day) for day in detail.observation_lineage],
+            }
+            for detail in assessment.events
+        ],
+    }
+
+
 def _weekend_policy_dict(policy: WeekendPolicy) -> Dict[str, Any]:
     return {
         "days": sorted(DAY_NAMES[d] for d in policy.days),
@@ -188,7 +214,32 @@ def create_server() -> "Any":
         info = _calendar_summary(cal)
         info["sources"] = cal.metadata.get("sources")
         info["weekend_policy"] = _weekend_policy_dict(cal.weekend_policy)
+        info["coverage_quality"] = [
+            {
+                "scope": interval.scope,
+                "from": _iso(interval.start),
+                "to": _iso(interval.end),
+                "quality": interval.quality,
+                "evidence_ids": interval.evidence_ids,
+            }
+            for interval in cal.coverage_intervals
+        ]
         return info
+
+    @app.tool()
+    def assess_day(calendar: str, date: str) -> Dict[str, Any]:
+        """Explain actual and scheduled state, confidence, completeness and evidence for a date."""
+        try:
+            cal = bdc.get_calendar(calendar)
+            day = _parse_date(date)
+            assessment = cal.assessment(day)
+        except _QUERY_ERRORS as exc:
+            return _error(exc)
+        return {
+            "calendar_id": cal.calendar_id,
+            "data_version": bdc.data_version,
+            **_assessment_dict(assessment),
+        }
 
     @app.tool()
     def is_business_day(calendar: str, date: str) -> Dict[str, Any]:

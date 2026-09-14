@@ -8,6 +8,8 @@ import com.bdc.model.EventType;
 import com.bdc.stream.CsvDateStream;
 import com.bdc.stream.DateStream;
 import com.bdc.stream.JointDateStream;
+import com.bdc.trust.CoverageInterval;
+import com.bdc.trust.CoverageIntervals;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.UncheckedIOException;
@@ -141,13 +143,15 @@ public final class BusinessCalendars {
     Collections.sort(events);
 
     LocalDate verifiedThrough = null;
+    List<CoverageInterval> coverageIntervals = List.of();
     if (metadata.get("coverage") instanceof Map<?, ?> coverage) {
       Object declared = coverage.get("verified_through");
       if (declared != null) {
         verifiedThrough = LocalDate.parse(String.valueOf(declared));
       }
+      coverageIntervals = CoverageIntervals.fromJson(coverage.get("quality"));
     }
-    return new CsvDateStream(calendarId, events, range, verifiedThrough);
+    return new CsvDateStream(calendarId, events, range, verifiedThrough, coverageIntervals);
   }
 
   /**

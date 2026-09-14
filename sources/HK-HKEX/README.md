@@ -10,6 +10,7 @@
 | `govhk-general-holidays` | General Holidays (per-year lists) | Hong Kong Special Administrative Region Government | https://www.gov.hk/en/about/abouthk/holiday/ , per-year pages https://www.gov.hk/en/about/abouthk/holiday/2024.htm ... /2027.htm | 2026-09-14 | 2024-2027 | The Government's published list of general holidays for each year, as gazetted under the General Holidays Ordinance (Cap. 149). Each row gives the holiday's statutory name, date and weekday, already carrying any substitution ("the day following ...", "the fourth day of Lunar New Year", "the second weekday after Christmas Day"). Only the current and next few years stay online; 2028 was not yet published at the retrieval date. |
 | `govhk-general-holidays-archived` | General Holidays (per-year lists, archived captures) | Hong Kong Special Administrative Region Government, via the Internet Archive | https://web.archive.org/web/YYYY0601/https://www.gov.hk/en/about/abouthk/holiday/YYYY.htm (2018-2023) | 2026-09-14 | 2018-2023 | The same per-year gov.hk pages for years the Government has since taken down, read from mid-year captures (by which point the year's list is final). Table shape and wording are identical to the live pages; the weekday named in each row was checked against the date as a transcription guard. |
 | `hkex-severe-weather-notices` | Securities and Derivatives Market Trading Arrangements under Typhoon Signal No. 8 (Market Communications) | Hong Kong Exchanges and Clearing Limited | https://www.hkex.com.hk/News/Market-Communications/2024/240906news?sc_lang=en | 2026-09-14 | 6 September 2024 | Example of a same-day severe-weather announcement: "trading of its securities ... and derivatives markets today (Friday) has been impacted by the issuance of Typhoon Signal No.8 ... If Typhoon Signal No. 8 or above, Black Rainstorm Warning or any announcement of Extreme Conditions, remains issued at 12:00 noon, all trading sessions today will be cancelled." Cited only in `tools/src/test/resources/reference/HK-HKEX/allowlist.csv`, to show that the severe-weather closures a third-party dataset carries are announced on the day rather than scheduled; no date in this calendar comes from it. |
+| `hkex-severe-weather-trading` | HKEX to Implement Severe Weather Trading in Securities and Derivatives Markets from 23 September 2024 | Hong Kong Exchanges and Clearing Limited | https://www.hkex.com.hk/News/Market-Communications/2024/240618news?sc_lang=en | 2026-09-14 | from 2024-09-23 | HKEX states that its securities and derivatives markets remain open and operational during severe weather under the arrangements effective 23 September 2024. |
 | `hk-1823-ical` | Hong Kong Public Holidays iCal / JSON feed | 1823, Hong Kong Special Administrative Region Government | https://www.1823.gov.hk/common/ical/en.json | 2026-09-14 | 2025-2027 | The Government's machine-readable feed of the same gazetted general holidays, linked from the gov.hk holiday pages. Used as an independent transcription check on 2025-2027; it matched the HTML pages row for row. |
 
 ## Modelling decisions recorded against these sources
@@ -101,8 +102,8 @@
   carries a substitute, so they add no information and are left out. This is consistent with what
   `FORWARD_ONLY` does to the rule-driven holidays, which also drops their Saturday occurrences.
 
-- **Severe-weather closures are out of scope.** Typhoon and black-rainstorm closures are announced
-  on the day and appear in no published schedule, so they are not modelled; the calendar
-  description says so. HKEX began trading through severe weather on 23 September 2024, so no such
-  closure can arise in the later part of coverage. Where a third-party reference dataset carries
-  one, it is listed in `tools/src/test/resources/reference/HK-HKEX/allowlist.csv` with that reason.
+- **Severe-weather completeness is explicit.** Typhoon and black-rainstorm closures were announced
+  on the day and do not appear in published schedules. The actual-state completeness scope is
+  therefore `INCOMPLETE` through 22 September 2024; callers can still inspect the scheduled state.
+  From 23 September 2024 HKEX's severe-weather-trading policy keeps markets operating in those
+  conditions, and that future interval is labelled `PROJECTED` rather than verified.
