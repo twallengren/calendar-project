@@ -93,7 +93,23 @@ jobs:
           fi
           test "$COMMIT" = "$(git rev-parse HEAD)"
           SOURCE_SHA=$(jq -er .source_sha release/release.json)
-          git merge-base --is-ancestor "$SOURCE_SHA" "$COMMIT"
+          if ! git cat-file -e "${SOURCE_SHA}^{commit}"; then
+            git fetch --no-tags origin "$SOURCE_SHA"
+          fi
+          git cat-file -e "${SOURCE_SHA}^{commit}"
+          # A protected squash merge does not retain the reviewed source commit as an
+          # ancestor. Prove the stronger property needed here: every reproducibility
+          # input in the published tree is identical to the descriptor's source tree.
+          SOURCE_TREE="$RUNNER_TEMP/descriptor-source"
+          git worktree add --detach "$SOURCE_TREE" "$SOURCE_SHA"
+          (
+            cd "$SOURCE_TREE"
+            python3 -c 'import json; from scripts.release.descriptor import input_hashes; print(json.dumps(input_hashes(), sort_keys=True))'
+          ) > "$RUNNER_TEMP/source-inputs.json"
+          python3 -c 'import json; print(json.dumps(json.load(open("release/release.json"))["inputs"], sort_keys=True))' \
+            > "$RUNNER_TEMP/descriptor-inputs.json"
+          diff -u "$RUNNER_TEMP/descriptor-inputs.json" "$RUNNER_TEMP/source-inputs.json"
+          git worktree remove --force "$SOURCE_TREE"
           BASELINE_REF=$(jq -er .baseline.ref release/release.json)
           test "$(git rev-parse "${BASELINE_REF}^{commit}")" = "$(jq -er .baseline.commit release/release.json)"
           python3 scripts/release/descriptor.py --verify
