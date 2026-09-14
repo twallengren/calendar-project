@@ -26,6 +26,7 @@ All Gradle commands run from the repo root (the `tools/` build uses `workingDir 
 ./gradlew :tools:run --args="site --api-only --out site"  # write the /v1/ JSON API + .ics files from blessed/ (see spec/SPEC.md#json-api-v1)
 # .github/workflows/pages.yml deploys `tools site --out site/` (JSON API + HTML) to GitHub Pages on every push to main touching blessed/, release-history/, tools/src/main/, or sources/
 ./gradlew :tools:run --args="site --out site --base-url https://twallengren.github.io/calendar-project/"  # full static site: /v1/ API, changelog, then HTML pages rendered from that API (com.bdc.site; hand-written styles.css/site.js in tools/src/main/resources/site/)
+# the same run also writes /compare/<A>/<B>/ for every unordered pair of market calendars and /sources/<ID>/ from sources/<ID>/README.md (--sources-dir, default `sources`)
 scripts/bless.sh                     # regenerate blessed/ reproducibly (no-op leaves git clean)
 ./gradlew :tools:run --args="crossvalidate --all --out blessed"   # writes blessed/<ID>/cross_validation.json; ./gradlew :tools:run --args="status --format markdown" renders the Market status table in README.md
 ```
@@ -73,6 +74,7 @@ YAML specs (calendars/, modules/, chronologies/)
 | `validation` | `SpecValidator` (structural) and `GeneratedOutputValidator` (post-generation) behind `validate` |
 | `formula` | Reference date computation (e.g., Easter) |
 | `classifier` | Event classification logic (CLOSED, NOTABLE, PERIOD_MARKER) |
+| `site` | Static site: `ApiEmitter` (/v1/ JSON), changelog, and the HTML renderers — home, market, year, date, `ComparePageRenderer` (pair pages + T+N helper mount), `SourcesPageRenderer`/`SourceRegistry`/`MarkdownRenderer` (the `sources/` register) |
 
 ### Rule types for event sources
 
@@ -116,6 +118,7 @@ Chronology YAML files in `chronologies/` are compiled to Java classes in `tools/
 - **Property-based tests**: JQwik for randomized edge-case testing (chronology conversions, etc.)
 - **Test calendars**: `tools/src/test/resources/test-calendars/` contains YAML fixtures
 - **Cross-validation**: `ReferenceCrossValidationTest` diffs generated output against `tools/src/test/resources/reference/` (exchange_calendars, QuantLib exports); explained differences live in `allowlist.csv` and stale rows fail
+- **Browser/Java parity**: the T+N settlement helper in `site.js` reimplements `JointDateStream` (contract in `spec/SPEC.md#settlement-in-the-browser`). `SettlementParityTest` checks `tools/src/main/resources/site/settlement-fixture.json` against `JointDateStream` (regenerate with `-DupdateGoldens=true`); the browser half runs at `/compare/settlement-selftest.html`, which needs the site served over HTTP (`python3 -m http.server` in the output directory), not `file://`
 
 ## Data contributions
 

@@ -67,13 +67,16 @@ public class SiteGenerator {
     List<CalendarData> calendars = CalendarData.readAll(siteDir);
     List<String> ids = calendars.stream().map(CalendarData::id).toList();
     Map<String, StatusData> status = StatusData.readAll(blessedDir, sourcesDir, ids);
+    SourceRegistry sources = SourceRegistry.read(sourcesDir, blessedDir, ids);
+    List<CalendarData> markets = ComparePageRenderer.marketCalendars(calendars, siteDir);
 
     copyAssets();
 
     PageLayout layout = new PageLayout(context);
     YearGridRenderer gridRenderer = new YearGridRenderer();
     HomePageRenderer homeRenderer = new HomePageRenderer(context, layout);
-    MarketPageRenderer marketRenderer = new MarketPageRenderer(context, layout, gridRenderer);
+    MarketPageRenderer marketRenderer =
+        new MarketPageRenderer(context, layout, gridRenderer, sources, markets);
     YearPageRenderer yearRenderer = new YearPageRenderer(context, layout, gridRenderer);
     DatePageRenderer dateRenderer = new DatePageRenderer(layout);
 
@@ -83,6 +86,9 @@ public class SiteGenerator {
       yearRenderer.writeAll(calendar, siteDir);
       dateRenderer.writeAll(calendar, siteDir);
     }
+
+    new ComparePageRenderer(context, layout).write(markets, siteDir);
+    new SourcesPageRenderer(context, layout).write(sources, siteDir);
 
     List<String> allPages = new SitemapEmitter(context).write(siteDir);
     return new Result(calendars.size(), allPages.size());

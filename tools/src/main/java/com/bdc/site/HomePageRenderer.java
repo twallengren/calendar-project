@@ -31,7 +31,9 @@ public final class HomePageRenderer {
               <li>iCalendar feeds per market, for subscribing in a calendar app.</li>
               <li><a href="changelog/index.html">Changelog</a> — what changed in every release,
               generated from the release history.</li>
-              <li><a href="{{sourcesUrl}}">Sources</a> — the register of gazettes, circulars and
+              <li><a href="compare/index.html">Compare two markets</a> — the days one market trades
+              while another is closed, and a T+N settlement helper for trades between them.</li>
+              <li><a href="sources/index.html">Sources</a> — the register of gazettes, circulars and
               exchange notices behind each calendar.</li>
               <li><a href="{{contributingUrl}}">Contributing</a> — how to add a market or correct
               a date.</li>
@@ -66,7 +68,6 @@ public final class HomePageRenderer {
         BODY.render(
             "siteName", context.siteName(),
             "table", table(calendars, status),
-            "sourcesUrl", context.repoTree("sources"),
             "contributingUrl", context.repoBlob("CONTRIBUTING.md"));
     return layout.render(0, "", context.siteName(), description, List.of(), "", body);
   }

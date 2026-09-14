@@ -555,6 +555,49 @@ Every derived operation (navigation, counting, settlement) follows from the join
 which is what makes T+N settlement across markets correct: a trade settles only on a day both
 markets are open.
 
+### Settlement in the browser
+
+The compare pages on the published site carry a T+N settlement form that answers from the JSON API
+in the reader's browser. It is a *reimplementation* of the joint stream — no Java runs — so this
+section is the contract it implements, and the reference for any other client that walks the
+published files directly rather than calling a library. The implementation lives in
+`tools/src/main/resources/site/site.js`.
+
+Inputs, per calendar, both fetched from `/v1/`:
+
+| Input | File | Use |
+|-------|------|-----|
+| `weekend_policy` | `calendars/<ID>/manifest.json` | which weekdays are non-trading, effective-dated |
+| `CLOSED` rows | `calendars/<ID>/<year>.json` | full-day closures, by date |
+
+Fetch the year file for the trade date's year **and the following year**: a T+10 walk from late
+December crosses the boundary, and a year the API does not publish is outside coverage.
+
+The algorithm:
+
+1. **Weekend.** `weekend_policy` is a list of `{days, from?, to?}` periods. For a date, the **last**
+   period whose `from`/`to` (either may be absent, meaning unbounded) contains it decides; its
+   `days` are the weekend days. A date no period covers has **no** weekend days. A policy with no
+   `periods` is one unbounded period taking the policy's `days`.
+2. **Business day.** A date is a business day for a calendar when it carries no `CLOSED` row **and**
+   is not a weekend day under step 1. `EARLY_CLOSE` days are business days. Do not test `WEEKEND`
+   rows instead of the policy: the policy is the normative statement, the rows are its expansion.
+3. **Joint business day.** A date is a joint business day when it is a business day for *every*
+   calendar in the group — the same predicate as the joint stream above.
+4. **Walk.** `N = 0` returns the trade date unchanged, business day or not. Otherwise walk forward
+   one day at a time from the trade date, never counting the trade date itself, decrementing the
+   remaining count on each joint business day; the date where the count reaches zero is the
+   settlement date. Report every day walked past, and for each, which calendars were closed on it.
+   Bound the walk at `366 * N + 366` days and fail rather than loop.
+5. **Out of range.** If the walk reaches a year the API does not publish for one of the calendars,
+   raise rather than treat the missing rows as "open" — the out-of-range contract above applies
+   unchanged to a browser client.
+
+This must agree with `JointDateStream` date for date. `/compare/settlement-selftest.html` ships a
+fixture of fifty (pair, trade date, N) cases whose answers were computed in Java, runs the browser
+algorithm against the published API on page load, and reports pass/fail in the page; the fixture
+itself is regenerated and re-checked against `JointDateStream` by `SettlementParityTest`.
+
 ### CLI surface
 
 ```
