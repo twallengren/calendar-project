@@ -13,7 +13,7 @@
 #     python/scripts/generate_parity_fixture.sh
 #
 # Optional: BDC_SAMPLES (dates sampled per calendar, default 1000) and a list of
-# calendar ids as positional arguments (default: every bundled market).
+# calendar ids as positional arguments (default: every bundled calendar).
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -24,7 +24,7 @@ CALENDARS=("$@")
 if [ ${#CALENDARS[@]} -eq 0 ]; then
   while IFS= read -r calendar; do
     CALENDARS+=("$calendar")
-  done < <(python3 -c 'import json,sys; m=json.load(open(sys.argv[1])); print("\n".join(sorted(key for key,c in m["calendars"].items() if c.get("kind", "market") == "market")))' "$REPO_ROOT/blessed/manifest.json")
+  done < <(python3 -c 'import json,sys; m=json.load(open(sys.argv[1])); print("\n".join(sorted(key for key,c in m["calendars"].items() if c.get("kind", "market") != "base")))' "$REPO_ROOT/blessed/manifest.json")
 fi
 
 echo "Building the Java toolchain..."

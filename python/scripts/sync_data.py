@@ -408,6 +408,10 @@ def main(argv: Optional[List[str]] = None) -> int:
 
     manifest = write_manifest(blessed_manifest, calendars)
     version = write_version(manifest)
+    licenses_dir = os.path.join(PACKAGE_DIR, "licenses")
+    os.makedirs(licenses_dir, exist_ok=True)
+    for name in ("LICENSE", "DATA_LICENSE", "NOTICE"):
+        shutil.copyfile(os.path.join(REPO_ROOT, name), os.path.join(licenses_dir, name))
     print(
         "Synced {} calendars, {} rows; data v{} (sha {}), package v{}".format(
             len(calendars),
@@ -446,6 +450,11 @@ def _snapshot() -> Dict[str, bytes]:
     if os.path.exists(version_file):
         with open(version_file, "rb") as handle:
             snapshot["_version.py"] = handle.read()
+    for root, _dirs, names in os.walk(os.path.join(PACKAGE_DIR, "licenses")):
+        for name in names:
+            path = os.path.join(root, name)
+            with open(path, "rb") as handle:
+                snapshot[os.path.relpath(path, PACKAGE_DIR)] = handle.read()
     return snapshot
 
 

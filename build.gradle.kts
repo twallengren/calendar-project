@@ -40,6 +40,12 @@ extra["corePublishVersion"] = corePublishVersion
 subprojects {
     apply(plugin = "com.diffplug.spotless")
 
+    tasks.withType<Jar>().configureEach {
+        from(rootProject.files("LICENSE", "DATA_LICENSE", "NOTICE")) {
+            into("META-INF/licenses")
+        }
+    }
+
     repositories {
         mavenCentral()
     }

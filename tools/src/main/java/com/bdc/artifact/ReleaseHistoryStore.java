@@ -77,6 +77,7 @@ public class ReleaseHistoryStore {
   /** Snapshots of a calendar, newest first; the blessed release is included when present. */
   public List<Snapshot> list(String calendarId) throws IOException {
     List<Snapshot> snapshots = new ArrayList<>();
+    List<Publication> publications = publications();
     Path calDir = releaseHistoryDir.resolve(calendarId);
     if (Files.isDirectory(calDir)) {
       try (var dirs = Files.list(calDir)) {
@@ -90,19 +91,29 @@ public class ReleaseHistoryStore {
           Optional<Instant> validUntil =
               publicationInstant(dir, "valid_until").or(() -> Optional.of(ts));
           snapshots.add(
-              new Snapshot(
-                  calendarId,
-                  dir.getFileName().toString(),
-                  ts,
-                  m.group(2),
-                  m.group(3),
-                  dir,
-                  validFrom,
-                  validUntil));
+              withPublication(
+                  new Snapshot(
+                      calendarId,
+                      dir.getFileName().toString(),
+                      ts,
+                      m.group(2),
+                      m.group(3),
+                      dir,
+                      validFrom,
+                      validUntil),
+                  publications));
         }
       }
     }
     blessedSnapshot(calendarId).ifPresent(snapshots::add);
+    Set<String> boundVersions = new HashSet<>();
+    for (Snapshot snapshot : snapshots) {
+      if (publications.stream()
+              .anyMatch(publication -> publication.version().equals(snapshot.version()))
+          && !boundVersions.add(snapshot.version()))
+        throw new IllegalArgumentException(
+            "Multiple local snapshots claim authenticated version " + snapshot.version());
+    }
     snapshots.sort(Comparator.comparing(Snapshot::archivedAt).reversed());
     return snapshots;
   }
@@ -131,8 +142,90 @@ public class ReleaseHistoryStore {
       validFrom = publicationInstant(calDir, "valid_from", "published_at");
     }
     return Optional.of(
-        new Snapshot(
-            calendarId, "blessed", blessedAt, sha, version, calDir, validFrom, Optional.empty()));
+        withPublication(
+            new Snapshot(
+                calendarId,
+                "blessed",
+                blessedAt,
+                sha,
+                version,
+                calDir,
+                validFrom,
+                Optional.empty()),
+            publications()));
+  }
+
+  private record Publication(
+      String version,
+      String sourceSha,
+      Instant publishedAt,
+      Optional<Instant> observedCurrentAt,
+      Set<String> calendarIds) {}
+
+  private List<Publication> publications() throws IOException {
+    Path ledger = releaseHistoryDir.resolve("publications.json");
+    if (!Files.exists(ledger)) return List.of();
+    JsonNode root = mapper.readTree(ledger.toFile());
+    if (!"1.0".equals(root.path("schema_version").asText()) || !root.path("releases").isArray())
+      throw new IllegalArgumentException("Malformed publication evidence ledger: " + ledger);
+    List<Publication> result = new ArrayList<>();
+    Set<String> versions = new HashSet<>();
+    Set<Instant> instants = new HashSet<>();
+    for (JsonNode row : root.path("releases")) {
+      String version = row.path("data_version").asText();
+      String sha = row.path("source_sha").asText();
+      Instant instant = Instant.parse(row.path("published_at").asText());
+      if (!version.matches("\\d+\\.\\d+\\.\\d+")
+          || !sha.matches("[0-9a-f]{40}")
+          || !versions.add(version)
+          || !instants.add(instant))
+        throw new IllegalArgumentException("Conflicting publication evidence in " + ledger);
+      if (!row.path("atomic_dataset").asBoolean(false) || !row.path("calendar_ids").isArray())
+        throw new IllegalArgumentException(
+            "Publication must identify the complete dataset inventory");
+      Set<String> calendarIds = new HashSet<>();
+      for (JsonNode id : row.path("calendar_ids")) {
+        if (!id.isTextual() || id.asText().isBlank() || !calendarIds.add(id.asText()))
+          throw new IllegalArgumentException("Invalid publication calendar inventory");
+      }
+      Optional<Instant> observed = firstInstant(row, "observed_current_at");
+      if (observed.isPresent() && observed.orElseThrow().isBefore(instant))
+        throw new IllegalArgumentException("Currentness observation precedes publication");
+      result.add(new Publication(version, sha, instant, observed, Set.copyOf(calendarIds)));
+    }
+    result.sort(Comparator.comparing(Publication::publishedAt));
+    return result;
+  }
+
+  private Snapshot withPublication(Snapshot snapshot, List<Publication> publications) {
+    for (int index = 0; index < publications.size(); index++) {
+      Publication publication = publications.get(index);
+      if (!publication.version().equals(snapshot.version())) continue;
+      if (!publication.sourceSha().startsWith(snapshot.gitSha()) || snapshot.gitSha().length() < 7)
+        throw new IllegalArgumentException(
+            "Publication source SHA conflicts with snapshot " + snapshot.id());
+      if (!publication.calendarIds().contains(snapshot.calendarId()))
+        throw new IllegalArgumentException(
+            "Calendar was absent from authenticated publication: " + snapshot.calendarId());
+      Optional<Instant> until =
+          index + 1 < publications.size()
+              ? Optional.of(publications.get(index + 1).publishedAt())
+              : publication.observedCurrentAt().map(instant -> instant.plusNanos(1));
+      // A receipt proves first publication; an unbounded assertion of continued currentness
+      // would incorrectly select the old release inside a later, not-yet-evidenced package.
+      Optional<Instant> from =
+          until.isPresent() ? Optional.of(publication.publishedAt()) : Optional.empty();
+      return new Snapshot(
+          snapshot.calendarId(),
+          snapshot.id(),
+          snapshot.archivedAt(),
+          snapshot.gitSha(),
+          snapshot.version(),
+          snapshot.dir(),
+          from,
+          until);
+    }
+    return snapshot;
   }
 
   /**

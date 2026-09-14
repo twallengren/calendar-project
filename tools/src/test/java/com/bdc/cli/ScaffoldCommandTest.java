@@ -118,8 +118,7 @@ class ScaffoldCommandTest {
     assertEquals(3, occurrences(calendar, "quality: INCOMPLETE"));
 
     String manifest = Files.readString(tempDir.resolve("blessed/manifest.json"));
-    assertTrue(manifest.contains("\"ZZ-TEST\""));
-    assertTrue(manifest.contains("\"kind\": \"market\""));
+    assertFalse(manifest.contains("\"ZZ-TEST\""));
 
     String exportScript =
         Files.readString(tempDir.resolve("scripts/reference/export_reference_calendars.py"));

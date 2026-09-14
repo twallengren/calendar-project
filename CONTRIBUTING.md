@@ -11,8 +11,8 @@ This walkthrough adds a new exchange calendar end to end. It assumes a market th
 public holidays and has at least one authoritative source you can point to (an exchange
 circular, a gazette notice, an official holiday list).
 
-Start with the scaffold command to create the YAML skeleton, a source README shell, and the
-manifest/reference-export entries:
+Start with the scaffold command to create the YAML skeleton, a canonical source register, a
+generated source README and the reference-export entry:
 
 ```bash
 ./gradlew :tools:run --args="scaffold --market GB-LSE --name \"London Stock Exchange\" --timezone Europe/London --mic XLON"
@@ -23,8 +23,8 @@ Friday-Saturday policy, `--weekend custom` to create a policy module, `--from` a
 the initial range, `--dry-run` to preview, and `--force` only when replacing existing scaffold
 files. The scaffold creates a canonical `register.json` and generated README table with a TODO
 source entry; it leaves evidence and calendar rules for you to complete, and does not create golden
-tests. Complete the source register and the steps below before treating the calendar as ready to
-validate.
+tests. Structural validation is useful during development; publication additionally requires completed
+evidence, reviewed rules and the release checks below.
 
 ### 1. Pick your ids
 
@@ -211,21 +211,13 @@ we lack. Every allowlist row needs a real reason: "the reference is wrong becaus
 from reference". A stale allowlist row (one that no longer reflects an actual difference) fails
 the test, so remove rows once they stop applying.
 
-### 8. Add the calendar to the blessed manifest
+### 8. Submit the reviewed calendar for release preparation
 
-`blessed/manifest.json` lists every calendar that gets published and re-blessed. A calendar
-missing from it is invisible to `scripts/bless.sh` and the release workflow. Add an entry:
-
-```json
-"GB-LSE": {
-  "range_start": "2000-01-01",
-  "range_end": "2030-12-31"
-}
-```
-
-Run `scripts/bless.sh` locally to populate `checksum` and `event_count`, generate
-`blessed/GB-LSE/`, and recompute `blessed/manifest.json`'s `aliases` map from every calendar's
-`metadata.mic`/`metadata.aliases`. Review the output with `git status --short blessed/`.
+The release preparation workflow discovers calendar specifications, regenerates their declared
+ranges and updates `blessed/manifest.json` with complete artifacts, counts, checksums and aliases.
+Scaffolding leaves that published manifest unchanged. Submit the YAML, sources and reviewed test
+expectations in the implementation PR; the subsequent release PR contains generated data and its
+published-to-candidate impact report. Use the preview below to inspect local output.
 
 ### Preview your change
 

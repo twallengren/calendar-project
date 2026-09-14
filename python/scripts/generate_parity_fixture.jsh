@@ -20,6 +20,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.TreeSet;
 
 String CAL = System.getenv("BDC_CALENDAR");
 Path ROOT = Path.of(System.getenv("BDC_REPO_ROOT"));
@@ -111,9 +112,23 @@ out.print("]");
 out.print(",\"queries\":[");
 long span = end.toEpochDay() - start.toEpochDay();
 long step = Math.max(1, span / SAMPLES);
+var sampledDates = new TreeSet<LocalDate>();
+for (long i = 0; i <= span; i += step) sampledDates.add(start.plusDays(i));
+sampledDates.add(end);
+for (var interval : stream.coverageIntervals()) {
+    for (var boundary : List.of(interval.from(), interval.to())) {
+        for (int offset = -1; offset <= 1; offset++) {
+            var date = boundary.plusDays(offset);
+            if (!date.isBefore(start) && !date.isAfter(end)) sampledDates.add(date);
+        }
+    }
+}
+for (Event event : stream.eventsInRange(start, end)) {
+    if (!event.type().toString().equals("WEEKEND") && stream.eventDetailsOn(event.date()).stream().anyMatch(detail -> detail.nominalNativeDate() != null))
+        sampledDates.add(event.date());
+}
 first = true;
-for (long i = 0; i <= span; i += step) {
-    LocalDate d = start.plusDays(i);
+for (LocalDate d : sampledDates) {
     if (!first) out.print(",");
     first = false;
     out.print("{\"d\":" + esc(d.toString()));

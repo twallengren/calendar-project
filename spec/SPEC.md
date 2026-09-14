@@ -620,10 +620,18 @@ JSON shape, one entry per calendar:
 
 `blessed/` holds the current release and `release-history/<CAL>/<timestamp>_<sha>_v<version>/`
 the previous ones. `query <CAL> --as-of <blessed|vX.Y.Z|date>` answers from a published
-artifact instead of the current YAML; `history releases <CAL>` lists them. The release workflow
-retains only the most recent 30 versions per calendar in `release-history/`, so pinned release
-files (and `--as-of` lookups by version or date) are only available for retained versions; older
-releases remain accessible via git history.
+artifact instead of the current YAML; `history releases <CAL>` lists them. Release preparation
+preserves existing snapshots. Storage retention is separate from publication transactions.
+
+Date selectors require evidenced publication bounds. A legacy archive timestamp does not prove
+when a version first became public; such snapshots remain available by exact version without an
+invented lower bound. `release-history/publications.json` records authenticated release receipts,
+including the full source commit, asset digest and the complete atomic dataset's calendar inventory.
+The publication instant is inclusive and the next evidenced publication instant is exclusive.
+For the latest receipt, date selection stops after its authenticated `observed_current_at` instant;
+later dates are unknown until another observation or publication is recorded. A candidate generation
+timestamp never establishes publication. Conflicting source identities or duplicate local snapshots
+claiming one authenticated version fail rather than selecting an arbitrary history entry.
 
 ## Query API
 

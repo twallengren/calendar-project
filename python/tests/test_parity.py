@@ -7,10 +7,11 @@ They record, per calendar:
 
 * every non-weekend event in the published artifact, field for field;
 * a deterministic, evenly spaced sample of ~1000 dates across the covered range
-  (so ~2000 dates over the two calendars), each with the business-day test,
+  (for every bundled calendar), each with the business-day test,
   next/previous/nth navigation, status, close time, a 31-day business-day count
   and the full event list for that date — weekend rows included, which is what
-  makes the weekend reconstruction testable.
+  makes the weekend reconstruction testable;
+* enriched assessments and typed coverage failures, including the exact date where traversal stopped.
 
 Regenerate them (and re-run ``scripts/sync_data.py``) whenever the blessed data
 changes; a mismatch here means the two implementations have diverged.

@@ -17,9 +17,8 @@ import picocli.CommandLine.Option;
 
 /**
  * Scaffolds the files a new market needs: a calendar spec, a weekend policy (reused or new), a
- * holiday group and one example holiday, a canonical source register and generated README, and the
- * {@code blessed/manifest.json} and {@code scripts/reference/export_reference_calendars.py} entries
- * that reference it.
+ * holiday group and one example holiday, a canonical source register and generated README, and a
+ * reference-export entry. Published artifacts are updated only by release preparation.
  *
  * <p>Refuses to overwrite anything that already exists unless {@code --force} is given; {@code
  * --dry-run} reports the plan without writing anything.
@@ -175,9 +174,6 @@ public class ScaffoldCommand implements Callable<Integer> {
         for (Path p : newFiles) {
           System.out.println("  " + root.relativize(p));
         }
-        if (manifestExists) {
-          System.out.println("[dry-run] Would update: " + root.relativize(blessedManifest));
-        }
         if (exportScriptExists) {
           System.out.println("[dry-run] Would update: " + root.relativize(exportScript));
         }
@@ -208,12 +204,6 @@ public class ScaffoldCommand implements Callable<Integer> {
       Files.writeString(
           sourcesReadme, SourceRegister.read(sourceRegister, sourcesDir).markdown(narrative));
 
-      if (manifestExists) {
-        updateManifest(blessedManifest, id);
-      } else {
-        System.out.println("Note: " + root.relativize(blessedManifest) + " not found; skipping.");
-      }
-
       if (exportScriptExists) {
         updateExportScript(exportScript, id, mic);
       } else {
@@ -223,9 +213,6 @@ public class ScaffoldCommand implements Callable<Integer> {
       System.out.println("Scaffolded " + id + ":");
       for (Path p : newFiles) {
         System.out.println("  " + root.relativize(p));
-      }
-      if (manifestExists) {
-        System.out.println("  (updated) " + root.relativize(blessedManifest));
       }
       if (exportScriptExists) {
         System.out.println("  (updated) " + root.relativize(exportScript));
@@ -391,6 +378,7 @@ public class ScaffoldCommand implements Callable<Integer> {
     System.out.println("  }");
     System.out.println();
     System.out.println("Next steps (see CONTRIBUTING.md):");
+    System.out.println("  Release preparation adds reviewed calendars to the published manifest.");
     System.out.println(
         "  1. Complete sources/"
             + id
@@ -444,26 +432,6 @@ public class ScaffoldCommand implements Callable<Integer> {
       }
     }
     return sb.toString();
-  }
-
-  private void updateManifest(Path manifestPath, String id) throws IOException {
-    ObjectNode root = (ObjectNode) JSON_MAPPER.readTree(manifestPath.toFile());
-    JsonNode calendarsNode = root.get("calendars");
-    ObjectNode calendars;
-    if (calendarsNode instanceof ObjectNode on) {
-      calendars = on;
-    } else {
-      calendars = JSON_MAPPER.createObjectNode();
-      root.set("calendars", calendars);
-    }
-    ObjectNode entry = JSON_MAPPER.createObjectNode();
-    entry.put("range_start", from.toString());
-    entry.put("range_end", to.toString());
-    entry.put("event_count", 0);
-    entry.put("checksum", "");
-    entry.put("kind", "market");
-    calendars.set(id, entry);
-    Files.writeString(manifestPath, JqStyleJson.render(root));
   }
 
   private void updateExportScript(Path scriptPath, String id, String mic) throws IOException {

@@ -108,6 +108,51 @@ class ReleaseHistoryStoreTest {
   }
 
   @Test
+  void authenticatedLedgerUsesPublicationBoundariesWithoutChangingSnapshotBytes() throws Exception {
+    Path old = history.resolve("CAL/2026-02-16T21-43-18Z_98bac4f_v10.1.0");
+    byte[] original = Files.readAllBytes(old.resolve("metadata.json"));
+    Files.writeString(
+        history.resolve("publications.json"),
+        """
+        {"schema_version":"1.0","releases":[
+          {"data_version":"10.1.0","source_sha":"98bac4f000000000000000000000000000000000","atomic_dataset":true,"calendar_ids":["CAL"],"observed_current_at":"2026-03-01T11:00:00Z","published_at":"2026-02-16T21:43:18Z"}
+        ]}
+        """);
+    ReleaseHistoryStore store = new ReleaseHistoryStore(history, blessed);
+    assertTrue(store.resolve("CAL", "2026-02-16T21:43:17Z").isEmpty());
+    assertEquals("10.1.0", store.resolve("CAL", "2026-02-16T21:43:18Z").orElseThrow().version());
+    // Generation does not establish publication, and currentness stops at its last proof.
+    assertEquals("10.1.0", store.resolve("CAL", "2026-03-01T11:00:00Z").orElseThrow().version());
+    assertTrue(store.resolve("CAL", "2026-03-01T11:00:00.000000001Z").isEmpty());
+    assertTrue(store.resolve("CAL", "2026-03-02").isEmpty());
+    Files.writeString(
+        history.resolve("publications.json"),
+        """
+        {"schema_version":"1.0","releases":[
+          {"data_version":"10.1.0","source_sha":"98bac4f000000000000000000000000000000000","atomic_dataset":true,"calendar_ids":["CAL"],"observed_current_at":"2026-03-01T11:00:00Z","published_at":"2026-02-16T21:43:18Z"},
+          {"data_version":"11.0.0","source_sha":"3765bcb000000000000000000000000000000000","atomic_dataset":true,"calendar_ids":["CAL"],"observed_current_at":"2026-03-03T12:00:00Z","published_at":"2026-03-03T12:00:00Z"}
+        ]}
+        """);
+    assertEquals("10.1.0", store.resolve("CAL", "2026-03-03T11:59:59Z").orElseThrow().version());
+    assertEquals("11.0.0", store.resolve("CAL", "2026-03-03T12:00:00Z").orElseThrow().version());
+    assertArrayEquals(original, Files.readAllBytes(old.resolve("metadata.json")));
+  }
+
+  @Test
+  void ledgerCannotBindPublicationToDifferentSourceCommit() throws Exception {
+    Files.writeString(
+        history.resolve("publications.json"),
+        """
+        {"schema_version":"1.0","releases":[
+          {"data_version":"10.1.0","source_sha":"abcdef0000000000000000000000000000000000","atomic_dataset":true,"calendar_ids":["CAL"],"observed_current_at":"2026-03-01T11:00:00Z","published_at":"2026-02-16T21:43:18Z"}
+        ]}
+        """);
+    assertThrows(
+        IllegalArgumentException.class,
+        () -> new ReleaseHistoryStore(history, blessed).list("CAL"));
+  }
+
+  @Test
   void asOfQueryAnswersFromTheSnapshot() throws Exception {
     ReleaseHistoryStore store = new ReleaseHistoryStore(history, blessed);
     ReleaseHistoryStore.Snapshot old = store.resolve("CAL", "v10.1.0").orElseThrow();
