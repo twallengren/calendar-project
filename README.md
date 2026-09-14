@@ -10,7 +10,7 @@ A tool for defining and generating business-day calendars with YAML-based specif
 - Multi-chronology support: ISO (Gregorian), HIJRI (tabular Islamic), UMM_AL_QURA (Saudi lookup table), JULIAN, PERSIAN, and extensible via YAML
 - Julian Day Number (JDN) pivot for cross-calendar translation
 - Effective-dated weekends, per-holiday observance rules, early-close times, confirmed/projected status
-- Every holiday cites its source (`sources/`); cross-validated against exchange_calendars and QuantLib
+- Holiday citations resolve through canonical `sources/<ID>/register.json` files; cross-validated against exchange_calendars and QuantLib
 
 ## Quick Start
 
@@ -128,10 +128,14 @@ Every release publishes the generated artifacts several zero-install ways, so yo
 clone this repository or build the tool just to read a calendar. All examples below use
 **US-NYSE**; swap in any other ID from the [Market status](#market-status) table.
 
-**(a) GitHub Pages JSON API** — the current release's [JSON API v1](spec/SPEC.md#json-api-v1),
-served statically from `main`, no auth, no rate limit:
-- Index of every published calendar: <https://twallengren.github.io/calendar-project/v1/index.json>
+**(a) Static JSON APIs** — `tools site` generates both [JSON API v1](spec/SPEC.md#json-api-v1)
+and [JSON API v2](spec/SPEC.md#json-api-v2-and-enriched-assessments) from `blessed/` and `release-history/`. V1 keeps the
+event-oriented response contract; v2 provides explicit daily assessments, including completeness
+and `UNKNOWN` state. The current blessed data release in this checkout is 11.0.0; API wire versions
+are separate from the data release version.
+- V1 index: <https://twallengren.github.io/calendar-project/v1/index.json>
 - One calendar-year: <https://twallengren.github.io/calendar-project/v1/calendars/US-NYSE/2027.json>
+- V2 daily-assessment index in a generated site: `v2/index.json`
 - All holidays for a calendar: <https://twallengren.github.io/calendar-project/v1/calendars/US-NYSE/holidays.json>
 - Subscribe in any calendar app (updates as the site is republished, 2020 onward):
   `webcal://twallengren.github.io/calendar-project/v1/calendars/US-NYSE/holidays-recent.ics`
@@ -168,11 +172,13 @@ and the coverage/status caveats. An optional `bdc-calendars-mcp` MCP server
 
 **(e) The Java library** — the same Query API the CLI answers from, as two jars: `bdc-calendar-core`
 (the query API, **no third-party dependencies**) and `bdc-calendar-data` (the published calendars as
-classpath resources). Core and data use independent version streams; the data artifact coordinate
-names the dataset, and the runtime facade exposes that exact bundled version:
+classpath resources). Core and data use independent version streams: the core artifact follows the
+Java software version in `release/versions.json`, while the data artifact follows the blessed data
+version. In this checkout the core release configuration is 12.0.0 and the current blessed data
+is 11.0.0; the runtime facade exposes the exact bundled data version:
 ```kotlin
 dependencies {
-    implementation("io.github.twallengren:bdc-calendar-core:11.0.0")
+    implementation("io.github.twallengren:bdc-calendar-core:12.0.0")
     runtimeOnly("io.github.twallengren:bdc-calendar-data:11.0.0")
 }
 ```
@@ -196,15 +202,14 @@ calendar looked like as of an earlier release (audit, backtest reproducibility),
 
 ## Browse
 
-`./gradlew :tools:run --args="site --out site --base-url <url>"` builds the whole public site into
-one directory with no framework, no build step and no backend: the [`/v1/` JSON
-API](spec/SPEC.md#json-api-v1), the release changelog, and a browsable HTML page per market
+`./gradlew :tools:run --args="site --out site --base-url <url>"` builds the static site into
+one directory with no framework, no build step and no backend: the `/v1/` and `/v2/` JSON APIs,
+the release changelog, and a browsable HTML page per market
 (`/<ID>/`), per year (`/<ID>/<year>/` — a month grid plus a dated closure table) and per closure
-(`/<ID>/<date>/`), with `sitemap.xml` and `robots.txt`. The pages render from the published JSON
-API rather than from `blessed/` directly, so browsing the site exercises the same contract external
-consumers depend on. Serve it locally with `python3 -m http.server -d site` — every page works with
-JavaScript disabled. Hosted at `https://twallengren.github.io/calendar-project/` once GitHub Pages
-is switched on (Pages deployment is not wired up yet).
+(`/<ID>/<date>/`), with `sitemap.xml` and `robots.txt`. The HTML pages render from the generated
+JSON API rather than from `blessed/` directly. V1 remains available for event-oriented clients;
+date pages also link to v2 daily assessments, where an incomplete required scope is `UNKNOWN`, not
+open. Serve a local build with `python3 -m http.server -d site`.
 
 ## Chronology Support
 

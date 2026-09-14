@@ -95,11 +95,21 @@ nyse.is_business_day(dt.date(2031, 1, 1)) # raises OutsideCoverageError
 
 Inside the range, `status(date)` tells you how much the answer can be trusted:
 
-* `"CONFIRMED"` — checked against an authoritative source;
-* `"PROJECTED"` — after the calendar's `verified_through`, or derived from a rule rather than a
-  published schedule (Islamic-calendar closures, for example, whose exact dates depend on
-  observation). Treat these as a best estimate, not a published schedule;
-* `"UNKNOWN"` — outside the range.
+* `"CONFIRMED"` — for calendars with explicit quality intervals, all required scopes are
+  verified and no event is projected; legacy data keeps its earlier status contract;
+* `"PROJECTED"` — explicit completeness is projected, or an event is projected. On legacy data,
+  a date past `verified_through` is also projected. Treat this as a best estimate, not a published
+  schedule;
+* `"UNKNOWN"` — outside the range, or a required scope is incomplete or absent in a calendar
+  with explicit quality intervals.
+
+For calendars with explicit `coverage.quality`, `assessment(date)` keeps the scheduled answer
+separate from the effective state and reports completeness and evidence by scope. A scheduled
+closure list can be complete while actual business-day truth remains unknown if coverage of
+`UNSCHEDULED_EXCEPTIONS` is incomplete. Business-day boolean, navigation and count operations raise
+`UnresolvedDateError` on such dates; `status()` and `assessment()` are safe probes. Legacy data
+without explicit quality intervals keeps its legacy compatibility behavior and does not claim
+historical completeness.
 
 Regular open and close times are **not** modelled: `close_time` answers only for shortened
 sessions, and `None` means either a regular session or a closed day — check `is_business_day` to
@@ -140,11 +150,15 @@ Differences worth knowing before you switch:
 **data** release is exposed in full:
 
 ```python
-bdc.__version__       # '0.12.0'
-bdc.data_version      # '12.0.0'
+bdc.__version__       # '0.12.0' (Python package/API version)
+bdc.data_version      # '11.0.0' (bundled blessed data release in this wheel)
 bdc.data_git_sha      # the calendar-project commit the data came from
 bdc.data_generation_date
 ```
+
+These version streams are independent: the package version identifies Python software, while
+`data_version` identifies the bundled calendar artifacts. A new software release does not by
+itself mean the data changed. Check `data_version` when reproducible calendar answers matter.
 
 A major bump in the data version means an answer inside existing coverage changed; a minor bump is
 additive. Pin both versions if you need byte-stable answers.
