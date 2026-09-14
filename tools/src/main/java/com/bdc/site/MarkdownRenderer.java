@@ -1,0 +1,313 @@
+package com.bdc.site;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+/**
+ * The smallest Markdown renderer that renders {@code sources/<ID>/README.md} faithfully, and
+ * nothing more.
+ *
+ * <p>The supported subset is exactly what the source registers are written in: ATX headings, blank
+ * line separated paragraphs, GitHub pipe tables, fenced code blocks, bullet lists, inline code,
+ * inline links, bare URL autolinks, {@code **bold**} and backslash escapes. Anything outside that
+ * subset renders as the literal text it is written as, which is the safe failure: a source register
+ * that uses an unsupported construct looks slightly plain, it never disappears and it never injects
+ * markup.
+ *
+ * <p>Text is HTML-escaped <em>before</em> any inline markup is applied, and code spans and links
+ * are lifted out into placeholders while the remaining inline rules run, so an autolink can never
+ * chew through an {@code href} it just produced and a URL inside backticks stays literal.
+ *
+ * <p>A table row whose first cell is a bare code span gets that text as its {@code id}, which is
+ * what makes {@code /sources/<ID>/#<source-id>} — the anchor every market page's source list links
+ * to — land on the right row.
+ */
+public final class MarkdownRenderer {
+
+  private static final Pattern HEADING = Pattern.compile("^(#{1,6})\\s+(.*?)\\s*#*\\s*$");
+  private static final Pattern BULLET = Pattern.compile("^[-*]\\s+(.*)$");
+  private static final Pattern FENCE = Pattern.compile("^```\\s*([A-Za-z0-9_+-]*)\\s*$");
+  private static final Pattern TABLE_DIVIDER = Pattern.compile("^\\|?\\s*:?-{2,}:?\\s*(\\|.*)?$");
+  private static final Pattern CODE_SPAN = Pattern.compile("`([^`]+)`");
+  private static final Pattern LINK = Pattern.compile("\\[([^\\]]*)\\]\\(([^)\\s]+)\\)");
+
+  /**
+   * A bare URL, minus any trailing sentence punctuation: registers write "…/calendar_2012.pdf, via
+   * the Internet Archive", and the comma is prose, not part of the link.
+   */
+  private static final Pattern AUTOLINK =
+      Pattern.compile("https?://[^\\s<>\"'\\]\\[()\\u0000]*[^\\s<>\"'\\]\\[()\\u0000.,;:!?]");
+
+  private static final Pattern BOLD = Pattern.compile("\\*\\*([^*]+)\\*\\*");
+  private static final Pattern BACKSLASH_ESCAPE =
+      Pattern.compile("\\\\([\\\\`*_{}\\[\\]()#+\\-.!|])");
+  private static final Pattern ONLY_CODE = Pattern.compile("^`([^`]+)`$");
+  private static final Pattern NON_SLUG = Pattern.compile("[^a-z0-9]+");
+
+  /**
+   * A placeholder that cannot appear in escaped HTML, so inline passes cannot collide.
+   *
+   * <p>Written as a cast rather than a Unicode-escape literal on purpose: google-java-format
+   * resolves the escape and writes the raw NUL byte back into the source file, which makes the
+   * whole file binary to git, grep and most editors. The same trap applies to naming the escape in
+   * this comment, since the compiler resolves escapes in comments too.
+   */
+  private static final char MARK = (char) 0;
+
+  private MarkdownRenderer() {}
+
+  /** Renders a Markdown document to an HTML fragment (no {@code <html>}, no {@code <body>}). */
+  public static String render(String markdown) {
+    return render(markdown, 0);
+  }
+
+  /**
+   * Renders a Markdown document, pushing every heading {@code headingOffset} levels down. A page
+   * that supplies its own {@code <h1>} renders the document at offset 1 so the outline stays a
+   * single tree instead of two competing ones.
+   */
+  public static String render(String markdown, int headingOffset) {
+    List<String> lines =
+        List.of(markdown.replace("\r\n", "\n").replace("\r", "\n").split("\n", -1));
+    StringBuilder html = new StringBuilder(markdown.length() * 2);
+    List<String> paragraph = new ArrayList<>();
+    boolean inList = false;
+    List<String> item = new ArrayList<>();
+
+    for (int i = 0; i < lines.size(); i++) {
+      String line = lines.get(i);
+      String trimmed = line.strip();
+
+      Matcher fence = FENCE.matcher(trimmed);
+      if (fence.matches()) {
+        flushParagraph(html, paragraph);
+        inList = closeList(html, inList, item);
+        int end = i + 1;
+        StringBuilder code = new StringBuilder();
+        while (end < lines.size() && !lines.get(end).strip().equals("```")) {
+          code.append(lines.get(end)).append('\n');
+          end++;
+        }
+        html.append("<pre><code>")
+            .append(HtmlTemplate.escape(code.toString()))
+            .append("</code></pre>\n");
+        i = end;
+        continue;
+      }
+
+      if (trimmed.isEmpty()) {
+        flushParagraph(html, paragraph);
+        inList = closeList(html, inList, item);
+        continue;
+      }
+
+      Matcher heading = HEADING.matcher(trimmed);
+      if (heading.matches()) {
+        flushParagraph(html, paragraph);
+        inList = closeList(html, inList, item);
+        int level = Math.min(6, heading.group(1).length() + headingOffset);
+        String text = heading.group(2);
+        html.append("<h")
+            .append(level)
+            .append(" id=\"")
+            .append(HtmlTemplate.escape(slug(text)))
+            .append("\">")
+            .append(inline(text))
+            .append("</h")
+            .append(level)
+            .append(">\n");
+        continue;
+      }
+
+      if (trimmed.startsWith("|") && i + 1 < lines.size() && isDivider(lines.get(i + 1))) {
+        flushParagraph(html, paragraph);
+        inList = closeList(html, inList, item);
+        int end = i + 2;
+        List<String> body = new ArrayList<>();
+        while (end < lines.size() && lines.get(end).strip().startsWith("|")) {
+          body.add(lines.get(end));
+          end++;
+        }
+        html.append(table(cells(trimmed), body));
+        i = end - 1;
+        continue;
+      }
+
+      Matcher bullet = BULLET.matcher(trimmed);
+      if (bullet.matches()) {
+        flushParagraph(html, paragraph);
+        if (!inList) {
+          html.append("<ul>\n");
+          inList = true;
+        } else {
+          flushItem(html, item);
+        }
+        item.add(bullet.group(1));
+        continue;
+      }
+
+      if (inList) {
+        // A wrapped continuation line of the current bullet.
+        item.add(trimmed);
+        continue;
+      }
+
+      paragraph.add(trimmed);
+    }
+
+    flushParagraph(html, paragraph);
+    closeList(html, inList, item);
+    return html.toString();
+  }
+
+  private static boolean isDivider(String line) {
+    String trimmed = line.strip();
+    return trimmed.startsWith("|") && TABLE_DIVIDER.matcher(trimmed.substring(1).strip()).matches();
+  }
+
+  private static void flushParagraph(StringBuilder html, List<String> paragraph) {
+    if (paragraph.isEmpty()) {
+      return;
+    }
+    html.append("<p>").append(inline(String.join(" ", paragraph))).append("</p>\n");
+    paragraph.clear();
+  }
+
+  private static void flushItem(StringBuilder html, List<String> item) {
+    if (item.isEmpty()) {
+      return;
+    }
+    html.append("<li>").append(inline(String.join(" ", item))).append("</li>\n");
+    item.clear();
+  }
+
+  private static boolean closeList(StringBuilder html, boolean inList, List<String> item) {
+    if (!inList) {
+      return false;
+    }
+    flushItem(html, item);
+    html.append("</ul>\n");
+    return false;
+  }
+
+  /** Splits a pipe-table row into its cells, dropping the leading and trailing pipe. */
+  private static List<String> cells(String row) {
+    String body = row.strip();
+    if (body.startsWith("|")) {
+      body = body.substring(1);
+    }
+    if (body.endsWith("|")) {
+      body = body.substring(0, body.length() - 1);
+    }
+    List<String> cells = new ArrayList<>();
+    for (String cell : body.split("\\|", -1)) {
+      cells.add(cell.strip());
+    }
+    return cells;
+  }
+
+  private static String table(List<String> header, List<String> body) {
+    StringBuilder html = new StringBuilder();
+    html.append("<div class=\"table-wrap\">\n<table class=\"events\">\n<thead><tr>");
+    for (String cell : header) {
+      html.append("<th scope=\"col\">").append(inline(cell)).append("</th>");
+    }
+    html.append("</tr></thead>\n<tbody>\n");
+    for (String row : body) {
+      List<String> values = cells(row);
+      String anchor = values.isEmpty() ? null : rowAnchor(values.get(0));
+      html.append("<tr");
+      if (anchor != null) {
+        html.append(" id=\"").append(HtmlTemplate.escape(anchor)).append("\"");
+      }
+      html.append(">");
+      for (String cell : values) {
+        html.append("<td>").append(inline(cell)).append("</td>");
+      }
+      html.append("</tr>\n");
+    }
+    html.append("</tbody>\n</table>\n</div>\n");
+    return html.toString();
+  }
+
+  /** The citation id of a source row: a first cell that is nothing but a code span. */
+  static String rowAnchor(String firstCell) {
+    Matcher matcher = ONLY_CODE.matcher(firstCell.strip());
+    return matcher.matches() ? matcher.group(1) : null;
+  }
+
+  /** A stable, URL-safe fragment id for a heading. */
+  static String slug(String text) {
+    String plain = text.replace("`", "").toLowerCase(Locale.ENGLISH);
+    String slug = NON_SLUG.matcher(plain).replaceAll("-");
+    slug = slug.replaceAll("^-+", "").replaceAll("-+$", "");
+    return slug.isEmpty() ? "section" : slug;
+  }
+
+  /**
+   * Inline markup for one run of text. Escaping comes first, then code spans and links are parked
+   * in placeholders so the remaining passes (autolink, bold, backslash escapes) cannot reach inside
+   * them.
+   */
+  static String inline(String text) {
+    List<String> parked = new ArrayList<>();
+    String out = HtmlTemplate.escape(text);
+    out = park(out, CODE_SPAN, parked, m -> "<code>" + m.group(1) + "</code>");
+    out =
+        park(
+            out,
+            LINK,
+            parked,
+            m -> "<a href=\"" + m.group(2) + "\">" + restore(m.group(1), parked) + "</a>");
+    out = park(out, AUTOLINK, parked, m -> "<a href=\"" + m.group() + "\">" + m.group() + "</a>");
+    out =
+        BOLD.matcher(out)
+            .replaceAll(mr -> Matcher.quoteReplacement("<strong>" + mr.group(1) + "</strong>"));
+    out = BACKSLASH_ESCAPE.matcher(out).replaceAll(mr -> Matcher.quoteReplacement(mr.group(1)));
+    return restore(out, parked);
+  }
+
+  private interface Renderer {
+    String apply(Matcher matcher);
+  }
+
+  private static String park(String text, Pattern pattern, List<String> parked, Renderer renderer) {
+    Matcher matcher = pattern.matcher(text);
+    StringBuilder out = new StringBuilder(text.length());
+    while (matcher.find()) {
+      parked.add(renderer.apply(matcher));
+      matcher.appendReplacement(
+          out, Matcher.quoteReplacement(MARK + String.valueOf(parked.size() - 1) + MARK));
+    }
+    matcher.appendTail(out);
+    return out.toString();
+  }
+
+  private static String restore(String text, List<String> parked) {
+    if (text.indexOf(MARK) < 0) {
+      return text;
+    }
+    StringBuilder out = new StringBuilder(text.length() + 64);
+    int i = 0;
+    while (i < text.length()) {
+      char c = text.charAt(i);
+      if (c != MARK) {
+        out.append(c);
+        i++;
+        continue;
+      }
+      int end = text.indexOf(MARK, i + 1);
+      if (end < 0) {
+        i++;
+        continue;
+      }
+      int index = Integer.parseInt(text.substring(i + 1, end));
+      out.append(restore(parked.get(index), parked));
+      i = end + 1;
+    }
+    return out.toString();
+  }
+}

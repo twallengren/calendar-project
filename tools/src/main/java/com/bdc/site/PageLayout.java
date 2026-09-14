@@ -94,7 +94,7 @@ public final class PageLayout {
         "root", root,
         "head", head,
         "siteName", context.siteName(),
-        "sourcesUrl", context.repoTree("sources"),
+        "sourcesUrl", root + "sources/index.html",
         "repoUrl", context.repoUrl(),
         "contributingUrl", context.repoBlob("CONTRIBUTING.md"),
         "breadcrumbs", breadcrumbs(crumbs),

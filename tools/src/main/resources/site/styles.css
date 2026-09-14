@@ -370,13 +370,22 @@ dl.facts dd {
   overflow-wrap: anywhere;
 }
 
+/* One citation per line: each entry carries its document title next to the id, so a wrapping flex
+   row of chips would run the two together. */
 .source-ids {
   list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
   padding: 0;
   margin: 0 0 1rem;
+}
+
+.source-ids li {
+  padding: 0.15rem 0;
+  border-bottom: 1px solid var(--rule);
+  font-size: 0.92rem;
+}
+
+.source-ids li:last-child {
+  border-bottom: 0;
 }
 
 .cta {
@@ -716,6 +725,112 @@ td.day:target {
 
 .diff-banner a {
   font-weight: 600;
+}
+
+/* ---------- compare, settlement, sources ---------- */
+
+.pair-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.8rem;
+  padding: 0;
+  margin: 0 0 1rem;
+  font-size: 0.92rem;
+}
+
+/* The year header inside a compare table: a row that groups the dates below it rather than a
+   second table per year, so the whole page stays one scannable list. */
+table.compare .year-row th {
+  background: var(--surface-2);
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  text-transform: none;
+  color: var(--ink-muted);
+}
+
+.settlement-form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.7rem;
+  margin: 0 0 0.8rem;
+}
+
+.settlement-form label {
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+}
+
+.settlement-form input {
+  font: inherit;
+  padding: 0.25rem 0.4rem;
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--ink);
+}
+
+.settlement-form input[type="number"] {
+  width: 4.5rem;
+}
+
+.settlement-form button {
+  font: inherit;
+  padding: 0.28rem 0.8rem;
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius);
+  background: var(--surface-2);
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.settlement-answer {
+  font-weight: 600;
+  margin: 0 0 0.4rem;
+}
+
+.settlement-steps {
+  margin: 0 0 1rem;
+  padding-left: 1.4rem;
+  font-size: 0.9rem;
+  font-family: var(--mono);
+}
+
+.settlement-steps li.closed {
+  color: var(--closed);
+}
+
+/* Source registers are rendered from Markdown, so they carry ordinary prose elements the rest of
+   the site does not use. */
+.markdown h2 {
+  margin-top: 1.8rem;
+}
+
+.markdown code {
+  font-family: var(--mono);
+  font-size: 0.88em;
+}
+
+.markdown pre {
+  background: var(--surface-2);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: 0.7rem 0.9rem;
+  overflow-x: auto;
+}
+
+.markdown table.events td {
+  vertical-align: top;
+  font-size: 0.86rem;
+}
+
+.markdown table.events td:first-child {
+  white-space: nowrap;
+}
+
+.markdown li {
+  margin-bottom: 0.4rem;
 }
 
 /* ---------- print ---------- */

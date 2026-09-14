@@ -122,11 +122,18 @@ class SiteGeneratorTest {
     assertTrue(Files.exists(first.resolve("site.js")), "site.js should be published");
   }
 
+  /**
+   * The budget grew from 5 KB when the T+N settlement helper landed. It is still a hand-written,
+   * unminified, comment-carrying file served as-is, and it is still optional — every page works
+   * with it blocked — but it now carries a real algorithm, so the ceiling is set where an
+   * accidental framework or a pasted library would break through it rather than where a comment
+   * would.
+   */
   @Test
   void siteJsStaysSmallEnoughToBeOptional() throws IOException {
     assertTrue(
-        Files.size(first.resolve("site.js")) < 5 * 1024,
-        "site.js is progressive enhancement only and must stay under 5 KB");
+        Files.size(first.resolve("site.js")) < 16 * 1024,
+        "site.js is progressive enhancement only and must stay under 16 KB");
   }
 
   @Test

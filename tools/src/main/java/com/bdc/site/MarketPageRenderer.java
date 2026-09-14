@@ -39,6 +39,12 @@ public final class MarketPageRenderer {
             <h2 id="weekend-heading">Weekend policy</h2>
             {{{weekend}}}
           </section>
+          <section aria-labelledby="compare-heading">
+            <h2 id="compare-heading">Compare with another market</h2>
+            <p>Which days does {{id}} trade while another market is shut, and when does a trade
+            between the two settle?</p>
+            {{{compare}}}
+          </section>
           <section aria-labelledby="sources-heading">
             <h2 id="sources-heading">Sources and cross-validation</h2>
             {{{sources}}}
@@ -52,11 +58,20 @@ public final class MarketPageRenderer {
   private final SiteContext context;
   private final PageLayout layout;
   private final YearGridRenderer gridRenderer;
+  private final SourceRegistry sources;
+  private final List<CalendarData> markets;
 
-  public MarketPageRenderer(SiteContext context, PageLayout layout, YearGridRenderer gridRenderer) {
+  public MarketPageRenderer(
+      SiteContext context,
+      PageLayout layout,
+      YearGridRenderer gridRenderer,
+      SourceRegistry sources,
+      List<CalendarData> markets) {
     this.context = context;
     this.layout = layout;
     this.gridRenderer = gridRenderer;
+    this.sources = sources;
+    this.markets = markets;
   }
 
   /** Writes the market page and returns its site-relative directory. */
@@ -86,6 +101,7 @@ public final class MarketPageRenderer {
 
     String body =
         BODY.render(
+            "id", calendar.id(),
             "name", calendar.name(),
             "lede", description,
             "facts", facts(calendar, status),
@@ -100,6 +116,7 @@ public final class MarketPageRenderer {
                     + ", each with a month grid and a dated closure table.",
             "yearLinks", YearPageRenderer.yearLinks(calendar, currentYear, ""),
             "weekend", weekendPolicy(calendar),
+            "compare", compareLinks(calendar),
             "sources", sources(calendar, status),
             "downloads", downloads(calendar));
 
@@ -250,24 +267,83 @@ public final class MarketPageRenderer {
         + values.get(values.size() - 1);
   }
 
+  /** Links to this market's half of every compare page, in id order. */
+  private String compareLinks(CalendarData calendar) {
+    List<String> others = new ArrayList<>();
+    for (CalendarData other : markets) {
+      if (!other.id().equals(calendar.id())) {
+        others.add(other.id());
+      }
+    }
+    if (others.isEmpty()) {
+      return "<p class=\"muted\">No other market is published to compare against.</p>\n";
+    }
+    others.sort(String::compareTo);
+    StringBuilder html = new StringBuilder();
+    html.append("<ul class=\"pair-list\">\n");
+    for (String other : others) {
+      html.append("<li><a href=\"")
+          .append(HtmlTemplate.escape("../" + ComparePageRenderer.pairPath(calendar.id(), other)))
+          .append("index.html\">")
+          .append(HtmlTemplate.escape(calendar.id()))
+          .append(" vs ")
+          .append(HtmlTemplate.escape(other))
+          .append("</a></li>\n");
+    }
+    html.append("</ul>\n<p><a href=\"../compare/index.html\">All market pairs</a></p>\n");
+    return html.toString();
+  }
+
+  /**
+   * The citations this calendar's resolved event sources carry, each linked to the row in the
+   * source register that documents it. A venue that inherits its closures links to the register of
+   * the calendar it extends, which is where the Euronext notices are actually written down; an id
+   * no register documents is shown with an "unresolved" marker rather than silently dropped.
+   */
   private String sources(CalendarData calendar, StatusData status) {
     StringBuilder html = new StringBuilder();
-    if (status.sourceIds().isEmpty()) {
+    List<SourceRegistry.Citation> citations = sources.citationsFor(calendar.id());
+    if (citations.isEmpty()) {
       html.append("<p>No source register is published for this calendar yet.</p>\n");
     } else {
       html.append("<p>Every closure on this calendar cites one of ")
-          .append(status.sourceIds().size())
-          .append(" registered sources:</p>\n<ul class=\"source-ids\">\n");
-      for (String id : status.sourceIds()) {
-        html.append("<li><code>").append(HtmlTemplate.escape(id)).append("</code></li>\n");
+          .append(citations.size())
+          .append(citations.size() == 1 ? " registered source:" : " registered sources:")
+          .append("</p>\n<ul class=\"source-ids\">\n");
+      for (SourceRegistry.Citation citation : citations) {
+        html.append("<li>");
+        if (citation.resolved()) {
+          html.append("<a href=\"../sources/")
+              .append(HtmlTemplate.escape(citation.market()))
+              .append("/index.html#")
+              .append(HtmlTemplate.escape(citation.id()))
+              .append("\"><code>")
+              .append(HtmlTemplate.escape(citation.id()))
+              .append("</code></a>");
+          if (citation.title() != null && !citation.title().isEmpty()) {
+            html.append(" — ").append(HtmlTemplate.escape(citation.title()));
+          }
+        } else {
+          html.append("<code>")
+              .append(HtmlTemplate.escape(citation.id()))
+              .append("</code> <span class=\"badge warn\">unresolved</span>");
+        }
+        html.append("</li>\n");
       }
       html.append("</ul>\n");
     }
-    html.append("<p><a href=\"")
-        .append(HtmlTemplate.escape(context.repoTree("sources/" + calendar.id())))
-        .append("\">Source register for ")
-        .append(HtmlTemplate.escape(calendar.id()))
-        .append("</a></p>\n");
+    String register = sources.registerFor(calendar.id());
+    if (register != null) {
+      html.append("<p><a href=\"../sources/")
+          .append(HtmlTemplate.escape(register))
+          .append("/index.html\">Source register for ")
+          .append(HtmlTemplate.escape(register))
+          .append("</a></p>\n");
+    } else {
+      html.append("<p><a href=\"")
+          .append(HtmlTemplate.escape(context.repoTree("sources")))
+          .append("\">Source register</a></p>\n");
+    }
     if (status.hasCrossValidation()) {
       html.append("<p>Cross-validated against ")
           .append(status.crossValidation().size())
