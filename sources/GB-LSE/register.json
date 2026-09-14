@@ -10,7 +10,18 @@
       "covers": "live table observed spanning Mon 31 Aug 2026 - Mon 1 Jan 2029",
       "notes": "The Exchange's own published trading-impact table for its Bank Holidays. States that LSE \"recognise[s] the Public and Bank Holidays of England & Wales\" and lists, per holiday, whether on-Exchange trading is a NON-trading day or a half day (12:30 close). No standalone yearly PDF calendar was linked from the page at time of retrieval (only a business-parameters spreadsheet and a trading-system guide); the HTML table itself was used instead.",
       "local_files": [],
-      "support_intervals": []
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2026-01-01",
+          "to": "2028-12-31"
+        },
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2026-01-01",
+          "to": "2028-12-31"
+        }
+      ]
     },
     {
       "id": "govuk-bank-holidays",
@@ -21,7 +32,18 @@
       "covers": "2019-01-01 to 2028-12-26",
       "notes": "GOV.UK's published list of bank holidays for England and Wales, including the already-shifted (\"Substitute day\") dates and the one-off Platinum Jubilee (2022-06-03) and State Funeral (2022-09-19) bank holidays and the 2020 VE Day and 2023 Coronation early-May moves. GOV.UK only publishes a rolling window (roughly the current year, several years back and several years forward); it does not go back to 2000.",
       "local_files": [],
-      "support_intervals": []
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2021-01-01",
+          "to": "2023-12-31"
+        },
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2026-01-01",
+          "to": "2028-12-31"
+        }
+      ]
     },
     {
       "id": "uk-1971-act",
@@ -65,7 +87,18 @@
       "covers": "2021",
       "notes": "LSE-published multi-venue trading calendar with one column per venue and a per-venue \"Early Closing Time\" header row; the London Stock Exchange column's early-closing time is **12:30**. December 2021 rows: Fri 24 Dec 2021 marked Early Close, Mon 27 and Tue 28 Dec 2021 marked Market Closed, Fri 31 Dec 2021 marked Early Close. Confirms both the ordinary 24/31-December half day and the 2021 Christmas/Boxing cascade.",
       "local_files": [],
-      "support_intervals": []
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2021-01-01",
+          "to": "2021-12-31"
+        },
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2021-01-01",
+          "to": "2021-12-31"
+        }
+      ]
     },
     {
       "id": "lse-trading-calendar-2022",
@@ -76,7 +109,18 @@
       "covers": "2022",
       "notes": "Same format. 24 and 31 December 2022 both fell on a Saturday and appear nowhere in the calendar; instead **Fri 23 Dec 2022 and Fri 30 Dec 2022 are marked Early Close in the London Stock Exchange column** (12:30), with Mon 26 and Tue 27 Dec 2022 marked Market Closed. Primary-source confirmation of the preceding-business-day half-day shift.",
       "local_files": [],
-      "support_intervals": []
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2022-01-01",
+          "to": "2022-12-31"
+        },
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2022-01-01",
+          "to": "2022-12-31"
+        }
+      ]
     },
     {
       "id": "lse-trading-calendar-2023",
@@ -87,7 +131,18 @@
       "covers": "2023",
       "notes": "Same format. 24 and 31 December 2023 both fell on a Sunday; **Fri 22 Dec 2023 and Fri 29 Dec 2023 carry the London Stock Exchange early-close marking** (12:30), with Mon 25 and Tue 26 Dec 2023 marked Market Closed. Second primary-source confirmation of the same shift.",
       "local_files": [],
-      "support_intervals": []
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2023-01-01",
+          "to": "2023-12-31"
+        },
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2023-01-01",
+          "to": "2023-12-31"
+        }
+      ]
     },
     {
       "id": "xcal-xlon-crossval",

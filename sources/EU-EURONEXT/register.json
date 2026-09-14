@@ -10,7 +10,18 @@
       "covers": "2019–2026",
       "notes": "Per-venue closed / half trading day / full trading day tables for 2022–2026 and bullet lists for 2019–2021, plus the 14:05 CET half-day close time. Primary source for 2019 onwards.",
       "local_files": [],
-      "support_intervals": []
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2019-01-01",
+          "to": "2026-12-31"
+        },
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2019-01-01",
+          "to": "2026-12-31"
+        }
+      ]
     },
     {
       "id": "euronext-holiday-calendar-2026",
@@ -53,7 +64,18 @@
       "covers": "2014–2018",
       "notes": "The euronext.com holiday page as captured by the Internet Archive; the live page no longer carries years before 2019. Source for the 14:00 → 14:05 CET half-day close change (14:05 from the 2014 page onwards) and for the 31 December 2015 full closure.",
       "local_files": [],
-      "support_intervals": []
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2014-01-01",
+          "to": "2018-12-31"
+        },
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2014-01-01",
+          "to": "2018-12-31"
+        }
+      ]
     },
     {
       "id": "nyse-euronext-calendar-2013",
@@ -64,7 +86,18 @@
       "covers": "2013",
       "notes": "Last year with a 14:00 CET half-day close.",
       "local_files": [],
-      "support_intervals": []
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2013-01-01",
+          "to": "2013-12-31"
+        },
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2013-01-01",
+          "to": "2013-12-31"
+        }
+      ]
     },
     {
       "id": "nyse-euronext-calendar-2012",
@@ -80,7 +113,18 @@
           "sha256": "4da0f4141496d2d39a52379157ef1d1f98c5920a5f5eb353f7d2cd19952de035"
         }
       ],
-      "support_intervals": []
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2012-01-01",
+          "to": "2012-12-31"
+        },
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2012-01-01",
+          "to": "2012-12-31"
+        }
+      ]
     },
     {
       "id": "nyse-euronext-calendar-2011",
@@ -91,7 +135,18 @@
       "covers": "2011",
       "notes": "Lists only Good Friday, Easter Monday and 26 December as closures; 24 and 31 December 2011 were Saturdays and 23 and 30 December closed at the usual 17:35 CET.",
       "local_files": [],
-      "support_intervals": []
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2011-01-01",
+          "to": "2011-12-31"
+        },
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2011-01-01",
+          "to": "2011-12-31"
+        }
+      ]
     },
     {
       "id": "nyse-euronext-calendar-2010",
@@ -107,7 +162,18 @@
           "sha256": "0cc923a604d6e263348d77b88953dce05cd885f91bbd692dbf7933b9a83229cb"
         }
       ],
-      "support_intervals": []
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2010-01-01",
+          "to": "2010-12-31"
+        },
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2010-01-01",
+          "to": "2010-12-31"
+        }
+      ]
     }
   ]
 }

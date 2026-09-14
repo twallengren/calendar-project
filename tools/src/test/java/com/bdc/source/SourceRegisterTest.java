@@ -60,6 +60,63 @@ class SourceRegisterTest {
   }
 
   @Test
+  void unknownSchemaFieldCannotMasqueradeAsSupport() throws Exception {
+    Path path = register("[]");
+    Files.writeString(
+        path,
+        Files.readString(path)
+            .replace(
+                "\"support_intervals\":[]", "\"support_intervals\":[],\"supported_intervals\":[]"));
+    assertTrue(
+        assertThrows(IOException.class, () -> SourceRegister.read(path, temp))
+            .getMessage()
+            .contains("unknown"));
+  }
+
+  @Test
+  void verifiedClaimsRequireContinuousCitedSupport() throws Exception {
+    Path path = register("[]");
+    String original = Files.readString(path);
+    var from = java.time.LocalDate.of(2026, 1, 1);
+    var to = java.time.LocalDate.of(2026, 1, 3);
+    var coverage =
+        new com.bdc.model.CalendarSpec.Coverage(
+            from,
+            to,
+            to,
+            java.util.List.of(
+                new com.bdc.trust.CoverageInterval(
+                    com.bdc.trust.CompletenessScope.SCHEDULED_CLOSURES,
+                    from,
+                    to,
+                    com.bdc.trust.CoverageQuality.VERIFIED,
+                    java.util.List.of("notice"))));
+    var metadata = new com.bdc.model.CalendarSpec.Metadata("Test", "Test", "ISO", "UTC", coverage);
+    var spec =
+        new com.bdc.model.ResolvedSpec("TEST", metadata, null, null, null, null, null, null, null);
+    for (String support :
+        java.util.List.of(
+            "[]",
+            "[{\"from\":\"2026-01-01\",\"to\":\"2026-01-01\",\"scope\":\"SCHEDULED_CLOSURES\"},{\"from\":\"2026-01-03\",\"to\":\"2026-01-03\",\"scope\":\"SCHEDULED_CLOSURES\"}]")) {
+      Files.writeString(
+          path, original.replace("\"support_intervals\":[]", "\"support_intervals\":" + support));
+      var result = new ValidationResult("TEST");
+      new SourceRegisterValidator(temp).validate(spec, result);
+      assertTrue(
+          result.issues().stream()
+              .anyMatch(issue -> issue.code().equals("UNSUPPORTED_COVERAGE_CLAIM")));
+    }
+    Files.writeString(
+        path,
+        original.replace(
+            "\"support_intervals\":[]",
+            "\"support_intervals\":[{\"from\":\"2026-01-01\",\"to\":\"2026-01-03\",\"scope\":\"SCHEDULED_CLOSURES\"}]"));
+    var result = new ValidationResult("TEST");
+    new SourceRegisterValidator(temp).validate(spec, result);
+    assertFalse(result.hasErrors());
+  }
+
+  @Test
   void deltaAndRuleIdsMustResolveEvenWhenCitationHasUrl() throws Exception {
     register("[]");
     Path calendars = Files.createDirectories(temp.resolve("calendars"));

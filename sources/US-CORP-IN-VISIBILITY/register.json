@@ -37,7 +37,23 @@
           "sha256": "5c708c6ff65ffdc3ee463d497e981d46508ea58244b9ffefb111be61a02513eb"
         }
       ],
-      "support_intervals": []
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "1900-01-01",
+          "to": "2007-12-31"
+        },
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "1900-01-01",
+          "to": "2007-12-31"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "1900-01-01",
+          "to": "2007-12-31"
+        }
+      ]
     }
   ]
 }

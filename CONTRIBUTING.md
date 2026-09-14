@@ -275,3 +275,11 @@ Found a wrong date in an existing calendar? Same tools, smaller scope:
 
 Cite your source. "I think this is wrong" is a good reason to open an issue; it is not a good
 commit message.
+
+### Evidence and completeness for new calendars
+
+Add `sources/<ID>/register.json` as the canonical source register, with the original URL, a retrieval date, and SHA-256 for every preserved local evidence file. Generate its README table with `python3 scripts/sources.py`; `--check` verifies consistency. Citation IDs must resolve for both rules and deltas. A retrieval timestamp records acquisition, not an announcement or publication date.
+
+Declare scope-specific `coverage.quality` intervals for scheduled closures, early closes and unscheduled exceptions. `VERIFIED` requires evidence IDs whose canonical `support_intervals` cover the entire claimed interval for that scope. A gap in support is a validation error. Use `PROJECTED` only for an explicitly documented complete schedule model; use `INCOMPLETE` where absent events cannot safely mean open. Do not copy a calendar's desired coverage into a source's support intervals without reviewing the source. A source can establish scheduled holidays without establishing emergency closures.
+
+A submission also needs independently sourced conversion/closure examples, an explanation of weekend and observation rules, and an exception-maintenance policy: which authority is reviewed, who maintains the calendar, and when evidence should be refreshed. The scheduled source-review workflow reports ageing citations and approaching coverage boundaries; it does not invent coverage extensions. Preserve source rights and third-party licence notices when adding evidence or generated datasets.

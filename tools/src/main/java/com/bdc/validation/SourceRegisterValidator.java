@@ -32,6 +32,34 @@ public final class SourceRegisterValidator {
   public void validate(ResolvedSpec spec, ValidationResult result) {
     if (spec.coverage() != null) {
       for (var interval : spec.coverage().quality()) {
+        if (interval.quality() == com.bdc.trust.CoverageQuality.VERIFIED) {
+          List<com.bdc.chronology.DateRange> support = new ArrayList<>();
+          for (String id : interval.evidenceIds())
+            for (var register : registers) support.addAll(register.support(id, interval.scope()));
+          support.sort(java.util.Comparator.comparing(com.bdc.chronology.DateRange::start));
+          java.time.LocalDate cursor = interval.from();
+          boolean covered = false;
+          for (var range : support) {
+            if (range.end().isBefore(cursor)) continue;
+            if (range.start().isAfter(cursor)) break;
+            if (!range.end().isBefore(interval.to())) {
+              covered = true;
+              break;
+            }
+            cursor = range.end().plusDays(1);
+          }
+          if (!covered)
+            result.error(
+                "UNSUPPORTED_COVERAGE_CLAIM",
+                spec.id(),
+                "Verified "
+                    + interval.scope()
+                    + " interval "
+                    + interval.from()
+                    + ".."
+                    + interval.to()
+                    + " exceeds cited source support intervals");
+        }
         for (String id : interval.evidenceIds()) {
           if (registers.stream().noneMatch(register -> register.contains(id)))
             result.error(

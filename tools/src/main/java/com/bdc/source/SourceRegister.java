@@ -27,8 +27,25 @@ public final class SourceRegister {
     if (!"1.0".equals(root.path("schema_version").asText()) || !root.path("entries").isArray()) {
       throw new IOException(path + ": unsupported source register schema");
     }
+    requireFields(root, Set.of("schema_version", "entries"), path);
     Set<String> ids = new java.util.HashSet<>();
     for (JsonNode entry : root.path("entries")) {
+      requireFields(
+          entry,
+          Set.of(
+              "id",
+              "title",
+              "publisher",
+              "location",
+              "retrieved",
+              "covers",
+              "notes",
+              "local_files",
+              "support_intervals"),
+          path);
+      for (String array : List.of("local_files", "support_intervals"))
+        if (!entry.path(array).isArray())
+          throw new IOException(path + ": " + array + " must be an array");
       String id = entry.path("id").asText();
       if (id.isBlank() || !ids.add(id))
         throw new IOException(path + ": missing/duplicate source id " + id);
@@ -37,6 +54,7 @@ public final class SourceRegister {
           throw new IOException(path + ": missing text field " + field);
       }
       for (JsonNode file : entry.path("local_files")) {
+        requireFields(file, Set.of("path", "sha256"), path);
         Path local = sourcesRoot.resolve(file.path("path").asText()).normalize();
         if (!local.toAbsolutePath().startsWith(sourcesRoot.toAbsolutePath().normalize())
             || !Files.isRegularFile(local)
@@ -55,6 +73,12 @@ public final class SourceRegister {
         }
       }
       for (JsonNode interval : entry.path("support_intervals")) {
+        requireFields(interval, Set.of("from", "to", "scope"), path);
+        try {
+          com.bdc.trust.CompletenessScope.valueOf(interval.path("scope").asText());
+        } catch (IllegalArgumentException e) {
+          throw new IOException(path + ": invalid support scope", e);
+        }
         LocalDate from = LocalDate.parse(interval.path("from").asText());
         LocalDate to = LocalDate.parse(interval.path("to").asText());
         if (from.isAfter(to) || interval.path("scope").asText().isBlank()) {
@@ -63,6 +87,33 @@ public final class SourceRegister {
       }
     }
     return new SourceRegister(root);
+  }
+
+  private static void requireFields(JsonNode node, Set<String> allowed, Path path)
+      throws IOException {
+    if (!node.isObject()) throw new IOException(path + ": expected object");
+    var fields = node.fieldNames();
+    while (fields.hasNext()) {
+      String field = fields.next();
+      if (!allowed.contains(field))
+        throw new IOException(path + ": unknown source schema field " + field);
+    }
+  }
+
+  public List<com.bdc.chronology.DateRange> support(
+      String id, com.bdc.trust.CompletenessScope scope) {
+    List<com.bdc.chronology.DateRange> result = new ArrayList<>();
+    for (JsonNode entry : root.path("entries")) {
+      if (!id.equals(entry.path("id").asText())) continue;
+      for (JsonNode interval : entry.path("support_intervals")) {
+        if (scope.name().equals(interval.path("scope").asText()))
+          result.add(
+              new com.bdc.chronology.DateRange(
+                  LocalDate.parse(interval.path("from").asText()),
+                  LocalDate.parse(interval.path("to").asText())));
+      }
+    }
+    return List.copyOf(result);
   }
 
   public boolean contains(String id) {

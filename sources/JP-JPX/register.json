@@ -10,7 +10,13 @@
       "covers": "2026–2027",
       "notes": "The exchange's own publication (page \"Update : Feb. 06, 2026\"). States the standing rule: \"JPX markets are closed on Saturdays, Sundays, national holidays, and on the dates indicated below\", where the dates indicated are Jan. 2, Jan. 3 and Dec. 31 every year. Also states the observance rule (\"National holidays that fall on a Sunday are observed on the closest following day that is not a national holiday\") and flags 2026-09-22 as a holiday \"in accordance with Rule 3, Paragraph 3 of Act on National Holidays\".",
       "local_files": [],
-      "support_intervals": []
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2026-01-01",
+          "to": "2027-12-31"
+        }
+      ]
     },
     {
       "id": "jpx-market-holidays-archive",
@@ -21,7 +27,13 @@
       "covers": "2019–2027",
       "notes": "Earlier editions of the same JPX page. Jan. 2, Jan. 3 and Dec. 31 are listed as \"Market Holiday\" in every edition, including years in which they fall on a weekend. Source for the Olympic-year moves as JPX published them and for the 2019 imperial-transition holidays.",
       "local_files": [],
-      "support_intervals": []
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2019-01-01",
+          "to": "2025-12-31"
+        }
+      ]
     },
     {
       "id": "cao-shukujitsu",

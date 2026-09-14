@@ -15,7 +15,13 @@
           "sha256": "435df5485b91357a5f5f7bba0982f3296651c9e97a5e5c446506096940063568"
         }
       ],
-      "support_intervals": []
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2021-01-01",
+          "to": "2029-12-31"
+        }
+      ]
     },
     {
       "id": "saudi-weekend-change-2013",

@@ -52,6 +52,7 @@ public final class ComparePageRenderer {
           <p class="lede">Where <code>{{a}}</code> and <code>{{b}}</code> disagree: every day one
           market trades and the other is closed, {{window}}. Weekends are excluded — those follow
           from each calendar's weekend policy, not from a holiday.</p>
+          <p>Differences below include only resolved dates. Incomplete coverage is shown as unknown on each calendar; the offset helper stops at an unresolved date.</p>
           <section aria-labelledby="summary-heading">
             <h2 id="summary-heading">Summary</h2>
             {{{summary}}}
@@ -357,7 +358,10 @@ public final class ComparePageRenderer {
         // A holiday that lands on the closed market's own weekend is not a difference worth a row:
         // it restates the weekend policy, and Tadawul's Friday Eid days would otherwise crowd out
         // the holidays the page exists to show.
-        if (isWeekend(closed.weekendPolicy(), date) || !open.isBusinessDay(date)) {
+        if (closed.isUnknown(date)
+            || open.isUnknown(date)
+            || isWeekend(closed.weekendPolicy(), date)
+            || !open.isBusinessDay(date)) {
           continue;
         }
         byDate.computeIfAbsent(date, k -> new ArrayList<>()).add(event.description());

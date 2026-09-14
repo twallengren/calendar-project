@@ -10,7 +10,18 @@
       "covers": "2025-09 to 2027-09 (live page)",
       "notes": "The exchange's own calendar. Each Hong Kong general holiday appears with the description \"Hong Kong Market is closed\"; each shortened session appears as \"Half-Day Trading Day - Afternoon Session is Closed on Christmas's Eve / New Year's Eve / Lunar New Year's Eve\". The page embeds its data as a `calendarDataSource` JSON blob covering roughly one year either side of the retrieval date.",
       "local_files": [],
-      "support_intervals": []
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2025-01-01",
+          "to": "2027-12-31"
+        },
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2025-01-01",
+          "to": "2027-12-31"
+        }
+      ]
     },
     {
       "id": "hkex-calendar-archived",
@@ -21,7 +32,18 @@
       "covers": "2017-01 to 2025-12",
       "notes": "Same page, same embedded `calendarDataSource` format, read out of archived captures so that the exchange's own holiday and half-day entries could be checked for every year of coverage rather than only the live window. Every closure it lists for 2018-2027 agrees exactly with the gazetted general holidays list; no closure appears in one and not the other.",
       "local_files": [],
-      "support_intervals": []
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2018-01-01",
+          "to": "2025-12-31"
+        },
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2018-01-01",
+          "to": "2025-12-31"
+        }
+      ]
     },
     {
       "id": "hkex-securities-trading-hours",

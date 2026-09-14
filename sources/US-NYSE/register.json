@@ -19,7 +19,23 @@
           "sha256": "f206a8e11a3367d9f1cb7bc6523b54747d278417552001f2c100f9029523cec9"
         }
       ],
-      "support_intervals": []
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "1900-01-01",
+          "to": "2007-12-31"
+        },
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "1900-01-01",
+          "to": "2007-12-31"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "1900-01-01",
+          "to": "2007-12-31"
+        }
+      ]
     },
     {
       "id": "nyse-legacy-model-2022",

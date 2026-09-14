@@ -10,7 +10,13 @@
       "covers": "2003",
       "notes": "Oldest trading calendar in Deutsche Börse's own archive; no earlier PDF is published, so coverage starts here.",
       "local_files": [],
-      "support_intervals": []
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2003-01-01",
+          "to": "2003-12-31"
+        }
+      ]
     },
     {
       "id": "xetra-trading-calendar-2004",
@@ -21,7 +27,13 @@
       "covers": "2004",
       "notes": "",
       "local_files": [],
-      "support_intervals": []
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2004-01-01",
+          "to": "2004-12-31"
+        }
+      ]
     },
     {
       "id": "xetra-trading-calendar-2005",
@@ -32,7 +44,13 @@
       "covers": "2005",
       "notes": "",
       "local_files": [],
-      "support_intervals": []
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2005-01-01",
+          "to": "2005-12-31"
+        }
+      ]
     },
     {
       "id": "xetra-trading-calendar-2006",
@@ -43,7 +61,13 @@
       "covers": "2006",
       "notes": "",
       "local_files": [],
-      "support_intervals": []
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2006-01-01",
+          "to": "2006-12-31"
+        }
+      ]
     },
     {
       "id": "xetra-trading-calendar-2007",
@@ -54,7 +78,13 @@
       "covers": "2007",
       "notes": "Only year 2003-2013 in which Whit Monday (28 May 2007) is a listed exception.",
       "local_files": [],
-      "support_intervals": []
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2007-01-01",
+          "to": "2007-12-31"
+        }
+      ]
     },
     {
       "id": "xetra-trading-calendar-2008",
@@ -65,7 +95,13 @@
       "covers": "2008",
       "notes": "First year the PDF distinguishes \"settlement days\" from full closures.",
       "local_files": [],
-      "support_intervals": []
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2008-01-01",
+          "to": "2008-12-31"
+        }
+      ]
     },
     {
       "id": "xetra-trading-calendar-2009",
@@ -76,7 +112,13 @@
       "covers": "2009",
       "notes": "",
       "local_files": [],
-      "support_intervals": []
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2009-01-01",
+          "to": "2009-12-31"
+        }
+      ]
     },
     {
       "id": "xetra-trading-calendar-2010",
@@ -87,7 +129,13 @@
       "covers": "2010",
       "notes": "",
       "local_files": [],
-      "support_intervals": []
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2010-01-01",
+          "to": "2010-12-31"
+        }
+      ]
     },
     {
       "id": "xetra-trading-calendar-2011",
@@ -98,7 +146,13 @@
       "covers": "2011",
       "notes": "German Unity Day (3 Oct 2011, a Monday) not listed - confirms no closure that year.",
       "local_files": [],
-      "support_intervals": []
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2011-01-01",
+          "to": "2011-12-31"
+        }
+      ]
     },
     {
       "id": "xetra-trading-calendar-2012",
@@ -109,7 +163,13 @@
       "covers": "2012",
       "notes": "",
       "local_files": [],
-      "support_intervals": []
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2012-01-01",
+          "to": "2012-12-31"
+        }
+      ]
     },
     {
       "id": "xetra-trading-calendar-2013",
@@ -120,7 +180,13 @@
       "covers": "2013",
       "notes": "",
       "local_files": [],
-      "support_intervals": []
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2013-01-01",
+          "to": "2013-12-31"
+        }
+      ]
     },
     {
       "id": "xetra-trading-calendar-2014",
@@ -131,7 +197,13 @@
       "covers": "2014",
       "notes": "German Unity Day (3 Oct, a Friday) reappears as a settlement day; Whit Monday (9 June, a Monday) still not listed.",
       "local_files": [],
-      "support_intervals": []
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2014-01-01",
+          "to": "2014-12-31"
+        }
+      ]
     },
     {
       "id": "xetra-trading-calendar-2015",
@@ -142,7 +214,13 @@
       "covers": "2015",
       "notes": "Whit Monday (25 May) reappears as a settlement day. German Unity Day fell on Saturday 3 Oct 2015, so its status that year cannot be confirmed from this document (immaterial: a Saturday is already non-trading under the weekend policy).",
       "local_files": [],
-      "support_intervals": []
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2015-01-01",
+          "to": "2015-12-31"
+        }
+      ]
     },
     {
       "id": "xetra-trading-calendar-2016",
@@ -153,7 +231,13 @@
       "covers": "2016",
       "notes": "Both Whit Monday (16 May) and German Unity Day (3 Oct) listed as settlement days.",
       "local_files": [],
-      "support_intervals": []
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2016-01-01",
+          "to": "2016-12-31"
+        }
+      ]
     },
     {
       "id": "xetra-trading-calendar-2017",
@@ -164,7 +248,13 @@
       "covers": "2017",
       "notes": "Also lists 31 October (Reformation Day) as a one-off settlement day: the 500th anniversary of the Reformation was a nationwide statutory holiday in Germany for 2017 only.",
       "local_files": [],
-      "support_intervals": []
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2017-01-01",
+          "to": "2017-12-31"
+        }
+      ]
     },
     {
       "id": "xetra-trading-calendar-2018",
@@ -175,7 +265,13 @@
       "covers": "2018",
       "notes": "",
       "local_files": [],
-      "support_intervals": []
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2018-01-01",
+          "to": "2018-12-31"
+        }
+      ]
     },
     {
       "id": "xetra-trading-calendar-2019",
@@ -186,7 +282,13 @@
       "covers": "2019",
       "notes": "",
       "local_files": [],
-      "support_intervals": []
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2019-01-01",
+          "to": "2019-12-31"
+        }
+      ]
     },
     {
       "id": "xetra-trading-calendar-2020",
@@ -197,7 +299,13 @@
       "covers": "2020",
       "notes": "Whit Monday (1 June) listed as a settlement day. German Unity Day fell on Saturday 3 Oct 2020 and is not listed, so its status that year cannot be confirmed from this document (immaterial: a Saturday is already non-trading).",
       "local_files": [],
-      "support_intervals": []
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2020-01-01",
+          "to": "2020-12-31"
+        }
+      ]
     },
     {
       "id": "xetra-trading-calendar-2021",
@@ -208,7 +316,13 @@
       "covers": "2021",
       "notes": "Last year Whit Monday (24 May) is listed as a settlement day. The full exceptions sentence is \"1 January, 2 April, 5 April, 24 May, 24 December and 31 December\" — German Unity Day is **not** listed (3 Oct 2021 was a Sunday), so 2021 confirms nothing about that holiday either way.",
       "local_files": [],
-      "support_intervals": []
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2021-01-01",
+          "to": "2021-12-31"
+        }
+      ]
     },
     {
       "id": "xetra-trading-calendar-2022",
@@ -219,7 +333,13 @@
       "covers": "2022",
       "notes": "Whit Monday (6 June, a Monday) and German Unity Day (3 Oct, a Monday) both weekdays and both absent from the exceptions list: confirms Xetra trades on both from 2022.",
       "local_files": [],
-      "support_intervals": []
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2022-01-01",
+          "to": "2022-12-31"
+        }
+      ]
     },
     {
       "id": "xetra-trading-calendar-2023",
@@ -230,7 +350,13 @@
       "covers": "2023",
       "notes": "",
       "local_files": [],
-      "support_intervals": []
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2023-01-01",
+          "to": "2023-12-31"
+        }
+      ]
     },
     {
       "id": "xetra-trading-calendar-2024",
@@ -241,7 +367,13 @@
       "covers": "2024",
       "notes": "",
       "local_files": [],
-      "support_intervals": []
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2024-01-01",
+          "to": "2024-12-31"
+        }
+      ]
     },
     {
       "id": "xetra-trading-calendar-2025",
@@ -252,7 +384,13 @@
       "covers": "2025",
       "notes": "",
       "local_files": [],
-      "support_intervals": []
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2025-01-01",
+          "to": "2025-12-31"
+        }
+      ]
     },
     {
       "id": "xetra-trading-calendar-2026",
@@ -263,7 +401,13 @@
       "covers": "2026",
       "notes": "Latest published calendar; explicitly notes Ascension Day, Whit Monday and Corpus Christi are ordinary trading days. `coverage.verified_through` is set to this year.",
       "local_files": [],
-      "support_intervals": []
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2026-01-01",
+          "to": "2026-12-31"
+        }
+      ]
     },
     {
       "id": "xetra-cash-market-calendar-page",

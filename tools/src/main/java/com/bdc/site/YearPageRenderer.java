@@ -156,7 +156,10 @@ public final class YearPageRenderer {
           .append(earlyCloses)
           .append(earlyCloses == 1 ? " early close" : " early closes");
     }
-    text.append(" in ").append(year).append(".");
+    text.append(" in ")
+        .append(year)
+        .append(
+            ". Counts describe recorded scheduled events; unknown grid cells identify incomplete coverage.");
     LocalDate verified = calendar.coverage().verifiedThrough();
     if (verified != null && verified.getYear() < year) {
       text.append(" Dates after ")
@@ -302,6 +305,7 @@ public final class YearPageRenderer {
     List<Map<String, Object>> items = new ArrayList<>();
     int position = 1;
     for (DayEvent event : events) {
+      if (calendar.isUnknown(event.date())) continue;
       if (!event.isClosed()) {
         continue;
       }

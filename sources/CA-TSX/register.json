@@ -10,7 +10,13 @@
       "covers": "2025 and 2026",
       "notes": "Current published holiday list (New Year's Day, Family Day, Good Friday, Victoria Day, Canada Day, Civic Holiday, Labour Day, Thanksgiving Day, Christmas Eve early close, Christmas Day, Boxing Day / \"In Lieu of Boxing Day\"). No entry for National Day for Truth and Reconciliation in either year, i.e. TSX does not close for it.",
       "local_files": [],
-      "support_intervals": []
+      "support_intervals": [
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2025-01-01",
+          "to": "2026-12-31"
+        }
+      ]
     },
     {
       "id": "tmx-holiday-schedule-2025",
@@ -21,7 +27,13 @@
       "covers": "Dec 2025 - Jan 2026",
       "notes": "Confirms Wed Dec 24, 2025 open until 1:00 p.m. (TSX/TSXV), closed Thu Dec 25, Fri Dec 26, and Thu Jan 1, 2026 (no weekend shifting needed that year).",
       "local_files": [],
-      "support_intervals": []
+      "support_intervals": [
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2025-01-01",
+          "to": "2026-12-31"
+        }
+      ]
     },
     {
       "id": "tmx-holiday-schedule-2023",
@@ -43,7 +55,13 @@
       "covers": "Dec 2020 - Jan 2021",
       "notes": "Timetable for TSX/TSXV/TSX Alpha: Thu Dec 24, 2020 \"Open until 1:00 p.m. (EST)\"; closed Fri Dec 25, 2020, Mon Dec 28, 2020 \"in lieu of Boxing Day\" (Dec 26, 2020 was a Saturday) and Fri Jan 1, 2021. Confirms both the 2020 Dec 24 early close and the Boxing-Day-on-Saturday forward shift.",
       "local_files": [],
-      "support_intervals": []
+      "support_intervals": [
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2020-01-01",
+          "to": "2020-12-31"
+        }
+      ]
     },
     {
       "id": "tmx-holiday-schedule-2021",
@@ -54,7 +72,13 @@
       "covers": "Dec 2021 - Jan 2022",
       "notes": "Primary source for the weekend-cascade case: Fri Dec 24, 2021 open until 1:00 p.m.; closed Mon Dec 27 (\"in lieu of Christmas Day\", nominal Sat Dec 25), Tue Dec 28 (\"in lieu of Boxing Day\", nominal Sun Dec 26), and Mon Jan 3, 2022 (\"in lieu of New Year's Day\", nominal Sat Jan 1, 2022). Confirms New Year's Day also uses next-available-weekday shifting (not forward-only).",
       "local_files": [],
-      "support_intervals": []
+      "support_intervals": [
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2021-01-01",
+          "to": "2021-12-31"
+        }
+      ]
     },
     {
       "id": "tmx-canada-day-2017",

@@ -39,7 +39,7 @@ public final class PageLayout {
               <a href="{{root}}index.html">Markets</a>
               <a href="{{root}}changelog/index.html">Changelog</a>
               <a href="{{sourcesUrl}}">Sources</a>
-              <a href="{{root}}v1/index.json">API</a>
+              <a href="{{root}}v2/index.json">API</a>
               <a href="{{repoUrl}}">GitHub</a>
             </nav>
           </header>
@@ -51,7 +51,7 @@ public final class PageLayout {
             <p>Generated from release <strong>v{{release}}</strong> ({{releaseDate}}) on {{builtOn}}.
             Calendar data is published under the repository's data licence; every closure cites a
             source.</p>
-            <p><a href="{{root}}v1/index.json">JSON API v1</a> &middot;
+            <p><a href="{{root}}v2/index.json">JSON API v2</a> &middot; <a href="{{root}}v1/index.json">JSON API v1</a> &middot;
             <a href="{{root}}changelog/index.html">Changelog</a> &middot;
             <a href="{{contributingUrl}}">Contributing</a> &middot;
             <a href="{{root}}sitemap.xml">Sitemap</a></p>
