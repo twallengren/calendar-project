@@ -165,7 +165,27 @@ version is `0.<data major>.<data minor>`, so it tracks the data release; see
 and the coverage/status caveats. An optional `bdc-calendars-mcp` MCP server
 (`pip install "bdc-calendars[mcp]"`) exposes the same Query API to AI agents over stdio.
 
-**(e) Point-in-time history** — every option above gives you the *current* release. To ask what a
+**(e) The Java library** — the same Query API the CLI answers from, as two jars: `bdc-calendar-core`
+(the query API, **no third-party dependencies**) and `bdc-calendar-data` (the published calendars as
+classpath resources). Both carry the data release as their version, so the coordinate names the
+dataset:
+```kotlin
+dependencies {
+    implementation("io.github.twallengren:bdc-calendar-core:11.0.0")
+    runtimeOnly("io.github.twallengren:bdc-calendar-data:11.0.0")
+}
+```
+```java
+DateStream nyse = BusinessCalendars.of("US-NYSE");   // or the MIC, "XNYS"
+nyse.isBusinessDay(LocalDate.of(2021, 12, 31));      // true
+nyse.closeTime(LocalDate.of(2025, 7, 3));            // Optional[13:00]
+BusinessCalendars.joint("US-NYSE", "SA-TADAWUL")     // open only where both are
+    .nthBusinessDay(LocalDate.of(2026, 2, 25), 2);   // 2026-03-02
+```
+*Pending the Maven Central namespace* — until it is claimed, build the jars locally with
+`./gradlew publishToMavenLocal` and add `mavenLocal()` to your repositories.
+
+**(f) Point-in-time history** — every option above gives you the *current* release. To ask what a
 calendar looked like as of an earlier release (audit, backtest reproducibility), use the CLI's
 `--as-of` against a checked-out copy, which reads `release-history/`:
 ```bash
