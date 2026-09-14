@@ -4,35 +4,49 @@ This document sketches the direction we see for this project — where it is tod
 
 ## Where we are
 
-A YAML-driven business-day calendar system that compiles declarative specs into deterministic CSV/JSON artifacts. Today it covers:
+A YAML-driven business-day calendar system that compiles declarative specs into deterministic CSV/JSON artifacts. What was a two-market proof of concept has grown into a small but real dataset with multiple distribution channels. Today it covers:
 
-- **Two markets** (US equities via NYSE, Saudi Arabia via Tadawul)
-- **Five chronologies** (ISO/Gregorian, tabular Hijri, Umm al-Qura, Julian, Persian)
-- **A composable module system** for holidays, effective-dated weekend policies, per-holiday observance rules, multi-day spans, and early-close times
-- **Provenance**: every holiday cites a document under `sources/`, and every event carries a CONFIRMED/PROJECTED status
-- **Cross-validation** against exchange_calendars and QuantLib, with an explicit allowlist of explained differences
-- **Bitemporal artifact versioning** with blessed outputs, release history, and as-of queries
-- **A CLI toolchain** for validation, resolution, generation, diffing, and querying
+- **11 market calendars** (US-NYSE, SA-TADAWUL, GB-LSE, DE-XETRA, CA-TSX, the four Euronext cash markets — Paris, Amsterdam, Brussels, Lisbon — JP-JPX, and HK-HKEX) **plus 3 base calendars** (US-MARKET-BASE, US-CORP-IN-VISIBILITY, EU-EURONEXT). See the [Market status table](README.md#market-status) for coverage, verified-through dates, closure/early-close/projected counts, sources cited, and cross-validation results per calendar — regenerate it with `tools status --format markdown`.
+- **Five chronologies** (ISO/Gregorian, tabular Hijri, Umm al-Qura, Julian, Persian) — unchanged in count since the last iteration; every new market this round used published/gazetted dates rather than a new chronology (see *Known limitations* below).
+- **A composable module system** for holidays, effective-dated weekend policies, per-holiday observance rules, multi-day spans, and early-close times. Two new primitives came out of modelling GB-LSE and CA-TSX honestly instead of enumerating their consequences: `shift_policy` now also governs `EARLY_CLOSE` events (`DROP`, the default, and `PREVIOUS_AVAILABLE_BUSINESS_DAY`), and `displaces:` lets one `CLOSED` event claim priority over another when both want the same shifted slot (so Canada's "Boxing Day pushed by a Sunday Christmas" is one `displaces` declaration instead of sixteen calendar-level deltas). Full shift policy set: `NONE`, `NEAREST_WEEKDAY`, `NEXT_AVAILABLE_WEEKDAY`, `FORWARD_ONLY`, `NEXT_AVAILABLE_FROM_LAST_WEEKEND_DAY` for full closures.
+- **Provenance**: every holiday cites a document under `sources/`, and `validate --strict` rejects an uncited event source. Every event carries a `CONFIRMED`/`PROJECTED` status, and calendars declare `verified_through` — dates after it are reported as projected regardless of what the row itself says.
+- **Cross-validation** against exchange_calendars and QuantLib, with an explicit, reason-required allowlist of explained differences; nine of the eleven market calendars have at least one reference source (the four Euronext venues and SA-TADAWUL currently cross-validate against exchange_calendars only).
+- **Bitemporal artifact versioning** with blessed outputs, release history, and as-of queries.
+- **A CLI toolchain**, expanded well beyond validation/resolution/generation: `diff`/`ci-diff` for PR-time comparisons, `query` (single and **joint** calendars — "is this a business day in both A and B", T+N settlement across markets), `status` (the scorecard above), `crossvalidate`, `scaffold` (onboard a new market), `site`/`serve` (build and preview the public site), and `history`.
+- **A published distribution surface**, not just a repo to clone: a static [`/v1/` JSON API](spec/SPEC.md#json-api-v1) and per-calendar `.ics` feeds, both served from GitHub Pages; the same data mirrored on jsDelivr (pinned per tag) and as loose files on every GitHub Release; a zero-dependency [`bdc-calendars`](python/README.md) Python package with an MCP server extra so an agent can query calendars over stdio (Java library modules — `bdc-calendar-core`/`bdc-calendar-data`, wrapping this same data for JVM consumers — are in progress on branch `wp2b`, not yet on `main`); and a browsable HTML site (year grids, permalinked dates, market comparison pages with a T+N settlement helper, rendered source registers, a changelog) generated from that same JSON API rather than from `blessed/` directly.
+- **A contributor kit** meant to make "adding a market" a real afternoon task rather than folklore: `scaffold` generates the calendar YAML, a holiday group, an example module and the source citation table; `CONTRIBUTING.md` walks the rest end to end; PR/issue templates, `CODEOWNERS` and `GOVERNANCE.md` give per-market ownership somewhere to live; a `justfile` and pre-commit hook cut friction; and `tools site --compare-to blessed` plus `tools serve` let a contributor preview exactly what a reviewer's PR comment and site-preview artifact will show before opening the PR.
 
-The architecture is sound: spec-driven, inheritance-based, with clean separation between data and tooling. The foundation is built for growth.
+The architecture is sound: spec-driven, inheritance-based, with clean separation between data and tooling. The foundation is built for growth — this iteration mostly proved that by growing it.
+
+### Known limitations
+
+Real gaps, not modesty:
+
+- **Holiday-on-holiday cascades aren't fully general.** `displaces` handles one CLOSED event claiming a slot from another, but a shifted holiday landing on a date another holiday already occupies as an *explicit, non-shiftable* date still needs to be modelled by hand: HKEX's 2022 Christmas ("the second weekday after Christmas Day" falling on a Sunday-Christmas year) is still an `explicit_dates` entry rather than something the shift/`displaces` machinery derives (see `modules/holidays/hk_christmas.yaml`).
+- **The `PROJECTED` convention isn't uniform across packs.** Every calendar gets `PROJECTED` for free past `verified_through`. A few packs (Saudi's `eid_al_fitr`/`eid_al_adha`, Japan's equinox-day holidays) additionally mark specific future rows `status: PROJECTED` *within* the verified range because the date itself is a best-effort computation (an observed new moon, an astronomical equinox) rather than a published fact; most packs rely on `verified_through` alone. A contributor reading one pack's YAML for the convention may reasonably not realize the other exists.
+- **No business-day-relative rule type.** There is no way to express "the last business day of the month" or "three business days before quarter end" — every rule type resolves to a calendar date or a fixed offset from one. This has not blocked any market so far, but it will for some settlement-style calendars.
+- **No lunisolar chronologies.** HKEX and (when added) TASE-style markets are handled with published/gazetted date lists, not computed lunar or lunisolar arithmetic. Chinese, Hebrew, Buddhist and Hindu lunisolar support remains chronology work we have not needed to do yet.
+- **Session structure is out of scope.** Open times, lunch breaks (relevant for several Asian markets), and anything about the shape of a trading session beyond "closed" or "early close at time T" are not modelled and are not currently planned.
+- **Serverless query API, npm package, and an Excel/Sheets add-on are deliberately deferred.** The distribution tiers they'd fill (Tier 3/4 in the brainstorming below) are real ideas, just not where the leverage was this iteration.
+- **Two maintainer-only setup steps stand between what's built and what's live**, listed in full under [Prioritized roadmap](#prioritized-roadmap-draft): enabling GitHub Pages, and registering the PyPI trusted publisher / Sonatype namespace for the packages that are otherwise ready to publish.
 
 ## Where we're heading
 
 ### More markets, more coverage
 
-The near-term goal is broader geographic coverage. Priority areas:
+**Progress this iteration:** LSE, Deutsche Börse (Xetra), TSX, the four Euronext cash markets, JPX and HKEX all shipped, taking the previous two-market base to 11 market calendars. That is most of the original "G10 exchanges" target below. Priority areas going forward:
 
-- **Major global exchanges** — LSE, TSE, HKEX, Euronext, Deutsche Borse, BSE/NSE, ASX
-- **Regional and emerging markets** — SGX, KRX, TWSE, JSE, B3, BMV
+- **Remaining major global exchanges** — BSE/NSE, ASX, SGX, KRX
+- **Regional and emerging markets** — TWSE, JSE, B3, BMV
 - **Non-exchange business calendars** — banking holidays, settlement calendars, government calendars
 
-Each new market validates and stress-tests the composition model. Markets with unusual rules (e.g., lunar-calendar-driven closures, ad-hoc government declarations) are especially valuable for surfacing gaps in the spec.
+Each new market validates and stress-tests the composition model — this round produced the `displaces` observance-priority primitive and `EARLY_CLOSE` shifting directly from trying to model GB-LSE and CA-TSX honestly instead of special-casing them. Markets with unusual rules (e.g., lunar-calendar-driven closures, ad-hoc government declarations) are still especially valuable for surfacing gaps in the spec — HKEX's Christmas-on-Sunday case (still an `explicit_dates` entry; see *Known limitations* above) is the next one waiting for a general solution.
 
 ### Richer chronology support
 
-The chronology system is designed for extensibility but only lightly exercised. We want to:
+The chronology system is designed for extensibility but remains only lightly exercised: still five chronologies, same as before this iteration. HKEX was added using gazetted date lists rather than new chronology work, which is the right call for one market but defers the underlying problem. We want to:
 
-- **Add Hebrew, Buddhist, Hindu, and Chinese lunisolar calendars** — critical for markets in Israel, Thailand, India, and East Asia
+- **Add Hebrew, Buddhist, Hindu, and Chinese lunisolar calendars** — critical for markets in Israel, Thailand, India, and East Asia. Still not started; this is now the highest-leverage chronology work because HKEX has made the "published dates, not computed lunar arithmetic" workaround visible as a real limitation rather than a hypothetical one.
 - **Support observation-based calendars** where dates are declared by authority rather than computed by formula (the lookup-table mechanism exists but needs more real-world use)
 - **Improve the codegen pipeline** so contributing a new chronology is as simple as writing a YAML file
 
@@ -52,21 +66,21 @@ For this to work, we need:
 
 ### Better query and integration surfaces
 
-The CLI is useful for developers. But calendars are consumed by systems, not people. We want to:
+**Progress this iteration:** this section is largely done for two of three registries. `bdc-calendars` is on PyPI's on-ramp (published via Trusted Publishing once a maintainer flips `PYPI_PUBLISH`); the JSON API, `.ics` feeds and jsDelivr mirroring are live. What remains:
 
-- **Publish artifacts to package registries** — Maven Central, npm, PyPI — so consumers can depend on calendar data as a versioned library
-- **Provide a lightweight query API** (or at least a static site) for ad-hoc lookups
-- **Support common integration patterns** — iCal feeds, JSON API contracts, embeddable widgets
-- **Offer language-native libraries** that wrap the generated data with idiomatic APIs (e.g., `isBusinessDay(market, date)` in Java, Python, TypeScript)
+- ~~Publish artifacts to package registries — Maven Central, npm, PyPI~~ — **PyPI**: package built, publish gated on a maintainer registering the trusted publisher (see roadmap). **Maven Central**: `bdc-calendar-core`/`bdc-calendar-data` exist on branch `wp2b`, not yet merged, and publishing is further gated on claiming the `io.github.twallengren` Sonatype namespace. **npm**: not started, deliberately deferred — no TypeScript/JS consumer has asked yet.
+- ~~Provide a lightweight query API (or at least a static site) for ad-hoc lookups~~ — **done**: the `/v1/` JSON API and the generated HTML site both exist and are described under *Where we are*.
+- ~~Support common integration patterns — iCal feeds, JSON API contracts, embeddable widgets~~ — iCal and the JSON API contract are done; embeddable widgets are not started.
+- **Offer language-native libraries** that wrap the generated data with idiomatic APIs (e.g., `isBusinessDay(market, date)`) — done for Python (`is_business_day`, `next_business_day`, `add_business_days`, plus joint calendars and an MCP server); Java is in progress (`wp2b`); TypeScript is not started.
 
 ### Tooling and developer experience
 
 As the dataset grows, the toolchain needs to keep pace:
 
-- **Interactive calendar explorer** — a local or hosted UI for browsing calendars, comparing markets, and visualizing holiday overlaps
-- **Diff and changelog generation** — automated summaries of what changed between releases, useful for compliance and audit
-- **Smarter validation** — detect common data-entry errors (duplicate holidays, missing shift policies, gaps in coverage ranges)
-- **Performance at scale** — ensure the generator and resolver remain fast as the number of calendars and date ranges grows
+- ~~Interactive calendar explorer — a local or hosted UI for browsing calendars, comparing markets, and visualizing holiday overlaps~~ — **done**: the public site's compare pages overlay two markets with a T+N settlement helper, and `tools serve --compare-to blessed` gives contributors the same view locally before opening a PR.
+- ~~Diff and changelog generation — automated summaries of what changed between releases, useful for compliance and audit~~ — **done**: `ci-diff` (PR-time), the site's changelog page (release-time), and `history` (as-of queries) cover this.
+- **Smarter validation** — detect common data-entry errors (duplicate holidays, missing shift policies, gaps in coverage ranges). Partially done: `validate --strict` now catches unsourced events, `displaces` cycles/unknown keys, `DROP` on a CLOSED source, and two CLOSED events on one date; broader data-entry heuristics (gaps in coverage ranges) are still open.
+- **Performance at scale** — ensure the generator and resolver remain fast as the number of calendars and date ranges grows. Not yet a problem at 14 calendars; worth watching as coverage grows toward the remaining G10/regional markets.
 
 ## Principles
 
@@ -248,104 +262,142 @@ The contributor UI is probably the highest-leverage investment. If contributing 
 
 ## Prioritized roadmap (draft)
 
-Ranked by leverage — what most accelerates everything else.
+Ranked by leverage — what most accelerates everything else. Original priorities #1-#6, #8 and most
+of #9 shipped this iteration; each is marked below with what actually landed. The unstarted work
+(#7, part of #3, part of #9) and two blocking maintainer chores now lead the list.
 
-### 1. Market coverage: the G10 exchanges
-**Why first:** Nothing else matters without data. Coverage is the product. Two markets is a proof of concept; twenty is a resource people depend on.
+### 0. Maintainer setup (blocking, not building)
+**Why zeroth:** Two of the things below are fully built and merged but not live, purely because
+they need a one-time action only a repository maintainer can take. Nothing else on this list
+depends on these, but until they happen, "we ship a public JSON API" and "we publish to PyPI" are
+aspirational, not true.
 
-Target the markets with the most users and the most public reference data to validate against:
-- LSE, TSE, HKEX, Euronext (Paris, Amsterdam), Deutsche Borse, ASX, SGX, KRX, BSE/NSE, TSX
+- **Enable GitHub Pages**: Settings → Pages → Source: GitHub Actions. Until this is flipped,
+  `pages.yml` runs on every qualifying push and its deploy step fails harmlessly — nothing else in
+  the release is affected, but the `/v1/` API and site are not reachable at the published URL.
+- **Register a PyPI trusted publisher** for the `bdc-calendars` project (pointed at this repo and
+  `release.yml`) and set the `PYPI_PUBLISH` repository variable to `true`. Until then,
+  `publish-python` in `release.yml` is skipped and `pip install bdc-calendars` installs nothing,
+  even though the package is built, tested, and parity-checked on every CI run.
+- **Claim the Sonatype `io.github.twallengren` namespace** and set `MAVEN_PUBLISH`, once
+  `bdc-calendar-core`/`bdc-calendar-data` (branch `wp2b`) merge — a prerequisite for #3 below, not
+  yet actionable on `main`.
 
-Each market added is a forcing function on the spec — it'll surface missing rule types, chronology gaps, and edge cases. Do this first because it makes every later investment more valuable.
+**Done when:** the Pages URL in `README.md` resolves, and `pip install bdc-calendars` on a clean
+machine works without a manual wheel.
 
-**Done when:** 10+ markets with full holiday coverage, sourced and cross-validated.
+### 1. Market coverage: the G10 exchanges — mostly done
+**Shipped:** LSE, Deutsche Börse (Xetra), TSX, Euronext Paris/Amsterdam/Brussels/Lisbon, JPX, and
+HKEX — 9 new market calendars, taking total coverage from 2 to 11 markets plus 3 base calendars.
+Each is sourced and cross-validated against exchange_calendars and/or QuantLib (see the
+[Market status table](README.md#market-status)).
 
-### 2. Contribution scaffolding and validation
-**Why second:** Market coverage doesn't scale if every new market is a bespoke effort. We need the on-ramp.
+**Still open:** BSE/NSE, ASX, SGX, KRX from the original G10 list.
 
-- `./gradlew scaffold --market HKEX` generates YAML skeleton + test fixtures + PR template
-- CI validation that rejects common mistakes (holidays on weekends without shift policy, unsourced dates, coverage gaps)
-- PR preview comments showing generated calendar diff
-- "Adopt a market" contributor program with clear ownership model
+**Done when:** 10+ markets with full holiday coverage, sourced and cross-validated. *(Met — 11.)*
 
-**Done when:** A knowledgeable contributor can add a new market in an afternoon without reading the full spec.
+### 2. Contribution scaffolding and validation — done
+**Shipped:** `scaffold --market <ID> --name <name> --timezone <tz> --mic <mic>` generates the
+calendar YAML, a holiday group module, an example holiday, and a `sources/<MARKET>/README.md`
+citation table, and appends the new calendar to `blessed/manifest.json` and the cross-validation
+export list. `CONTRIBUTING.md` is a full "add a market in an afternoon" walkthrough. CI posts a
+`ci-diff` PR comment plus a downloadable `site-preview` artifact showing the rendered calendars.
+`GOVERNANCE.md` + `.github/CODEOWNERS` implement the "adopt a market" ownership model, with all 9
+new markets already carrying an owner.
 
-### 3. Language-native client libraries (Tier 1 distribution)
-**Why third:** The biggest friction today is consumption. Even if the data is perfect, if integrating it takes a day of parsing CSVs, people won't bother.
+**Done when:** A knowledgeable contributor can add a new market in an afternoon without reading the
+full spec. *(Met, by design — untested against an actual outside contributor yet.)*
 
-- Java library on Maven Central (natural — the toolchain is already Java)
-- Python package on PyPI (biggest potential audience in finance/data)
-- TypeScript/npm package (web and Node consumers)
-- Each wraps the generated JSON with a thin idiomatic API: `isBusinessDay()`, `nextBusinessDay()`, `businessDaysBetween()`
+### 3. Language-native client libraries (Tier 1 distribution) — partly done
+**Shipped:** the Python package (`bdc-calendars`) — zero runtime dependencies, exchange_calendars
+alias compatibility, joint calendars, and an optional `bdc-calendars-mcp` MCP server so an AI agent
+can query it over stdio. Blocked from PyPI only by the maintainer step in #0.
 
-**Done when:** `pip install bdc-calendars` gives you a working `is_business_day("US-NYSE", date(2026, 7, 4))` → `False`.
+**Still open:** Java library modules (`bdc-calendar-core`/`bdc-calendar-data`) exist on branch
+`wp2b` but have not merged to `main`; Maven Central publish additionally needs the Sonatype
+namespace claim in #0. TypeScript/npm is not started — deliberately deferred, no demand signal yet.
 
-### 4. Cross-validation and accuracy infrastructure
-**Why fourth:** Trust is what converts users into dependents. This is the moat.
+**Done when:** `pip install bdc-calendars` gives you a working
+`is_business_day("US-NYSE", date(2026, 7, 4))` → `False`. *(Met for Python once PyPI publishing is
+turned on; not yet met for Java or TypeScript.)*
 
-- Automated comparison against exchange_calendars, QuantLib, and any other public source
-- Per-market accuracy scorecards: coverage range, last-verified date, known gaps, source links
-- Public errata log — when we're wrong, we say so
-- Nightly CI job that flags any discrepancy with external sources
+### 4. Cross-validation and accuracy infrastructure — done
+**Shipped:** `tools crossvalidate --all` compares every calendar with reference data against
+exchange_calendars and (where available) QuantLib exports, writing
+`blessed/<ID>/cross_validation.json`; `tools status --format markdown` renders the accuracy
+scorecard reproduced in `README.md`'s Market status table (coverage, verified-through, closures,
+early closes, projected count, sources cited, cross-validation result); disagreements are tracked
+in a per-calendar `allowlist.csv` that requires a stated reason and fails when stale.
+
+**Still open:** no nightly/scheduled CI job re-runs cross-validation independent of a PR touching
+the calendar; no public errata log beyond the release changelog and git history.
 
 **Done when:** Every market page shows a confidence score and a list of corroborating sources.
+*(Met — the per-market site page and README table both show this.)*
 
-### 5. Static site (consumer-facing)
-**Why fifth:** Discovery. People Google "NYSE holidays 2027" — we should be the answer. Also makes the project legible to non-developers.
+### 5. Static site (consumer-facing) — done
+**Shipped:** `tools site` generates the full public site from the `/v1/` JSON API (not from
+`blessed/` directly, so the site exercises the same contract external consumers depend on):
+per-market pages, per-year month grids, per-date permalinks, market comparison pages with a T+N
+settlement helper, rendered source registers, and a changelog. Deployed to GitHub Pages by
+`pages.yml` — pending the maintainer step in #0.
 
-- Generated from artifacts, not a separate app
-- Per-market calendar grid view with holidays highlighted
-- Market comparison / overlap view
-- Changelog generated from release-history diffs
-- GitHub Pages, zero ops
+**Done when:** You can browse any market's holidays in a browser and share a permalink to a
+specific date. *(Met, pending Pages being switched on.)*
 
-**Done when:** You can browse any market's holidays in a browser and share a permalink to a specific date.
+### 6. Contributor UI (local dev server) — done
+**Shipped:** `tools serve --dir <site-dir>` is a zero-dependency static file server (JDK
+`HttpServer`) for previewing site output; `tools site --blessed-dir generated --compare-to blessed
+--out site-preview` renders a contributor's local `generate --include-specs` output with a
+"Changes vs blessed" banner and a `/changes/` page, matching exactly what the CI `site-preview`
+artifact will show on the PR.
 
-### 6. Contributor UI (local dev server)
-**Why sixth:** Makes the contribution loop tighter. You edit YAML, you see the rendered calendar update. Lower priority than the scaffolding (#2) because scaffolding helps more people sooner.
+**Done when:** Contributors can visually verify their changes without running the full generate
+pipeline and inspecting CSVs. *(Met.)*
 
-- `./gradlew serve` launches a local web server
-- Shows resolved calendar for any YAML spec
-- Live-reloads on file change
-- Side-by-side diff against blessed artifacts
-
-**Done when:** Contributors can visually verify their changes without running the full generate pipeline and inspecting CSVs.
-
-### 7. Additional chronologies
-**Why seventh (not higher):** Important, but driven by market demand. We don't need Hebrew calendar support until we add TASE. We don't need Chinese lunisolar until we add SSE/SZSE. Let market coverage (#1) pull chronology work.
+### 7. Additional chronologies — not started
+**Why still not higher:** driven by market demand, same as before — but HKEX joining without a
+lunisolar chronology (it uses published gazette dates instead; see *Known limitations*) means the
+workaround is now visible in a shipped calendar rather than theoretical. This raises its priority
+for the next iteration, especially if a Chinese or Israeli market is next.
 
 - Hebrew (for TASE)
-- Chinese lunisolar (for SSE, SZSE, HKEX lunar holidays)
+- Chinese lunisolar (for SSE, SZSE, and a more general HKEX lunar-holiday model)
 - Buddhist (for SET)
 - Hindu (for BSE/NSE Diwali, etc.)
 
-**Done when:** Each chronology is addable via YAML + codegen with no manual Java.
+**Done when:** Each chronology is addable via YAML + codegen with no manual Java. *(Not yet
+started.)*
 
-### 8. Cross-market settlement and joint calendars
-**Why eighth:** This is the killer differentiator, but it needs a critical mass of markets to be useful. Once we have 10+ markets, this becomes the feature that makes us irreplaceable.
+### 8. Cross-market settlement and joint calendars — done
+**Shipped:** the Query API's joint-calendar constructor (`is_business_day` true only when every
+member trades; `verified_through`/`status` take the worst member's value), exposed through the CLI
+(`query A,B --is-business-day`), the Python package (`get_joint_calendar`), and the site's compare
+pages via a browser-side reimplementation (`site.js`) that is fixture-tested for parity against the
+Java reference (`SettlementParityTest`).
 
-- Joint calendar composition: "business day in both US-NYSE and LSE"
-- T+N settlement calculation across jurisdictions
-- Holiday overlap analysis and visualization
+**Done when:** You can ask "what's the T+2 settlement date for a trade on Feb 27 across NYSE and
+LSE?" and get the right answer. *(Met — via CLI, Python, MCP tool, or the site's settlement form.)*
 
-**Done when:** You can ask "what's the T+2 settlement date for a trade on Feb 27 across NYSE and LSE?" and get the right answer.
+### 9. Feeds and API (Tier 2-4 distribution) — mostly done
+**Shipped:** the static `/v1/` JSON API on GitHub Pages, per-calendar `.ics` feeds
+(`holidays.ics`/`holidays-recent.ics`), and jsDelivr mirroring pinned per release tag.
 
-### 9. Feeds and API (Tier 2-4 distribution)
-**Why last:** Higher effort, more ops burden, and only valuable once the data and core consumption paths are solid.
+**Still open:** webhook/RSS notification on calendar change, a Slack/Teams bot, a GitHub Action,
+and an Excel/Sheets add-on — all still in the parking lot below.
 
-- Static JSON API on a CDN (`/v1/calendars/US-NYSE/2026.json`)
-- iCal feeds per market
-- Webhook/RSS for calendar change notifications
-- Slack/Teams bot, GitHub Action, Excel add-on
-
-**Done when:** Non-developer consumers can access calendar data without touching code.
+**Done when:** Non-developer consumers can access calendar data without touching code. *(Met for
+the read path — Pages/jsDelivr/release assets/iCal subscription all require zero code — pending
+the notification and chat-surface items.)*
 
 ### Parking lot (not prioritized yet)
 
 These are good ideas but don't have a clear slot yet:
 
 - Serverless query API (Tier 3) — depends on demand signal
+- npm/TypeScript package — no consumer has asked yet
 - Excel/Google Sheets add-on — potentially huge reach but different skillset to build
+- Webhook/RSS for calendar change notifications, Slack/Teams bot, GitHub Action
 - Non-exchange calendars (banking, government, settlement) — natural extension but different sourcing challenges
 - Commercial support model — premature until there's meaningful adoption
 
@@ -353,11 +405,11 @@ These are good ideas but don't have a clear slot yet:
 
 ## Open questions
 
-- **Licensing model**: MIT/Apache for the toolchain, but what about the data? CC-BY? ODbL? Does the license affect institutional adoption?
-- **Governance as we scale**: The current maintainer model works for a small project. At 50+ markets with domain-expert maintainers, do we need a steering committee? Per-region maintainers?
+- **Licensing model** — *resolved*: Apache-2.0 for the toolchain (`LICENSE`), CC0 for the data (`DATA_LICENSE`), as stated in `python/README.md`'s provenance section. Whether that combination affects institutional adoption at scale is still open.
+- **Governance as we scale** — partially addressed: `GOVERNANCE.md` and `.github/CODEOWNERS` give per-market ownership ("adopt a market") now, exercised for all 11 current markets. Whether that model holds at 50+ markets, or needs a steering committee or per-region maintainers, is untested.
 - **Commercial sustainability**: If firms depend on this data, is there a model (support contracts, hosted API, early access to updates) that funds ongoing maintenance without compromising the open-source core?
 - **Relationship with exchanges**: Should we engage exchange data teams directly? Some might contribute or endorse. Others might see us as competition to their data products.
-- **Scope boundaries**: Where does "business-day calendar" end and "market data" begin? Do we include early-close times? Trading session hours? Half-days?
+- **Scope boundaries** — partially answered by this iteration's *Known limitations*: early-close times and shortened sessions are in scope and modelled (`close_time`, `shift_policy` for `EARLY_CLOSE`); full session/open times and lunch breaks are explicitly out of scope. Whether that line moves for markets where "half day" means something more structured (a different published session schedule, not just a close time) is still open.
 
 ## How to get involved
 
