@@ -87,7 +87,7 @@ public class CsvEmitter {
     if (outputChronology != null) {
       NativeDate altDate = ChronologyProviders.get(outputChronology).fromIso(event.date());
       String month =
-          altDate.monthCode().matches("M[0-9]{2}")
+          altDate.monthCode().matches("M[0-9]{2}L?")
               ? altDate.monthCode().substring(1)
               : altDate.monthCode();
       cells.add(

@@ -14,7 +14,10 @@ def review(root, today, horizon):
             except ValueError:
                 continue
             if (today - retrieved).days > 180:
-                yield f'{entry["id"]}: source review is older than 180 days ({retrieved})'
+                yield (
+                    f'{path.parent.name}/{entry["id"]}: '
+                    f'source review is older than 180 days ({retrieved})'
+                )
     for path in sorted((root / 'blessed').glob('*/metadata.json')):
         coverage = json.loads(path.read_text()).get('coverage') or {}
         for field in ('to', 'verified_through'):
