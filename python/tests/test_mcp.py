@@ -219,3 +219,43 @@ async def test_unknown_calendar_is_a_structured_error_not_a_raise():
 @pytest.fixture
 def anyio_backend():
     return "asyncio"
+
+
+@pytest.mark.anyio
+@pytest.mark.skipif("EU-TARGET" not in bdc.list_calendars(), reason="payment data not bundled yet")
+async def test_payment_operations_and_joint_conventions_through_stdio():
+    async with stdio_client(SERVER_PARAMS) as (read, write):
+        async with ClientSession(read, write) as session:
+            await session.initialize()
+            for calendar, source, expected in (
+                ("EU-TARGET", "2026-04-02", "2026-04-07"),
+                ("US-FEDWIRE", "2026-07-02", "2026-07-03"),
+                ("GB-CHAPS", "2026-12-24", "2026-12-29"),
+                ("EU-TARGET,GB-CHAPS", "2026-04-02", "2026-04-07"),
+            ):
+                result = await _call(session, "business_day_offset", {
+                    "calendar": calendar, "date": source, "offset": 1,
+                })
+                assert result["result_date"] == expected
+                assert result["effective_confidence"] == "PROJECTED"
+                assert result["examined_dates"][-1] == expected
+            result = await _call(session, "adjust_date", {
+                "calendar": "EU-TARGET,GB-CHAPS", "date": "2026-01-31",
+                "convention": "MODIFIED_FOLLOWING",
+            })
+            assert result["result_date"] == "2026-01-30"
+            assert result["examined_dates"] == ["2026-01-31", "2026-02-01", "2026-02-02", "2026-01-30"]
+            result = await _call(session, "advance_months", {
+                "calendar": "GB-CHAPS", "date": "2026-01-30", "months": 1,
+                "convention": "FOLLOWING", "preserve_end_of_month": True,
+            })
+            assert result["result_date"] == "2026-02-27"
+            assert result["effective_confidence"] == "PROJECTED"
+            result = await _call(session, "last_business_day_of_month", {
+                "calendar": "EU-TARGET,GB-CHAPS", "date": "2026-02-10",
+            })
+            assert result["result_date"] == "2026-02-27"
+            error = await _call(session, "business_day_offset", {
+                "calendar": "US-FEDWIRE", "date": "2027-12-31", "offset": 1,
+            })
+            assert error["error"] == "OutsideCoverageError"

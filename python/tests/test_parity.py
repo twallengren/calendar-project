@@ -137,6 +137,44 @@ def _assert_query(call, expected, context):
         assert call() == expected, context
 
 
+def test_financial_operations_match(pair):
+    calendar, fixture = pair
+    if "financial_queries" not in fixture:
+        pytest.skip("legacy fixture predates financial operations")
+
+    def normalized(call):
+        result = call()._asdict()
+        for key in ("original_date", "result_date"):
+            result[key] = result[key].isoformat()
+        result["examined_dates"] = [day.isoformat() for day in result["examined_dates"]]
+        return result
+
+    for case in fixture["financial_queries"]:
+        day = dt.date.fromisoformat(case["d"])
+        for convention in bdc.BusinessDayConvention:
+            _assert_query(
+                lambda: normalized(lambda: calendar.adjust_detailed(day, convention)),
+                case["adjust_" + convention.value], (day, convention),
+            )
+            _assert_query(
+                lambda: normalized(lambda: calendar.advance_months_detailed(day, 1, convention, False)),
+                case["months_" + convention.value], (day, convention),
+            )
+        for offset in (-5, 0, 5):
+            _assert_query(
+                lambda: normalized(lambda: calendar.business_day_offset_detailed(day, offset)),
+                case["offset_" + str(offset)], (day, offset),
+            )
+        _assert_query(
+            lambda: normalized(lambda: calendar.advance_months_detailed(day, -1, "MODIFIED_FOLLOWING", True)),
+            case["eom"], (day, "eom"),
+        )
+        _assert_query(
+            lambda: normalized(lambda: calendar.last_business_day_of_month_detailed(day)),
+            case["last"], (day, "last"),
+        )
+
+
 def _assert_navigation(calendar, day: dt.date, case: dict) -> None:
     for key, call in (
         ("n", lambda: calendar.next_business_day(day)),

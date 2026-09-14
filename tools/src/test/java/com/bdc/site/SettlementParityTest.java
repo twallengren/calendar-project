@@ -194,17 +194,17 @@ class SettlementParityTest {
     JointDateStream joint =
         (JointDateStream) JointDateStream.joint(List.of(streams.get(a), streams.get(b)));
     LocalDate settles;
+    EventStatus confidence;
     try {
-      settles = joint.nthBusinessDay(tradeDate, n);
+      var result = joint.businessDayOffsetDetailed(tradeDate, n);
+      settles = result.resultDate();
+      confidence = result.effectiveConfidence();
+      assertEquals(joint.nthBusinessDay(tradeDate, n), settles);
     } catch (com.bdc.stream.OutsideCoverageException error) {
       return new Case(a, b, tradeDate, n, null, List.of(), error.date(), EventStatus.UNKNOWN);
     }
     List<Skip> skipped = new ArrayList<>();
-    EventStatus confidence =
-        n == 0 ? joint.assessment(tradeDate).effectiveConfidence() : EventStatus.CONFIRMED;
     for (LocalDate date = tradeDate.plusDays(1); !date.isAfter(settles); date = date.plusDays(1)) {
-      if (joint.assessment(date).effectiveConfidence() == EventStatus.PROJECTED)
-        confidence = EventStatus.PROJECTED;
       List<String> closed = joint.closedMembers(date).stream().map(DateStream::calendarId).toList();
       if (!closed.isEmpty()) {
         skipped.add(new Skip(date, closed));

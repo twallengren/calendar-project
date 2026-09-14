@@ -108,6 +108,14 @@ def _assessment_dict(assessment: bdc.DayAssessment) -> Dict[str, Any]:
     }
 
 
+def _operation_calendar(calendar):
+    """Resolve one ID or comma-separated IDs with the CLI's all-members-open semantics."""
+    ids = [identifier.strip() for identifier in calendar.split(",")]
+    if not all(ids):
+        raise ValueError("calendar must contain nonempty calendar IDs")
+    return bdc.get_joint_calendar(*ids) if len(ids) > 1 else bdc.get_calendar(ids[0])
+
+
 def _operation_dict(result: bdc.DateOperationResult) -> Dict[str, Any]:
     """The versioned operation shape shared with ``tools query`` JSON."""
     return {
@@ -373,9 +381,9 @@ def create_server() -> "Any":
 
     @app.tool()
     def adjust_date(calendar: str, date: str, convention: str) -> Dict[str, Any]:
-        """Adjust a date under a named business-day convention, with path confidence."""
+        """Adjust with path confidence; calendar accepts one ID or comma-separated joint IDs."""
         try:
-            cal = bdc.get_calendar(calendar)
+            cal = _operation_calendar(calendar)
             result = cal.adjust_detailed(_parse_date(date), convention)
         except _QUERY_ERRORS + (RuntimeError,) as exc:
             return _error(exc)
@@ -387,9 +395,9 @@ def create_server() -> "Any":
 
     @app.tool()
     def business_day_offset(calendar: str, date: str, offset: int) -> Dict[str, Any]:
-        """Move by business dates and report confidence across every traversed date."""
+        """Move by business dates; calendar accepts one ID or comma-separated joint IDs."""
         try:
-            cal = bdc.get_calendar(calendar)
+            cal = _operation_calendar(calendar)
             result = cal.business_day_offset_detailed(_parse_date(date), offset)
         except _QUERY_ERRORS + (RuntimeError,) as exc:
             return _error(exc)
@@ -407,9 +415,9 @@ def create_server() -> "Any":
         convention: str,
         preserve_end_of_month: bool = False,
     ) -> Dict[str, Any]:
-        """Advance calendar months, clip the nominal day, and apply a convention."""
+        """Advance months, clip and adjust; calendar accepts one ID or comma-separated joint IDs."""
         try:
-            cal = bdc.get_calendar(calendar)
+            cal = _operation_calendar(calendar)
             result = cal.advance_months_detailed(
                 _parse_date(date), months, convention, preserve_end_of_month
             )
@@ -423,9 +431,9 @@ def create_server() -> "Any":
 
     @app.tool()
     def last_business_day_of_month(calendar: str, date: str) -> Dict[str, Any]:
-        """Return the last resolved business date in the input date's month."""
+        """Last business date in the month; calendar accepts one ID or comma-separated joint IDs."""
         try:
-            cal = bdc.get_calendar(calendar)
+            cal = _operation_calendar(calendar)
             result = cal.last_business_day_of_month_detailed(_parse_date(date))
         except _QUERY_ERRORS + (RuntimeError,) as exc:
             return _error(exc)

@@ -9,6 +9,8 @@
 import com.bdc.artifact.ReleaseHistoryStore;
 import com.bdc.model.Event;
 import com.bdc.stream.DateStream;
+import com.bdc.stream.DateOperationResult;
+import com.bdc.stream.BusinessDayConvention;
 import com.bdc.stream.OutsideCoverageException;
 import com.bdc.stream.UnresolvedDateException;
 import com.bdc.emitter.AssessmentEmitter;
@@ -21,6 +23,7 @@ import java.nio.file.Path;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.TreeSet;
+import java.util.LinkedHashMap;
 
 String CAL = System.getenv("BDC_CALENDAR");
 Path ROOT = Path.of(System.getenv("BDC_REPO_ROOT"));
@@ -81,6 +84,23 @@ String failure(OutsideCoverageException ex) {
 String query(Supplier<Object> call) throws Exception {
     try { return mapper.writeValueAsString(call.get()); }
     catch (OutsideCoverageException ex) { return failure(ex); }
+}
+
+String financial(Supplier<DateOperationResult> call) throws Exception {
+    return query(() -> {
+        var result = call.get();
+        var row = new LinkedHashMap<String, Object>();
+        row.put("original_date", result.originalDate().toString());
+        row.put("result_date", result.resultDate().toString());
+        row.put("operation", result.operation().name());
+        row.put("convention", result.convention() == null ? null : result.convention().name());
+        row.put("business_day_offset", result.businessDayOffset());
+        row.put("month_offset", result.monthOffset());
+        row.put("preserve_end_of_month", result.preserveEndOfMonth());
+        row.put("effective_confidence", result.effectiveConfidence().name());
+        row.put("examined_dates", result.examinedDates().stream().map(Object::toString).toList());
+        return row;
+    });
 }
 
 var store = new ReleaseHistoryStore(ROOT.resolve("release-history"), ROOT.resolve("blessed"));
@@ -152,6 +172,39 @@ for (LocalDate d : sampledDates) {
         out.print(eventJson(e));
     }
     out.print("]}");
+}
+out.print("]");
+
+// Detailed operations at coverage, quality and month boundaries. Keep the sample
+// bounded for century-long calendars while exercising every convention and path.
+var financialDates = new TreeSet<LocalDate>();
+financialDates.add(start.minusDays(1));
+financialDates.add(end.plusDays(1));
+for (long i = 0; i <= 24; i++) {
+    var date = start.plusDays(span * i / 24);
+    financialDates.add(date);
+    financialDates.add(date.withDayOfMonth(1));
+    financialDates.add(date.withDayOfMonth(date.lengthOfMonth()));
+}
+for (var interval : stream.coverageIntervals()) {
+    financialDates.add(interval.from());
+    financialDates.add(interval.to());
+}
+out.print(",\"financial_queries\":[");
+first = true;
+for (LocalDate d : financialDates) {
+    if (!first) out.print(",");
+    first = false;
+    out.print("{\"d\":" + esc(d.toString()));
+    for (var convention : BusinessDayConvention.values()) {
+        out.print(",\"adjust_" + convention.name() + "\":" + financial(() -> stream.adjustDetailed(d, convention)));
+        out.print(",\"months_" + convention.name() + "\":" + financial(() -> stream.advanceMonthsDetailed(d, 1, convention, false)));
+    }
+    for (int offset : List.of(-5, 0, 5))
+        out.print(",\"offset_" + offset + "\":" + financial(() -> stream.businessDayOffsetDetailed(d, offset)));
+    out.print(",\"eom\":" + financial(() -> stream.advanceMonthsDetailed(d, -1, BusinessDayConvention.MODIFIED_FOLLOWING, true)));
+    out.print(",\"last\":" + financial(() -> stream.lastBusinessDayOfMonthDetailed(d)));
+    out.print("}");
 }
 out.print("]}");
 out.close();

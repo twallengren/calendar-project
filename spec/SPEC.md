@@ -715,10 +715,20 @@ walked to, because the source is not counted.
 These operations calculate business dates. They do not determine instrument-specific settlement
 eligibility, payment cutoffs, operating sessions or intraday deadlines.
 
+The CLI and MCP return the detailed result as JSON. Their financial-operation calendar argument
+accepts a single ID or comma-separated IDs for an all-members-open joint calendar. Nonzero month
+advancement with `UNADJUSTED` still requires a resolved destination; only identity operations may
+return an unresolved date without failing.
+
 ### Status
 
-`status(date)` says how much the answer can be trusted. It is evaluated in this order and **never
-raises**:
+`status(date)` says how much the answer can be trusted and **never raises**. Outside coverage it
+returns `UNKNOWN`. For calendars with explicit per-scope quality, it returns the assessment's
+effective confidence: a missing or incomplete scope means `UNKNOWN`; otherwise a projected scope
+or raw projected event means `PROJECTED`; otherwise it returns `CONFIRMED`. Explicit quality takes
+precedence over the legacy scalar `verified_through`.
+
+Legacy artifacts without per-scope quality retain this evaluation order:
 
 1. `UNKNOWN` — the date lies outside `range`.
 2. `PROJECTED` — the date is after `verified_through`. This wins over whatever the rows say: a
@@ -733,11 +743,14 @@ raises**:
 Outside a stream's `range` the absence of a closure row means "not known", never "open". Therefore:
 
 - `status(date)` returns `UNKNOWN`; it is the safe way to probe an unfamiliar date first.
-- **Every other operation raises** an out-of-range error (`OutsideCoverageException` in Java; ports
+- Operations requiring a resolved date raise an out-of-range error (`OutsideCoverageException` in Java; ports
   should raise their own equivalent, an invalid-argument error) carrying the calendar id, the
   offending date and the range. This includes navigation whose bounded search would step past the
   edge of the range: `next_business_day(2030-12-31)` on a calendar covered through 2030-12-31
   fails rather than guessing.
+- Assessments and identity operations (`UNADJUSTED` adjustment, zero business-day offset, and zero
+  month advancement with `UNADJUSTED` and no end-of-month preservation) remain
+  safe to call outside coverage; they report `UNKNOWN` confidence without claiming an open date.
 - A YAML-backed stream enforces this only when the calendar declares `coverage`; without one it is
   unbounded and never raises for being out of range. Artifact-backed streams are always bounded by
   the generated range.

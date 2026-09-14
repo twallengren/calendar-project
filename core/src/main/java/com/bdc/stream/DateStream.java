@@ -331,6 +331,7 @@ public interface DateStream {
    *
    * <ul>
    *   <li>{@code UNKNOWN} when the date lies outside {@link #range()};
+   *   <li>the assessment's effective confidence when explicit scope quality is present;
    *   <li>{@code PROJECTED} when the date is after {@link #verifiedThrough()}, whatever the rows
    *       say, or when any event on the date is {@code PROJECTED};
    *   <li>{@code CONFIRMED} otherwise.

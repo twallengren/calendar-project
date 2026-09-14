@@ -123,17 +123,17 @@ class SiteGeneratorTest {
   }
 
   /**
-   * The budget grew from 5 KB when the T+N settlement helper landed. It is still a hand-written,
-   * unminified, comment-carrying file served as-is, and it is still optional — every page works
-   * with it blocked — but it now carries a real algorithm, so the ceiling is set where an
-   * accidental framework or a pasted library would break through it rather than where a comment
-   * would.
+   * The budget includes the business-date helper's per-scope coverage checks and traversal
+   * confidence. It is still a hand-written, unminified, comment-carrying file served as-is, and it
+   * is still optional — every page works with it blocked — but it now carries a real algorithm, so
+   * the ceiling is set where an accidental framework or a pasted library would break through it
+   * rather than where a comment would.
    */
   @Test
   void siteJsStaysSmallEnoughToBeOptional() throws IOException {
     assertTrue(
-        Files.size(first.resolve("site.js")) < 16 * 1024,
-        "site.js is progressive enhancement only and must stay under 16 KB");
+        Files.size(first.resolve("site.js")) < 20 * 1024,
+        "site.js is progressive enhancement only and must stay under 20 KB");
   }
 
   @Test

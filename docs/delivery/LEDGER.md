@@ -4,7 +4,7 @@ The delivery plan supplied on 2026-09-14 is the acceptance contract. A local imp
 
 | Work package | Owner | Dependencies | Implementation / evidence | Review / release |
 |---|---|---|---|---|
-| Release comparison, PR preparation and exact-commit publication | Sol release agent | Actual published v11 baseline | Integrated comparator, release PR preparation, independent streams, immutable descriptor and exact-commit retry checks | Terra reviewed through 35aaa79; 40 release regressions pass; no publication |
+| Release comparison, PR preparation and exact-commit publication | Sol release agent | Actual published v11 baseline | Integrated comparator, release PR preparation, independent streams, immutable descriptor and exact-commit retry checks | Terra reviewed through 4f1531e; 44 release regressions pass; no publication |
 | Cross-validation multiplicity and close times | Astra orchestrator | Existing reference contract | Complete multiset comparison; precise close-time allowlists; published scratch CSV unchanged before audit corrections | Terra reviewed; full build passed; not released |
 | Historical publication bounds | Sol history agent | Evidence, never inferred from archive timestamp | Integrated publication ledger with evidenced inclusive lower/exclusive upper bounds and authenticated latest-observation cap; legacy snapshots accessible by version | Terra reviewed; focused tests pass |
 | Coverage audit and safe unknown assessments | Sol history agent | Authoritative sources, additive consumer contracts | All existing calendars have explicit per-scope intervals; NYSE 1975 early close corrected; dangerous gaps are UNKNOWN | Terra reviewed consumer safety; malformed metadata and ambiguous source IDs fixed; not released |
@@ -13,8 +13,8 @@ The delivery plan supplied on 2026-09-14 is the acceptance contract. A local imp
 | Canonical source register and /v2 | Astra integration | Coverage / provenance contracts | Canonical JSON tables and checksums; native event provenance compiled and consumed occurrence-by-occurrence; v2 daily assessments and CLI | Java/Python focused regressions passing; full verification/review pending |
 | TASE integration | Sol TASE agent | Hebrew provider acceptance | Native Hebrew rules, 2026 weekend transition and bounded authoritative schedules integrated; unsupported early closes removed | Root reviewed primary PDFs and CLI/Python/MCP representation/v2/HTML parity; actual state explicitly unknown where exception coverage is incomplete; not released |
 | Chinese/HKEX integration | Astra design / Sol implementation | Bounded TASE gate and regional profile | Integrated bounded ICU profile, HKO fixtures and Qingming table; native holidays plus authoritative 2027 overrides | Terra gate accepted; actual browser and native consumer checks pass; not released |
-| Financial operations and payment calendars | Sol operations / Sol payment / Astra integration | Both native-market gates accepted | Implementation in isolated worktrees; payment publication/schema integration underway | Pending independent review; not released |
-| Recovery packages and remote installation | Release / verification | Milestone 1 review, CI exact SHA, credentials | Pending | Not published |
+| Financial operations and payment calendars | Sol operations / Sol payment / Astra integration | Both native-market gates accepted | Integrated Java/Python/CLI/MCP conventions and rich traversal results; TARGET, Fedwire and CHAPS 2026–2027 source calendars | Terra accepted financial boundary fixes; root reviewed primary payment sources; final synchronized candidate checks pending; not released |
+| Recovery packages and remote installation | Release / verification | Milestone 1 review, CI exact SHA, credentials | Earlier 15-calendar candidate passed Java/Python and local wheel/JAR smoke tests; final 18-calendar candidate preparation pending | Not published; remote access remains blocked |
 
 ## Gates
 
@@ -68,3 +68,31 @@ connector rejected draft PR creation with HTTP 403 (`Resource not accessible by 
 No PR, merge, release tag, registry publication or remote installation has been completed. Repository
 App configuration and publication access remain external requirements; local build evidence does
 not satisfy those requirements.
+
+## Financial integration checkpoint
+
+Financial operations are integrated in `ee5035e`: all five adjustment conventions, positive and
+negative business-day offsets, explicit month advancement, business-month-end preservation, and
+member close times retaining calendar/timezone identity. Rich results include all examined dates
+and their weakest confidence. Independent review caught and corrected same-numbered-month year
+rollover, searches escaping a wholly closed month, and unresolved destinations in nonzero
+unadjusted month advancement. Pure identity operations retain the existing no-business-day-claim
+contract. Raw event status rejects UNKNOWN, and Python CSV loading preserves quoted newlines and
+duplicate complete records.
+
+`384d0a1` adds three date-only payment calendars for 2026–2027. Scheduled closures are verified
+against operator policy and official dated lists; early-close and unscheduled-exception scopes
+are explicitly projected ordinary-day baselines. No actual incident completeness is claimed.
+Fedwire's announced future operating-day changes and CHAPS consultation proposals bound the
+coverage; neither is projected into dates beyond the supported interval. These are payment-kind
+calendars without MICs, included in Java data, Python, JSON and site publication.
+
+Native serialization now uses deterministic field ordering. Repeating native generation,
+resolution, assessment and conversion across six independent JVMs produced byte-identical output.
+An earlier recovery candidate failed a second blessing only because a native explicit-date map's
+field order changed across JVMs; that candidate is superseded, not silently rehashed.
+
+Final acceptance requires regenerated fixtures for every candidate calendar, including financial
+results and typed failures, live MCP payment/joint examples, actual browser execution at both site
+prefixes, and a second identical blessing verified against the immutable descriptor. These checks
+must run after synchronization; skipped tests against the older checkout bundle do not count.
