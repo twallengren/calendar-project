@@ -144,10 +144,10 @@ verify its current content before relying on it.
 - Subscribe in any calendar app (updates as the site is republished, 2020 onward):
   `webcal://twallengren.github.io/calendar-project/v1/calendars/US-NYSE/holidays-recent.ics`
 
-**(b) GitHub Release asset** — the authenticated v11.0.0 release contains four calendars. For
-example, its US-NYSE CSV asset is:
+**(b) GitHub Release archive** — the authenticated v11.0.0 archive contains four calendars,
+including `US-NYSE/events.csv`:
 ```
-https://github.com/twallengren/calendar-project/releases/download/v11.0.0/US-NYSE-events.csv
+https://github.com/twallengren/calendar-project/releases/download/v11.0.0/bdc-calendars-11.0.0%2B3765bcb.2026-02-16.tar.gz
 ```
 
 **(c) The [`bdc-calendars`](python/README.md) Python package** provides the Query API offline with

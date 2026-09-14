@@ -210,6 +210,35 @@ class QueryCommandTest {
   }
 
   @Test
+  void financialArtifactQueriesKeepStdoutAsJson() throws Exception {
+    for (String[] operation :
+        java.util.List.of(
+            new String[] {"--adjust", "2026-02-25", "--convention", "FOLLOWING"},
+            new String[] {"--business-day-offset", "1", "--from", "2026-02-25"},
+            new String[] {
+              "--advance-months", "1", "--from", "2026-02-25", "--convention", "FOLLOWING"
+            },
+            new String[] {"--last-business-day-of-month", "2026-02-25"},
+            new String[] {"--member-closes", "2026-11-27"})) {
+      stdout.reset();
+      stderr.reset();
+      var args =
+          new java.util.ArrayList<>(java.util.List.of("US-NYSE,SA-TADAWUL", "--as-of", "blessed"));
+      args.addAll(java.util.List.of(operation));
+      assertEquals(
+          0,
+          new CommandLine(new QueryCommand()).execute(args.toArray(String[]::new)),
+          stderr.toString());
+      var json =
+          new com.fasterxml.jackson.databind.ObjectMapper()
+              .enable(com.fasterxml.jackson.databind.DeserializationFeature.FAIL_ON_TRAILING_TOKENS)
+              .readTree(stdout.toString());
+      assertTrue(json.isObject());
+      assertTrue(stderr.toString().contains("Using artifact"));
+    }
+  }
+
+  @Test
   void memberClosesJsonKeepsTimezoneIdentity() throws Exception {
     CommandLine command = new CommandLine(new QueryCommand());
     int code = command.execute("US-NYSE", "--member-closes", "2026-11-27");

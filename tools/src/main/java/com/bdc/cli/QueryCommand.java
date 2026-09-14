@@ -446,7 +446,14 @@ public class QueryCommand implements Callable<Integer> {
                   () ->
                       new IllegalArgumentException(
                           "No published artifact of " + id + " matches '" + asOf + "'"));
-      (assessmentDate == null ? System.out : System.err)
+      (assessmentDate != null
+                  || adjustDate != null
+                  || businessDayOffset != null
+                  || advanceMonths != null
+                  || lastBusinessDayOfMonth != null
+                  || memberClosesDate != null
+              ? System.err
+              : System.out)
           .println(
               "Using artifact "
                   + snapshot.calendarId()
