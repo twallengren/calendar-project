@@ -7,6 +7,21 @@
   },
   "blessed_at": "2026-02-16T21:43:21Z",
   "calendars": {
+    "CA-TSX": {
+      "kind": "market",
+      "range_end": "2030-12-31",
+      "range_start": "2000-01-01"
+    },
+    "DE-XETRA": {
+      "kind": "market",
+      "range_end": "2030-12-31",
+      "range_start": "2003-01-01"
+    },
+    "GB-LSE": {
+      "kind": "market",
+      "range_end": "2030-12-31",
+      "range_start": "2000-01-01"
+    },
     "SA-TADAWUL": {
       "kind": "market",
       "range_end": "2030-12-31",

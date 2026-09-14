@@ -49,4 +49,9 @@ done
 echo "Cross-validating against reference data"
 "$TOOLS" crossvalidate --all --out blessed || true
 
+# Keep the Python package's bundled data in step with blessed/ (stdlib-only script)
+if command -v python3 > /dev/null && [ -f python/scripts/sync_data.py ]; then
+  python3 python/scripts/sync_data.py > /dev/null && echo "Synced python/bdc_calendars/data"
+fi
+
 echo "Done. Review with: git status --short blessed/"
