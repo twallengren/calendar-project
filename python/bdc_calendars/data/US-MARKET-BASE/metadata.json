@@ -13525,7 +13525,7 @@
       "type": "CLOSED"
     }
   ],
-  "generated_at": "2026-09-14T14:57:31Z",
+  "generated_at": "2026-09-14T23:09:32Z",
   "kind": "base",
   "range_end": "2030-12-31",
   "range_start": "1900-01-01",
@@ -13547,7 +13547,7 @@
     "calendar:US-MARKET-BASE"
   ],
   "source_version": {
-    "git_sha": "adf8dd99893301852aa3daccfb7f0caee22859f3",
+    "git_sha": "94db6de7728c26ee75c0449220a721bfdb1977d7",
     "semantic": "12.0.0"
   },
   "timezone": "America/New_York",
