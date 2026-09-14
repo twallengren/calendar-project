@@ -99,3 +99,7 @@ given year can only be confirmed independently when it falls on a weekday that y
   30, 2026" but explicitly defers the details to a future circular, so nothing is modelled for
   it; if Deutsche Börse announces a concrete early close it should be added as its own event
   source with a `close_time`, citing that circular.
+- **Early-close completeness.** Because the reference calendar carries a last-trading-day half
+  session from 2010 onward and the annual trading calendars do not settle the close time, the
+  `EARLY_CLOSES` scope is `INCOMPLETE` for 2010-2030. This records the unresolved session question
+  directly instead of treating absence of a row as evidence of normal hours.

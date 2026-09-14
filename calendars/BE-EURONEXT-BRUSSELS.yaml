@@ -18,6 +18,41 @@ metadata:
     from: 2010-01-01
     to: 2030-12-31
     verified_through: 2026-12-31
+    quality:
+      - scope: SCHEDULED_CLOSURES
+        from: 2010-01-01
+        to: 2026-12-31
+        quality: VERIFIED
+        evidence_ids: [nyse-euronext-calendar-2010, nyse-euronext-calendar-2011, nyse-euronext-calendar-2012, nyse-euronext-calendar-2013, euronext-calendars-hours-archive, euronext-hours-holidays, euronext-holiday-calendar-2026]
+      - scope: SCHEDULED_CLOSURES
+        from: 2027-01-01
+        to: 2030-12-31
+        quality: PROJECTED
+        evidence_ids: [euronext-hours-holidays]
+      - scope: EARLY_CLOSES
+        from: 2010-01-01
+        to: 2026-12-31
+        quality: VERIFIED
+        evidence_ids: [nyse-euronext-calendar-2010, nyse-euronext-calendar-2011, nyse-euronext-calendar-2012, nyse-euronext-calendar-2013, euronext-calendars-hours-archive, euronext-hours-holidays, euronext-holiday-calendar-2026]
+      # The annual notices call 14:00 the close, while a detailed 2010 notice describes a
+      # closing auction at 14:00 followed by trading at last until 14:05. Until the published
+      # field's precise session meaning is resolved, keep only the affected dates incomplete.
+      - {scope: EARLY_CLOSES, from: 2010-12-24, to: 2010-12-24, quality: INCOMPLETE, evidence_ids: [nyse-euronext-calendar-2010]}
+      - {scope: EARLY_CLOSES, from: 2010-12-31, to: 2010-12-31, quality: INCOMPLETE, evidence_ids: [nyse-euronext-calendar-2010]}
+      - {scope: EARLY_CLOSES, from: 2012-12-24, to: 2012-12-24, quality: INCOMPLETE, evidence_ids: [nyse-euronext-calendar-2012]}
+      - {scope: EARLY_CLOSES, from: 2012-12-31, to: 2012-12-31, quality: INCOMPLETE, evidence_ids: [nyse-euronext-calendar-2012]}
+      - {scope: EARLY_CLOSES, from: 2013-12-24, to: 2013-12-24, quality: INCOMPLETE, evidence_ids: [nyse-euronext-calendar-2013]}
+      - {scope: EARLY_CLOSES, from: 2013-12-31, to: 2013-12-31, quality: INCOMPLETE, evidence_ids: [nyse-euronext-calendar-2013]}
+      - scope: EARLY_CLOSES
+        from: 2027-01-01
+        to: 2030-12-31
+        quality: PROJECTED
+        evidence_ids: [euronext-hours-holidays]
+      - scope: UNSCHEDULED_EXCEPTIONS
+        from: 2010-01-01
+        to: 2030-12-31
+        quality: PROJECTED
+        evidence_ids: [euronext-hours-holidays]
 
 extends:
   - EU-EURONEXT

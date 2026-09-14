@@ -147,7 +147,7 @@ class JointDateStreamTest {
     assertEquals(EventStatus.PROJECTED, tadawul.status(LocalDate.of(2028, 6, 1)));
     // outside SA-TADAWUL's coverage
     assertEquals(EventStatus.UNKNOWN, joint.status(LocalDate.of(2019, 6, 3)));
-    assertEquals(EventStatus.CONFIRMED, nyse.status(LocalDate.of(2019, 6, 3)));
+    assertEquals(EventStatus.PROJECTED, nyse.status(LocalDate.of(2019, 6, 3)));
   }
 
   @Test

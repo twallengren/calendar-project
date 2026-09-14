@@ -18,6 +18,12 @@ metadata:
     # are projections. 2010 is the first year with no half-day sessions - see
     # sources/JP-JPX/README.md for why coverage does not start earlier.
     verified_through: 2027-12-31
+    quality:
+      - {scope: SCHEDULED_CLOSURES, from: 2010-01-01, to: 2018-12-31, quality: PROJECTED, evidence_ids: [cao-shukujitsu, jpx-market-holidays]}
+      - {scope: SCHEDULED_CLOSURES, from: 2019-01-01, to: 2027-12-31, quality: VERIFIED, evidence_ids: [jpx-market-holidays-archive, jpx-market-holidays, cao-shukujitsu]}
+      - {scope: SCHEDULED_CLOSURES, from: 2028-01-01, to: 2030-12-31, quality: PROJECTED, evidence_ids: [jpx-market-holidays, cao-shukujitsu-gaiyou]}
+      - {scope: EARLY_CLOSES, from: 2010-01-01, to: 2030-12-31, quality: PROJECTED, evidence_ids: [jpx-market-holidays]}
+      - {scope: UNSCHEDULED_EXCEPTIONS, from: 2010-01-01, to: 2030-12-31, quality: PROJECTED, evidence_ids: [jpx-system-failure-2020]}
 
 # 振替休日, Art. 3(2) of the Act on National Holidays: a national holiday on a Sunday is observed
 # on the nearest following day that is not a holiday, cascading past the holidays in between

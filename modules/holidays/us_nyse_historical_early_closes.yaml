@@ -86,6 +86,8 @@ event_sources:
           comment: Snowstorm (also opened late)
         - date: 1974-12-24
           comment: Christmas Eve
+        - date: 1975-12-24
+          comment: Christmas Eve
 
   - key: nyse_early_close_oneoff_1407
     name: Early Close

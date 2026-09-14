@@ -297,13 +297,13 @@ class QueryCommandTest {
   }
 
   @Test
-  void call_status_withinVerifiedRange_isConfirmed() {
+  void call_status_withLegacyVerifiedRangeButProjectedScopedQuality_isProjected() {
     CommandLine cmdLine = new CommandLine(new QueryCommand());
 
     int exitCode = cmdLine.execute("US-NYSE", "--status", "2024-06-03");
 
     assertEquals(0, exitCode);
-    assertTrue(stdout.toString().contains("CONFIRMED"), stdout.toString());
+    assertTrue(stdout.toString().contains("PROJECTED"), stdout.toString());
   }
 
   @Test

@@ -9,7 +9,26 @@
   "coverage" : {
     "from" : "1900-01-01",
     "to" : "2030-12-31",
-    "verified_through" : "2026-12-31"
+    "verified_through" : "2026-12-31",
+    "quality" : [ {
+      "scope" : "SCHEDULED_CLOSURES",
+      "from" : "1900-01-01",
+      "to" : "2030-12-31",
+      "quality" : "PROJECTED",
+      "evidence_ids" : [ "nyse-history-2008" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "1900-01-01",
+      "to" : "2030-12-31",
+      "quality" : "PROJECTED",
+      "evidence_ids" : [ "nyse-history-2008" ]
+    }, {
+      "scope" : "UNSCHEDULED_EXCEPTIONS",
+      "from" : "1900-01-01",
+      "to" : "2030-12-31",
+      "quality" : "PROJECTED",
+      "evidence_ids" : [ "nyse-history-2008" ]
+    } ]
   },
   "event_count" : 110,
   "resolution_chain" : [ "module:weekend_sat_sun", "module:new_years_day", "module:memorial_day", "module:independence_day", "module:labor_day", "module:thanksgiving", "module:christmas", "module:decoration_day", "module:washingtons_birthday", "module:lincolns_birthday", "module:flag_day", "module:armistice_veterans_day", "module:columbus_day", "module:us_market_base", "calendar:US-MARKET-BASE" ],

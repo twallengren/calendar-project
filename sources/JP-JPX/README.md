@@ -73,6 +73,11 @@ Japan Exchange Group (Tokyo Stock Exchange cash equity market, MIC `XTKS`).
 - **2020-10-01.** The arrowhead system failure closed the TSE cash equity market for the whole
   day (`jpx-system-failure-2020`). It is the only unscheduled full-day closure in coverage and is
   modelled as an explicit date, like the NYSE's weather and mourning closures.
+- **Quality audit.** JPX's archived yearly pages and the Cabinet Office date list verify the
+  scheduled-closure scope for 2019–2027. The 2010–2018 interval lacks a complete archived JPX
+  market calendar, and 2028–2030 extend past the official lists, so both are labelled projected.
+  Early closes and unscheduled-exception completeness remain projected rather than claiming a
+  complete historical publication; the confirmed 2020 outage remains an explicit event.
 - **Typo in an archived JPX edition.** The 2019-01-01 edition of the Market Holidays page lists
   "May 5 (Tue.) Accession Day" for 2020; May 5 is Children's Day (こどもの日) and Accession Day was
   a 2019-only holiday. `cao-shukujitsu` is followed.

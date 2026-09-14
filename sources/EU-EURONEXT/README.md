@@ -78,3 +78,10 @@ equivalents are 13:00 and 13:05. This is a documented precision/phase distinctio
 that the reference is erroneous or that all instruments finish at the annual-notice time.
 The previously claimed universal 2014 time change needs further session-level review; the
 calendar API does not model those sessions.
+
+- **Quality audit.** The yearly notices verify scheduled closures and venue half days through
+  2026; 2027–2030 are rule projections. The 2010 detailed trading-hours notice distinguishes a
+  14:00 closing auction from trading-at-last until 14:05, while the annual 2010, 2012 and 2013
+  notices call 14:00 the close. The six affected dates in each venue retain the published 14:00 local
+  convention but are explicitly `INCOMPLETE` for early-close precision pending a session-field
+  decision. Unscheduled-exception completeness is labelled `PROJECTED`, not verified history.

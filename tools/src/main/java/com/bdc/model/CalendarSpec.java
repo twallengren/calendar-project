@@ -1,6 +1,5 @@
 package com.bdc.model;
 
-import com.bdc.trust.CompletenessScope;
 import com.bdc.trust.CoverageInterval;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.time.LocalDate;
@@ -125,18 +124,6 @@ public record CalendarSpec(
         if ((from != null && interval.from().isBefore(from))
             || (to != null && interval.to().isAfter(to))) {
           throw new IllegalArgumentException("coverage quality interval lies outside coverage");
-        }
-      }
-      for (CompletenessScope scope : CompletenessScope.values()) {
-        List<CoverageInterval> scoped =
-            quality.stream()
-                .filter(interval -> interval.scope() == scope)
-                .sorted(java.util.Comparator.comparing(CoverageInterval::from))
-                .toList();
-        for (int i = 1; i < scoped.size(); i++) {
-          if (!scoped.get(i).from().isAfter(scoped.get(i - 1).to())) {
-            throw new IllegalArgumentException("coverage quality intervals overlap for " + scope);
-          }
         }
       }
     }

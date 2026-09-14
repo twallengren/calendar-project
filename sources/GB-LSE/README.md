@@ -96,3 +96,7 @@
   rule, so projecting them past `verified_through` is safe (`status(date)` still reports
   `PROJECTED` automatically for any date after `verified_through`, per `spec/SPEC.md`). No
   one-off closure is projected past 2028 because none has been announced.
+- **Quality audit.** Scheduled closures are verified only for the primary-source windows
+  2021–2023 and 2026–2028; the intervening and outer years are labelled projections. Early
+  closes use the same split. The twelve 2000/2005/2006/2011/2016/2017 shifted half days are
+  explicitly `INCOMPLETE` because no surviving primary LSE calendar for those years was found.

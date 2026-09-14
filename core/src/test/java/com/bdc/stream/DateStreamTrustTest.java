@@ -110,6 +110,28 @@ class DateStreamTrustTest {
     assertEquals(DayState.UNKNOWN, joint.assessment(DAY).state());
   }
 
+  @Test
+  void overlappingIntervalsUseTheLeastCertainQuality() {
+    CsvDateStream stream =
+        new CsvDateStream(
+            "CAL",
+            List.of(),
+            RANGE,
+            DAY,
+            List.of(
+                interval(CompletenessScope.SCHEDULED_CLOSURES, CoverageQuality.VERIFIED),
+                new CoverageInterval(
+                    CompletenessScope.SCHEDULED_CLOSURES,
+                    DAY,
+                    DAY,
+                    CoverageQuality.INCOMPLETE,
+                    List.of("disputed-date")),
+                interval(CompletenessScope.EARLY_CLOSES, CoverageQuality.VERIFIED),
+                interval(CompletenessScope.UNSCHEDULED_EXCEPTIONS, CoverageQuality.VERIFIED)));
+
+    assertEquals(DayState.UNKNOWN, stream.assessment(DAY).state());
+  }
+
   private static CoverageInterval interval(CompletenessScope scope, CoverageQuality quality) {
     return new CoverageInterval(
         scope, RANGE.start(), RANGE.end(), quality, List.of("fixture-source"));
