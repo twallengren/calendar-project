@@ -7,7 +7,7 @@ A tool for defining and generating business-day calendars with YAML-based specif
 - YAML-based calendar specifications (source of truth)
 - Deterministic compilation to static artifacts (CSV/JSON)
 - Calendar inheritance and module composition
-- Multi-chronology support: ISO (Gregorian), HIJRI (tabular Islamic), UMM_AL_QURA (Saudi lookup table), JULIAN, PERSIAN, and extensible via YAML
+- Multi-chronology support: ISO (Gregorian), HIJRI (tabular Islamic), UMM_AL_QURA (Saudi lookup table), JULIAN, PERSIAN, HEBREW and bounded CHINESE_HK profiles
 - Julian Day Number (JDN) pivot for cross-calendar translation
 - Effective-dated weekends, per-holiday observance rules, early-close times, confirmed/projected status
 - Holiday citations resolve through canonical `sources/<ID>/register.json` files; cross-validated against exchange_calendars and QuantLib
@@ -124,59 +124,52 @@ date,type,description,key,source_module,observed_from,close_time,status
 
 ## Get the data
 
-Every release publishes the generated artifacts several zero-install ways, so you rarely need to
-clone this repository or build the tool just to read a calendar. All examples below use
-**US-NYSE**; swap in any other ID from the [Market status](#market-status) table.
+The authenticated GitHub release asset for v11.0.0 contains four calendars; no v12 release has been
+published. The broader calendars and features described below are local candidate content. Hosting
+URLs and package registries can change independently and are not verified by local files or version
+configuration. The generated status table is a local artifact snapshot pending refresh.
 
-**(a) Static JSON APIs** — `tools site` generates both [JSON API v1](spec/SPEC.md#json-api-v1)
-and [JSON API v2](spec/SPEC.md#json-api-v2-and-enriched-assessments) from `blessed/` and `release-history/`. V1 keeps the
-event-oriented response contract; v2 provides explicit daily assessments, including completeness
-and `UNKNOWN` state. The current blessed data release in this checkout is 11.0.0; API wire versions
-are separate from the data release version.
-- V1 index: <https://twallengren.github.io/calendar-project/v1/index.json>
+**(a) Static JSON APIs** — `tools site` generates [JSON API v1](spec/SPEC.md#json-api-v1) and
+[JSON API v2](spec/SPEC.md#json-api-v2-and-enriched-assessments) locally from `blessed/` and
+`release-history/`. V1 keeps the event-oriented response contract; v2 provides explicit daily
+assessments, including completeness and `UNKNOWN` state. API wire versions are separate from data
+release versions. V2 adds daily assessments alongside the event-oriented v1 contract; existing v1
+clients can remain on v1 while adopting v2 separately. GitHub Pages is a mutable deployment address;
+verify its current content before relying on it.
+- Pages deployment address (mutable; inspect the current content before relying on it):
+  <https://twallengren.github.io/calendar-project/v1/index.json>
 - One calendar-year: <https://twallengren.github.io/calendar-project/v1/calendars/US-NYSE/2027.json>
-- V2 daily-assessment index in a generated site: `v2/index.json`
+- V2 daily-assessment index in a locally generated site: `v2/index.json`
 - All holidays for a calendar: <https://twallengren.github.io/calendar-project/v1/calendars/US-NYSE/holidays.json>
 - Subscribe in any calendar app (updates as the site is republished, 2020 onward):
   `webcal://twallengren.github.io/calendar-project/v1/calendars/US-NYSE/holidays-recent.ics`
 
-**(b) jsDelivr**, pointed at any tagged release, for a URL that never changes underneath you:
-```
-https://cdn.jsdelivr.net/gh/twallengren/calendar-project@v11.0.0/blessed/US-NYSE/events.json
-```
-jsDelivr caches tagged files **permanently** — if a release needs a correction, it ships under a
-new tag, not by overwriting the old one, so pin a version and re-point at the new tag when you
-upgrade.
-
-**(c) GitHub Release assets** — loose per-calendar files attached to each
-[release](https://github.com/twallengren/calendar-project/releases), no unpacking required:
+**(b) GitHub Release asset** — the authenticated v11.0.0 release contains four calendars. For
+example, its US-NYSE CSV asset is:
 ```
 https://github.com/twallengren/calendar-project/releases/download/v11.0.0/US-NYSE-events.csv
 ```
-(`<ID>-events.json` and, for market calendars, `<ID>-holidays.ics` are attached the same way.) A
-combined `tar.gz`/`zip` with every calendar's events/metadata/specs, plus `checksums.txt`, is
-attached to the same release for bulk use.
 
-**(d) The [`bdc-calendars`](python/README.md) Python package**, which ships the same data inside
-its wheel and answers the [Query API](spec/SPEC.md#query-api) offline with **zero runtime
-dependencies**:
+**(c) The [`bdc-calendars`](python/README.md) Python package** provides the Query API offline with
+zero runtime dependencies. Install the local source package from the repository root with:
 ```
-pip install bdc-calendars
+python -m venv .venv && .venv/bin/pip install ./python
 ```
-then `bdc_calendars.get_calendar("XLON")` (ISO 10383 MICs and exchange_calendars-style aliases are
-accepted for every bundled market). Its package/API version evolves independently, and
-`bdc_calendars.data_version` exposes the exact bundled data release; see
+Then call `bdc_calendars.get_calendar("XLON")`. ISO 10383 MICs and exchange_calendars-style aliases
+are accepted for bundled markets. `bdc_calendars.data_version` exposes the data in the installed
+package; see
 [`python/README.md`](python/README.md) for the API, the migration notes from exchange_calendars
-and the coverage/status caveats. An optional `bdc-calendars-mcp` MCP server
-(`pip install "bdc-calendars[mcp]"`) exposes the same Query API to AI agents over stdio.
+and the coverage/status caveats. Install the optional MCP extra locally with
+`.venv/bin/pip install './python[mcp]'`; it exposes the same Query API over stdio.
 
-**(e) The Java library** — the same Query API the CLI answers from, as two jars: `bdc-calendar-core`
-(the query API, **no third-party dependencies**) and `bdc-calendar-data` (the published calendars as
+**(d) The Java library** — the same Query API the CLI answers from, as two jars: `bdc-calendar-core`
+(the query API, **no third-party dependencies**) and `bdc-calendar-data` (calendar data as
 classpath resources). Core and data use independent version streams: the core artifact follows the
 Java software version in `release/versions.json`, while the data artifact follows the blessed data
-version. In this checkout the core release configuration is 12.0.0 and the current blessed data
-is 11.0.0; the runtime facade exposes the exact bundled data version:
+version. The local candidate config separates software, data and wire-schema versions. Build the Java
+artifacts locally and use Maven Local:
 ```kotlin
+repositories { mavenLocal() }
 dependencies {
     implementation("io.github.twallengren:bdc-calendar-core:12.0.0")
     runtimeOnly("io.github.twallengren:bdc-calendar-data:11.0.0")
@@ -189,10 +182,9 @@ nyse.closeTime(LocalDate.of(2025, 7, 3));            // Optional[13:00]
 BusinessCalendars.joint("US-NYSE", "SA-TADAWUL")     // open only where both are
     .nthBusinessDay(LocalDate.of(2026, 2, 25), 2);   // 2026-03-02
 ```
-*Pending the Maven Central namespace* — until it is claimed, build the jars locally with
-`./gradlew publishToMavenLocal` and add `mavenLocal()` to your repositories.
+Run `./gradlew publishToMavenLocal -Prelease=true` to publish the local build into Maven Local.
 
-**(f) Point-in-time history** — every option above gives you the *current* release. To ask what a
+**(e) Point-in-time history** — every option above gives you the *current* release. To ask what a
 calendar looked like as of an earlier release (audit, backtest reproducibility), use the CLI's
 `--as-of` against a checked-out copy, which reads `release-history/`:
 ```bash
@@ -200,10 +192,22 @@ calendar looked like as of an earlier release (audit, backtest reproducibility),
 ./gradlew :tools:run --args="history releases US-NYSE"
 ```
 
+The local source candidate adds bounded Hebrew/TASE and Chinese/HKEX data, three payment calendars,
+and date-only financial business-day operations. TASE coverage is bounded to 2025–2027: scheduled closures are verified only over stated
+intervals, early-close coverage is limited, and unscheduled exceptions remain incomplete throughout;
+actual-day answers are UNKNOWN where required coverage is incomplete. HKEX is bounded to 2018–2027
+and has authoritative 2027 Lunar New Year overrides. EU-TARGET, GB-CHAPS and US-FEDWIRE cover
+2026–2027 with SCHEDULED_CLOSURES VERIFIED and EARLY_CLOSES and UNSCHEDULED_EXCEPTIONS PROJECTED;
+they describe operating dates, not hours, cutoffs or settlement eligibility. See
+[payment calendar scope](docs/payment-calendars.md). Financial date operations include adjustment (`UNADJUSTED`, `FOLLOWING`, `MODIFIED_FOLLOWING`,
+`PRECEDING`, `MODIFIED_PRECEDING`), business-day offsets, month advancement, and last-business-day
+lookup. Their detailed results report confidence across the entire examined path, including dates
+searched before the final result; they do not model instrument-specific settlement rules.
+
 ## Browse
 
 `./gradlew :tools:run --args="site --out site --base-url <url>"` builds the static site into
-one directory with no framework, no build step and no backend: the `/v1/` and `/v2/` JSON APIs,
+one directory with no framework, no build step and no backend: local `/v1/` and `/v2/` JSON API outputs,
 the release changelog, and a browsable HTML page per market
 (`/<ID>/`), per year (`/<ID>/<year>/` — a month grid plus a dated closure table) and per closure
 (`/<ID>/<date>/`), with `sitemap.xml` and `robots.txt`. The HTML pages render from the generated
@@ -222,6 +226,18 @@ The system supports multiple calendar systems through a YAML-based ontology:
 | `UMM_AL_QURA` | Umm al-Qura calendar (Saudi Arabia, lookup table AH 1356-1500) |
 | `JULIAN` | Julian calendar |
 | `PERSIAN` | Solar Hijri calendar (Iranian) |
+| `HEBREW` | Fixed arithmetic civil Hebrew profile; conversion dates map at civil midnight and do not model sunset |
+| `CHINESE_HK` | Modern Chinese profile at fixed UTC+08:00, bounded 1929–2100; not a general historical Chinese calendar |
+
+See [native chronology profiles](docs/native-chronologies.md) for supported ranges, month identity,
+conversion semantics, and the distinction between a chronology conversion and an exchange schedule.
+For example, the native-date conversion CLI accepts Hebrew month codes such as `TISHRI` and the
+Chinese profile uses `M01` through `M12` plus `L` for a leap month:
+
+```bash
+./gradlew :tools:run --args="convert --from-chronology HEBREW --year 5785 --month-code TISHRI --day 1"
+./gradlew :tools:run --args="convert --from-chronology CHINESE_HK --year 2025 --month-code M06L --day 1"
+```
 
 ### Using Non-ISO Chronologies
 
@@ -257,7 +273,9 @@ algorithms:
 
 ## Market status
 
-One row per blessed calendar: coverage, closure/early-close/projected counts, cited sources, and
+This table is a local artifact snapshot pending refresh; its rows describe the current local blessed
+artifacts and are not a remote catalogue. Refresh this table after candidate artifacts are prepared.
+One row per blessed calendar reports coverage, closure/early-close/projected counts, cited sources, and
 cross-validation results against third-party reference data. Regenerate with
 `tools status --format markdown` after `scripts/bless.sh` (see `spec/SPEC.md` for the JSON shape
 and `tools crossvalidate`, which produces the cross-validation column).

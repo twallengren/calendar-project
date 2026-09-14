@@ -140,7 +140,17 @@ provider:
 The Hebrew provider uses a fixed arithmetic civil-date mapping; it does not model sunset instants.
 Use month codes such as `TISHRI`, `NISAN`, or `ADAR_II` (the available code depends on whether the
 Hebrew year is intercalary). Check the supported range and exact-date semantics before relying on
-a conversion for source evidence.
+a conversion for source evidence. The bounded `CHINESE_HK` profile uses fixed UTC+08:00 civil-date
+mapping; month codes are `M01`–`M12`, with an `L` suffix for an intercalary month. For example:
+
+```bash
+./gradlew :tools:run --args="convert --from-chronology CHINESE_HK --year 2025 --month-code M06L --day 1"
+```
+
+A successful native-date conversion establishes a chronology date, not an exchange opening day.
+For TASE, actual-day assessments remain `UNKNOWN` wherever required scheduled-closure or
+unscheduled-exception coverage is incomplete. Follow the calendar's scope-specific quality intervals
+and exception-maintenance policy; do not mark a broader span verified from a conversion example.
 
 ### 4. Validate
 

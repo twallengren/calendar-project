@@ -58,8 +58,11 @@ for civil holiday dates, including common/leap Adar distinctions. Those fixtures
 are conversion evidence, not assertions about TASE operating days. Every day in
 the supported interval additionally undergoes a round-trip regression. ICU's
 [civil mapping documentation](https://unicode-org.github.io/icu-docs/apidoc/released/icu4j/com/ibm/icu/util/HebrewCalendar.html)
-describes the underlying arithmetic profile. This foundation does not yet publish
-TASE data or retain native origin fields in enriched event artifacts.
+describes the underlying arithmetic profile. The local source candidate includes bounded TASE rules
+and preserves native origin fields in enriched events. Its 2025–2027 coverage does not establish a
+complete actual trading-day calendar: unscheduled exceptions remain `INCOMPLETE` throughout, and
+actual-day assessments are `UNKNOWN` wherever a required scope is incomplete. This candidate has not
+been published in a remote v12 release.
 
 ## Persian correction
 
