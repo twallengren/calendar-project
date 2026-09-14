@@ -35,7 +35,39 @@ public record CalendarData(
     List<Integer> years,
     JsonNode weekendPolicy,
     Map<Integer, List<DayEvent>> eventsByYear,
-    Map<LocalDate, JsonNode> assessments) {
+    Map<LocalDate, JsonNode> assessments,
+    String kind) {
+
+  public CalendarData(
+      String id,
+      String name,
+      String timezone,
+      String mic,
+      List<String> aliases,
+      Coverage coverage,
+      Map<String, Integer> countsByType,
+      Map<String, Integer> countsByStatus,
+      String checksum,
+      List<Integer> years,
+      JsonNode weekendPolicy,
+      Map<Integer, List<DayEvent>> eventsByYear,
+      Map<LocalDate, JsonNode> assessments) {
+    this(
+        id,
+        name,
+        timezone,
+        mic,
+        aliases,
+        coverage,
+        countsByType,
+        countsByStatus,
+        checksum,
+        years,
+        weekendPolicy,
+        eventsByYear,
+        assessments,
+        "market");
+  }
 
   public CalendarData(
       String id,
@@ -72,6 +104,25 @@ public record CalendarData(
     return !assessments.isEmpty()
         && (!assessments.containsKey(date)
             || assessments.get(date).path("state").asText().equals("UNKNOWN"));
+  }
+
+  /** Completeness across the published dates, using the weakest scope on each date. */
+  public String coverageSummary() {
+    if (assessments.isEmpty()) return "Completeness not recorded";
+    int incomplete = 0;
+    int projected = 0;
+    for (JsonNode day : assessments.values()) {
+      List<String> scopes = new ArrayList<>();
+      day.path("completeness").elements().forEachRemaining(value -> scopes.add(value.asText()));
+      if (scopes.size() != 3 || scopes.contains("INCOMPLETE")) incomplete++;
+      else if (scopes.contains("PROJECTED")) projected++;
+    }
+    return incomplete
+        + " incomplete; "
+        + projected
+        + " projected; "
+        + (assessments.size() - incomplete - projected)
+        + " verified days";
   }
 
   /** The published coverage window, plus the date through which the data has been verified. */
@@ -267,7 +318,8 @@ public record CalendarData(
         List.copyOf(years),
         manifest.path("weekend_policy"),
         Collections.unmodifiableMap(eventsByYear),
-        Collections.unmodifiableMap(assessments));
+        Collections.unmodifiableMap(assessments),
+        manifest.path("kind").asText("market"));
   }
 
   private static List<String> aliasesOf(JsonNode indexEntry) {

@@ -114,7 +114,7 @@ public class SiteCommand implements Callable<Integer> {
   @Option(
       names = {"--include-base"},
       description =
-          "Include calendars whose kind is not 'market' (e.g. base/foundational calendars) in"
+          "Include base/foundational calendars alongside market and payment calendars in"
               + " the index and per-calendar output")
   private boolean includeBase;
 

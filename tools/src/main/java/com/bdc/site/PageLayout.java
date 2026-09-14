@@ -36,7 +36,7 @@ public final class PageLayout {
           <header class="masthead">
             <a class="wordmark" href="{{root}}index.html">{{siteName}}</a>
             <nav aria-label="Site">
-              <a href="{{root}}index.html">Markets</a>
+              <a href="{{root}}index.html">Calendars</a>
               <a href="{{root}}changelog/index.html">Changelog</a>
               <a href="{{sourcesUrl}}">Sources</a>
               <a href="{{root}}v2/index.json">API</a>

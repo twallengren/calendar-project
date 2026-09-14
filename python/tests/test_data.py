@@ -36,7 +36,7 @@ def test_every_manifest_calendar_loads():
         calendar = bdc.get_calendar(calendar_id)
         assert calendar.calendar_id == calendar_id
         assert calendar.range.start <= calendar.range.end
-        assert calendar.kind in ("market", "base")
+        assert calendar.kind in ("market", "payment", "base")
 
 
 def test_manifest_ranges_match_the_calendars():

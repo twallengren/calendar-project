@@ -16,11 +16,11 @@ public final class HomePageRenderer {
       HtmlTemplate.of(
           """
           <h1>{{siteName}}</h1>
-          <p class="lede">Open, version-controlled trading calendars. Every closure cites an
+          <p class="lede">Open, version-controlled business-date calendars. Every closure cites an
           authoritative source, every change is tracked between releases, and everything on this
           site is generated from the same artifacts the JSON API serves.</p>
           <section aria-labelledby="markets-heading">
-            <h2 id="markets-heading">Markets</h2>
+            <h2 id="markets-heading">Market and payment calendars</h2>
             {{{table}}}
           </section>
           <section aria-labelledby="use-heading">
@@ -28,14 +28,14 @@ public final class HomePageRenderer {
             <ul>
               <li><a href="v1/index.json">JSON API v1</a> — static, versioned, CORS-free to fetch;
               per-year files live at <code>v1/calendars/{id}/{year}.json</code>.</li>
-              <li>iCalendar feeds per market, for subscribing in a calendar app.</li>
+              <li>iCalendar feeds per calendar, for subscribing in a calendar app.</li>
               <li><a href="changelog/index.html">Changelog</a> — what changed in every release,
               generated from the release history.</li>
-              <li><a href="compare/index.html">Compare two markets</a> — the days one market trades
+              <li><a href="compare/index.html">Compare two calendars</a> — the days one is open
               while another is closed, and a T+N business-date offset helper.</li>
               <li><a href="sources/index.html">Sources</a> — the register of gazettes, circulars and
-              exchange notices behind each calendar.</li>
-              <li><a href="{{contributingUrl}}">Contributing</a> — how to add a market or correct
+              exchange and payment-system notices behind each calendar.</li>
+              <li><a href="{{contributingUrl}}">Contributing</a> — how to add a calendar or correct
               a date.</li>
             </ul>
           </section>
@@ -59,9 +59,9 @@ public final class HomePageRenderer {
 
   String render(List<CalendarData> calendars, Map<String, StatusData> status) {
     String description =
-        "Open trading-calendar data for "
+        "Open business-date calendar data for "
             + calendars.size()
-            + (calendars.size() == 1 ? " market" : " markets")
+            + (calendars.size() == 1 ? " calendar" : " calendars")
             + ": holiday dates, early closes and sources, browsable by year and available as JSON"
             + " and iCalendar.";
     String body =
@@ -78,8 +78,8 @@ public final class HomePageRenderer {
     html.append(
         """
         <thead><tr>
-        <th scope="col">Market</th><th scope="col">Timezone</th><th scope="col">Coverage</th>
-        <th scope="col">Verified through</th><th scope="col">Closures</th>
+        <th scope="col">Calendar</th><th scope="col">Timezone</th><th scope="col">Coverage</th>
+        <th scope="col">Coverage quality</th><th scope="col">Closures</th>
         <th scope="col">Early closes</th><th scope="col">Projected</th>
         <th scope="col">Cross-validation</th><th scope="col">Release</th>
         <th scope="col">Data</th>
@@ -108,17 +108,7 @@ public final class HomePageRenderer {
           .append("\">")
           .append(calendar.coverage().to())
           .append("</time></td>");
-      html.append("<td class=\"nowrap\">");
-      if (calendar.coverage().verifiedThrough() != null) {
-        html.append("<time datetime=\"")
-            .append(calendar.coverage().verifiedThrough())
-            .append("\">")
-            .append(calendar.coverage().verifiedThrough())
-            .append("</time>");
-      } else {
-        html.append("&mdash;");
-      }
-      html.append("</td>");
+      html.append("<td>").append(HtmlTemplate.escape(calendar.coverageSummary())).append("</td>");
       html.append("<td class=\"num\">").append(calendar.closures()).append("</td>");
       html.append("<td class=\"num\">").append(calendar.earlyCloses()).append("</td>");
       html.append("<td class=\"num\">").append(calendar.projected()).append("</td>");

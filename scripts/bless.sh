@@ -52,7 +52,7 @@ for CAL_ID in $(jq -r '.calendars | keys[]' blessed/manifest.json); do
     CHECKSUM=$(shasum -a 256 "blessed/$CAL_ID/events.csv" | cut -d' ' -f1)
   fi
   EVENT_COUNT=$(jq -er '.event_count' "blessed/$CAL_ID/metadata.json")
-  # kind (market | base) comes from the calendar's metadata, which comes from its YAML
+  # kind (market | payment | base) comes from the calendar's metadata, which comes from its YAML
   KIND=$(jq -r '.kind // "market"' "blessed/$CAL_ID/metadata.json")
   jq --arg cal "$CAL_ID" --arg checksum "sha256:$CHECKSUM" --arg count "$EVENT_COUNT" --arg kind "$KIND" \
      '.calendars[$cal].kind = $kind | .calendars[$cal].checksum = $checksum | .calendars[$cal].event_count = ($count | tonumber)' \

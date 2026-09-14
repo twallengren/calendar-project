@@ -218,7 +218,7 @@ class SettlementParityTest {
 
   // === Inputs ===
 
-  /** The blessed calendars whose {@code kind} is {@code market}, sorted by id. */
+  /** Published market and payment calendars, sorted by id. */
   static List<String> marketIds() throws IOException {
     JsonNode manifest = new ObjectMapper().readTree(Path.of("blessed/manifest.json").toFile());
     List<String> ids = new ArrayList<>();
@@ -227,7 +227,8 @@ class SettlementParityTest {
         .fields()
         .forEachRemaining(
             entry -> {
-              if ("market".equals(entry.getValue().path("kind").asText("market"))) {
+              String kind = entry.getValue().path("kind").asText("market");
+              if ("market".equals(kind) || "payment".equals(kind)) {
                 ids.add(entry.getKey());
               }
             });

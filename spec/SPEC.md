@@ -10,7 +10,7 @@ id: string                    # Unique identifier
 metadata:
   name: string                # Human-readable name
   description: string         # Optional description
-  kind: market                # market (a tradable venue, the default) or base (a building block)
+  kind: market                # market (default), payment (operating dates), or base (building block)
   chronology: ISO             # Informational: the market's civil calendar (ISO, HIJRI, UMM_AL_QURA, ...)
   timezone: America/New_York  # IANA zone id; required when any event source has a close_time
   mic: XLON                   # Optional ISO 10383 Market Identifier Code; `validate --strict` warns
@@ -1078,8 +1078,9 @@ ChronologyDate fromIso = ChronologyDate.fromIsoDate(LocalDate.now(), "HIJRI");
 `tools site --api-only --blessed-dir blessed --release-history-dir release-history --out site/
 [--include-base]` reads `blessed/` and `release-history/` and writes a static `/v1/` tree of
 minified JSON and RFC 5545 `.ics` files, suitable for serving as-is (e.g. from GitHub Pages).
-`--include-base` also emits calendars whose `kind` is not `market` (see below); by default only
-`market`-kind calendars are published.
+`--include-base` also emits foundational calendars (see below); by default `market` and
+`payment` calendars are published. Payment calendars use system identifiers without a MIC and
+cover operating dates only, excluding sessions, cutoffs and payment eligibility.
 
 ### URL layout
 

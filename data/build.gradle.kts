@@ -82,7 +82,7 @@ val generateCalendarData =
 
             val selected =
                 blessedCalendars
-                    .filterValues { includeBase || (it["kind"] ?: "market") == "market" }
+                    .filterValues { includeBase || (it["kind"] ?: "market") in setOf("market", "payment") }
                     .keys
                     .sorted()
 

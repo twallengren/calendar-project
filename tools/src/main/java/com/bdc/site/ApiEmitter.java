@@ -104,7 +104,7 @@ public class ApiEmitter {
       }
       JsonNode metadataNode = json.readTree(metadataFile.toFile());
       String kind = kindOf(id, metadataNode, manifest.path("calendars").path(id));
-      if (!includeBase && !DEFAULT_KIND.equals(kind)) {
+      if (!includeBase && !DEFAULT_KIND.equals(kind) && !"payment".equals(kind)) {
         // Not published: no directory, no manifest, no year/all/holidays files, no .ics, no
         // pinned releases. index.json must be the definitive list of what a consumer can find
         // under v1/calendars/ — a calendar it doesn't advertise must not have a directory.

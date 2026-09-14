@@ -51,7 +51,7 @@ class TrustHtmlTest {
                 "2026-09-14",
                 Instant.EPOCH));
     String page = new DatePageRenderer(layout).render(calendar, date, List.of(event));
-    assertTrue(page.contains("Actual trading state is unknown"));
+    assertTrue(page.contains("Actual day state is unknown"));
     assertTrue(page.contains("HEBREW 5786 TISHRI 1"));
     assertTrue(page.contains("ICU4J 78.3"));
     assertTrue(page.contains("notice"));

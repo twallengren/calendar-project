@@ -44,7 +44,7 @@ def verify(args):
     for date in native:
         assert '{} {} {} {}'.format(date['chronology_id'], date['year'], date['month_code'], date['day']) in page
     if java['state'] == 'UNKNOWN':
-        assert 'Actual trading state is unknown' in page
+        assert 'Actual day state is unknown' in page
     print('{} {}: native artifact/Java CLI/Python/MCP representation/v2/HTML parity passed'.format(args.calendar, args.date))
 
 

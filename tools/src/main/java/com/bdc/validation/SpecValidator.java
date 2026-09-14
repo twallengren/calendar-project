@@ -371,6 +371,10 @@ public class SpecValidator {
     if (mic != null && !MIC_PATTERN.matcher(mic).matches()) {
       result.error("INVALID_MIC", calLoc, "metadata.mic '" + mic + "' must match ^[A-Z0-9]{4}$");
     }
+    if (mic != null && CalendarSpec.Metadata.KIND_PAYMENT.equals(kind)) {
+      result.error(
+          "PAYMENT_MIC", calLoc, "payment calendars use system identifiers, not a market MIC");
+    }
 
     Set<String> ownTokensSeen = new HashSet<>();
     if (mic != null) {

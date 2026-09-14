@@ -105,7 +105,7 @@ public final class DatePageRenderer {
 
     if (calendar.isUnknown(date)) {
       verdict =
-          "Actual trading state is unknown on "
+          "Actual day state is unknown on "
               + longDate
               + ". Scheduled events are listed below; coverage is incomplete.";
       verdictClass = "unknown";
@@ -137,7 +137,7 @@ public final class DatePageRenderer {
         calendar.name() + ": " + headline + ", " + longDate,
         description,
         List.of(
-            new PageLayout.Crumb("Markets", "../../index.html"),
+            new PageLayout.Crumb("Calendars", "../../index.html"),
             new PageLayout.Crumb(calendar.id(), "../index.html"),
             new PageLayout.Crumb(
                 String.valueOf(date.getYear()), "../" + date.getYear() + "/index.html"),

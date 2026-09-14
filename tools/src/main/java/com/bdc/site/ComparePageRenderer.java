@@ -50,7 +50,7 @@ public final class ComparePageRenderer {
           """
           <h1>{{aName}} vs {{bName}}</h1>
           <p class="lede">Where <code>{{a}}</code> and <code>{{b}}</code> disagree: every day one
-          market trades and the other is closed, {{window}}. Weekends are excluded — those follow
+          calendar is open and the other is closed, {{window}}. Weekends are excluded — those follow
           from each calendar's weekend policy, not from a holiday.</p>
           <p>Differences below include only resolved dates. Incomplete coverage is shown as unknown on each calendar; the offset helper stops at an unresolved date.</p>
           <section aria-labelledby="summary-heading">
@@ -80,20 +80,20 @@ public final class ComparePageRenderer {
   private static final HtmlTemplate INDEX =
       HtmlTemplate.of(
           """
-          <h1>Compare two markets</h1>
-          <p class="lede">{{pairCount}} pairs of the {{marketCount}} published markets, each with
-          the days one trades while the other is closed and a T+N business-date offset helper for trades
+          <h1>Compare two calendars</h1>
+          <p class="lede">{{pairCount}} pairs of the {{marketCount}} published calendars, each with
+          the days one is open while the other is closed and a T+N business-date offset helper for dates
           between them.</p>
           {{{sections}}}
-          <p class="muted"><a href="settlement-selftest.html">Settlement self-test</a> — runs the
-          browser settlement algorithm against a fixture of answers computed in Java. Serve the site
+          <p class="muted"><a href="settlement-selftest.html">Business-date offset self-test</a> — runs the
+          browser business-date offset algorithm against a fixture of answers computed in Java. Serve the site
           over HTTP to run it; it fetches the published JSON API.</p>
           """);
 
   private static final HtmlTemplate SELFTEST =
       HtmlTemplate.of(
           """
-          <h1>Settlement self-test</h1>
+          <h1>Business-date offset self-test</h1>
           <p class="lede">The T+N business-date offset helper on every compare page is written once, in
           <a href="../site.js"><code>site.js</code></a>, and must agree with
           <code>JointDateStream</code> — the same code the <code>query --settlement</code> CLI
@@ -117,7 +117,7 @@ public final class ComparePageRenderer {
     this.layout = layout;
   }
 
-  /** The published calendars whose {@code kind} is {@code market}, in index order. */
+  /** Published market and payment calendars, in index order. */
   public static List<CalendarData> marketCalendars(List<CalendarData> calendars, Path siteDir)
       throws IOException {
     ObjectMapper mapper = new ObjectMapper();
@@ -134,7 +134,7 @@ public final class ComparePageRenderer {
         JsonNode node = mapper.readTree(manifest.toFile()).path("kind");
         kind = node.isMissingNode() || node.isNull() ? "market" : node.asText("market");
       }
-      if ("market".equals(kind)) {
+      if ("market".equals(kind) || "payment".equals(kind)) {
         markets.add(calendar);
       }
     }
@@ -205,7 +205,7 @@ public final class ComparePageRenderer {
     String description =
         "Days "
             + a.id()
-            + " trades while "
+            + " is open while "
             + b.id()
             + " is closed ("
             + aOpen.size()
@@ -279,7 +279,7 @@ public final class ComparePageRenderer {
         1,
         "compare/",
         "Compare two trading calendars",
-        "Every pair of published markets, with the days one trades while the other is closed and a"
+        "Every pair of published calendars, with the days one is open while the other is closed and a"
             + " T+N business-date offset helper.",
         List.of(
             new PageLayout.Crumb("Markets", "../index.html"),
@@ -301,12 +301,12 @@ public final class ComparePageRenderer {
     return layout.render(
         1,
         "compare/settlement-selftest.html",
-        "Settlement self-test",
-        "Runs the browser T+N settlement algorithm against answers computed in Java.",
+        "Business-date offset self-test",
+        "Runs the browser T+N business-date offset algorithm against answers computed in Java.",
         List.of(
             new PageLayout.Crumb("Markets", "../index.html"),
             new PageLayout.Crumb("Compare", "index.html"),
-            new PageLayout.Crumb("Settlement self-test", null)),
+            new PageLayout.Crumb("Business-date offset self-test", null)),
         "",
         SELFTEST.render(
             "caseCount", String.valueOf(caseCount),

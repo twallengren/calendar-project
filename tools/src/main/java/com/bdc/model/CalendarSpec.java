@@ -37,7 +37,8 @@ public record CalendarSpec(
    *     source declares a close_time
    * @param coverage the date range this calendar is maintained for, and how far it is verified
    * @param kind what the calendar is for: {@code market} (a tradable venue, the default) or {@code
-   *     base} (a building block that composes into market calendars and is not itself a venue)
+   *     payment} (a payment system's operating dates), or {@code base} (a composition building
+   *     block)
    * @param mic the market's ISO 10383 Market Identifier Code (e.g. XLON), or null; {@code validate}
    *     warns under {@code --strict} when a {@code market}-kind calendar has none
    * @param aliases other spellings callers may already use to look this calendar up (e.g. legacy
@@ -59,6 +60,9 @@ public record CalendarSpec(
     /** A composition building block rather than a tradable venue. */
     public static final String KIND_BASE = "base";
 
+    /** A payment system's date-only operating calendar. */
+    public static final String KIND_PAYMENT = "payment";
+
     public Metadata {
       if (chronology == null) chronology = "ISO";
       if (timezone != null) {
@@ -69,9 +73,9 @@ public record CalendarSpec(
         }
       }
       if (kind == null) kind = KIND_MARKET;
-      if (!KIND_MARKET.equals(kind) && !KIND_BASE.equals(kind)) {
+      if (!KIND_MARKET.equals(kind) && !KIND_BASE.equals(kind) && !KIND_PAYMENT.equals(kind)) {
         throw new IllegalArgumentException(
-            "metadata.kind must be '" + KIND_MARKET + "' or '" + KIND_BASE + "', got: " + kind);
+            "metadata.kind must be 'market', 'payment' or 'base', got: " + kind);
       }
       if (aliases == null) aliases = List.of();
     }
