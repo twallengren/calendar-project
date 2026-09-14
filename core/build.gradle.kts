@@ -2,10 +2,11 @@ plugins {
     `java-library`
     `maven-publish`
     signing
+    id("com.gradleup.nmcp")
 }
 
 group = "io.github.twallengren"
-version = rootProject.extra["publishVersion"] as String
+version = rootProject.extra["corePublishVersion"] as String
 
 java {
     toolchain {

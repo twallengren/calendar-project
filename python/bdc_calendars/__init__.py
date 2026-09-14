@@ -17,9 +17,9 @@ given package version.
 
 Versioning
 ----------
-``__version__`` is ``0.<data major>.<data minor>``: it tracks the release
-version of the calendar data, which is exposed in full as :data:`data_version`
-together with the :data:`data_git_sha` it was generated from.
+``__version__`` is the Python API/package version.  The independently versioned
+calendar data is exposed as :data:`data_version` together with the
+:data:`data_git_sha` it was generated from.
 """
 
 from ._loader import Event

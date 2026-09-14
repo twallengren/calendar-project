@@ -160,16 +160,16 @@ dependencies**:
 pip install bdc-calendars
 ```
 then `bdc_calendars.get_calendar("XLON")` (ISO 10383 MICs and exchange_calendars-style aliases are
-accepted for every bundled market). Its
-version is `0.<data major>.<data minor>`, so it tracks the data release; see
+accepted for every bundled market). Its package/API version evolves independently, and
+`bdc_calendars.data_version` exposes the exact bundled data release; see
 [`python/README.md`](python/README.md) for the API, the migration notes from exchange_calendars
 and the coverage/status caveats. An optional `bdc-calendars-mcp` MCP server
 (`pip install "bdc-calendars[mcp]"`) exposes the same Query API to AI agents over stdio.
 
 **(e) The Java library** — the same Query API the CLI answers from, as two jars: `bdc-calendar-core`
 (the query API, **no third-party dependencies**) and `bdc-calendar-data` (the published calendars as
-classpath resources). Both carry the data release as their version, so the coordinate names the
-dataset:
+classpath resources). Core and data use independent version streams; the data artifact coordinate
+names the dataset, and the runtime facade exposes that exact bundled version:
 ```kotlin
 dependencies {
     implementation("io.github.twallengren:bdc-calendar-core:11.0.0")

@@ -136,18 +136,18 @@ Differences worth knowing before you switch:
 
 ## Versioning
 
-`bdc_calendars.__version__` is `0.<data major>.<data minor>` and tracks the **data** release, which
-is exposed in full:
+`bdc_calendars.__version__` is the Python package/API version. The independently versioned bundled
+**data** release is exposed in full:
 
 ```python
-bdc.__version__       # '0.11.0'
-bdc.data_version      # '11.0.0'
+bdc.__version__       # '0.12.0'
+bdc.data_version      # '12.0.0'
 bdc.data_git_sha      # the calendar-project commit the data came from
 bdc.data_generation_date
 ```
 
-A major bump in the data version means a *past* date changed (a correction); a minor bump means
-only future dates moved. Pin the package if you need byte-stable answers.
+A major bump in the data version means an answer inside existing coverage changed; a minor bump is
+additive. Pin both versions if you need byte-stable answers.
 
 ## MCP server
 

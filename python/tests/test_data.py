@@ -17,9 +17,11 @@ BLESSED_MANIFEST = os.path.join(REPO_ROOT, "blessed", "manifest.json")
 SYNC_SCRIPT = os.path.join(REPO_ROOT, "python", "scripts", "sync_data.py")
 
 
-def test_version_tracks_the_data_release():
-    major, minor, _patch = bdc.data_version.split(".")
-    assert bdc.__version__ == "0.{}.{}".format(major, minor)
+def test_package_version_comes_from_independent_version_stream():
+    versions_path = os.path.join(REPO_ROOT, "release", "versions.json")
+    with open(versions_path, encoding="utf-8") as handle:
+        versions = json.load(handle)
+    assert bdc.__version__ == versions["python"]
 
 
 def test_version_matches_the_bundled_manifest():

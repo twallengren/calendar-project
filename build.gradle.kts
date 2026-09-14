@@ -5,11 +5,12 @@ plugins {
     id("com.gradleup.nmcp.aggregation") version "1.6.2"
 }
 
-/**
- * The published version of the Java artifacts tracks the calendar data release recorded in
- * `blessed/manifest.json`, so `bdc-calendar-core` and `bdc-calendar-data` always agree on which
- * dataset they ship. Builds are snapshots unless `-Prelease=true` is passed.
- */
+// The aggregation task resolves its packager in the root project.
+repositories {
+    mavenCentral()
+}
+
+/** Software and dataset versions are independent release streams. */
 val dataRelease: String by lazy {
     val manifest = rootProject.file("blessed/manifest.json")
     val semantic =
@@ -18,12 +19,23 @@ val dataRelease: String by lazy {
     semantic
 }
 
-val publishVersion: String by lazy {
+val coreRelease: String by lazy {
+    val versions = rootProject.file("release/versions.json")
+    Regex("\"java_core\"\\s*:\\s*\"([^\"]+)\"").find(versions.readText())?.groupValues?.get(1)
+        ?: throw GradleException("No java_core in ${versions.absolutePath}")
+}
+
+val dataPublishVersion: String by lazy {
     if (project.findProperty("release") == "true") dataRelease else "$dataRelease-SNAPSHOT"
+}
+val corePublishVersion: String by lazy {
+    if (project.findProperty("release") == "true") coreRelease else "$coreRelease-SNAPSHOT"
 }
 
 extra["dataRelease"] = dataRelease
-extra["publishVersion"] = publishVersion
+extra["coreRelease"] = coreRelease
+extra["dataPublishVersion"] = dataPublishVersion
+extra["corePublishVersion"] = corePublishVersion
 
 subprojects {
     apply(plugin = "com.diffplug.spotless")
