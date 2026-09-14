@@ -1,0 +1,216 @@
+kind: resolved_calendar
+id: PT-EURONEXT-LISBON
+metadata:
+  name: Euronext Lisbon Trading Calendar
+  description: Euronext Lisbon (XLIS) cash market trading calendar
+  chronology: ISO
+  timezone: Europe/Lisbon
+  coverage:
+    from: 2010-01-01
+    to: 2030-12-31
+    verified_through: 2026-12-31
+weekend_policy:
+  days:
+  - SATURDAY
+  - SUNDAY
+weekend_shift_policy: NONE
+resolution_chain:
+- module:weekend_sat_sun
+- module:euronext_new_years_day
+- module:euronext_good_friday
+- module:euronext_easter_monday
+- module:euronext_labour_day
+- module:euronext_christmas
+- module:euronext_boxing_day
+- module:euronext_special_closures
+- module:euronext_holidays
+- calendar:EU-EURONEXT
+- module:euronext_christmas_eve_lisbon
+- module:euronext_new_years_eve_lisbon
+- calendar:PT-EURONEXT-LISBON
+references:
+- key: easter
+  formula: EASTER_WESTERN
+event_sources:
+- key: euronext_new_years_day
+  name: New Year's Day
+  origin: module:euronext_new_years_day
+  classification: CLOSED
+  shift_policy: NONE
+  status: CONFIRMED
+  source:
+  - id: euronext-hours-holidays
+    ref: "Calendar of business days, yearly tables"
+  rule:
+    type: fixed_month_day
+    month: 1
+    day: 1
+- key: euronext_good_friday
+  name: Good Friday
+  origin: module:euronext_good_friday
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: euronext-hours-holidays
+    ref: "Calendar of business days, yearly tables"
+  rule:
+    type: relative_to_reference
+    reference: easter
+    offset_days: -2
+- key: euronext_easter_monday
+  name: Easter Monday
+  origin: module:euronext_easter_monday
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: euronext-hours-holidays
+    ref: "Calendar of business days, yearly tables"
+  rule:
+    type: relative_to_reference
+    reference: easter
+    offset_days: 1
+- key: euronext_labour_day
+  name: Labour Day
+  origin: module:euronext_labour_day
+  classification: CLOSED
+  shift_policy: NONE
+  status: CONFIRMED
+  source:
+  - id: euronext-hours-holidays
+    ref: "Calendar of business days, yearly tables"
+  rule:
+    type: fixed_month_day
+    month: 5
+    day: 1
+- key: euronext_christmas
+  name: Christmas Day
+  origin: module:euronext_christmas
+  classification: CLOSED
+  shift_policy: NONE
+  status: CONFIRMED
+  source:
+  - id: euronext-hours-holidays
+    ref: "Calendar of business days, yearly tables"
+  rule:
+    type: fixed_month_day
+    month: 12
+    day: 25
+- key: euronext_boxing_day
+  name: Boxing Day
+  origin: module:euronext_boxing_day
+  classification: CLOSED
+  shift_policy: NONE
+  status: CONFIRMED
+  source:
+  - id: euronext-hours-holidays
+    ref: "Calendar of business days, yearly tables"
+  rule:
+    type: fixed_month_day
+    month: 12
+    day: 26
+- key: euronext_special_closure
+  name: Market Holiday
+  origin: module:euronext_special_closures
+  classification: CLOSED
+  shift_policy: NONE
+  status: CONFIRMED
+  source:
+  - id: euronext-calendars-hours-archive
+    ref: Calendar of business days 2015
+  rule:
+    type: explicit_dates
+    dates:
+    - date: 2015-12-31
+      comment: New Year's Eve
+- key: euronext_christmas_eve
+  name: Christmas Eve (half trading day)
+  origin: module:euronext_christmas_eve_lisbon
+  classification: EARLY_CLOSE
+  shift_policy: NONE
+  only_if_weekday:
+  - MONDAY
+  - TUESDAY
+  - WEDNESDAY
+  - THURSDAY
+  - FRIDAY
+  close_time: 13:00
+  status: CONFIRMED
+  active_years:
+  - - null
+    - 2013
+  source:
+  - id: nyse-euronext-calendar-2013
+    ref: 24 December 2013 at 14:00 CET (13:00 Lisbon time)
+  rule:
+    type: fixed_month_day
+    month: 12
+    day: 24
+- key: euronext_christmas_eve_1405
+  name: Christmas Eve (half trading day)
+  origin: module:euronext_christmas_eve_lisbon
+  classification: EARLY_CLOSE
+  shift_policy: NONE
+  only_if_weekday:
+  - MONDAY
+  - TUESDAY
+  - WEDNESDAY
+  - THURSDAY
+  - FRIDAY
+  close_time: 13:05
+  status: CONFIRMED
+  active_years:
+  - - 2014
+    - null
+  source:
+  - id: euronext-hours-holidays
+    ref: "half trading day, all instruments closing by 14:05 CET (13:05 Lisbon time)"
+  rule:
+    type: fixed_month_day
+    month: 12
+    day: 24
+- key: euronext_new_years_eve
+  name: New Year's Eve (half trading day)
+  origin: module:euronext_new_years_eve_lisbon
+  classification: EARLY_CLOSE
+  shift_policy: NONE
+  only_if_weekday:
+  - MONDAY
+  - TUESDAY
+  - WEDNESDAY
+  - THURSDAY
+  - FRIDAY
+  close_time: 13:00
+  status: CONFIRMED
+  active_years:
+  - - null
+    - 2013
+  source:
+  - id: nyse-euronext-calendar-2013
+    ref: 31 December 2013 at 14:00 CET (13:00 Lisbon time)
+  rule:
+    type: fixed_month_day
+    month: 12
+    day: 31
+- key: euronext_new_years_eve_1405
+  name: New Year's Eve (half trading day)
+  origin: module:euronext_new_years_eve_lisbon
+  classification: EARLY_CLOSE
+  shift_policy: NONE
+  only_if_weekday:
+  - MONDAY
+  - TUESDAY
+  - WEDNESDAY
+  - THURSDAY
+  - FRIDAY
+  close_time: 13:05
+  status: CONFIRMED
+  active_years:
+  - - 2014
+    - null
+  source:
+  - id: euronext-hours-holidays
+    ref: "half trading day, all instruments closing by 14:05 CET (13:05 Lisbon time)"
+  rule:
+    type: fixed_month_day
+    month: 12
+    day: 31

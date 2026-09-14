@@ -1,0 +1,50 @@
+kind: module
+id: euronext_christmas_eve_lisbon
+
+# Christmas Eve (24 December) half trading day on Euronext Lisbon.
+#
+# Identical to euronext_christmas_eve except for the close time. Euronext publishes one
+# pan-European half-day close for the Amsterdam, Brussels, Lisbon and Paris cash markets and
+# quotes it in CET ("all instruments will close by 14:05 CET"). Euronext Lisbon runs on
+# Europe/Lisbon (WET/WEST), one hour behind CET all year, so the same instant is 13:05 local
+# wall-clock time (13:00 for the 14:00 CET close used through 2013). `close_time` is a local
+# time in the calendar's own timezone, which is why Lisbon needs its own module rather than
+# reusing the CET one.
+#
+# The event keys match euronext_christmas_eve so the same key identifies the holiday across
+# all four venues; the two modules are never used by the same calendar.
+
+event_sources:
+  - key: euronext_christmas_eve
+    name: Christmas Eve (half trading day)
+    default_classification: EARLY_CLOSE
+    shiftable: false
+    shift_policy: NONE
+    close_time: "13:00"
+    only_if_weekday: [MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY]
+    active_years:
+      - [null, 2013]
+    source:
+      - id: nyse-euronext-calendar-2013
+        ref: "24 December 2013 at 14:00 CET (13:00 Lisbon time)"
+    rule:
+      type: fixed_month_day
+      month: 12
+      day: 24
+
+  - key: euronext_christmas_eve_1405
+    name: Christmas Eve (half trading day)
+    default_classification: EARLY_CLOSE
+    shiftable: false
+    shift_policy: NONE
+    close_time: "13:05"
+    only_if_weekday: [MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY]
+    active_years:
+      - [2014, null]
+    source:
+      - id: euronext-hours-holidays
+        ref: "half trading day, all instruments closing by 14:05 CET (13:05 Lisbon time)"
+    rule:
+      type: fixed_month_day
+      month: 12
+      day: 24

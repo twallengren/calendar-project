@@ -30,6 +30,41 @@
       "range_end": "2030-12-31",
       "event_count": 1271,
       "checksum": "sha256:7abe60d0b866382dae15d4ab78bab9286fdceb737781776c08abcf3972a4bbe1"
+    },
+    "EU-EURONEXT": {
+      "kind": "base",
+      "range_start": "2010-01-01",
+      "range_end": "2030-12-31",
+      "event_count": 2295,
+      "checksum": "sha256:7e0f74b19585a15a6bc7f9feea841c734af5169779c987776a2d3db3f1200ac3"
+    },
+    "FR-EURONEXT-PARIS": {
+      "kind": "market",
+      "range_start": "2010-01-01",
+      "range_end": "2030-12-31",
+      "event_count": 2324,
+      "checksum": "sha256:2911e892195b38a6e9b53785ee42e6edcea6d5b11915ef44ef0f42684d8ec79d"
+    },
+    "NL-EURONEXT-AMSTERDAM": {
+      "kind": "market",
+      "range_start": "2010-01-01",
+      "range_end": "2030-12-31",
+      "event_count": 2324,
+      "checksum": "sha256:2911e892195b38a6e9b53785ee42e6edcea6d5b11915ef44ef0f42684d8ec79d"
+    },
+    "BE-EURONEXT-BRUSSELS": {
+      "kind": "market",
+      "range_start": "2010-01-01",
+      "range_end": "2030-12-31",
+      "event_count": 2324,
+      "checksum": "sha256:2911e892195b38a6e9b53785ee42e6edcea6d5b11915ef44ef0f42684d8ec79d"
+    },
+    "PT-EURONEXT-LISBON": {
+      "kind": "market",
+      "range_start": "2010-01-01",
+      "range_end": "2030-12-31",
+      "event_count": 2324,
+      "checksum": "sha256:5f1f1df0a89a74e2108aa4c765f35bfde3a3b6c6d2510ad2935b4af49a65d2dc"
     }
   },
   "release_version": {

@@ -36,6 +36,10 @@ EXPORTS = [
     # would only report the ad-hoc closures it happens to know about.
     ("US-NYSE", "XNYS", "1971-01-01", "2030-12-31"),
     ("SA-TADAWUL", "XSAU", "2020-01-01", "2030-12-31"),
+    ("FR-EURONEXT-PARIS", "XPAR", "2010-01-01", "2030-12-31"),
+    ("NL-EURONEXT-AMSTERDAM", "XAMS", "2010-01-01", "2030-12-31"),
+    ("BE-EURONEXT-BRUSSELS", "XBRU", "2010-01-01", "2030-12-31"),
+    ("PT-EURONEXT-LISBON", "XLIS", "2010-01-01", "2030-12-31"),
 ]
 
 

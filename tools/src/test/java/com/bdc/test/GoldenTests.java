@@ -131,6 +131,20 @@ class GoldenTests {
     productionCalendarRunner.assertCsvGoldenMatch("US-NYSE", 1968);
   }
 
+  // Euronext Paris years that exercise the no-weekend-observance rule and the year-end half
+  // days: 2022 Sat Jan 1 and Sun Christmas with no substitute weekday and no Dec 24/31 half
+  // days (both Saturdays); 2026 Sat Boxing Day not observed, Dec 24 and Dec 31 half days at
+  // 14:05.
+  @Test
+  void frEuronextParis2022() throws IOException {
+    productionCalendarRunner.assertCsvGoldenMatch("FR-EURONEXT-PARIS", 2022);
+  }
+
+  @Test
+  void frEuronextParis2026() throws IOException {
+    productionCalendarRunner.assertCsvGoldenMatch("FR-EURONEXT-PARIS", 2026);
+  }
+
   @Test
   void saTadawul2026to2030() throws IOException {
     productionCalendarRunner.assertCsvGoldenMatch("SA-TADAWUL", 2026, 2030);

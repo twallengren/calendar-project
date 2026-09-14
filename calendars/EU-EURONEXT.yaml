@@ -1,0 +1,31 @@
+kind: calendar
+id: EU-EURONEXT
+
+# Shared base for the Euronext cash markets. Euronext publishes a single "Calendar of business
+# days" covering Amsterdam, Brussels, Lisbon and Paris, and for these four venues the closure
+# dates are identical in every year covered here (2010-2026). This calendar holds that shared
+# set; the four venue calendars extend it and add only what is venue-local, namely the
+# timezone and the local wall-clock time of the 24/31 December half trading days.
+#
+# It is a base calendar, not a market: Euronext does not trade under a MIC of its own.
+
+metadata:
+  name: Euronext Cash Markets Base Calendar
+  description: Shared holiday calendar for the Euronext cash markets (Amsterdam, Brussels, Lisbon, Paris)
+  kind: base
+  chronology: ISO
+  timezone: Europe/Paris
+  coverage:
+    from: 2010-01-01
+    to: 2030-12-31
+    verified_through: 2026-12-31
+
+# Euronext does not observe a weekend holiday on a neighbouring weekday. Every year in
+# coverage in which New Year's Day, Labour Day, Christmas Day or Boxing Day fell on a weekend,
+# the yearly calendar either omits it or lists the neighbouring weekday as a full trading day
+# for these four venues (the "substitute" rows apply to Euronext Dublin only).
+weekend_shift_policy: NONE
+
+uses:
+  - weekend_sat_sun
+  - euronext_holidays

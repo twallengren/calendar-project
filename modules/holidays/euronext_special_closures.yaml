@@ -1,0 +1,29 @@
+kind: module
+id: euronext_special_closures
+
+# One-off Euronext cash-market closures that the recurring rules do not produce.
+#
+# 31 December 2015: the Euronext "Calendar of business days 2015" lists "Thursday 31 December
+# 2015 - New Year's Eve" among the days the markets are closed, and the accompanying note
+# announces a half trading day only for Christmas Eve (24 December 2015), not for New Year's
+# Eve. The CAC 40, AEX and BEL 20 index histories have no session on 2015-12-31, which
+# corroborates a full closure. Every other year in coverage has a 31 December half day
+# instead (see euronext_new_years_eve), so this cannot be expressed as a rule.
+#
+# The CLOSED event here suppresses the 2015-12-31 EARLY_CLOSE by same-date precedence.
+
+source:
+  - id: euronext-calendars-hours-archive
+    ref: "Calendar of business days 2015"
+
+event_sources:
+  - key: euronext_special_closure
+    name: Market Holiday
+    default_classification: CLOSED
+    shiftable: false
+    shift_policy: NONE
+    rule:
+      type: explicit_dates
+      dates:
+        - date: 2015-12-31
+          comment: New Year's Eve

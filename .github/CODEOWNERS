@@ -14,3 +14,12 @@
 /modules/holidays/saudi_*          @twallengren
 /modules/policies/saudi_weekends.yaml  @twallengren
 /sources/SA-TADAWUL/               @twallengren
+
+# Euronext cash markets (EU-EURONEXT and the Amsterdam/Brussels/Lisbon/Paris venues)
+/calendars/EU-EURONEXT.yaml        @twallengren
+/calendars/FR-EURONEXT-PARIS.yaml  @twallengren
+/calendars/NL-EURONEXT-AMSTERDAM.yaml  @twallengren
+/calendars/BE-EURONEXT-BRUSSELS.yaml   @twallengren
+/calendars/PT-EURONEXT-LISBON.yaml @twallengren
+/modules/**/euronext_*             @twallengren
+/sources/EU-EURONEXT/              @twallengren
