@@ -1,0 +1,28 @@
+{
+  "calendar_id" : "BE-EURONEXT-BRUSSELS",
+  "calendar_name" : "Euronext Brussels Trading Calendar",
+  "kind" : "market",
+  "generated_at" : "2026-02-16T21:43:21Z",
+  "range_start" : "2010-01-01",
+  "range_end" : "2030-12-31",
+  "timezone" : "Europe/Brussels",
+  "coverage" : {
+    "from" : "2010-01-01",
+    "to" : "2030-12-31",
+    "verified_through" : "2026-12-31"
+  },
+  "event_count" : 2324,
+  "resolution_chain" : [ "module:weekend_sat_sun", "module:euronext_new_years_day", "module:euronext_good_friday", "module:euronext_easter_monday", "module:euronext_labour_day", "module:euronext_christmas", "module:euronext_boxing_day", "module:euronext_special_closures", "module:euronext_holidays", "calendar:EU-EURONEXT", "module:euronext_christmas_eve", "module:euronext_new_years_eve", "calendar:BE-EURONEXT-BRUSSELS" ],
+  "counts_by_type" : {
+    "CLOSED" : 127,
+    "WEEKEND" : 2168,
+    "EARLY_CLOSE" : 29
+  },
+  "counts_by_status" : {
+    "CONFIRMED" : 2324
+  },
+  "source_version" : {
+    "semantic" : "11.0.0",
+    "git_sha" : "3765bcb10d3ebcb7cfc338bcebf94505af25ec1e"
+  }
+}

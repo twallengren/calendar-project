@@ -1,0 +1,26 @@
+kind: module
+id: euronext_holidays
+
+# The holidays the Euronext cash markets in Amsterdam, Brussels, Lisbon and Paris close for.
+# Euronext publishes one calendar for all four venues, so this group is shared by all of them
+# through the EU-EURONEXT base calendar.
+#
+# The 24 and 31 December half trading days are deliberately NOT part of this group: their
+# `close_time` is a local wall-clock time, and Euronext Lisbon runs one hour behind the other
+# three venues. Each venue calendar therefore adds its own pair of half-day modules
+# (euronext_christmas_eve / euronext_new_years_eve, or their *_lisbon variants).
+#
+# Holidays that appear in the Euronext calendars for other venues only (Irish May Bank Holiday
+# and the Dublin Christmas/New Year substitutes; Maundy Thursday, Ascension Day, Constitution
+# Day and Whit Monday for Oslo Boers; Ferragosto and the Milan year-end closures) are not
+# modelled here: the yearly calendars list them as full trading days for Amsterdam, Brussels,
+# Lisbon and Paris.
+
+uses:
+  - euronext_new_years_day
+  - euronext_good_friday
+  - euronext_easter_monday
+  - euronext_labour_day
+  - euronext_christmas
+  - euronext_boxing_day
+  - euronext_special_closures

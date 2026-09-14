@@ -1,0 +1,19 @@
+{
+  "calendar_id" : "FR-EURONEXT-PARIS",
+  "status" : "ok",
+  "results" : [ {
+    "source" : "exchange_calendars-XPAR",
+    "library_version" : "exchange_calendars 4.11, python 3.13.12, 2026-09-14",
+    "from" : "2010-01-04",
+    "to" : "2030-12-31",
+    "compared_types" : [ "CLOSED", "EARLY_CLOSE" ],
+    "counts" : {
+      "matched" : 130,
+      "allowlisted" : 2,
+      "unexplained" : 0
+    },
+    "unexplained_rows" : [ ],
+    "stale_allowlist_rows" : [ ],
+    "status" : "ok"
+  } ]
+}

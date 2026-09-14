@@ -1,0 +1,23 @@
+kind: module
+id: euronext_labour_day
+
+# Labour Day (1 May) on the Euronext cash markets.
+#
+# Not observed when it falls on a weekend: 1 May 2010 (Sat), 2011 (Sun), 2016 (Sun), 2021 (Sat)
+# and 2022 (Sun) are absent from the yearly Euronext calendars and no substitute weekday is
+# listed. Hence shift_policy: NONE.
+
+source:
+  - id: euronext-hours-holidays
+    ref: "Calendar of business days, yearly tables"
+
+event_sources:
+  - key: euronext_labour_day
+    name: Labour Day
+    default_classification: CLOSED
+    shiftable: false
+    shift_policy: NONE
+    rule:
+      type: fixed_month_day
+      month: 5
+      day: 1
