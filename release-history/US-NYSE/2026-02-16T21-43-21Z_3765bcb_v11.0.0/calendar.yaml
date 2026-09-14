@@ -1,0 +1,15 @@
+kind: calendar
+id: US-NYSE
+metadata:
+  name: NYSE Trading Calendar
+  description: New York Stock Exchange trading calendar
+  chronology: ISO
+uses:
+- weekend_sat_sun
+- us_nyse_holidays
+- us_historical_closures
+classifications: {}
+deltas: []
+extends: []
+event_sources: []
+weekend_shift_policy: NEAREST_WEEKDAY

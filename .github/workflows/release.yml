@@ -146,6 +146,15 @@ jobs:
 
           echo "Archiving current blessed with version ID: $VERSION_ID"
 
+          # Idempotent: a release is archived once, at the moment it is superseded. If this
+          # version+sha already has a snapshot (e.g. it was restored by hand, or a previous run
+          # archived it), blessed/ has since been regenerated without a release and must not be
+          # archived under the old version's name.
+          if compgen -G "release-history/*/*_${SHORT_SHA}_v${CURRENT_VERSION}" > /dev/null; then
+            echo "release-history already holds a snapshot for ${SHORT_SHA}_v${CURRENT_VERSION}; skipping archive"
+            exit 0
+          fi
+
           # Check if blessed directory exists and has calendar subdirectories
           if [ ! -d "blessed" ]; then
             echo "::warning::blessed directory does not exist, skipping archive"

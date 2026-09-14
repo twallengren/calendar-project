@@ -13,7 +13,7 @@ A YAML-driven business-day calendar system that compiles declarative specs into 
 - **Cross-validation** against exchange_calendars and QuantLib, with an explicit, reason-required allowlist of explained differences; nine of the eleven market calendars have at least one reference source (the four Euronext venues and SA-TADAWUL currently cross-validate against exchange_calendars only).
 - **Bitemporal artifact versioning** with blessed outputs, release history, and as-of queries.
 - **A CLI toolchain**, expanded well beyond validation/resolution/generation: `diff`/`ci-diff` for PR-time comparisons, `query` (single and **joint** calendars — "is this a business day in both A and B", T+N settlement across markets), `status` (the scorecard above), `crossvalidate`, `scaffold` (onboard a new market), `site`/`serve` (build and preview the public site), and `history`.
-- **A published distribution surface**, not just a repo to clone: a static [`/v1/` JSON API](spec/SPEC.md#json-api-v1) and per-calendar `.ics` feeds, both served from GitHub Pages; the same data mirrored on jsDelivr (pinned per tag) and as loose files on every GitHub Release; a zero-dependency [`bdc-calendars`](python/README.md) Python package with an MCP server extra so an agent can query calendars over stdio (Java library modules — `bdc-calendar-core`/`bdc-calendar-data`, wrapping this same data for JVM consumers — are in progress on branch `wp2b`, not yet on `main`); and a browsable HTML site (year grids, permalinked dates, market comparison pages with a T+N settlement helper, rendered source registers, a changelog) generated from that same JSON API rather than from `blessed/` directly.
+- **A published distribution surface**, not just a repo to clone: a static [`/v1/` JSON API](spec/SPEC.md#json-api-v1) and per-calendar `.ics` feeds, both served from GitHub Pages; the same data mirrored on jsDelivr (pinned per tag) and as loose files on every GitHub Release; a zero-dependency [`bdc-calendars`](python/README.md) Python package with an MCP server extra so an agent can query calendars over stdio (Java library modules `bdc-calendar-core`/`bdc-calendar-data` wrap this same data for JVM consumers; `./gradlew publishToMavenLocal` builds them, Maven Central publish is pending the namespace claim); and a browsable HTML site (year grids, permalinked dates, market comparison pages with a T+N settlement helper, rendered source registers, a changelog) generated from that same JSON API rather than from `blessed/` directly.
 - **A contributor kit** meant to make "adding a market" a real afternoon task rather than folklore: `scaffold` generates the calendar YAML, a holiday group, an example module and the source citation table; `CONTRIBUTING.md` walks the rest end to end; PR/issue templates, `CODEOWNERS` and `GOVERNANCE.md` give per-market ownership somewhere to live; a `justfile` and pre-commit hook cut friction; and `tools site --compare-to blessed` plus `tools serve` let a contributor preview exactly what a reviewer's PR comment and site-preview artifact will show before opening the PR.
 
 The architecture is sound: spec-driven, inheritance-based, with clean separation between data and tooling. The foundation is built for growth — this iteration mostly proved that by growing it.
@@ -68,10 +68,10 @@ For this to work, we need:
 
 **Progress this iteration:** this section is largely done for two of three registries. `bdc-calendars` is on PyPI's on-ramp (published via Trusted Publishing once a maintainer flips `PYPI_PUBLISH`); the JSON API, `.ics` feeds and jsDelivr mirroring are live. What remains:
 
-- ~~Publish artifacts to package registries — Maven Central, npm, PyPI~~ — **PyPI**: package built, publish gated on a maintainer registering the trusted publisher (see roadmap). **Maven Central**: `bdc-calendar-core`/`bdc-calendar-data` exist on branch `wp2b`, not yet merged, and publishing is further gated on claiming the `io.github.twallengren` Sonatype namespace. **npm**: not started, deliberately deferred — no TypeScript/JS consumer has asked yet.
+- ~~Publish artifacts to package registries — Maven Central, npm, PyPI~~ — **PyPI**: package built, publish gated on a maintainer registering the trusted publisher (see roadmap). **Maven Central**: `bdc-calendar-core`/`bdc-calendar-data` are built and published to the local Maven repository by CI's dry run; the real upload is gated on claiming the `io.github.twallengren` Sonatype namespace. **npm**: not started, deliberately deferred — no TypeScript/JS consumer has asked yet.
 - ~~Provide a lightweight query API (or at least a static site) for ad-hoc lookups~~ — **done**: the `/v1/` JSON API and the generated HTML site both exist and are described under *Where we are*.
 - ~~Support common integration patterns — iCal feeds, JSON API contracts, embeddable widgets~~ — iCal and the JSON API contract are done; embeddable widgets are not started.
-- **Offer language-native libraries** that wrap the generated data with idiomatic APIs (e.g., `isBusinessDay(market, date)`) — done for Python (`is_business_day`, `next_business_day`, `add_business_days`, plus joint calendars and an MCP server); Java is in progress (`wp2b`); TypeScript is not started.
+- **Offer language-native libraries** that wrap the generated data with idiomatic APIs (e.g., `isBusinessDay(market, date)`) — done for Python (`is_business_day`, `next_business_day`, `add_business_days`, plus joint calendars and an MCP server); Java is done (`BusinessCalendars.of("US-NYSE")` in `bdc-calendar-core`); TypeScript is not started.
 
 ### Tooling and developer experience
 
@@ -279,9 +279,8 @@ aspirational, not true.
   `release.yml`) and set the `PYPI_PUBLISH` repository variable to `true`. Until then,
   `publish-python` in `release.yml` is skipped and `pip install bdc-calendars` installs nothing,
   even though the package is built, tested, and parity-checked on every CI run.
-- **Claim the Sonatype `io.github.twallengren` namespace** and set `MAVEN_PUBLISH`, once
-  `bdc-calendar-core`/`bdc-calendar-data` (branch `wp2b`) merge — a prerequisite for #3 below, not
-  yet actionable on `main`.
+- **Claim the Sonatype `io.github.twallengren` namespace** and set `MAVEN_PUBLISH`; until then
+  `publish-maven` in `release.yml` only runs the `publishToMavenLocal` dry run.
 
 **Done when:** the Pages URL in `README.md` resolves, and `pip install bdc-calendars` on a clean
 machine works without a manual wheel.
@@ -313,9 +312,8 @@ full spec. *(Met, by design — untested against an actual outside contributor y
 alias compatibility, joint calendars, and an optional `bdc-calendars-mcp` MCP server so an AI agent
 can query it over stdio. Blocked from PyPI only by the maintainer step in #0.
 
-**Still open:** Java library modules (`bdc-calendar-core`/`bdc-calendar-data`) exist on branch
-`wp2b` but have not merged to `main`; Maven Central publish additionally needs the Sonatype
-namespace claim in #0. TypeScript/npm is not started — deliberately deferred, no demand signal yet.
+**Still open:** Maven Central publish of `bdc-calendar-core`/`bdc-calendar-data` needs the
+Sonatype namespace claim in #0 (the modules themselves are built and tested on every CI run). TypeScript/npm is not started — deliberately deferred, no demand signal yet.
 
 **Done when:** `pip install bdc-calendars` gives you a working
 `is_business_day("US-NYSE", date(2026, 7, 4))` → `False`. *(Met for Python once PyPI publishing is
