@@ -1,5 +1,10 @@
 package com.bdc.cli;
 
+import com.bdc.loader.SpecRegistry;
+import com.bdc.model.EventSource;
+import com.bdc.model.ResolvedSpec;
+import com.bdc.model.SourceCitation;
+import com.bdc.resolver.SpecResolver;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -9,8 +14,10 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.Callable;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -44,6 +51,20 @@ public class StatusCommand implements Callable<Integer> {
       defaultValue = "sources")
   private Path sourcesDir;
 
+  @Option(
+      names = {"--calendars-dir"},
+      description =
+          "Calendars directory (used to resolve inherited citations; falls back to a"
+              + " directory-only source count when absent)",
+      defaultValue = "calendars")
+  private Path calendarsDir;
+
+  @Option(
+      names = {"--modules-dir"},
+      description = "Modules directory",
+      defaultValue = "modules")
+  private Path modulesDir;
+
   private final ObjectMapper mapper = new ObjectMapper();
 
   @Override
@@ -57,6 +78,15 @@ public class StatusCommand implements Callable<Integer> {
       JsonNode manifest = mapper.readTree(manifestPath.toFile());
       String releaseVersion = manifest.path("release_version").path("semantic").asText("unknown");
 
+      SpecRegistry registry = null;
+      SpecResolver resolver = null;
+      if (Files.isDirectory(calendarsDir)) {
+        registry = new SpecRegistry();
+        registry.loadCalendarsFromDirectory(calendarsDir);
+        registry.loadModulesFromDirectory(modulesDir);
+        resolver = new SpecResolver(registry);
+      }
+
       List<Map<String, Object>> rows = new ArrayList<>();
       JsonNode calendars = manifest.path("calendars");
       List<String> ids = new ArrayList<>();
@@ -65,7 +95,7 @@ public class StatusCommand implements Callable<Integer> {
         ids.add(names.next());
       }
       for (String id : ids) {
-        rows.add(buildRow(id, calendars.get(id), releaseVersion));
+        rows.add(buildRow(id, calendars.get(id), releaseVersion, registry, resolver));
       }
       // Markets first, then base, alphabetically within each group.
       rows.sort(
@@ -84,7 +114,12 @@ public class StatusCommand implements Callable<Integer> {
     }
   }
 
-  private Map<String, Object> buildRow(String id, JsonNode manifestEntry, String releaseVersion)
+  private Map<String, Object> buildRow(
+      String id,
+      JsonNode manifestEntry,
+      String releaseVersion,
+      SpecRegistry registry,
+      SpecResolver resolver)
       throws Exception {
     Map<String, Object> row = new LinkedHashMap<>();
     row.put("id", id);
@@ -128,19 +163,131 @@ public class StatusCommand implements Callable<Integer> {
     counts.put("projected", projected);
     row.put("counts", counts);
 
-    List<String> sourceIds = readSourceIds(id);
-    Map<String, Object> sources = new LinkedHashMap<>();
-    sources.put("ids", sourceIds);
-    sources.put("count", sourceIds.size());
+    String basis = "directory";
+    Map<String, Object> sources;
+    if (registry != null && registry.getCalendar(id).isPresent()) {
+      try {
+        sources = buildResolvedSources(id, registry, resolver);
+        basis = "resolved";
+      } catch (RuntimeException e) {
+        System.err.println(
+            "Warning: "
+                + id
+                + ": failed to resolve for source citations ("
+                + e.getMessage()
+                + "),"
+                + " falling back to directory-based source count");
+        sources = buildDirectorySources(id);
+      }
+    } else {
+      sources = buildDirectorySources(id);
+    }
     row.put("sources", sources);
+    row.put("sources_basis", basis);
 
     row.put("cross_validation", readCrossValidation(id));
     row.put("release_version", releaseVersion);
     return row;
   }
 
-  private List<String> readSourceIds(String calendarId) throws Exception {
+  private Map<String, Object> buildDirectorySources(String calendarId) throws Exception {
+    List<String> sourceIds = readSourceIds(calendarId);
+    Map<String, Object> sources = new LinkedHashMap<>();
+    sources.put("ids", sourceIds);
+    sources.put("count", sourceIds.size());
+    return sources;
+  }
+
+  /**
+   * The citations actually in effect for a calendar: every distinct citation id (or, for citations
+   * without an id, title/url/file) attached to a resolved event source, unioned with every id
+   * documented in the calendar's own {@code sources/<CAL>/README.md} or one belonging to a calendar
+   * in its {@code extends} chain. The union means a README can document background sources that no
+   * single event cites directly (e.g. archival context) without being dropped, while a citation id
+   * that isn't documented anywhere in the chain is reported as unresolved.
+   */
+  private Map<String, Object> buildResolvedSources(
+      String calendarId, SpecRegistry registry, SpecResolver resolver) throws Exception {
+    ResolvedSpec resolved = resolver.resolve(calendarId);
+
+    LinkedHashSet<String> citedIds = new LinkedHashSet<>();
+    LinkedHashSet<String> citedLabels = new LinkedHashSet<>();
+    for (EventSource eventSource : resolved.eventSources()) {
+      for (SourceCitation citation : eventSource.source()) {
+        if (notBlank(citation.id())) {
+          citedIds.add(citation.id());
+        } else if (notBlank(citation.title())) {
+          citedLabels.add(citation.title());
+        } else if (notBlank(citation.url())) {
+          citedLabels.add(citation.url());
+        } else if (notBlank(citation.file())) {
+          citedLabels.add(citation.file());
+        }
+      }
+    }
+
+    Map<String, String> readmeIds = new LinkedHashMap<>();
+    collectReadmeIds(calendarId, registry, readmeIds, new LinkedHashSet<>());
+
+    List<String> ids = new ArrayList<>(readmeIds.keySet());
+    List<String> unresolved = new ArrayList<>();
+    for (String citedId : citedIds) {
+      if (!readmeIds.containsKey(citedId)) {
+        ids.add(citedId);
+        unresolved.add(citedId);
+      }
+    }
+    ids.addAll(citedLabels);
+
+    Map<String, Object> sources = new LinkedHashMap<>();
+    sources.put("ids", ids);
+    sources.put("count", ids.size());
+    sources.put("readmes", readmeIds);
+    sources.put("unresolved", unresolved);
+    return sources;
+  }
+
+  /**
+   * Merges the citation ids documented in {@code sources/<calendarId>/README.md} into {@code
+   * idToReadme} (id -&gt; the README path it came from), then recurses into every calendar {@code
+   * calendarId} extends. Earlier (closer to {@code calendarId}) declarations win on id collision;
+   * {@code visited} guards against revisiting a calendar reachable via more than one path.
+   */
+  private void collectReadmeIds(
+      String calendarId, SpecRegistry registry, Map<String, String> idToReadme, Set<String> visited)
+      throws Exception {
+    if (!visited.add(calendarId)) {
+      return;
+    }
     Path readme = sourcesDir.resolve(calendarId).resolve("README.md");
+    if (Files.exists(readme)) {
+      for (String sourceId : parseReadmeIds(readme)) {
+        idToReadme.putIfAbsent(sourceId, readme.toString());
+      }
+    }
+    registry
+        .getCalendar(calendarId)
+        .ifPresent(
+            spec -> {
+              for (String parentId : spec.extendsList()) {
+                try {
+                  collectReadmeIds(parentId, registry, idToReadme, visited);
+                } catch (Exception e) {
+                  throw new RuntimeException(e);
+                }
+              }
+            });
+  }
+
+  private static boolean notBlank(String value) {
+    return value != null && !value.isBlank();
+  }
+
+  private List<String> readSourceIds(String calendarId) throws Exception {
+    return parseReadmeIds(sourcesDir.resolve(calendarId).resolve("README.md"));
+  }
+
+  private List<String> parseReadmeIds(Path readme) throws Exception {
     List<String> ids = new ArrayList<>();
     if (!Files.exists(readme)) {
       return ids;
@@ -187,6 +334,7 @@ public class StatusCommand implements Callable<Integer> {
     sb.append(
         "|----|------|------|----------|----------|-------------------|----------|"
             + "---------------|-----------|---------|-------------------|---------|\n");
+    List<String> warnings = new ArrayList<>();
     for (Map<String, Object> row : rows) {
       Map<String, Object> coverage = (Map<String, Object>) row.get("coverage");
       Map<String, Object> counts = (Map<String, Object>) row.get("counts");
@@ -212,14 +360,36 @@ public class StatusCommand implements Callable<Integer> {
           .append(" | ")
           .append(counts.get("projected"))
           .append(" | ")
-          .append(sources.get("count"))
+          .append(formatSourcesCell(sources))
           .append(" | ")
           .append(crossValidationCell)
           .append(" | ")
           .append(row.get("release_version"))
           .append(" |\n");
+
+      List<String> unresolved = (List<String>) sources.get("unresolved");
+      if (unresolved != null && !unresolved.isEmpty()) {
+        warnings.add(
+            "Warning: "
+                + row.get("id")
+                + " cites unresolved source id(s) (no README row backs them): "
+                + String.join(", ", unresolved));
+      }
     }
     System.out.print(sb);
+    for (String warning : warnings) {
+      System.err.println(warning);
+    }
+  }
+
+  @SuppressWarnings("unchecked")
+  private static String formatSourcesCell(Map<String, Object> sources) {
+    Object countObj = sources.get("count");
+    List<String> unresolved = (List<String>) sources.get("unresolved");
+    if (unresolved != null && !unresolved.isEmpty()) {
+      return countObj + " (" + unresolved.size() + " unresolved)";
+    }
+    return String.valueOf(countObj);
   }
 
   @SuppressWarnings("unchecked")

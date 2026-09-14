@@ -238,10 +238,18 @@ and `tools crossvalidate`, which produces the cross-validation column).
 
 | ID | Name | Kind | Timezone | Coverage | Verified Through | Closures | Early Closes | Projected | Sources | Cross-validation | Release |
 |----|------|------|----------|----------|-------------------|----------|---------------|-----------|---------|-------------------|---------|
+| BE-EURONEXT-BRUSSELS | Euronext Brussels Trading Calendar | market | Europe/Brussels | 2010-01-01 to 2030-12-31 | 2026-12-31 | 127 | 29 | 0 | 8 | exchange_calendars-XBRU: ok (allowlisted=2) | 11.0.0 |
+| CA-TSX | Toronto Stock Exchange | market | America/Toronto | 2000-01-01 to 2030-12-31 | 2026-12-31 | 302 | 8 | 4 | 11 | exchange_calendars-XTSE: ok (allowlisted=9); quantlib-tsx: ok (allowlisted=0) | 11.0.0 |
+| DE-XETRA | Deutsche Börse Xetra | market | Europe/Berlin | 2003-01-01 to 2030-12-31 | 2026-12-31 | 240 | 0 | 0 | 25 | exchange_calendars-XETR: ok (allowlisted=21); quantlib-germany-xetra: ok (allowlisted=33) | 11.0.0 |
+| FR-EURONEXT-PARIS | Euronext Paris Trading Calendar | market | Europe/Paris | 2010-01-01 to 2030-12-31 | 2026-12-31 | 127 | 29 | 0 | 8 | exchange_calendars-XPAR: ok (allowlisted=2) | 11.0.0 |
+| GB-LSE | London Stock Exchange | market | Europe/London | 2000-01-01 to 2030-12-31 | 2028-12-31 | 254 | 62 | 0 | 6 | exchange_calendars-XLON: ok (allowlisted=0); quantlib-uk-exchange: ok (allowlisted=0) | 11.0.0 |
+| NL-EURONEXT-AMSTERDAM | Euronext Amsterdam Trading Calendar | market | Europe/Amsterdam | 2010-01-01 to 2030-12-31 | 2026-12-31 | 127 | 29 | 0 | 8 | exchange_calendars-XAMS: ok (allowlisted=2) | 11.0.0 |
+| PT-EURONEXT-LISBON | Euronext Lisbon Trading Calendar | market | Europe/Lisbon | 2010-01-01 to 2030-12-31 | 2026-12-31 | 127 | 29 | 0 | 8 | exchange_calendars-XLIS: ok (allowlisted=2) | 11.0.0 |
 | SA-TADAWUL | Tadawul (Saudi Exchange) Trading Calendar | market | Asia/Riyadh | 2020-01-01 to 2030-12-31 | 2029-12-31 | 187 | 0 | 16 | 2 | exchange_calendars-XSAU: ok (allowlisted=19) | 11.0.0 |
 | US-NYSE | NYSE Trading Calendar | market | America/New_York | 1900-01-01 to 2030-12-31 | 2026-12-31 | 1649 | 126 | 0 | 3 | exchange_calendars-XNYS: ok (allowlisted=9); quantlib-nyse: ok (allowlisted=0) | 11.0.0 |
-| US-CORP-IN-VISIBILITY | US Corporate Calendar with India Visibility | base | America/New_York | 1900-01-01 to 2030-12-31 | 2026-12-31 | 938 | 0 | 0 | 0 | none | 11.0.0 |
-| US-MARKET-BASE | US Market Base Calendar | base | America/New_York | 1900-01-01 to 2030-12-31 | 2026-12-31 | 938 | 0 | 0 | 0 | none | 11.0.0 |
+| EU-EURONEXT | Euronext Cash Markets Base Calendar | base | Europe/Paris | 2010-01-01 to 2030-12-31 | 2026-12-31 | 127 | 0 | 0 | 8 | none | 11.0.0 |
+| US-CORP-IN-VISIBILITY | US Corporate Calendar with India Visibility | base | America/New_York | 1900-01-01 to 2030-12-31 | 2026-12-31 | 938 | 0 | 0 | 2 (2 unresolved) | none | 11.0.0 |
+| US-MARKET-BASE | US Market Base Calendar | base | America/New_York | 1900-01-01 to 2030-12-31 | 2026-12-31 | 938 | 0 | 0 | 1 (1 unresolved) | none | 11.0.0 |
 
 ## Contributing
 
