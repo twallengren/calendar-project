@@ -60,25 +60,19 @@ jobs:
           echo "generated_at=$GENERATED_AT" >> "$GITHUB_OUTPUT"
           echo "baseline_ref=$BASELINE_REF" >> "$GITHUB_OUTPUT"
 
-      - name: Create repository-scoped GitHub App token
-        id: app-token
-        uses: actions/create-github-app-token@v1
-        with:
-          app-id: ${{ secrets.RELEASE_APP_ID }}
-          private-key: ${{ secrets.RELEASE_APP_PRIVATE_KEY }}
-
       - name: Checkout exact source commit
         uses: actions/checkout@v4
         with:
           ref: ${{ steps.inputs.outputs.source_sha }}
           fetch-depth: 0
-          token: ${{ steps.app-token.outputs.token }}
+          persist-credentials: false
 
-      - name: Do not prepare a release from a release-PR merge
+      - name: Classify the source commit
         id: kind
         run: |
           if git diff --name-only "HEAD^" HEAD | grep -qx release/release.json; then
             echo "release=true" >> "$GITHUB_OUTPUT"
+            echo "candidate=none" >> "$GITHUB_OUTPUT"
           else
             echo "release=false" >> "$GITHUB_OUTPUT"
             if git diff --name-only "HEAD^" HEAD | grep -Eq \
@@ -88,12 +82,39 @@ jobs:
               '^(core/src/|core/build\.gradle\.kts|python/bdc_calendars/|python/pyproject\.toml|release/versions\.json)'; then
               echo "candidate=software" >> "$GITHUB_OUTPUT"
             else
-              echo "candidate=dataset" >> "$GITHUB_OUTPUT"
+              echo "candidate=none" >> "$GITHUB_OUTPUT"
             fi
           fi
 
+      - name: Require release GitHub App configuration
+        if: steps.kind.outputs.release == 'false' && steps.kind.outputs.candidate != 'none'
+        env:
+          RELEASE_APP_ID: ${{ secrets.RELEASE_APP_ID }}
+          RELEASE_APP_PRIVATE_KEY: ${{ secrets.RELEASE_APP_PRIVATE_KEY }}
+        run: |
+          if [ -z "$RELEASE_APP_ID" ] || [ -z "$RELEASE_APP_PRIVATE_KEY" ]; then
+            echo "::error::Configure RELEASE_APP_ID and RELEASE_APP_PRIVATE_KEY for the repository-scoped release GitHub App"
+            exit 1
+          fi
+
+      - name: Create repository-scoped GitHub App token
+        if: steps.kind.outputs.release == 'false' && steps.kind.outputs.candidate != 'none'
+        id: app-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.RELEASE_APP_ID }}
+          private-key: ${{ secrets.RELEASE_APP_PRIVATE_KEY }}
+
+      - name: Configure release checkout with GitHub App credentials
+        if: steps.kind.outputs.release == 'false' && steps.kind.outputs.candidate != 'none'
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ steps.inputs.outputs.source_sha }}
+          fetch-depth: 0
+          token: ${{ steps.app-token.outputs.token }}
+
       - name: Download and verify the actual published baseline
-        if: steps.kind.outputs.release == 'false'
+        if: steps.kind.outputs.release == 'false' && steps.kind.outputs.candidate != 'none'
         id: baseline
         env:
           GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
@@ -115,13 +136,15 @@ jobs:
           echo "ref=$BASELINE_REF" >> "$GITHUB_OUTPUT"
 
       - uses: actions/setup-java@v4
+        if: steps.kind.outputs.release == 'false' && steps.kind.outputs.candidate != 'none'
         with:
           java-version: ${{ env.JAVA_VERSION }}
           distribution: ${{ env.JAVA_DISTRIBUTION }}
       - uses: gradle/actions/setup-gradle@v4
+        if: steps.kind.outputs.release == 'false' && steps.kind.outputs.candidate != 'none'
 
       - name: Generate candidate and complete published-release comparison
-        if: steps.kind.outputs.release == 'false'
+        if: steps.kind.outputs.release == 'false' && steps.kind.outputs.candidate != 'none'
         id: prepare
         env:
           BASELINE_REF: ${{ steps.baseline.outputs.ref }}
