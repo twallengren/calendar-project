@@ -205,11 +205,22 @@ class ChangelogBuilderTest {
     ReleaseHistoryStore store = new ReleaseHistoryStore(realHistory, realBlessed);
     Changelog changelog = new ChangelogBuilder().build(store, Set.of("US-NYSE"));
 
+    // release-history holds v11.0.0 as it shipped (2021-12-31 still a phantom closure); the
+    // correction lives in the current blessed/ entry, which the changelog lists after it.
     Release v11 =
         changelog.releases().stream()
-            .filter(r -> r.version().equals("11.0.0"))
+            .filter(Release::blessed)
             .findFirst()
-            .orElseThrow(() -> new AssertionError("expected a v11.0.0 release in the changelog"));
+            .orElseThrow(() -> new AssertionError("expected the blessed release in the changelog"));
+    Release shipped =
+        changelog.releases().stream()
+            .filter(r -> r.version().equals("11.0.0") && !r.blessed())
+            .findFirst()
+            .orElseThrow(() -> new AssertionError("expected the archived v11.0.0 snapshot"));
+    assertTrue(
+        shipped.calendars().get("US-NYSE").removals().stream()
+            .noneMatch(e -> e.date().equals(LocalDate.of(2021, 12, 31))),
+        "the archived v11.0.0 snapshot must keep the closure v11.0.0 actually shipped");
 
     CalendarDiff nyseDiff = v11.calendars().get("US-NYSE");
     assertNotNull(nyseDiff);
@@ -223,7 +234,7 @@ class ChangelogBuilderTest {
                         && "New Year's Day".equals(e.oldDescription()));
     assertTrue(
         removedNewYearsEve2021,
-        "expected US-NYSE v10.1.0->v11.0.0 diff to remove the shifted 2021-12-31 New Year's Day"
+        "expected the blessed US-NYSE diff to remove the shifted 2021-12-31 New Year's Day"
             + " closure; actual removals: "
             + nyseDiff.removals());
   }
