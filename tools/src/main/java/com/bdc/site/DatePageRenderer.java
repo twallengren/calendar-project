@@ -1,5 +1,7 @@
 package com.bdc.site;
 
+import com.bdc.diff.CalendarDiff;
+import com.bdc.diff.EventDiff;
 import com.bdc.site.CalendarData.DayEvent;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -24,6 +26,7 @@ public final class DatePageRenderer {
           """
           <h1>{{name}} on {{longDate}}</h1>
           <p class="verdict {{verdictClass}}">{{verdict}}</p>
+          {{{diffBanner}}}
           {{{events}}}
           <section aria-labelledby="around-heading">
             <h2 id="around-heading">Around this date</h2>
@@ -40,9 +43,15 @@ public final class DatePageRenderer {
           """);
 
   private final PageLayout layout;
+  private final Map<String, CalendarDiff> diffs;
 
   public DatePageRenderer(PageLayout layout) {
+    this(layout, Map.of());
+  }
+
+  public DatePageRenderer(PageLayout layout, Map<String, CalendarDiff> diffs) {
     this.layout = layout;
+    this.diffs = diffs;
   }
 
   /** Writes one page per non-weekend event date; returns their site-relative directories. */
@@ -99,15 +108,17 @@ public final class DatePageRenderer {
             + calendar.id()
             + ".";
 
+    String root = SiteContext.rootPrefix(2);
     String body =
         BODY.render(
             "name", calendar.name(),
             "longDate", longDate,
             "verdict", verdict,
             "verdictClass", verdictClass,
+            "diffBanner", diffBanner(calendar, date, root),
             "events", eventTable(calendar, events),
             "around", around(calendar, date),
-            "root", SiteContext.rootPrefix(2),
+            "root", root,
             "id", calendar.id(),
             "year", String.valueOf(date.getYear()));
 
@@ -124,6 +135,25 @@ public final class DatePageRenderer {
             new PageLayout.Crumb(date.toString(), null)),
         "",
         body);
+  }
+
+  /**
+   * The "Changes vs blessed" banner for this date page, scoped to changes on exactly {@code date}.
+   * Empty when the calendar has no {@code --compare-to} diff, or the diff has nothing on this date.
+   */
+  private String diffBanner(CalendarData calendar, LocalDate date, String root) {
+    CalendarDiff diff = diffs.get(calendar.id());
+    if (diff == null) {
+      return "";
+    }
+    int added = countOnDate(diff.additions(), date);
+    int removed = countOnDate(diff.removals(), date);
+    int modified = countOnDate(diff.modifications(), date);
+    return ChangesRenderer.banner(diff, added, removed, modified, root + "changes/index.html");
+  }
+
+  private static int countOnDate(List<EventDiff> diffs, LocalDate date) {
+    return (int) diffs.stream().filter(d -> d.date().equals(date)).count();
   }
 
   private String eventTable(CalendarData calendar, List<DayEvent> events) {

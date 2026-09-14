@@ -1,5 +1,7 @@
 package com.bdc.site;
 
+import com.bdc.diff.CalendarDiff;
+import com.bdc.diff.EventDiff;
 import com.bdc.site.CalendarData.DayEvent;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
@@ -28,6 +30,7 @@ public final class YearPageRenderer {
           """
           <h1>{{name}} holidays {{year}}</h1>
           <p class="lede">{{lede}}</p>
+          {{{diffBanner}}}
           {{{yearNav}}}
           <section class="grid-section" aria-labelledby="grid-heading">
             <h2 id="grid-heading">{{year}} at a glance</h2>
@@ -52,12 +55,22 @@ public final class YearPageRenderer {
   private final SiteContext context;
   private final PageLayout layout;
   private final YearGridRenderer gridRenderer;
+  private final Map<String, CalendarDiff> diffs;
   private final ObjectMapper mapper = new ObjectMapper();
 
   public YearPageRenderer(SiteContext context, PageLayout layout, YearGridRenderer gridRenderer) {
+    this(context, layout, gridRenderer, Map.of());
+  }
+
+  public YearPageRenderer(
+      SiteContext context,
+      PageLayout layout,
+      YearGridRenderer gridRenderer,
+      Map<String, CalendarDiff> diffs) {
     this.context = context;
     this.layout = layout;
     this.gridRenderer = gridRenderer;
+    this.diffs = diffs;
   }
 
   /** Writes every year page for one calendar and returns their site-relative directories. */
@@ -102,17 +115,19 @@ public final class YearPageRenderer {
             .append(jsonLd(calendar, year, events))
             .toString();
 
+    String root = SiteContext.rootPrefix(2);
     String body =
         BODY.render(
             "name", calendar.name(),
             "year", String.valueOf(year),
             "id", calendar.id(),
             "lede", lede(calendar, year, closures, earlyCloses),
+            "diffBanner", diffBanner(calendar, year, root),
             "yearNav", yearNav(calendar, year, previous, next),
             "legend", gridRenderer.renderLegend(),
             "grid", gridRenderer.render(calendar, year, "../"),
             "table", table(calendar, events),
-            "root", SiteContext.rootPrefix(2),
+            "root", root,
             "marketHref", "../index.html");
 
     return layout.render(
@@ -149,6 +164,26 @@ public final class YearPageRenderer {
           .append(" are projected from the published rules and not yet confirmed by the exchange.");
     }
     return text.toString();
+  }
+
+  /**
+   * The "Changes vs blessed" banner for this year page, scoped to the changes whose date falls in
+   * {@code year}. Empty when the calendar has no {@code --compare-to} diff, or the diff has nothing
+   * in this year.
+   */
+  private String diffBanner(CalendarData calendar, int year, String root) {
+    CalendarDiff diff = diffs.get(calendar.id());
+    if (diff == null) {
+      return "";
+    }
+    int added = countInYear(diff.additions(), year);
+    int removed = countInYear(diff.removals(), year);
+    int modified = countInYear(diff.modifications(), year);
+    return ChangesRenderer.banner(diff, added, removed, modified, root + "changes/index.html");
+  }
+
+  private static int countInYear(List<EventDiff> diffs, int year) {
+    return (int) diffs.stream().filter(d -> d.date().getYear() == year).count();
   }
 
   private String yearNav(CalendarData calendar, int year, Integer previous, Integer next) {
