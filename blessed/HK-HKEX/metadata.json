@@ -3,7 +3,7 @@
   "calendar_name" : "Hong Kong Exchanges and Clearing",
   "kind" : "market",
   "mic" : "XHKG",
-  "generated_at" : "2026-09-14T23:09:32Z",
+  "generated_at" : "2026-09-15T10:01:34Z",
   "range_start" : "2018-01-01",
   "range_end" : "2027-12-31",
   "timezone" : "Asia/Hong_Kong",
@@ -49,7 +49,7 @@
   },
   "source_version" : {
     "semantic" : "12.0.0",
-    "git_sha" : "94db6de7728c26ee75c0449220a721bfdb1977d7"
+    "git_sha" : "e694faa4119f45ae284deefc496729f119fc16af"
   },
   "event_details" : [ {
     "date" : "2018-01-01",

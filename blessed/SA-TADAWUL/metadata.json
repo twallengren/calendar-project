@@ -4,7 +4,7 @@
   "kind" : "market",
   "mic" : "XSAU",
   "aliases" : [ "TADAWUL" ],
-  "generated_at" : "2026-09-14T23:09:32Z",
+  "generated_at" : "2026-09-15T10:01:34Z",
   "range_start" : "2020-01-01",
   "range_end" : "2030-12-31",
   "timezone" : "Asia/Riyadh",
@@ -56,7 +56,7 @@
   },
   "source_version" : {
     "semantic" : "12.0.0",
-    "git_sha" : "94db6de7728c26ee75c0449220a721bfdb1977d7"
+    "git_sha" : "e694faa4119f45ae284deefc496729f119fc16af"
   },
   "event_details" : [ {
     "date" : "2020-05-22",
