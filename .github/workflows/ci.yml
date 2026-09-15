@@ -40,6 +40,7 @@ jobs:
         run: |
           ./gradlew build
           ./gradlew :tools:installDist
+          ./gradlew nmcpZipAggregation -Prelease=true
           echo "tools-path=tools/build/install/tools/bin/tools" >> $GITHUB_OUTPUT
 
       - name: Run tests
