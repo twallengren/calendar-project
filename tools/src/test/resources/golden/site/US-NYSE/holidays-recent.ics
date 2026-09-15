@@ -5,7 +5,7 @@ CALSCALE:GREGORIAN
 X-WR-CALNAME:NYSE Trading Calendar holidays
 BEGIN:VEVENT
 UID:us-nyse-2020-01-01-new_years_day@bdc-calendars
-DTSTAMP:20260914T000000Z
+DTSTAMP:20260915T000000Z
 DTSTART;VALUE=DATE:20200101
 DTEND;VALUE=DATE:20200102
 SUMMARY:NYSE Trading Calendar closed: New Year's Day
@@ -14,7 +14,7 @@ DESCRIPTION:Key: new_years_day\nSource: module:new_years_day\nObserved from
 END:VEVENT
 BEGIN:VEVENT
 UID:us-nyse-2020-01-20-mlk_day@bdc-calendars
-DTSTAMP:20260914T000000Z
+DTSTAMP:20260915T000000Z
 DTSTART;VALUE=DATE:20200120
 DTEND;VALUE=DATE:20200121
 SUMMARY:NYSE Trading Calendar closed: Martin Luther King Jr. Day
@@ -23,7 +23,7 @@ DESCRIPTION:Key: mlk_day\nSource: module:mlk_day\nObserved from: (none)\nSt
 END:VEVENT
 BEGIN:VEVENT
 UID:us-nyse-2020-02-17-presidents_day@bdc-calendars
-DTSTAMP:20260914T000000Z
+DTSTAMP:20260915T000000Z
 DTSTART;VALUE=DATE:20200217
 DTEND;VALUE=DATE:20200218
 SUMMARY:NYSE Trading Calendar closed: Presidents Day
@@ -32,7 +32,7 @@ DESCRIPTION:Key: presidents_day\nSource: module:presidents_day\nObserved fr
 END:VEVENT
 BEGIN:VEVENT
 UID:us-nyse-2020-04-10-good_friday@bdc-calendars
-DTSTAMP:20260914T000000Z
+DTSTAMP:20260915T000000Z
 DTSTART;VALUE=DATE:20200410
 DTEND;VALUE=DATE:20200411
 SUMMARY:NYSE Trading Calendar closed: Good Friday

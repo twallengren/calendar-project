@@ -7,7 +7,7 @@ __version__ = "0.12.0"
 DATA_VERSION = "12.0.0"
 
 #: calendar-project commit the data was generated from.
-DATA_GIT_SHA = "94db6de7728c26ee75c0449220a721bfdb1977d7"
+DATA_GIT_SHA = "e694faa4119f45ae284deefc496729f119fc16af"
 
 #: Date the data was generated.
-DATA_GENERATION_DATE = "2026-09-14"
+DATA_GENERATION_DATE = "2026-09-15"
