@@ -210,6 +210,17 @@ public final class JointDateStream implements DateStream {
     return List.copyOf(closes);
   }
 
+  /** A date is unresolved for the joint when it is unresolved for any member. */
+  @Override
+  public java.util.Set<CompletenessScope> incompleteScopes(LocalDate date, DateQuestion question) {
+    java.util.EnumSet<CompletenessScope> incomplete =
+        java.util.EnumSet.noneOf(CompletenessScope.class);
+    for (DateStream member : members) {
+      incomplete.addAll(member.incompleteScopes(date, question));
+    }
+    return incomplete;
+  }
+
   @Override
   public EventStatus status(LocalDate date) {
     boolean projected = false;

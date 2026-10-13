@@ -578,11 +578,37 @@ class BusinessCalendar:
         needed.
         """
         self._check_range(date)
-        incomplete = self.assessment(date).incomplete_scopes(question)
+        incomplete = self.incomplete_scopes(date, question)
         if incomplete:
             raise UnresolvedDateError(
                 self.calendar_id, date, self.range.start, self.range.end, incomplete
             )
+
+    def incomplete_scopes(self, date: DateLike, question: str = SESSION_QUESTION) -> List[str]:
+        """
+        The scopes among ``question``'s that are incomplete on ``date``, computed
+        from the coverage intervals alone (equivalent to
+        ``assessment(date).incomplete_scopes(question)`` without building the
+        assessment, which keeps day-by-day walks cheap).
+        """
+        day = _as_date(date)
+        if not self.range.contains(day):
+            return list(QUESTION_SCOPES[question])
+        intervals = self.coverage_intervals
+        if not intervals:
+            return []
+        incomplete = []
+        for scope in QUESTION_SCOPES[question]:
+            covered = False
+            for interval in intervals:
+                if interval.scope == scope and interval.contains(day):
+                    covered = True
+                    if interval.quality == INCOMPLETE:
+                        incomplete.append(scope)
+                        break
+            if not covered:
+                incomplete.append(scope)
+        return incomplete
 
     def __repr__(self) -> str:
         return "<{} {} {}>".format(type(self).__name__, self.calendar_id, self.range)
@@ -810,6 +836,15 @@ class JointCalendar(BusinessCalendar):
             if close is not None:
                 result.append(MemberClose(member.calendar_id, member.timezone, close))
         return result
+
+    def incomplete_scopes(self, date: DateLike, question: str = SESSION_QUESTION) -> List[str]:
+        """A date is unresolved for the joint when it is unresolved for any member."""
+        incomplete: List[str] = []
+        for member in self._members:
+            for scope in member.incomplete_scopes(date, question):
+                if scope not in incomplete:
+                    incomplete.append(scope)
+        return incomplete
 
     def status(self, date: DateLike) -> str:
         day = _as_date(date)

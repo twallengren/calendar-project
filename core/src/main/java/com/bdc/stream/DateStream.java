@@ -563,11 +563,44 @@ public interface DateStream {
     if (!range().contains(date)) {
       throw new OutsideCoverageException(calendarId(), date, range());
     }
-    DayAssessment assessment = assessment(date);
-    Set<CompletenessScope> incomplete = assessment.incompleteScopes(question);
+    Set<CompletenessScope> incomplete = incompleteScopes(date, question);
     if (!incomplete.isEmpty()) {
       throw new UnresolvedDateException(calendarId(), date, range(), incomplete);
     }
+  }
+
+  /**
+   * The scopes among {@code question}'s that are incomplete on {@code date}, computed from the
+   * coverage intervals alone. Equivalent to {@code assessment(date).incompleteScopes(question)}
+   * without materialising the assessment, which keeps day-by-day walks cheap.
+   */
+  default Set<CompletenessScope> incompleteScopes(LocalDate date, DateQuestion question) {
+    java.util.EnumSet<CompletenessScope> incomplete =
+        java.util.EnumSet.noneOf(CompletenessScope.class);
+    if (!range().contains(date)) {
+      incomplete.addAll(question.scopes());
+      return incomplete;
+    }
+    List<CoverageInterval> intervals = coverageIntervals();
+    if (intervals.isEmpty()) {
+      return incomplete;
+    }
+    for (CompletenessScope scope : question.scopes()) {
+      boolean covered = false;
+      for (CoverageInterval interval : intervals) {
+        if (interval.scope() == scope && interval.contains(date)) {
+          covered = true;
+          if (interval.quality() == CoverageQuality.INCOMPLETE) {
+            incomplete.add(scope);
+            break;
+          }
+        }
+      }
+      if (!covered) {
+        incomplete.add(scope);
+      }
+    }
+    return incomplete;
   }
 
   private static CoverageQuality strongerUncertainty(

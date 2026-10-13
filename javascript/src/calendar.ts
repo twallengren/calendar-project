@@ -10,7 +10,6 @@ import { type CalendarData, loadCalendar, resolveId } from "./loader.ts";
 import {
   COMPLETENESS_SCOPES,
   QUESTION_SCOPES,
-  incompleteScopes,
   type CompletenessScope,
   type Confidence,
   type CoverageInterval,
@@ -341,8 +340,34 @@ export abstract class BusinessCalendar {
   /** Refuses an answer to `question` when a scope it depends on is incomplete on this date. */
   requireResolved(date: string, question: DateQuestion = "SESSION"): void {
     this.checkRange(date);
-    const incomplete = incompleteScopes(this.assessment(date), question);
+    const incomplete = this.incompleteScopes(date, question);
     if (incomplete.length) throw new UnresolvedDateError(this.calendarId, date, this.range.start, this.range.end, incomplete);
+  }
+
+  /**
+   * The scopes among `question`'s that are incomplete on `date`, from the coverage intervals
+   * alone: equivalent to `incompleteScopes(assessment(date), question)` without materialising
+   * the assessment, which keeps day-by-day walks cheap.
+   */
+  incompleteScopes(date: string, question: DateQuestion = "SESSION"): CompletenessScope[] {
+    if (date < this.range.start || date > this.range.end) return [...QUESTION_SCOPES[question]];
+    const intervals = this.coverageIntervals;
+    if (!intervals.length) return [];
+    const incomplete: CompletenessScope[] = [];
+    for (const scope of QUESTION_SCOPES[question]) {
+      let covered = false;
+      for (const interval of intervals) {
+        if (interval.scope === scope && interval.from <= date && date <= interval.to) {
+          covered = true;
+          if (interval.quality === "INCOMPLETE") {
+            incomplete.push(scope);
+            break;
+          }
+        }
+      }
+      if (!covered) incomplete.push(scope);
+    }
+    return incomplete;
   }
 }
 
@@ -513,6 +538,15 @@ export class JointCalendar extends BusinessCalendar {
       if (close !== null) closes.push({ calendarId: member.calendarId, timezone: member.timezone, localTime: close });
     }
     return closes;
+  }
+
+  /** A date is unresolved for the joint when it is unresolved for any member. */
+  override incompleteScopes(date: string, question: DateQuestion = "SESSION"): CompletenessScope[] {
+    const incomplete: CompletenessScope[] = [];
+    for (const member of this.members) {
+      for (const scope of member.incompleteScopes(date, question)) if (!incomplete.includes(scope)) incomplete.push(scope);
+    }
+    return incomplete;
   }
 
   override status(date: DateLike): Confidence {
