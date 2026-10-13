@@ -282,6 +282,12 @@ public class SpecEmitter {
                     })
                 .toList());
       }
+      case Rule.Weekly r -> {
+        map.put("type", "weekly");
+        map.put("weekday", r.weekday().name());
+        if (r.from() != null) map.put("from", r.from().toString());
+        if (r.to() != null) map.put("to", r.to().toString());
+      }
       case Rule.RelativeToReference r -> {
         map.put("type", "relative_to_reference");
         if (r.usesNamedReference()) {

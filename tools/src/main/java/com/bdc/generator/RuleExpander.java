@@ -39,7 +39,21 @@ public class RuleExpander {
       case Rule.FixedMonthDay r -> expandFixedMonthDay(r, range, provenance);
       case Rule.NthWeekdayOfMonth r -> expandNthWeekday(r, range, provenance);
       case Rule.RelativeToReference r -> expandRelativeToReference(r, range, provenance);
+      case Rule.Weekly r -> expandWeekly(r, range, provenance);
     };
+  }
+
+  private List<Occurrence> expandWeekly(Rule.Weekly rule, DateRange range, String provenance) {
+    LocalDate first =
+        rule.from() != null && rule.from().isAfter(range.start()) ? rule.from() : range.start();
+    LocalDate last = rule.to() != null && rule.to().isBefore(range.end()) ? rule.to() : range.end();
+    List<Occurrence> occurrences = new ArrayList<>();
+    for (LocalDate d = first.with(TemporalAdjusters.nextOrSame(rule.weekday()));
+        !d.isAfter(last);
+        d = d.plusWeeks(1)) {
+      occurrences.add(new Occurrence(rule.key(), d, rule.name(), provenance));
+    }
+    return occurrences;
   }
 
   private List<Occurrence> expandNativeExplicit(

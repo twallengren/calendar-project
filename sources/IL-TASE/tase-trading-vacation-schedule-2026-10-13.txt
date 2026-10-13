@@ -1,0 +1,224 @@
+VERBATIM EXTRACTS captured 2026-10-13 from the TASE website (Angular SPA; content rendered in Chrome, text pulled from the DOM).
+Hebrew page: https://www.tase.co.il/he/content/knowledge_center/trading_vacation_schedule
+English page: https://www.tase.co.il/en/content/knowledge_center/trading_vacation_schedule
+Transition page: https://www.tase.co.il/en/content/about/tradingdays_change
+Note: the raw HTML returned by curl (and the Wayback snapshot web.archive.org/web/20261010065639/...) is only the SPA shell; the tables below exist only after client-side rendering.
+
+================= ENGLISH PAGE: trading-hour tables =================
+Monday to Thursday Trading Schedule
+Trading Phase | Shares Market (Group A | Group B) | Bonds, T-Bills, TACT - Inst., ETFs in the Bond market and Traded Foreign Funds in the Bond market
+Pre-opening phase | 09:25 | 09:25 | 09:25
+Opening phase | 09:59-10:00 | 10:15 | 09:55-09:56
+Pre-closing phase | 17:14-17:15 | 17:14-17:15 | 17:14-17:15
+Closing trading phase | 17:24-17:25 | 17:24-17:25 | 17:24-17:25
+End of TAL trading phase | 17:30 | 17:30 | 17:30
+
+Trading hours on Friday
+Pre-opening phase | 09:25 | 09:25 | 09:25
+Opening phase | 09:59-10:00 | 10:15 | 09:55-09:56
+Pre-closing phase | 13:34-13:35 | 13:34-13:35 | 13:34-13:35
+Closing trading phase | 13:44-13:45 | 13:44-13:45 | 13:44-13:45
+End of TAL trading phase | 13:50 | 13:50 | 13:50
+
+Trading hours in the interim holidays of Pesach and of Sukkot (exc. interim holidays that occur on Fridays)
+Pre-opening phase | 09:25 | 09:25 | 09:25
+Opening phase | 09:59-10:00 | 10:15 | 09:55-09:56
+Pre-closing phase | 14:14-14:15 | 14:14-14:15 | 14:14-14:15
+Closing trading phase | 14:24-14:25 | 14:24-14:25 | 14:24-14:25
+End of TAL trading phase | 14:30 | 14:30 | 14:30
+
+Derivatives Trading Hours (Hebrew page table, "לוח הזמנים למסחר בנגזרים")
+שלב מסחר | בימים ב' עד ה' | בימי ו' | בחול המועד פסח וסוכות (למעט ימי חול המועד החלים ביום ו')
+תחילת המסחר | 09:45 | 09:45 | 09:45
+סיום המסחר | 17:35 | 14:00 | 14:35
+
+Table notes (English): "Foreign ETFs are not traded on the dates: December 25th, December 26th, January 1st and Easter Monday, even if these dates are TASE trading days."
+"Daylight Saving Time in Israel comes into effect on the Friday before the last Sunday in March, and lasts until the last Sunday in October. During the Daylight Saving time period the clock will be UTC+3, and for the rest of the year UTC+2."
+
+================= ENGLISH PAGE: TASE & TASE Clearing Houses Vacation Schedules =================
+"The trading on TASE takes place Monday to Friday. Clearing takes place Sunday to Friday, with the exception of the following vacation schedule. Trading hours are shortened during mid-holidays of Passover and Sukkoth as specified in the Resolutions of the Board of Directors."
+
+--- TASE & TASE Clearing Houses Vacation Schedule, 2026 ---
+"As of January 4th, 2026, the trading on TASE takes place Monday to Friday. Clearing takes place Sunday to Friday, with the exception of the following vacation schedule."
+"Trading hours are shortened during interim days of Passover (April 3-6, 2026) and Sukkoth (September 27,2026 - October 1, 2026) as specified in the Resolutions of the Board of Directors that can be found in the Trading part in TASE Rules and Regulations."
+"Trading hours on a Friday that falls during the interim days (e.g. April 3, 2026) will follow the standard Friday trading hours."
+"In addition, Shushan Purim (March 4, 2026) is a trading day and a settlement day in ILS currency, whereas it is a non-settlement day in USD currency."
+"* On a Friday before a Sunday that is a holiday eve or a public holiday, no trading will take place. For more information about the shift in the trading days, click here."
+Date | Day | Holiday | Trading | Settlement Services
+Mar-03 | Tuesday | Purim | Non-trading day | Non-settlement day
+Apr-01 | Wednesday | Passover Eve | Non-trading day | Settlement day
+Apr-02 | Thursday | Passover | Non-trading day | Non-settlement day
+Apr-07 | Tuesday | Passover II Eve | Non-trading day | Settlement day
+Apr-08 | Wednesday | Passover II | Non-trading day | Non-settlement day
+Apr-21 | Tuesday | Memorial Day | Non-trading day | Settlement day
+Apr-22 | Wednesday | Independence Day | Non-trading day | Non-settlement day
+May-21 | Thursday | Shavuot Eve | Non-trading day | Settlement day
+May-22 | Friday | Shavuot | Non-trading day | Non-settlement day
+Jul-23 | Thursday | Fast Day (Tisha B'Av) | Non-trading day | Non-settlement day
+Sep-11 | Friday | Jewish New Year Eve | Non-trading day | Settlement day
+Sep-13 | Sunday | Jewish New Year II | Non-trading day | Non-settlement day
+Sep-18 | Friday | *see note below | Non-trading day | Settlement day
+Sep-20 | Sunday | Yom Kippur Eve | Non-trading day | Non-settlement day
+Sep-21 | Monday | Yom Kippur | Non-trading day | Non-settlement day
+Sep-25 | Friday | Sukkoth Eve | Non-trading day | Settlement day
+Oct-02 | Friday | Simchat Tora Eve | Non-trading day | Settlement day
+Oct-27 | Tuesday | Knesset Election Day | Non-trading day | Non-settlement day
+
+--- TASE & TASE Clearing Houses Vacation Schedule, 2027 ---
+"As of January 4th, 2026, the trading on TASE takes place Monday to Friday. Clearing takes place Sunday to Friday, except for the following vacation schedule."
+"Trading hours are shortened during mid-holidays of Passover (April 23rd-26th) and Sukkoth (October 18th-21st) as specified in the Resolutions of the Board of Directors."
+"*Friday before holiday Sunday is a non-trading day"
+Date | Day | Holiday | Trading | Settlement Services
+Mar-23 | Tuesday | Purim | Non-trading day | Non-settlement day
+Apr-21 | Wednesday | Passover Eve | Non-trading day | Settlement day
+Apr-22 | Thursday | Passover | Non-trading day | Non-settlement day
+Apr-27 | Tuesday | Passover II Eve | Non-trading day | Settlement day
+Apr-28 | Wednesday | Passover II | Non-trading day | Non-settlement day
+May-11 | Tuesday | Memorial Day | Non-trading day | Settlement day
+May-12 | Wednesday | Independence Day | Non-trading day | Non-settlement day
+Jun-10 | Thursday | Shavuot Eve | Non-trading day | Settlement day
+Jun-11 | Friday | Shavuot | Non-trading day | Non-settlement day
+Aug-12 | Thursday | Fast Day (Tisha B'Av) | Non-trading day | Non-settlement day
+Oct-1 | Friday | Jewish New Year Eve | Non-trading day | Settlement day
+Oct-3 | Sunday | Jewish New Year II | Non-trading day | Non-settlement day
+Oct-8 | Friday | * | Non-trading day | Settlement day
+Oct-10 | Sunday | Yom Kippur Eve | Non-trading day | Non-settlement day
+Oct-11 | Monday | Yom Kippur | Non-trading day | Non-settlement day
+Oct-15 | Friday | Sukkoth Eve | Non-trading day | Settlement day
+Oct-22 | Friday | Simchat Tora Eve | Non-trading day | Settlement day
+
+--- TASE & TASE Clearing Houses Vacation Schedule, 2028 ---
+"As of January 4th, 2026, the trading on TASE takes place Monday to Friday. Clearing takes place Sunday to Friday, except the following vacation schedule."
+"Trading hours are shortened during mid-holidays of Passover (April 12th-14th) and Sukkoth (October 9th-10th) as specified in the Resolutions of the Board of Directors."
+"*Friday before holiday Sunday is a non-trading day"
+Mar-10 | Friday | * | Non-trading day | Settlement day
+Mar-12 | Sunday | Purim | Non-trading day | Non-settlement day
+Apr-10 | Monday | Passover Eve | Non-trading day | Settlement day
+Apr-11 | Tuesday | Passover | Non-trading day | Non-settlement day
+Apr-17 | Monday | Passover II | Non-trading day | Non-settlement day
+May-1 | Monday | Memorial Day | Non-trading day | Settlement day
+May-2 | Tuesday | Independence Day | Non-trading day | Non-settlement day
+May-30 | Tuesday | Shavuot Eve | Non-trading day | Settlement day
+May-31 | Wednesday | Shavuot | Non-trading day | Non-settlement day
+Aug-1 | Tuesday | Fast Day (Tisha B'Av) | Non-trading day | Non-settlement day
+Sep-20 | Wednesday | Jewish New Year Eve | Non-trading day | Settlement day
+Sep-21 | Thursday | Jewish New Year I | Non-trading day | Non-settlement day
+Sep-22 | Friday | Jewish New Year II | Non-trading day | Non-settlement day
+Sep-29 | Friday | Yom Kippur Eve | Non-trading day | Non-settlement day
+Oct-4 | Wednesday | Sukkoth Eve | Non-trading day | Settlement day
+Oct-5 | Thursday | Sukkoth | Non-trading day | Non-settlement day
+Oct-11 | Wednesday | Simchat Tora Eve | Non-trading day | Settlement day
+Oct-12 | Thursday | Simchat Tora | Non-trading day | Non-settlement day
+
+================= HEBREW PAGE: notes and tables =================
+מועדי החופשות בבורסה ובמסלקות
+"המסחר בבורסה מתקיים בימים ב'-ו', והסליקה נערכת בימים א'-ו', למעט המועדים שמצוינים להלן. בימי חול המועד בפסח ובסוכות מתקיים יום מסחר מקוצר – לוחות הזמנים למסחר מפורטים תחת החלטת דירקטוריון הבורסה ובטבלאות של מועדי המסחר בבורסה."
+
+--- מועדי חופשות בבורסה ובמסלקות 2026 ---
+"החל מ-4/1/2026 המסחר בבורסה יתקיים בימים ב'-ו', למעט במועדים המפורטים בטבלה שלהלן. הסליקה במסלקות הבורסה מתקיימת בימים א'-ו', למעט במועדים המפורטים הטבלה שלהלן."
+"בימי חול המועד פסח (3-6/4/2026)* ובימי חול המועד סוכות (27/9/2026-1/10-2026) מתקיימים ימי מסחר וסליקה מקוצרים – לוחות הזמנים למסחר מפורטים תחת החלטות דירקטוריון הבורסה שבמדריך מסחר בתקנון הבורסה ובמועדי המסחר בבורסה."
+"בשושן פורים (4/3/2026) לא מתקיים יום סליקה בדולר ארה"ב. יום המסחר בבורסה ויום הסליקה בשקלים מתקיימים כסדרם."
+"*שימו לב שב-3/4 יתקיים יום מסחר וסליקה מקוצר במתכונת יום ו', וב-6/4 יום מסחר וסליקה מקוצר במתכונת חוה"מ. ב-5/4 לא יתקיים מסחר."
+"*במקרה שביום ראשון חל ערב חג או חג, לא יתקיים מסחר ביום שישי שלפניו. למידע נוסף אודות השינוי בימי מסחר - לחצו כאן"
+תאריך | יום בשבוע | חג/מועד | מסחר | סליקה
+3.3 | שלישי | פורים | אינו יום מסחר | אינו יום סליקה
+1.4 | רביעי | ערב פסח | אינו יום מסחר | יום סליקה
+2.4 | חמישי | פסח | אינו יום מסחר | אינו יום סליקה
+7.4 | שלישי | ערב שביעי של פסח | אינו יום מסחר | יום סליקה
+8.4 | רביעי | שביעי של פסח | אינו יום מסחר | אינו יום סליקה
+21.4 | שלישי | יום הזיכרון | אינו יום מסחר | יום סליקה
+22.4 | רביעי | יום העצמאות | אינו יום מסחר | אינו יום סליקה
+21.5 | חמישי | ערב חג שבועות | אינו יום מסחר | יום סליקה
+22.5 | שישי | שבועות | אינו יום מסחר | אינו יום סליקה
+23.7 | חמישי | תשעה באב | אינו יום מסחר | אינו יום סליקה
+11.9 | שישי | ערב ראש השנה | אינו יום מסחר | יום סליקה
+13.9 | ראשון | ב' ראש השנה | אינו יום מסחר | אינו יום סליקה
+18.9 | שישי | *ראו הערה למטה | אינו יום מסחר | יום סליקה
+20.9 | ראשון | ערב יום כיפור | אינו יום מסחר | אינו יום סליקה
+21.9 | שני | יום כיפור | אינו יום מסחר | אינו יום סליקה
+25.9 | שישי | ערב סוכות | אינו יום מסחר | יום סליקה
+2.10 | שישי | ערב שמחה תורה | אינו יום מסחר | יום סליקה
+27.10 | שלישי | יום הבחירות לכנסת | אינו יום מסחר | אינו יום סליקה
+
+--- מועדי חופשות בבורסה ובמסלקות 2027 ---
+"החל מ-4/1/2026 המסחר בבורסה מתקיים בימים ב'-ו', והסליקה נערכת בימים א'-ו', למעט המועדים שמצוינים להלן."
+"בימי חול המועד בפסח (23/4-26/4) ובסוכות (18/10-21/10) מתקיים יום מסחר מקוצר – לוחות הזמנים למסחר מפורטים תחת החלטות דירקטוריון הבורסה ובמועדי המסחר בבורסה."
+"*בשישי לפני חג/ערב חג בראשון אין מסחר"
+23.3 | שלישי | פורים | אינו יום מסחר | אינו יום סליקה
+21.4 | רביעי | ערב פסח | אינו יום מסחר | יום סליקה
+22.4 | חמישי | פסח | אינו יום מסחר | אינו יום סליקה
+27.4 | שלישי | ערב שביעי של פסח | אינו יום מסחר | יום סליקה
+28.4 | רביעי | שביעי של פסח | אינו יום מסחר | אינו יום סליקה
+11.5 | שלישי | יום הזיכרון | אינו יום מסחר | יום סליקה
+12.5 | רביעי | יום העצמאות | אינו יום מסחר | אינו יום סליקה
+10.6 | חמישי | ערב חג שבועות | אינו יום מסחר | יום סליקה
+11.6 | שישי | שבועות | אינו יום מסחר | אינו יום סליקה
+12.8 | חמישי | תשעה באב | אינו יום מסחר | אינו יום סליקה
+1.10 | שישי | ערב ראש השנה | אינו יום מסחר | יום סליקה
+3.10 | ראשון | ב' ראש השנה | אינו יום מסחר | אינו יום סליקה
+8.10 | שישי | (ריק) | אינו יום מסחר | יום סליקה
+10.10 | ראשון | ערב יום כיפור | אינו יום מסחר | אינו יום סליקה
+11.10 | שני | יום כיפור | אינו יום מסחר | אינו יום סליקה
+15.10 | שישי | ערב סוכות | אינו יום מסחר | יום סליקה
+22.10 | שישי | ערב שמחת תורה | אינו יום מסחר | יום סליקה
+
+================= TRANSITION PAGE (English) =================
+"On June 18, 2025 the Board of Directors of the Tel Aviv Stock Exchange approved amendments to the rules and regulations relating to the transition to Monday-to-Friday trading."
+"Following the Board's approval, the Israel Securities Authority approved the amendments to the rules and regulations on July 30, 2025."
+"The transition to Monday-to-Friday trading will officially take effect on January 5, 2026."
+Trading Schedule for Fridays — Cash Markets: Pre-Open 9:25; Theoretical Price 9:35; Opening Auction, Continuous Phase 9:59-10:00 (Group A) / 10:15 (Group B) / 9:55-9:56 (Bonds, T-Bills); Pre-Close 13:34-13:35; Closing Auction, TAL Phase 13:44-13:45; End of Trading 13:50. Derivative Market: Start of Trading 9:45; End of Trading 14:00.
+"Friday will be a regular trading day, except for the modified schedule, and will include trading in the following instuments: Stocks, Bonds, Derivatives (including expirations), ETFs, Foreign-listed funds, Mutual funds"
+FAQ headings present (answers collapsed, not captured): "Will there be trading on holiday eves?", "Until what time will trading continue on Friday?", "When will the change take effect?"
+
+================= ISA Hebrew guide (madrich_090925.pdf), p. 9 (text extraction, reversed glyph order in places) =================
+Friday close times table: "13:35-13:34 ... 13:45-13:44 ... 14:00 13:50 13:50 סיום מסחר" (equities/bonds 13:50, derivatives 14:00)
+"יום שישי יהיה יום מסחר רגיל ויכלול את כל הפעילויות המתקיימות בימי המסחר האחרים"
+
+================= 2025 TABLES (same page, captured 2026-10-13) =================
+--- ENGLISH: TASE & TASE Clearing Houses Vacation Schedule, 2025 ---
+"Trading, Clearing and Settlement are truncated during mid-holidays of Passover (April 14-17) and Sukkoth (October 8-12), as specified in the Resolutions of the Board of Directors that can be found in the Trading part in TASE Rules and Regulations."
+Date | Day | Holiday | Trading | Clearing
+Mar-14 | Friday | Purim | -- | --
+Apr-13 | Sunday | Passover | -- | --
+Apr-18 | Friday | Passover II Eve | -- | V
+Apr-30 | Wednesday | Memorial Day | -- | V
+May-01 | Thursday | Independence Day | -- | --
+Jun-01 | Sunday | Pentecost (Shavuot) Eve | -- | V
+Jun-02 | Monday | Pentecost (Shavuot) | -- | --
+Aug-03 | Sunday | Fast Day (Tisha B'Av) | -- | --
+Sep-22 | Monday | Jewish New Year Eve | -- | V
+Sep-23 | Tuesday | Jewish New Year I | -- | --
+Sep-24 | Wednesday | Jewish New Year II | -- | --
+Oct-01 | Wednesday | Yom Kippur Eve | -- | --
+Oct-02 | Thursday | Yom Kippur | -- | --
+Oct-06 | Monday | Feast of Tabernacles (Sukkoth) Eve | -- | V
+October 7 | Tuesday | Feast of Tabernacles (Sukkoth) | -- | --
+Oct-13 | Monday | Rejoicing of the Law (Simchat Tora) Eve | -- | V
+Oct-14 | Tuesday | Rejoicing of the Law (Simchat Tora) | -- | --
+("--" = no trading / no clearing; "V" = clearing takes place)
+
+--- HEBREW: מועדי חופשות בבורסה ובמסלקות 2025 ---
+"המסחר בבורסה מתקיים בימים א'-ה', והסליקה נערכת בימים א'-ו', למעט המועדים שמצוינים להלן."
+"בימי חול המועד בפסח ובסוכות מתקיים יום מסחר מקוצר – לוחות הזמנים למסחר מפורטים תחת החלטות דירקטוריון הבורסה (תקנון הבורסה) ובמועדי המסחר בבורסה."
+חול המועד | טווח תאריכים
+פסח | 17/4-14/4
+סוכות | 12/10-8/10
+תאריך | יום בשבוע | החג/מועד | מתקיים מסחר | מתקיימת סליקה
+14/3 | שישי | פורים
+13/4 | ראשון | פסח
+18/4 | שישי | ערב שביעי של פסח
+30/4 | רביעי | יום הזיכרון
+1/5 | חמישי | יום העצמאות
+1/6 | ראשון | ערב שבועות
+2/6 | שני | שבועות
+3/8 | ראשון | תשעה באב
+22/9 | שני | ערב ראש השנה
+23/9 | שלישי | א' ראש השנה
+24/9 | רביעי | ב' ראש השנה
+[1]/10 | רביעי | ערב יום כיפור   (the day digit was clipped in the accessibility tree; the English table gives Oct-01)
+2/10 | חמישי | יום כיפור
+6/10 | שני | ערב סוכות
+7/10 | שלישי | סוכות
+13/10 | שני | ערב שמחת תורה
+14/10 | שלישי | שמחה תורה
+(The Hebrew 2025 table's "מתקיים מסחר"/"מתקיימת סליקה" cells render as icons and were not captured as text; the English table carries the --/V values.)

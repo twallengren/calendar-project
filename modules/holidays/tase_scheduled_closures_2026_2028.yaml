@@ -1,0 +1,250 @@
+kind: module
+id: tase_scheduled_closures_2026_2028
+
+# TASE's official vacation schedule page (tase-trading-vacation-schedule) lists every 2026, 2027 and
+# 2028 non-trading day. Each row is retained as a bounded Hebrew-calendar origin, as the 2025
+# module does: regular religious dates are native recurrences over 5786-5789, and the civil
+# Memorial/Independence pair is modelled per year because its statutory shift differs
+# (unshifted 4/5 Iyar in 5786 and 5787, +1 day in 5788 when 5 Iyar is a Monday). The Monday-Friday
+# week means Rosh Hashanah I and other Saturday rows are not listed by TASE; the rules still emit
+# them on the weekend day, which the NONE shift policy keeps as a plain closure. 2026 Memorial and
+# Independence Days live in tase_verified_events_2026. Every ISO date produced here was checked
+# against the TASE table row for row (see sources/IL-TASE/README.md).
+source:
+  - id: tase-trading-vacation-schedule
+    ref: "2026, 2027 and 2028 vacation schedule tables"
+
+event_sources:
+  - key: tase_purim
+    name: Purim
+    shiftable: false
+    rule:
+      type: native_fixed_month_day
+      chronology: HEBREW
+      month_codes: [ADAR, ADAR_II]
+      day: 14
+      native_years: [{start: 5786, end: 5788}]
+
+  - key: tase_passover_eve
+    name: Passover Eve
+    shiftable: false
+    rule:
+      type: native_fixed_month_day
+      chronology: HEBREW
+      month_codes: [NISAN]
+      day: 14
+      native_years: [{start: 5786, end: 5788}]
+
+  - key: tase_passover
+    name: Passover
+    shiftable: false
+    rule:
+      type: native_fixed_month_day
+      chronology: HEBREW
+      month_codes: [NISAN]
+      day: 15
+      native_years: [{start: 5786, end: 5788}]
+
+  - key: tase_seventh_passover_eve
+    name: Seventh Day of Passover Eve
+    shiftable: false
+    rule:
+      type: native_fixed_month_day
+      chronology: HEBREW
+      month_codes: [NISAN]
+      day: 20
+      native_years: [{start: 5786, end: 5788}]
+
+  - key: tase_seventh_passover
+    name: Seventh Day of Passover
+    shiftable: false
+    rule:
+      type: native_fixed_month_day
+      chronology: HEBREW
+      month_codes: [NISAN]
+      day: 21
+      native_years: [{start: 5786, end: 5788}]
+
+  - key: tase_memorial_day_2027
+    name: Memorial Day
+    shiftable: false
+    rule:
+      type: native_fixed_month_day
+      chronology: HEBREW
+      month_codes: [IYAR]
+      day: 4
+      native_years: [{start: 5787, end: 5787}]
+
+  - key: tase_independence_day_2027
+    name: Independence Day
+    shiftable: false
+    rule:
+      type: native_fixed_month_day
+      chronology: HEBREW
+      month_codes: [IYAR]
+      day: 5
+      native_years: [{start: 5787, end: 5787}]
+
+  # 5 Iyar 5788 is a Monday, so Independence Day is observed on Tuesday 2 May 2028 and
+  # Memorial Day on Monday 1 May 2028 (TASE rows "May-1 Monday Memorial Day", "May-2 Tuesday
+  # Independence Day").
+  - key: tase_memorial_day_2028
+    name: Memorial Day
+    shiftable: false
+    rule:
+      type: native_relative_to_reference
+      chronology: HEBREW
+      month_codes: [IYAR]
+      day: 4
+      offset_days: 1
+      native_years: [{start: 5788, end: 5788}]
+
+  - key: tase_independence_day_2028
+    name: Independence Day
+    shiftable: false
+    rule:
+      type: native_relative_to_reference
+      chronology: HEBREW
+      month_codes: [IYAR]
+      day: 5
+      offset_days: 1
+      native_years: [{start: 5788, end: 5788}]
+
+  - key: tase_shavuot_eve
+    name: Shavuot Eve
+    shiftable: false
+    rule:
+      type: native_fixed_month_day
+      chronology: HEBREW
+      month_codes: [SIVAN]
+      day: 5
+      native_years: [{start: 5786, end: 5788}]
+
+  - key: tase_shavuot
+    name: Shavuot
+    shiftable: false
+    rule:
+      type: native_fixed_month_day
+      chronology: HEBREW
+      month_codes: [SIVAN]
+      day: 6
+      native_years: [{start: 5786, end: 5788}]
+
+  - key: tase_tisha_bav
+    name: Tisha B'Av
+    shiftable: false
+    rule:
+      type: native_fixed_month_day
+      chronology: HEBREW
+      month_codes: [AV]
+      day: 9
+      native_years: [{start: 5786, end: 5788}]
+
+  - key: tase_rosh_hashanah_eve
+    name: Rosh Hashanah Eve
+    shiftable: false
+    rule:
+      type: native_fixed_month_day
+      chronology: HEBREW
+      month_codes: [ELUL]
+      day: 29
+      native_years: [{start: 5786, end: 5788}]
+
+  - key: tase_rosh_hashanah
+    name: Rosh Hashanah
+    shiftable: false
+    rule:
+      type: native_fixed_month_day
+      chronology: HEBREW
+      month_codes: [TISHRI]
+      day: 1
+      duration_days: 2
+      native_years: [{start: 5787, end: 5789}]
+
+  # "On a Friday before a Sunday that is a holiday eve or a public holiday, no trading will take
+  # place": Friday 7 Tishri precedes the Sunday Yom Kippur Eve of 5787 and 5788, and Friday
+  # 12 Adar 5788 precedes Sunday Purim.
+  - key: tase_friday_before_sunday_holiday
+    name: Friday Before a Sunday Holiday (No Trading)
+    shiftable: false
+    source:
+      - id: tase-trading-vacation-schedule
+        ref: "* On a Friday before a Sunday that is a holiday eve or a public holiday, no trading will take place"
+    rule:
+      type: native_explicit_dates
+      dates:
+        - {chronology_id: HEBREW, year: 5787, month_code: TISHRI, day: 7}
+        - {chronology_id: HEBREW, year: 5788, month_code: TISHRI, day: 7}
+        - {chronology_id: HEBREW, year: 5788, month_code: ADAR, day: 12}
+
+  - key: tase_yom_kippur_eve
+    name: Yom Kippur Eve
+    shiftable: false
+    rule:
+      type: native_fixed_month_day
+      chronology: HEBREW
+      month_codes: [TISHRI]
+      day: 9
+      native_years: [{start: 5787, end: 5789}]
+
+  - key: tase_yom_kippur
+    name: Yom Kippur
+    shiftable: false
+    rule:
+      type: native_fixed_month_day
+      chronology: HEBREW
+      month_codes: [TISHRI]
+      day: 10
+      native_years: [{start: 5787, end: 5789}]
+
+  - key: tase_sukkot_eve
+    name: Sukkot Eve
+    shiftable: false
+    rule:
+      type: native_fixed_month_day
+      chronology: HEBREW
+      month_codes: [TISHRI]
+      day: 14
+      native_years: [{start: 5787, end: 5789}]
+
+  - key: tase_sukkot
+    name: Sukkot
+    shiftable: false
+    rule:
+      type: native_fixed_month_day
+      chronology: HEBREW
+      month_codes: [TISHRI]
+      day: 15
+      native_years: [{start: 5787, end: 5789}]
+
+  - key: tase_simchat_torah_eve
+    name: Simchat Torah Eve
+    shiftable: false
+    rule:
+      type: native_fixed_month_day
+      chronology: HEBREW
+      month_codes: [TISHRI]
+      day: 21
+      native_years: [{start: 5787, end: 5789}]
+
+  - key: tase_simchat_torah
+    name: Simchat Torah
+    shiftable: false
+    rule:
+      type: native_fixed_month_day
+      chronology: HEBREW
+      month_codes: [TISHRI]
+      day: 22
+      native_years: [{start: 5787, end: 5789}]
+
+  - key: tase_knesset_election_day
+    name: Knesset Election Day
+    shiftable: false
+    source:
+      - id: tase-trading-vacation-schedule
+        ref: "Oct-27 Tuesday Knesset Election Day, Non-trading day, Non-settlement day"
+    rule:
+      type: explicit_dates
+      dates:
+        - date: 2026-10-27
+          comment: 26th Knesset election

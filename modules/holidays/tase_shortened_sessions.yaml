@@ -1,0 +1,60 @@
+kind: module
+id: tase_shortened_sessions
+
+# Shortened sessions under the Monday-Friday trading week. TASE's schedule page gives the Friday
+# table (end of TAL trading phase 13:50; derivatives 14:00) and the Passover/Sukkot intermediate-day
+# table (14:30; derivatives 14:35), and states that an intermediate day falling on a Friday keeps the
+# Friday schedule. The Friday rule is weekly and open-ended from the first Friday session; a Friday
+# that is a holiday eve, a holiday or a "Friday before a Sunday holiday" is CLOSED, which takes
+# precedence over the early close. Intermediate days are 16-19 Nisan and 16-20 Tishri restricted to
+# Monday-Thursday: Saturdays and Sundays are not trading days and Fridays fall under the Friday rule
+# (20 Nisan is the Seventh Day of Passover Eve and closed). Close times are the equity/bond market's.
+source:
+  - id: tase-trading-vacation-schedule
+    ref: "Trading hours on Friday: End of TAL trading phase 13:50; intermediate holidays of Pesach and of Sukkot (exc. interim holidays that occur on Fridays): 14:30"
+
+event_sources:
+  - key: tase_friday_session
+    name: Friday Session (Early Close)
+    default_classification: EARLY_CLOSE
+    close_time: "13:50"
+    shiftable: false
+    source:
+      - id: tase-trading-vacation-schedule
+        ref: "Trading hours on Friday ... End of TAL trading phase 13:50"
+      - id: tase-tradingdays-change
+        ref: "Trading Schedule for Fridays - Cash Markets ... End of Trading 13:50"
+      - id: isa-trading-week-2026
+        ref: "pp. 17-19, 30: every Friday 10:00-13:50 from 2026-01-05"
+    rule:
+      type: weekly
+      weekday: FRIDAY
+      from: 2026-01-09
+
+  - key: tase_passover_intermediate_session
+    name: Passover Intermediate Day (Early Close)
+    default_classification: EARLY_CLOSE
+    close_time: "14:30"
+    shiftable: false
+    only_if_weekday: [MONDAY, TUESDAY, WEDNESDAY, THURSDAY]
+    rule:
+      type: native_fixed_month_day
+      chronology: HEBREW
+      month_codes: [NISAN]
+      day: 16
+      duration_days: 4
+      native_years: [{start: 5786, end: 5788}]
+
+  - key: tase_sukkot_intermediate_session
+    name: Sukkot Intermediate Day (Early Close)
+    default_classification: EARLY_CLOSE
+    close_time: "14:30"
+    shiftable: false
+    only_if_weekday: [MONDAY, TUESDAY, WEDNESDAY, THURSDAY]
+    rule:
+      type: native_fixed_month_day
+      chronology: HEBREW
+      month_codes: [TISHRI]
+      day: 16
+      duration_days: 5
+      native_years: [{start: 5787, end: 5789}]

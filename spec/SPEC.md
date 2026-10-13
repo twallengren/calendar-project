@@ -269,6 +269,28 @@ rule:
 
 Note: The weekday offset finds occurrences strictly before or after the reference date. If November 1st is a Tuesday and you're looking for the first Tuesday after November 1st, you'll get November 8th (not November 1st).
 
+### weekly
+
+Every occurrence of a weekday, optionally bounded by inclusive `from`/`to` dates; combine with
+`active_years` to bound it by year. The Tel Aviv Stock Exchange's Friday session, which ends at
+13:50 every week under the Monday-Friday trading week, is the motivating case:
+
+```yaml
+- key: tase_friday_session
+  name: Friday Session (Early Close)
+  default_classification: EARLY_CLOSE
+  close_time: "13:50"
+  active_years: [[2026, null]]
+  rule:
+    type: weekly
+    weekday: FRIDAY
+    from: 2026-01-09
+```
+
+A weekly occurrence that lands on a weekend day or on a `CLOSED` date follows the ordinary
+precedence rules (an `EARLY_CLOSE` is dropped there unless its `shift_policy` says otherwise), so
+a closed Friday needs no exclusion in the rule.
+
 ## Event Types
 
 - `CLOSED` - Market/business closed

@@ -16,7 +16,11 @@
         }
       ],
       "support_intervals": [
-        {"from": "2025-01-01", "to": "2025-12-31", "scope": "SCHEDULED_CLOSURES"}
+        {
+          "from": "2025-01-01",
+          "to": "2025-12-31",
+          "scope": "SCHEDULED_CLOSURES"
+        }
       ]
     },
     {
@@ -50,18 +54,66 @@
         }
       ],
       "support_intervals": [
-        {"from": "2026-01-09", "to": "2026-01-09", "scope": "EARLY_CLOSES"},
-        {"from": "2026-01-16", "to": "2026-01-16", "scope": "EARLY_CLOSES"},
-        {"from": "2026-01-23", "to": "2026-01-23", "scope": "EARLY_CLOSES"},
-        {"from": "2026-01-30", "to": "2026-01-30", "scope": "EARLY_CLOSES"},
-        {"from": "2026-02-06", "to": "2026-02-06", "scope": "EARLY_CLOSES"},
-        {"from": "2026-02-13", "to": "2026-02-13", "scope": "EARLY_CLOSES"},
-        {"from": "2026-02-20", "to": "2026-02-20", "scope": "EARLY_CLOSES"},
-        {"from": "2026-02-27", "to": "2026-02-27", "scope": "EARLY_CLOSES"},
-        {"from": "2026-03-06", "to": "2026-03-06", "scope": "EARLY_CLOSES"},
-        {"from": "2026-03-13", "to": "2026-03-13", "scope": "EARLY_CLOSES"},
-        {"from": "2026-03-20", "to": "2026-03-20", "scope": "EARLY_CLOSES"},
-        {"from": "2026-03-27", "to": "2026-03-27", "scope": "EARLY_CLOSES"}
+        {
+          "from": "2026-01-09",
+          "to": "2026-01-09",
+          "scope": "EARLY_CLOSES"
+        },
+        {
+          "from": "2026-01-16",
+          "to": "2026-01-16",
+          "scope": "EARLY_CLOSES"
+        },
+        {
+          "from": "2026-01-23",
+          "to": "2026-01-23",
+          "scope": "EARLY_CLOSES"
+        },
+        {
+          "from": "2026-01-30",
+          "to": "2026-01-30",
+          "scope": "EARLY_CLOSES"
+        },
+        {
+          "from": "2026-02-06",
+          "to": "2026-02-06",
+          "scope": "EARLY_CLOSES"
+        },
+        {
+          "from": "2026-02-13",
+          "to": "2026-02-13",
+          "scope": "EARLY_CLOSES"
+        },
+        {
+          "from": "2026-02-20",
+          "to": "2026-02-20",
+          "scope": "EARLY_CLOSES"
+        },
+        {
+          "from": "2026-02-27",
+          "to": "2026-02-27",
+          "scope": "EARLY_CLOSES"
+        },
+        {
+          "from": "2026-03-06",
+          "to": "2026-03-06",
+          "scope": "EARLY_CLOSES"
+        },
+        {
+          "from": "2026-03-13",
+          "to": "2026-03-13",
+          "scope": "EARLY_CLOSES"
+        },
+        {
+          "from": "2026-03-20",
+          "to": "2026-03-20",
+          "scope": "EARLY_CLOSES"
+        },
+        {
+          "from": "2026-03-27",
+          "to": "2026-03-27",
+          "scope": "EARLY_CLOSES"
+        }
       ]
     },
     {
@@ -79,7 +131,11 @@
         }
       ],
       "support_intervals": [
-        {"from": "2026-04-21", "to": "2026-04-22", "scope": "SCHEDULED_CLOSURES"}
+        {
+          "from": "2026-04-21",
+          "to": "2026-04-22",
+          "scope": "SCHEDULED_CLOSURES"
+        }
       ]
     },
     {
@@ -97,6 +153,50 @@
         }
       ],
       "support_intervals": []
+    },
+    {
+      "id": "tase-trading-vacation-schedule",
+      "title": "TASE Trading and Vacation Schedules / מועדי מסחר ומועדי חופשות בבורסה לניירות ערך בת\"א (2025, 2026, 2027 and 2028 tables, trading-hour tables)",
+      "publisher": "Tel Aviv Stock Exchange",
+      "location": "https://www.tase.co.il/en/content/knowledge_center/trading_vacation_schedule (Hebrew, authoritative: https://www.tase.co.il/he/content/knowledge_center/trading_vacation_schedule)",
+      "retrieved": "2026-10-13",
+      "covers": "2025-01-01 to 2028-12-31",
+      "notes": "The exchange's official vacation schedule page, listing every non-trading and non-settlement day for 2025, 2026, 2027 and 2028, the Monday-Thursday / Friday (end of trading 13:50) / Passover-Sukkot intermediate-day (14:30) trading-hour tables, the rule \"On a Friday before a Sunday that is a holiday eve or a public holiday, no trading will take place\", the 2026 Knesset Election Day row, and \"As of January 4th, 2026, the trading on TASE takes place Monday to Friday\". The page is a JavaScript application whose tables are not present in the raw HTML or in Internet Archive captures, so the verbatim rendered Hebrew and English tables were preserved in the local text file. Every 2026-2028 row was re-derived from its Hebrew date with the repository's Hebrew profile and matches the printed weekday.",
+      "local_files": [
+        {
+          "path": "IL-TASE/tase-trading-vacation-schedule-2026-10-13.txt",
+          "sha256": "55692ff7a801a36688243c31f2834878a8764cf65a0fe9682902cd184dfc4384"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2025-01-01",
+          "to": "2028-12-31"
+        },
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2026-01-04",
+          "to": "2028-12-31"
+        }
+      ]
+    },
+    {
+      "id": "tase-tradingdays-change",
+      "title": "Gateway to the World: Transition to Monday-Friday Trading (Trading Days Shift)",
+      "publisher": "Tel Aviv Stock Exchange",
+      "location": "https://www.tase.co.il/en/content/about/tradingdays_change",
+      "retrieved": "2026-10-13",
+      "covers": "from 2026-01-05",
+      "notes": "Board approval 18 June 2025, ISA approval 30 July 2025, effective 5 January 2026. Friday cash-market schedule ending 13:50 (derivatives 14:00); \"Friday will be a regular trading day, except for the modified schedule\". Corroborates the ISA guide and the schedule page's Friday table.",
+      "local_files": [],
+      "support_intervals": [
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2026-01-05",
+          "to": "2028-12-31"
+        }
+      ]
     }
   ]
 }
