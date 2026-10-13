@@ -150,3 +150,16 @@ def test_schedule_on_a_joint_calendar_and_coverage_errors():
         tsx.generate_schedule(ScheduleDefinition(d(2001, 9, 11), d(2002, 3, 11), Frequency.QUARTERLY))
     with pytest.raises(bdc.OutsideCoverageError):
         bdc.get_calendar("US-NYSE").generate_schedule(ScheduleDefinition(d(2030, 10, 1), d(2031, 4, 1), Frequency.QUARTERLY))
+
+
+def test_long_stubs_with_a_single_period_and_backward_rolls():
+    nyse = bdc.get_calendar("US-NYSE")
+    for stub in (StubConvention.SHORT_FINAL, StubConvention.LONG_FINAL, StubConvention.SHORT_INITIAL, StubConvention.LONG_INITIAL):
+        schedule = nyse.generate_schedule(ScheduleDefinition(d(2024, 1, 16), d(2024, 2, 15), Frequency.QUARTERLY, stub))
+        assert schedule.dates == [d(2024, 1, 16), d(2024, 2, 15)], stub
+        assert schedule.periods[0].stub
+    backward = nyse.generate_schedule(
+        ScheduleDefinition(d(2024, 2, 1), d(2024, 5, 31), Frequency.MONTHLY, StubConvention.SHORT_INITIAL, convention="UNADJUSTED")
+    )
+    assert backward.unadjusted_dates == [d(2024, 2, 1), d(2024, 2, 29), d(2024, 3, 31), d(2024, 4, 30), d(2024, 5, 31)]
+    assert [p.stub for p in backward.periods] == [True, False, False, False]

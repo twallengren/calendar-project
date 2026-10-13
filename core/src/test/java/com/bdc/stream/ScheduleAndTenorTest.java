@@ -146,6 +146,37 @@ class ScheduleAndTenorTest {
   }
 
   @Test
+  void longStubsWithASinglePeriodAndBackwardRollsClipFromTheEnd() {
+    CsvDateStream stream = stream(verified());
+    // Shorter than one period: every stub convention except NONE yields exactly one period.
+    for (StubConvention stub :
+        List.of(
+            StubConvention.SHORT_FINAL,
+            StubConvention.LONG_FINAL,
+            StubConvention.SHORT_INITIAL,
+            StubConvention.LONG_INITIAL)) {
+      Schedule schedule =
+          stream.schedule(
+              ScheduleDefinition.of(d("2024-01-15"), d("2024-02-15"), Frequency.QUARTERLY)
+                  .withStub(stub));
+      assertEquals(dates("2024-01-15", "2024-02-15"), schedule.dates(), stub.name());
+      assertTrue(schedule.periods().get(0).stub(), stub.name());
+    }
+    // Backward rolls clip from the end anchor: 31 May back one month is 30 April, back two is 31
+    // March.
+    Schedule backward =
+        stream.schedule(
+            ScheduleDefinition.of(d("2024-02-01"), d("2024-05-31"), Frequency.MONTHLY)
+                .withStub(StubConvention.SHORT_INITIAL)
+                .withConvention(BusinessDayConvention.UNADJUSTED));
+    assertEquals(
+        dates("2024-02-01", "2024-02-29", "2024-03-31", "2024-04-30", "2024-05-31"),
+        backward.unadjustedDates());
+    assertTrue(backward.periods().get(0).stub());
+    assertFalse(backward.periods().get(1).stub());
+  }
+
+  @Test
   void eomImmAndWeeklyRolls() {
     CsvDateStream stream = stream(verified());
     Schedule eom =
