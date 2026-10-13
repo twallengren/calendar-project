@@ -52,6 +52,9 @@ class TrustHtmlTest {
                 Instant.EPOCH));
     String page = new DatePageRenderer(layout).render(calendar, date, List.of(event));
     assertTrue(page.contains("Actual day state is unknown"));
+    assertTrue(page.contains("Why this answer can be trusted"));
+    assertTrue(page.contains("Business day: <strong>UNKNOWN</strong>, confidence UNKNOWN"));
+    assertTrue(page.contains("Unscheduled exceptions: INCOMPLETE"));
     assertTrue(page.contains("HEBREW 5786 TISHRI 1"));
     assertTrue(page.contains("ICU4J 78.3"));
     assertTrue(page.contains("notice"));

@@ -45,14 +45,22 @@ public final class DatePageRenderer {
 
   private final PageLayout layout;
   private final Map<String, CalendarDiff> diffs;
+  private final SourceRegistry sources;
 
   public DatePageRenderer(PageLayout layout) {
     this(layout, Map.of());
   }
 
   public DatePageRenderer(PageLayout layout, Map<String, CalendarDiff> diffs) {
+    this(layout, diffs, null);
+  }
+
+  /** With a source registry, every evidence id on the page links to its register row. */
+  public DatePageRenderer(
+      PageLayout layout, Map<String, CalendarDiff> diffs, SourceRegistry sources) {
     this.layout = layout;
     this.diffs = diffs;
+    this.sources = sources;
   }
 
   /** Writes one page per non-weekend event date; returns their site-relative directories. */
@@ -216,26 +224,56 @@ public final class DatePageRenderer {
     return html.toString();
   }
 
+  private static final Map<String, String> SCOPE_LABELS =
+      Map.of(
+          "SCHEDULED_CLOSURES", "Scheduled closures",
+          "EARLY_CLOSES", "Early closes",
+          "UNSCHEDULED_EXCEPTIONS", "Unscheduled exceptions");
+
   private String assessment(CalendarData calendar, LocalDate date) {
     var day = calendar.assessments().get(date);
     if (day == null) return "";
-    StringBuilder html =
-        new StringBuilder(
-            "<section><h2>Confidence and native origins</h2><p>Effective confidence: ");
-    html.append(HtmlTemplate.escape(day.path("effective_confidence").asText()))
-        .append(". Scheduled state: ")
+    StringBuilder html = new StringBuilder("<section><h2>Why this answer can be trusted</h2>");
+    String businessDayState = day.path("business_day_state").asText(day.path("state").asText());
+    String businessDayConfidence =
+        day.path("business_day_confidence").asText(day.path("effective_confidence").asText());
+    html.append("<p>Business day: <strong>")
+        .append(HtmlTemplate.escape(businessDayState))
+        .append("</strong>, confidence ")
+        .append(HtmlTemplate.escape(businessDayConfidence))
+        .append(". Session: <strong>")
+        .append(HtmlTemplate.escape(day.path("state").asText()))
+        .append("</strong>, confidence ")
+        .append(HtmlTemplate.escape(day.path("effective_confidence").asText()))
+        .append(" (scheduled state ")
         .append(HtmlTemplate.escape(day.path("scheduled_state").asText()))
-        .append(".</p><ul>");
+        .append(").</p>");
+    html.append(
+        "<p class=\"muted\">Business-day questions need the scheduled-closure and"
+            + " unscheduled-exception scopes; session questions (close times) also need the"
+            + " early-close scope. UNKNOWN never means open.</p><ul>");
     day.path("completeness")
         .fields()
         .forEachRemaining(
             field ->
                 html.append("<li>")
-                    .append(HtmlTemplate.escape(field.getKey()))
+                    .append(
+                        HtmlTemplate.escape(
+                            SCOPE_LABELS.getOrDefault(field.getKey(), field.getKey())))
                     .append(": ")
                     .append(HtmlTemplate.escape(field.getValue().asText()))
                     .append("</li>"));
     html.append("</ul>");
+    List<String> evidenceIds = new ArrayList<>();
+    day.path("evidence_ids").forEach(id -> evidenceIds.add(id.asText()));
+    if (!evidenceIds.isEmpty()) {
+      html.append("<p>Evidence on this date: ");
+      for (int i = 0; i < evidenceIds.size(); i++) {
+        if (i > 0) html.append(", ");
+        html.append(evidenceLink(calendar.id(), evidenceIds.get(i)));
+      }
+      html.append(".</p>");
+    }
     for (var event : day.path("events")) {
       var nativeDate = event.path("nominal_native_date");
       if (nativeDate.isNull() || nativeDate.isMissingNode()) continue;
@@ -266,6 +304,20 @@ public final class DatePageRenderer {
         .append(date.getYear())
         .append(".json\">Full assessment and provenance as JSON</a></p></section>")
         .toString();
+  }
+
+  /** A citation id linked to its row in the market's source register, or plain when unknown. */
+  private String evidenceLink(String calendarId, String citationId) {
+    String register = sources == null ? null : sources.resolveRegister(calendarId, citationId);
+    String code = "<code>" + HtmlTemplate.escape(citationId) + "</code>";
+    if (register == null) return code;
+    return "<a href=\"../../sources/"
+        + HtmlTemplate.escape(register)
+        + "/index.html#"
+        + HtmlTemplate.escape(MarkdownRenderer.rowAnchor(citationId))
+        + "\">"
+        + code
+        + "</a>";
   }
 
   private String around(CalendarData calendar, LocalDate date) {

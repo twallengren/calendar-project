@@ -97,6 +97,26 @@ class SourcesPageTest {
     assertFalse(page.contains("unresolved"), "every US-NYSE citation is documented");
   }
 
+  /**
+   * A date page links every evidence id behind its answer to the register row that documents it.
+   */
+  @Test
+  void aDatePageLinksItsEvidenceToTheSourceRegister() throws IOException {
+    String page = GeneratedSite.read("US-NYSE/2026-07-03/index.html");
+    assertTrue(page.contains("Why this answer can be trusted"), "trust section present");
+    assertTrue(
+        page.contains("Business day: <strong>CLOSED</strong>, confidence CONFIRMED"),
+        "business-day view: Independence Day 2026 is a verified closure");
+    assertTrue(
+        page.contains("href=\"../../sources/US-NYSE/index.html#"),
+        "the evidence ids link to their register rows");
+    assertFalse(page.contains("unresolved"), "every evidence id on the page is documented");
+
+    // A venue that inherits its register from a base calendar links there.
+    String paris = GeneratedSite.read("FR-EURONEXT-PARIS/2026-05-01/index.html");
+    assertTrue(paris.contains("href=\"../../sources/EU-EURONEXT/index.html#"), paris);
+  }
+
   /** An id no register documents is shown, and marked, rather than linked into nowhere. */
   @Test
   void anUndocumentedCitationIsMarkedUnresolved() throws IOException {

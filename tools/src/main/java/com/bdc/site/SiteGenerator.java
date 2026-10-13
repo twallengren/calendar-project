@@ -100,7 +100,7 @@ public class SiteGenerator {
     MarketPageRenderer marketRenderer =
         new MarketPageRenderer(context, layout, gridRenderer, sources, markets);
     YearPageRenderer yearRenderer = new YearPageRenderer(context, layout, gridRenderer, pageDiffs);
-    DatePageRenderer dateRenderer = new DatePageRenderer(layout, pageDiffs);
+    DatePageRenderer dateRenderer = new DatePageRenderer(layout, pageDiffs, sources);
     ChangesRenderer changesRenderer = new ChangesRenderer(layout);
 
     homeRenderer.write(calendars, status, siteDir);
