@@ -2314,7 +2314,7 @@
       "type": "EARLY_CLOSE"
     }
   ],
-  "generated_at": "2026-09-15T10:01:34Z",
+  "generated_at": "2026-10-13T22:33:37Z",
   "kind": "market",
   "mic": "XPAR",
   "range_end": "2030-12-31",
@@ -2335,8 +2335,8 @@
     "calendar:FR-EURONEXT-PARIS"
   ],
   "source_version": {
-    "git_sha": "e694faa4119f45ae284deefc496729f119fc16af",
-    "semantic": "12.0.0"
+    "git_sha": "848195caa264f472d2ec8d9addcdfa4fe14b12d9",
+    "semantic": "13.0.0"
   },
   "timezone": "Europe/Paris",
   "weekend_policy": {

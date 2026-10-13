@@ -26,8 +26,8 @@
       "scope" : "UNSCHEDULED_EXCEPTIONS",
       "from" : "2018-01-01",
       "to" : "2024-09-22",
-      "quality" : "INCOMPLETE",
-      "evidence_ids" : [ "hkex-severe-weather-notices" ]
+      "quality" : "VERIFIED",
+      "evidence_ids" : [ "hko-warnings-database", "hkex-severe-weather-arrangements-2023", "hkex-swt-consultation-2023" ]
     }, {
       "scope" : "UNSCHEDULED_EXCEPTIONS",
       "from" : "2024-09-23",
@@ -36,7 +36,7 @@
       "evidence_ids" : [ "hkex-severe-weather-trading" ]
     } ]
   },
-  "event_count" : 1208,
+  "event_count" : 1216,
   "events" : [ {
     "date" : "2018-01-01",
     "type" : "CLOSED",
@@ -1784,6 +1784,15 @@
     "close_time" : null,
     "status" : "CONFIRMED"
   }, {
+    "date" : "2019-07-31",
+    "type" : "EARLY_CLOSE",
+    "description" : "Severe Weather Early Termination (Tropical Storm Wipha, Typhoon Signal No. 8 issued 13:40)",
+    "key" : "hk_hkex_severe_weather_early_termination",
+    "source_module" : "module:hk_hkex_severe_weather",
+    "observed_from" : null,
+    "close_time" : "13:55",
+    "status" : "CONFIRMED"
+  }, {
     "date" : "2019-08-03",
     "type" : "WEEKEND",
     "description" : "Saturday",
@@ -3080,6 +3089,15 @@
     "close_time" : null,
     "status" : "CONFIRMED"
   }, {
+    "date" : "2020-10-13",
+    "type" : "CLOSED",
+    "description" : "Severe Weather Closure (Tropical Storm Nangka, Typhoon Signal No. 8)",
+    "key" : "hk_hkex_severe_weather_closure",
+    "source_module" : "module:hk_hkex_severe_weather",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
     "date" : "2020-10-17",
     "type" : "WEEKEND",
     "description" : "Saturday",
@@ -4156,6 +4174,15 @@
     "description" : "Sunday",
     "key" : "weekend",
     "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2021-10-13",
+    "type" : "CLOSED",
+    "description" : "Severe Weather Closure (Severe Tropical Storm Kompasu, Typhoon Signal No. 8)",
+    "key" : "hk_hkex_severe_weather_closure",
+    "source_module" : "module:hk_hkex_severe_weather",
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED"
@@ -5303,6 +5330,15 @@
     "close_time" : null,
     "status" : "CONFIRMED"
   }, {
+    "date" : "2022-11-02",
+    "type" : "EARLY_CLOSE",
+    "description" : "Severe Weather Early Termination (Severe Tropical Storm Nalgae, Typhoon Signal No. 8 issued 13:40)",
+    "key" : "hk_hkex_severe_weather_early_termination",
+    "source_module" : "module:hk_hkex_severe_weather",
+    "observed_from" : null,
+    "close_time" : "13:55",
+    "status" : "CONFIRMED"
+  }, {
     "date" : "2022-11-05",
     "type" : "WEEKEND",
     "description" : "Saturday",
@@ -6077,6 +6113,15 @@
     "close_time" : null,
     "status" : "CONFIRMED"
   }, {
+    "date" : "2023-07-17",
+    "type" : "CLOSED",
+    "description" : "Severe Weather Closure (Severe Tropical Storm Talim, Typhoon Signal No. 8)",
+    "key" : "hk_hkex_severe_weather_closure",
+    "source_module" : "module:hk_hkex_severe_weather",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
     "date" : "2023-07-22",
     "type" : "WEEKEND",
     "description" : "Saturday",
@@ -6185,6 +6230,15 @@
     "close_time" : null,
     "status" : "CONFIRMED"
   }, {
+    "date" : "2023-09-01",
+    "type" : "CLOSED",
+    "description" : "Severe Weather Closure (Super Typhoon Saola, Typhoon Signal No. 8 to No. 10)",
+    "key" : "hk_hkex_severe_weather_closure",
+    "source_module" : "module:hk_hkex_severe_weather",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
     "date" : "2023-09-02",
     "type" : "WEEKEND",
     "description" : "Saturday",
@@ -6199,6 +6253,15 @@
     "description" : "Sunday",
     "key" : "weekend",
     "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2023-09-08",
+    "type" : "CLOSED",
+    "description" : "Severe Weather Closure (Black Rainstorm Warning and Extreme Conditions)",
+    "key" : "hk_hkex_severe_weather_closure",
+    "source_module" : "module:hk_hkex_severe_weather",
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED"
@@ -7270,6 +7333,15 @@
     "description" : "Sunday",
     "key" : "weekend",
     "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2024-09-06",
+    "type" : "CLOSED",
+    "description" : "Severe Weather Closure (Super Typhoon Yagi, Typhoon Signal No. 8)",
+    "key" : "hk_hkex_severe_weather_closure",
+    "source_module" : "module:hk_hkex_severe_weather",
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED"

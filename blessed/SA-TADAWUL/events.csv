@@ -64,8 +64,13 @@ date,type,description,key,source_module,observed_from,close_time,status
 2020-07-18,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
 2020-07-24,WEEKEND,Friday,weekend,weekend_policy,,,CONFIRMED
 2020-07-25,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
-2020-07-31,WEEKEND,Friday,weekend,weekend_policy,,,CONFIRMED
-2020-08-01,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2020-07-29,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2020-07-30,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2020-07-31,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2020-08-01,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2020-08-02,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2020-08-03,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2020-08-04,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
 2020-08-07,WEEKEND,Friday,weekend,weekend_policy,,,CONFIRMED
 2020-08-08,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
 2020-08-14,WEEKEND,Friday,weekend,weekend_policy,,,CONFIRMED

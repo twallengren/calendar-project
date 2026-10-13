@@ -14,8 +14,8 @@
       "scope" : "SCHEDULED_CLOSURES",
       "from" : "2020-01-01",
       "to" : "2020-12-31",
-      "quality" : "INCOMPLETE",
-      "evidence_ids" : [ "saudi-exchange-announcements", "argaam-tadawul-eid-adha-2020" ]
+      "quality" : "VERIFIED",
+      "evidence_ids" : [ "tadawul-holidays-page-2020", "tadawul-eid-al-adha-2020-notice", "tadawul-national-day-2020-notice", "saudi-exchange-announcements" ]
     }, {
       "scope" : "SCHEDULED_CLOSURES",
       "from" : "2021-01-01",
@@ -42,7 +42,7 @@
       "evidence_ids" : [ "saudi-exchange-announcements" ]
     } ]
   },
-  "event_count" : 1271,
+  "event_count" : 1276,
   "events" : [ {
     "date" : "2020-01-03",
     "type" : "WEEKEND",
@@ -629,20 +629,65 @@
     "close_time" : null,
     "status" : "CONFIRMED"
   }, {
+    "date" : "2020-07-29",
+    "type" : "CLOSED",
+    "description" : "Eid al-Adha",
+    "key" : "eid_al_adha",
+    "source_module" : "module:eid_al_adha",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2020-07-30",
+    "type" : "CLOSED",
+    "description" : "Eid al-Adha",
+    "key" : "eid_al_adha",
+    "source_module" : "module:eid_al_adha",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
     "date" : "2020-07-31",
-    "type" : "WEEKEND",
-    "description" : "Friday",
-    "key" : "weekend",
-    "source_module" : "weekend_policy",
+    "type" : "CLOSED",
+    "description" : "Eid al-Adha",
+    "key" : "eid_al_adha",
+    "source_module" : "module:eid_al_adha",
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED"
   }, {
     "date" : "2020-08-01",
-    "type" : "WEEKEND",
-    "description" : "Saturday",
-    "key" : "weekend",
-    "source_module" : "weekend_policy",
+    "type" : "CLOSED",
+    "description" : "Eid al-Adha",
+    "key" : "eid_al_adha",
+    "source_module" : "module:eid_al_adha",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2020-08-02",
+    "type" : "CLOSED",
+    "description" : "Eid al-Adha",
+    "key" : "eid_al_adha",
+    "source_module" : "module:eid_al_adha",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2020-08-03",
+    "type" : "CLOSED",
+    "description" : "Eid al-Adha",
+    "key" : "eid_al_adha",
+    "source_module" : "module:eid_al_adha",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2020-08-04",
+    "type" : "CLOSED",
+    "description" : "Eid al-Adha",
+    "key" : "eid_al_adha",
+    "source_module" : "module:eid_al_adha",
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED"

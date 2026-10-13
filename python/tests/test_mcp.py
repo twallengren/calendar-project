@@ -140,7 +140,12 @@ async def test_native_tase_assessment_and_unknown_error_through_stdio():
             event = next(event for event in payload["events"] if event["nominal_native_date"])
             assert event["nominal_native_date"] == dict(chronology_id="HEBREW", year=5786, month_code="TISHRI", day=1)
             assert event["evidence_ids"]
-            error = await _call(session, "is_business_day", {"calendar": "IL-TASE", "date": "2025-09-23"})
+            # Closures and unscheduled exceptions are verified for 2025, so the business-day
+            # question answers; the 2025 close times are unsourced, so the session question fails.
+            assert payload["business_day_state"] == "CLOSED"
+            closed = await _call(session, "is_business_day", {"calendar": "IL-TASE", "date": "2025-09-23"})
+            assert closed["is_business_day"] is False
+            error = await _call(session, "is_early_close", {"calendar": "IL-TASE", "date": "2025-09-23"})
             assert error["error"] == "UnresolvedDateError"
 
 

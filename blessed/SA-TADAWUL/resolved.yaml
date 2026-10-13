@@ -17,10 +17,12 @@ metadata:
     - scope: SCHEDULED_CLOSURES
       from: 2020-01-01
       to: 2020-12-31
-      quality: INCOMPLETE
+      quality: VERIFIED
       evidence_ids:
+      - tadawul-holidays-page-2020
+      - tadawul-eid-al-adha-2020-notice
+      - tadawul-national-day-2020-notice
       - saudi-exchange-announcements
-      - argaam-tadawul-eid-adha-2020
     - scope: SCHEDULED_CLOSURES
       from: 2021-01-01
       to: 2029-12-31
@@ -207,10 +209,20 @@ event_sources:
   classification: CLOSED
   status: CONFIRMED
   source:
+  - id: tadawul-eid-al-adha-2020-notice
+    ref: trading stops at the end of Tuesday 7/12/1441 (28/7/2020); resumes Wednesday
+      15/12/1441 (5/8/2020)
   - id: saudi-exchange-announcements
   rule:
     type: explicit_dates
     dates:
+    - 2020-07-29
+    - 2020-07-30
+    - 2020-07-31
+    - 2020-08-01
+    - 2020-08-02
+    - 2020-08-03
+    - 2020-08-04
     - 2021-07-16
     - 2021-07-17
     - 2021-07-18

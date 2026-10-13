@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "blessed_at": "2026-09-15T10:01:34Z",
+  "blessed_at": "2026-10-13T22:33:37Z",
   "blessed_by": "github-actions",
   "calendars": {
     "BE-EURONEXT-BRUSSELS": {
@@ -62,16 +62,16 @@
     "HK-HKEX": {
       "range_start": "2018-01-01",
       "range_end": "2027-12-31",
-      "event_count": 1208,
-      "checksum": "sha256:7816d1a238a72cc8105892e7ab8cd14b6185b477943185c4157854a56f54310e",
+      "event_count": 1216,
+      "checksum": "sha256:99f9600b49a1a84fc9028c1b542002e2f9637b4a06d68ab4f40c0e3fe1868554",
       "kind": "market"
     },
     "IL-TASE": {
       "range_start": "2025-01-01",
-      "range_end": "2027-12-31",
+      "range_end": "2028-12-31",
       "kind": "market",
-      "checksum": "sha256:65833fed51d56855f28d31a3d26ff3f289c5f364293c2844725be04cc60f3762",
-      "event_count": 341
+      "checksum": "sha256:860847da74c6af4cdf03edec7e7abca09abac869d7401ad1ae49b158168fe946",
+      "event_count": 639
     },
     "JP-JPX": {
       "range_start": "2010-01-01",
@@ -98,8 +98,8 @@
       "kind": "market",
       "range_start": "2020-01-01",
       "range_end": "2030-12-31",
-      "event_count": 1271,
-      "checksum": "sha256:7abe60d0b866382dae15d4ab78bab9286fdceb737781776c08abcf3972a4bbe1"
+      "event_count": 1276,
+      "checksum": "sha256:401b715cbe1b3e43ddf8b4fd59c72ebc9c6b51b117333e5b4f0d080bd0d531e5"
     },
     "US-CORP-IN-VISIBILITY": {
       "kind": "base",
@@ -131,9 +131,9 @@
     }
   },
   "release_version": {
-    "semantic": "12.0.0",
-    "git_sha": "e694faa4119f45ae284deefc496729f119fc16af",
-    "generation_date": "2026-09-15"
+    "semantic": "13.0.0",
+    "git_sha": "848195caa264f472d2ec8d9addcdfa4fe14b12d9",
+    "generation_date": "2026-10-13"
   },
   "aliases": {
     "XAMS": "NL-EURONEXT-AMSTERDAM",

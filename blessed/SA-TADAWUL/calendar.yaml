@@ -13,10 +13,12 @@ metadata:
     - scope: SCHEDULED_CLOSURES
       from: 2020-01-01
       to: 2020-12-31
-      quality: INCOMPLETE
+      quality: VERIFIED
       evidenceIds:
+      - tadawul-holidays-page-2020
+      - tadawul-eid-al-adha-2020-notice
+      - tadawul-national-day-2020-notice
       - saudi-exchange-announcements
-      - argaam-tadawul-eid-adha-2020
     - scope: SCHEDULED_CLOSURES
       from: 2021-01-01
       to: 2029-12-31

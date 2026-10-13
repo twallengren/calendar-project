@@ -145,8 +145,8 @@ def test_schedule_on_a_joint_calendar_and_coverage_errors():
     assert schedule.dates == [d(2024, 5, 24), d(2024, 6, 24), d(2024, 7, 24), d(2024, 8, 27)], (
         "24 Aug is a Saturday; Monday 26 Aug is the UK summer bank holiday"
     )
-    tase = bdc.get_calendar("IL-TASE")
+    tsx = bdc.get_calendar("CA-TSX")  # 2001-09-11 is the one remaining unresolved business day
     with pytest.raises(bdc.UnresolvedDateError):
-        tase.generate_schedule(ScheduleDefinition(d(2025, 2, 2), d(2025, 8, 2), Frequency.QUARTERLY))
+        tsx.generate_schedule(ScheduleDefinition(d(2001, 9, 11), d(2002, 3, 11), Frequency.QUARTERLY))
     with pytest.raises(bdc.OutsideCoverageError):
         bdc.get_calendar("US-NYSE").generate_schedule(ScheduleDefinition(d(2030, 10, 1), d(2031, 4, 1), Frequency.QUARTERLY))

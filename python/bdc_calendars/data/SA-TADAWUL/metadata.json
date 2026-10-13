@@ -5,23 +5,25 @@
   "calendar_id": "SA-TADAWUL",
   "calendar_name": "Tadawul (Saudi Exchange) Trading Calendar",
   "counts_by_status": {
-    "CONFIRMED": 1255,
+    "CONFIRMED": 1260,
     "PROJECTED": 16
   },
   "counts_by_type": {
-    "CLOSED": 187,
-    "WEEKEND": 1084
+    "CLOSED": 194,
+    "WEEKEND": 1082
   },
   "coverage": {
     "from": "2020-01-01",
     "quality": [
       {
         "evidence_ids": [
-          "saudi-exchange-announcements",
-          "argaam-tadawul-eid-adha-2020"
+          "tadawul-holidays-page-2020",
+          "tadawul-eid-al-adha-2020-notice",
+          "tadawul-national-day-2020-notice",
+          "saudi-exchange-announcements"
         ],
         "from": "2020-01-01",
-        "quality": "INCOMPLETE",
+        "quality": "VERIFIED",
         "scope": "SCHEDULED_CLOSURES",
         "to": "2020-12-31"
       },
@@ -65,7 +67,7 @@
     "to": "2030-12-31",
     "verified_through": "2029-12-31"
   },
-  "event_count": 1271,
+  "event_count": 1276,
   "event_details": [
     {
       "close_time": null,
@@ -195,6 +197,111 @@
     },
     {
       "close_time": null,
+      "date": "2020-07-29",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-07-30",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-07-31",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-08-01",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-08-02",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-08-03",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-08-04",
+      "description": "Eid al-Adha",
+      "evidence_ids": [
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
+      ],
+      "key": "eid_al_adha",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_adha",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
       "date": "2020-09-23",
       "description": "Saudi National Day",
       "evidence_ids": [
@@ -268,7 +375,8 @@
       "date": "2021-07-16",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -282,7 +390,8 @@
       "date": "2021-07-17",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -296,7 +405,8 @@
       "date": "2021-07-18",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -310,7 +420,8 @@
       "date": "2021-07-19",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -324,7 +435,8 @@
       "date": "2021-07-20",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -338,7 +450,8 @@
       "date": "2021-07-21",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -352,7 +465,8 @@
       "date": "2021-07-22",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -366,7 +480,8 @@
       "date": "2021-07-23",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -380,7 +495,8 @@
       "date": "2021-07-24",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -576,7 +692,8 @@
       "date": "2022-07-07",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -590,7 +707,8 @@
       "date": "2022-07-08",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -604,7 +722,8 @@
       "date": "2022-07-09",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -618,7 +737,8 @@
       "date": "2022-07-10",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -632,7 +752,8 @@
       "date": "2022-07-11",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -646,7 +767,8 @@
       "date": "2022-07-12",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -789,7 +911,8 @@
       "date": "2023-06-23",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -803,7 +926,8 @@
       "date": "2023-06-24",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -817,7 +941,8 @@
       "date": "2023-06-25",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -831,7 +956,8 @@
       "date": "2023-06-26",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -845,7 +971,8 @@
       "date": "2023-06-27",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -859,7 +986,8 @@
       "date": "2023-06-28",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -873,7 +1001,8 @@
       "date": "2023-06-29",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -887,7 +1016,8 @@
       "date": "2023-06-30",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -901,7 +1031,8 @@
       "date": "2023-07-01",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -1072,7 +1203,8 @@
       "date": "2024-06-14",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -1086,7 +1218,8 @@
       "date": "2024-06-15",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -1100,7 +1233,8 @@
       "date": "2024-06-16",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -1114,7 +1248,8 @@
       "date": "2024-06-17",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -1128,7 +1263,8 @@
       "date": "2024-06-18",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -1142,7 +1278,8 @@
       "date": "2024-06-19",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -1156,7 +1293,8 @@
       "date": "2024-06-20",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -1170,7 +1308,8 @@
       "date": "2024-06-21",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -1184,7 +1323,8 @@
       "date": "2024-06-22",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -1313,7 +1453,8 @@
       "date": "2025-06-05",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -1327,7 +1468,8 @@
       "date": "2025-06-06",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -1341,7 +1483,8 @@
       "date": "2025-06-07",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -1355,7 +1498,8 @@
       "date": "2025-06-08",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -1369,7 +1513,8 @@
       "date": "2025-06-09",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -1383,7 +1528,8 @@
       "date": "2025-06-10",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -1523,7 +1669,8 @@
       "date": "2026-05-22",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -1537,7 +1684,8 @@
       "date": "2026-05-23",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -1551,7 +1699,8 @@
       "date": "2026-05-24",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -1565,7 +1714,8 @@
       "date": "2026-05-25",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -1579,7 +1729,8 @@
       "date": "2026-05-26",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -1593,7 +1744,8 @@
       "date": "2026-05-27",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -1607,7 +1759,8 @@
       "date": "2026-05-28",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -1621,7 +1774,8 @@
       "date": "2026-05-29",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -1635,7 +1789,8 @@
       "date": "2026-05-30",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -1803,7 +1958,8 @@
       "date": "2027-05-14",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -1817,7 +1973,8 @@
       "date": "2027-05-15",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -1831,7 +1988,8 @@
       "date": "2027-05-16",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -1845,7 +2003,8 @@
       "date": "2027-05-17",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -1859,7 +2018,8 @@
       "date": "2027-05-18",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -1873,7 +2033,8 @@
       "date": "2027-05-19",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -1887,7 +2048,8 @@
       "date": "2027-05-20",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -1901,7 +2063,8 @@
       "date": "2027-05-21",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -1915,7 +2078,8 @@
       "date": "2027-05-22",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -2083,7 +2247,8 @@
       "date": "2028-05-03",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -2097,7 +2262,8 @@
       "date": "2028-05-04",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -2111,7 +2277,8 @@
       "date": "2028-05-05",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -2125,7 +2292,8 @@
       "date": "2028-05-06",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -2139,7 +2307,8 @@
       "date": "2028-05-07",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -2153,7 +2322,8 @@
       "date": "2028-05-08",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -2167,7 +2337,8 @@
       "date": "2028-05-09",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -2310,7 +2481,8 @@
       "date": "2029-04-20",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -2324,7 +2496,8 @@
       "date": "2029-04-21",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -2338,7 +2511,8 @@
       "date": "2029-04-22",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -2352,7 +2526,8 @@
       "date": "2029-04-23",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -2366,7 +2541,8 @@
       "date": "2029-04-24",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -2380,7 +2556,8 @@
       "date": "2029-04-25",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -2394,7 +2571,8 @@
       "date": "2029-04-26",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -2408,7 +2586,8 @@
       "date": "2029-04-27",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -2422,7 +2601,8 @@
       "date": "2029-04-28",
       "description": "Eid al-Adha",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "saudi-exchange-announcements",
+        "tadawul-eid-al-adha-2020-notice"
       ],
       "key": "eid_al_adha",
       "observation_lineage": [],
@@ -2701,7 +2881,7 @@
       "type": "CLOSED"
     }
   ],
-  "generated_at": "2026-09-15T10:01:34Z",
+  "generated_at": "2026-10-13T22:33:37Z",
   "kind": "market",
   "mic": "XSAU",
   "range_end": "2030-12-31",
@@ -2716,8 +2896,8 @@
     "calendar:SA-TADAWUL"
   ],
   "source_version": {
-    "git_sha": "e694faa4119f45ae284deefc496729f119fc16af",
-    "semantic": "12.0.0"
+    "git_sha": "848195caa264f472d2ec8d9addcdfa4fe14b12d9",
+    "semantic": "13.0.0"
   },
   "timezone": "Asia/Riyadh",
   "weekend_policy": {
