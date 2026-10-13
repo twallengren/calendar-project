@@ -17,7 +17,7 @@
     "XTKS": "JP-JPX",
     "XTSE": "CA-TSX"
   },
-  "blessed_at": "2026-10-13T22:33:37Z",
+  "blessed_at": "2026-10-13T23:21:05Z",
   "calendars": {
     "BE-EURONEXT-BRUSSELS": {
       "kind": "market",
@@ -110,7 +110,7 @@
       "range_start": "1900-01-01"
     }
   },
-  "data_git_sha": "848195caa264f472d2ec8d9addcdfa4fe14b12d9",
+  "data_git_sha": "c2a3fbcd1a814f9b607ab52b74714793b5ff2ace",
   "data_version": "13.0.0",
   "generation_date": "2026-10-13",
   "schema_version": "1.0"

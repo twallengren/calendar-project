@@ -2,7 +2,7 @@
   "calendar_id" : "EU-EURONEXT",
   "calendar_name" : "Euronext Cash Markets Base Calendar",
   "kind" : "base",
-  "generated_at" : "2026-10-13T22:33:37Z",
+  "generated_at" : "2026-10-13T23:21:05Z",
   "range_start" : "2010-01-01",
   "range_end" : "2030-12-31",
   "timezone" : "Europe/Paris",
@@ -31,23 +31,29 @@
     }, {
       "scope" : "UNSCHEDULED_EXCEPTIONS",
       "from" : "2010-01-01",
+      "to" : "2026-09-30",
+      "quality" : "VERIFIED",
+      "evidence_ids" : [ "nyse-euronext-10k-2012", "euronext-volumes-dec-2014", "euronext-volumes-dec-2015", "euronext-volumes-dec-2016", "euronext-monthly-historical-volumes", "euronext-market-status-2020-10-19" ]
+    }, {
+      "scope" : "UNSCHEDULED_EXCEPTIONS",
+      "from" : "2026-10-01",
       "to" : "2030-12-31",
       "quality" : "PROJECTED",
       "evidence_ids" : [ "euronext-hours-holidays" ]
     } ]
   },
-  "event_count" : 2295,
-  "resolution_chain" : [ "module:weekend_sat_sun", "module:euronext_new_years_day", "module:euronext_good_friday", "module:euronext_easter_monday", "module:euronext_labour_day", "module:euronext_christmas", "module:euronext_boxing_day", "module:euronext_special_closures", "module:euronext_holidays", "calendar:EU-EURONEXT" ],
+  "event_count" : 2294,
+  "resolution_chain" : [ "module:weekend_sat_sun", "module:euronext_new_years_day", "module:euronext_good_friday", "module:euronext_easter_monday", "module:euronext_labour_day", "module:euronext_christmas", "module:euronext_boxing_day", "module:euronext_holidays", "calendar:EU-EURONEXT" ],
   "counts_by_type" : {
-    "CLOSED" : 127,
+    "CLOSED" : 126,
     "WEEKEND" : 2168
   },
   "counts_by_status" : {
-    "CONFIRMED" : 2295
+    "CONFIRMED" : 2294
   },
   "source_version" : {
     "semantic" : "13.0.0",
-    "git_sha" : "848195caa264f472d2ec8d9addcdfa4fe14b12d9"
+    "git_sha" : "c2a3fbcd1a814f9b607ab52b74714793b5ff2ace"
   },
   "event_details" : [ {
     "date" : "2010-01-01",
@@ -444,17 +450,6 @@
     "close_time" : null,
     "status" : "CONFIRMED",
     "evidence_ids" : [ "euronext-hours-holidays" ],
-    "observation_lineage" : [ ]
-  }, {
-    "date" : "2015-12-31",
-    "type" : "CLOSED",
-    "description" : "Market Holiday (New Year's Eve)",
-    "key" : "euronext_special_closure",
-    "source_module" : "module:euronext_special_closures",
-    "observed_from" : null,
-    "close_time" : null,
-    "status" : "CONFIRMED",
-    "evidence_ids" : [ "euronext-calendars-hours-archive" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2016-01-01",

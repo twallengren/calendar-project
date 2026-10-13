@@ -26,9 +26,21 @@
       },
       {
         "evidence_ids": [
+          "fred-nasdaqcom",
+          "fred-sp500",
           "nyse-hours"
         ],
         "from": "2008-01-01",
+        "quality": "VERIFIED",
+        "scope": "SCHEDULED_CLOSURES",
+        "to": "2026-10-12"
+      },
+      {
+        "evidence_ids": [
+          "nyse-hours",
+          "nyse-trading-days-2026-2028"
+        ],
+        "from": "2026-10-13",
         "quality": "PROJECTED",
         "scope": "SCHEDULED_CLOSURES",
         "to": "2030-12-31"
@@ -134,9 +146,24 @@
       },
       {
         "evidence_ids": [
-          "nyse-hours"
+          "fred-nasdaqcom",
+          "fred-sp500",
+          "nyse-euronext-sandy-2012-10-28",
+          "sec-fr-2013-19145",
+          "nyse-pr-bush-2018",
+          "finra-rn-18-39",
+          "nyse-pr-carter-2024"
         ],
         "from": "2008-01-01",
+        "quality": "VERIFIED",
+        "scope": "UNSCHEDULED_EXCEPTIONS",
+        "to": "2026-10-12"
+      },
+      {
+        "evidence_ids": [
+          "nyse-hours"
+        ],
+        "from": "2026-10-13",
         "quality": "PROJECTED",
         "scope": "UNSCHEDULED_EXCEPTIONS",
         "to": "2030-12-31"
@@ -280,8 +307,10 @@
       "date": "1900-11-06",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -352,8 +381,10 @@
       "date": "1901-02-02",
       "description": "Special Event (Funeral of Queen Victoria)",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "special_events",
       "observation_lineage": [],
@@ -424,8 +455,10 @@
       "date": "1901-04-27",
       "description": "Special Event (Move to Temporary Quarters)",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "special_events",
       "observation_lineage": [],
@@ -439,8 +472,10 @@
       "date": "1901-05-11",
       "description": "Special Event (Enlargement of Temporary Quarters)",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "special_events",
       "observation_lineage": [],
@@ -482,8 +517,10 @@
       "date": "1901-07-05",
       "description": "Holiday Extension (Day After Independence Day)",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "holiday_extensions",
       "observation_lineage": [],
@@ -541,8 +578,10 @@
       "date": "1901-09-14",
       "description": "Presidential Funeral (William McKinley (assassination))",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "presidential_funerals",
       "observation_lineage": [],
@@ -556,8 +595,10 @@
       "date": "1901-09-19",
       "description": "Presidential Funeral (William McKinley)",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "presidential_funerals",
       "observation_lineage": [],
@@ -571,8 +612,10 @@
       "date": "1901-11-05",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -758,8 +801,10 @@
       "date": "1902-08-09",
       "description": "Special Event (Coronation of King Edward VII)",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "special_events",
       "observation_lineage": [],
@@ -802,8 +847,10 @@
       "date": "1902-11-04",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -934,8 +981,10 @@
       "date": "1903-04-22",
       "description": "Special Event (New NYSE Building Opened)",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "special_events",
       "observation_lineage": [],
@@ -1036,8 +1085,10 @@
       "date": "1903-11-03",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -1237,8 +1288,10 @@
       "date": "1904-11-08",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -1417,8 +1470,10 @@
       "date": "1905-11-07",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -1544,8 +1599,10 @@
       "date": "1906-11-06",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -1716,8 +1773,10 @@
       "date": "1907-11-05",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -1946,8 +2005,10 @@
       "date": "1908-11-03",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -2183,8 +2244,10 @@
       "date": "1909-09-25",
       "description": "Special Event (Hudson-Fulton Celebration)",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "special_events",
       "observation_lineage": [],
@@ -2212,8 +2275,10 @@
       "date": "1909-11-02",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -2457,8 +2522,10 @@
       "date": "1910-11-08",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -2666,8 +2733,10 @@
       "date": "1911-11-07",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -2866,8 +2935,10 @@
       "date": "1912-11-02",
       "description": "Presidential Funeral (Vice President James Sherman)",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "presidential_funerals",
       "observation_lineage": [],
@@ -2881,8 +2952,10 @@
       "date": "1912-11-05",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -3114,8 +3187,10 @@
       "date": "1913-11-04",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -3274,8 +3349,10 @@
       "date": "1914-07-31",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -3289,8 +3366,10 @@
       "date": "1914-08-01",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -3304,8 +3383,10 @@
       "date": "1914-08-03",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -3319,8 +3400,10 @@
       "date": "1914-08-04",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -3334,8 +3417,10 @@
       "date": "1914-08-05",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -3349,8 +3434,10 @@
       "date": "1914-08-06",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -3364,8 +3451,10 @@
       "date": "1914-08-07",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -3379,8 +3468,10 @@
       "date": "1914-08-08",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -3394,8 +3485,10 @@
       "date": "1914-08-10",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -3409,8 +3502,10 @@
       "date": "1914-08-11",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -3424,8 +3519,10 @@
       "date": "1914-08-12",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -3439,8 +3536,10 @@
       "date": "1914-08-13",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -3454,8 +3553,10 @@
       "date": "1914-08-14",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -3469,8 +3570,10 @@
       "date": "1914-08-15",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -3484,8 +3587,10 @@
       "date": "1914-08-17",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -3499,8 +3604,10 @@
       "date": "1914-08-18",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -3514,8 +3621,10 @@
       "date": "1914-08-19",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -3529,8 +3638,10 @@
       "date": "1914-08-20",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -3544,8 +3655,10 @@
       "date": "1914-08-21",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -3559,8 +3672,10 @@
       "date": "1914-08-22",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -3574,8 +3689,10 @@
       "date": "1914-08-24",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -3589,8 +3706,10 @@
       "date": "1914-08-25",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -3604,8 +3723,10 @@
       "date": "1914-08-26",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -3619,8 +3740,10 @@
       "date": "1914-08-27",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -3634,8 +3757,10 @@
       "date": "1914-08-28",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -3649,8 +3774,10 @@
       "date": "1914-08-29",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -3664,8 +3791,10 @@
       "date": "1914-08-31",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -3679,8 +3808,10 @@
       "date": "1914-09-01",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -3694,8 +3825,10 @@
       "date": "1914-09-02",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -3709,8 +3842,10 @@
       "date": "1914-09-03",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -3724,8 +3859,10 @@
       "date": "1914-09-04",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -3739,8 +3876,10 @@
       "date": "1914-09-05",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -3768,8 +3907,10 @@
       "date": "1914-09-08",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -3783,8 +3924,10 @@
       "date": "1914-09-09",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -3798,8 +3941,10 @@
       "date": "1914-09-10",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -3813,8 +3958,10 @@
       "date": "1914-09-11",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -3828,8 +3975,10 @@
       "date": "1914-09-12",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -3843,8 +3992,10 @@
       "date": "1914-09-14",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -3858,8 +4009,10 @@
       "date": "1914-09-15",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -3873,8 +4026,10 @@
       "date": "1914-09-16",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -3888,8 +4043,10 @@
       "date": "1914-09-17",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -3903,8 +4060,10 @@
       "date": "1914-09-18",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -3918,8 +4077,10 @@
       "date": "1914-09-19",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -3933,8 +4094,10 @@
       "date": "1914-09-21",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -3948,8 +4111,10 @@
       "date": "1914-09-22",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -3963,8 +4128,10 @@
       "date": "1914-09-23",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -3978,8 +4145,10 @@
       "date": "1914-09-24",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -3993,8 +4162,10 @@
       "date": "1914-09-25",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -4008,8 +4179,10 @@
       "date": "1914-09-26",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -4023,8 +4196,10 @@
       "date": "1914-09-28",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -4038,8 +4213,10 @@
       "date": "1914-09-29",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -4053,8 +4230,10 @@
       "date": "1914-09-30",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -4068,8 +4247,10 @@
       "date": "1914-10-01",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -4083,8 +4264,10 @@
       "date": "1914-10-02",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -4098,8 +4281,10 @@
       "date": "1914-10-03",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -4113,8 +4298,10 @@
       "date": "1914-10-05",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -4128,8 +4315,10 @@
       "date": "1914-10-06",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -4143,8 +4332,10 @@
       "date": "1914-10-07",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -4158,8 +4349,10 @@
       "date": "1914-10-08",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -4173,8 +4366,10 @@
       "date": "1914-10-09",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -4188,8 +4383,10 @@
       "date": "1914-10-10",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -4217,8 +4414,10 @@
       "date": "1914-10-13",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -4232,8 +4431,10 @@
       "date": "1914-10-14",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -4247,8 +4448,10 @@
       "date": "1914-10-15",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -4262,8 +4465,10 @@
       "date": "1914-10-16",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -4277,8 +4482,10 @@
       "date": "1914-10-17",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -4292,8 +4499,10 @@
       "date": "1914-10-19",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -4307,8 +4516,10 @@
       "date": "1914-10-20",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -4322,8 +4533,10 @@
       "date": "1914-10-21",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -4337,8 +4550,10 @@
       "date": "1914-10-22",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -4352,8 +4567,10 @@
       "date": "1914-10-23",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -4367,8 +4584,10 @@
       "date": "1914-10-24",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -4382,8 +4601,10 @@
       "date": "1914-10-26",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -4397,8 +4618,10 @@
       "date": "1914-10-27",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -4412,8 +4635,10 @@
       "date": "1914-10-28",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -4427,8 +4652,10 @@
       "date": "1914-10-29",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -4442,8 +4669,10 @@
       "date": "1914-10-30",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -4457,8 +4686,10 @@
       "date": "1914-10-31",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -4472,8 +4703,10 @@
       "date": "1914-11-02",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -4487,8 +4720,10 @@
       "date": "1914-11-03",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -4502,8 +4737,10 @@
       "date": "1914-11-04",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -4517,8 +4754,10 @@
       "date": "1914-11-05",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -4532,8 +4771,10 @@
       "date": "1914-11-06",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -4547,8 +4788,10 @@
       "date": "1914-11-07",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -4562,8 +4805,10 @@
       "date": "1914-11-09",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -4577,8 +4822,10 @@
       "date": "1914-11-10",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -4592,8 +4839,10 @@
       "date": "1914-11-11",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -4607,8 +4856,10 @@
       "date": "1914-11-12",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -4622,8 +4873,10 @@
       "date": "1914-11-13",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -4637,8 +4890,10 @@
       "date": "1914-11-14",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -4652,8 +4907,10 @@
       "date": "1914-11-16",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -4667,8 +4924,10 @@
       "date": "1914-11-17",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -4682,8 +4941,10 @@
       "date": "1914-11-18",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -4697,8 +4958,10 @@
       "date": "1914-11-19",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -4712,8 +4975,10 @@
       "date": "1914-11-20",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -4727,8 +4992,10 @@
       "date": "1914-11-21",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -4742,8 +5009,10 @@
       "date": "1914-11-23",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -4757,8 +5026,10 @@
       "date": "1914-11-24",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -4772,8 +5043,10 @@
       "date": "1914-11-25",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -4801,8 +5074,10 @@
       "date": "1914-11-27",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -4816,8 +5091,10 @@
       "date": "1914-11-28",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -4831,8 +5108,10 @@
       "date": "1914-11-30",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -4846,8 +5125,10 @@
       "date": "1914-12-01",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -4861,8 +5142,10 @@
       "date": "1914-12-02",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -4876,8 +5159,10 @@
       "date": "1914-12-03",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -4891,8 +5176,10 @@
       "date": "1914-12-04",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -4906,8 +5193,10 @@
       "date": "1914-12-05",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -4921,8 +5210,10 @@
       "date": "1914-12-07",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -4936,8 +5227,10 @@
       "date": "1914-12-08",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -4951,8 +5244,10 @@
       "date": "1914-12-09",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -4966,8 +5261,10 @@
       "date": "1914-12-10",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -4981,8 +5278,10 @@
       "date": "1914-12-11",
       "description": "World War I Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_closure",
       "observation_lineage": [],
@@ -5128,8 +5427,10 @@
       "date": "1915-11-02",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -5342,8 +5643,10 @@
       "date": "1916-11-07",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -5470,8 +5773,10 @@
       "date": "1917-06-05",
       "description": "WWI Related (Draft Registration Day)",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_related",
       "observation_lineage": [],
@@ -5513,8 +5818,10 @@
       "date": "1917-08-04",
       "description": "Weather Event (Heat Wave)",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "weather_closures",
       "observation_lineage": [],
@@ -5614,8 +5921,10 @@
       "date": "1917-11-06",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -5671,8 +5980,10 @@
       "date": "1918-01-28",
       "description": "WWI Related (Heatless Day)",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_related",
       "observation_lineage": [],
@@ -5686,8 +5997,10 @@
       "date": "1918-02-04",
       "description": "WWI Related (Heatless Day)",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_related",
       "observation_lineage": [],
@@ -5701,8 +6014,10 @@
       "date": "1918-02-11",
       "description": "WWI Related (Heatless Day)",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_related",
       "observation_lineage": [],
@@ -5828,8 +6143,10 @@
       "date": "1918-09-12",
       "description": "WWI Related (Draft Registration Day)",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "wwi_related",
       "observation_lineage": [],
@@ -5872,8 +6189,10 @@
       "date": "1918-11-05",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -6014,8 +6333,10 @@
       "date": "1919-03-25",
       "description": "Special Event (Homecoming of 27th Division)",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "special_events",
       "observation_lineage": [],
@@ -6043,8 +6364,10 @@
       "date": "1919-05-06",
       "description": "Special Event (Parade)",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "special_events",
       "observation_lineage": [],
@@ -6159,8 +6482,10 @@
       "date": "1919-09-10",
       "description": "Special Event (Return of General Pershing)",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "special_events",
       "observation_lineage": [],
@@ -6191,8 +6516,10 @@
       "date": "1919-11-04",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -6308,8 +6635,10 @@
       "date": "1920-05-01",
       "description": "Special Event (Relocation of Brokerage Offices)",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "special_events",
       "observation_lineage": [],
@@ -6443,8 +6772,10 @@
       "date": "1920-11-02",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -6702,8 +7033,10 @@
       "date": "1921-11-08",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -6894,8 +7227,10 @@
       "date": "1922-11-07",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -7050,8 +7385,10 @@
       "date": "1923-08-03",
       "description": "Presidential Funeral (Warren G. Harding (death))",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "presidential_funerals",
       "observation_lineage": [],
@@ -7065,8 +7402,10 @@
       "date": "1923-08-10",
       "description": "Presidential Funeral (Warren G. Harding)",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "presidential_funerals",
       "observation_lineage": [],
@@ -7108,8 +7447,10 @@
       "date": "1923-11-06",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -7324,8 +7665,10 @@
       "date": "1924-11-04",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -7543,8 +7886,10 @@
       "date": "1925-11-03",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -7778,8 +8123,10 @@
       "date": "1926-11-02",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -7936,8 +8283,10 @@
       "date": "1927-06-13",
       "description": "Special Event (Lindbergh Parade)",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "special_events",
       "observation_lineage": [],
@@ -8007,8 +8356,10 @@
       "date": "1927-11-08",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -8345,8 +8696,10 @@
       "date": "1928-11-06",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -8634,8 +8987,10 @@
       "date": "1929-11-05",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -9152,8 +9507,10 @@
       "date": "1930-11-04",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -9387,8 +9744,10 @@
       "date": "1931-11-03",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -9586,8 +9945,10 @@
       "date": "1932-11-08",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -9649,8 +10010,10 @@
       "date": "1933-01-07",
       "description": "Presidential Funeral (Calvin Coolidge)",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "presidential_funerals",
       "observation_lineage": [],
@@ -9695,8 +10058,10 @@
       "date": "1933-03-04",
       "description": "Banking Holiday (State Banking Holiday)",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "banking_holiday_1933",
       "observation_lineage": [],
@@ -9710,8 +10075,10 @@
       "date": "1933-03-06",
       "description": "Banking Holiday (National Banking Holiday)",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "banking_holiday_1933",
       "observation_lineage": [],
@@ -9725,8 +10092,10 @@
       "date": "1933-03-07",
       "description": "Banking Holiday (National Banking Holiday)",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "banking_holiday_1933",
       "observation_lineage": [],
@@ -9740,8 +10109,10 @@
       "date": "1933-03-08",
       "description": "Banking Holiday (National Banking Holiday)",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "banking_holiday_1933",
       "observation_lineage": [],
@@ -9755,8 +10126,10 @@
       "date": "1933-03-09",
       "description": "Banking Holiday (National Banking Holiday)",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "banking_holiday_1933",
       "observation_lineage": [],
@@ -9770,8 +10143,10 @@
       "date": "1933-03-10",
       "description": "Banking Holiday (National Banking Holiday)",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "banking_holiday_1933",
       "observation_lineage": [],
@@ -9785,8 +10160,10 @@
       "date": "1933-03-11",
       "description": "Banking Holiday (National Banking Holiday)",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "banking_holiday_1933",
       "observation_lineage": [],
@@ -9800,8 +10177,10 @@
       "date": "1933-03-13",
       "description": "Banking Holiday (National Banking Holiday)",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "banking_holiday_1933",
       "observation_lineage": [],
@@ -9815,8 +10194,10 @@
       "date": "1933-03-14",
       "description": "Banking Holiday (National Banking Holiday)",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "banking_holiday_1933",
       "observation_lineage": [],
@@ -9984,8 +10365,10 @@
       "date": "1933-11-07",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -10153,8 +10536,10 @@
       "date": "1934-11-06",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -10354,8 +10739,10 @@
       "date": "1935-11-05",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -10585,8 +10972,10 @@
       "date": "1936-11-03",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -10819,8 +11208,10 @@
       "date": "1937-11-02",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -11047,8 +11438,10 @@
       "date": "1938-11-08",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -11239,8 +11632,10 @@
       "date": "1939-11-07",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -11452,8 +11847,10 @@
       "date": "1940-11-05",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -11668,8 +12065,10 @@
       "date": "1941-11-04",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -11887,8 +12286,10 @@
       "date": "1942-11-03",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -12076,8 +12477,10 @@
       "date": "1943-11-02",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -12304,8 +12707,10 @@
       "date": "1944-11-07",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -12432,8 +12837,10 @@
       "date": "1945-04-14",
       "description": "Presidential Funeral (Franklin D. Roosevelt)",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "presidential_funerals",
       "observation_lineage": [],
@@ -12489,8 +12896,10 @@
       "date": "1945-08-15",
       "description": "Victory Over Japan Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "vj_day",
       "observation_lineage": [],
@@ -12504,8 +12913,10 @@
       "date": "1945-08-16",
       "description": "Victory Over Japan Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "vj_day",
       "observation_lineage": [],
@@ -12562,8 +12973,10 @@
       "date": "1945-10-27",
       "description": "Special Event (Navy Day)",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "special_events",
       "observation_lineage": [],
@@ -12577,8 +12990,10 @@
       "date": "1945-11-06",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -12723,8 +13138,10 @@
       "date": "1946-05-25",
       "description": "Special Event (Railroad Strike)",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "special_events",
       "observation_lineage": [],
@@ -12823,8 +13240,10 @@
       "date": "1946-11-05",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -13010,8 +13429,10 @@
       "date": "1947-11-04",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -13081,8 +13502,10 @@
       "date": "1948-01-03",
       "description": "Weather Event (Heavy Snow)",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "weather_closures",
       "observation_lineage": [],
@@ -13217,8 +13640,10 @@
       "date": "1948-11-02",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -13445,8 +13870,10 @@
       "date": "1949-11-08",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -13652,8 +14079,10 @@
       "date": "1950-11-07",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -13865,8 +14294,10 @@
       "date": "1951-11-06",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -14054,8 +14485,10 @@
       "date": "1952-11-04",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -14215,8 +14648,10 @@
       "date": "1953-11-03",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -14362,8 +14797,10 @@
       "date": "1954-11-02",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -14461,8 +14898,10 @@
       "date": "1955-11-08",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -14594,8 +15033,10 @@
       "date": "1956-11-06",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -14736,8 +15177,10 @@
       "date": "1957-11-05",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -14849,8 +15292,10 @@
       "date": "1958-11-04",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -14892,8 +15337,10 @@
       "date": "1958-12-26",
       "description": "Holiday Extension (Day After Christmas)",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "holiday_extensions",
       "observation_lineage": [],
@@ -14983,8 +15430,10 @@
       "date": "1959-11-03",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -15110,8 +15559,10 @@
       "date": "1960-11-08",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -15201,8 +15652,10 @@
       "date": "1961-05-29",
       "description": "Holiday Extension (Day Before Decoration Day)",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "holiday_extensions",
       "observation_lineage": [],
@@ -15258,8 +15711,10 @@
       "date": "1961-11-07",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -15385,8 +15840,10 @@
       "date": "1962-11-06",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -15512,8 +15969,10 @@
       "date": "1963-11-05",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -15541,8 +16000,10 @@
       "date": "1963-11-25",
       "description": "Presidential Funeral (John F. Kennedy)",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "presidential_funerals",
       "observation_lineage": [],
@@ -15657,8 +16118,10 @@
       "date": "1964-11-03",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -15790,8 +16253,10 @@
       "date": "1965-11-02",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -15906,8 +16371,10 @@
       "date": "1966-11-08",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -16053,8 +16520,10 @@
       "date": "1967-11-07",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -16110,8 +16579,10 @@
       "date": "1968-02-12",
       "description": "Lincoln's Birthday",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "lincolns_birthday_oneoff",
       "observation_lineage": [],
@@ -16139,8 +16610,10 @@
       "date": "1968-04-09",
       "description": "Presidential Funeral (Martin Luther King Jr.)",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "presidential_funerals",
       "observation_lineage": [],
@@ -16182,8 +16655,10 @@
       "date": "1968-06-12",
       "description": "Paperwork Crisis",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "paperwork_crisis",
       "observation_lineage": [],
@@ -16197,8 +16672,10 @@
       "date": "1968-06-19",
       "description": "Paperwork Crisis",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "paperwork_crisis",
       "observation_lineage": [],
@@ -16212,8 +16689,10 @@
       "date": "1968-06-26",
       "description": "Paperwork Crisis",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "paperwork_crisis",
       "observation_lineage": [],
@@ -16227,8 +16706,10 @@
       "date": "1968-07-03",
       "description": "Paperwork Crisis",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "paperwork_crisis",
       "observation_lineage": [],
@@ -16256,8 +16737,10 @@
       "date": "1968-07-05",
       "description": "Holiday Extension (Day After Independence Day)",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "holiday_extensions",
       "observation_lineage": [],
@@ -16271,8 +16754,10 @@
       "date": "1968-07-10",
       "description": "Paperwork Crisis",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "paperwork_crisis",
       "observation_lineage": [],
@@ -16286,8 +16771,10 @@
       "date": "1968-07-17",
       "description": "Paperwork Crisis",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "paperwork_crisis",
       "observation_lineage": [],
@@ -16301,8 +16788,10 @@
       "date": "1968-07-24",
       "description": "Paperwork Crisis",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "paperwork_crisis",
       "observation_lineage": [],
@@ -16316,8 +16805,10 @@
       "date": "1968-07-31",
       "description": "Paperwork Crisis",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "paperwork_crisis",
       "observation_lineage": [],
@@ -16331,8 +16822,10 @@
       "date": "1968-08-07",
       "description": "Paperwork Crisis",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "paperwork_crisis",
       "observation_lineage": [],
@@ -16346,8 +16839,10 @@
       "date": "1968-08-14",
       "description": "Paperwork Crisis",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "paperwork_crisis",
       "observation_lineage": [],
@@ -16361,8 +16856,10 @@
       "date": "1968-08-21",
       "description": "Paperwork Crisis",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "paperwork_crisis",
       "observation_lineage": [],
@@ -16376,8 +16873,10 @@
       "date": "1968-08-28",
       "description": "Paperwork Crisis",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "paperwork_crisis",
       "observation_lineage": [],
@@ -16405,8 +16904,10 @@
       "date": "1968-09-04",
       "description": "Paperwork Crisis",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "paperwork_crisis",
       "observation_lineage": [],
@@ -16420,8 +16921,10 @@
       "date": "1968-09-11",
       "description": "Paperwork Crisis",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "paperwork_crisis",
       "observation_lineage": [],
@@ -16435,8 +16938,10 @@
       "date": "1968-09-18",
       "description": "Paperwork Crisis",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "paperwork_crisis",
       "observation_lineage": [],
@@ -16450,8 +16955,10 @@
       "date": "1968-09-25",
       "description": "Paperwork Crisis",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "paperwork_crisis",
       "observation_lineage": [],
@@ -16465,8 +16972,10 @@
       "date": "1968-10-02",
       "description": "Paperwork Crisis",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "paperwork_crisis",
       "observation_lineage": [],
@@ -16480,8 +16989,10 @@
       "date": "1968-10-09",
       "description": "Paperwork Crisis",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "paperwork_crisis",
       "observation_lineage": [],
@@ -16495,8 +17006,10 @@
       "date": "1968-10-16",
       "description": "Paperwork Crisis",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "paperwork_crisis",
       "observation_lineage": [],
@@ -16510,8 +17023,10 @@
       "date": "1968-10-23",
       "description": "Paperwork Crisis",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "paperwork_crisis",
       "observation_lineage": [],
@@ -16525,8 +17040,10 @@
       "date": "1968-10-30",
       "description": "Paperwork Crisis",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "paperwork_crisis",
       "observation_lineage": [],
@@ -16540,8 +17057,10 @@
       "date": "1968-11-05",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -16555,8 +17074,10 @@
       "date": "1968-11-06",
       "description": "Paperwork Crisis",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "paperwork_crisis",
       "observation_lineage": [],
@@ -16570,8 +17091,10 @@
       "date": "1968-11-13",
       "description": "Paperwork Crisis",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "paperwork_crisis",
       "observation_lineage": [],
@@ -16585,8 +17108,10 @@
       "date": "1968-11-20",
       "description": "Paperwork Crisis",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "paperwork_crisis",
       "observation_lineage": [],
@@ -16600,8 +17125,10 @@
       "date": "1968-11-27",
       "description": "Paperwork Crisis",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "paperwork_crisis",
       "observation_lineage": [],
@@ -16629,8 +17156,10 @@
       "date": "1968-12-04",
       "description": "Paperwork Crisis",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "paperwork_crisis",
       "observation_lineage": [],
@@ -16644,8 +17173,10 @@
       "date": "1968-12-11",
       "description": "Paperwork Crisis",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "paperwork_crisis",
       "observation_lineage": [],
@@ -16659,8 +17190,10 @@
       "date": "1968-12-18",
       "description": "Paperwork Crisis",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "paperwork_crisis",
       "observation_lineage": [],
@@ -16674,8 +17207,10 @@
       "date": "1968-12-24",
       "description": "Paperwork Crisis",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "paperwork_crisis",
       "observation_lineage": [],
@@ -16717,8 +17252,10 @@
       "date": "1969-02-10",
       "description": "Weather Event (Heavy Snow)",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "weather_closures",
       "observation_lineage": [],
@@ -16732,8 +17269,10 @@
       "date": "1969-03-31",
       "description": "Presidential Funeral (Dwight D. Eisenhower)",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "presidential_funerals",
       "observation_lineage": [],
@@ -16789,8 +17328,10 @@
       "date": "1969-07-21",
       "description": "First Lunar Landing",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "lunar_landing",
       "observation_lineage": [],
@@ -17138,8 +17679,10 @@
       "date": "1972-11-07",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -17181,8 +17724,10 @@
       "date": "1972-12-28",
       "description": "Presidential Funeral (Harry S. Truman)",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "presidential_funerals",
       "observation_lineage": [],
@@ -17210,8 +17755,10 @@
       "date": "1973-01-25",
       "description": "Presidential Funeral (Lyndon B. Johnson)",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "presidential_funerals",
       "observation_lineage": [],
@@ -17662,8 +18209,10 @@
       "date": "1976-11-02",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -17764,8 +18313,10 @@
       "date": "1977-07-14",
       "description": "New York City Blackout",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "nyc_blackout",
       "observation_lineage": [],
@@ -18135,8 +18686,10 @@
       "date": "1980-11-04",
       "description": "Election Day",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "election_day_closures",
       "observation_lineage": [],
@@ -18711,8 +19264,10 @@
       "date": "1985-09-27",
       "description": "Weather Event (Hurricane Gloria)",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "weather_closures",
       "observation_lineage": [],
@@ -19771,8 +20326,10 @@
       "date": "1994-04-27",
       "description": "Presidential Funeral (Richard Nixon)",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "presidential_funerals",
       "observation_lineage": [],
@@ -20922,8 +21479,10 @@
       "date": "2001-09-11",
       "description": "September 11 Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "sept_11_closure",
       "observation_lineage": [],
@@ -20937,8 +21496,10 @@
       "date": "2001-09-12",
       "description": "September 11 Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "sept_11_closure",
       "observation_lineage": [],
@@ -20952,8 +21513,10 @@
       "date": "2001-09-13",
       "description": "September 11 Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "sept_11_closure",
       "observation_lineage": [],
@@ -20967,8 +21530,10 @@
       "date": "2001-09-14",
       "description": "September 11 Closure",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "sept_11_closure",
       "observation_lineage": [],
@@ -21466,8 +22031,10 @@
       "date": "2004-06-11",
       "description": "Presidential Funeral (Ronald Reagan)",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "presidential_funerals",
       "observation_lineage": [],
@@ -21861,8 +22428,10 @@
       "date": "2007-01-02",
       "description": "Presidential Funeral (Gerald Ford)",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "presidential_funerals",
       "observation_lineage": [],
@@ -22756,8 +23325,10 @@
       "date": "2012-10-29",
       "description": "Weather Event (Hurricane Sandy)",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "weather_closures",
       "observation_lineage": [],
@@ -22771,8 +23342,10 @@
       "date": "2012-10-30",
       "description": "Weather Event (Hurricane Sandy)",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "weather_closures",
       "observation_lineage": [],
@@ -23790,8 +24363,10 @@
       "date": "2018-12-05",
       "description": "Presidential Funeral (George H. W. Bush)",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "presidential_funerals",
       "observation_lineage": [],
@@ -24830,8 +25405,10 @@
       "date": "2025-01-09",
       "description": "Presidential Funeral (Jimmy Carter)",
       "evidence_ids": [
+        "nyse-euronext-sandy-2012-10-28",
         "nyse-history-2008",
-        "nyse-hours"
+        "nyse-pr-bush-2018",
+        "nyse-pr-carter-2024"
       ],
       "key": "presidential_funerals",
       "observation_lineage": [],
@@ -25875,7 +26452,7 @@
       "type": "CLOSED"
     }
   ],
-  "generated_at": "2026-10-13T22:33:37Z",
+  "generated_at": "2026-10-13T23:21:05Z",
   "kind": "market",
   "mic": "XNYS",
   "range_end": "2030-12-31",
@@ -25909,7 +26486,7 @@
     "calendar:US-NYSE"
   ],
   "source_version": {
-    "git_sha": "848195caa264f472d2ec8d9addcdfa4fe14b12d9",
+    "git_sha": "c2a3fbcd1a814f9b607ab52b74714793b5ff2ace",
     "semantic": "13.0.0"
   },
   "timezone": "America/New_York",

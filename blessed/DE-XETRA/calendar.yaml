@@ -59,6 +59,21 @@ metadata:
       - xetra-cash-market-calendar-page
     - scope: UNSCHEDULED_EXCEPTIONS
       from: 2003-01-01
+      to: 2009-12-31
+      quality: PROJECTED
+      evidenceIds:
+      - xetra-cash-market-calendar-page
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2010-01-01
+      to: 2026-09-30
+      quality: VERIFIED
+      evidenceIds:
+      - press-xetra-outages-2012-2018
+      - xetra-newsboard-emergency-search
+      - xetra-newsboard-emergency-2020-04-14
+      - xetra-newsboard-emergency-2020-07-01
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2026-10-01
       to: 2030-12-31
       quality: PROJECTED
       evidenceIds:

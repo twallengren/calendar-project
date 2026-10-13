@@ -125,7 +125,11 @@ async def test_assess_day_exposes_completeness_contract():
             assert payload["scheduled_state"] == "OPEN"
             expected = "PROJECTED" if bdc.get_calendar("US-NYSE").coverage_intervals else "CONFIRMED"
             assert payload["effective_confidence"] == expected
-            assert payload["completeness"]["SCHEDULED_CLOSURES"] == "PROJECTED"
+            # NYSE 2008-2026 is reconciled against index series (VERIFIED closures); the
+            # recurring early closes past the 2007 history remain a projection.
+            assert payload["completeness"]["SCHEDULED_CLOSURES"] == "VERIFIED"
+            assert payload["completeness"]["EARLY_CLOSES"] == "PROJECTED"
+            assert payload["business_day_confidence"] == "CONFIRMED"
 
 
 @pytest.mark.anyio

@@ -77,6 +77,27 @@
         "from": "2003-01-01",
         "quality": "PROJECTED",
         "scope": "UNSCHEDULED_EXCEPTIONS",
+        "to": "2009-12-31"
+      },
+      {
+        "evidence_ids": [
+          "press-xetra-outages-2012-2018",
+          "xetra-newsboard-emergency-search",
+          "xetra-newsboard-emergency-2020-04-14",
+          "xetra-newsboard-emergency-2020-07-01"
+        ],
+        "from": "2010-01-01",
+        "quality": "VERIFIED",
+        "scope": "UNSCHEDULED_EXCEPTIONS",
+        "to": "2026-09-30"
+      },
+      {
+        "evidence_ids": [
+          "xetra-cash-market-calendar-page"
+        ],
+        "from": "2026-10-01",
+        "quality": "PROJECTED",
+        "scope": "UNSCHEDULED_EXCEPTIONS",
         "to": "2030-12-31"
       }
     ],
@@ -3681,7 +3702,7 @@
       "type": "CLOSED"
     }
   ],
-  "generated_at": "2026-10-13T22:33:37Z",
+  "generated_at": "2026-10-13T23:21:05Z",
   "kind": "market",
   "mic": "XETR",
   "range_end": "2030-12-31",
@@ -3703,7 +3724,7 @@
     "calendar:DE-XETRA"
   ],
   "source_version": {
-    "git_sha": "848195caa264f472d2ec8d9addcdfa4fe14b12d9",
+    "git_sha": "c2a3fbcd1a814f9b607ab52b74714793b5ff2ace",
     "semantic": "13.0.0"
   },
   "timezone": "Europe/Berlin",

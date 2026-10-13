@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "blessed_at": "2026-10-13T22:33:37Z",
+  "blessed_at": "2026-10-13T23:21:05Z",
   "blessed_by": "github-actions",
   "calendars": {
     "BE-EURONEXT-BRUSSELS": {
@@ -8,13 +8,13 @@
       "range_start": "2010-01-01",
       "range_end": "2030-12-31",
       "event_count": 2324,
-      "checksum": "sha256:2911e892195b38a6e9b53785ee42e6edcea6d5b11915ef44ef0f42684d8ec79d"
+      "checksum": "sha256:f2651124e9777663f9d00fe0e822558038b99d9de7f4b2a8cc814716c93ed6d3"
     },
     "CA-TSX": {
       "range_start": "2000-01-01",
       "range_end": "2030-12-31",
-      "event_count": 3546,
-      "checksum": "sha256:e3990abc8d46393df7fd25ed647770bff025f0dc03034d88792aed52592b00c4",
+      "event_count": 3556,
+      "checksum": "sha256:96981e7855dbd8e1ded3306c90c268451d8154f530f65cca342fe2da9d97e719",
       "kind": "market"
     },
     "DE-XETRA": {
@@ -28,8 +28,8 @@
       "kind": "base",
       "range_start": "2010-01-01",
       "range_end": "2030-12-31",
-      "event_count": 2295,
-      "checksum": "sha256:7e0f74b19585a15a6bc7f9feea841c734af5169779c987776a2d3db3f1200ac3"
+      "event_count": 2294,
+      "checksum": "sha256:3c84ff2cc46b27d5293057bd80cdee0b91ae1c9c6e29a1c5a3e25c09a7c03696"
     },
     "EU-TARGET": {
       "range_start": "2026-01-01",
@@ -43,7 +43,7 @@
       "range_start": "2010-01-01",
       "range_end": "2030-12-31",
       "event_count": 2324,
-      "checksum": "sha256:2911e892195b38a6e9b53785ee42e6edcea6d5b11915ef44ef0f42684d8ec79d"
+      "checksum": "sha256:f2651124e9777663f9d00fe0e822558038b99d9de7f4b2a8cc814716c93ed6d3"
     },
     "GB-CHAPS": {
       "range_start": "2026-01-01",
@@ -85,14 +85,14 @@
       "range_start": "2010-01-01",
       "range_end": "2030-12-31",
       "event_count": 2324,
-      "checksum": "sha256:2911e892195b38a6e9b53785ee42e6edcea6d5b11915ef44ef0f42684d8ec79d"
+      "checksum": "sha256:f2651124e9777663f9d00fe0e822558038b99d9de7f4b2a8cc814716c93ed6d3"
     },
     "PT-EURONEXT-LISBON": {
       "kind": "market",
       "range_start": "2010-01-01",
       "range_end": "2030-12-31",
       "event_count": 2324,
-      "checksum": "sha256:5f1f1df0a89a74e2108aa4c765f35bfde3a3b6c6d2510ad2935b4af49a65d2dc"
+      "checksum": "sha256:532ef13c3d8c7e2b81f1b54a25be114567d11f15219b6b30029c96a0b525f92c"
     },
     "SA-TADAWUL": {
       "kind": "market",
@@ -132,7 +132,7 @@
   },
   "release_version": {
     "semantic": "13.0.0",
-    "git_sha": "848195caa264f472d2ec8d9addcdfa4fe14b12d9",
+    "git_sha": "c2a3fbcd1a814f9b607ab52b74714793b5ff2ace",
     "generation_date": "2026-10-13"
   },
   "aliases": {

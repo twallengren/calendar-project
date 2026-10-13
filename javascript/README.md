@@ -36,7 +36,7 @@ day; **session questions** (`closeTime`, `isEarlyClose`, `memberCloses`) also ne
 ```ts
 const xetra = getCalendar("XETR");
 xetra.isBusinessDay("2015-01-02");                // true
-xetra.assessment("2015-01-02").businessDayConfidence; // "PROJECTED"
+xetra.assessment("2015-01-02").businessDayConfidence; // "CONFIRMED"
 xetra.closeTime("2015-01-02");                    // throws UnresolvedDateError(["EARLY_CLOSES"])
 nyse.status("2031-01-01");                        // "UNKNOWN" — the safe probe
 nyse.isBusinessDay("2031-01-01");                 // throws OutsideCoverageError

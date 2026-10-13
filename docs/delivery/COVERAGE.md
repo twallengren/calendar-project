@@ -20,21 +20,21 @@ registers are under `sources/`.
 
 | Calendar | Covered interval | Days | Business day: CONFIRMED | PROJECTED | UNKNOWN | Session: CONFIRMED | PROJECTED | UNKNOWN |
 |---|---|---:|---:|---:|---:|---:|---:|---:|
-| [BE-EURONEXT-BRUSSELS](../../blessed/BE-EURONEXT-BRUSSELS/metadata.json) | 2010-01-01 – 2030-12-31 | 7670 | 0 | 7670 | 0 | 0 | 7664 | 6 |
-| [CA-TSX](../../blessed/CA-TSX/metadata.json) | 2000-01-01 – 2030-12-31 | 11323 | 0 | 11321 | 2 | 0 | 8034 | 3289 |
-| [DE-XETRA](../../blessed/DE-XETRA/metadata.json) | 2003-01-01 – 2030-12-31 | 10227 | 0 | 10227 | 0 | 0 | 2557 | 7670 |
-| [EU-EURONEXT](../../blessed/EU-EURONEXT/metadata.json) | 2010-01-01 – 2030-12-31 | 7670 | 0 | 7670 | 0 | 0 | 7670 | 0 |
+| [BE-EURONEXT-BRUSSELS](../../blessed/BE-EURONEXT-BRUSSELS/metadata.json) | 2010-01-01 – 2030-12-31 | 7670 | 6117 | 1553 | 0 | 6111 | 1553 | 6 |
+| [CA-TSX](../../blessed/CA-TSX/metadata.json) | 2000-01-01 – 2030-12-31 | 11323 | 6575 | 4748 | 0 | 6209 | 3653 | 1461 |
+| [DE-XETRA](../../blessed/DE-XETRA/metadata.json) | 2003-01-01 – 2030-12-31 | 10227 | 6117 | 4110 | 0 | 0 | 2557 | 7670 |
+| [EU-EURONEXT](../../blessed/EU-EURONEXT/metadata.json) | 2010-01-01 – 2030-12-31 | 7670 | 6117 | 1553 | 0 | 0 | 7670 | 0 |
 | [EU-TARGET](../../blessed/EU-TARGET/metadata.json) | 2026-01-01 – 2027-12-31 | 730 | 0 | 730 | 0 | 0 | 730 | 0 |
-| [FR-EURONEXT-PARIS](../../blessed/FR-EURONEXT-PARIS/metadata.json) | 2010-01-01 – 2030-12-31 | 7670 | 0 | 7670 | 0 | 0 | 7664 | 6 |
+| [FR-EURONEXT-PARIS](../../blessed/FR-EURONEXT-PARIS/metadata.json) | 2010-01-01 – 2030-12-31 | 7670 | 6117 | 1553 | 0 | 6111 | 1553 | 6 |
 | [GB-CHAPS](../../blessed/GB-CHAPS/metadata.json) | 2026-01-01 – 2027-12-31 | 730 | 0 | 730 | 0 | 0 | 730 | 0 |
-| [GB-LSE](../../blessed/GB-LSE/metadata.json) | 2000-01-01 – 2030-12-31 | 11323 | 0 | 11323 | 0 | 0 | 11311 | 12 |
+| [GB-LSE](../../blessed/GB-LSE/metadata.json) | 2000-01-01 – 2030-12-31 | 11323 | 9770 | 1553 | 0 | 1368 | 9943 | 12 |
 | [HK-HKEX](../../blessed/HK-HKEX/metadata.json) | 2018-01-01 – 2027-12-31 | 3652 | 2457 | 1195 | 0 | 2457 | 1195 | 0 |
 | [IL-TASE](../../blessed/IL-TASE/metadata.json) | 2025-01-01 – 2028-12-31 | 1461 | 651 | 810 | 0 | 283 | 810 | 368 |
-| [JP-JPX](../../blessed/JP-JPX/metadata.json) | 2010-01-01 – 2030-12-31 | 7670 | 0 | 7670 | 0 | 0 | 7670 | 0 |
-| [NL-EURONEXT-AMSTERDAM](../../blessed/NL-EURONEXT-AMSTERDAM/metadata.json) | 2010-01-01 – 2030-12-31 | 7670 | 0 | 7670 | 0 | 0 | 7664 | 6 |
-| [PT-EURONEXT-LISBON](../../blessed/PT-EURONEXT-LISBON/metadata.json) | 2010-01-01 – 2030-12-31 | 7670 | 0 | 7670 | 0 | 0 | 7664 | 6 |
+| [JP-JPX](../../blessed/JP-JPX/metadata.json) | 2010-01-01 – 2030-12-31 | 7670 | 6087 | 1583 | 0 | 0 | 7670 | 0 |
+| [NL-EURONEXT-AMSTERDAM](../../blessed/NL-EURONEXT-AMSTERDAM/metadata.json) | 2010-01-01 – 2030-12-31 | 7670 | 6117 | 1553 | 0 | 6111 | 1553 | 6 |
+| [PT-EURONEXT-LISBON](../../blessed/PT-EURONEXT-LISBON/metadata.json) | 2010-01-01 – 2030-12-31 | 7670 | 6117 | 1553 | 0 | 6111 | 1553 | 6 |
 | [SA-TADAWUL](../../blessed/SA-TADAWUL/metadata.json) | 2020-01-01 – 2030-12-31 | 4018 | 0 | 4018 | 0 | 0 | 4018 | 0 |
 | [US-CORP-IN-VISIBILITY](../../blessed/US-CORP-IN-VISIBILITY/metadata.json) | 1900-01-01 – 2030-12-31 | 47847 | 0 | 47847 | 0 | 0 | 47847 | 0 |
 | [US-FEDWIRE](../../blessed/US-FEDWIRE/metadata.json) | 2026-01-01 – 2027-12-31 | 730 | 0 | 730 | 0 | 0 | 730 | 0 |
 | [US-MARKET-BASE](../../blessed/US-MARKET-BASE/metadata.json) | 1900-01-01 – 2030-12-31 | 47847 | 0 | 47847 | 0 | 0 | 47847 | 0 |
-| [US-NYSE](../../blessed/US-NYSE/metadata.json) | 1900-01-01 – 2030-12-31 | 47847 | 39446 | 8401 | 0 | 39438 | 8401 | 8 |
+| [US-NYSE](../../blessed/US-NYSE/metadata.json) | 1900-01-01 – 2030-12-31 | 47847 | 46306 | 1541 | 0 | 39438 | 8401 | 8 |

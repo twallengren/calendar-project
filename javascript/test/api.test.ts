@@ -62,7 +62,7 @@ test("question-scoped resolution", () => {
   assert.equal(day.completeness.EARLY_CLOSES, "INCOMPLETE");
   assert.equal(day.state, "UNKNOWN");
   assert.equal(day.businessDayState, "OPEN");
-  assert.equal(day.businessDayConfidence, "PROJECTED");
+  assert.equal(day.businessDayConfidence, "CONFIRMED", "Xetra's closures and exceptions are verified from 2010");
   assert.ok(bdc.isBusinessDayKnown(day));
   assert.deepEqual(bdc.incompleteScopes(day), ["EARLY_CLOSES"]);
   assert.deepEqual(bdc.incompleteScopes(day, "BUSINESS_DAY"), []);

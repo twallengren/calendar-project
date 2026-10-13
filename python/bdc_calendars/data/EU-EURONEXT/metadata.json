@@ -2,10 +2,10 @@
   "calendar_id": "EU-EURONEXT",
   "calendar_name": "Euronext Cash Markets Base Calendar",
   "counts_by_status": {
-    "CONFIRMED": 2295
+    "CONFIRMED": 2294
   },
   "counts_by_type": {
-    "CLOSED": 127,
+    "CLOSED": 126,
     "WEEKEND": 2168
   },
   "coverage": {
@@ -46,9 +46,23 @@
       },
       {
         "evidence_ids": [
-          "euronext-hours-holidays"
+          "nyse-euronext-10k-2012",
+          "euronext-volumes-dec-2014",
+          "euronext-volumes-dec-2015",
+          "euronext-volumes-dec-2016",
+          "euronext-monthly-historical-volumes",
+          "euronext-market-status-2020-10-19"
         ],
         "from": "2010-01-01",
+        "quality": "VERIFIED",
+        "scope": "UNSCHEDULED_EXCEPTIONS",
+        "to": "2026-09-30"
+      },
+      {
+        "evidence_ids": [
+          "euronext-hours-holidays"
+        ],
+        "from": "2026-10-01",
         "quality": "PROJECTED",
         "scope": "UNSCHEDULED_EXCEPTIONS",
         "to": "2030-12-31"
@@ -57,7 +71,7 @@
     "to": "2030-12-31",
     "verified_through": "2026-12-31"
   },
-  "event_count": 2295,
+  "event_count": 2294,
   "event_details": [
     {
       "close_time": null,
@@ -560,20 +574,6 @@
       "observation_lineage": [],
       "observed_from": null,
       "source_module": "module:euronext_boxing_day",
-      "status": "CONFIRMED",
-      "type": "CLOSED"
-    },
-    {
-      "close_time": null,
-      "date": "2015-12-31",
-      "description": "Market Holiday (New Year's Eve)",
-      "evidence_ids": [
-        "euronext-calendars-hours-archive"
-      ],
-      "key": "euronext_special_closure",
-      "observation_lineage": [],
-      "observed_from": null,
-      "source_module": "module:euronext_special_closures",
       "status": "CONFIRMED",
       "type": "CLOSED"
     },
@@ -1838,7 +1838,7 @@
       "type": "CLOSED"
     }
   ],
-  "generated_at": "2026-10-13T22:33:37Z",
+  "generated_at": "2026-10-13T23:21:05Z",
   "kind": "base",
   "range_end": "2030-12-31",
   "range_start": "2010-01-01",
@@ -1850,12 +1850,11 @@
     "module:euronext_labour_day",
     "module:euronext_christmas",
     "module:euronext_boxing_day",
-    "module:euronext_special_closures",
     "module:euronext_holidays",
     "calendar:EU-EURONEXT"
   ],
   "source_version": {
-    "git_sha": "848195caa264f472d2ec8d9addcdfa4fe14b12d9",
+    "git_sha": "c2a3fbcd1a814f9b607ab52b74714793b5ff2ace",
     "semantic": "13.0.0"
   },
   "timezone": "Europe/Paris",

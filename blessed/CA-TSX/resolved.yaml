@@ -13,6 +13,36 @@ metadata:
     quality:
     - scope: SCHEDULED_CLOSURES
       from: 2000-01-01
+      to: 2007-12-31
+      quality: PROJECTED
+      evidence_ids:
+      - tsx-calendar-page
+      - holidays-act-canada
+      - ontario-family-day-2007
+    - scope: SCHEDULED_CLOSURES
+      from: 2008-01-01
+      to: 2025-12-31
+      quality: VERIFIED
+      evidence_ids:
+      - tsx-stats-dec-2009
+      - tmx-stats-dec-2011
+      - tmx-stats-dec-2012
+      - tmx-stats-dec-2013
+      - tmx-stats-dec-2014
+      - tmx-stats-dec-2015
+      - tmx-stats-dec-2016
+      - tmx-stats-dec-2018
+      - tmx-stats-dec-2019
+      - tmx-stats-dec-2021
+      - tmx-stats-dec-2022
+      - tmx-stats-dec-2023
+      - tmx-stats-dec-2024
+      - tmx-stats-dec-2025
+      - tsx-calendar-page
+      - holidays-act-canada
+      - ontario-family-day-2007
+    - scope: SCHEDULED_CLOSURES
+      from: 2026-01-01
       to: 2030-12-31
       quality: PROJECTED
       evidence_ids:
@@ -21,24 +51,42 @@ metadata:
       - ontario-family-day-2007
     - scope: EARLY_CLOSES
       from: 2000-01-01
-      to: 2009-12-31
+      to: 2008-12-31
       quality: PROJECTED
       evidence_ids:
       - tsx-calendar-page
     - scope: EARLY_CLOSES
-      from: 2010-01-01
-      to: 2014-12-31
-      quality: INCOMPLETE
+      from: 2001-09-11
+      to: 2001-09-11
+      quality: VERIFIED
       evidence_ids:
-      - tsx-calendar-page
+      - tse-2001-09-11-market-closed
+      - cbc-2002-09-11-tsx
     - scope: EARLY_CLOSES
-      from: 2015-01-01
-      to: 2024-12-31
-      quality: PROJECTED
+      from: 2009-01-01
+      to: 2025-12-31
+      quality: VERIFIED
       evidence_ids:
+      - tsx-stats-dec-2009
+      - tmx-stats-dec-2011
+      - tmx-stats-dec-2012
+      - tmx-stats-dec-2013
+      - tmx-stats-dec-2014
+      - tmx-stats-dec-2015
+      - tmx-stats-dec-2016
+      - tmx-stats-dec-2018
+      - tmx-stats-dec-2019
+      - tmx-stats-dec-2021
+      - tmx-stats-dec-2022
+      - tmx-stats-dec-2023
+      - tmx-stats-dec-2024
+      - tmx-stats-dec-2025
+      - tmx-2018-04-28-outage-update
+      - tmx-2020-02-27-incident-report
       - tsx-calendar-page
+      - tmx-holiday-schedule-2025
     - scope: EARLY_CLOSES
-      from: 2025-01-01
+      from: 2026-01-01
       to: 2026-12-31
       quality: VERIFIED
       evidence_ids:
@@ -52,14 +100,39 @@ metadata:
       - tsx-calendar-page
     - scope: UNSCHEDULED_EXCEPTIONS
       from: 2000-01-01
-      to: 2030-12-31
+      to: 2007-12-31
       quality: PROJECTED
       evidence_ids:
       - tsx-calendar-page
+      - tse-2001-09-11-market-closed
+      - tse-2001-09-12-closed
     - scope: UNSCHEDULED_EXCEPTIONS
-      from: 2001-09-11
-      to: 2001-09-12
-      quality: INCOMPLETE
+      from: 2008-01-01
+      to: 2025-12-31
+      quality: VERIFIED
+      evidence_ids:
+      - tsx-stats-dec-2009
+      - tmx-stats-dec-2011
+      - tmx-stats-dec-2012
+      - tmx-stats-dec-2013
+      - tmx-stats-dec-2014
+      - tmx-stats-dec-2015
+      - tmx-stats-dec-2016
+      - tmx-stats-dec-2018
+      - tmx-stats-dec-2019
+      - tmx-stats-dec-2021
+      - tmx-stats-dec-2022
+      - tmx-stats-dec-2023
+      - tmx-stats-dec-2024
+      - tmx-stats-dec-2025
+      - tmx-2008-12-18-trading-resumes
+      - tmx-2018-04-28-outage-update
+      - tmx-2020-02-27-incident-report
+      - tmx-2022-11-01-ops-notice
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2026-01-01
+      to: 2030-12-31
+      quality: PROJECTED
       evidence_ids:
       - tsx-calendar-page
 weekend_policy:
@@ -79,6 +152,7 @@ resolution_chain:
 - module:ca_thanksgiving
 - module:ca_christmas
 - module:ca_boxing_day
+- module:ca_tsx_unscheduled_closures
 - module:ca_tsx_holidays
 - calendar:CA-TSX
 references:
@@ -252,7 +326,7 @@ event_sources:
   close_time: 13:00
   status: CONFIRMED
   active_years:
-  - - 2015
+  - - 2009
     - 2026
   source:
   - id: holidays-act-canada
@@ -261,6 +335,10 @@ event_sources:
   - id: tmx-holiday-schedule-2023
   - id: tmx-holiday-schedule-2025
   - id: tsx-calendar-page
+  - id: tsx-stats-dec-2009
+  - id: tmx-stats-dec-2011
+  - id: tmx-stats-dec-2013
+  - id: tmx-stats-dec-2015
   rule:
     type: fixed_month_day
     month: 12
@@ -280,3 +358,67 @@ event_sources:
     type: fixed_month_day
     month: 12
     day: 26
+- key: ca_tsx_unscheduled_closure
+  name: Unscheduled Closure
+  origin: module:ca_tsx_unscheduled_closures
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: tse-2001-09-12-closed
+    ref: The TSE will remain closed today
+  - id: tmx-2008-12-18-trading-resumes
+    ref: 2:30PM - The decision was made to remain closed for the day
+  rule:
+    type: explicit_dates
+    dates:
+    - date: 2001-09-12
+      comment: closed after the 11 September attacks; reopened 13 September
+    - date: 2008-12-17
+      comment: Level 1 market-data feed failure; 18-minute session then halted for
+        the day
+- key: ca_tsx_unscheduled_early_termination_2001
+  name: Unscheduled Early Termination
+  origin: module:ca_tsx_unscheduled_closures
+  classification: EARLY_CLOSE
+  close_time: 10:41
+  status: CONFIRMED
+  source:
+  - id: tse-2001-09-11-market-closed
+    ref: "the Toronto Stock Exchange has closed ... At the close of trading, the TSE\
+      \ 300 Composite Index was down 293.86"
+  - id: cbc-2002-09-11-tsx
+    ref: opened trading for 71 minutes before shutting down (the only source for the
+      time)
+  rule:
+    type: explicit_dates
+    dates:
+    - date: 2001-09-11
+      comment: trading closed after the attacks in the United States
+- key: ca_tsx_unscheduled_early_termination_2018
+  name: Unscheduled Early Termination
+  origin: module:ca_tsx_unscheduled_closures
+  classification: EARLY_CLOSE
+  close_time: 13:39
+  status: CONFIRMED
+  source:
+  - id: tmx-2018-04-28-outage-update
+    ref: "began at ... 1:39:13 pm EDT on TSX, TSXV, and TSX Alpha"
+  rule:
+    type: explicit_dates
+    dates:
+    - date: 2018-04-27
+      comment: "trading-system hardware failure, no re-open"
+- key: ca_tsx_unscheduled_early_termination_2020
+  name: Unscheduled Early Termination
+  origin: module:ca_tsx_unscheduled_closures
+  classification: EARLY_CLOSE
+  close_time: 13:54
+  status: CONFIRMED
+  source:
+  - id: tmx-2020-02-27-incident-report
+    ref: full market halt at 1:54 pm
+  rule:
+    type: explicit_dates
+    dates:
+    - date: 2020-02-27
+      comment: "trading-engine capacity failure, no re-open"

@@ -2,7 +2,7 @@
   "calendar_id" : "EU-TARGET",
   "calendar_name" : "T2 euro RTGS",
   "kind" : "payment",
-  "generated_at" : "2026-10-13T22:33:37Z",
+  "generated_at" : "2026-10-13T23:21:05Z",
   "range_start" : "2026-01-01",
   "range_end" : "2027-12-31",
   "timezone" : "Europe/Berlin",
@@ -41,7 +41,7 @@
   },
   "source_version" : {
     "semantic" : "13.0.0",
-    "git_sha" : "848195caa264f472d2ec8d9addcdfa4fe14b12d9"
+    "git_sha" : "c2a3fbcd1a814f9b607ab52b74714793b5ff2ace"
   },
   "event_details" : [ {
     "date" : "2026-01-01",

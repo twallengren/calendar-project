@@ -532,7 +532,7 @@ def test_early_close_gap_does_not_block_the_business_day_question():
     assert assessment.state == "UNKNOWN"
     assert assessment.effective_confidence == "UNKNOWN"
     assert assessment.business_day_state == "OPEN"
-    assert assessment.business_day_confidence == "PROJECTED"
+    assert assessment.business_day_confidence == "CONFIRMED"
     assert assessment.is_business_day_known
     assert assessment.incomplete_scopes() == ["EARLY_CLOSES"]
     assert assessment.incomplete_scopes("BUSINESS_DAY") == []
@@ -541,7 +541,7 @@ def test_early_close_gap_does_not_block_the_business_day_question():
     assert xetra.is_business_day(dt.date(2015, 1, 1)) is False
     assert xetra.next_business_day(dt.date(2014, 12, 31)) == day
     assert xetra.business_days_between(dt.date(2015, 1, 1), dt.date(2015, 1, 9)) == 6
-    assert xetra.business_day_offset_detailed(dt.date(2014, 12, 31), 1).effective_confidence == "PROJECTED"
+    assert xetra.business_day_offset_detailed(dt.date(2014, 12, 31), 1).effective_confidence == "CONFIRMED"
     assert xetra.status(day) == "UNKNOWN", "status() keeps the strict session view"
 
     with pytest.raises(bdc.UnresolvedDateError) as excinfo:
@@ -581,7 +581,7 @@ def test_joint_business_day_view_is_the_worst_member():
     day = dt.date(2015, 1, 2)
     assessment = joint.assessment(day)
     assert assessment.business_day_state == "OPEN"
-    assert assessment.business_day_confidence == "PROJECTED"
+    assert assessment.business_day_confidence == "CONFIRMED"
     assert assessment.state == "UNKNOWN"
     assert joint.is_business_day(day) is True
     with pytest.raises(bdc.UnresolvedDateError):

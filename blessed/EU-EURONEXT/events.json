@@ -31,12 +31,18 @@
     }, {
       "scope" : "UNSCHEDULED_EXCEPTIONS",
       "from" : "2010-01-01",
+      "to" : "2026-09-30",
+      "quality" : "VERIFIED",
+      "evidence_ids" : [ "nyse-euronext-10k-2012", "euronext-volumes-dec-2014", "euronext-volumes-dec-2015", "euronext-volumes-dec-2016", "euronext-monthly-historical-volumes", "euronext-market-status-2020-10-19" ]
+    }, {
+      "scope" : "UNSCHEDULED_EXCEPTIONS",
+      "from" : "2026-10-01",
       "to" : "2030-12-31",
       "quality" : "PROJECTED",
       "evidence_ids" : [ "euronext-hours-holidays" ]
     } ]
   },
-  "event_count" : 2295,
+  "event_count" : 2294,
   "events" : [ {
     "date" : "2010-01-01",
     "type" : "CLOSED",
@@ -5920,15 +5926,6 @@
     "description" : "Sunday",
     "key" : "weekend",
     "source_module" : "weekend_policy",
-    "observed_from" : null,
-    "close_time" : null,
-    "status" : "CONFIRMED"
-  }, {
-    "date" : "2015-12-31",
-    "type" : "CLOSED",
-    "description" : "Market Holiday (New Year's Eve)",
-    "key" : "euronext_special_closure",
-    "source_module" : "module:euronext_special_closures",
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED"

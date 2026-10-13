@@ -192,6 +192,8 @@ date,type,description,key,source_module,observed_from,close_time,status
 2001-09-03,CLOSED,Labour Day,ca_labour_day,module:ca_labour_day,,,CONFIRMED
 2001-09-08,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
 2001-09-09,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2001-09-11,EARLY_CLOSE,Unscheduled Early Termination (trading closed after the attacks in the United States),ca_tsx_unscheduled_early_termination_2001,module:ca_tsx_unscheduled_closures,,10:41,CONFIRMED
+2001-09-12,CLOSED,Unscheduled Closure (closed after the 11 September attacks; reopened 13 September),ca_tsx_unscheduled_closure,module:ca_tsx_unscheduled_closures,,,CONFIRMED
 2001-09-15,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
 2001-09-16,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
 2001-09-22,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
@@ -1015,6 +1017,7 @@ date,type,description,key,source_module,observed_from,close_time,status
 2008-12-07,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
 2008-12-13,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
 2008-12-14,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2008-12-17,CLOSED,Unscheduled Closure (Level 1 market-data feed failure; 18-minute session then halted for the day),ca_tsx_unscheduled_closure,module:ca_tsx_unscheduled_closures,,,CONFIRMED
 2008-12-20,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
 2008-12-21,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
 2008-12-25,CLOSED,Christmas Day,ca_christmas,module:ca_christmas,,,CONFIRMED
@@ -1131,6 +1134,7 @@ date,type,description,key,source_module,observed_from,close_time,status
 2009-12-13,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
 2009-12-19,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
 2009-12-20,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2009-12-24,EARLY_CLOSE,Christmas Eve,ca_christmas_eve_early_close,module:ca_christmas,,13:00,CONFIRMED
 2009-12-25,CLOSED,Christmas Day,ca_christmas,module:ca_christmas,,,CONFIRMED
 2009-12-26,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
 2009-12-27,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
@@ -1245,6 +1249,7 @@ date,type,description,key,source_module,observed_from,close_time,status
 2010-12-12,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
 2010-12-18,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
 2010-12-19,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2010-12-24,EARLY_CLOSE,Christmas Eve,ca_christmas_eve_early_close,module:ca_christmas,,13:00,CONFIRMED
 2010-12-25,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
 2010-12-26,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
 2010-12-27,CLOSED,Christmas Day,ca_christmas,module:ca_christmas,2010-12-25,,CONFIRMED
@@ -1475,6 +1480,7 @@ date,type,description,key,source_module,observed_from,close_time,status
 2012-12-16,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
 2012-12-22,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
 2012-12-23,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2012-12-24,EARLY_CLOSE,Christmas Eve,ca_christmas_eve_early_close,module:ca_christmas,,13:00,CONFIRMED
 2012-12-25,CLOSED,Christmas Day,ca_christmas,module:ca_christmas,,,CONFIRMED
 2012-12-26,CLOSED,Boxing Day,ca_boxing_day,module:ca_boxing_day,,,CONFIRMED
 2012-12-29,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
@@ -1589,6 +1595,7 @@ date,type,description,key,source_module,observed_from,close_time,status
 2013-12-15,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
 2013-12-21,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
 2013-12-22,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2013-12-24,EARLY_CLOSE,Christmas Eve,ca_christmas_eve_early_close,module:ca_christmas,,13:00,CONFIRMED
 2013-12-25,CLOSED,Christmas Day,ca_christmas,module:ca_christmas,,,CONFIRMED
 2013-12-26,CLOSED,Boxing Day,ca_boxing_day,module:ca_boxing_day,,,CONFIRMED
 2013-12-28,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
@@ -1703,6 +1710,7 @@ date,type,description,key,source_module,observed_from,close_time,status
 2014-12-14,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
 2014-12-20,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
 2014-12-21,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2014-12-24,EARLY_CLOSE,Christmas Eve,ca_christmas_eve_early_close,module:ca_christmas,,13:00,CONFIRMED
 2014-12-25,CLOSED,Christmas Day,ca_christmas,module:ca_christmas,,,CONFIRMED
 2014-12-26,CLOSED,Boxing Day,ca_boxing_day,module:ca_boxing_day,,,CONFIRMED
 2014-12-27,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
@@ -2087,6 +2095,7 @@ date,type,description,key,source_module,observed_from,close_time,status
 2018-04-15,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
 2018-04-21,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
 2018-04-22,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2018-04-27,EARLY_CLOSE,"Unscheduled Early Termination (trading-system hardware failure, no re-open)",ca_tsx_unscheduled_early_termination_2018,module:ca_tsx_unscheduled_closures,,13:39,CONFIRMED
 2018-04-28,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
 2018-04-29,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
 2018-05-05,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
@@ -2300,6 +2309,7 @@ date,type,description,key,source_module,observed_from,close_time,status
 2020-02-17,CLOSED,Family Day,ca_family_day,module:ca_family_day,,,CONFIRMED
 2020-02-22,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
 2020-02-23,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2020-02-27,EARLY_CLOSE,"Unscheduled Early Termination (trading-engine capacity failure, no re-open)",ca_tsx_unscheduled_early_termination_2020,module:ca_tsx_unscheduled_closures,,13:54,CONFIRMED
 2020-02-29,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
 2020-03-01,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
 2020-03-07,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED

@@ -19,9 +19,15 @@
     }, {
       "scope" : "SCHEDULED_CLOSURES",
       "from" : "2008-01-01",
+      "to" : "2026-10-12",
+      "quality" : "VERIFIED",
+      "evidence_ids" : [ "fred-nasdaqcom", "fred-sp500", "nyse-hours" ]
+    }, {
+      "scope" : "SCHEDULED_CLOSURES",
+      "from" : "2026-10-13",
       "to" : "2030-12-31",
       "quality" : "PROJECTED",
-      "evidence_ids" : [ "nyse-hours" ]
+      "evidence_ids" : [ "nyse-hours", "nyse-trading-days-2026-2028" ]
     }, {
       "scope" : "EARLY_CLOSES",
       "from" : "1900-01-01",
@@ -91,6 +97,12 @@
     }, {
       "scope" : "UNSCHEDULED_EXCEPTIONS",
       "from" : "2008-01-01",
+      "to" : "2026-10-12",
+      "quality" : "VERIFIED",
+      "evidence_ids" : [ "fred-nasdaqcom", "fred-sp500", "nyse-euronext-sandy-2012-10-28", "sec-fr-2013-19145", "nyse-pr-bush-2018", "finra-rn-18-39", "nyse-pr-carter-2024" ]
+    }, {
+      "scope" : "UNSCHEDULED_EXCEPTIONS",
+      "from" : "2026-10-13",
       "to" : "2030-12-31",
       "quality" : "PROJECTED",
       "evidence_ids" : [ "nyse-hours" ]

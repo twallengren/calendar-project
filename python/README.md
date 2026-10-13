@@ -139,7 +139,7 @@ incomplete) and `business_day_state`/`business_day_confidence` for the business-
 ```python
 xetra = bdc_calendars.get_calendar("XETR")
 day = xetra.assessment(dt.date(2015, 1, 2))
-day.business_day_state, day.business_day_confidence   # ('OPEN', 'PROJECTED')
+day.business_day_state, day.business_day_confidence   # ('OPEN', 'CONFIRMED')
 day.state, day.effective_confidence                   # ('UNKNOWN', 'UNKNOWN') — close time unresolved
 xetra.is_business_day(dt.date(2015, 1, 2))            # True
 xetra.close_time(dt.date(2015, 1, 2))                 # raises UnresolvedDateError(['EARLY_CLOSES'])

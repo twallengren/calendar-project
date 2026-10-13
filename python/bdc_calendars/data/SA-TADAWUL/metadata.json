@@ -2881,7 +2881,7 @@
       "type": "CLOSED"
     }
   ],
-  "generated_at": "2026-10-13T22:33:37Z",
+  "generated_at": "2026-10-13T23:21:05Z",
   "kind": "market",
   "mic": "XSAU",
   "range_end": "2030-12-31",
@@ -2896,7 +2896,7 @@
     "calendar:SA-TADAWUL"
   ],
   "source_version": {
-    "git_sha": "848195caa264f472d2ec8d9addcdfa4fe14b12d9",
+    "git_sha": "c2a3fbcd1a814f9b607ab52b74714793b5ff2ace",
     "semantic": "13.0.0"
   },
   "timezone": "Asia/Riyadh",

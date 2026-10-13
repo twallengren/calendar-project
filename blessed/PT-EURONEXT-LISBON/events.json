@@ -73,6 +73,12 @@
     }, {
       "scope" : "UNSCHEDULED_EXCEPTIONS",
       "from" : "2010-01-01",
+      "to" : "2026-09-30",
+      "quality" : "VERIFIED",
+      "evidence_ids" : [ "nyse-euronext-10k-2012", "euronext-volumes-dec-2014", "euronext-volumes-dec-2015", "euronext-volumes-dec-2016", "euronext-monthly-historical-volumes", "euronext-market-status-2020-10-19" ]
+    }, {
+      "scope" : "UNSCHEDULED_EXCEPTIONS",
+      "from" : "2026-10-01",
       "to" : "2030-12-31",
       "quality" : "PROJECTED",
       "evidence_ids" : [ "euronext-hours-holidays" ]
@@ -6048,12 +6054,12 @@
     "status" : "CONFIRMED"
   }, {
     "date" : "2015-12-31",
-    "type" : "CLOSED",
-    "description" : "Market Holiday (New Year's Eve)",
-    "key" : "euronext_special_closure",
-    "source_module" : "module:euronext_special_closures",
+    "type" : "EARLY_CLOSE",
+    "description" : "New Year's Eve (half trading day)",
+    "key" : "euronext_new_years_eve_1405",
+    "source_module" : "module:euronext_new_years_eve_lisbon",
     "observed_from" : null,
-    "close_time" : null,
+    "close_time" : "13:05",
     "status" : "CONFIRMED"
   }, {
     "date" : "2016-01-01",

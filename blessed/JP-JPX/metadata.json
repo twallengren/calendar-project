@@ -4,7 +4,7 @@
   "kind" : "market",
   "mic" : "XTKS",
   "aliases" : [ "XJPX" ],
-  "generated_at" : "2026-10-13T22:33:37Z",
+  "generated_at" : "2026-10-13T23:21:05Z",
   "range_start" : "2010-01-01",
   "range_end" : "2030-12-31",
   "timezone" : "Asia/Tokyo",
@@ -16,8 +16,8 @@
       "scope" : "SCHEDULED_CLOSURES",
       "from" : "2010-01-01",
       "to" : "2018-12-31",
-      "quality" : "PROJECTED",
-      "evidence_ids" : [ "cao-shukujitsu", "jpx-market-holidays" ]
+      "quality" : "VERIFIED",
+      "evidence_ids" : [ "cao-shukujitsu", "jpx-market-holidays", "jpx-monthly-report-2014-12", "jpx-monthly-report-2016-01", "jpx-monthly-report-2019-08" ]
     }, {
       "scope" : "SCHEDULED_CLOSURES",
       "from" : "2019-01-01",
@@ -39,6 +39,12 @@
     }, {
       "scope" : "UNSCHEDULED_EXCEPTIONS",
       "from" : "2010-01-01",
+      "to" : "2026-08-31",
+      "quality" : "VERIFIED",
+      "evidence_ids" : [ "jpx-system-failure-2020", "jpx-monthly-report-2014-12", "jpx-monthly-report-2016-01", "jpx-monthly-report-2019-08", "jpx-trading-overview-2020", "jpx-monthly-report-2026-08", "tse-statement-2011-03-14", "tse-arrowhead-2018-10-09" ]
+    }, {
+      "scope" : "UNSCHEDULED_EXCEPTIONS",
+      "from" : "2026-09-01",
       "to" : "2030-12-31",
       "quality" : "PROJECTED",
       "evidence_ids" : [ "jpx-system-failure-2020" ]
@@ -56,7 +62,7 @@
   },
   "source_version" : {
     "semantic" : "13.0.0",
-    "git_sha" : "848195caa264f472d2ec8d9addcdfa4fe14b12d9"
+    "git_sha" : "c2a3fbcd1a814f9b607ab52b74714793b5ff2ace"
   },
   "event_details" : [ {
     "date" : "2010-01-01",
