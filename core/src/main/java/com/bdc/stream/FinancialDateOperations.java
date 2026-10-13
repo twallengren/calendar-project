@@ -1,6 +1,7 @@
 package com.bdc.stream;
 
 import com.bdc.model.EventStatus;
+import com.bdc.trust.DateQuestion;
 import java.time.LocalDate;
 import java.time.YearMonth;
 import java.util.LinkedHashSet;
@@ -133,14 +134,14 @@ final class FinancialDateOperations {
 
     private void observeIdentity(LocalDate date) {
       examined.add(date);
-      include(stream.assessment(date).effectiveConfidence());
+      include(stream.assessment(date).businessDayConfidence());
     }
 
     private void requireResolved(LocalDate date) {
       examined.add(date);
       var assessment = stream.assessment(date);
-      include(assessment.effectiveConfidence());
-      stream.requireResolved(date);
+      include(assessment.businessDayConfidence());
+      stream.requireResolved(date, DateQuestion.BUSINESS_DAY);
     }
 
     private boolean isBusinessDay(LocalDate date) {

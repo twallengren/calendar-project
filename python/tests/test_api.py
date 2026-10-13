@@ -517,3 +517,66 @@ def test_weekend_policy_is_effective_dated(nyse, tadawul):
 
 def test_repr(nyse):
     assert repr(nyse) == "<SingleCalendar US-NYSE 1900-01-01 to 2030-12-31>"
+
+
+# --- Question-scoped resolution -------------------------------------------------
+
+
+def test_early_close_gap_does_not_block_the_business_day_question():
+    """Xetra's EARLY_CLOSES scope is INCOMPLETE from 2010, its closures are verified."""
+    xetra = bdc.get_calendar("DE-XETRA")
+    day = dt.date(2015, 1, 2)  # a Friday with no closure
+    assessment = xetra.assessment(day)
+    assert assessment.completeness["SCHEDULED_CLOSURES"] == "VERIFIED"
+    assert assessment.completeness["EARLY_CLOSES"] == "INCOMPLETE"
+    assert assessment.state == "UNKNOWN"
+    assert assessment.effective_confidence == "UNKNOWN"
+    assert assessment.business_day_state == "OPEN"
+    assert assessment.business_day_confidence == "PROJECTED"
+    assert assessment.is_business_day_known
+    assert assessment.incomplete_scopes() == ["EARLY_CLOSES"]
+    assert assessment.incomplete_scopes("BUSINESS_DAY") == []
+
+    assert xetra.is_business_day(day) is True
+    assert xetra.is_business_day(dt.date(2015, 1, 1)) is False
+    assert xetra.next_business_day(dt.date(2014, 12, 31)) == day
+    assert xetra.business_days_between(dt.date(2015, 1, 1), dt.date(2015, 1, 9)) == 6
+    assert xetra.business_day_offset_detailed(dt.date(2014, 12, 31), 1).effective_confidence == "PROJECTED"
+    assert xetra.status(day) == "UNKNOWN", "status() keeps the strict session view"
+
+    with pytest.raises(bdc.UnresolvedDateError) as excinfo:
+        xetra.close_time(day)
+    assert excinfo.value.incomplete_scopes == ["EARLY_CLOSES"]
+    with pytest.raises(bdc.UnresolvedDateError):
+        xetra.is_early_close(day)
+    with pytest.raises(bdc.UnresolvedDateError):
+        xetra.member_closes(day)
+
+
+def test_unscheduled_exception_gap_blocks_the_business_day_question():
+    """A period with known-but-unmodelled same-day closures cannot answer 'open'."""
+    tase = bdc.get_calendar("IL-TASE")
+    day = dt.date(2025, 6, 10)
+    assessment = tase.assessment(day)
+    assert assessment.completeness["UNSCHEDULED_EXCEPTIONS"] == "INCOMPLETE"
+    assert assessment.business_day_state == "UNKNOWN"
+    assert assessment.business_day_confidence == "UNKNOWN"
+    assert not assessment.is_business_day_known
+    with pytest.raises(bdc.UnresolvedDateError) as excinfo:
+        tase.is_business_day(day)
+    assert "UNSCHEDULED_EXCEPTIONS" in excinfo.value.incomplete_scopes
+    assert "EARLY_CLOSES" not in excinfo.value.incomplete_scopes
+
+
+def test_joint_business_day_view_is_the_worst_member():
+    joint = bdc.get_joint_calendar(["DE-XETRA", "US-NYSE"])
+    day = dt.date(2015, 1, 2)
+    assessment = joint.assessment(day)
+    assert assessment.business_day_state == "OPEN"
+    assert assessment.business_day_confidence == "PROJECTED"
+    assert assessment.state == "UNKNOWN"
+    assert joint.is_business_day(day) is True
+    with pytest.raises(bdc.UnresolvedDateError):
+        joint.member_closes(day)
+    closed = joint.assessment(dt.date(2015, 1, 1))
+    assert closed.business_day_state == "CLOSED"

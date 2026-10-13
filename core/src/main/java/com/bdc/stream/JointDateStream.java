@@ -5,6 +5,7 @@ import com.bdc.model.Event;
 import com.bdc.model.EventStatus;
 import com.bdc.trust.CompletenessScope;
 import com.bdc.trust.CoverageQuality;
+import com.bdc.trust.DateQuestion;
 import com.bdc.trust.DayAssessment;
 import com.bdc.trust.DayState;
 import com.bdc.trust.EventDetails;
@@ -173,7 +174,7 @@ public final class JointDateStream implements DateStream {
   @Override
   public boolean isBusinessDay(LocalDate date) {
     checkRange(date);
-    requireResolved(date);
+    requireResolved(date, DateQuestion.BUSINESS_DAY);
     for (DateStream member : members) {
       if (!member.isBusinessDay(date)) {
         return false;
@@ -252,11 +253,15 @@ public final class JointDateStream implements DateStream {
                 ? DayState.EARLY_CLOSE
                 : DayState.OPEN;
     EventStatus confidence =
-        assessments.stream().anyMatch(a -> a.effectiveConfidence() == EventStatus.UNKNOWN)
-            ? EventStatus.UNKNOWN
-            : assessments.stream().anyMatch(a -> a.effectiveConfidence() == EventStatus.PROJECTED)
-                ? EventStatus.PROJECTED
-                : EventStatus.CONFIRMED;
+        worst(assessments.stream().map(DayAssessment::effectiveConfidence).toList());
+    EventStatus businessDayConfidence =
+        worst(assessments.stream().map(DayAssessment::businessDayConfidence).toList());
+    DayState businessDay =
+        businessDayConfidence == EventStatus.UNKNOWN
+            ? DayState.UNKNOWN
+            : assessments.stream().anyMatch(a -> a.businessDayState() == DayState.CLOSED)
+                ? DayState.CLOSED
+                : DayState.OPEN;
     List<EventDetails> details = new ArrayList<>();
     for (int i = 0; i < members.size(); i++) {
       DateStream member = members.get(i);
@@ -280,7 +285,17 @@ public final class JointDateStream implements DateStream {
         confidence,
         completeness,
         List.copyOf(evidence),
-        details);
+        details,
+        businessDay,
+        businessDayConfidence);
+  }
+
+  /** The joint answer is only as good as its worst member. */
+  private static EventStatus worst(List<EventStatus> values) {
+    if (values.contains(EventStatus.UNKNOWN)) {
+      return EventStatus.UNKNOWN;
+    }
+    return values.contains(EventStatus.PROJECTED) ? EventStatus.PROJECTED : EventStatus.CONFIRMED;
   }
 
   private void checkRange(LocalDate date) {

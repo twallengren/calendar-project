@@ -78,19 +78,27 @@ class TrustCoverageIntegrationTest {
   }
 
   @Test
-  void additionalAuditedEarlyCloseGapsAreExplicit() {
+  void additionalAuditedEarlyCloseGapsAreExplicitButDoNotBlockBusinessDayAnswers() {
     DateStream tsx = new LazyDateStream(resolver.resolve("CA-TSX"));
-    assertThrows(
-        UnresolvedDateException.class, () -> tsx.isBusinessDay(LocalDate.of(2012, 12, 24)));
+    LocalDate tsxGap = LocalDate.of(2012, 12, 24);
+    assertThrows(UnresolvedDateException.class, () -> tsx.closeTime(tsxGap));
+    assertEquals(DayState.UNKNOWN, tsx.assessment(tsxGap).state());
+    assertTrue(tsx.isBusinessDay(tsxGap), "an early-close gap cannot make a weekday unknown");
+    assertEquals(DayState.OPEN, tsx.assessment(tsxGap).businessDayState());
     assertNotEquals(DayState.UNKNOWN, tsx.assessment(LocalDate.of(2025, 12, 24)).state());
 
     DateStream xetra = new LazyDateStream(resolver.resolve("DE-XETRA"));
-    assertThrows(
-        UnresolvedDateException.class, () -> xetra.isBusinessDay(LocalDate.of(2026, 12, 30)));
+    LocalDate xetraGap = LocalDate.of(2026, 12, 30);
+    assertThrows(UnresolvedDateException.class, () -> xetra.closeTime(xetraGap));
+    assertTrue(xetra.isBusinessDay(xetraGap));
+    assertFalse(xetra.isBusinessDay(LocalDate.of(2026, 12, 24)));
+    assertEquals(EventStatus.UNKNOWN, xetra.status(xetraGap));
+    assertEquals(EventStatus.PROJECTED, xetra.assessment(xetraGap).businessDayConfidence());
 
     DateStream nyse = new LazyDateStream(resolver.resolve("US-NYSE"));
-    assertThrows(
-        UnresolvedDateException.class, () -> nyse.isBusinessDay(LocalDate.of(1973, 12, 24)));
+    LocalDate nyseGap = LocalDate.of(1973, 12, 24);
+    assertThrows(UnresolvedDateException.class, () -> nyse.closeTime(nyseGap));
+    assertTrue(nyse.isBusinessDay(nyseGap));
     assertTrue(nyse.isEarlyClose(LocalDate.of(1975, 12, 24)));
     assertEquals(
         LocalDate.of(1975, 12, 24), nyse.eventsOn(LocalDate.of(1975, 12, 24)).get(0).date());
@@ -100,7 +108,8 @@ class TrustCoverageIntegrationTest {
   void sourcePrecisionAndPublicationGapsRemainUnknown() {
     DateStream euronext = new LazyDateStream(resolver.resolve("FR-EURONEXT-PARIS"));
     assertThrows(
-        UnresolvedDateException.class, () -> euronext.isBusinessDay(LocalDate.of(2010, 12, 24)));
+        UnresolvedDateException.class, () -> euronext.closeTime(LocalDate.of(2010, 12, 24)));
+    assertTrue(euronext.isBusinessDay(LocalDate.of(2010, 12, 24)));
     assertEquals(
         CoverageQuality.VERIFIED,
         euronext
@@ -109,8 +118,8 @@ class TrustCoverageIntegrationTest {
             .get(CompletenessScope.EARLY_CLOSES));
 
     DateStream lse = new LazyDateStream(resolver.resolve("GB-LSE"));
-    assertThrows(
-        UnresolvedDateException.class, () -> lse.isBusinessDay(LocalDate.of(2005, 12, 23)));
+    assertThrows(UnresolvedDateException.class, () -> lse.closeTime(LocalDate.of(2005, 12, 23)));
+    assertTrue(lse.isBusinessDay(LocalDate.of(2005, 12, 23)));
     assertEquals(
         CoverageQuality.VERIFIED,
         lse.assessment(LocalDate.of(2022, 12, 23))

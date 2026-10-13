@@ -88,6 +88,8 @@ def _assessment_dict(assessment: bdc.DayAssessment) -> Dict[str, Any]:
         "state": assessment.state,
         "scheduled_state": assessment.scheduled_state,
         "effective_confidence": assessment.effective_confidence,
+        "business_day_state": assessment.business_day_state,
+        "business_day_confidence": assessment.business_day_confidence,
         "completeness": dict(assessment.completeness),
         "evidence_ids": list(assessment.evidence_ids),
         "events": [

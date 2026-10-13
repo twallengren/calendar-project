@@ -21,6 +21,7 @@ import picocli.CommandLine.Command;
       ChangelogCommand.class,
       CrossvalidateCommand.class,
       StatusCommand.class,
+      CoverageCommand.class,
       SiteCommand.class,
       ServeCommand.class
     })

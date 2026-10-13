@@ -116,12 +116,33 @@ Inside the range, `status(date)` tells you how much the answer can be trusted:
   with explicit quality intervals.
 
 For calendars with explicit `coverage.quality`, `assessment(date)` keeps the scheduled answer
-separate from the effective state and reports completeness and evidence by scope. A scheduled
-closure list can be complete while actual business-day truth remains unknown if coverage of
-`UNSCHEDULED_EXCEPTIONS` is incomplete. Business-day boolean, navigation and count operations raise
-`UnresolvedDateError` on such dates; `status()` and `assessment()` are safe probes. Legacy data
-without explicit quality intervals keeps its legacy compatibility behavior and does not claim
-historical completeness.
+separate from the effective state and reports completeness and evidence by scope. Each operation
+only needs the scopes its question depends on:
+
+* **business-day questions** (`is_business_day`, navigation, counts, `adjust`,
+  `business_day_offset`, `advance_months`, `last_business_day_of_month`) need
+  `SCHEDULED_CLOSURES` and `UNSCHEDULED_EXCEPTIONS`. An early close is still a business day, so an
+  incomplete `EARLY_CLOSES` scope never blocks them;
+* **session questions** (`close_time`, `is_early_close`, `member_closes`) need all three scopes.
+
+A scheduled closure list can be complete while actual business-day truth remains unknown if
+coverage of `UNSCHEDULED_EXCEPTIONS` is incomplete; such dates raise `UnresolvedDateError` from
+business-day operations, and the error's `incomplete_scopes` names only the scopes that question
+needed. `status()` and `assessment()` are safe probes. `assessment(date)` reports both views:
+`state`/`effective_confidence` for the full session answer (``UNKNOWN`` as soon as any scope is
+incomplete) and `business_day_state`/`business_day_confidence` for the business-day answer alone:
+
+```python
+xetra = bdc_calendars.get_calendar("XETR")
+day = xetra.assessment(dt.date(2015, 1, 2))
+day.business_day_state, day.business_day_confidence   # ('OPEN', 'PROJECTED')
+day.state, day.effective_confidence                   # ('UNKNOWN', 'UNKNOWN') — close time unresolved
+xetra.is_business_day(dt.date(2015, 1, 2))            # True
+xetra.close_time(dt.date(2015, 1, 2))                 # raises UnresolvedDateError(['EARLY_CLOSES'])
+```
+
+Legacy data without explicit quality intervals keeps its legacy compatibility behavior and does
+not claim historical completeness.
 
 Regular open and close times are **not** modelled: `close_time` answers only for shortened
 sessions, and `None` means either a regular session or a closed day — check `is_business_day` to

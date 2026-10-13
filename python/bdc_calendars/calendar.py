@@ -35,11 +35,14 @@ from .operations import (
     last_business_day_of_month_detailed as _last_business_day_of_month_detailed,
 )
 from .trust import (
+    BUSINESS_DAY_QUESTION,
     CLOSED,
     COMPLETENESS_SCOPES,
     EARLY_CLOSE,
     INCOMPLETE,
     OPEN,
+    QUESTION_SCOPES,
+    SESSION_QUESTION,
     PROJECTED as QUALITY_PROJECTED,
     UNKNOWN as STATE_UNKNOWN,
     CoverageInterval,
@@ -393,6 +396,8 @@ class BusinessCalendar:
                 {scope: INCOMPLETE for scope in COMPLETENESS_SCOPES},
                 [],
                 [],
+                STATE_UNKNOWN,
+                UNKNOWN,
             )
         events = self.events_on(day)
         scheduled = _scheduled_state(events)
@@ -422,21 +427,24 @@ class BusinessCalendar:
                 for evidence_id in interval.evidence_ids:
                     if evidence_id not in evidence:
                         evidence.append(evidence_id)
-        incomplete = INCOMPLETE in completeness.values()
-        raw_projected = any(event.status == PROJECTED for event in events)
-        if incomplete:
-            confidence = UNKNOWN
-        elif QUALITY_PROJECTED in completeness.values() or raw_projected:
-            confidence = PROJECTED
-        else:
-            confidence = CONFIRMED
-        if not explicit:
-            confidence = (
-                PROJECTED
-                if (self.verified_through is not None and day > self.verified_through)
-                or raw_projected
-                else CONFIRMED
-            )
+        legacy_projected = self.verified_through is not None and day > self.verified_through
+        confidence = _confidence(
+            completeness,
+            SESSION_QUESTION,
+            any(event.status == PROJECTED for event in events),
+            explicit,
+            legacy_projected,
+        )
+        business_day_confidence = _confidence(
+            completeness,
+            BUSINESS_DAY_QUESTION,
+            any(
+                event.status == PROJECTED and event.type in ("CLOSED", "WEEKEND")
+                for event in events
+            ),
+            explicit,
+            legacy_projected,
+        )
         details = [
             detail._replace(effective_status=confidence)
             for detail in self.event_details_on(day)
@@ -444,12 +452,18 @@ class BusinessCalendar:
         evidence = sorted(set(evidence).union(*(set(detail.evidence_ids) for detail in details)))
         return DayAssessment(
             day,
-            STATE_UNKNOWN if incomplete else scheduled,
+            STATE_UNKNOWN if confidence == UNKNOWN else scheduled,
             scheduled,
             confidence,
             completeness,
             evidence,
             details,
+            STATE_UNKNOWN
+            if business_day_confidence == UNKNOWN
+            else CLOSED
+            if scheduled == CLOSED
+            else OPEN,
+            business_day_confidence,
         )
 
     # --- Convenience ---------------------------------------------------------
@@ -509,17 +523,21 @@ class BusinessCalendar:
             [event.observed_from, event.date] if event.observed_from else [])
             for event in self.events_on(date)]
 
-    def _require_resolved(self, date: _dt.date) -> None:
-        assessment = self.assessment(date)
-        if assessment.state != STATE_UNKNOWN:
-            return
+    def _require_resolved(self, date: _dt.date, question: str = SESSION_QUESTION) -> None:
+        """
+        Refuse an answer to ``question`` when a scope it depends on is incomplete.
+
+        Business-day questions need ``SCHEDULED_CLOSURES`` and
+        ``UNSCHEDULED_EXCEPTIONS``; session questions (close times) additionally
+        need ``EARLY_CLOSES``. The raised error names only the scopes the question
+        needed.
+        """
         self._check_range(date)
-        incomplete = [
-            scope for scope, quality in assessment.completeness.items() if quality == INCOMPLETE
-        ]
-        raise UnresolvedDateError(
-            self.calendar_id, date, self.range.start, self.range.end, incomplete
-        )
+        incomplete = self.assessment(date).incomplete_scopes(question)
+        if incomplete:
+            raise UnresolvedDateError(
+                self.calendar_id, date, self.range.start, self.range.end, incomplete
+            )
 
     def __repr__(self) -> str:
         return "<{} {} {}>".format(type(self).__name__, self.calendar_id, self.range)
@@ -635,7 +653,7 @@ class SingleCalendar(BusinessCalendar):
     def is_business_day(self, date: DateLike) -> bool:
         day = _as_date(date)
         self._check_range(day)
-        self._require_resolved(day)
+        self._require_resolved(day, BUSINESS_DAY_QUESTION)
         if self._data.weekend_policy.is_weekend(day):
             return False
         rows = self._data.events_by_date.get(day)
@@ -726,7 +744,7 @@ class JointCalendar(BusinessCalendar):
     def is_business_day(self, date: DateLike) -> bool:
         day = _as_date(date)
         self._check_range(day)
-        self._require_resolved(day)
+        self._require_resolved(day, BUSINESS_DAY_QUESTION)
         return all(member.is_business_day(day) for member in self._members)
 
     def close_time(self, date: DateLike) -> Optional[_dt.time]:
@@ -784,13 +802,8 @@ class JointCalendar(BusinessCalendar):
             if any(item.scheduled_state == EARLY_CLOSE for item in assessments)
             else OPEN
         )
-        confidence = (
-            UNKNOWN
-            if any(item.effective_confidence == UNKNOWN for item in assessments)
-            else PROJECTED
-            if any(item.effective_confidence == PROJECTED for item in assessments)
-            else CONFIRMED
-        )
+        confidence = _worst(item.effective_confidence for item in assessments)
+        business_day_confidence = _worst(item.business_day_confidence for item in assessments)
         details = []
         for member, item in zip(self._members, assessments):
             for detail in item.events:
@@ -803,6 +816,12 @@ class JointCalendar(BusinessCalendar):
             completeness,
             evidence,
             details,
+            STATE_UNKNOWN
+            if business_day_confidence == UNKNOWN
+            else CLOSED
+            if any(item.business_day_state == CLOSED for item in assessments)
+            else OPEN,
+            business_day_confidence,
         )
 
 
@@ -813,6 +832,31 @@ def _qualify(member: BusinessCalendar, event: Event) -> Event:
     else:
         source = "{}/{}".format(member.calendar_id, event.source_module)
     return event._replace(source_module=source)
+
+
+def _worst(values) -> str:
+    """The joint answer is only as good as its worst member."""
+    values = list(values)
+    if UNKNOWN in values:
+        return UNKNOWN
+    return PROJECTED if PROJECTED in values else CONFIRMED
+
+
+def _confidence(completeness, question, raw_projected, explicit, legacy_projected) -> str:
+    """
+    The confidence of one question's answer: ``UNKNOWN`` when any of its scopes
+    is incomplete, ``PROJECTED`` when any is projected or a relevant row is
+    projected, ``CONFIRMED`` otherwise. Legacy artifacts without explicit quality
+    fall back to ``verified_through``.
+    """
+    if not explicit:
+        return PROJECTED if legacy_projected or raw_projected else CONFIRMED
+    qualities = [completeness[scope] for scope in QUESTION_SCOPES[question]]
+    if INCOMPLETE in qualities:
+        return UNKNOWN
+    if QUALITY_PROJECTED in qualities or raw_projected:
+        return PROJECTED
+    return CONFIRMED
 
 
 def _scheduled_state(events: Sequence[Event]) -> str:

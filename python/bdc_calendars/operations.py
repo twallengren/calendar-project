@@ -62,12 +62,12 @@ class _Tracker:
             self._seen.add(date)
             self.examined.append(date)
         assessment = self.calendar.assessment(date)
-        if assessment.effective_confidence == "UNKNOWN":
+        if assessment.business_day_confidence == "UNKNOWN":
             self.confidence = "UNKNOWN"
-        elif assessment.effective_confidence == "PROJECTED" and self.confidence == "CONFIRMED":
+        elif assessment.business_day_confidence == "PROJECTED" and self.confidence == "CONFIRMED":
             self.confidence = "PROJECTED"
         if require:
-            self.calendar._require_resolved(date)
+            self.calendar._require_resolved(date, "BUSINESS_DAY")
 
     def identity(self, date):
         self._include(date, False)

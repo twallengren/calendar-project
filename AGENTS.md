@@ -43,6 +43,7 @@ resources, published as `bdc-calendar-data`) and **`tools`** (the CLI and everyt
 # the same run also writes /compare/<A>/<B>/ for every unordered pair of market calendars and /sources/<ID>/ from sources/<ID>/README.md (--sources-dir, default `sources`)
 scripts/bless.sh                     # regenerate blessed/ reproducibly (no-op leaves git clean)
 ./gradlew :tools:run --args="crossvalidate --all --out blessed"   # writes blessed/<ID>/cross_validation.json; ./gradlew :tools:run --args="status --format markdown" renders the Market status table in README.md
+./gradlew :tools:run --args="coverage --out docs/delivery/COVERAGE.md"   # confidence counts per calendar for the business-day and session questions, from blessed/ (regenerate after bless)
 ```
 
 After `:tools:installDist`, compare all published calendars with:
@@ -185,9 +186,13 @@ identity and provider provenance through generation. `tools convert` shares the 
 conversion must fail explicitly outside its profile rather than emit blank dates.
 
 Coverage quality is per scope (scheduled closures, early closes, unscheduled exceptions).
-`INCOMPLETE` or a missing explicit scope makes actual state UNKNOWN and business-day operations
-raise `UnresolvedDateException` / `UnresolvedDateError`, compatible with coverage errors. Read
-`assessment` for scheduled state and evidence; raw event status remains CONFIRMED/PROJECTED.
+`INCOMPLETE` or a missing explicit scope makes actual state UNKNOWN. Each operation resolves only
+the scopes its question needs (`DateQuestion` in Java, `QUESTION_SCOPES` in Python): business-day
+operations need SCHEDULED_CLOSURES and UNSCHEDULED_EXCEPTIONS and raise `UnresolvedDateException` /
+`UnresolvedDateError` when one is incomplete; session operations (`closeTime`, `isEarlyClose`,
+`memberCloses`) additionally need EARLY_CLOSES. Read `assessment` for scheduled state, evidence,
+and both the strict (`state`/`effectiveConfidence`) and business-day (`businessDayState`/
+`businessDayConfidence`) views; raw event status remains CONFIRMED/PROJECTED.
 
 Financial date conventions, month advancement and last-business-day queries are defined in
 `spec/SPEC.md#financial-date-operations`. Keep detailed Java/Python/CLI/MCP results and full-path

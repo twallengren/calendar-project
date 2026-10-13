@@ -223,6 +223,13 @@ public class QueryCommand implements Callable<Integer> {
         boolean isBusiness = stream.isBusinessDay(isBusinessDayDate);
         System.out.println(
             isBusinessDayDate + " is " + (isBusiness ? "a business day" : "NOT a business day"));
+        var assessment = stream.assessment(isBusinessDayDate);
+        System.out.println(
+            "  Confidence: "
+                + assessment.businessDayConfidence()
+                + (isBusiness && assessment.state() == com.bdc.trust.DayState.UNKNOWN
+                    ? " (early-close coverage incomplete; close time not established)"
+                    : ""));
         if (!isBusiness) {
           List<Event> events = stream.eventsOn(isBusinessDayDate);
           if (!events.isEmpty()) {

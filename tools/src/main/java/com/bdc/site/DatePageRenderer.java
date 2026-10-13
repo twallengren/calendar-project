@@ -109,6 +109,10 @@ public final class DatePageRenderer {
               + longDate
               + ". Scheduled events are listed below; coverage is incomplete.";
       verdictClass = "unknown";
+    } else if (calendar.isSessionUnknown(date)) {
+      verdict +=
+          " Whether the session is shortened is not established: early-close coverage is"
+              + " incomplete on this date.";
     }
     String description =
         verdict
