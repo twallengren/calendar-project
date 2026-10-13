@@ -3,10 +3,14 @@ id: eid_al_adha
 
 # Eid al-Adha closures of the Saudi Exchange (Tadawul).
 #
-# 2021-2029: explicit dates from the Saudi Exchange's published holiday announcements, status
-# CONFIRMED. 2030 onward: PROJECTED from the Umm al-Qura calendar; the announced closures
-# consistently run from about 5 Dhu al-Hijjah (a few days before Arafat Day on the 9th) through
-# 13 Dhu al-Hijjah, so that span is projected.
+# 2020: the exchange's own market-news notice of 30 June 2020 (tadawul-eid-al-adha-2020-notice,
+# preserved from the Internet Archive; it was never listed on the website's Holidays page): trading
+# stopped at the end of Tuesday 7 Dhu al-Hijjah 1441 (28 July 2020) and resumed on Wednesday
+# 15 Dhu al-Hijjah (5 August 2020), so the closure ran 8-14 Dhu al-Hijjah, not the 5-13 span of
+# later years. 2021-2029: explicit dates from the Saudi Exchange's published holiday
+# announcements, status CONFIRMED. 2030 onward: PROJECTED from the Umm al-Qura calendar; the
+# announced closures consistently run from about 5 Dhu al-Hijjah (a few days before Arafat Day
+# on the 9th) through 13 Dhu al-Hijjah, so that span is projected.
 # Source: saudi-exchange-announcements. See sources/SA-TADAWUL/README.md.
 
 source:
@@ -18,9 +22,21 @@ event_sources:
     default_classification: CLOSED
     shiftable: false
     status: CONFIRMED
+    source:
+      - id: tadawul-eid-al-adha-2020-notice
+        ref: "trading stops at the end of Tuesday 7/12/1441 (28/7/2020); resumes Wednesday 15/12/1441 (5/8/2020)"
+      - id: saudi-exchange-announcements
     rule:
       type: explicit_dates
       dates:
+        # 2020: close after Jul 28, resume Aug 5 (exchange notice of 30 June 2020)
+        - 2020-07-29
+        - 2020-07-30
+        - 2020-07-31
+        - 2020-08-01
+        - 2020-08-02
+        - 2020-08-03
+        - 2020-08-04
         # 2021: close after Jul 15, resume Jul 25
         - 2021-07-16
         - 2021-07-17

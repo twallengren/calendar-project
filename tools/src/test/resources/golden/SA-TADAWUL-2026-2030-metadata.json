@@ -16,8 +16,8 @@
       "scope" : "SCHEDULED_CLOSURES",
       "from" : "2020-01-01",
       "to" : "2020-12-31",
-      "quality" : "INCOMPLETE",
-      "evidence_ids" : [ "saudi-exchange-announcements", "argaam-tadawul-eid-adha-2020" ]
+      "quality" : "VERIFIED",
+      "evidence_ids" : [ "tadawul-holidays-page-2020", "tadawul-eid-al-adha-2020-notice", "tadawul-national-day-2020-notice", "saudi-exchange-announcements" ]
     }, {
       "scope" : "SCHEDULED_CLOSURES",
       "from" : "2021-01-01",

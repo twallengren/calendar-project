@@ -48,15 +48,21 @@ class TrustCoverageIntegrationTest {
   }
 
   @Test
-  void tadawul2020IsUnknownWherePrimaryHolidayEvidenceIsMissing() {
+  void tadawul2020EidAlAdhaComesFromTheExchangesOwnNotice() {
     DateStream stream = new LazyDateStream(resolver.resolve("SA-TADAWUL"));
     LocalDate date = LocalDate.of(2020, 7, 30);
 
     var assessment = stream.assessment(date);
-    assertEquals(DayState.UNKNOWN, assessment.state());
-    assertEquals(DayState.OPEN, assessment.scheduledState());
-    assertEquals(EventStatus.UNKNOWN, assessment.effectiveConfidence());
-    assertThrows(UnresolvedDateException.class, () -> stream.isBusinessDay(date));
+    assertEquals(DayState.CLOSED, assessment.state());
+    assertEquals(
+        CoverageQuality.VERIFIED,
+        assessment.completeness().get(CompletenessScope.SCHEDULED_CLOSURES));
+    assertFalse(stream.isBusinessDay(date));
+    assertTrue(assessment.evidenceIds().contains("tadawul-eid-al-adha-2020-notice"));
+    assertTrue(stream.isBusinessDay(LocalDate.of(2020, 7, 28)), "last trading day before Eid");
+    assertTrue(
+        stream.isBusinessDay(LocalDate.of(2020, 8, 5)), "trading resumed Wednesday 5 August");
+    assertFalse(stream.isBusinessDay(LocalDate.of(2020, 9, 23)), "National Day");
   }
 
   @Test

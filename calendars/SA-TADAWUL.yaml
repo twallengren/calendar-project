@@ -13,14 +13,14 @@ metadata:
     to: 2030-12-31
     verified_through: 2029-12-31
     quality:
-      # The exchange calendar proves the 2020 Eid al-Fitr closure but no longer exposes its 2020
-      # Eid al-Adha announcement. A contemporary report says the exchange closed 29 Jul–4 Aug,
-      # so the current open answers in that interval are unsafe until the primary notice is found.
+      # 2020 is established by the exchange's archived Holidays page (Eid al-Fitr) and its two
+      # archived market-news notices for Eid al-Adha (29 Jul-4 Aug) and National Day, with no
+      # other holiday notice among the year's captured market news.
       - scope: SCHEDULED_CLOSURES
         from: 2020-01-01
         to: 2020-12-31
-        quality: INCOMPLETE
-        evidence_ids: [saudi-exchange-announcements, argaam-tadawul-eid-adha-2020]
+        quality: VERIFIED
+        evidence_ids: [tadawul-holidays-page-2020, tadawul-eid-al-adha-2020-notice, tadawul-national-day-2020-notice, saudi-exchange-announcements]
       - scope: SCHEDULED_CLOSURES
         from: 2021-01-01
         to: 2029-12-31
