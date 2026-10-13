@@ -555,15 +555,15 @@ def test_early_close_gap_does_not_block_the_business_day_question():
 
 def test_unscheduled_exception_gap_blocks_the_business_day_question():
     """A period with known-but-unmodelled same-day closures cannot answer 'open'."""
-    tase = bdc.get_calendar("IL-TASE")
-    day = dt.date(2025, 6, 10)
-    assessment = tase.assessment(day)
+    tsx = bdc.get_calendar("CA-TSX")
+    day = dt.date(2001, 9, 11)  # the TSX closed early on 9/11; the exact arrangement is unsourced
+    assessment = tsx.assessment(day)
     assert assessment.completeness["UNSCHEDULED_EXCEPTIONS"] == "INCOMPLETE"
     assert assessment.business_day_state == "UNKNOWN"
     assert assessment.business_day_confidence == "UNKNOWN"
     assert not assessment.is_business_day_known
     with pytest.raises(bdc.UnresolvedDateError) as excinfo:
-        tase.is_business_day(day)
+        tsx.is_business_day(day)
     assert "UNSCHEDULED_EXCEPTIONS" in excinfo.value.incomplete_scopes
     assert "EARLY_CLOSES" not in excinfo.value.incomplete_scopes
 

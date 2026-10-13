@@ -222,3 +222,34 @@ Oct-14 | Tuesday | Rejoicing of the Law (Simchat Tora) | -- | --
 13/10 | שני | ערב שמחת תורה
 14/10 | שלישי | שמחה תורה
 (The Hebrew 2025 table's "מתקיים מסחר"/"מתקיימת סליקה" cells render as icons and were not captured as text; the English table carries the --/V values.)
+
+--- HEBREW: מועדי חופשות בבורסה ובמסלקות 2028 ---
+"החל מ-4/1/2026 המסחר בבורסה מתקיים בימים ב'-ו', והסליקה נערכת בימים א'-ו', למעט המועדים שמצוינים להלן."
+"בימי חול המועד בפסח (12/4-14/4) ובסוכות (9/10-10/10) מתקיים יום מסחר מקוצר – לוחות הזמנים למסחר מפורטים תחת החלטות דירקטוריון הבורסה ובמועדי המסחר בבורסה."
+תאריך | יום בשבוע | חג/מועד | מסחר | סליקה
+10.3 | שישי | * | אינו יום מסחר | יום סליקה
+12.3 | ראשון | פורים | אינו יום מסחר | אינו יום סליקה
+10.4 | שני | ערב פסח | אינו יום מסחר | יום סליקה
+11.4 | שלישי | פסח | אינו יום מסחר | אינו יום סליקה
+17.4 | שני | שביעי של פסח | אינו יום מסחר | אינו יום סליקה
+1.5 | שני | יום הזיכרון | אינו יום מסחר | יום סליקה
+2.5 | שלישי | יום העצמאות | אינו יום מסחר | אינו יום סליקה
+30.5 | שלישי | ערב חג שבועות | אינו יום מסחר | יום סליקה
+31.5 | רביעי | שבועות | אינו יום מסחר | אינו יום סליקה
+1.8 | שלישי | תשעה באב | אינו יום מסחר | אינו יום סליקה
+20.9 | רביעי | ערב ראש השנה | אינו יום מסחר | יום סליקה
+21.9 | חמישי | א' ראש השנה | אינו יום מסחר | אינו יום סליקה
+22.9 | יום שישי | ב' ראש השנה | אינו יום מסחר | אינו יום סליקה
+29.9 | יום שישי | ערב יום כיפור | אינו יום מסחר | אינו יום סליקה
+4.10 | רביעי | ערב סוכות | אינו יום מסחר | יום סליקה
+5.10 | חמישי | סוכות | אינו יום מסחר | אינו יום סליקה
+11.10 | רביעי | ערב שמחת תורה | אינו יום מסחר | יום סליקה
+12.10 | חמישי | שמחת תורה | אינו יום מסחר | אינו יום סליקה
+"*בשישי לפני חג/ערב חג בראשון אין מסחר"
+
+================= MACHINE-READABLE PRIMARY COPIES =================
+The page's content is served by TASE's CMS API as JSON with base64-encoded HTML per accordion item:
+  https://apicontent.tase.co.il/api/cms?route=%2Fcontent%2Fknowledge_center%2Ftrading_vacation_schedule&culture=he-IL
+  https://apicontent.tase.co.il/api/cms?route=%2Fcontent%2Fknowledge_center%2Ftrading_vacation_schedule&culture=en-US
+Saved verbatim (2026-10-13) as dl/cms_vacation_he-IL.json and dl/cms_vacation_en-US.json (sha256 in tase-2026-2027.md section 7);
+dl/cms_vacation_*.decoded.html are the base64-decoded HTML tables (all sections: trading-hour tables, 2028, 2027, 2026, 2025, previous years).

@@ -8,6 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.bdc.chronology.NativeDate;
 import com.bdc.loader.SpecRegistry;
 import com.bdc.model.Event;
+import com.bdc.model.EventStatus;
 import com.bdc.model.EventType;
 import com.bdc.model.ResolvedSpec;
 import com.bdc.resolver.SpecResolver;
@@ -120,8 +121,12 @@ class TaseCalendarTest {
         CoverageQuality.VERIFIED,
         passover.completeness().get(CompletenessScope.SCHEDULED_CLOSURES));
     assertEquals(
-        CoverageQuality.INCOMPLETE,
+        CoverageQuality.VERIFIED,
         passover.completeness().get(CompletenessScope.UNSCHEDULED_EXCEPTIONS));
+    assertEquals(
+        CoverageQuality.INCOMPLETE,
+        passover.completeness().get(CompletenessScope.EARLY_CLOSES),
+        "no operative 2025 close time is sourced, so the session question stays open");
     var passoverEvent =
         passover.events().stream()
             .filter(detail -> detail.event().key().equals("tase_passover_2025"))
@@ -129,8 +134,9 @@ class TaseCalendarTest {
             .orElseThrow();
     assertEquals(new NativeDate("HEBREW", 5785, "NISAN", 15), passoverEvent.nominalNativeDate());
     assertTrue(passoverEvent.evidenceIds().contains("tase-vacation-schedule-2025"));
-    assertThrows(
-        UnresolvedDateException.class, () -> stream.isBusinessDay(LocalDate.of(2025, 4, 13)));
+    assertFalse(stream.isBusinessDay(LocalDate.of(2025, 4, 13)));
+    assertEquals(DayState.CLOSED, passover.businessDayState());
+    assertThrows(UnresolvedDateException.class, () -> stream.closeTime(LocalDate.of(2025, 4, 13)));
 
     var memorial = stream.assessment(LocalDate.of(2026, 4, 21));
     assertEquals(DayState.CLOSED, memorial.scheduledState());
@@ -288,23 +294,24 @@ class TaseCalendarTest {
   }
 
   @Test
-  void unscheduledExceptionsStayIncompleteForThePastAndProjectedForTheFuture() {
+  void unscheduledExceptionsAreVerifiedFromTheSessionRecordAndProjectedForTheFuture() {
     DateStream stream = new LazyDateStream(spec);
-    LocalDate past = LocalDate.of(2026, 4, 20);
+    LocalDate warDay = LocalDate.of(2025, 6, 15);
+    var assessment = stream.assessment(warDay);
     assertEquals(
         CoverageQuality.VERIFIED,
-        stream.assessment(past).completeness().get(CompletenessScope.SCHEDULED_CLOSURES));
-    assertEquals(
-        CoverageQuality.INCOMPLETE,
-        stream.assessment(past).completeness().get(CompletenessScope.UNSCHEDULED_EXCEPTIONS));
-    assertThrows(UnresolvedDateException.class, () -> stream.isBusinessDay(past));
+        assessment.completeness().get(CompletenessScope.UNSCHEDULED_EXCEPTIONS));
+    assertTrue(assessment.evidenceIds().contains("tase-ta35-eod-sessions"));
+    assertTrue(stream.isBusinessDay(warDay), "TASE traded every scheduled day of June 2025");
+    assertEquals(EventStatus.CONFIRMED, assessment.businessDayConfidence());
+    assertEquals(EventStatus.UNKNOWN, stream.status(warDay), "2025 close times are unsourced");
 
     LocalDate future = LocalDate.of(2027, 6, 1);
     assertEquals(
         CoverageQuality.PROJECTED,
         stream.assessment(future).completeness().get(CompletenessScope.UNSCHEDULED_EXCEPTIONS));
     assertTrue(stream.isBusinessDay(future));
-    assertEquals(DayState.OPEN, stream.assessment(future).businessDayState());
+    assertEquals(EventStatus.PROJECTED, stream.assessment(future).businessDayConfidence());
   }
 
   private static Set<LocalDate> datesOf(List<Event> events, EventType type) {

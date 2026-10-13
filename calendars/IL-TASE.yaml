@@ -52,14 +52,16 @@ metadata:
         quality: VERIFIED
         evidence_ids: [tase-trading-vacation-schedule, tase-tradingdays-change, isa-trading-week-2026]
 
-      # No emergency or ad-hoc closure is inferred from silence in an annual schedule: the past
-      # stays incomplete until trading-day counts or exchange notices establish it, and the future
-      # is a projection of the schedule, as for every other calendar.
+      # No emergency or ad-hoc closure is inferred from silence in an annual schedule. The past is
+      # verified from the exchange's own TA-35 session record (434 sessions = 434 scheduled,
+      # 2025-01-01 to 2026-10-13, every scheduled day traded, including every day of the June 2025
+      # war) and TASE Ltd's quarterly trading-day counts; the future is a projection of the
+      # schedule, as for every other calendar.
       - scope: UNSCHEDULED_EXCEPTIONS
         from: 2025-01-01
         to: 2026-10-13
-        quality: INCOMPLETE
-        evidence_ids: [tase-vacation-schedule-2025, tase-trading-vacation-schedule]
+        quality: VERIFIED
+        evidence_ids: [tase-ta35-eod-sessions, tase-quarterly-trading-days-2025-2026]
       - scope: UNSCHEDULED_EXCEPTIONS
         from: 2026-10-14
         to: 2028-12-31
