@@ -60,17 +60,30 @@ class TrustCoverageIntegrationTest {
   }
 
   @Test
-  void hkexWeatherEraIsUnknownWhileScheduledStateRemainsVisible() {
+  void hkexSevereWeatherEraIsEnumeratedAndVerified() {
     DateStream stream = new LazyDateStream(resolver.resolve("HK-HKEX"));
     LocalDate closure = LocalDate.of(2020, 10, 13);
 
     var assessment = stream.assessment(closure);
-    assertEquals(DayState.UNKNOWN, assessment.state());
-    assertEquals(DayState.OPEN, assessment.scheduledState());
+    assertEquals(DayState.CLOSED, assessment.state());
     assertEquals(
-        CoverageQuality.INCOMPLETE,
+        CoverageQuality.VERIFIED,
         assessment.completeness().get(com.bdc.trust.CompletenessScope.UNSCHEDULED_EXCEPTIONS));
-    assertThrows(UnresolvedDateException.class, () -> stream.isBusinessDay(closure));
+    assertEquals(EventStatus.CONFIRMED, assessment.businessDayConfidence());
+    assertFalse(stream.isBusinessDay(closure));
+    assertTrue(assessment.evidenceIds().contains("hkex-no-trading-2020-10-13"));
+
+    // The two September 2023 cancellations third-party libraries miss.
+    assertFalse(stream.isBusinessDay(LocalDate.of(2023, 9, 1)));
+    assertFalse(stream.isBusinessDay(LocalDate.of(2023, 9, 8)));
+    // A morning-only cancellation is an ordinary business day with a regular close.
+    assertTrue(stream.isBusinessDay(LocalDate.of(2023, 10, 9)));
+    assertFalse(stream.isEarlyClose(LocalDate.of(2023, 10, 9)));
+    // A Signal No. 8 issued at 13:40 terminated trading at 13:55.
+    assertEquals(
+        java.util.Optional.of(java.time.LocalTime.of(13, 55)),
+        stream.closeTime(LocalDate.of(2022, 11, 2)));
+    assertTrue(stream.isBusinessDay(LocalDate.of(2022, 11, 2)));
 
     var afterPolicyChange = stream.assessment(LocalDate.of(2024, 9, 23));
     assertNotEquals(DayState.UNKNOWN, afterPolicyChange.state());

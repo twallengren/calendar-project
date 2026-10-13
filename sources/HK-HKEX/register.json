@@ -109,27 +109,90 @@
       "covers": "1901-2100; all 2016-2029 annual tables and selected boundary/uncertainty tables retained locally",
       "notes": "Authority for the published Hong Kong Gregorian/lunar correspondences and Bright & Clear solar-term rows. HKO and the gazetted HK schedule start the 2027 lunar year on 6 February; pinned ICU4J 78.3 starts it on 7 February, so the calendar carries authoritative replacement rows. HKO also warns that new moons close to midnight can differ by one day in 2057, 2089 and 2097. ICU differs from HKO at 2057-09-28 (HKO M09 day 1; ICU M08 day 30 and M09 begins 2057-09-29), while agreeing on the checked 2089 and 2097 rows. Disputed future conversions are not treated as verified exchange schedules.",
       "local_files": [
-        {"path": "HK-HKEX/hko/T1929e.txt", "sha256": "1e15689478a2a3462b659b44c1da110b53d2a79009bbc34f6941b60e0023ea52"},
-        {"path": "HK-HKEX/hko/T2016e.txt", "sha256": "54fd6b05b9ef67f0d4cb415e2cf9fd7144576fa9bc8bd56b31a6fcdbf2883926"},
-        {"path": "HK-HKEX/hko/T2017e.txt", "sha256": "61289cd623a29273ebac0bfef9d47c25d5c925ff7ad7eee4bb5b1c69d9fdfa83"},
-        {"path": "HK-HKEX/hko/T2018e.txt", "sha256": "aa927769705f2d92e1db2614e89a2079418ea13f9d1f12a4a10f48b7143692e8"},
-        {"path": "HK-HKEX/hko/T2019e.txt", "sha256": "678c150eb855b0c381de6afddf85c33b13cc473c6c2145309c8021dce9cd7d46"},
-        {"path": "HK-HKEX/hko/T2020e.txt", "sha256": "0dde5ed6d41935f8f420643287fc0250588102b154d8243e0f2762bb0c473bd2"},
-        {"path": "HK-HKEX/hko/T2021e.txt", "sha256": "d3432f28db9a868aa407720a39224d7858395389ddc818d92c3a3fa43d58360a"},
-        {"path": "HK-HKEX/hko/T2022e.txt", "sha256": "34c1edcf7ce3b20e3963f38379cfd77cce8bcf4dbede9bb9b18412e375bc555f"},
-        {"path": "HK-HKEX/hko/T2023e.txt", "sha256": "f3bbdef5c9b0c0158ca8328004e347da714494572effc23fea97af48052402e5"},
-        {"path": "HK-HKEX/hko/T2024e.txt", "sha256": "81f8fba2c809d5dcea5c63699e843b82e29318553cb5de7bbf053aa66d068fdc"},
-        {"path": "HK-HKEX/hko/T2025e.txt", "sha256": "e11ba9a4d1fcde4d09570871149d3eea329d3a92a1b79be814d3f7313ae3fa50"},
-        {"path": "HK-HKEX/hko/T2026e.txt", "sha256": "29ef9c43977a69681ef770d0c264e4226692f21f3febc3d16a4ee5c8aa06c60c"},
-        {"path": "HK-HKEX/hko/T2027e.txt", "sha256": "3754bb79f07ea3dc0d355c7e5da1770bc9bb02ac26bf2e7633692703177f9a17"},
-        {"path": "HK-HKEX/hko/T2028e.txt", "sha256": "22384e96b87353363be3c4c0d11d4c14988ab4f15335ce2b5cfdb0c411fbed65"},
-        {"path": "HK-HKEX/hko/T2029e.txt", "sha256": "7aaab28de4a750dea991f6308a69e9361e8219827f53dfce225ff5f7f6b77e0a"},
-        {"path": "HK-HKEX/hko/T2033e.txt", "sha256": "f7937894bf740a8b3fa1b348ba718b2cd7d017ae743018a01c138e1c765c4fee"},
-        {"path": "HK-HKEX/hko/T2034e.txt", "sha256": "a73bc77280d0dd6cc860cdc9e69cc199877e4b92d4a6f9ecd713a2e15ec43138"},
-        {"path": "HK-HKEX/hko/T2057e.txt", "sha256": "a8a6582d79f2214f68c5e1f7429cf267a50541f5546e494b1a88639fe28ce23d"},
-        {"path": "HK-HKEX/hko/T2089e.txt", "sha256": "032b86ae289624f927dd6fa64c99148ce7adffb9cea6481ca83617db132fdf69"},
-        {"path": "HK-HKEX/hko/T2097e.txt", "sha256": "d174c54cffa8c1268adc408e21038e597f89e425572249dbc7f6dba315fb6919"},
-        {"path": "HK-HKEX/hko/T2100e.txt", "sha256": "c75561b0e594e3aff40842fae5258e82524d1494c9bd59f69309fce2a7053336"}
+        {
+          "path": "HK-HKEX/hko/T1929e.txt",
+          "sha256": "1e15689478a2a3462b659b44c1da110b53d2a79009bbc34f6941b60e0023ea52"
+        },
+        {
+          "path": "HK-HKEX/hko/T2016e.txt",
+          "sha256": "54fd6b05b9ef67f0d4cb415e2cf9fd7144576fa9bc8bd56b31a6fcdbf2883926"
+        },
+        {
+          "path": "HK-HKEX/hko/T2017e.txt",
+          "sha256": "61289cd623a29273ebac0bfef9d47c25d5c925ff7ad7eee4bb5b1c69d9fdfa83"
+        },
+        {
+          "path": "HK-HKEX/hko/T2018e.txt",
+          "sha256": "aa927769705f2d92e1db2614e89a2079418ea13f9d1f12a4a10f48b7143692e8"
+        },
+        {
+          "path": "HK-HKEX/hko/T2019e.txt",
+          "sha256": "678c150eb855b0c381de6afddf85c33b13cc473c6c2145309c8021dce9cd7d46"
+        },
+        {
+          "path": "HK-HKEX/hko/T2020e.txt",
+          "sha256": "0dde5ed6d41935f8f420643287fc0250588102b154d8243e0f2762bb0c473bd2"
+        },
+        {
+          "path": "HK-HKEX/hko/T2021e.txt",
+          "sha256": "d3432f28db9a868aa407720a39224d7858395389ddc818d92c3a3fa43d58360a"
+        },
+        {
+          "path": "HK-HKEX/hko/T2022e.txt",
+          "sha256": "34c1edcf7ce3b20e3963f38379cfd77cce8bcf4dbede9bb9b18412e375bc555f"
+        },
+        {
+          "path": "HK-HKEX/hko/T2023e.txt",
+          "sha256": "f3bbdef5c9b0c0158ca8328004e347da714494572effc23fea97af48052402e5"
+        },
+        {
+          "path": "HK-HKEX/hko/T2024e.txt",
+          "sha256": "81f8fba2c809d5dcea5c63699e843b82e29318553cb5de7bbf053aa66d068fdc"
+        },
+        {
+          "path": "HK-HKEX/hko/T2025e.txt",
+          "sha256": "e11ba9a4d1fcde4d09570871149d3eea329d3a92a1b79be814d3f7313ae3fa50"
+        },
+        {
+          "path": "HK-HKEX/hko/T2026e.txt",
+          "sha256": "29ef9c43977a69681ef770d0c264e4226692f21f3febc3d16a4ee5c8aa06c60c"
+        },
+        {
+          "path": "HK-HKEX/hko/T2027e.txt",
+          "sha256": "3754bb79f07ea3dc0d355c7e5da1770bc9bb02ac26bf2e7633692703177f9a17"
+        },
+        {
+          "path": "HK-HKEX/hko/T2028e.txt",
+          "sha256": "22384e96b87353363be3c4c0d11d4c14988ab4f15335ce2b5cfdb0c411fbed65"
+        },
+        {
+          "path": "HK-HKEX/hko/T2029e.txt",
+          "sha256": "7aaab28de4a750dea991f6308a69e9361e8219827f53dfce225ff5f7f6b77e0a"
+        },
+        {
+          "path": "HK-HKEX/hko/T2033e.txt",
+          "sha256": "f7937894bf740a8b3fa1b348ba718b2cd7d017ae743018a01c138e1c765c4fee"
+        },
+        {
+          "path": "HK-HKEX/hko/T2034e.txt",
+          "sha256": "a73bc77280d0dd6cc860cdc9e69cc199877e4b92d4a6f9ecd713a2e15ec43138"
+        },
+        {
+          "path": "HK-HKEX/hko/T2057e.txt",
+          "sha256": "a8a6582d79f2214f68c5e1f7429cf267a50541f5546e494b1a88639fe28ce23d"
+        },
+        {
+          "path": "HK-HKEX/hko/T2089e.txt",
+          "sha256": "032b86ae289624f927dd6fa64c99148ce7adffb9cea6481ca83617db132fdf69"
+        },
+        {
+          "path": "HK-HKEX/hko/T2097e.txt",
+          "sha256": "d174c54cffa8c1268adc408e21038e597f89e425572249dbc7f6dba315fb6919"
+        },
+        {
+          "path": "HK-HKEX/hko/T2100e.txt",
+          "sha256": "c75561b0e594e3aff40842fae5258e82524d1494c9bd59f69309fce2a7053336"
+        }
       ],
       "support_intervals": []
     },
@@ -140,7 +203,7 @@
       "location": "https://www.hkex.com.hk/News/Market-Communications/2024/240906news?sc_lang=en",
       "retrieved": "2026-09-14",
       "covers": "6 September 2024",
-      "notes": "Example of a same-day severe-weather announcement: \"trading of its securities ... and derivatives markets today (Friday) has been impacted by the issuance of Typhoon Signal No.8 ... If Typhoon Signal No. 8 or above, Black Rainstorm Warning or any announcement of Extreme Conditions, remains issued at 12:00 noon, all trading sessions today will be cancelled.\" Cited only in `tools/src/test/resources/reference/HK-HKEX/allowlist.csv`, to show that the severe-weather closures a third-party dataset carries are announced on the day rather than scheduled; no date in this calendar comes from it.",
+      "notes": "Example of a same-day severe-weather announcement (the 06 September 2024 morning notice): \"trading of its securities ... and derivatives markets today (Friday) has been impacted by the issuance of Typhoon Signal No.8 ... If Typhoon Signal No. 8 or above, Black Rainstorm Warning or any announcement of Extreme Conditions, remains issued at 12:00 noon, all trading sessions today will be cancelled.\" Shows the mechanism: the session is cancelled on the day, by announcement. The dated closures themselves cite the individual hkex-no-trading-<date> notices; see the severe-weather section below.",
       "local_files": [],
       "support_intervals": []
     },
@@ -165,6 +228,271 @@
       "notes": "HKEX states that its securities and derivatives markets remain open and operational during severe weather under the arrangements effective 23 September 2024.",
       "local_files": [],
       "support_intervals": []
+    },
+    {
+      "id": "hko-warnings-database",
+      "title": "Warnings and Signals Database: tropical cyclone warning signals (tc.dat) and rainstorm warning signals (rstorm.dat)",
+      "publisher": "Hong Kong Observatory",
+      "location": "https://www.hko.gov.hk/dps/wxinfo/climat/warndb/tc.dat ; https://www.hko.gov.hk/dps/wxinfo/climat/warndb/rstorm.dat (UI: https://www.hko.gov.hk/en/wxinfo/climat/warndb/warndb1.shtml and warndb3.shtml)",
+      "retrieved": "2026-10-13",
+      "covers": "1946 to date; used 2018-01-01 to 2024-09-22",
+      "notes": "The Observatory's complete record of every Tropical Cyclone Warning Signal and Rainstorm Warning Signal with issue and cancellation times (HKT). Every HKEX severe-weather closure before 23 September 2024 required a Signal No. 8 or above, a Black Rainstorm Warning or an Extreme Conditions announcement, so enumerating every such record over the period and applying the exchange's published arrangements (hkex-severe-weather-arrangements-2023) bounds the set of trading days that could have been affected. All T8+ and Black records 2018-2024 are reproduced in the prose below; each one maps either to an HKEX notice or to a weekend, holiday, out-of-session or before-07:00 cancellation that left trading as usual.",
+      "local_files": [],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2018-01-01",
+          "to": "2024-09-22"
+        }
+      ]
+    },
+    {
+      "id": "hkex-severe-weather-arrangements-2023",
+      "title": "Severe Weather Arrangements - Trading (securities market tables (a)-(d), archived)",
+      "publisher": "Hong Kong Exchanges and Clearing Limited",
+      "location": "https://web.archive.org/web/20230605002721/https://www.hkex.com.hk/Services/Trading-hours-and-Severe-Weather-Arrangements/Severe-Weather-Arrangements/Trading?sc_lang=en",
+      "retrieved": "2026-10-13",
+      "covers": "rules in force until 2024-09-22",
+      "notes": "The pre-SWT rules: a signal/warning \"discontinued at or before 7:00 am: Trading will take place as usual\"; \"discontinued after 9:00 am and at or before 11:00 am: The Pre-opening Session and the Morning Session will be cancelled. The Afternoon Session will take place as usual at 1:00 pm\"; \"discontinued after 12:00 noon: No trading for the day\"; a T8 issued during a session: \"Trading will terminate 15 minutes after the issuance of the signal\"; a Black Rainstorm issued during a session: \"trading will continue until the market close as scheduled\". The same wording appears verbatim in every HKEX delay notice 2019-2024.",
+      "local_files": [],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2018-01-01",
+          "to": "2024-09-22"
+        }
+      ]
+    },
+    {
+      "id": "hkex-swt-consultation-2023",
+      "title": "Consultation Paper on Severe Weather Trading of Hong Kong Securities and Derivatives Markets (November 2023)",
+      "publisher": "Hong Kong Exchanges and Clearing Limited",
+      "location": "https://www.hkex.com.hk/News/Market-Consultations/2016-to-Present/November-2023-Severe-Weather-Trading/Consultation-Paper?sc_lang=en",
+      "retrieved": "2026-10-13",
+      "covers": "2018-01-01 to 2023-11-30",
+      "notes": "Independent count used as a cross-check: \"Since 2018, SW conditions have forced market closures on 11 occasions\" and the markets were \"impacted by SW a total of four times in 2023, including three full-day market suspensions\". The eleven dated disruptions modelled here through 9 October 2023 (2019: 1, 2020: 2, 2021: 2, 2022: 2, 2023: 4 of which 3 whole days) match that count exactly. Paragraph 88 also fixes the business-day meaning: only an entire-day closure means SEHK is not \"open for the business of dealing in securities\"; a half-day closure remains a business day.",
+      "local_files": [],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2018-01-01",
+          "to": "2023-11-30"
+        }
+      ]
+    },
+    {
+      "id": "hkex-no-trading-2020-10-13",
+      "title": "No Trading Today in Securities and Derivatives Markets (Tropical Storm Nangka)",
+      "publisher": "Hong Kong Exchanges and Clearing Limited",
+      "location": "https://www.hkex.com.hk/News/Market-Communications/2020/2010132news?sc_lang=en",
+      "retrieved": "2026-10-13",
+      "covers": "2020-10-13",
+      "notes": "HKEX market communication of 2020-10-13: \"today's trading sessions in the securities and derivatives markets, including After-Hours Futures Trading ... have been cancelled due to the issuance of Typhoon Signal No. 8. No securities clearing and settlement services will be provided for the day.\" Whole-day closure; the date is not a business day.",
+      "local_files": [],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2020-10-13",
+          "to": "2020-10-13"
+        }
+      ]
+    },
+    {
+      "id": "hkex-no-trading-2021-10-13",
+      "title": "No Trading Today in Securities and Derivatives Markets (Severe Tropical Storm Kompasu)",
+      "publisher": "Hong Kong Exchanges and Clearing Limited",
+      "location": "https://www.hkex.com.hk/News/Market-Communications/2021/2110132news?sc_lang=en",
+      "retrieved": "2026-10-13",
+      "covers": "2021-10-13",
+      "notes": "HKEX market communication of 2021-10-13: \"trading sessions in the securities and derivatives markets today (Wednesday), including After-Hours Trading, have been cancelled due to the issuance of Typhoon Signal No. 8. No securities clearing and settlement services will be provided for the day.\" Whole-day closure; the date is not a business day.",
+      "local_files": [],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2021-10-13",
+          "to": "2021-10-13"
+        }
+      ]
+    },
+    {
+      "id": "hkex-no-trading-2023-07-17",
+      "title": "No Trading Today in Securities and Derivatives Markets (Severe Tropical Storm Talim)",
+      "publisher": "Hong Kong Exchanges and Clearing Limited",
+      "location": "https://www.hkex.com.hk/News/Market-Communications/2023/2307172news?sc_lang=en",
+      "retrieved": "2026-10-13",
+      "covers": "2023-07-17",
+      "notes": "HKEX market communication of 2023-07-17: \"all trading sessions today (Monday) in the securities and derivatives markets, including After-Hours Trading, have been cancelled ... No securities clearing and settlement services will be provided for the day.\" Whole-day closure; the date is not a business day.",
+      "local_files": [],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2023-07-17",
+          "to": "2023-07-17"
+        }
+      ]
+    },
+    {
+      "id": "hkex-no-trading-2023-09-01",
+      "title": "No Trading Today in Securities and Derivatives Markets (Super Typhoon Saola)",
+      "publisher": "Hong Kong Exchanges and Clearing Limited",
+      "location": "https://www.hkex.com.hk/News/Market-Communications/2023/2309012news?sc_lang=en",
+      "retrieved": "2026-10-13",
+      "covers": "2023-09-01",
+      "notes": "HKEX market communication of 2023-09-01: \"all trading sessions today (Friday) in the securities and derivatives markets, including After-Hours Trading session ... have been cancelled ... No securities clearing and settlement services will be provided for the day.\" Whole-day closure; the date is not a business day.",
+      "local_files": [],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2023-09-01",
+          "to": "2023-09-01"
+        }
+      ]
+    },
+    {
+      "id": "hkex-no-trading-2023-09-08",
+      "title": "No Trading Today in Securities and Derivatives Markets (Black Rainstorm Warning and Extreme Conditions)",
+      "publisher": "Hong Kong Exchanges and Clearing Limited",
+      "location": "https://www.hkex.com.hk/News/Market-Communications/2023/2309083news?sc_lang=en",
+      "retrieved": "2026-10-13",
+      "covers": "2023-09-08",
+      "notes": "HKEX market communication of 2023-09-08: \"all trading sessions today (Friday) in the securities and derivatives markets, including After-Hours Trading session [cancelled] due to a Black Rainstorm Warning remaining in force [and] the announcement of Extreme Conditions by the Hong Kong Government ... No securities clearing and settlement services will be provided for the day.\" Whole-day closure; the date is not a business day.",
+      "local_files": [],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2023-09-08",
+          "to": "2023-09-08"
+        }
+      ]
+    },
+    {
+      "id": "hkex-no-trading-2024-09-06",
+      "title": "No Trading Today in Securities and Derivatives Markets (Super Typhoon Yagi)",
+      "publisher": "Hong Kong Exchanges and Clearing Limited",
+      "location": "https://www.hkex.com.hk/News/Market-Communications/2024/2409062news?sc_lang=en",
+      "retrieved": "2026-10-13",
+      "covers": "2024-09-06",
+      "notes": "HKEX market communication of 2024-09-06: \"all trading sessions today (Friday) in the securities and derivatives markets, including the After-Hours Trading session [cancelled] due to the issuance of Typhoon Signal No. 8 ... No securities clearing and settlement services will be provided for the day.\" Whole-day closure; the date is not a business day.",
+      "local_files": [],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2024-09-06",
+          "to": "2024-09-06"
+        }
+      ]
+    },
+    {
+      "id": "hkex-trading-terminated-2019-07-31",
+      "title": "Trading in Securities and Derivatives Markets Terminated Due to Issuance of Typhoon Signal No. 8 (Tropical Storm Wipha)",
+      "publisher": "Hong Kong Exchanges and Clearing Limited",
+      "location": "https://www.hkex.com.hk/News/Market-Communications/2019/190731news?sc_lang=en",
+      "retrieved": "2026-10-13",
+      "covers": "2019-07-31",
+      "notes": "HKEX market communication of 31 July 2019: \"trading in the securities market, including Stock Connect trading, and derivatives markets will be terminated at 1:55pm\". Signal No. 8 was issued at 13:40 (hko-warnings-database); the morning session traded in full, the afternoon session closed at 13:55 with no Closing Auction Session. Modelled as an EARLY_CLOSE at 13:55; the date remains a business day.",
+      "local_files": [],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2019-07-31",
+          "to": "2019-07-31"
+        },
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2019-07-31",
+          "to": "2019-07-31"
+        }
+      ]
+    },
+    {
+      "id": "hkex-trading-suspended-2022-11-02",
+      "title": "Trading in Securities and Derivatives Markets Suspended Due to Issuance of Typhoon Signal No. 8 (Severe Tropical Storm Nalgae)",
+      "publisher": "Hong Kong Exchanges and Clearing Limited",
+      "location": "https://www.hkex.com.hk/News/Market-Communications/2022/221102news?sc_lang=en",
+      "retrieved": "2026-10-13",
+      "covers": "2022-11-02",
+      "notes": "HKEX market communication of 2 November 2022: \"trading in the securities market, including Stock Connect trading, and derivatives markets will be suspended at 13:55\" ... \"There will be no After-Hours Trading session today.\" Signal No. 8 was issued at 13:40 (hko-warnings-database); modelled as an EARLY_CLOSE at 13:55; the date remains a business day.",
+      "local_files": [],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2022-11-02",
+          "to": "2022-11-02"
+        },
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2022-11-02",
+          "to": "2022-11-02"
+        }
+      ]
+    },
+    {
+      "id": "hkex-trading-resumed-2020-08-19",
+      "title": "Trading in Securities and Derivatives Markets will Resume (Severe Tropical Storm Higos)",
+      "publisher": "Hong Kong Exchanges and Clearing Limited",
+      "location": "https://www.hkex.com.hk/News/Market-Communications/2020/2008192news?sc_lang=en",
+      "retrieved": "2026-10-13",
+      "covers": "2020-08-19",
+      "notes": "HKEX market communication of 2020-08-19: \"trading in the securities and derivatives markets will resume at 1:30pm ... there will be no Pre-opening Session\". The Pre-opening and Morning Sessions were cancelled and the afternoon session traded to the scheduled close. A late open is not an event in this model (session structure is out of scope), so the date is an ordinary business day with no row; the notice is cited so the absence of a closure is evidenced rather than assumed.",
+      "local_files": [],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2020-08-19",
+          "to": "2020-08-19"
+        }
+      ]
+    },
+    {
+      "id": "hkex-trading-resumed-2021-06-28",
+      "title": "Trading in Securities and Derivatives Markets will Resume (Black Rainstorm Warning)",
+      "publisher": "Hong Kong Exchanges and Clearing Limited",
+      "location": "https://www.hkex.com.hk/News/Market-Communications/2021/2106283news?sc_lang=en",
+      "retrieved": "2026-10-13",
+      "covers": "2021-06-28",
+      "notes": "HKEX market communication of 2021-06-28: \"trading in its securities and derivatives markets, including Stock Connect trading, will resume at 1:30 pm today (Monday), following the cancellation of the Black Rainstorm Warning\". The Pre-opening and Morning Sessions were cancelled and the afternoon session traded to the scheduled close. A late open is not an event in this model (session structure is out of scope), so the date is an ordinary business day with no row; the notice is cited so the absence of a closure is evidenced rather than assumed.",
+      "local_files": [],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2021-06-28",
+          "to": "2021-06-28"
+        }
+      ]
+    },
+    {
+      "id": "hkex-trading-resumed-2022-08-25",
+      "title": "Trading in Securities and Derivatives Markets will Resume (Severe Tropical Storm Ma-on)",
+      "publisher": "Hong Kong Exchanges and Clearing Limited",
+      "location": "https://www.hkex.com.hk/News/Market-Communications/2022/2208252news?sc_lang=en",
+      "retrieved": "2026-10-13",
+      "covers": "2022-08-25",
+      "notes": "HKEX market communication of 2022-08-25: \"trading in the securities market will resume at 1:00 pm today (Thursday) ... there will be no Pre-opening Session\". The Pre-opening and Morning Sessions were cancelled and the afternoon session traded to the scheduled close. A late open is not an event in this model (session structure is out of scope), so the date is an ordinary business day with no row; the notice is cited so the absence of a closure is evidenced rather than assumed.",
+      "local_files": [],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2022-08-25",
+          "to": "2022-08-25"
+        }
+      ]
+    },
+    {
+      "id": "hkex-trading-resumed-2023-10-09",
+      "title": "Trading in Securities and Derivatives Markets will Resume (Typhoon Koinu and Black Rainstorm Warning)",
+      "publisher": "Hong Kong Exchanges and Clearing Limited",
+      "location": "https://www.hkex.com.hk/News/Market-Communications/2023/2310092news?sc_lang=en",
+      "retrieved": "2026-10-13",
+      "covers": "2023-10-09",
+      "notes": "HKEX market communication of 2023-10-09: \"[trading] will commence at 2:00 pm today (Monday), following the cancellation of the Typhoon Signal No. 8 ... there will be no pre-opening session\". The Pre-opening and Morning Sessions were cancelled and the afternoon session traded to the scheduled close. A late open is not an event in this model (session structure is out of scope), so the date is an ordinary business day with no row; the notice is cited so the absence of a closure is evidenced rather than assumed.",
+      "local_files": [],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2023-10-09",
+          "to": "2023-10-09"
+        }
+      ]
     }
   ]
 }

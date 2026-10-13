@@ -1,0 +1,77 @@
+kind: module
+id: hk_hkex_severe_weather
+
+# Unscheduled severe-weather disruptions of the Hong Kong securities market before HKEX began
+# trading through severe weather on 23 September 2024 (hkex-severe-weather-trading). Under the
+# arrangements then in force (hkex-severe-weather-arrangements-2023) a Typhoon Signal No. 8 or
+# above, a Black Rainstorm Warning or an Extreme Conditions announcement still in force at 12:00
+# noon cancelled the whole day; one issued during a session terminated trading 15 minutes later.
+#
+# Every date here is an explicit, individually cited HKEX market communication. The set is
+# complete for 2018-01-01 to 2024-09-22: every Signal No. 8+ and Black Rainstorm record in the
+# Observatory's warnings database (hko-warnings-database) over that period either appears below
+# or fell on a weekend, a general holiday, outside the securities session, or was discontinued
+# before 07:00 ("Trading will take place as usual"); and HKEX's own count of eleven closures
+# since 2018 through November 2023 (hkex-swt-consultation-2023) matches. The four days on which
+# only the Pre-opening and Morning Sessions were cancelled (2020-08-19, 2021-06-28, 2022-08-25,
+# 2023-10-09; hkex-trading-resumed-<date>) traded an afternoon session to the scheduled close and
+# are ordinary business days: a late open is not an event in this model.
+
+event_sources:
+  - key: hk_hkex_severe_weather_closure
+    name: Severe Weather Closure
+    default_classification: CLOSED
+    shiftable: false
+    source:
+      - id: hkex-no-trading-2020-10-13
+        ref: "No Trading Today ... due to the issuance of Typhoon Signal No. 8"
+      - id: hkex-no-trading-2021-10-13
+        ref: "No Trading Today ... due to the issuance of Typhoon Signal No. 8"
+      - id: hkex-no-trading-2023-07-17
+        ref: "No Trading Today ... all trading sessions today (Monday) ... have been cancelled"
+      - id: hkex-no-trading-2023-09-01
+        ref: "No Trading Today ... all trading sessions today (Friday) ... have been cancelled"
+      - id: hkex-no-trading-2023-09-08
+        ref: "No Trading Today ... due to a Black Rainstorm Warning remaining in force ... Extreme Conditions"
+      - id: hkex-no-trading-2024-09-06
+        ref: "No Trading Today ... due to the issuance of Typhoon Signal No. 8"
+      - id: hko-warnings-database
+        ref: "Signal No. 8 or above / Black Rainstorm Warning in force at 12:00 noon on each date"
+    rule:
+      type: explicit_dates
+      dates:
+        - date: 2020-10-13
+          comment: Tropical Storm Nangka, Typhoon Signal No. 8
+        - date: 2021-10-13
+          comment: Severe Tropical Storm Kompasu, Typhoon Signal No. 8
+        - date: 2023-07-17
+          comment: Severe Tropical Storm Talim, Typhoon Signal No. 8
+        - date: 2023-09-01
+          comment: Super Typhoon Saola, Typhoon Signal No. 8 to No. 10
+        - date: 2023-09-08
+          comment: Black Rainstorm Warning and Extreme Conditions
+        - date: 2024-09-06
+          comment: Super Typhoon Yagi, Typhoon Signal No. 8
+
+  # A Signal No. 8 issued at 13:40 during the afternoon session: "Trading will terminate 15
+  # minutes after the issuance of the signal", with no Closing Auction Session. The morning
+  # session traded in full, so these are shortened sessions, not closures.
+  - key: hk_hkex_severe_weather_early_termination
+    name: Severe Weather Early Termination
+    default_classification: EARLY_CLOSE
+    close_time: "13:55"
+    shiftable: false
+    source:
+      - id: hkex-trading-terminated-2019-07-31
+        ref: "will be terminated at 1:55pm"
+      - id: hkex-trading-suspended-2022-11-02
+        ref: "will be suspended at 13:55"
+      - id: hko-warnings-database
+        ref: "Typhoon Signal No. 8 issued 13:40 HKT on each date"
+    rule:
+      type: explicit_dates
+      dates:
+        - date: 2019-07-31
+          comment: Tropical Storm Wipha, Typhoon Signal No. 8 issued 13:40
+        - date: 2022-11-02
+          comment: Severe Tropical Storm Nalgae, Typhoon Signal No. 8 issued 13:40
