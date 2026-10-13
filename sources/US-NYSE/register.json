@@ -60,8 +60,173 @@
       "location": "https://www.nyse.com/markets/hours-calendars",
       "retrieved": "2026-09-12",
       "covers": "current and next two years",
-      "notes": "Published holiday and early-close schedule. Also the source for post-2008 one-off closings: Hurricane Sandy (2012-10-29/30), national days of mourning for George H. W. Bush (2018-12-05) and Jimmy Carter (2025-01-09).",
+      "notes": "Published holiday and early-close schedule for the current year and the next two. It does not list the one-off closings (checked on the live page and on the 2018-12-04 and 2019-01-07 Internet Archive copies); those cite the exchange's own press releases below.",
       "local_files": [],
+      "support_intervals": []
+    },
+    {
+      "id": "nyse-euronext-sandy-2012-10-28",
+      "title": "NYSE Euronext Statement on Closure of U.S. Markets on Monday Oct. 29 and Pending Confirmation on Tuesday, Oct. 30, 2012",
+      "publisher": "NYSE Euronext (Business Wire)",
+      "location": "https://www.aol.com/news/2012-10-28-nyse-euronext-statement-on-closure-of-us-markets-o.html (mirror of the 28 October 2012 release; the original nyse.com page is no longer online; also https://www.marktpuls.ch/artikel/permalink/5413)",
+      "retrieved": "2026-10-13",
+      "covers": "2012-10-29",
+      "notes": "Dated New York, 28 October 2012: the exchange's own statement that its US markets would be closed on Monday 29 October 2012 because of Hurricane Sandy. The 29 October follow-up (mirror https://www.marktpuls.ch/artikel/permalink/5531) extended the closure to Tuesday 30 October, and the 30 October statement (https://mondovisione.com/news/nyse-euronext-statement-on-opening-of-us-markets-on-wednesday-oct-31-2012-20121030/) announced a normal 9:30 a.m. open on 31 October. NYSE Euronext's October 2012 volume release (https://ir.theice.com/press/news-details/2012/NYSE-Euronext-Announces-Trading-Volumes-for-October-2012/default.aspx) counts 21 US trading days in the month, two fewer than scheduled.",
+      "local_files": [],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2012-10-29",
+          "to": "2012-10-30"
+        }
+      ]
+    },
+    {
+      "id": "sec-fr-2013-19145",
+      "title": "Self-Regulatory Organizations; NYSE MKT LLC; Notice of Filing of Proposed Rule Change ... Rule 49 (78 FR 48513, 8 August 2013)",
+      "publisher": "U.S. Securities and Exchange Commission / Federal Register",
+      "location": "https://www.govinfo.gov/content/pkg/FR-2013-08-08/pdf/2013-19145.pdf",
+      "retrieved": "2026-10-13",
+      "covers": "2012-10-29 to 2012-10-30",
+      "notes": "Regulatory record of the Sandy closure: \"all U.S. equities and options markets would be closed for those two days\" (29 and 30 October 2012). Corroborated by the SEC OCIE risk alert of 27 August 2013 (https://www.sec.gov/about/offices/ocie/business-continuity-plans-risk-alert.pdf).",
+      "local_files": [
+        {
+          "path": "US-NYSE/sec-fr-2013-19145-rule-49-sandy.pdf",
+          "sha256": "c0f5ffd4f4412880ed584a913f9f0fcb72abdfa354d9672c0a41dd2dc6bc0b0e"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2012-10-29",
+          "to": "2012-10-30"
+        }
+      ]
+    },
+    {
+      "id": "nyse-pr-bush-2018",
+      "title": "New York Stock Exchange to Honor President George H. W. Bush",
+      "publisher": "New York Stock Exchange (Business Wire, hosted by ICE investor relations)",
+      "location": "https://ir.theice.com/press/news-details/2018/New-York-Stock-Exchange-to-Honor-President-George-H-W-Bush/default.aspx",
+      "retrieved": "2026-10-13",
+      "covers": "2018-12-05",
+      "notes": "Press release of 1 December 2018: NYSE, NYSE American, NYSE National, NYSE Arca and the Chicago Stock Exchange closed on Wednesday 5 December 2018, the national day of mourning. Corroborated by FINRA Regulatory Notice 18-39 (finra-rn-18-39) and the SEC's EDGAR closure notice (https://www.sec.gov/newsroom/whats-new/edgar-be-closed-wednesday-december-5-2018).",
+      "local_files": [],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2018-12-05",
+          "to": "2018-12-05"
+        }
+      ]
+    },
+    {
+      "id": "finra-rn-18-39",
+      "title": "FINRA Regulatory Notice 18-39: Unexpected Close of Securities Markets",
+      "publisher": "Financial Industry Regulatory Authority",
+      "location": "https://www.finra.org/sites/default/files/Regulatory-Notice-18-39.pdf",
+      "retrieved": "2026-10-13",
+      "covers": "2018-12-05",
+      "notes": "December 2018 notice on the unexpected close of the securities markets on 5 December 2018 (superseded by Regulatory Notice 24-18 for later events).",
+      "local_files": [
+        {
+          "path": "US-NYSE/finra-regulatory-notice-18-39.pdf",
+          "sha256": "5763c6a9e7afe47aeb1b473e301713eb1877d098eb4e617c0ad557a3ba5d6d15"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2018-12-05",
+          "to": "2018-12-05"
+        }
+      ]
+    },
+    {
+      "id": "nyse-pr-carter-2024",
+      "title": "The New York Stock Exchange Will Close Markets on January 9 to Honor the Passing of Former President Jimmy Carter on National Day of Mourning",
+      "publisher": "New York Stock Exchange (Business Wire, hosted by ICE investor relations)",
+      "location": "https://ir.theice.com/press/news-details/2024/The-New-York-Stock-Exchange-Will-Close-Markets-on-January-9-to-Honor-the-Passing-of-Former-President-Jimmy-Carter-on-National-Day-of-Mourning/default.aspx (also https://www.businesswire.com/news/home/20241230579727/en)",
+      "retrieved": "2026-10-13",
+      "covers": "2025-01-09",
+      "notes": "Press release of 30 December 2024: all seven NYSE Group markets closed on Thursday 9 January 2025. Corroborated by FINRA's technical notice of 2 January 2025 (https://www.finra.org/filing-reporting/technical-notices/national-day-of-mourning-20250109) and SIFMA's Unscheduled Close Market Matrix.",
+      "local_files": [],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2025-01-09",
+          "to": "2025-01-09"
+        }
+      ]
+    },
+    {
+      "id": "fred-nasdaqcom",
+      "title": "NASDAQ Composite Index (NASDAQCOM), daily observations",
+      "publisher": "Federal Reserve Bank of St. Louis (FRED), data from Nasdaq OMX Group",
+      "location": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=NASDAQCOM",
+      "retrieved": "2026-10-13",
+      "covers": "2008-01-01 to 2026-10-12 (series from 1971-02-05)",
+      "notes": "Day-level cross-check of US equity trading days: FRED lists every weekday and leaves the value blank on every day with no session. For every year from 2008 through 12 October 2026 the blank weekdays equal the NYSE's scheduled weekday closures plus exactly the four unscheduled closures (29-30 October 2012, 5 December 2018, 9 January 2025) and no trading day is missing, so no other unscheduled full-day closure occurred. One known artifact: the series prints a value on Good Friday 2019-04-19, when the markets were closed (the S&P 500 series is blank that day). An index series cannot show an early close.",
+      "local_files": [
+        {
+          "path": "US-NYSE/fred-nasdaqcom-2026-10-13.csv",
+          "sha256": "15fe87924fd872d3fe65e18ba780c6745bdb7f2ed11f5d9cb1ce50def94c9d6b"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2008-01-01",
+          "to": "2026-10-12"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2008-01-01",
+          "to": "2026-10-12"
+        }
+      ]
+    },
+    {
+      "id": "fred-sp500",
+      "title": "S&P 500 (SP500), daily observations",
+      "publisher": "Federal Reserve Bank of St. Louis (FRED), data from S&P Dow Jones Indices",
+      "location": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=SP500",
+      "retrieved": "2026-10-13",
+      "covers": "2016-10-13 to 2026-10-12",
+      "notes": "Second, independent index series over FRED's ten-year window; its blank weekdays equal the NYSE's weekday closures exactly, including Good Friday 2019 where the Nasdaq series has its artifact.",
+      "local_files": [
+        {
+          "path": "US-NYSE/fred-sp500-2026-10-13.csv",
+          "sha256": "59990d549a3fc4f67993a9d8600585cf4e611081ed032a1ea095ab4fa14abeed"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2016-10-13",
+          "to": "2026-10-12"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2016-10-13",
+          "to": "2026-10-12"
+        }
+      ]
+    },
+    {
+      "id": "nyse-trading-days-2026-2028",
+      "title": "Trading days: 2026 / 2027 / 2028 (estimated)",
+      "publisher": "New York Stock Exchange / ICE",
+      "location": "https://www.nyse.com/publicdocs/Trading_Days.pdf",
+      "retrieved": "2026-10-13",
+      "covers": "2026-01-01 to 2028-12-31",
+      "notes": "The exchange's own monthly and annual scheduled trading-day counts: 251 US cash-equity trading days in each of 2026, 2027 and 2028, matching the scheduled calendar generated here.",
+      "local_files": [
+        {
+          "path": "US-NYSE/nyse-trading-days-2026-2028.pdf",
+          "sha256": "f90b6d08c4f3e82af53e6139837058abb7a1e7770ea6c716b1ab5dbcb413139f"
+        }
+      ],
       "support_intervals": []
     }
   ]

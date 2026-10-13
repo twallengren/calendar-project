@@ -9,7 +9,12 @@ id: us_historical_closures
 source:
   - id: nyse-history-2008
     ref: special closings list
-  - id: nyse-hours
+  - id: nyse-euronext-sandy-2012-10-28
+    ref: "U.S. markets closed Monday 29 and Tuesday 30 October 2012 (Hurricane Sandy)"
+  - id: nyse-pr-bush-2018
+    ref: "NYSE Group markets closed Wednesday 5 December 2018"
+  - id: nyse-pr-carter-2024
+    ref: "NYSE Group markets closed Thursday 9 January 2025"
 
 event_sources:
   # ==========================================================================
