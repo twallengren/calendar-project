@@ -29,6 +29,12 @@ from .operations import (
     BusinessDayConvention,
     DateOperationResult,
     MemberClose,
+    Schedule,
+    ScheduleDefinition,
+    YearFractionResult,
+    add_tenor_detailed as _add_tenor_detailed,
+    schedule as _generate_schedule,
+    year_fraction_detailed as _year_fraction_detailed,
     adjust_detailed as _adjust_detailed,
     advance_months_detailed as _advance_months_detailed,
     business_day_offset_detailed as _business_day_offset_detailed,
@@ -280,6 +286,45 @@ class BusinessCalendar:
         return _advance_months_detailed(
             self, _as_date(date), months, convention, preserve_end_of_month
         )
+
+    def add_tenor(self, date: DateLike, tenor, convention: BusinessDayConvention) -> _dt.date:
+        """
+        Add a market tenor (``"3M"``, ``"2W"``, ``"1Y"``, ``"T+2"``) and adjust
+        under ``convention``. Business-day tenors ignore the convention.
+        """
+        return self.add_tenor_detailed(date, tenor, convention).result_date
+
+    def add_tenor_detailed(
+        self, date: DateLike, tenor, convention: BusinessDayConvention, preserve_end_of_month: bool = False
+    ) -> DateOperationResult:
+        """Rich tenor addition; ``preserve_end_of_month`` applies to month/year tenors."""
+        return _add_tenor_detailed(self, _as_date(date), tenor, convention, preserve_end_of_month)
+
+    def year_fraction(self, start: DateLike, end: DateLike, day_count) -> float:
+        """
+        The year fraction between two dates under a day-count convention
+        (:class:`bdc_calendars.DayCount` or its name). ``BUS_252`` counts this
+        calendar's business days; ACT/ACT ICMA needs a reference period and is
+        evaluated directly on :class:`DayCount`.
+        """
+        return self.year_fraction_detailed(start, end, day_count).year_fraction
+
+    def year_fraction_detailed(self, start: DateLike, end: DateLike, day_count) -> YearFractionResult:
+        """Rich year fraction with the day count and, for BUS/252, path confidence."""
+        return _year_fraction_detailed(
+            self, _as_date(start, "start"), _as_date(end, "end"), day_count
+        )
+
+    def generate_schedule(self, definition: ScheduleDefinition) -> Schedule:
+        """
+        Generate a periodic schedule (coupon, payment, reset or settlement
+        dates): the definition's frequency, stub and roll convention produce
+        unadjusted boundaries, each adjusted under its business-day convention.
+        The result carries the weakest business-day confidence met on the way.
+        (``schedule`` without arguments is the exchange_calendars-style pandas
+        session table.)
+        """
+        return _generate_schedule(self, definition)
 
     def last_business_day_of_month(self, date: DateLike) -> _dt.date:
         """Last resolved business date in ``date``'s calendar month."""
@@ -927,7 +972,7 @@ def list_aliases() -> dict:
 _HAS_PANDAS = importlib.util.find_spec("pandas") is not None
 
 
-def _schedule(self: BusinessCalendar):
+def _pandas_schedule(self: BusinessCalendar):
     """
     A :class:`pandas.DataFrame` of every session in :attr:`range`.
 
@@ -953,4 +998,4 @@ def _schedule(self: BusinessCalendar):
 
 
 if _HAS_PANDAS:  # pragma: no cover - depends on the environment
-    BusinessCalendar.schedule = property(_schedule)  # type: ignore[attr-defined]
+    BusinessCalendar.schedule = property(_pandas_schedule)  # type: ignore[attr-defined]

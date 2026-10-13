@@ -1,6 +1,8 @@
 package com.bdc.stream;
 
 import com.bdc.chronology.DateRange;
+import com.bdc.finance.DayCount;
+import com.bdc.finance.Tenor;
 import com.bdc.model.Event;
 import com.bdc.model.EventStatus;
 import com.bdc.model.EventType;
@@ -241,6 +243,50 @@ public interface DateStream {
       LocalDate date, int months, BusinessDayConvention convention, boolean preserveEndOfMonth) {
     return FinancialDateOperations.advanceMonths(
         this, date, months, convention, preserveEndOfMonth);
+  }
+
+  /**
+   * Adds a market tenor ({@code 3M}, {@code 2W}, {@code 1Y}, {@code T+2}) and adjusts the result
+   * under {@code convention}. Business-day tenors walk business days and ignore the convention.
+   */
+  default LocalDate addTenor(LocalDate date, Tenor tenor, BusinessDayConvention convention) {
+    return addTenorDetailed(date, tenor, convention, false).resultDate();
+  }
+
+  /** {@link #addTenor(LocalDate, Tenor, BusinessDayConvention)} with the tenor as text. */
+  default LocalDate addTenor(LocalDate date, String tenor, BusinessDayConvention convention) {
+    return addTenor(date, Tenor.parse(tenor), convention);
+  }
+
+  /** Rich tenor addition; {@code preserveEndOfMonth} applies to month and year tenors only. */
+  default DateOperationResult addTenorDetailed(
+      LocalDate date, Tenor tenor, BusinessDayConvention convention, boolean preserveEndOfMonth) {
+    return FinancialDateOperations.addTenor(this, date, tenor, convention, preserveEndOfMonth);
+  }
+
+  /**
+   * The year fraction between two dates under a day-count convention. {@link DayCount#BUS_252}
+   * counts this calendar's business days; ACT/ACT ICMA needs a reference period and is evaluated
+   * directly on {@link DayCount}.
+   */
+  default double yearFraction(LocalDate start, LocalDate end, DayCount dayCount) {
+    return yearFractionDetailed(start, end, dayCount).yearFraction();
+  }
+
+  /** Rich year fraction with the day count and, for BUS/252, the confidence of the counted days. */
+  default YearFractionResult yearFractionDetailed(
+      LocalDate start, LocalDate end, DayCount dayCount) {
+    return FinancialDateOperations.yearFraction(this, start, end, dayCount);
+  }
+
+  /**
+   * Generates a periodic schedule (coupon, payment, reset or settlement dates) on this calendar:
+   * the definition's frequency, stub and roll convention produce unadjusted boundaries and every
+   * boundary is then adjusted under its business-day convention. The result carries the weakest
+   * business-day confidence of every date examined along the way.
+   */
+  default Schedule schedule(ScheduleDefinition definition) {
+    return ScheduleGenerator.generate(this, definition);
   }
 
   /** The last resolved business date in the input date's calendar month. */

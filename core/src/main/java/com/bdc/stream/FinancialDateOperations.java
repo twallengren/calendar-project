@@ -1,5 +1,7 @@
 package com.bdc.stream;
 
+import com.bdc.finance.DayCount;
+import com.bdc.finance.Tenor;
 import com.bdc.model.EventStatus;
 import com.bdc.trust.DateQuestion;
 import java.time.LocalDate;
@@ -75,6 +77,82 @@ final class FinancialDateOperations {
         date, result, DateOperation.ADVANCE_MONTHS, convention, null, months, preserveEndOfMonth);
   }
 
+  /**
+   * Adds a tenor. Day and week tenors shift by calendar days and then adjust; month and year tenors
+   * advance months (with optional business-month-end preservation) and then adjust; business-day
+   * tenors walk business days and ignore the convention. A zero tenor is an identity operation.
+   */
+  static DateOperationResult addTenor(
+      DateStream stream,
+      LocalDate date,
+      Tenor tenor,
+      BusinessDayConvention convention,
+      boolean preserveEndOfMonth) {
+    if (tenor == null) throw new IllegalArgumentException("tenor must not be null");
+    if (convention == null) throw new IllegalArgumentException("convention must not be null");
+    DateOperationResult base =
+        switch (tenor.unit()) {
+          case BUSINESS_DAYS -> offset(stream, date, tenor.amount());
+          case MONTHS, YEARS ->
+              advanceMonths(stream, date, tenor.months(), convention, preserveEndOfMonth);
+          case DAYS, WEEKS -> {
+            Tracker tracker = new Tracker(stream);
+            LocalDate nominal = date.plusDays(tenor.days());
+            LocalDate result = adjust(stream, nominal, convention, tracker);
+            yield tracker.result(
+                date, result, DateOperation.ADD_TENOR, convention, null, null, false);
+          }
+        };
+    return new DateOperationResult(
+        base.originalDate(),
+        base.resultDate(),
+        DateOperation.ADD_TENOR,
+        tenor.unit() == Tenor.Unit.BUSINESS_DAYS ? null : convention,
+        base.businessDayOffset(),
+        base.monthOffset(),
+        base.preserveEndOfMonth(),
+        base.effectiveConfidence(),
+        base.examinedDates(),
+        tenor.toString());
+  }
+
+  /**
+   * A year fraction. Calendar-free conventions are pure arithmetic and examine nothing; BUS/252
+   * counts the business days in {@code [start, end)} and carries their confidence.
+   */
+  static YearFractionResult yearFraction(
+      DateStream stream, LocalDate start, LocalDate end, DayCount dayCount) {
+    if (dayCount == null) throw new IllegalArgumentException("dayCount must not be null");
+    if (dayCount != DayCount.BUS_252) {
+      return new YearFractionResult(
+          start,
+          end,
+          dayCount,
+          dayCount.days(start, end),
+          dayCount.yearFraction(start, end),
+          EventStatus.CONFIRMED,
+          java.util.List.of());
+    }
+    if (end.isBefore(start)) {
+      YearFractionResult forward = yearFraction(stream, end, start, dayCount);
+      return new YearFractionResult(
+          start,
+          end,
+          dayCount,
+          -forward.days(),
+          -forward.yearFraction(),
+          forward.effectiveConfidence(),
+          forward.examinedDates());
+    }
+    Tracker tracker = new Tracker(stream);
+    long count = 0;
+    for (LocalDate day = start; day.isBefore(end); day = day.plusDays(1)) {
+      if (tracker.isBusinessDay(day)) count++;
+    }
+    return new YearFractionResult(
+        start, end, dayCount, count, count / 252.0, tracker.confidence(), tracker.examined());
+  }
+
   static DateOperationResult lastBusinessDayOfMonth(DateStream stream, LocalDate date) {
     Tracker tracker = new Tracker(stream);
     tracker.requireResolved(date);
@@ -83,7 +161,7 @@ final class FinancialDateOperations {
         date, result, DateOperation.LAST_BUSINESS_DAY_OF_MONTH, null, null, null, false);
   }
 
-  private static LocalDate adjust(
+  static LocalDate adjust(
       DateStream stream, LocalDate date, BusinessDayConvention convention, Tracker tracker) {
     if (convention == BusinessDayConvention.UNADJUSTED) {
       tracker.observeIdentity(date);
@@ -123,13 +201,21 @@ final class FinancialDateOperations {
         "No business day within " + DateStream.MAX_SEARCH_DAYS + " days of " + date);
   }
 
-  private static final class Tracker {
+  static final class Tracker {
     private final DateStream stream;
     private final LinkedHashSet<LocalDate> examined = new LinkedHashSet<>();
     private EventStatus confidence = EventStatus.CONFIRMED;
 
-    private Tracker(DateStream stream) {
+    Tracker(DateStream stream) {
       this.stream = stream;
+    }
+
+    EventStatus confidence() {
+      return confidence;
+    }
+
+    java.util.List<LocalDate> examined() {
+      return examined.stream().toList();
     }
 
     private void observeIdentity(LocalDate date) {

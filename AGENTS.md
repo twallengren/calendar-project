@@ -90,7 +90,8 @@ jar stays dependency-free. Package names are unchanged across the split (`com.bd
 | Package | Role |
 |---------|------|
 | `calendar` | **core** — `BusinessCalendars`, the entry point to the bundled data (`of`, `joint`, `available`, `dataVersion`); rebuilds WEEKEND rows from each calendar's weekend policy |
-| `stream` | **core** — the Query API: `DateStream`, `CsvDateStream`, `JointDateStream`, `OutsideCoverageException` (`LazyDateStream`, which queries the generator directly, stays in `tools`) |
+| `stream` | **core** — the Query API: `DateStream`, `CsvDateStream`, `JointDateStream`, `OutsideCoverageException` (`LazyDateStream`, which queries the generator directly, stays in `tools`); `FinancialDateOperations`/`ScheduleGenerator` implement the calendar-dependent financial operations (`addTenor`, `yearFraction`, `schedule`) |
+| `finance` | **core** — calendar-free financial vocabulary: `Tenor`, `Frequency`, `StubConvention`, `RollConvention`, `ImmDates`, `DayCount` (2006 ISDA §4.16); mirrored by `python/bdc_calendars/finance.py` |
 | `cli` | PicoCLI commands: validate, resolve, generate, query, ci-diff, history, changelog, site, serve, scaffold, manifest, crossvalidate, status |
 | `loader` | YAML parsing into model objects, SpecRegistry for lookups |
 | `resolver` | Calendar inheritance resolution and module merging |
@@ -194,9 +195,11 @@ operations need SCHEDULED_CLOSURES and UNSCHEDULED_EXCEPTIONS and raise `Unresol
 and both the strict (`state`/`effectiveConfidence`) and business-day (`businessDayState`/
 `businessDayConfidence`) views; raw event status remains CONFIRMED/PROJECTED.
 
-Financial date conventions, month advancement and last-business-day queries are defined in
-`spec/SPEC.md#financial-date-operations`. Keep detailed Java/Python/CLI/MCP results and full-path
-confidence in parity. Identity exceptions do not establish an open date. Member close times retain
+Financial date conventions, month advancement, last-business-day queries, tenors, day counts and
+schedule generation are defined in `spec/SPEC.md#financial-date-operations`. Keep detailed
+Java/Python/CLI/MCP results and full-path confidence in parity (the parity fixtures cover tenor,
+year-fraction and schedule cases; extend `generate_parity_fixture.jsh` and `test_parity.py`
+together). Identity exceptions do not establish an open date. Member close times retain
 calendar/timezone identity; comparing wall-clock close times across zones is deprecated.
 
 `EU-TARGET`, `US-FEDWIRE` and `GB-CHAPS` are payment-kind calendars without MICs, included alongside

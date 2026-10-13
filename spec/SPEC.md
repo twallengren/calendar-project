@@ -715,6 +715,65 @@ walked to, because the source is not counted.
 These operations calculate business dates. They do not determine instrument-specific settlement
 eligibility, payment cutoffs, operating sessions or intraday deadlines.
 
+#### Tenors, day counts and schedules
+
+The same confidence-tracing machinery carries three further operations, implemented in Java
+(`com.bdc.finance` for the calendar-free vocabulary, `DateStream` for the calendar-dependent
+operations), Python (`bdc_calendars.finance`, `BusinessCalendar`), the CLI (`--add-tenor`,
+`--year-fraction`, `--schedule`) and MCP (`add_tenor`, `year_fraction`, `generate_schedule`), and
+held to the same answers by the parity fixtures.
+
+**Tenors.** A tenor is `<amount><unit>` with unit `D`, `W`, `M`, `Y` or `B` (business days), or
+the settlement spelling `T+n` / `T-n` (`T+2` is `2B`); amounts may be negative; the canonical
+spelling is `3M`, `-2W`, `2B`. `add_tenor(date, tenor, convention[, preserve_end_of_month])`:
+
+| Unit | Result |
+|------|--------|
+| `D`, `W` | `date` plus the calendar days, then `adjust(convention)` |
+| `M`, `Y` | `advance_months(date, months, convention, preserve_end_of_month)` |
+| `B` | `business_day_offset(date, n)`; the convention is ignored and reported as absent |
+
+The detailed result is a `DateOperationResult` with `operation = ADD_TENOR`, the additive `tenor`
+field holding the canonical spelling, and the offset/month fields of the underlying operation. A
+zero tenor is an identity operation.
+
+**Day counts** follow the 2006 ISDA Definitions §4.16: `ACT_360`, `ACT_365F`, `ACT_ACT_ISDA`,
+`ACT_ACT_ICMA`, `THIRTY_360_BOND` (4.16(f)), `THIRTY_E_360` (4.16(g)), `THIRTY_E_360_ISDA`
+(4.16(h), which needs to know whether the end is the termination date) and `BUS_252` (business
+days in `[start, end)` over 252). `year_fraction(start, end, day_count)` returns `days` (the
+convention's day count: actual days, the 30/360 count or the business-day count), `year_fraction`,
+`effective_confidence` and `examined_dates`. Calendar-free conventions are arithmetic: they
+examine nothing and report `CONFIRMED`. `BUS_252` examines every date in the interval and reports
+the weakest business-day confidence. `ACT_ACT_ICMA` needs the regular (or notional) period and
+the frequency and is evaluated on `DayCount` directly. A reversed interval gives the negated
+forward value.
+
+**IMM dates** are the third Wednesday of a month; the quarterly cycle is March, June, September,
+December (`ImmDates` / `imm_date`, `next_imm`, `next_quarterly_imm`).
+
+**Schedules.** `schedule(definition)` generates periodic dates (coupons, payments, resets,
+settlements). A definition is `{start, end, frequency, stub, roll, convention}`:
+
+- `frequency`: `ANNUAL` (1Y), `SEMI_ANNUAL` (6M), `QUARTERLY` (3M), `BI_MONTHLY` (2M), `MONTHLY`
+  (1M), `FOUR_WEEKLY` (4W), `BI_WEEKLY` (2W), `WEEKLY` (1W);
+- `stub`: `NONE` (the end must lie on the cycle; otherwise an error), `SHORT_FINAL` / `LONG_FINAL`
+  (roll forward from `start`; a short final period absorbs the remainder, or the final regular
+  period is extended to absorb it), `SHORT_INITIAL` / `LONG_INITIAL` (roll backward from `end`,
+  mirrored);
+- `roll`, for month-based frequencies only: `DAY_OF_MONTH` (keep the anchor's day, clipped to the
+  destination month; clipping is always computed from the anchor, so a 31st anchor returns to the
+  31st in long months), `EOM` (last day of each rolled month), `IMM` (third Wednesday of each
+  rolled month). Week-based frequencies add whole weeks;
+- `convention`: the business-day convention applied to **every** boundary, start and end
+  included.
+
+The result lists periods `{unadjusted_start, unadjusted_end, start, end, stub}` in date order,
+exactly one of which is flagged `stub` when the end did not lie on the cycle, with
+`effective_confidence` the weakest business-day confidence of every date examined while adjusting
+and `examined_dates` those dates. A boundary whose business-day question is unresolved raises, as
+for any other business-day operation; an early-close gap never does. At most 10,000 periods are
+generated.
+
 The CLI and MCP return the detailed result as JSON. Their financial-operation calendar argument
 accepts a single ID or comma-separated IDs for an all-members-open joint calendar. Nonzero month
 advancement with `UNADJUSTED` still requires a resolved destination; only identity operations may

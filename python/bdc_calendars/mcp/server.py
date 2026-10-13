@@ -130,6 +130,43 @@ def _operation_dict(result: bdc.DateOperationResult) -> Dict[str, Any]:
         "preserve_end_of_month": result.preserve_end_of_month,
         "effective_confidence": result.effective_confidence,
         "examined_dates": [_iso(day) for day in result.examined_dates],
+        "tenor": result.tenor,
+    }
+
+
+def _schedule_dict(result: bdc.Schedule) -> Dict[str, Any]:
+    definition = result.definition
+    return {
+        "start": _iso(definition.start),
+        "end": _iso(definition.end),
+        "frequency": definition.frequency.name,
+        "stub": definition.stub.value,
+        "roll": definition.roll.value,
+        "convention": definition.convention.value,
+        "periods": [
+            {
+                "unadjusted_start": _iso(period.unadjusted_start),
+                "unadjusted_end": _iso(period.unadjusted_end),
+                "start": _iso(period.start),
+                "end": _iso(period.end),
+                "stub": period.stub,
+            }
+            for period in result.periods
+        ],
+        "effective_confidence": result.effective_confidence,
+        "examined_dates": [_iso(day) for day in result.examined_dates],
+    }
+
+
+def _year_fraction_dict(result: bdc.YearFractionResult) -> Dict[str, Any]:
+    return {
+        "start": _iso(result.start),
+        "end": _iso(result.end),
+        "day_count": result.day_count,
+        "days": result.days,
+        "year_fraction": result.year_fraction,
+        "effective_confidence": result.effective_confidence,
+        "examined_dates": [_iso(day) for day in result.examined_dates],
     }
 
 
@@ -429,6 +466,70 @@ def create_server() -> "Any":
             "calendar_id": cal.calendar_id,
             "data_version": bdc.data_version,
             **_operation_dict(result),
+        }
+
+    @app.tool()
+    def add_tenor(
+        calendar: str, date: str, tenor: str, convention: str = "MODIFIED_FOLLOWING",
+        preserve_end_of_month: bool = False,
+    ) -> Dict[str, Any]:
+        """Add a market tenor (3M, 2W, 1Y, T+2) with path confidence; calendar accepts joint IDs."""
+        try:
+            cal = _operation_calendar(calendar)
+            result = cal.add_tenor_detailed(_parse_date(date), tenor, convention, preserve_end_of_month)
+        except _QUERY_ERRORS + (RuntimeError,) as exc:
+            return _error(exc)
+        return {
+            "calendar_id": cal.calendar_id,
+            "data_version": bdc.data_version,
+            **_operation_dict(result),
+        }
+
+    @app.tool()
+    def year_fraction(calendar: str, start: str, end: str, day_count: str) -> Dict[str, Any]:
+        """Year fraction under ACT_360, ACT_365F, ACT_ACT_ISDA, THIRTY_360_BOND, THIRTY_E_360, THIRTY_E_360_ISDA or BUS_252."""
+        try:
+            cal = _operation_calendar(calendar)
+            result = cal.year_fraction_detailed(
+                _parse_date(start, "start"), _parse_date(end, "end"), day_count
+            )
+        except _QUERY_ERRORS + (RuntimeError,) as exc:
+            return _error(exc)
+        return {
+            "calendar_id": cal.calendar_id,
+            "data_version": bdc.data_version,
+            **_year_fraction_dict(result),
+        }
+
+    @app.tool()
+    def generate_schedule(
+        calendar: str,
+        start: str,
+        end: str,
+        frequency: str,
+        stub: str = "SHORT_FINAL",
+        roll: str = "DAY_OF_MONTH",
+        convention: str = "MODIFIED_FOLLOWING",
+    ) -> Dict[str, Any]:
+        """Periodic schedule (coupon/payment/reset dates) adjusted on the calendar, with path confidence."""
+        try:
+            cal = _operation_calendar(calendar)
+            result = cal.generate_schedule(
+                bdc.ScheduleDefinition(
+                    _parse_date(start, "start"),
+                    _parse_date(end, "end"),
+                    bdc.Frequency.of(frequency),
+                    bdc.StubConvention(stub.upper()),
+                    bdc.RollConvention(roll.upper()),
+                    convention,
+                )
+            )
+        except _QUERY_ERRORS + (RuntimeError,) as exc:
+            return _error(exc)
+        return {
+            "calendar_id": cal.calendar_id,
+            "data_version": bdc.data_version,
+            **_schedule_dict(result),
         }
 
     @app.tool()

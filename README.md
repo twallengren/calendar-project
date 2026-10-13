@@ -181,6 +181,11 @@ nyse.isBusinessDay(LocalDate.of(2021, 12, 31));      // true
 nyse.closeTime(LocalDate.of(2025, 7, 3));            // Optional[13:00]
 BusinessCalendars.joint("US-NYSE", "SA-TADAWUL")     // open only where both are
     .nthBusinessDay(LocalDate.of(2026, 2, 25), 2);   // 2026-03-02
+nyse.addTenor(LocalDate.of(2024, 1, 31), "3M", BusinessDayConvention.MODIFIED_FOLLOWING); // 2024-04-30
+nyse.yearFraction(LocalDate.of(2024, 1, 1), LocalDate.of(2024, 2, 1), DayCount.BUS_252);  // 21/252
+nyse.schedule(ScheduleDefinition.of(LocalDate.of(2024, 1, 15), LocalDate.of(2024, 12, 1), Frequency.QUARTERLY)
+        .withStub(StubConvention.SHORT_INITIAL))
+    .dates();                                        // 2024-01-16 (MLK Day), 03-01, 06-03, 09-03, 12-02
 ```
 Run `./gradlew publishToMavenLocal -Prelease=true` to publish the local build into Maven Local.
 
@@ -200,9 +205,13 @@ and has authoritative 2027 Lunar New Year overrides. EU-TARGET, GB-CHAPS and US-
 2026–2027 with SCHEDULED_CLOSURES VERIFIED and EARLY_CLOSES and UNSCHEDULED_EXCEPTIONS PROJECTED;
 they describe operating dates, not hours, cutoffs or settlement eligibility. See
 [payment calendar scope](docs/payment-calendars.md). Financial date operations include adjustment (`UNADJUSTED`, `FOLLOWING`, `MODIFIED_FOLLOWING`,
-`PRECEDING`, `MODIFIED_PRECEDING`), business-day offsets, month advancement, and last-business-day
-lookup. Their detailed results report confidence across the entire examined path, including dates
-searched before the final result; they do not model instrument-specific settlement rules.
+`PRECEDING`, `MODIFIED_PRECEDING`), business-day offsets, month advancement, last-business-day
+lookup, market tenors (`3M`, `2W`, `1Y`, `T+2`), day-count year fractions (ACT/360, ACT/365F,
+ACT/ACT ISDA and ICMA, the 30/360 family per the 2006 ISDA Definitions, and BUS/252 on the
+calendar's own business days), IMM dates and periodic schedule generation (frequency, stub, roll
+and business-day conventions). Their detailed results report confidence across the entire examined
+path, including dates searched before the final result; they do not model instrument-specific
+settlement rules. See `spec/SPEC.md#financial-date-operations`.
 
 ## Browse
 

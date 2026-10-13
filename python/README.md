@@ -55,6 +55,10 @@ installed version. Ids are matched case-insensitively, and `-` and `_` are inter
 | `business_day_offset(date, n)` | move by business dates; the detailed variant reports path-wide confidence |
 | `advance_months(date, months, convention, preserve_end_of_month=False)` | add calendar months, clip the nominal day, optionally preserve business month end, then adjust |
 | `last_business_day_of_month(date)` | final resolved business date in the input month |
+| `add_tenor(date, "3M", convention)` | add a market tenor (`D`/`W`/`M`/`Y`, or `T+2`/`2B` business days, which ignore the convention); the detailed variant carries the canonical `tenor` |
+| `year_fraction(start, end, day_count)` | `ACT_360`, `ACT_365F`, `ACT_ACT_ISDA`, `THIRTY_360_BOND`, `THIRTY_E_360`, `THIRTY_E_360_ISDA` (2006 ISDA §4.16) or `BUS_252` on this calendar's business days; `DayCount.ACT_ACT_ICMA.year_fraction(...)` takes the reference period |
+| `generate_schedule(ScheduleDefinition(start, end, frequency, stub, roll, convention))` | coupon/payment/reset dates: `Frequency` (ANNUAL … WEEKLY), `StubConvention` (NONE, SHORT/LONG_FINAL, SHORT/LONG_INITIAL), `RollConvention` (DAY_OF_MONTH, EOM, IMM); every boundary adjusted, path confidence reported |
+| `imm_date(y, m)`, `next_imm(date)`, `next_quarterly_imm(date)` | third-Wednesday IMM dates (module functions) |
 | `business_days_between(a, b)` | count of business days, **both endpoints included** |
 | `is_early_close(date)` / `close_time(date)` | shortened-session test and its local close time (`datetime.time` or `None`) |
 | `status(date)` | `"CONFIRMED"`, `"PROJECTED"` or `"UNKNOWN"` — never raises |

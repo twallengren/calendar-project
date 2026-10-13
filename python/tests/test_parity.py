@@ -173,6 +173,58 @@ def test_financial_operations_match(pair):
             lambda: normalized(lambda: calendar.last_business_day_of_month_detailed(day)),
             case["last"], (day, "last"),
         )
+        for tenor in ("3M", "T+2", "2W", "-1Y", "0D"):
+            if "tenor_" + tenor not in case:
+                continue
+            _assert_query(
+                lambda: normalized(lambda: calendar.add_tenor_detailed(day, tenor, "MODIFIED_FOLLOWING")),
+                case["tenor_" + tenor], (day, tenor),
+            )
+        for key, expected in case.items():
+            if key.startswith("yf_"):
+                _assert_query(
+                    lambda: _year_fraction(calendar, day, expected, key[3:]), expected, (day, key)
+                )
+            elif key.startswith("schedule_"):
+                _assert_query(lambda: _schedule(calendar, day, expected, key), expected, (day, key))
+
+
+def _year_fraction(calendar, day, expected, day_count):
+    # The generator uses min(day + 45 days, range end) as the interval end.
+    end = min(day + dt.timedelta(days=45), calendar.range.end)
+    result = calendar.year_fraction_detailed(day, end, day_count)._asdict()
+    for key in ("start", "end"):
+        result[key] = result[key].isoformat()
+    result["examined_dates"] = [d.isoformat() for d in result["examined_dates"]]
+    if "year_fraction" in expected and abs(result["year_fraction"] - expected["year_fraction"]) < 1e-12:
+        result["year_fraction"] = expected["year_fraction"]
+    return result
+
+
+def _schedule(calendar, day, expected, key):
+    from bdc_calendars.finance import add_months
+
+    # The generator uses min(day + 10 months, range end) as the schedule end.
+    end = min(add_months(day, 10), calendar.range.end)
+    if key == "schedule_SHORT_FINAL":
+        definition = bdc.ScheduleDefinition(day, end, "QUARTERLY", "SHORT_FINAL", "DAY_OF_MONTH", "MODIFIED_FOLLOWING")
+    else:
+        definition = bdc.ScheduleDefinition(day, end, "MONTHLY", "LONG_INITIAL", "EOM", "FOLLOWING")
+    result = calendar.generate_schedule(definition)
+    return {
+        "periods": [
+            {
+                "unadjusted_start": p.unadjusted_start.isoformat(),
+                "unadjusted_end": p.unadjusted_end.isoformat(),
+                "start": p.start.isoformat(),
+                "end": p.end.isoformat(),
+                "stub": p.stub,
+            }
+            for p in result.periods
+        ],
+        "effective_confidence": result.effective_confidence,
+        "examined_dates": [d.isoformat() for d in result.examined_dates],
+    }
 
 
 def _assert_navigation(calendar, day: dt.date, case: dict) -> None:

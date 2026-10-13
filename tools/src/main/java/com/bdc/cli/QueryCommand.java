@@ -14,6 +14,8 @@ import com.bdc.stream.JointDateStream;
 import com.bdc.stream.LazyDateStream;
 import com.bdc.stream.MemberClose;
 import com.bdc.stream.OutsideCoverageException;
+import com.bdc.stream.ScheduleDefinition;
+import com.bdc.stream.SchedulePeriod;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.nio.file.Path;
 import java.time.LocalDate;
@@ -109,6 +111,41 @@ public class QueryCommand implements Callable<Integer> {
       names = "--last-business-day-of-month",
       description = "Find the last business date in the given date's month as JSON")
   private LocalDate lastBusinessDayOfMonth;
+
+  @Option(
+      names = "--add-tenor",
+      description = "Add a tenor (3M, 2W, 1Y, T+2) to --from and apply --convention (JSON)")
+  private String addTenor;
+
+  @Option(
+      names = "--year-fraction",
+      description = "Year fraction from --from to --to under --day-count (JSON)")
+  private boolean yearFraction;
+
+  @Option(names = "--day-count", description = "Day-count convention: ${COMPLETION-CANDIDATES}")
+  private com.bdc.finance.DayCount dayCount;
+
+  @Option(
+      names = "--schedule",
+      description =
+          "Generate a periodic schedule from --from to --to with --frequency, --stub, --roll and"
+              + " --convention (JSON)")
+  private boolean schedule;
+
+  @Option(names = "--frequency", description = "Schedule frequency: ${COMPLETION-CANDIDATES}")
+  private com.bdc.finance.Frequency frequency;
+
+  @Option(
+      names = "--stub",
+      description = "Schedule stub convention: ${COMPLETION-CANDIDATES}",
+      defaultValue = "SHORT_FINAL")
+  private com.bdc.finance.StubConvention stub;
+
+  @Option(
+      names = "--roll",
+      description = "Schedule roll convention: ${COMPLETION-CANDIDATES}",
+      defaultValue = "DAY_OF_MONTH")
+  private com.bdc.finance.RollConvention roll;
 
   @Option(
       names = "--member-closes",
@@ -317,6 +354,75 @@ public class QueryCommand implements Callable<Integer> {
         printOperation(stream().lastBusinessDayOfMonthDetailed(lastBusinessDayOfMonth));
       }
 
+      if (addTenor != null) {
+        anyQuery = true;
+        LocalDate refDate = requireFrom("--add-tenor");
+        com.bdc.finance.Tenor tenor = com.bdc.finance.Tenor.parse(addTenor);
+        if (tenor.unit() != com.bdc.finance.Tenor.Unit.BUSINESS_DAYS) {
+          requireConvention("--add-tenor");
+        }
+        printOperation(
+            stream()
+                .addTenorDetailed(
+                    refDate,
+                    tenor,
+                    convention == null ? BusinessDayConvention.UNADJUSTED : convention,
+                    preserveEndOfMonth));
+      }
+
+      if (yearFraction) {
+        anyQuery = true;
+        LocalDate start = requireFrom("--year-fraction");
+        if (to == null || dayCount == null) {
+          throw new IllegalArgumentException(
+              "--year-fraction needs --to <date> --day-count <name>");
+        }
+        var result = stream().yearFractionDetailed(start, to, dayCount);
+        Map<String, Object> row = new LinkedHashMap<>();
+        row.put("start", result.start().toString());
+        row.put("end", result.end().toString());
+        row.put("day_count", result.dayCount().name());
+        row.put("days", result.days());
+        row.put("year_fraction", result.yearFraction());
+        row.put("effective_confidence", result.effectiveConfidence().name());
+        row.put(
+            "examined_dates", result.examinedDates().stream().map(LocalDate::toString).toList());
+        System.out.println(new ObjectMapper().writeValueAsString(row));
+      }
+
+      if (schedule) {
+        anyQuery = true;
+        LocalDate start = requireFrom("--schedule");
+        if (to == null || frequency == null) {
+          throw new IllegalArgumentException("--schedule needs --to <date> --frequency <name>");
+        }
+        requireConvention("--schedule");
+        var result =
+            stream().schedule(new ScheduleDefinition(start, to, frequency, stub, roll, convention));
+        Map<String, Object> row = new LinkedHashMap<>();
+        row.put("start", start.toString());
+        row.put("end", to.toString());
+        row.put("frequency", frequency.name());
+        row.put("stub", stub.name());
+        row.put("roll", roll.name());
+        row.put("convention", convention.name());
+        List<Map<String, Object>> periods = new ArrayList<>();
+        for (SchedulePeriod period : result.periods()) {
+          Map<String, Object> p = new LinkedHashMap<>();
+          p.put("unadjusted_start", period.unadjustedStart().toString());
+          p.put("unadjusted_end", period.unadjustedEnd().toString());
+          p.put("start", period.start().toString());
+          p.put("end", period.end().toString());
+          p.put("stub", period.stub());
+          periods.add(p);
+        }
+        row.put("periods", periods);
+        row.put("effective_confidence", result.effectiveConfidence().name());
+        row.put(
+            "examined_dates", result.examinedDates().stream().map(LocalDate::toString).toList());
+        System.out.println(new ObjectMapper().writeValueAsString(row));
+      }
+
       if (memberClosesDate != null) {
         anyQuery = true;
         printMemberCloses(stream(), memberClosesDate);
@@ -458,6 +564,9 @@ public class QueryCommand implements Callable<Integer> {
                   || businessDayOffset != null
                   || advanceMonths != null
                   || lastBusinessDayOfMonth != null
+                  || addTenor != null
+                  || yearFraction
+                  || schedule
                   || memberClosesDate != null
               ? System.err
               : System.out)
@@ -548,6 +657,7 @@ public class QueryCommand implements Callable<Integer> {
     row.put("preserve_end_of_month", result.preserveEndOfMonth());
     row.put("effective_confidence", result.effectiveConfidence().name());
     row.put("examined_dates", result.examinedDates().stream().map(LocalDate::toString).toList());
+    row.put("tenor", result.tenor());
     System.out.println(new ObjectMapper().writeValueAsString(row));
   }
 
@@ -634,6 +744,13 @@ public class QueryCommand implements Callable<Integer> {
         "  --advance-months <n> --from <date> --convention <name>  Advance months (JSON)");
     System.out.println(
         "  --last-business-day-of-month <date>  Find month-end business date (JSON)");
+    System.out.println(
+        "  --add-tenor <tenor> --from <date> [--convention <name>]  Add 3M/2W/1Y/T+2 (JSON)");
+    System.out.println(
+        "  --year-fraction --from <date> --to <date> --day-count <name>  Year fraction (JSON)");
+    System.out.println(
+        "  --schedule --from <date> --to <date> --frequency <name> --convention <name> [--stub"
+            + " <name>] [--roll <name>]  Periodic schedule (JSON)");
     System.out.println("  --member-closes <date>       Member close times and timezones (JSON)");
     System.out.println(
         "  --settlement T+N --from <date>  Compatibility business-date offset trace");
