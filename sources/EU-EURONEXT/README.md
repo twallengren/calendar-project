@@ -5,6 +5,27 @@ of its markets. The four cash markets modelled here — Euronext Amsterdam (XAMS
 (XBRU), Lisbon (XLIS) and Paris (XPAR) — always share the same column values in those
 calendars, so these sources back `EU-EURONEXT` and all four venue calendars.
 
+**31 December 2015 is a half day, not a closure (corrected in 13.0.0).** Euronext's "Calendar of
+business days 2015", published in December 2014 (`euronext-calendars-hours-archive`), listed
+Thursday 31 December 2015 among the closed days, and releases through 12.0.0 published it as
+`CLOSED`. The exchange's own December 2015 volume release (`euronext-volumes-dec-2015`) counts 22
+trading days in a 23-weekday December, i.e. only Christmas Day closed, its 2015 total of 256
+reconciles only with a 31 December session, and BFM Bourse reported the CAC 40 closing at
+4,637.06 that day in a shortened session. The recurring New Year's Eve half day therefore applies
+(14:05 CET; 13:05 in Lisbon). No amending Euronext notice was located; the statistics and the
+index close are decisive.
+
+**Trading-day reconciliation.** Euronext's own counts (`nyse-euronext-10k-2012` for 2010-2012, the
+December volume releases, and the monthly historical-volumes workbook
+`euronext-monthly-historical-volumes` for every month from January 2012 to September 2026) equal
+the modelled schedule in every year: 258, 257, 256, 255, 255, 256, 257, 255, 255, 255, 257, 258,
+257, 255, 256, 255 for 2010-2025 and 191 for January-September 2026. No unscheduled full-day
+closure occurred in the period. The two market-wide disruptions, 29 October 2018 (Optiq launch,
+open 12:20, normal closing fixing) and 19 October 2020 (halt 09:48-12:45, failed closing auction,
+trades after 17:30 CEST cancelled; `euronext-market-status-2020-10-19`), are counted by the
+exchange as trading days and carry no row. `UNSCHEDULED_EXCEPTIONS` is `VERIFIED` through
+30 September 2026 and `PROJECTED` after, for the base calendar and all four venues.
+
 | id | title | publisher | url / file | retrieved | covers | notes |
 |----|-------|-----------|------------|-----------|--------|-------|
 | `euronext-hours-holidays` | Trading hours & Holidays | Euronext | https://live.euronext.com/en/resources/trading-hours-holidays (also https://www.euronext.com/en/trading/trading-hours-holidays) | 2026-09-14 | 2019–2026 | Per-venue closed / half trading day / full trading day tables for 2022–2026 and bullet lists for 2019–2021, plus the 14:05 CET half-day close time. Primary source for 2019 onwards. |
@@ -15,6 +36,12 @@ calendars, so these sources back `EU-EURONEXT` and all four venue calendars.
 | `nyse-euronext-calendar-2012` | Trading announcement: Calendar of cash business days 2012 (PAR\_20111114\_07899\_EUR, 14 November 2011) | NYSE Euronext | `calendar-of-cash-business-days-2012.pdf` (https://www.euronext.com/sites/www.euronext.com/files/calendar_2012.pdf, via the Internet Archive) | 2026-09-14 | 2012 | Rule Book I notice. Also published as a press release: https://www.euronext.com/en/about/media/euronext-press-releases/nyse-euronext-announces-its-2012-holiday-calendar-and-early |
 | `nyse-euronext-calendar-2011` | NYSE Euronext annonce le Calendrier 2011 de ses marchés européens | NYSE Euronext | https://www.euronext.com/en/about/media/euronext-press-releases/nyse-euronext-annonce-le-calendrier-2011-de-ses-marches | 2026-09-14 | 2011 | Lists only Good Friday, Easter Monday and 26 December as closures; 24 and 31 December 2011 were Saturdays and 23 and 30 December closed at the usual 17:35 CET. |
 | `nyse-euronext-calendar-2010` | Trading announcement: Calendar of cash business days 2010 (PAR\_20091015\_05039\_EUR, 15 October 2009) | NYSE Euronext | `calendar-of-cash-business-days-2010.pdf` (https://www.euronext.com/sites/www.euronext.com/files/calendar_of_cash_business_days_15_oct_2009.pdf, via the Internet Archive) | 2026-09-14 | 2010 | Rule Book I notice; earliest year in coverage. |
+| `euronext-volumes-dec-2015` | Euronext announces monthly trading volumes for December 2015 | Euronext N.V. | https://www.euronext.com/en/investor-relations/financial-information/news/euronext-announces-monthly-trading-volumes-for | 2026-10-14 | 2014-01-01 to 2015-12-31 | The exchange's own December 2015 volume release: "Nb trading days: Dec-15 22, Nov-15 21, Dec-14 21, Q4 2015 65, Q4 2014 64, YTD 2015 256, YTD 2014 255". December 2015 has 23 weekdays; 22 trading days means only Christmas Day was closed, so Thursday 31 December 2015 was a trading day (the usual half day), contrary to the "Calendar of business days 2015" published in December 2014 (euronext-calendars-hours-archive), which had listed it as a closure. BFM Bourse reported the CAC 40 closing at 4,637.06 on 31 December 2015 "au terme d'une seance ecourtee" (https://www.tradingsat.com/cac-40-FR0003500008/actualites/cac-40-le-cac-40-finit-l-annee-en-baisse-643941.html). The 2015 year total of 256 equals the modelled schedule once that day is a half day. |
+| `euronext-monthly-historical-volumes` | Euronext monthly historical volumes (Equity Markets sheet, "Nb of trading days") | Euronext N.V., Investor Relations | https://live.euronext.com/sites/default/files/statistics/ir/euronext_monthly_historical_volumes.xlsx | 2026-10-14 | 2012-01-01 to 2026-09-30 | The exchange's own count of cash trading days for every month from January 2012 to September 2026. Summed per year it equals the modelled schedule in every year (2012 256, 2013 255, 2014 255, 2015 256, 2016 257, 2017 255, 2018 255, 2019 255, 2020 257, 2021 258, 2022 257, 2023 255, 2024 256, 2025 255, January-September 2026 191), so no unscheduled full-day closure occurred; the 29 October 2018 and 19 October 2020 disruptions are counted as trading days. |
+| `nyse-euronext-10k-2012` | NYSE Euronext Form 10-K for the fiscal year ended 31 December 2012, Item 6 Volume Summary | NYSE Euronext (SEC EDGAR) | https://www.sec.gov/Archives/edgar/data/0001368007/000136800713000005/nyx-20121231x10k.htm | 2026-10-14 | 2010-01-01 to 2012-12-31 | "Number of trading days - European Cash: 256 (2012), 257 (2011), 258 (2010)", each equal to the modelled schedule. |
+| `euronext-volumes-dec-2014` | Euronext announces monthly trading volumes for December 2014 | Euronext N.V. | https://www.euronext.com/en/investor-relations/financial-information/news/euronext-announces-monthly-trading-volumes-for-6 | 2026-10-14 | 2013-01-01 to 2014-12-31 | "Nb trading days 21 20 20 64 64 255 255" (December 2014, November 2014, December 2013, Q4 2014, Q4 2013, 2014, 2013), equal to the modelled schedule. |
+| `euronext-volumes-dec-2016` | Euronext announces volumes for December 2016, December 2017 and December 2019 | Euronext N.V. | https://www.euronext.com/en/investor-relations/financial-information/news/euronext-announces-volumes-for-december-2016 (also -2017 and -2019) | 2026-10-14 | 2015-01-01 to 2019-12-31 | Year-to-date trading-day counts: 2016 257 and 2015 256 (December 2016 release), 2017 255 and 2016 257 (December 2017), 2019 255 and 2018 255 (December 2019), each equal to the modelled schedule. |
+| `euronext-market-status-2020-10-19` | More info about 19 October 2020 market status | Euronext N.V. | https://www.euronext.com/en/news/more-info-about-19-october-2020-market-status | 2026-10-14 | 2020-10-19 | The exchange's post-incident notice: trading halted from 09:48 and resumed about 12:45 CEST; the closing auction failed, trades after 17:30 CEST were cancelled and the closing price was the last executed price. A degraded close, counted by the exchange as a trading day; not a closure and not an early close, so no row. The 29 October 2018 Optiq-launch delay (open 12:20, CAC 40 closed 4,989.35) likewise ended with a normal closing fixing. |
 
 ## Modelling decisions recorded against these sources
 

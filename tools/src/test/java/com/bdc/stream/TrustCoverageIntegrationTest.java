@@ -162,8 +162,14 @@ class TrustCoverageIntegrationTest {
 
     DateStream jpx = new LazyDateStream(resolver.resolve("JP-JPX"));
     assertEquals(
-        CoverageQuality.PROJECTED,
+        CoverageQuality.VERIFIED,
         jpx.assessment(LocalDate.of(2018, 1, 4))
+            .completeness()
+            .get(CompletenessScope.SCHEDULED_CLOSURES),
+        "JPX's own monthly counts verify the schedule from 2010");
+    assertEquals(
+        CoverageQuality.PROJECTED,
+        jpx.assessment(LocalDate.of(2028, 1, 4))
             .completeness()
             .get(CompletenessScope.SCHEDULED_CLOSURES));
     assertEquals(

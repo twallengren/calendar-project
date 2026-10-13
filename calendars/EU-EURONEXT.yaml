@@ -36,8 +36,17 @@ metadata:
         to: 2030-12-31
         quality: PROJECTED
         evidence_ids: [euronext-hours-holidays]
+      # Euronext's own trading-day counts (10-K 2010-2012, December volume releases, the monthly
+      # historical-volumes workbook to September 2026) equal the schedule in every year, so no
+      # unscheduled full-day closure occurred; the 2018 and 2020 Optiq disruptions ended with a
+      # (degraded) close and are counted by the exchange as trading days.
       - scope: UNSCHEDULED_EXCEPTIONS
         from: 2010-01-01
+        to: 2026-09-30
+        quality: VERIFIED
+        evidence_ids: [nyse-euronext-10k-2012, euronext-volumes-dec-2014, euronext-volumes-dec-2015, euronext-volumes-dec-2016, euronext-monthly-historical-volumes, euronext-market-status-2020-10-19]
+      - scope: UNSCHEDULED_EXCEPTIONS
+        from: 2026-10-01
         to: 2030-12-31
         quality: PROJECTED
         evidence_ids: [euronext-hours-holidays]

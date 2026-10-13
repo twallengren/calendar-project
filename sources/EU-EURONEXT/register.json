@@ -174,6 +174,166 @@
           "to": "2010-12-31"
         }
       ]
+    },
+    {
+      "id": "euronext-volumes-dec-2015",
+      "title": "Euronext announces monthly trading volumes for December 2015",
+      "publisher": "Euronext N.V.",
+      "location": "https://www.euronext.com/en/investor-relations/financial-information/news/euronext-announces-monthly-trading-volumes-for",
+      "retrieved": "2026-10-14",
+      "covers": "2014-01-01 to 2015-12-31",
+      "notes": "The exchange's own December 2015 volume release: \"Nb trading days: Dec-15 22, Nov-15 21, Dec-14 21, Q4 2015 65, Q4 2014 64, YTD 2015 256, YTD 2014 255\". December 2015 has 23 weekdays; 22 trading days means only Christmas Day was closed, so Thursday 31 December 2015 was a trading day (the usual half day), contrary to the \"Calendar of business days 2015\" published in December 2014 (euronext-calendars-hours-archive), which had listed it as a closure. BFM Bourse reported the CAC 40 closing at 4,637.06 on 31 December 2015 \"au terme d'une seance ecourtee\" (https://www.tradingsat.com/cac-40-FR0003500008/actualites/cac-40-le-cac-40-finit-l-annee-en-baisse-643941.html). The 2015 year total of 256 equals the modelled schedule once that day is a half day.",
+      "local_files": [
+        {
+          "path": "EU-EURONEXT/euronext-volumes-december-2015.html",
+          "sha256": "6c7353349fc776cd9b4c96bdc375e5f56ecb90f305ea6621102c7ba0c8dd21e0"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2014-01-01",
+          "to": "2015-12-31"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2014-01-01",
+          "to": "2015-12-31"
+        }
+      ]
+    },
+    {
+      "id": "euronext-monthly-historical-volumes",
+      "title": "Euronext monthly historical volumes (Equity Markets sheet, \"Nb of trading days\")",
+      "publisher": "Euronext N.V., Investor Relations",
+      "location": "https://live.euronext.com/sites/default/files/statistics/ir/euronext_monthly_historical_volumes.xlsx",
+      "retrieved": "2026-10-14",
+      "covers": "2012-01-01 to 2026-09-30",
+      "notes": "The exchange's own count of cash trading days for every month from January 2012 to September 2026. Summed per year it equals the modelled schedule in every year (2012 256, 2013 255, 2014 255, 2015 256, 2016 257, 2017 255, 2018 255, 2019 255, 2020 257, 2021 258, 2022 257, 2023 255, 2024 256, 2025 255, January-September 2026 191), so no unscheduled full-day closure occurred; the 29 October 2018 and 19 October 2020 disruptions are counted as trading days.",
+      "local_files": [
+        {
+          "path": "EU-EURONEXT/euronext-monthly-historical-volumes-2026-10-14.xlsx",
+          "sha256": "41be74f9d6e64b30d76dfd255cdabb89e93ed09da6ba0c33348ff9e54071ff86"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2012-01-01",
+          "to": "2026-09-30"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2012-01-01",
+          "to": "2026-09-30"
+        }
+      ]
+    },
+    {
+      "id": "nyse-euronext-10k-2012",
+      "title": "NYSE Euronext Form 10-K for the fiscal year ended 31 December 2012, Item 6 Volume Summary",
+      "publisher": "NYSE Euronext (SEC EDGAR)",
+      "location": "https://www.sec.gov/Archives/edgar/data/0001368007/000136800713000005/nyx-20121231x10k.htm",
+      "retrieved": "2026-10-14",
+      "covers": "2010-01-01 to 2012-12-31",
+      "notes": "\"Number of trading days - European Cash: 256 (2012), 257 (2011), 258 (2010)\", each equal to the modelled schedule.",
+      "local_files": [
+        {
+          "path": "EU-EURONEXT/nyse-euronext-10k-2012.htm",
+          "sha256": "2de57cb8628a7320f60f154cb3dd51c23b85d187d57790a87e0a7386e61bc048"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2010-01-01",
+          "to": "2012-12-31"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2010-01-01",
+          "to": "2012-12-31"
+        }
+      ]
+    },
+    {
+      "id": "euronext-volumes-dec-2014",
+      "title": "Euronext announces monthly trading volumes for December 2014",
+      "publisher": "Euronext N.V.",
+      "location": "https://www.euronext.com/en/investor-relations/financial-information/news/euronext-announces-monthly-trading-volumes-for-6",
+      "retrieved": "2026-10-14",
+      "covers": "2013-01-01 to 2014-12-31",
+      "notes": "\"Nb trading days 21 20 20 64 64 255 255\" (December 2014, November 2014, December 2013, Q4 2014, Q4 2013, 2014, 2013), equal to the modelled schedule.",
+      "local_files": [
+        {
+          "path": "EU-EURONEXT/euronext-volumes-december-2014.html",
+          "sha256": "7b55b2641964af5a1b57af7298e47887642e574fd9653db9662b7e1a8af6ada2"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2013-01-01",
+          "to": "2014-12-31"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2013-01-01",
+          "to": "2014-12-31"
+        }
+      ]
+    },
+    {
+      "id": "euronext-volumes-dec-2016",
+      "title": "Euronext announces volumes for December 2016, December 2017 and December 2019",
+      "publisher": "Euronext N.V.",
+      "location": "https://www.euronext.com/en/investor-relations/financial-information/news/euronext-announces-volumes-for-december-2016 (also -2017 and -2019)",
+      "retrieved": "2026-10-14",
+      "covers": "2015-01-01 to 2019-12-31",
+      "notes": "Year-to-date trading-day counts: 2016 257 and 2015 256 (December 2016 release), 2017 255 and 2016 257 (December 2017), 2019 255 and 2018 255 (December 2019), each equal to the modelled schedule.",
+      "local_files": [
+        {
+          "path": "EU-EURONEXT/euronext-volumes-december-2016.html",
+          "sha256": "bc2237a3b9d617649a595cd668294f005c7b2dad724de2ffcb73e6146e31dece"
+        },
+        {
+          "path": "EU-EURONEXT/euronext-volumes-december-2017.html",
+          "sha256": "07d8a7907f57e54ee39ffe415be15303fbc1419bdb46a12607387a5df2e86151"
+        },
+        {
+          "path": "EU-EURONEXT/euronext-volumes-december-2019.html",
+          "sha256": "278a066378adda203c5554d3b1d878190f637880987ea595189612390cd0ec25"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2015-01-01",
+          "to": "2019-12-31"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2015-01-01",
+          "to": "2019-12-31"
+        }
+      ]
+    },
+    {
+      "id": "euronext-market-status-2020-10-19",
+      "title": "More info about 19 October 2020 market status",
+      "publisher": "Euronext N.V.",
+      "location": "https://www.euronext.com/en/news/more-info-about-19-october-2020-market-status",
+      "retrieved": "2026-10-14",
+      "covers": "2020-10-19",
+      "notes": "The exchange's post-incident notice: trading halted from 09:48 and resumed about 12:45 CEST; the closing auction failed, trades after 17:30 CEST were cancelled and the closing price was the last executed price. A degraded close, counted by the exchange as a trading day; not a closure and not an early close, so no row. The 29 October 2018 Optiq-launch delay (open 12:20, CAC 40 closed 4,989.35) likewise ended with a normal closing fixing.",
+      "local_files": [],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2020-10-19",
+          "to": "2020-10-19"
+        }
+      ]
     }
   ]
 }

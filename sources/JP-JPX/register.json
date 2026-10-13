@@ -67,6 +67,180 @@
       "notes": "\"a failure occurred in the arrowhead cash equity trading system … which made it impossible to start trading and meant TSE was unable to provide opportunities for trading for the entire day\". The basis for the single unscheduled full-day closure in coverage.",
       "local_files": [],
       "support_intervals": []
+    },
+    {
+      "id": "jpx-monthly-report-2014-12",
+      "title": "統計月報 2014年12月 1-1 内国株式総括表 (Monthly Statistics Report, Key Statistics for Domestic Stocks)",
+      "publisher": "Japan Exchange Group / Tokyo Stock Exchange",
+      "location": "https://www.jpx.co.jp/files/tse/market/data/geppo/b7gje60000056a2a-att/01_sokatu1412.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2010-01-01 to 2014-12-31",
+      "notes": "The exchange's own annual trading-day counts (立会日数): 2010 245, 2011 245, 2012 248, 2013 245, 2014 244, each equal to the modelled schedule month by month. 2011 has no lost session: trading continued through the March 2011 earthquake (tse-statement-2011-03-14).",
+      "local_files": [
+        {
+          "path": "JP-JPX/jpx-monthly-report-2014-12-key-statistics.pdf",
+          "sha256": "36865389b688d53b0bea830418501c683311ddf0de0615ca45b09ea5ba20dc83"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2010-01-01",
+          "to": "2014-12-31"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2010-01-01",
+          "to": "2014-12-31"
+        }
+      ]
+    },
+    {
+      "id": "jpx-monthly-report-2016-01",
+      "title": "Monthly Statistics Report January 2016, Key Statistics for Domestic Stocks",
+      "publisher": "Japan Exchange Group / Tokyo Stock Exchange",
+      "location": "https://www.jpx.co.jp/english/markets/statistics-equities/monthly/b5b4pj000000wq1g-att/01_sokatu1601.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2011-01-01 to 2015-12-31",
+      "notes": "Annual trading days 2011-2015 (2015: 244), equal to the modelled schedule.",
+      "local_files": [
+        {
+          "path": "JP-JPX/jpx-monthly-report-2016-01-key-statistics.pdf",
+          "sha256": "3ea64f28b1935ea0ee9afe1b8eab411889b34195dab8ec5bb00cd017d9ab1aaa"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2011-01-01",
+          "to": "2015-12-31"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2011-01-01",
+          "to": "2015-12-31"
+        }
+      ]
+    },
+    {
+      "id": "jpx-monthly-report-2019-08",
+      "title": "統計月報 2019年8月 (Monthly Statistics Report, August 2019)",
+      "publisher": "Japan Exchange Group / Tokyo Stock Exchange",
+      "location": "https://www.jpx.co.jp/markets/statistics-equities/monthly/nlsgeu000004alfg-att/1908.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2014-01-01 to 2018-12-31",
+      "notes": "Annual trading days 2014-2018 (2016 245, 2017 247, 2018 245), equal to the modelled schedule.",
+      "local_files": [
+        {
+          "path": "JP-JPX/jpx-monthly-report-2019-08.pdf",
+          "sha256": "da5447b31cfcd321c516f0518253ae1e7adb76463eb67c521f8ca5a7f357d5e1"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2014-01-01",
+          "to": "2018-12-31"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2014-01-01",
+          "to": "2018-12-31"
+        }
+      ]
+    },
+    {
+      "id": "jpx-monthly-report-2026-08",
+      "title": "Monthly Statistics Report August 2026, Key Statistics for Domestic Stocks",
+      "publisher": "Japan Exchange Group / Tokyo Stock Exchange",
+      "location": "https://www.jpx.co.jp/english/markets/statistics-equities/monthly/vk0khi000002bth0-att/01_sokatu2608.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2021-01-01 to 2026-08-31",
+      "notes": "Annual trading days 2021 245, 2022 244, 2023 246, 2024 245, 2025 243 and monthly counts to August 2026 (19, 18, 21, 21, 18, 22, 22, 20 for January-August 2026), each equal to the modelled schedule. Note that JPX counts the 1 October 2020 all-day suspension as a trading day (its 2020 count of 243 includes it), so these statistics verify the scheduled closures; the absence of other unscheduled suspensions rests on the exchange's news releases (jpx-system-failure-2020 is the only one in coverage) and on contemporaneous press.",
+      "local_files": [
+        {
+          "path": "JP-JPX/jpx-monthly-report-2026-08-key-statistics.pdf",
+          "sha256": "02e64883f251667f3c84618e69522adc724353580116bce689a9f8abd9fd7b16"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2019-01-01",
+          "to": "2026-08-31"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2019-01-01",
+          "to": "2026-08-31"
+        }
+      ]
+    },
+    {
+      "id": "jpx-trading-overview-2020",
+      "title": "Trading Overview in Year 2020 & December 2020, Reference (TSE)",
+      "publisher": "Japan Exchange Group / Tokyo Stock Exchange",
+      "location": "https://www.jpx.co.jp/english/corporate/news/news-releases/0063/b5b4pj000003tuqd-att/reference(TSE)_2020.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2019-01-01 to 2020-12-31",
+      "notes": "\"(No. of Trading Days: 243)\" for 2020 and the daily averages divide exactly by 243, the scheduled count: the exchange counts the 1 October 2020 suspension as a trading day. The 2013 and 2015-2025 reference sheets give the other years (2019 241; 2024 245; 2025 243).",
+      "local_files": [
+        {
+          "path": "JP-JPX/jpx-trading-overview-2020-reference.pdf",
+          "sha256": "663fb775d53669deb229a27bed549998436a9808440a2f871e4e0f0ddd9f23ee"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2019-01-01",
+          "to": "2020-12-31"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2019-01-01",
+          "to": "2020-12-31"
+        }
+      ]
+    },
+    {
+      "id": "tse-statement-2011-03-14",
+      "title": "Tokyo Stock Exchange statement regarding the Tohoku district - off the Pacific Ocean earthquake (14 March 2011)",
+      "publisher": "Tokyo Stock Exchange (republished by Mondo Visione)",
+      "location": "https://mondovisione.com/media-and-resources/news/tokyo-stock-exchange-statement-regarding-the-tohoku-district-off-the-pacific-oc-2011314/",
+      "retrieved": "2026-10-14",
+      "covers": "2011-03-14",
+      "notes": "\"Today TSE will operate regular trading sessions for stocks, futures, options, and other listed products.\" Trading continued every scheduled day after the 11 March 2011 earthquake.",
+      "local_files": [],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2011-03-11",
+          "to": "2011-03-14"
+        }
+      ]
+    },
+    {
+      "id": "tse-arrowhead-2018-10-09",
+      "title": "Partial Connection Failure in the Equity Trading System (arrowhead), 9 October 2018, and the report of 23 October 2018",
+      "publisher": "Tokyo Stock Exchange",
+      "location": "https://www.jpx.co.jp/english/news/1030/20181009-01.html ; https://www.jpx.co.jp/english/corporate/news/news-releases/0060/20181024-02.html",
+      "retrieved": "2026-10-14",
+      "covers": "2018-10-09",
+      "notes": "\"Trading is conducted as usual\"; the report states the exchange \"allowed trading for all issues according to the normal trading schedule\". A partial connectivity failure, not a closure.",
+      "local_files": [
+        {
+          "path": "JP-JPX/tse-arrowhead-2018-10-09-report.pdf",
+          "sha256": "e97363cc444875c32f72e32fa7671a74d71a008cfa06e1f8432d119d41eaaf87"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2018-10-09",
+          "to": "2018-10-09"
+        }
+      ]
     }
   ]
 }

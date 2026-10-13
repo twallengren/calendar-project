@@ -4,7 +4,6 @@ id: euronext_new_years_eve_lisbon
 # New Year's Eve (31 December) half trading day on Euronext Lisbon: euronext_new_years_eve
 # with the pan-European CET close time expressed in Europe/Lisbon local time (WET/WEST, one
 # hour behind CET all year). See euronext_christmas_eve_lisbon for the reasoning, and
-# euronext_special_closures for 31 December 2015, which was a full closure instead.
 
 event_sources:
   - key: euronext_new_years_eve

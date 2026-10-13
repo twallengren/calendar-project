@@ -32,8 +32,22 @@ metadata:
         to: 2030-12-31
         quality: INCOMPLETE
         evidence_ids: [xetra-cash-market-calendar-page]
+      # Deutsche Börse publishes no trading-day count, so this rests on the exchange's incident
+      # notices and the contemporaneous press: every disruption of 2010-2026 was a delayed open,
+      # an intraday halt or partial, and the April 2020 outage was "one of the longest ever".
+      # Undated earlier failures (2004, 2006, November 2007) keep 2003-2009 projected.
       - scope: UNSCHEDULED_EXCEPTIONS
         from: 2003-01-01
+        to: 2009-12-31
+        quality: PROJECTED
+        evidence_ids: [xetra-cash-market-calendar-page]
+      - scope: UNSCHEDULED_EXCEPTIONS
+        from: 2010-01-01
+        to: 2026-09-30
+        quality: VERIFIED
+        evidence_ids: [press-xetra-outages-2012-2018, xetra-newsboard-emergency-search, xetra-newsboard-emergency-2020-04-14, xetra-newsboard-emergency-2020-07-01]
+      - scope: UNSCHEDULED_EXCEPTIONS
+        from: 2026-10-01
         to: 2030-12-31
         quality: PROJECTED
         evidence_ids: [xetra-cash-market-calendar-page]
