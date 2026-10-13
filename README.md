@@ -329,6 +329,8 @@ actual-day completeness. Use the [coverage assessment summary](docs/delivery/COV
 | US-FEDWIRE | Fedwire Funds Service | payment | America/New_York | 2026-01-01 to 2027-12-31 | 2027-12-31 | 19 | 0 | 0 | 3 | none | 13.0.0 |
 | US-MARKET-BASE | US Market Base Calendar | base | America/New_York | 1900-01-01 to 2030-12-31 | 2026-12-31 | 938 | 0 | 0 | 2 | none | 13.0.0 |
 
+Corrections to previously published answers are logged in [`docs/ERRATA.md`](docs/ERRATA.md).
+
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for the full walkthrough of adding a market, correcting

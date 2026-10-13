@@ -132,7 +132,7 @@ People won't switch from their spreadsheets because we have a nicer YAML format.
 
 - **Per-market accuracy scorecards** — publish coverage dates, known gaps, last-verified dates, and source links for every calendar. Make the quality visible.
 - **Automated cross-validation** — compare our outputs against exchange_calendars, QuantLib, and any other public source. Flag discrepancies. Publish the comparison.
-- **Errata and corrections log** — when we get something wrong, document it publicly. Transparency builds more trust than perfection.
+- **Errata and corrections log** — when we get something wrong, document it publicly. Transparency builds more trust than perfection. *Started: [`docs/ERRATA.md`](docs/ERRATA.md).*
 - **Immutable release history** — the bitemporal model we already have is a huge differentiator. Firms care about "what did we think was correct on date X?" for audit and compliance.
 
 ### The contributor flywheel
