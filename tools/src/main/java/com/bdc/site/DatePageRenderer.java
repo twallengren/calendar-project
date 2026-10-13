@@ -264,10 +264,27 @@ public final class DatePageRenderer {
                     .append(HtmlTemplate.escape(field.getValue().asText()))
                     .append("</li>"));
     html.append("</ul>");
+    // The citations each event on this date carries, then the coverage evidence for the scopes.
+    java.util.Set<String> cited = new java.util.LinkedHashSet<>();
+    for (var event : day.path("events")) {
+      List<String> ids = new ArrayList<>();
+      event.path("evidence_ids").forEach(id -> ids.add(id.asText()));
+      if (ids.isEmpty() || event.path("type").asText().equals("WEEKEND")) continue;
+      cited.addAll(ids);
+      html.append("<p>")
+          .append(HtmlTemplate.escape(event.path("description").asText()))
+          .append(" is cited to ");
+      for (int i = 0; i < ids.size(); i++) {
+        if (i > 0) html.append(", ");
+        html.append(evidenceLink(calendar.id(), ids.get(i)));
+      }
+      html.append(".</p>");
+    }
     List<String> evidenceIds = new ArrayList<>();
     day.path("evidence_ids").forEach(id -> evidenceIds.add(id.asText()));
+    evidenceIds.removeAll(cited);
     if (!evidenceIds.isEmpty()) {
-      html.append("<p>Evidence on this date: ");
+      html.append("<p>Coverage of this date is established by ");
       for (int i = 0; i < evidenceIds.size(); i++) {
         if (i > 0) html.append(", ");
         html.append(evidenceLink(calendar.id(), evidenceIds.get(i)));
