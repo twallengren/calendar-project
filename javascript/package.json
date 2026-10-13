@@ -1,0 +1,47 @@
+{
+  "name": "bdc-calendars",
+  "version": "0.13.0",
+  "description": "Business-day and trading calendars with provenance and confidence: the bdc Query API for JavaScript/TypeScript, zero runtime dependencies.",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/twallengren/calendar-project.git",
+    "directory": "javascript"
+  },
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "data",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=22.6"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "node --test --experimental-strip-types \"test/*.test.ts\"",
+    "sync-data": "node scripts/sync-data.mjs",
+    "check-data": "node scripts/sync-data.mjs --check"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.9.0"
+  },
+  "keywords": [
+    "business-days",
+    "trading-calendar",
+    "holidays",
+    "settlement",
+    "day-count",
+    "schedule",
+    "finance"
+  ]
+}

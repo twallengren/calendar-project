@@ -1,0 +1,117 @@
+{
+  "aliases": {
+    "NYSE": "US-NYSE",
+    "TADAWUL": "SA-TADAWUL",
+    "TASE": "IL-TASE",
+    "XAMS": "NL-EURONEXT-AMSTERDAM",
+    "XBRU": "BE-EURONEXT-BRUSSELS",
+    "XETR": "DE-XETRA",
+    "XHKG": "HK-HKEX",
+    "XJPX": "JP-JPX",
+    "XLIS": "PT-EURONEXT-LISBON",
+    "XLON": "GB-LSE",
+    "XNYS": "US-NYSE",
+    "XPAR": "FR-EURONEXT-PARIS",
+    "XSAU": "SA-TADAWUL",
+    "XTAE": "IL-TASE",
+    "XTKS": "JP-JPX",
+    "XTSE": "CA-TSX"
+  },
+  "blessed_at": "2026-10-13T22:33:37Z",
+  "calendars": {
+    "BE-EURONEXT-BRUSSELS": {
+      "kind": "market",
+      "range_end": "2030-12-31",
+      "range_start": "2010-01-01"
+    },
+    "CA-TSX": {
+      "kind": "market",
+      "range_end": "2030-12-31",
+      "range_start": "2000-01-01"
+    },
+    "DE-XETRA": {
+      "kind": "market",
+      "range_end": "2030-12-31",
+      "range_start": "2003-01-01"
+    },
+    "EU-EURONEXT": {
+      "kind": "base",
+      "range_end": "2030-12-31",
+      "range_start": "2010-01-01"
+    },
+    "EU-TARGET": {
+      "kind": "payment",
+      "range_end": "2027-12-31",
+      "range_start": "2026-01-01"
+    },
+    "FR-EURONEXT-PARIS": {
+      "kind": "market",
+      "range_end": "2030-12-31",
+      "range_start": "2010-01-01"
+    },
+    "GB-CHAPS": {
+      "kind": "payment",
+      "range_end": "2027-12-31",
+      "range_start": "2026-01-01"
+    },
+    "GB-LSE": {
+      "kind": "market",
+      "range_end": "2030-12-31",
+      "range_start": "2000-01-01"
+    },
+    "HK-HKEX": {
+      "kind": "market",
+      "range_end": "2027-12-31",
+      "range_start": "2018-01-01"
+    },
+    "IL-TASE": {
+      "kind": "market",
+      "range_end": "2028-12-31",
+      "range_start": "2025-01-01"
+    },
+    "JP-JPX": {
+      "kind": "market",
+      "range_end": "2030-12-31",
+      "range_start": "2010-01-01"
+    },
+    "NL-EURONEXT-AMSTERDAM": {
+      "kind": "market",
+      "range_end": "2030-12-31",
+      "range_start": "2010-01-01"
+    },
+    "PT-EURONEXT-LISBON": {
+      "kind": "market",
+      "range_end": "2030-12-31",
+      "range_start": "2010-01-01"
+    },
+    "SA-TADAWUL": {
+      "kind": "market",
+      "range_end": "2030-12-31",
+      "range_start": "2020-01-01"
+    },
+    "US-CORP-IN-VISIBILITY": {
+      "kind": "base",
+      "range_end": "2030-12-31",
+      "range_start": "1900-01-01"
+    },
+    "US-FEDWIRE": {
+      "kind": "payment",
+      "range_end": "2027-12-31",
+      "range_start": "2026-01-01"
+    },
+    "US-MARKET-BASE": {
+      "kind": "base",
+      "range_end": "2030-12-31",
+      "range_start": "1900-01-01"
+    },
+    "US-NYSE": {
+      "kind": "market",
+      "range_end": "2030-12-31",
+      "range_start": "1900-01-01"
+    }
+  },
+  "data_git_sha": "848195caa264f472d2ec8d9addcdfa4fe14b12d9",
+  "data_version": "13.0.0",
+  "generation_date": "2026-10-13",
+  "schema_version": "1.0"
+}

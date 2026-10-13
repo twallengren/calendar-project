@@ -65,6 +65,14 @@ python python/scripts/sync_data.py --check   # CI guard: bundled data still re-d
 python/scripts/generate_parity_fixture.sh    # refresh python/tests/fixtures/ from the Java toolchain (jshell)
 ```
 
+**JavaScript package (`javascript/`):** `bdc-calendars` on npm mirrors the Query API for Node.js/TypeScript with zero runtime dependencies, reading the same bundled files as the Python package (`javascript/data/`, copied from `python/bdc_calendars/data/` by `node javascript/scripts/sync-data.mjs`, which `scripts/bless.sh` also runs). `test/parity.test.ts` replays the Python parity fixtures, so port every semantic change to Java, Python and TypeScript together.
+```bash
+cd javascript && npm install           # dev dependencies only
+npm test                               # node:test with native type stripping (Node 22.6+); includes parity for all calendars
+npm run build                          # tsc -> dist/
+npm run check-data                     # CI guard: javascript/data matches python/bdc_calendars/data
+```
+
 **Onboarding a new market:** `./gradlew :tools:run --args="scaffold --market GB-LSE --name \"London Stock Exchange\" --timezone Europe/London --mic XLON"` generates the calendar YAML, a holiday group and one example holiday module, and a `sources/<MARKET>/README.md` citation table for a new market; it reuses the `weekend_sat_sun`/`weekend_fri_sat` policy modules or writes a new one with `--weekend custom`, appends the calendar's `blessed/manifest.json` and `scripts/reference/export_reference_calendars.py` entries, and prints the golden test stub and next steps (validate, generate, update goldens, cross-validation allowlist) referenced in `CONTRIBUTING.md`. It refuses to overwrite existing files unless `--force`, and `--dry-run` previews the plan without writing anything.
 
 ## Architecture
@@ -145,7 +153,7 @@ Use scratch directories for verification. Update `blessed/` and `release-history
 
 ### Python bindings
 
-`python/` holds `bdc-calendars`: a dependency-free port of the Query API (`BusinessCalendar`, `get_calendar`/`get_joint_calendar`, the same out-of-range and status contract, exchange_calendars-style aliases). The Java `DateStream`/`JointDateStream` remain the reference implementation — `python/tests/test_parity.py` replays fixtures dumped from them, so port any semantic change to both. Release publishing to PyPI (Trusted Publishing) is in `release.yml`, guarded by the `PYPI_PUBLISH` repository variable.
+`python/` holds `bdc-calendars`: a dependency-free port of the Query API (`BusinessCalendar`, `get_calendar`/`get_joint_calendar`, the same out-of-range and status contract, exchange_calendars-style aliases). `javascript/` holds the TypeScript port of the same API (`getCalendar`/`getJointCalendar`, ISO-string dates). The Java `DateStream`/`JointDateStream` remain the reference implementation — `python/tests/test_parity.py` and `javascript/test/parity.test.ts` replay fixtures dumped from them, so port any semantic change to all three. Release publishing to PyPI (Trusted Publishing) is in `release.yml`, guarded by the `PYPI_PUBLISH` repository variable.
 
 ## Calendar correctness
 

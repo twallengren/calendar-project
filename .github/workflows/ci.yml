@@ -64,6 +64,24 @@ jobs:
           pip install -e "python/[test,mcp]"
           pytest python/ -q
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: javascript/package-lock.json
+
+      # Exercises the bdc-calendars JavaScript package: the parity fixtures
+      # shared with the Python port, its own API tests, a type-checked build,
+      # and a check that javascript/data still matches python/bdc_calendars/data.
+      - name: JavaScript package tests
+        working-directory: javascript
+        run: |
+          npm ci
+          npm run check-data
+          npm test
+          npm run build
+
       - name: Check canonical source tables
         run: python3 scripts/sources.py --check
 

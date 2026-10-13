@@ -70,5 +70,9 @@ echo "Cross-validating against reference data"
 if command -v python3 > /dev/null && [ -f python/scripts/sync_data.py ]; then
   python3 python/scripts/sync_data.py > /dev/null && echo "Synced python/bdc_calendars/data"
 fi
+# ... and the JavaScript package's copy of the same files
+if command -v node > /dev/null && [ -f javascript/scripts/sync-data.mjs ]; then
+  node javascript/scripts/sync-data.mjs > /dev/null && echo "Synced javascript/data"
+fi
 
 echo "Done. Review with: git status --short blessed/"

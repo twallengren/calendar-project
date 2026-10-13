@@ -1,0 +1,311 @@
+date,type,description,key,source_module,observed_from,close_time,status
+2000-01-03,CLOSED,New Year's Day,ca_new_years_day,module:ca_new_years_day,2000-01-01,,CONFIRMED
+2000-04-21,CLOSED,Good Friday,ca_good_friday,module:ca_good_friday,,,CONFIRMED
+2000-05-22,CLOSED,Victoria Day,ca_victoria_day,module:ca_victoria_day,,,CONFIRMED
+2000-07-03,CLOSED,Canada Day,ca_canada_day,module:ca_canada_day,2000-07-01,,CONFIRMED
+2000-08-07,CLOSED,Civic Holiday,ca_civic_holiday,module:ca_civic_holiday,,,CONFIRMED
+2000-09-04,CLOSED,Labour Day,ca_labour_day,module:ca_labour_day,,,CONFIRMED
+2000-10-09,CLOSED,Thanksgiving Day,ca_thanksgiving,module:ca_thanksgiving,,,CONFIRMED
+2000-12-25,CLOSED,Christmas Day,ca_christmas,module:ca_christmas,,,CONFIRMED
+2000-12-26,CLOSED,Boxing Day,ca_boxing_day,module:ca_boxing_day,,,CONFIRMED
+2001-01-01,CLOSED,New Year's Day,ca_new_years_day,module:ca_new_years_day,,,CONFIRMED
+2001-04-13,CLOSED,Good Friday,ca_good_friday,module:ca_good_friday,,,CONFIRMED
+2001-05-21,CLOSED,Victoria Day,ca_victoria_day,module:ca_victoria_day,,,CONFIRMED
+2001-07-02,CLOSED,Canada Day,ca_canada_day,module:ca_canada_day,2001-07-01,,CONFIRMED
+2001-08-06,CLOSED,Civic Holiday,ca_civic_holiday,module:ca_civic_holiday,,,CONFIRMED
+2001-09-03,CLOSED,Labour Day,ca_labour_day,module:ca_labour_day,,,CONFIRMED
+2001-10-08,CLOSED,Thanksgiving Day,ca_thanksgiving,module:ca_thanksgiving,,,CONFIRMED
+2001-12-25,CLOSED,Christmas Day,ca_christmas,module:ca_christmas,,,CONFIRMED
+2001-12-26,CLOSED,Boxing Day,ca_boxing_day,module:ca_boxing_day,,,CONFIRMED
+2002-01-01,CLOSED,New Year's Day,ca_new_years_day,module:ca_new_years_day,,,CONFIRMED
+2002-03-29,CLOSED,Good Friday,ca_good_friday,module:ca_good_friday,,,CONFIRMED
+2002-05-20,CLOSED,Victoria Day,ca_victoria_day,module:ca_victoria_day,,,CONFIRMED
+2002-07-01,CLOSED,Canada Day,ca_canada_day,module:ca_canada_day,,,CONFIRMED
+2002-08-05,CLOSED,Civic Holiday,ca_civic_holiday,module:ca_civic_holiday,,,CONFIRMED
+2002-09-02,CLOSED,Labour Day,ca_labour_day,module:ca_labour_day,,,CONFIRMED
+2002-10-14,CLOSED,Thanksgiving Day,ca_thanksgiving,module:ca_thanksgiving,,,CONFIRMED
+2002-12-25,CLOSED,Christmas Day,ca_christmas,module:ca_christmas,,,CONFIRMED
+2002-12-26,CLOSED,Boxing Day,ca_boxing_day,module:ca_boxing_day,,,CONFIRMED
+2003-01-01,CLOSED,New Year's Day,ca_new_years_day,module:ca_new_years_day,,,CONFIRMED
+2003-04-18,CLOSED,Good Friday,ca_good_friday,module:ca_good_friday,,,CONFIRMED
+2003-05-19,CLOSED,Victoria Day,ca_victoria_day,module:ca_victoria_day,,,CONFIRMED
+2003-07-01,CLOSED,Canada Day,ca_canada_day,module:ca_canada_day,,,CONFIRMED
+2003-08-04,CLOSED,Civic Holiday,ca_civic_holiday,module:ca_civic_holiday,,,CONFIRMED
+2003-09-01,CLOSED,Labour Day,ca_labour_day,module:ca_labour_day,,,CONFIRMED
+2003-10-13,CLOSED,Thanksgiving Day,ca_thanksgiving,module:ca_thanksgiving,,,CONFIRMED
+2003-12-25,CLOSED,Christmas Day,ca_christmas,module:ca_christmas,,,CONFIRMED
+2003-12-26,CLOSED,Boxing Day,ca_boxing_day,module:ca_boxing_day,,,CONFIRMED
+2004-01-01,CLOSED,New Year's Day,ca_new_years_day,module:ca_new_years_day,,,CONFIRMED
+2004-04-09,CLOSED,Good Friday,ca_good_friday,module:ca_good_friday,,,CONFIRMED
+2004-05-24,CLOSED,Victoria Day,ca_victoria_day,module:ca_victoria_day,,,CONFIRMED
+2004-07-01,CLOSED,Canada Day,ca_canada_day,module:ca_canada_day,,,CONFIRMED
+2004-08-02,CLOSED,Civic Holiday,ca_civic_holiday,module:ca_civic_holiday,,,CONFIRMED
+2004-09-06,CLOSED,Labour Day,ca_labour_day,module:ca_labour_day,,,CONFIRMED
+2004-10-11,CLOSED,Thanksgiving Day,ca_thanksgiving,module:ca_thanksgiving,,,CONFIRMED
+2004-12-27,CLOSED,Christmas Day,ca_christmas,module:ca_christmas,2004-12-25,,CONFIRMED
+2004-12-28,CLOSED,Boxing Day,ca_boxing_day,module:ca_boxing_day,2004-12-26,,CONFIRMED
+2005-01-03,CLOSED,New Year's Day,ca_new_years_day,module:ca_new_years_day,2005-01-01,,CONFIRMED
+2005-03-25,CLOSED,Good Friday,ca_good_friday,module:ca_good_friday,,,CONFIRMED
+2005-05-23,CLOSED,Victoria Day,ca_victoria_day,module:ca_victoria_day,,,CONFIRMED
+2005-07-01,CLOSED,Canada Day,ca_canada_day,module:ca_canada_day,,,CONFIRMED
+2005-08-01,CLOSED,Civic Holiday,ca_civic_holiday,module:ca_civic_holiday,,,CONFIRMED
+2005-09-05,CLOSED,Labour Day,ca_labour_day,module:ca_labour_day,,,CONFIRMED
+2005-10-10,CLOSED,Thanksgiving Day,ca_thanksgiving,module:ca_thanksgiving,,,CONFIRMED
+2005-12-26,CLOSED,Christmas Day,ca_christmas,module:ca_christmas,2005-12-25,,CONFIRMED
+2005-12-27,CLOSED,Boxing Day,ca_boxing_day,module:ca_boxing_day,2005-12-26,,CONFIRMED
+2006-01-02,CLOSED,New Year's Day,ca_new_years_day,module:ca_new_years_day,2006-01-01,,CONFIRMED
+2006-04-14,CLOSED,Good Friday,ca_good_friday,module:ca_good_friday,,,CONFIRMED
+2006-05-22,CLOSED,Victoria Day,ca_victoria_day,module:ca_victoria_day,,,CONFIRMED
+2006-07-03,CLOSED,Canada Day,ca_canada_day,module:ca_canada_day,2006-07-01,,CONFIRMED
+2006-08-07,CLOSED,Civic Holiday,ca_civic_holiday,module:ca_civic_holiday,,,CONFIRMED
+2006-09-04,CLOSED,Labour Day,ca_labour_day,module:ca_labour_day,,,CONFIRMED
+2006-10-09,CLOSED,Thanksgiving Day,ca_thanksgiving,module:ca_thanksgiving,,,CONFIRMED
+2006-12-25,CLOSED,Christmas Day,ca_christmas,module:ca_christmas,,,CONFIRMED
+2006-12-26,CLOSED,Boxing Day,ca_boxing_day,module:ca_boxing_day,,,CONFIRMED
+2007-01-01,CLOSED,New Year's Day,ca_new_years_day,module:ca_new_years_day,,,CONFIRMED
+2007-04-06,CLOSED,Good Friday,ca_good_friday,module:ca_good_friday,,,CONFIRMED
+2007-05-21,CLOSED,Victoria Day,ca_victoria_day,module:ca_victoria_day,,,CONFIRMED
+2007-07-02,CLOSED,Canada Day,ca_canada_day,module:ca_canada_day,2007-07-01,,CONFIRMED
+2007-08-06,CLOSED,Civic Holiday,ca_civic_holiday,module:ca_civic_holiday,,,CONFIRMED
+2007-09-03,CLOSED,Labour Day,ca_labour_day,module:ca_labour_day,,,CONFIRMED
+2007-10-08,CLOSED,Thanksgiving Day,ca_thanksgiving,module:ca_thanksgiving,,,CONFIRMED
+2007-12-25,CLOSED,Christmas Day,ca_christmas,module:ca_christmas,,,CONFIRMED
+2007-12-26,CLOSED,Boxing Day,ca_boxing_day,module:ca_boxing_day,,,CONFIRMED
+2008-01-01,CLOSED,New Year's Day,ca_new_years_day,module:ca_new_years_day,,,CONFIRMED
+2008-02-18,CLOSED,Family Day,ca_family_day,module:ca_family_day,,,CONFIRMED
+2008-03-21,CLOSED,Good Friday,ca_good_friday,module:ca_good_friday,,,CONFIRMED
+2008-05-19,CLOSED,Victoria Day,ca_victoria_day,module:ca_victoria_day,,,CONFIRMED
+2008-07-01,CLOSED,Canada Day,ca_canada_day,module:ca_canada_day,,,CONFIRMED
+2008-08-04,CLOSED,Civic Holiday,ca_civic_holiday,module:ca_civic_holiday,,,CONFIRMED
+2008-09-01,CLOSED,Labour Day,ca_labour_day,module:ca_labour_day,,,CONFIRMED
+2008-10-13,CLOSED,Thanksgiving Day,ca_thanksgiving,module:ca_thanksgiving,,,CONFIRMED
+2008-12-25,CLOSED,Christmas Day,ca_christmas,module:ca_christmas,,,CONFIRMED
+2008-12-26,CLOSED,Boxing Day,ca_boxing_day,module:ca_boxing_day,,,CONFIRMED
+2009-01-01,CLOSED,New Year's Day,ca_new_years_day,module:ca_new_years_day,,,CONFIRMED
+2009-02-16,CLOSED,Family Day,ca_family_day,module:ca_family_day,,,CONFIRMED
+2009-04-10,CLOSED,Good Friday,ca_good_friday,module:ca_good_friday,,,CONFIRMED
+2009-05-18,CLOSED,Victoria Day,ca_victoria_day,module:ca_victoria_day,,,CONFIRMED
+2009-07-01,CLOSED,Canada Day,ca_canada_day,module:ca_canada_day,,,CONFIRMED
+2009-08-03,CLOSED,Civic Holiday,ca_civic_holiday,module:ca_civic_holiday,,,CONFIRMED
+2009-09-07,CLOSED,Labour Day,ca_labour_day,module:ca_labour_day,,,CONFIRMED
+2009-10-12,CLOSED,Thanksgiving Day,ca_thanksgiving,module:ca_thanksgiving,,,CONFIRMED
+2009-12-25,CLOSED,Christmas Day,ca_christmas,module:ca_christmas,,,CONFIRMED
+2009-12-28,CLOSED,Boxing Day,ca_boxing_day,module:ca_boxing_day,2009-12-26,,CONFIRMED
+2010-01-01,CLOSED,New Year's Day,ca_new_years_day,module:ca_new_years_day,,,CONFIRMED
+2010-02-15,CLOSED,Family Day,ca_family_day,module:ca_family_day,,,CONFIRMED
+2010-04-02,CLOSED,Good Friday,ca_good_friday,module:ca_good_friday,,,CONFIRMED
+2010-05-24,CLOSED,Victoria Day,ca_victoria_day,module:ca_victoria_day,,,CONFIRMED
+2010-07-01,CLOSED,Canada Day,ca_canada_day,module:ca_canada_day,,,CONFIRMED
+2010-08-02,CLOSED,Civic Holiday,ca_civic_holiday,module:ca_civic_holiday,,,CONFIRMED
+2010-09-06,CLOSED,Labour Day,ca_labour_day,module:ca_labour_day,,,CONFIRMED
+2010-10-11,CLOSED,Thanksgiving Day,ca_thanksgiving,module:ca_thanksgiving,,,CONFIRMED
+2010-12-27,CLOSED,Christmas Day,ca_christmas,module:ca_christmas,2010-12-25,,CONFIRMED
+2010-12-28,CLOSED,Boxing Day,ca_boxing_day,module:ca_boxing_day,2010-12-26,,CONFIRMED
+2011-01-03,CLOSED,New Year's Day,ca_new_years_day,module:ca_new_years_day,2011-01-01,,CONFIRMED
+2011-02-21,CLOSED,Family Day,ca_family_day,module:ca_family_day,,,CONFIRMED
+2011-04-22,CLOSED,Good Friday,ca_good_friday,module:ca_good_friday,,,CONFIRMED
+2011-05-23,CLOSED,Victoria Day,ca_victoria_day,module:ca_victoria_day,,,CONFIRMED
+2011-07-01,CLOSED,Canada Day,ca_canada_day,module:ca_canada_day,,,CONFIRMED
+2011-08-01,CLOSED,Civic Holiday,ca_civic_holiday,module:ca_civic_holiday,,,CONFIRMED
+2011-09-05,CLOSED,Labour Day,ca_labour_day,module:ca_labour_day,,,CONFIRMED
+2011-10-10,CLOSED,Thanksgiving Day,ca_thanksgiving,module:ca_thanksgiving,,,CONFIRMED
+2011-12-26,CLOSED,Christmas Day,ca_christmas,module:ca_christmas,2011-12-25,,CONFIRMED
+2011-12-27,CLOSED,Boxing Day,ca_boxing_day,module:ca_boxing_day,2011-12-26,,CONFIRMED
+2012-01-02,CLOSED,New Year's Day,ca_new_years_day,module:ca_new_years_day,2012-01-01,,CONFIRMED
+2012-02-20,CLOSED,Family Day,ca_family_day,module:ca_family_day,,,CONFIRMED
+2012-04-06,CLOSED,Good Friday,ca_good_friday,module:ca_good_friday,,,CONFIRMED
+2012-05-21,CLOSED,Victoria Day,ca_victoria_day,module:ca_victoria_day,,,CONFIRMED
+2012-07-02,CLOSED,Canada Day,ca_canada_day,module:ca_canada_day,2012-07-01,,CONFIRMED
+2012-08-06,CLOSED,Civic Holiday,ca_civic_holiday,module:ca_civic_holiday,,,CONFIRMED
+2012-09-03,CLOSED,Labour Day,ca_labour_day,module:ca_labour_day,,,CONFIRMED
+2012-10-08,CLOSED,Thanksgiving Day,ca_thanksgiving,module:ca_thanksgiving,,,CONFIRMED
+2012-12-25,CLOSED,Christmas Day,ca_christmas,module:ca_christmas,,,CONFIRMED
+2012-12-26,CLOSED,Boxing Day,ca_boxing_day,module:ca_boxing_day,,,CONFIRMED
+2013-01-01,CLOSED,New Year's Day,ca_new_years_day,module:ca_new_years_day,,,CONFIRMED
+2013-02-18,CLOSED,Family Day,ca_family_day,module:ca_family_day,,,CONFIRMED
+2013-03-29,CLOSED,Good Friday,ca_good_friday,module:ca_good_friday,,,CONFIRMED
+2013-05-20,CLOSED,Victoria Day,ca_victoria_day,module:ca_victoria_day,,,CONFIRMED
+2013-07-01,CLOSED,Canada Day,ca_canada_day,module:ca_canada_day,,,CONFIRMED
+2013-08-05,CLOSED,Civic Holiday,ca_civic_holiday,module:ca_civic_holiday,,,CONFIRMED
+2013-09-02,CLOSED,Labour Day,ca_labour_day,module:ca_labour_day,,,CONFIRMED
+2013-10-14,CLOSED,Thanksgiving Day,ca_thanksgiving,module:ca_thanksgiving,,,CONFIRMED
+2013-12-25,CLOSED,Christmas Day,ca_christmas,module:ca_christmas,,,CONFIRMED
+2013-12-26,CLOSED,Boxing Day,ca_boxing_day,module:ca_boxing_day,,,CONFIRMED
+2014-01-01,CLOSED,New Year's Day,ca_new_years_day,module:ca_new_years_day,,,CONFIRMED
+2014-02-17,CLOSED,Family Day,ca_family_day,module:ca_family_day,,,CONFIRMED
+2014-04-18,CLOSED,Good Friday,ca_good_friday,module:ca_good_friday,,,CONFIRMED
+2014-05-19,CLOSED,Victoria Day,ca_victoria_day,module:ca_victoria_day,,,CONFIRMED
+2014-07-01,CLOSED,Canada Day,ca_canada_day,module:ca_canada_day,,,CONFIRMED
+2014-08-04,CLOSED,Civic Holiday,ca_civic_holiday,module:ca_civic_holiday,,,CONFIRMED
+2014-09-01,CLOSED,Labour Day,ca_labour_day,module:ca_labour_day,,,CONFIRMED
+2014-10-13,CLOSED,Thanksgiving Day,ca_thanksgiving,module:ca_thanksgiving,,,CONFIRMED
+2014-12-25,CLOSED,Christmas Day,ca_christmas,module:ca_christmas,,,CONFIRMED
+2014-12-26,CLOSED,Boxing Day,ca_boxing_day,module:ca_boxing_day,,,CONFIRMED
+2015-01-01,CLOSED,New Year's Day,ca_new_years_day,module:ca_new_years_day,,,CONFIRMED
+2015-02-16,CLOSED,Family Day,ca_family_day,module:ca_family_day,,,CONFIRMED
+2015-04-03,CLOSED,Good Friday,ca_good_friday,module:ca_good_friday,,,CONFIRMED
+2015-05-18,CLOSED,Victoria Day,ca_victoria_day,module:ca_victoria_day,,,CONFIRMED
+2015-07-01,CLOSED,Canada Day,ca_canada_day,module:ca_canada_day,,,CONFIRMED
+2015-08-03,CLOSED,Civic Holiday,ca_civic_holiday,module:ca_civic_holiday,,,CONFIRMED
+2015-09-07,CLOSED,Labour Day,ca_labour_day,module:ca_labour_day,,,CONFIRMED
+2015-10-12,CLOSED,Thanksgiving Day,ca_thanksgiving,module:ca_thanksgiving,,,CONFIRMED
+2015-12-24,EARLY_CLOSE,Christmas Eve,ca_christmas_eve_early_close,module:ca_christmas,,13:00,CONFIRMED
+2015-12-25,CLOSED,Christmas Day,ca_christmas,module:ca_christmas,,,CONFIRMED
+2015-12-28,CLOSED,Boxing Day,ca_boxing_day,module:ca_boxing_day,2015-12-26,,CONFIRMED
+2016-01-01,CLOSED,New Year's Day,ca_new_years_day,module:ca_new_years_day,,,CONFIRMED
+2016-02-15,CLOSED,Family Day,ca_family_day,module:ca_family_day,,,CONFIRMED
+2016-03-25,CLOSED,Good Friday,ca_good_friday,module:ca_good_friday,,,CONFIRMED
+2016-05-23,CLOSED,Victoria Day,ca_victoria_day,module:ca_victoria_day,,,CONFIRMED
+2016-07-01,CLOSED,Canada Day,ca_canada_day,module:ca_canada_day,,,CONFIRMED
+2016-08-01,CLOSED,Civic Holiday,ca_civic_holiday,module:ca_civic_holiday,,,CONFIRMED
+2016-09-05,CLOSED,Labour Day,ca_labour_day,module:ca_labour_day,,,CONFIRMED
+2016-10-10,CLOSED,Thanksgiving Day,ca_thanksgiving,module:ca_thanksgiving,,,CONFIRMED
+2016-12-26,CLOSED,Christmas Day,ca_christmas,module:ca_christmas,2016-12-25,,CONFIRMED
+2016-12-27,CLOSED,Boxing Day,ca_boxing_day,module:ca_boxing_day,2016-12-26,,CONFIRMED
+2017-01-02,CLOSED,New Year's Day,ca_new_years_day,module:ca_new_years_day,2017-01-01,,CONFIRMED
+2017-02-20,CLOSED,Family Day,ca_family_day,module:ca_family_day,,,CONFIRMED
+2017-04-14,CLOSED,Good Friday,ca_good_friday,module:ca_good_friday,,,CONFIRMED
+2017-05-22,CLOSED,Victoria Day,ca_victoria_day,module:ca_victoria_day,,,CONFIRMED
+2017-07-03,CLOSED,Canada Day,ca_canada_day,module:ca_canada_day,2017-07-01,,CONFIRMED
+2017-08-07,CLOSED,Civic Holiday,ca_civic_holiday,module:ca_civic_holiday,,,CONFIRMED
+2017-09-04,CLOSED,Labour Day,ca_labour_day,module:ca_labour_day,,,CONFIRMED
+2017-10-09,CLOSED,Thanksgiving Day,ca_thanksgiving,module:ca_thanksgiving,,,CONFIRMED
+2017-12-25,CLOSED,Christmas Day,ca_christmas,module:ca_christmas,,,CONFIRMED
+2017-12-26,CLOSED,Boxing Day,ca_boxing_day,module:ca_boxing_day,,,CONFIRMED
+2018-01-01,CLOSED,New Year's Day,ca_new_years_day,module:ca_new_years_day,,,CONFIRMED
+2018-02-19,CLOSED,Family Day,ca_family_day,module:ca_family_day,,,CONFIRMED
+2018-03-30,CLOSED,Good Friday,ca_good_friday,module:ca_good_friday,,,CONFIRMED
+2018-05-21,CLOSED,Victoria Day,ca_victoria_day,module:ca_victoria_day,,,CONFIRMED
+2018-07-02,CLOSED,Canada Day,ca_canada_day,module:ca_canada_day,2018-07-01,,CONFIRMED
+2018-08-06,CLOSED,Civic Holiday,ca_civic_holiday,module:ca_civic_holiday,,,CONFIRMED
+2018-09-03,CLOSED,Labour Day,ca_labour_day,module:ca_labour_day,,,CONFIRMED
+2018-10-08,CLOSED,Thanksgiving Day,ca_thanksgiving,module:ca_thanksgiving,,,CONFIRMED
+2018-12-24,EARLY_CLOSE,Christmas Eve,ca_christmas_eve_early_close,module:ca_christmas,,13:00,CONFIRMED
+2018-12-25,CLOSED,Christmas Day,ca_christmas,module:ca_christmas,,,CONFIRMED
+2018-12-26,CLOSED,Boxing Day,ca_boxing_day,module:ca_boxing_day,,,CONFIRMED
+2019-01-01,CLOSED,New Year's Day,ca_new_years_day,module:ca_new_years_day,,,CONFIRMED
+2019-02-18,CLOSED,Family Day,ca_family_day,module:ca_family_day,,,CONFIRMED
+2019-04-19,CLOSED,Good Friday,ca_good_friday,module:ca_good_friday,,,CONFIRMED
+2019-05-20,CLOSED,Victoria Day,ca_victoria_day,module:ca_victoria_day,,,CONFIRMED
+2019-07-01,CLOSED,Canada Day,ca_canada_day,module:ca_canada_day,,,CONFIRMED
+2019-08-05,CLOSED,Civic Holiday,ca_civic_holiday,module:ca_civic_holiday,,,CONFIRMED
+2019-09-02,CLOSED,Labour Day,ca_labour_day,module:ca_labour_day,,,CONFIRMED
+2019-10-14,CLOSED,Thanksgiving Day,ca_thanksgiving,module:ca_thanksgiving,,,CONFIRMED
+2019-12-24,EARLY_CLOSE,Christmas Eve,ca_christmas_eve_early_close,module:ca_christmas,,13:00,CONFIRMED
+2019-12-25,CLOSED,Christmas Day,ca_christmas,module:ca_christmas,,,CONFIRMED
+2019-12-26,CLOSED,Boxing Day,ca_boxing_day,module:ca_boxing_day,,,CONFIRMED
+2020-01-01,CLOSED,New Year's Day,ca_new_years_day,module:ca_new_years_day,,,CONFIRMED
+2020-02-17,CLOSED,Family Day,ca_family_day,module:ca_family_day,,,CONFIRMED
+2020-04-10,CLOSED,Good Friday,ca_good_friday,module:ca_good_friday,,,CONFIRMED
+2020-05-18,CLOSED,Victoria Day,ca_victoria_day,module:ca_victoria_day,,,CONFIRMED
+2020-07-01,CLOSED,Canada Day,ca_canada_day,module:ca_canada_day,,,CONFIRMED
+2020-08-03,CLOSED,Civic Holiday,ca_civic_holiday,module:ca_civic_holiday,,,CONFIRMED
+2020-09-07,CLOSED,Labour Day,ca_labour_day,module:ca_labour_day,,,CONFIRMED
+2020-10-12,CLOSED,Thanksgiving Day,ca_thanksgiving,module:ca_thanksgiving,,,CONFIRMED
+2020-12-24,EARLY_CLOSE,Christmas Eve,ca_christmas_eve_early_close,module:ca_christmas,,13:00,CONFIRMED
+2020-12-25,CLOSED,Christmas Day,ca_christmas,module:ca_christmas,,,CONFIRMED
+2020-12-28,CLOSED,Boxing Day,ca_boxing_day,module:ca_boxing_day,2020-12-26,,CONFIRMED
+2021-01-01,CLOSED,New Year's Day,ca_new_years_day,module:ca_new_years_day,,,CONFIRMED
+2021-02-15,CLOSED,Family Day,ca_family_day,module:ca_family_day,,,CONFIRMED
+2021-04-02,CLOSED,Good Friday,ca_good_friday,module:ca_good_friday,,,CONFIRMED
+2021-05-24,CLOSED,Victoria Day,ca_victoria_day,module:ca_victoria_day,,,CONFIRMED
+2021-07-01,CLOSED,Canada Day,ca_canada_day,module:ca_canada_day,,,CONFIRMED
+2021-08-02,CLOSED,Civic Holiday,ca_civic_holiday,module:ca_civic_holiday,,,CONFIRMED
+2021-09-06,CLOSED,Labour Day,ca_labour_day,module:ca_labour_day,,,CONFIRMED
+2021-10-11,CLOSED,Thanksgiving Day,ca_thanksgiving,module:ca_thanksgiving,,,CONFIRMED
+2021-12-24,EARLY_CLOSE,Christmas Eve,ca_christmas_eve_early_close,module:ca_christmas,,13:00,CONFIRMED
+2021-12-27,CLOSED,Christmas Day,ca_christmas,module:ca_christmas,2021-12-25,,CONFIRMED
+2021-12-28,CLOSED,Boxing Day,ca_boxing_day,module:ca_boxing_day,2021-12-26,,CONFIRMED
+2022-01-03,CLOSED,New Year's Day,ca_new_years_day,module:ca_new_years_day,2022-01-01,,CONFIRMED
+2022-02-21,CLOSED,Family Day,ca_family_day,module:ca_family_day,,,CONFIRMED
+2022-04-15,CLOSED,Good Friday,ca_good_friday,module:ca_good_friday,,,CONFIRMED
+2022-05-23,CLOSED,Victoria Day,ca_victoria_day,module:ca_victoria_day,,,CONFIRMED
+2022-07-01,CLOSED,Canada Day,ca_canada_day,module:ca_canada_day,,,CONFIRMED
+2022-08-01,CLOSED,Civic Holiday,ca_civic_holiday,module:ca_civic_holiday,,,CONFIRMED
+2022-09-05,CLOSED,Labour Day,ca_labour_day,module:ca_labour_day,,,CONFIRMED
+2022-10-10,CLOSED,Thanksgiving Day,ca_thanksgiving,module:ca_thanksgiving,,,CONFIRMED
+2022-12-26,CLOSED,Christmas Day,ca_christmas,module:ca_christmas,2022-12-25,,CONFIRMED
+2022-12-27,CLOSED,Boxing Day,ca_boxing_day,module:ca_boxing_day,2022-12-26,,CONFIRMED
+2023-01-02,CLOSED,New Year's Day,ca_new_years_day,module:ca_new_years_day,2023-01-01,,CONFIRMED
+2023-02-20,CLOSED,Family Day,ca_family_day,module:ca_family_day,,,CONFIRMED
+2023-04-07,CLOSED,Good Friday,ca_good_friday,module:ca_good_friday,,,CONFIRMED
+2023-05-22,CLOSED,Victoria Day,ca_victoria_day,module:ca_victoria_day,,,CONFIRMED
+2023-07-03,CLOSED,Canada Day,ca_canada_day,module:ca_canada_day,2023-07-01,,CONFIRMED
+2023-08-07,CLOSED,Civic Holiday,ca_civic_holiday,module:ca_civic_holiday,,,CONFIRMED
+2023-09-04,CLOSED,Labour Day,ca_labour_day,module:ca_labour_day,,,CONFIRMED
+2023-10-09,CLOSED,Thanksgiving Day,ca_thanksgiving,module:ca_thanksgiving,,,CONFIRMED
+2023-12-25,CLOSED,Christmas Day,ca_christmas,module:ca_christmas,,,CONFIRMED
+2023-12-26,CLOSED,Boxing Day,ca_boxing_day,module:ca_boxing_day,,,CONFIRMED
+2024-01-01,CLOSED,New Year's Day,ca_new_years_day,module:ca_new_years_day,,,CONFIRMED
+2024-02-19,CLOSED,Family Day,ca_family_day,module:ca_family_day,,,CONFIRMED
+2024-03-29,CLOSED,Good Friday,ca_good_friday,module:ca_good_friday,,,CONFIRMED
+2024-05-20,CLOSED,Victoria Day,ca_victoria_day,module:ca_victoria_day,,,CONFIRMED
+2024-07-01,CLOSED,Canada Day,ca_canada_day,module:ca_canada_day,,,CONFIRMED
+2024-08-05,CLOSED,Civic Holiday,ca_civic_holiday,module:ca_civic_holiday,,,CONFIRMED
+2024-09-02,CLOSED,Labour Day,ca_labour_day,module:ca_labour_day,,,CONFIRMED
+2024-10-14,CLOSED,Thanksgiving Day,ca_thanksgiving,module:ca_thanksgiving,,,CONFIRMED
+2024-12-24,EARLY_CLOSE,Christmas Eve,ca_christmas_eve_early_close,module:ca_christmas,,13:00,CONFIRMED
+2024-12-25,CLOSED,Christmas Day,ca_christmas,module:ca_christmas,,,CONFIRMED
+2024-12-26,CLOSED,Boxing Day,ca_boxing_day,module:ca_boxing_day,,,CONFIRMED
+2025-01-01,CLOSED,New Year's Day,ca_new_years_day,module:ca_new_years_day,,,CONFIRMED
+2025-02-17,CLOSED,Family Day,ca_family_day,module:ca_family_day,,,CONFIRMED
+2025-04-18,CLOSED,Good Friday,ca_good_friday,module:ca_good_friday,,,CONFIRMED
+2025-05-19,CLOSED,Victoria Day,ca_victoria_day,module:ca_victoria_day,,,CONFIRMED
+2025-07-01,CLOSED,Canada Day,ca_canada_day,module:ca_canada_day,,,CONFIRMED
+2025-08-04,CLOSED,Civic Holiday,ca_civic_holiday,module:ca_civic_holiday,,,CONFIRMED
+2025-09-01,CLOSED,Labour Day,ca_labour_day,module:ca_labour_day,,,CONFIRMED
+2025-10-13,CLOSED,Thanksgiving Day,ca_thanksgiving,module:ca_thanksgiving,,,CONFIRMED
+2025-12-24,EARLY_CLOSE,Christmas Eve,ca_christmas_eve_early_close,module:ca_christmas,,13:00,CONFIRMED
+2025-12-25,CLOSED,Christmas Day,ca_christmas,module:ca_christmas,,,CONFIRMED
+2025-12-26,CLOSED,Boxing Day,ca_boxing_day,module:ca_boxing_day,,,CONFIRMED
+2026-01-01,CLOSED,New Year's Day,ca_new_years_day,module:ca_new_years_day,,,CONFIRMED
+2026-02-16,CLOSED,Family Day,ca_family_day,module:ca_family_day,,,CONFIRMED
+2026-04-03,CLOSED,Good Friday,ca_good_friday,module:ca_good_friday,,,CONFIRMED
+2026-05-18,CLOSED,Victoria Day,ca_victoria_day,module:ca_victoria_day,,,CONFIRMED
+2026-07-01,CLOSED,Canada Day,ca_canada_day,module:ca_canada_day,,,CONFIRMED
+2026-08-03,CLOSED,Civic Holiday,ca_civic_holiday,module:ca_civic_holiday,,,CONFIRMED
+2026-09-07,CLOSED,Labour Day,ca_labour_day,module:ca_labour_day,,,CONFIRMED
+2026-10-12,CLOSED,Thanksgiving Day,ca_thanksgiving,module:ca_thanksgiving,,,CONFIRMED
+2026-12-24,EARLY_CLOSE,Christmas Eve,ca_christmas_eve_early_close,module:ca_christmas,,13:00,CONFIRMED
+2026-12-25,CLOSED,Christmas Day,ca_christmas,module:ca_christmas,,,CONFIRMED
+2026-12-28,CLOSED,Boxing Day,ca_boxing_day,module:ca_boxing_day,2026-12-26,,CONFIRMED
+2027-01-01,CLOSED,New Year's Day,ca_new_years_day,module:ca_new_years_day,,,CONFIRMED
+2027-02-15,CLOSED,Family Day,ca_family_day,module:ca_family_day,,,CONFIRMED
+2027-03-26,CLOSED,Good Friday,ca_good_friday,module:ca_good_friday,,,CONFIRMED
+2027-05-24,CLOSED,Victoria Day,ca_victoria_day,module:ca_victoria_day,,,CONFIRMED
+2027-07-01,CLOSED,Canada Day,ca_canada_day,module:ca_canada_day,,,CONFIRMED
+2027-08-02,CLOSED,Civic Holiday,ca_civic_holiday_projected,module:ca_civic_holiday,,,PROJECTED
+2027-09-06,CLOSED,Labour Day,ca_labour_day,module:ca_labour_day,,,CONFIRMED
+2027-10-11,CLOSED,Thanksgiving Day,ca_thanksgiving,module:ca_thanksgiving,,,CONFIRMED
+2027-12-27,CLOSED,Christmas Day,ca_christmas,module:ca_christmas,2027-12-25,,CONFIRMED
+2027-12-28,CLOSED,Boxing Day,ca_boxing_day,module:ca_boxing_day,2027-12-26,,CONFIRMED
+2028-01-03,CLOSED,New Year's Day,ca_new_years_day,module:ca_new_years_day,2028-01-01,,CONFIRMED
+2028-02-21,CLOSED,Family Day,ca_family_day,module:ca_family_day,,,CONFIRMED
+2028-04-14,CLOSED,Good Friday,ca_good_friday,module:ca_good_friday,,,CONFIRMED
+2028-05-22,CLOSED,Victoria Day,ca_victoria_day,module:ca_victoria_day,,,CONFIRMED
+2028-07-03,CLOSED,Canada Day,ca_canada_day,module:ca_canada_day,2028-07-01,,CONFIRMED
+2028-08-07,CLOSED,Civic Holiday,ca_civic_holiday_projected,module:ca_civic_holiday,,,PROJECTED
+2028-09-04,CLOSED,Labour Day,ca_labour_day,module:ca_labour_day,,,CONFIRMED
+2028-10-09,CLOSED,Thanksgiving Day,ca_thanksgiving,module:ca_thanksgiving,,,CONFIRMED
+2028-12-25,CLOSED,Christmas Day,ca_christmas,module:ca_christmas,,,CONFIRMED
+2028-12-26,CLOSED,Boxing Day,ca_boxing_day,module:ca_boxing_day,,,CONFIRMED
+2029-01-01,CLOSED,New Year's Day,ca_new_years_day,module:ca_new_years_day,,,CONFIRMED
+2029-02-19,CLOSED,Family Day,ca_family_day,module:ca_family_day,,,CONFIRMED
+2029-03-30,CLOSED,Good Friday,ca_good_friday,module:ca_good_friday,,,CONFIRMED
+2029-05-21,CLOSED,Victoria Day,ca_victoria_day,module:ca_victoria_day,,,CONFIRMED
+2029-07-02,CLOSED,Canada Day,ca_canada_day,module:ca_canada_day,2029-07-01,,CONFIRMED
+2029-08-06,CLOSED,Civic Holiday,ca_civic_holiday_projected,module:ca_civic_holiday,,,PROJECTED
+2029-09-03,CLOSED,Labour Day,ca_labour_day,module:ca_labour_day,,,CONFIRMED
+2029-10-08,CLOSED,Thanksgiving Day,ca_thanksgiving,module:ca_thanksgiving,,,CONFIRMED
+2029-12-25,CLOSED,Christmas Day,ca_christmas,module:ca_christmas,,,CONFIRMED
+2029-12-26,CLOSED,Boxing Day,ca_boxing_day,module:ca_boxing_day,,,CONFIRMED
+2030-01-01,CLOSED,New Year's Day,ca_new_years_day,module:ca_new_years_day,,,CONFIRMED
+2030-02-18,CLOSED,Family Day,ca_family_day,module:ca_family_day,,,CONFIRMED
+2030-04-19,CLOSED,Good Friday,ca_good_friday,module:ca_good_friday,,,CONFIRMED
+2030-05-20,CLOSED,Victoria Day,ca_victoria_day,module:ca_victoria_day,,,CONFIRMED
+2030-07-01,CLOSED,Canada Day,ca_canada_day,module:ca_canada_day,,,CONFIRMED
+2030-08-05,CLOSED,Civic Holiday,ca_civic_holiday_projected,module:ca_civic_holiday,,,PROJECTED
+2030-09-02,CLOSED,Labour Day,ca_labour_day,module:ca_labour_day,,,CONFIRMED
+2030-10-14,CLOSED,Thanksgiving Day,ca_thanksgiving,module:ca_thanksgiving,,,CONFIRMED
+2030-12-25,CLOSED,Christmas Day,ca_christmas,module:ca_christmas,,,CONFIRMED
+2030-12-26,CLOSED,Boxing Day,ca_boxing_day,module:ca_boxing_day,,,CONFIRMED

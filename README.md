@@ -192,6 +192,15 @@ nyse.schedule(ScheduleDefinition.of(LocalDate.of(2024, 1, 15), LocalDate.of(2024
 ```
 Run `./gradlew publishToMavenLocal -Prelease=true` to publish the local build into Maven Local.
 
+**(f) The JavaScript/TypeScript package** — [`javascript/`](javascript/README.md) is the same
+Query API for Node.js with zero runtime dependencies and the data bundled, held to the Java
+answers by the shared parity fixtures:
+```ts
+import { getCalendar } from "bdc-calendars";
+getCalendar("XNYS").addTenor("2024-01-31", "3M");   // "2024-04-30"
+```
+Build it locally with `cd javascript && npm install && npm run build`.
+
 **(e) Point-in-time history** — every option above gives you the *current* release. To ask what a
 calendar looked like as of an earlier release (audit, backtest reproducibility), use the CLI's
 `--as-of` against a checked-out copy, which reads `release-history/`:
