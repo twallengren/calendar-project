@@ -283,7 +283,8 @@ The PR contains regenerated artifacts, immutable history, synchronized Python da
 fixtures, and `release/release.json`. The descriptor fixes the baseline, source SHA, versions,
 generation timestamp and hashes. `scripts/bless.sh` performs strict validation and cross-validation;
 a failed check aborts preparation. Review the complete report and intentional golden changes before
-merging the release PR. Never reconstruct an old published baseline from today's modified data.
+merging the release PR, and add a row to `docs/ERRATA.md` for every previously published answer
+a MAJOR release changes. Never reconstruct an old published baseline from today's modified data.
 
 `.github/workflows/release.yml` publishes only after CI succeeds on the exact release merge commit.
 It binds tags to that commit, builds once, verifies artifact hashes at every downstream step, and
