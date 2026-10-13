@@ -138,6 +138,625 @@
       "notes": "Records that Ontario's Family Day, third Monday of February, was first observed February 18, 2008 (Employment Standards Amendment Act (Family Day), 2007). TSX is an Ontario-based exchange whose published schedule (`tsx-calendar-page`) closes for every other Ontario statutory holiday, so it is modelled as closing for Family Day from its first year, 2008; no TMX press release from 2008 itself was found to confirm the very first occurrence directly.",
       "local_files": [],
       "support_intervals": []
+    },
+    {
+      "id": "tse-2001-09-11-market-closed",
+      "title": "Toronto Stock Exchange Market Is Closed (11 September 2001)",
+      "publisher": "Toronto Stock Exchange (republished by Mondo Visione)",
+      "location": "https://mondovisione.com/media-and-resources/news/toronto-stock-exchange-market-is-closed-2011124/",
+      "retrieved": "2026-10-13",
+      "covers": "2001-09-11",
+      "notes": "The exchange's release of 11 September 2001: \"In response to the events today in the United States, the Toronto Stock Exchange has closed ... At the close of trading, the TSE 300 Composite Index was down 293.86 to 7050.84.\" A session with an official close, so the day is an unscheduled early termination, not a full closure. The release gives no halt time; CBC's 2002 anniversary report (cbc-2002-09-11-tsx) says the exchange \"opened trading for 71 minutes before shutting down\", i.e. about 10:41 ET, which is the only source for the time.",
+      "local_files": [
+        {
+          "path": "CA-TSX/tse-2001-09-11-market-is-closed.html",
+          "sha256": "88a428a120139aa5e8a407d5a0d079be4a5655d828b26d9d43c67ea2b42bdff3"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2001-09-11",
+          "to": "2001-09-11"
+        },
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2001-09-11",
+          "to": "2001-09-11"
+        }
+      ]
+    },
+    {
+      "id": "tse-2001-09-12-closed",
+      "title": "Toronto Stock Exchange And CDNX Closed Wednesday, September 12, 2001",
+      "publisher": "Toronto Stock Exchange (republished by Mondo Visione)",
+      "location": "https://mondovisione.com/media-and-resources/news/toronto-stock-exchange-and-cdnx-closed-wednesday-september-12-2001-2011124/",
+      "retrieved": "2026-10-13",
+      "covers": "2001-09-12",
+      "notes": "\"The TSE will remain closed today.\" The companion release of the same day, \"Toronto Stock Exchange /CDNX To Reopen Thursday, September 13, 2001\" (https://mondovisione.com/media-and-resources/news/toronto-stock-exchange-cdnx-to-reopen-thursday-september-13-2001-2011124/, preserved as tse-2001-09-13-reopen.html), confirms \"the closing yesterday and again today\" and the reopening \"in the usual manner on Thursday, September 13, 2001\". The noon pause on 14 September was a voluntary moment of silence, not a halt.",
+      "local_files": [
+        {
+          "path": "CA-TSX/tse-2001-09-12-closed.html",
+          "sha256": "3b1f6a662347a9a3bc4fa7691cbe1b1664b0b9bfb2720e62f1711ee5fd01eace"
+        },
+        {
+          "path": "CA-TSX/tse-2001-09-13-reopen.html",
+          "sha256": "68cf3ce9545897752c00cf60b2151d7c1ede7cb1ec1c5c81b2862ef44c3e3bf4"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2001-09-12",
+          "to": "2001-09-13"
+        }
+      ]
+    },
+    {
+      "id": "cbc-2002-09-11-tsx",
+      "title": "TSX gains; U.S. markets falter on day of remembrance",
+      "publisher": "CBC News",
+      "location": "https://www.cbc.ca/news/business/tsx-gains-u-s-markets-falter-on-day-of-remembrance-1.312095",
+      "retrieved": "2026-10-13",
+      "covers": "2001-09-11",
+      "notes": "Press: \"The TSX opened trading for 71 minutes before shutting down until Sept. 13.\" The only source for the 2001-09-11 halt time (about 10:41 ET); the exchange's own release establishes the closure and the official close but not the time.",
+      "local_files": [
+        {
+          "path": "CA-TSX/cbc-2002-09-11-tsx-day-of-remembrance.html",
+          "sha256": "7e0ecf06eab1d1caf8b37a1300e844f8f1510de98ea2a9d65785a984da8348ed"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "tmx-2008-12-18-trading-resumes",
+      "title": "Trading Resumes On Toronto Stock Exchange And TSX Venture Exchange (18 December 2008)",
+      "publisher": "TMX Group (republished by Mondo Visione)",
+      "location": "https://mondovisione.com/media-and-resources/news/trading-resumes-on-toronto-stock-exchange-and-tsx-venture-exchange-2011124/",
+      "retrieved": "2026-10-13",
+      "covers": "2008-12-17",
+      "notes": "TMX's minute-by-minute incident overview for 17 December 2008: \"9:30AM - Toronto Stock Exchange and TSX Venture Exchange opened for trading. 9:37AM - A problem with Level 1 ... 9:48AM - Trading was halted ... During the 18 minute session, approximately 28,000 trades occurred ... 2:30PM - The decision was made to remain closed for the day\". TMX's own 2008 statistics count 251 trading days, one fewer than scheduled, so the exchange itself treats the day as a non-trading day; it is modelled as CLOSED with the 18-minute session recorded here. The same-day release \"Toronto Stock Exchange And TSX Venture Exchange To Remain Closed For December 17, 2008\" (https://mondovisione.com/media-and-resources/news/toronto-stock-exchange-and-tsx-venture-exchange-to-remain-closed-for-december-17-2011124/) states the exchange \"will not resume trading today due to continuing technical issues with its data feeds\".",
+      "local_files": [
+        {
+          "path": "CA-TSX/tmx-2008-12-18-trading-resumes.html",
+          "sha256": "bca0dfe9ab8decf18c82c6d652cddcb16065727e3964d36a536a2da09fcd14ce"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2008-12-17",
+          "to": "2008-12-17"
+        }
+      ]
+    },
+    {
+      "id": "tmx-2018-04-28-outage-update",
+      "title": "TMX Group Provides Update on Market Outage Incident and Confirms Readiness for Regular Market Opening Monday (28 April 2018)",
+      "publisher": "TMX Group",
+      "location": "https://www.tsx.com/en/news?id=600",
+      "retrieved": "2026-10-13",
+      "covers": "2018-04-27",
+      "notes": "\"The outage, which began at 1:37:25 pm EDT Friday on MX and 1:39:13 pm EDT on TSX, TSXV, and TSX Alpha, was caused by a hardware failure in a central storage appliance of the trading system. ... Given the time of the incident, we could not engage disaster recovery systems in time to ensure an orderly market re-open and closing session.\" TMX Market Operations update #6 of 27 April 2018 (https://www.tsx.com/en/resource/1803, preserved as tmx-2018-04-27-market-ops-updates.pdf): \"Trading will not resume today, including MOC.\" An unscheduled early termination at 13:39; the day remains a trading day (TMX's 2018 count deducts nothing for it).",
+      "local_files": [
+        {
+          "path": "CA-TSX/tmx-2018-04-28-outage-update.html",
+          "sha256": "ef66cca15ce6e4c79cf06de204b763aac7b233f3e2875d72fec301347757486c"
+        },
+        {
+          "path": "CA-TSX/tmx-2018-04-27-market-ops-updates.pdf",
+          "sha256": "f14b55ab17187c64ec127597afe6a6095b6a1bceb14765ee99bb383dee9c73c2"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2018-04-27",
+          "to": "2018-04-27"
+        },
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2018-04-27",
+          "to": "2018-04-27"
+        }
+      ]
+    },
+    {
+      "id": "tmx-2020-02-27-incident-report",
+      "title": "Incident Report: System Outage on TSX, TSXV, Alpha - Incident Date February 27, 2020",
+      "publisher": "TMX Group",
+      "location": "https://www.tsx.com/en/resource/2208",
+      "retrieved": "2026-10-13",
+      "covers": "2020-02-27",
+      "notes": "\"The outage, which began at approximately 1:30pm ET was attributed to a system capacity issue within a messaging technology component of TMX's trading engine. ... After the trading application failure and full market halt at 1:54 pm, TMX's attempts to restart the trading complex encountered further complications that could not be resolved in a timely manner.\" No re-open and no closing auction; normal open on 28 February. An unscheduled early termination at 13:54; the day remains a trading day.",
+      "local_files": [
+        {
+          "path": "CA-TSX/tmx-2020-02-27-incident-report.pdf",
+          "sha256": "de1a79dfaa6dacd39afe003f56f101a4c03adc62fc3b23de48bcae7aaddb26b4"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2020-02-27",
+          "to": "2020-02-27"
+        },
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2020-02-27",
+          "to": "2020-02-27"
+        }
+      ]
+    },
+    {
+      "id": "tmx-2022-11-01-ops-notice",
+      "title": "Ops Notice 2022-012 - TMX Production Alert - Incident Report: System Outage on TSX, TSXV, TSX Alpha (1 November 2022)",
+      "publisher": "TMX Group",
+      "location": "https://www.tsx.com/en/trading/toronto-stock-exchange/trading-notices/2022-archive?id=285",
+      "retrieved": "2026-10-13",
+      "covers": "2022-11-01",
+      "notes": "Intraday halt from 10:04 to 11:10 EDT with a normal close: not a closure and not an early termination, so no row; cited so the absence is evidenced.",
+      "local_files": [
+        {
+          "path": "CA-TSX/tmx-2022-11-01-ops-notice-2022-012.html",
+          "sha256": "0cebcc286f27cc0ebab36c501d0bfee20d3e03a44b08a8eba1db1bd3d2b7f6ad"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2022-11-01",
+          "to": "2022-11-01"
+        }
+      ]
+    },
+    {
+      "id": "tsx-stats-dec-2009",
+      "title": "Toronto Stock Exchange Statistics - December 2009",
+      "publisher": "TSX Inc. (CNW)",
+      "location": "https://www.newswire.ca/news-releases/toronto-stock-exchange-statistics---december-2009-539195041.html",
+      "retrieved": "2026-10-13",
+      "covers": "2008 and 2009",
+      "notes": "The exchange's year-end statistics release: year-to-date volume divided by the average daily volume (cross-checked with the transactions ratio) gives TMX's own count of trading days for the year and the previous year, counting the Christmas Eve 1 p.m. session as half a day. Every year 2008-2025 equals the scheduled count (weekdays minus the modelled closures) or that count less 0.5 for a weekday Christmas Eve, except 2008, which is one day short for 17 December 2008; so no other unscheduled full-day closure occurred, and the half-day accounting evidences a Christmas Eve early close in every weekday-24-December year from 2009.",
+      "local_files": [
+        {
+          "path": "CA-TSX/tsx-statistics-december-2009.html",
+          "sha256": "c31054c22d7eeb21338140bcd82d7512e95326b4ee38e65a366271dada5ed9f1"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2008-01-01",
+          "to": "2009-12-31"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2008-01-01",
+          "to": "2009-12-31"
+        },
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2008-01-01",
+          "to": "2009-12-31"
+        }
+      ]
+    },
+    {
+      "id": "tmx-stats-dec-2011",
+      "title": "TMX Group - Consolidated Trading Statistics December 2011",
+      "publisher": "TMX Group (CNW)",
+      "location": "https://www.newswire.ca/news-releases/tmx-group---consolidated-trading-statistics-december-2011-509411831.html",
+      "retrieved": "2026-10-13",
+      "covers": "2010 and 2011",
+      "notes": "The exchange's year-end statistics release: year-to-date volume divided by the average daily volume (cross-checked with the transactions ratio) gives TMX's own count of trading days for the year and the previous year, counting the Christmas Eve 1 p.m. session as half a day. Every year 2008-2025 equals the scheduled count (weekdays minus the modelled closures) or that count less 0.5 for a weekday Christmas Eve, except 2008, which is one day short for 17 December 2008; so no other unscheduled full-day closure occurred, and the half-day accounting evidences a Christmas Eve early close in every weekday-24-December year from 2009.",
+      "local_files": [
+        {
+          "path": "CA-TSX/tmx-consolidated-trading-statistics-december-2011.html",
+          "sha256": "71b27409357557dab5f8f20b1f485f356978edcd187a68075076de666f45fe89"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2010-01-01",
+          "to": "2011-12-31"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2010-01-01",
+          "to": "2011-12-31"
+        },
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2010-01-01",
+          "to": "2011-12-31"
+        }
+      ]
+    },
+    {
+      "id": "tmx-stats-dec-2012",
+      "title": "TMX Group - Consolidated Trading Statistics December 2012",
+      "publisher": "TMX Group (CNW)",
+      "location": "https://www.newswire.ca/news-releases/tmx-group---consolidated-trading-statistics-december-2012-511788571.html",
+      "retrieved": "2026-10-13",
+      "covers": "2011 and 2012",
+      "notes": "The exchange's year-end statistics release: year-to-date volume divided by the average daily volume (cross-checked with the transactions ratio) gives TMX's own count of trading days for the year and the previous year, counting the Christmas Eve 1 p.m. session as half a day. Every year 2008-2025 equals the scheduled count (weekdays minus the modelled closures) or that count less 0.5 for a weekday Christmas Eve, except 2008, which is one day short for 17 December 2008; so no other unscheduled full-day closure occurred, and the half-day accounting evidences a Christmas Eve early close in every weekday-24-December year from 2009.",
+      "local_files": [
+        {
+          "path": "CA-TSX/tmx-consolidated-trading-statistics-december-2012.html",
+          "sha256": "31bbcffc40a25b9149b76b51327ac8da171d03ae3af9d151337487d33251b3c6"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2011-01-01",
+          "to": "2012-12-31"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2011-01-01",
+          "to": "2012-12-31"
+        },
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2011-01-01",
+          "to": "2012-12-31"
+        }
+      ]
+    },
+    {
+      "id": "tmx-stats-dec-2013",
+      "title": "TMX Group Consolidated Trading Statistics - December 2013",
+      "publisher": "TMX Group",
+      "location": "http://www.tmx.com/resource/en/416",
+      "retrieved": "2026-10-13",
+      "covers": "2012 and 2013",
+      "notes": "The exchange's year-end statistics release: year-to-date volume divided by the average daily volume (cross-checked with the transactions ratio) gives TMX's own count of trading days for the year and the previous year, counting the Christmas Eve 1 p.m. session as half a day. Every year 2008-2025 equals the scheduled count (weekdays minus the modelled closures) or that count less 0.5 for a weekday Christmas Eve, except 2008, which is one day short for 17 December 2008; so no other unscheduled full-day closure occurred, and the half-day accounting evidences a Christmas Eve early close in every weekday-24-December year from 2009.",
+      "local_files": [
+        {
+          "path": "CA-TSX/tmx-consolidated-trading-statistics-december-2013.pdf",
+          "sha256": "ac66e1b98576fe266a0d80aab6185877e97759e1ad4b17e19a11dcb2eb0baa02"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2012-01-01",
+          "to": "2013-12-31"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2012-01-01",
+          "to": "2013-12-31"
+        },
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2012-01-01",
+          "to": "2013-12-31"
+        }
+      ]
+    },
+    {
+      "id": "tmx-stats-dec-2014",
+      "title": "TMX Group Consolidated Trading Statistics - December 2014",
+      "publisher": "TMX Group (CNW)",
+      "location": "https://www.newswire.ca/news-releases/tmx-group-consolidated-trading-statistics---december-2014-516270991.html",
+      "retrieved": "2026-10-13",
+      "covers": "2013 and 2014",
+      "notes": "The exchange's year-end statistics release: year-to-date volume divided by the average daily volume (cross-checked with the transactions ratio) gives TMX's own count of trading days for the year and the previous year, counting the Christmas Eve 1 p.m. session as half a day. Every year 2008-2025 equals the scheduled count (weekdays minus the modelled closures) or that count less 0.5 for a weekday Christmas Eve, except 2008, which is one day short for 17 December 2008; so no other unscheduled full-day closure occurred, and the half-day accounting evidences a Christmas Eve early close in every weekday-24-December year from 2009.",
+      "local_files": [
+        {
+          "path": "CA-TSX/tmx-consolidated-trading-statistics-december-2014.html",
+          "sha256": "e292c10696a4aaa09874a2a435c843e625ce1cae7529bbe09c9ff366d9828356"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2013-01-01",
+          "to": "2014-12-31"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2013-01-01",
+          "to": "2014-12-31"
+        },
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2013-01-01",
+          "to": "2014-12-31"
+        }
+      ]
+    },
+    {
+      "id": "tmx-stats-dec-2015",
+      "title": "TMX Group Consolidated Trading Statistics - December 2015",
+      "publisher": "TMX Group (CNW)",
+      "location": "https://www.newswire.ca/news-releases/tmx-group-consolidated-trading-statistics---december-2015-564290051.html",
+      "retrieved": "2026-10-13",
+      "covers": "2014 and 2015",
+      "notes": "The exchange's year-end statistics release: year-to-date volume divided by the average daily volume (cross-checked with the transactions ratio) gives TMX's own count of trading days for the year and the previous year, counting the Christmas Eve 1 p.m. session as half a day. Every year 2008-2025 equals the scheduled count (weekdays minus the modelled closures) or that count less 0.5 for a weekday Christmas Eve, except 2008, which is one day short for 17 December 2008; so no other unscheduled full-day closure occurred, and the half-day accounting evidences a Christmas Eve early close in every weekday-24-December year from 2009.",
+      "local_files": [
+        {
+          "path": "CA-TSX/tmx-consolidated-trading-statistics-december-2015.html",
+          "sha256": "4efa8fc9a7502faea58b7a6a9a63e5efc238885adc1749bcdfa0a1be8729619d"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2014-01-01",
+          "to": "2015-12-31"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2014-01-01",
+          "to": "2015-12-31"
+        },
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2014-01-01",
+          "to": "2015-12-31"
+        }
+      ]
+    },
+    {
+      "id": "tmx-stats-dec-2016",
+      "title": "TMX Group Consolidated Trading Statistics - December 2016",
+      "publisher": "TMX Group (CNW)",
+      "location": "https://www.newswire.ca/news-releases/tmx-group-consolidated-trading-statistics---december-2016-609796785.html",
+      "retrieved": "2026-10-13",
+      "covers": "2015 and 2016",
+      "notes": "The exchange's year-end statistics release: year-to-date volume divided by the average daily volume (cross-checked with the transactions ratio) gives TMX's own count of trading days for the year and the previous year, counting the Christmas Eve 1 p.m. session as half a day. Every year 2008-2025 equals the scheduled count (weekdays minus the modelled closures) or that count less 0.5 for a weekday Christmas Eve, except 2008, which is one day short for 17 December 2008; so no other unscheduled full-day closure occurred, and the half-day accounting evidences a Christmas Eve early close in every weekday-24-December year from 2009.",
+      "local_files": [
+        {
+          "path": "CA-TSX/tmx-consolidated-trading-statistics-december-2016.html",
+          "sha256": "6160b77cfa235a4dc8a94a88a073e6f347195b87fd8282b7494278bacc68e541"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2015-01-01",
+          "to": "2016-12-31"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2015-01-01",
+          "to": "2016-12-31"
+        },
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2015-01-01",
+          "to": "2016-12-31"
+        }
+      ]
+    },
+    {
+      "id": "tmx-stats-dec-2018",
+      "title": "TMX Group Consolidated Trading Statistics - December 2018",
+      "publisher": "TMX Group",
+      "location": "https://www.tmx.com/en/resource/670",
+      "retrieved": "2026-10-13",
+      "covers": "2017 and 2018",
+      "notes": "The exchange's year-end statistics release: year-to-date volume divided by the average daily volume (cross-checked with the transactions ratio) gives TMX's own count of trading days for the year and the previous year, counting the Christmas Eve 1 p.m. session as half a day. Every year 2008-2025 equals the scheduled count (weekdays minus the modelled closures) or that count less 0.5 for a weekday Christmas Eve, except 2008, which is one day short for 17 December 2008; so no other unscheduled full-day closure occurred, and the half-day accounting evidences a Christmas Eve early close in every weekday-24-December year from 2009.",
+      "local_files": [
+        {
+          "path": "CA-TSX/tmx-consolidated-trading-statistics-december-2018.pdf",
+          "sha256": "9d472013717f3624cca68d3a4cd53ff1d6211c1cee9c788d3663abcd9a5ce95e"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2017-01-01",
+          "to": "2018-12-31"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2017-01-01",
+          "to": "2018-12-31"
+        },
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2017-01-01",
+          "to": "2018-12-31"
+        }
+      ]
+    },
+    {
+      "id": "tmx-stats-dec-2019",
+      "title": "TMX Group Consolidated Trading Statistics - December 2019",
+      "publisher": "TMX Group (CNW)",
+      "location": "https://www.newswire.ca/news-releases/tmx-group-consolidated-trading-statistics-december-2019-852370478.html",
+      "retrieved": "2026-10-13",
+      "covers": "2018 and 2019",
+      "notes": "The exchange's year-end statistics release: year-to-date volume divided by the average daily volume (cross-checked with the transactions ratio) gives TMX's own count of trading days for the year and the previous year, counting the Christmas Eve 1 p.m. session as half a day. Every year 2008-2025 equals the scheduled count (weekdays minus the modelled closures) or that count less 0.5 for a weekday Christmas Eve, except 2008, which is one day short for 17 December 2008; so no other unscheduled full-day closure occurred, and the half-day accounting evidences a Christmas Eve early close in every weekday-24-December year from 2009.",
+      "local_files": [
+        {
+          "path": "CA-TSX/tmx-consolidated-trading-statistics-december-2019.html",
+          "sha256": "fb553cfaa1aad77d177b8538ec0365df32d175a8074456dc577ec47454e2a66d"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2018-01-01",
+          "to": "2019-12-31"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2018-01-01",
+          "to": "2019-12-31"
+        },
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2018-01-01",
+          "to": "2019-12-31"
+        }
+      ]
+    },
+    {
+      "id": "tmx-stats-dec-2021",
+      "title": "TMX Group Consolidated Trading Statistics - December 2021",
+      "publisher": "TMX Group",
+      "location": "https://s21.q4cdn.com/671813756/files/doc_news/2022/01/1/TMX-Group-Consolidated-Trading-Statistics-December-2021-2022.pdf",
+      "retrieved": "2026-10-13",
+      "covers": "2020 and 2021",
+      "notes": "The exchange's year-end statistics release: year-to-date volume divided by the average daily volume (cross-checked with the transactions ratio) gives TMX's own count of trading days for the year and the previous year, counting the Christmas Eve 1 p.m. session as half a day. Every year 2008-2025 equals the scheduled count (weekdays minus the modelled closures) or that count less 0.5 for a weekday Christmas Eve, except 2008, which is one day short for 17 December 2008; so no other unscheduled full-day closure occurred, and the half-day accounting evidences a Christmas Eve early close in every weekday-24-December year from 2009.",
+      "local_files": [
+        {
+          "path": "CA-TSX/tmx-consolidated-trading-statistics-december-2021.pdf",
+          "sha256": "840bc5e05efdee68e7d896b97942e88a3bb8e8d30708f896fe9f56424e309591"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2020-01-01",
+          "to": "2021-12-31"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2020-01-01",
+          "to": "2021-12-31"
+        },
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2020-01-01",
+          "to": "2021-12-31"
+        }
+      ]
+    },
+    {
+      "id": "tmx-stats-dec-2022",
+      "title": "TMX Group Consolidated Trading Statistics - December 2022",
+      "publisher": "TMX Group",
+      "location": "https://s21.q4cdn.com/671813756/files/doc_news/2023/01/1/TMX-Group-Consolidated-Trading-Statistics-December-2022-2023.pdf",
+      "retrieved": "2026-10-13",
+      "covers": "2021 and 2022",
+      "notes": "The exchange's year-end statistics release: year-to-date volume divided by the average daily volume (cross-checked with the transactions ratio) gives TMX's own count of trading days for the year and the previous year, counting the Christmas Eve 1 p.m. session as half a day. Every year 2008-2025 equals the scheduled count (weekdays minus the modelled closures) or that count less 0.5 for a weekday Christmas Eve, except 2008, which is one day short for 17 December 2008; so no other unscheduled full-day closure occurred, and the half-day accounting evidences a Christmas Eve early close in every weekday-24-December year from 2009.",
+      "local_files": [
+        {
+          "path": "CA-TSX/tmx-consolidated-trading-statistics-december-2022.pdf",
+          "sha256": "8c2c7a68859558a5b4c64da058847ef0ac8b8cdf04c2421d28421aafa617ed6b"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2021-01-01",
+          "to": "2022-12-31"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2021-01-01",
+          "to": "2022-12-31"
+        },
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2021-01-01",
+          "to": "2022-12-31"
+        }
+      ]
+    },
+    {
+      "id": "tmx-stats-dec-2023",
+      "title": "TMX Group Consolidated Trading Statistics - December 2023",
+      "publisher": "TMX Group",
+      "location": "https://s21.q4cdn.com/671813756/files/doc_news/2024/01/1/TMX-Group-Consolidated-Trading-Statistics-December-2023-2024.pdf",
+      "retrieved": "2026-10-13",
+      "covers": "2022 and 2023",
+      "notes": "The exchange's year-end statistics release: year-to-date volume divided by the average daily volume (cross-checked with the transactions ratio) gives TMX's own count of trading days for the year and the previous year, counting the Christmas Eve 1 p.m. session as half a day. Every year 2008-2025 equals the scheduled count (weekdays minus the modelled closures) or that count less 0.5 for a weekday Christmas Eve, except 2008, which is one day short for 17 December 2008; so no other unscheduled full-day closure occurred, and the half-day accounting evidences a Christmas Eve early close in every weekday-24-December year from 2009.",
+      "local_files": [
+        {
+          "path": "CA-TSX/tmx-consolidated-trading-statistics-december-2023.pdf",
+          "sha256": "87799adef5ea675ed2d544f01db557665f10f93e0d096f07b7a74e47eb0d4baf"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2022-01-01",
+          "to": "2023-12-31"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2022-01-01",
+          "to": "2023-12-31"
+        },
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2022-01-01",
+          "to": "2023-12-31"
+        }
+      ]
+    },
+    {
+      "id": "tmx-stats-dec-2024",
+      "title": "TMX Group Consolidated Trading Statistics - December 2024",
+      "publisher": "TMX Group",
+      "location": "https://s21.q4cdn.com/671813756/files/doc_news/2025/01/1/TMX-Group-Consolidated-Trading-Statistics-December-2024-2025.pdf",
+      "retrieved": "2026-10-13",
+      "covers": "2023 and 2024",
+      "notes": "The exchange's year-end statistics release: year-to-date volume divided by the average daily volume (cross-checked with the transactions ratio) gives TMX's own count of trading days for the year and the previous year, counting the Christmas Eve 1 p.m. session as half a day. Every year 2008-2025 equals the scheduled count (weekdays minus the modelled closures) or that count less 0.5 for a weekday Christmas Eve, except 2008, which is one day short for 17 December 2008; so no other unscheduled full-day closure occurred, and the half-day accounting evidences a Christmas Eve early close in every weekday-24-December year from 2009.",
+      "local_files": [
+        {
+          "path": "CA-TSX/tmx-consolidated-trading-statistics-december-2024.pdf",
+          "sha256": "5f59f9bdf7a9836a6d43bdbea4120857de3aedae825173321e38f851c4a1f217"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2023-01-01",
+          "to": "2024-12-31"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2023-01-01",
+          "to": "2024-12-31"
+        },
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2023-01-01",
+          "to": "2024-12-31"
+        }
+      ]
+    },
+    {
+      "id": "tmx-stats-dec-2025",
+      "title": "TMX Group Consolidated Trading Statistics - December 2025",
+      "publisher": "TMX Group",
+      "location": "https://s21.q4cdn.com/671813756/files/doc_news/TMX-Group-Consolidated-Trading-Statistics---December-2025-2026.pdf",
+      "retrieved": "2026-10-13",
+      "covers": "2024 and 2025",
+      "notes": "The exchange's year-end statistics release: year-to-date volume divided by the average daily volume (cross-checked with the transactions ratio) gives TMX's own count of trading days for the year and the previous year, counting the Christmas Eve 1 p.m. session as half a day. Every year 2008-2025 equals the scheduled count (weekdays minus the modelled closures) or that count less 0.5 for a weekday Christmas Eve, except 2008, which is one day short for 17 December 2008; so no other unscheduled full-day closure occurred, and the half-day accounting evidences a Christmas Eve early close in every weekday-24-December year from 2009.",
+      "local_files": [
+        {
+          "path": "CA-TSX/tmx-consolidated-trading-statistics-december-2025.pdf",
+          "sha256": "9c3799783278824b8c23259588150d6600e0949d61b25804482f8617e1066c7a"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2024-01-01",
+          "to": "2025-12-31"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2024-01-01",
+          "to": "2025-12-31"
+        },
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2024-01-01",
+          "to": "2025-12-31"
+        }
+      ]
     }
   ]
 }

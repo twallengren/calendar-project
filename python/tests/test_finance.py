@@ -145,9 +145,18 @@ def test_schedule_on_a_joint_calendar_and_coverage_errors():
     assert schedule.dates == [d(2024, 5, 24), d(2024, 6, 24), d(2024, 7, 24), d(2024, 8, 27)], (
         "24 Aug is a Saturday; Monday 26 Aug is the UK summer bank holiday"
     )
-    tsx = bdc.get_calendar("CA-TSX")  # 2001-09-11 is the one remaining unresolved business day
+    from bdc_calendars._loader import CalendarData
+    from bdc_calendars.calendar import SingleCalendar
+
+    metadata = dict(range_start="2020-01-01", range_end="2021-12-31", coverage=dict(quality=[
+        dict(scope="SCHEDULED_CLOSURES", **{"from": "2020-01-01", "to": "2021-12-31"}, quality="VERIFIED", evidence_ids=["x"]),
+        dict(scope="EARLY_CLOSES", **{"from": "2020-01-01", "to": "2021-12-31"}, quality="VERIFIED", evidence_ids=["x"]),
+        dict(scope="UNSCHEDULED_EXCEPTIONS", **{"from": "2020-01-01", "to": "2020-07-30"}, quality="VERIFIED", evidence_ids=["x"]),
+        dict(scope="UNSCHEDULED_EXCEPTIONS", **{"from": "2020-07-31", "to": "2021-12-31"}, quality="INCOMPLETE", evidence_ids=[]),
+    ]))
+    unresolved = SingleCalendar(CalendarData("SYNTHETIC", metadata, []))
     with pytest.raises(bdc.UnresolvedDateError):
-        tsx.generate_schedule(ScheduleDefinition(d(2001, 9, 11), d(2002, 3, 11), Frequency.QUARTERLY))
+        unresolved.generate_schedule(ScheduleDefinition(d(2020, 6, 1), d(2020, 12, 1), Frequency.QUARTERLY))
     with pytest.raises(bdc.OutsideCoverageError):
         bdc.get_calendar("US-NYSE").generate_schedule(ScheduleDefinition(d(2030, 10, 1), d(2031, 4, 1), Frequency.QUARTERLY))
 

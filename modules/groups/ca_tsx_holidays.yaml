@@ -12,3 +12,4 @@ uses:
   - ca_thanksgiving
   - ca_christmas
   - ca_boxing_day
+  - ca_tsx_unscheduled_closures

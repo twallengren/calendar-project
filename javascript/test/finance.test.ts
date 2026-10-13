@@ -120,7 +120,7 @@ test("schedule generation", () => {
 
   const joint = bdc.getJointCalendar(["US-NYSE", "GB-LSE"]);
   assert.deepEqual(joint.generateSchedule({ start: "2024-05-24", end: "2024-08-24", frequency: "MONTHLY", convention: "FOLLOWING" }).dates, ["2024-05-24", "2024-06-24", "2024-07-24", "2024-08-27"]);
-  const tsx = bdc.getCalendar("CA-TSX");
-  assert.throws(() => tsx.generateSchedule({ start: "2001-09-11", end: "2002-03-11", frequency: "QUARTERLY" }), bdc.UnresolvedDateError);
+  const projected = bdc.getCalendar("US-NYSE").generateSchedule({ start: "2028-01-18", end: "2029-01-18", frequency: "QUARTERLY" });
+  assert.equal(projected.effectiveConfidence, "PROJECTED");
   assert.throws(() => nyse.generateSchedule({ start: "2030-10-01", end: "2031-04-01", frequency: "QUARTERLY" }), bdc.OutsideCoverageError);
 });

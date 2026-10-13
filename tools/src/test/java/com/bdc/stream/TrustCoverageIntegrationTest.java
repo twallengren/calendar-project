@@ -99,12 +99,27 @@ class TrustCoverageIntegrationTest {
   @Test
   void additionalAuditedEarlyCloseGapsAreExplicitButDoNotBlockBusinessDayAnswers() {
     DateStream tsx = new LazyDateStream(resolver.resolve("CA-TSX"));
-    LocalDate tsxGap = LocalDate.of(2012, 12, 24);
+    LocalDate tsxGap = LocalDate.of(2027, 12, 24);
     assertThrows(UnresolvedDateException.class, () -> tsx.closeTime(tsxGap));
     assertEquals(DayState.UNKNOWN, tsx.assessment(tsxGap).state());
     assertTrue(tsx.isBusinessDay(tsxGap), "an early-close gap cannot make a weekday unknown");
     assertEquals(DayState.OPEN, tsx.assessment(tsxGap).businessDayState());
+    assertEquals(
+        java.util.Optional.of(java.time.LocalTime.of(13, 0)),
+        tsx.closeTime(LocalDate.of(2012, 12, 24)),
+        "TMX's 2012 accounting carries the Christmas Eve half day");
     assertNotEquals(DayState.UNKNOWN, tsx.assessment(LocalDate.of(2025, 12, 24)).state());
+    // The 2001 and 2008 exceptions are the exchange's own releases.
+    assertFalse(tsx.isBusinessDay(LocalDate.of(2001, 9, 12)));
+    assertFalse(tsx.isBusinessDay(LocalDate.of(2008, 12, 17)));
+    assertTrue(tsx.isBusinessDay(LocalDate.of(2001, 9, 11)));
+    assertEquals(
+        java.util.Optional.of(java.time.LocalTime.of(13, 39)),
+        tsx.closeTime(LocalDate.of(2018, 4, 27)));
+    assertEquals(
+        EventStatus.PROJECTED, tsx.assessment(LocalDate.of(2001, 9, 11)).businessDayConfidence());
+    assertEquals(
+        EventStatus.CONFIRMED, tsx.assessment(LocalDate.of(2020, 2, 27)).businessDayConfidence());
 
     DateStream xetra = new LazyDateStream(resolver.resolve("DE-XETRA"));
     LocalDate xetraGap = LocalDate.of(2026, 12, 30);
