@@ -1,0 +1,26 @@
+kind: module
+id: au_one_off_public_holidays
+
+# One-off national public holidays within this calendar's coverage.
+#   - Thursday 22 September 2022: National Day of Mourning for Queen Elizabeth II, proclaimed by
+#     the Commonwealth and adopted by every state; the ASX announced the market would be closed.
+# Source: asx-notice-0984-22-09, federation-national-day-of-mourning-2022.
+
+source:
+  - id: asx-notice-0984-22-09
+
+event_sources:
+  - key: au_national_day_of_mourning_2022
+    name: National Day of Mourning for Queen Elizabeth II
+    default_classification: CLOSED
+    source:
+      - id: asx-notice-0984-22-09
+        ref: "ASX has declared that the ASX Trade Market will be closed on that day"
+      - id: federation-national-day-of-mourning-2022
+        ref: "The National Day of Mourning will be a one-off national public holiday"
+      - id: asx-activity-report-2022-09
+        ref: "Total trading days: September 2022 21, September 2021 22"
+    rule:
+      type: explicit_dates
+      dates:
+        - 2022-09-22

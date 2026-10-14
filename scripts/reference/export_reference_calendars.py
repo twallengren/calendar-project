@@ -45,6 +45,7 @@ EXPORTS = [
     ("PT-EURONEXT-LISBON", "XLIS", "2010-01-01", "2030-12-31"),
     ("JP-JPX", "XTKS", "2010-01-01", "2030-12-31"),
     ("HK-HKEX", "XHKG", "2018-01-01", "2027-12-31"),
+    ("AU-ASX", "XASX", "2010-01-01", "2030-12-31"),
 ]
 
 
@@ -208,6 +209,17 @@ def main() -> int:
             "2000-01-01",
             "2030-12-31",
             "QuantLib Canada(TSX)",
+        )
+    if ql is not None:
+        # QuantLib's Australia(ASX) follows NSW public holidays; it has no ANZAC Day substitute
+        # days (26 April 2010 and 2011) and no early closes.
+        export_quantlib(
+            "AU-ASX",
+            "australia-asx",
+            ql.Australia(ql.Australia.ASX),
+            "2010-01-01",
+            "2030-12-31",
+            "QuantLib Australia(ASX): no ANZAC Day substitute days (2010, 2011)",
         )
     if ql is not None:
         export_quantlib(

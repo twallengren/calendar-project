@@ -1,0 +1,19 @@
+kind: module
+id: au_asx_holidays
+
+# ASX cash-market non-trading days: the New South Wales public holidays the exchange observes
+# (it trades on the NSW-only Labour Day and Bank Holiday), the 2022 National Day of Mourning,
+# and the 14:10 early closes on the last trading day before Christmas and New Year.
+
+uses:
+  - au_new_years_day
+  - au_australia_day
+  - au_good_friday
+  - au_easter_monday
+  - au_anzac_day
+  - au_sovereigns_birthday
+  - au_christmas_day
+  - au_boxing_day
+  - au_one_off_public_holidays
+  - au_asx_early_closes
+  - au_asx_unscheduled_exceptions

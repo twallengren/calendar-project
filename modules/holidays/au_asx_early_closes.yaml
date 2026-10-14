@@ -1,0 +1,103 @@
+kind: module
+id: au_asx_early_closes
+
+# ASX Trade (cash market) early closes at 14:10 Sydney time: "Normal trading ceases at 14:10
+# (Sydney time)" is the footnote on every ASX Trade calendar from 2020 to 2027, and the Christmas
+# notices put the closing single price auction at 14:10:30 (asx-notice-1514-16-12,
+# asx-notice-1396-18-12, asx-notice-1541-20-11, asx-notice-1639-21-11).
+#
+# Two regimes decide WHICH days:
+#   - Through 2016 the exchange shortened "the last trading day before Christmas and the last
+#     trading day of the year", whatever their dates: Friday 23 and Friday 30 December 2016
+#     "in accordance with usual practice" (asx-notice-1514-16-12; asx-events-2016-12). Expressed
+#     with shift_policy PREVIOUS_AVAILABLE_BUSINESS_DAY, which also gives Friday 23 and 30
+#     December 2011. The 14:10 close itself is attested on 24 and 31 December 2010 only by press
+#     (fnarena-2010-12-24); no ASX document before 2016 survives online, so 2010-2015 are
+#     PROJECTED in the calendar's coverage.
+#   - From 2017: "ASX will only close early when the last trading day before Christmas and New
+#     Year's Holidays are the respective Eve of these holidays. As such ASX trade will not observe
+#     an early close on the 22nd or 29th December 2017" (asx-notice-1357-16-11). A weekend 24 or
+#     31 December therefore produces no early close at all: normal hours on 22 and 29 December
+#     2017 (asx-notice-1305-17-11), 23 and 30 December 2022 (asx-trade-calendar-2022: "OPEN";
+#     asx-notice-1253-22-11) and 22 and 29 December 2023 (asx-trade-calendar-2023). The default
+#     EARLY_CLOSE policy, DROP, expresses that. exchange_calendars still moves the 2017, 2023 and
+#     2028 early closes to the Friday (allowlisted).
+
+source:
+  - id: asx-trade-calendar-2026-2027
+    ref: "footnote: Normal trading ceases at 14:10 (Sydney time)"
+
+event_sources:
+  - key: au_asx_christmas_eve_early_close_pre2017
+    name: Last Trading Day Before Christmas (Early Close)
+    default_classification: EARLY_CLOSE
+    close_time: "14:10"
+    shift_policy: PREVIOUS_AVAILABLE_BUSINESS_DAY
+    active_years:
+      - [2010, 2016]
+    source:
+      - id: asx-notice-1514-16-12
+        ref: "trading hours on Friday 23 December 2016 and Friday 30 December will be shortened in accordance with usual practice"
+      - id: asx-event-2016-12-23
+        ref: "Normal trading ceases at 14:10 (Sydney time)"
+      - id: fnarena-2010-12-24
+        ref: "The ASX will close at 2.10pm this afternoon ahead of the Christmas break"
+    rule:
+      type: fixed_month_day
+      month: 12
+      day: 24
+
+  - key: au_asx_new_years_eve_early_close_pre2017
+    name: Last Trading Day of the Year (Early Close)
+    default_classification: EARLY_CLOSE
+    close_time: "14:10"
+    shift_policy: PREVIOUS_AVAILABLE_BUSINESS_DAY
+    active_years:
+      - [2010, 2016]
+    source:
+      - id: asx-notice-1514-16-12
+        ref: "trading hours on Friday 23 December 2016 and Friday 30 December will be shortened in accordance with usual practice"
+      - id: fnarena-2010-12-24
+        ref: "before the ASX again closes at 2.10pm ahead of New Year's Eve celebrations"
+    rule:
+      type: fixed_month_day
+      month: 12
+      day: 31
+
+  - key: au_asx_christmas_eve_early_close
+    name: Christmas Eve (Early Close)
+    default_classification: EARLY_CLOSE
+    close_time: "14:10"
+    shift_policy: DROP
+    active_years:
+      - [2017, null]
+    source:
+      - id: asx-notice-1357-16-11
+        ref: "From 2017 ASX will only close early when the last trading day before Christmas and New Year's Holidays are the respective Eve of these holidays"
+      - id: asx-trade-calendar-2024
+        ref: "Tuesday 24 December CLOSE EARLY"
+      - id: asx-trade-calendar-2022
+        ref: "Last Business day before Christmas Day Friday 23 December OPEN"
+    rule:
+      type: fixed_month_day
+      month: 12
+      day: 24
+
+  - key: au_asx_new_years_eve_early_close
+    name: New Year's Eve (Early Close)
+    default_classification: EARLY_CLOSE
+    close_time: "14:10"
+    shift_policy: DROP
+    active_years:
+      - [2017, null]
+    source:
+      - id: asx-notice-1357-16-11
+        ref: "ASX trade will not observe an early close on the 22nd or 29th December 2017"
+      - id: asx-trade-calendar-2024
+        ref: "Tuesday 31 December CLOSE EARLY"
+      - id: asx-trade-calendar-2022
+        ref: "Last Business day of the Year Friday 30 December OPEN"
+    rule:
+      type: fixed_month_day
+      month: 12
+      day: 31

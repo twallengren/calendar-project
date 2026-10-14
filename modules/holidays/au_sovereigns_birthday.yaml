@@ -1,0 +1,35 @@
+kind: module
+id: au_sovereigns_birthday
+
+# The Sovereign's Birthday public holiday in New South Wales: the second Monday in June
+# (Public Holidays Act 2010 (NSW) s 4(1)). Named Queen's Birthday through June 2022 and King's
+# Birthday from 2023 after the accession of King Charles III on 8 September 2022 (the 2023 ASX
+# Trade calendar, published in August 2022, still prints "Queen's Birthday" for 12 June 2023;
+# the 2024 calendar prints "King's Birthday"). Always a Monday, so no shifting.
+# Source: nsw-public-holidays-act, asx-trade-calendar-2024.
+
+source:
+  - id: nsw-public-holidays-act
+
+event_sources:
+  - key: au_queens_birthday
+    name: Queen's Birthday
+    default_classification: CLOSED
+    active_years:
+      - [2010, 2022]
+    rule:
+      type: nth_weekday_of_month
+      month: 6
+      weekday: MONDAY
+      nth: 2
+
+  - key: au_kings_birthday
+    name: King's Birthday
+    default_classification: CLOSED
+    active_years:
+      - [2023, null]
+    rule:
+      type: nth_weekday_of_month
+      month: 6
+      weekday: MONDAY
+      nth: 2

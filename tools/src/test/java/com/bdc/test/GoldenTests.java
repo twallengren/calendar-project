@@ -237,6 +237,18 @@ class GoldenTests {
   // Dec 24 early close.
 
   @Test
+  void auAsx2026() throws IOException {
+    productionCalendarRunner.assertCsvGoldenMatch("AU-ASX", 2026);
+  }
+
+  @Test
+  void auAsx2011() throws IOException {
+    // ANZAC Day on Easter Monday with the Tuesday substitute; Christmas Sunday cascade; the
+    // Friday early closes before a Saturday Christmas Eve and New Year's Eve
+    productionCalendarRunner.assertCsvGoldenMatch("AU-ASX", 2011);
+  }
+
+  @Test
   void caTsx2026() throws IOException {
     productionCalendarRunner.assertCsvGoldenMatch("CA-TSX", 2026);
   }

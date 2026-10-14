@@ -31,3 +31,5 @@ python3 -m venv .venv
 | `FR-EURONEXT-PARIS/exchange_calendars-XPAR.csv` | exchange_calendars 4.11 | Same shape for XAMS, XBRU, XLIS under their venue directories. |
 | `HK-HKEX/exchange_calendars-XHKG.csv` | exchange_calendars 4.11 | Includes unscheduled severe-weather closures. |
 | `HK-HKEX/quantlib-hong-kong.csv` | QuantLib 1.43 `HongKong(HKEx)` | Hard-coded per-year lists, ends after 2025. |
+| `AU-ASX/exchange_calendars-XASX.csv` | exchange_calendars 4.11 | Bounded to 2010-2030 here. Carries the 2010 and 2011 ANZAC Day additional days; still moves weekend Christmas Eve / New Year's Eve early closes to the Friday after the exchange stopped doing so in 2017 (see allowlist). |
+| `AU-ASX/quantlib-australia-asx.csv` | QuantLib 1.43 `Australia(ASX)` | Full closures only; no ANZAC Day additional days (2010, 2011). |
