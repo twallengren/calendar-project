@@ -391,6 +391,28 @@
     "checksum" : "sha256:2e256009884c6adf7876f375336f547b8bb88bd54174522382c152de791de2cc",
     "years" : [ 1900, 2030 ],
     "href" : "calendars/US-NYSE/manifest.json"
+  }, {
+    "id" : "ZA-JSE",
+    "name" : "Johannesburg Stock Exchange",
+    "timezone" : "Africa/Johannesburg",
+    "mic" : "XJSE",
+    "aliases" : [ ],
+    "coverage" : {
+      "from" : "2010-01-01",
+      "to" : "2030-12-31",
+      "verified_through" : "2026-12-31"
+    },
+    "counts_by_type" : {
+      "CLOSED" : 236,
+      "WEEKEND" : 2186,
+      "EARLY_CLOSE" : 43
+    },
+    "counts_by_status" : {
+      "CONFIRMED" : 2465
+    },
+    "checksum" : "sha256:40c252b7240ba41859874ca26dc6591aa7aa274d178aa1a5f52071a24bda64ea",
+    "years" : [ 2010, 2030 ],
+    "href" : "calendars/ZA-JSE/manifest.json"
   } ],
   "release" : {
     "semantic" : "13.0.0",

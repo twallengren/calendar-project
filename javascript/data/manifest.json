@@ -9,6 +9,7 @@
     "XETR": "DE-XETRA",
     "XHKG": "HK-HKEX",
     "XJPX": "JP-JPX",
+    "XJSE": "ZA-JSE",
     "XKRX": "KR-KRX",
     "XLIS": "PT-EURONEXT-LISBON",
     "XLON": "GB-LSE",
@@ -126,6 +127,11 @@
       "kind": "market",
       "range_end": "2030-12-31",
       "range_start": "1900-01-01"
+    },
+    "ZA-JSE": {
+      "kind": "market",
+      "range_end": "2030-12-31",
+      "range_start": "2010-01-01"
     }
   },
   "data_git_sha": "1f63234a07eb72cc08a8c0d451983be39e88b2ae",

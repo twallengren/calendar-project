@@ -41,3 +41,4 @@ registers are under `sources/`.
 | [US-FEDWIRE](../../blessed/US-FEDWIRE/metadata.json) | 2026-01-01 – 2027-12-31 | 730 | 0 | 730 | 0 | 0 | 730 | 0 |
 | [US-MARKET-BASE](../../blessed/US-MARKET-BASE/metadata.json) | 1900-01-01 – 2030-12-31 | 47847 | 0 | 47847 | 0 | 0 | 47847 | 0 |
 | [US-NYSE](../../blessed/US-NYSE/metadata.json) | 1900-01-01 – 2030-12-31 | 47847 | 46306 | 1541 | 0 | 39438 | 8401 | 8 |
+| [ZA-JSE](../../blessed/ZA-JSE/metadata.json) | 2010-01-01 – 2030-12-31 | 7670 | 0 | 7670 | 0 | 0 | 7670 | 0 |

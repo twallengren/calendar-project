@@ -149,6 +149,13 @@
       "range_end": "2030-12-31",
       "event_count": 12837,
       "checksum": "sha256:2e256009884c6adf7876f375336f547b8bb88bd54174522382c152de791de2cc"
+    },
+    "ZA-JSE": {
+      "range_start": "2010-01-01",
+      "range_end": "2030-12-31",
+      "kind": "market",
+      "checksum": "sha256:40c252b7240ba41859874ca26dc6591aa7aa274d178aa1a5f52071a24bda64ea",
+      "event_count": 2465
     }
   },
   "release_version": {
@@ -162,6 +169,7 @@
     "XBRU": "BE-EURONEXT-BRUSSELS",
     "XETR": "DE-XETRA",
     "XHKG": "HK-HKEX",
+    "XJSE": "ZA-JSE",
     "XKRX": "KR-KRX",
     "XLIS": "PT-EURONEXT-LISBON",
     "XLON": "GB-LSE",

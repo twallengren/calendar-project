@@ -1,0 +1,4622 @@
+{
+  "calendar_id": "ZA-JSE",
+  "calendar_name": "Johannesburg Stock Exchange",
+  "counts_by_status": {
+    "CONFIRMED": 2465
+  },
+  "counts_by_type": {
+    "CLOSED": 236,
+    "EARLY_CLOSE": 43,
+    "WEEKEND": 2186
+  },
+  "coverage": {
+    "from": "2010-01-01",
+    "quality": [
+      {
+        "evidence_ids": [
+          "za-public-holidays-act",
+          "jse-notice-y555-2010"
+        ],
+        "from": "2010-01-01",
+        "quality": "PROJECTED",
+        "scope": "SCHEDULED_CLOSURES",
+        "to": "2010-11-30"
+      },
+      {
+        "evidence_ids": [
+          "jse-notice-y555-2010",
+          "jse-notice-a1298-2010",
+          "sanews-2011-03-16",
+          "jse-notice-f4993-2011",
+          "jse-notice-a1537-2011",
+          "sanews-2011-12-15"
+        ],
+        "from": "2010-12-01",
+        "quality": "VERIFIED",
+        "scope": "SCHEDULED_CLOSURES",
+        "to": "2011-12-31"
+      },
+      {
+        "evidence_ids": [
+          "za-public-holidays-act",
+          "jse-notice-a1537-2011"
+        ],
+        "from": "2012-01-01",
+        "quality": "PROJECTED",
+        "scope": "SCHEDULED_CLOSURES",
+        "to": "2012-12-31"
+      },
+      {
+        "evidence_ids": [
+          "jse-notice-y928-2012",
+          "jse-notice-y994-2012",
+          "jse-notice-y1242-2013",
+          "jse-notice-y1245-2013",
+          "jse-notice-y1346a-2014",
+          "jse-notice-y1414-2014",
+          "jse-hotline-170-2014",
+          "jse-hotline-157-2015",
+          "jse-notice-792-2015",
+          "gov-gazette-40125-proc-45-2016",
+          "jse-hotline-200-2016",
+          "gov-gazette-40346-proc-58-2016"
+        ],
+        "from": "2013-01-01",
+        "quality": "VERIFIED",
+        "scope": "SCHEDULED_CLOSURES",
+        "to": "2016-12-31"
+      },
+      {
+        "evidence_ids": [
+          "za-public-holidays-act",
+          "jse-hotline-200-2016",
+          "jse-hotline-147-2017"
+        ],
+        "from": "2017-01-01",
+        "quality": "PROJECTED",
+        "scope": "SCHEDULED_CLOSURES",
+        "to": "2017-12-31"
+      },
+      {
+        "evidence_ids": [
+          "jse-notice-406-2017",
+          "jse-notice-395-2018",
+          "jse-notice-73-2019",
+          "jse-notice-72-2019",
+          "jse-notice-303-2019",
+          "jse-notice-517-2020",
+          "jse-notice-481a-2021",
+          "jse-notice-393-2021",
+          "jse-notice-600-2022",
+          "jse-notice-511-2022",
+          "jse-hotline-169-2023",
+          "jse-notice-323-2023",
+          "jse-notice-061-2024",
+          "jse-hotline-057-2024",
+          "jse-notice-305-2024",
+          "jse-notice-380-2025",
+          "sanews-2026-09-15"
+        ],
+        "from": "2018-01-01",
+        "quality": "VERIFIED",
+        "scope": "SCHEDULED_CLOSURES",
+        "to": "2026-12-31"
+      },
+      {
+        "evidence_ids": [
+          "za-public-holidays-act",
+          "gov-public-holidays-2026-2027"
+        ],
+        "from": "2027-01-01",
+        "quality": "PROJECTED",
+        "scope": "SCHEDULED_CLOSURES",
+        "to": "2030-12-31"
+      },
+      {
+        "evidence_ids": [
+          "jse-hotline-130-2025",
+          "jse-hotline-060-2020"
+        ],
+        "from": "2010-01-01",
+        "quality": "PROJECTED",
+        "scope": "EARLY_CLOSES",
+        "to": "2010-11-30"
+      },
+      {
+        "evidence_ids": [
+          "jse-notice-y555-2010"
+        ],
+        "from": "2010-12-01",
+        "quality": "VERIFIED",
+        "scope": "EARLY_CLOSES",
+        "to": "2010-12-31"
+      },
+      {
+        "evidence_ids": [
+          "jse-hotline-130-2025",
+          "jse-hotline-060-2020"
+        ],
+        "from": "2011-01-01",
+        "quality": "PROJECTED",
+        "scope": "EARLY_CLOSES",
+        "to": "2011-11-30"
+      },
+      {
+        "evidence_ids": [
+          "jse-notice-f4993-2011"
+        ],
+        "from": "2011-12-01",
+        "quality": "VERIFIED",
+        "scope": "EARLY_CLOSES",
+        "to": "2011-12-31"
+      },
+      {
+        "evidence_ids": [
+          "jse-hotline-060-2020",
+          "jse-hotline-130-2025",
+          "jse-notice-y555-2010"
+        ],
+        "from": "2012-01-01",
+        "quality": "PROJECTED",
+        "scope": "EARLY_CLOSES",
+        "to": "2014-11-30"
+      },
+      {
+        "evidence_ids": [
+          "jse-hotline-170-2014"
+        ],
+        "from": "2014-12-01",
+        "quality": "VERIFIED",
+        "scope": "EARLY_CLOSES",
+        "to": "2014-12-31"
+      },
+      {
+        "evidence_ids": [
+          "jse-hotline-130-2025",
+          "jse-hotline-060-2020"
+        ],
+        "from": "2015-01-01",
+        "quality": "PROJECTED",
+        "scope": "EARLY_CLOSES",
+        "to": "2015-11-30"
+      },
+      {
+        "evidence_ids": [
+          "jse-hotline-157-2015"
+        ],
+        "from": "2015-12-01",
+        "quality": "VERIFIED",
+        "scope": "EARLY_CLOSES",
+        "to": "2015-12-31"
+      },
+      {
+        "evidence_ids": [
+          "jse-hotline-130-2025",
+          "jse-hotline-060-2020"
+        ],
+        "from": "2016-01-01",
+        "quality": "PROJECTED",
+        "scope": "EARLY_CLOSES",
+        "to": "2016-11-30"
+      },
+      {
+        "evidence_ids": [
+          "jse-hotline-200-2016"
+        ],
+        "from": "2016-12-01",
+        "quality": "VERIFIED",
+        "scope": "EARLY_CLOSES",
+        "to": "2016-12-31"
+      },
+      {
+        "evidence_ids": [
+          "jse-hotline-130-2025",
+          "jse-hotline-060-2020"
+        ],
+        "from": "2017-01-01",
+        "quality": "PROJECTED",
+        "scope": "EARLY_CLOSES",
+        "to": "2017-11-30"
+      },
+      {
+        "evidence_ids": [
+          "jse-hotline-147-2017"
+        ],
+        "from": "2017-12-01",
+        "quality": "VERIFIED",
+        "scope": "EARLY_CLOSES",
+        "to": "2017-12-31"
+      },
+      {
+        "evidence_ids": [
+          "jse-hotline-130-2025",
+          "jse-hotline-060-2020"
+        ],
+        "from": "2018-01-01",
+        "quality": "PROJECTED",
+        "scope": "EARLY_CLOSES",
+        "to": "2018-11-30"
+      },
+      {
+        "evidence_ids": [
+          "jse-hotline-193-2018"
+        ],
+        "from": "2018-12-01",
+        "quality": "VERIFIED",
+        "scope": "EARLY_CLOSES",
+        "to": "2018-12-31"
+      },
+      {
+        "evidence_ids": [
+          "jse-hotline-130-2025"
+        ],
+        "from": "2019-01-01",
+        "quality": "PROJECTED",
+        "scope": "EARLY_CLOSES",
+        "to": "2019-04-25"
+      },
+      {
+        "evidence_ids": [
+          "jse-notice-104b-2019"
+        ],
+        "from": "2019-04-26",
+        "quality": "VERIFIED",
+        "scope": "EARLY_CLOSES",
+        "to": "2019-04-26"
+      },
+      {
+        "evidence_ids": [
+          "jse-hotline-130-2025"
+        ],
+        "from": "2019-04-27",
+        "quality": "PROJECTED",
+        "scope": "EARLY_CLOSES",
+        "to": "2019-11-30"
+      },
+      {
+        "evidence_ids": [
+          "jse-hotline-209-2019"
+        ],
+        "from": "2019-12-01",
+        "quality": "VERIFIED",
+        "scope": "EARLY_CLOSES",
+        "to": "2019-12-31"
+      },
+      {
+        "evidence_ids": [
+          "jse-hotline-130-2025",
+          "jse-hotline-060-2020"
+        ],
+        "from": "2020-01-01",
+        "quality": "PROJECTED",
+        "scope": "EARLY_CLOSES",
+        "to": "2020-11-30"
+      },
+      {
+        "evidence_ids": [
+          "jse-hotline-230-2020"
+        ],
+        "from": "2020-12-01",
+        "quality": "VERIFIED",
+        "scope": "EARLY_CLOSES",
+        "to": "2020-12-31"
+      },
+      {
+        "evidence_ids": [
+          "jse-hotline-130-2025",
+          "jse-hotline-060-2020"
+        ],
+        "from": "2021-01-01",
+        "quality": "PROJECTED",
+        "scope": "EARLY_CLOSES",
+        "to": "2021-11-30"
+      },
+      {
+        "evidence_ids": [
+          "jse-hotline-206-2021"
+        ],
+        "from": "2021-12-01",
+        "quality": "VERIFIED",
+        "scope": "EARLY_CLOSES",
+        "to": "2021-12-31"
+      },
+      {
+        "evidence_ids": [
+          "jse-hotline-130-2025",
+          "jse-hotline-060-2020"
+        ],
+        "from": "2022-01-01",
+        "quality": "PROJECTED",
+        "scope": "EARLY_CLOSES",
+        "to": "2022-11-30"
+      },
+      {
+        "evidence_ids": [
+          "jse-hotline-143-2022"
+        ],
+        "from": "2022-12-01",
+        "quality": "VERIFIED",
+        "scope": "EARLY_CLOSES",
+        "to": "2022-12-31"
+      },
+      {
+        "evidence_ids": [
+          "jse-hotline-130-2025",
+          "jse-hotline-060-2020"
+        ],
+        "from": "2023-01-01",
+        "quality": "PROJECTED",
+        "scope": "EARLY_CLOSES",
+        "to": "2023-11-30"
+      },
+      {
+        "evidence_ids": [
+          "jse-hotline-159-2023"
+        ],
+        "from": "2023-12-01",
+        "quality": "VERIFIED",
+        "scope": "EARLY_CLOSES",
+        "to": "2023-12-31"
+      },
+      {
+        "evidence_ids": [
+          "jse-hotline-130-2025",
+          "jse-hotline-060-2020"
+        ],
+        "from": "2024-01-01",
+        "quality": "PROJECTED",
+        "scope": "EARLY_CLOSES",
+        "to": "2024-11-30"
+      },
+      {
+        "evidence_ids": [
+          "jse-hotline-150-2024"
+        ],
+        "from": "2024-12-01",
+        "quality": "VERIFIED",
+        "scope": "EARLY_CLOSES",
+        "to": "2024-12-31"
+      },
+      {
+        "evidence_ids": [
+          "jse-hotline-130-2025",
+          "jse-hotline-060-2020"
+        ],
+        "from": "2025-01-01",
+        "quality": "PROJECTED",
+        "scope": "EARLY_CLOSES",
+        "to": "2025-11-30"
+      },
+      {
+        "evidence_ids": [
+          "jse-hotline-130-2025"
+        ],
+        "from": "2025-12-01",
+        "quality": "VERIFIED",
+        "scope": "EARLY_CLOSES",
+        "to": "2025-12-31"
+      },
+      {
+        "evidence_ids": [
+          "jse-hotline-060-2020",
+          "jse-hotline-130-2025"
+        ],
+        "from": "2026-01-01",
+        "quality": "PROJECTED",
+        "scope": "EARLY_CLOSES",
+        "to": "2030-12-31"
+      },
+      {
+        "evidence_ids": [
+          "jse-notice-f4396-2010",
+          "jse-notice-171-2013",
+          "jse-hotline-180-2017",
+          "jse-hotline-109-2018",
+          "jse-hotline-175-2021",
+          "jse-hotline-101-2022",
+          "jse-hotline-168-2024",
+          "jse-hotline-060-2020"
+        ],
+        "from": "2010-01-01",
+        "quality": "PROJECTED",
+        "scope": "UNSCHEDULED_EXCEPTIONS",
+        "to": "2030-12-31"
+      }
+    ],
+    "to": "2030-12-31",
+    "verified_through": "2026-12-31"
+  },
+  "event_count": 2465,
+  "event_details": [
+    {
+      "close_time": null,
+      "date": "2010-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-03-22",
+      "description": "Human Rights Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_human_rights_day",
+      "observation_lineage": [
+        "2010-03-21",
+        "2010-03-22"
+      ],
+      "observed_from": "2010-03-21",
+      "source_module": "module:za_human_rights_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-04-02",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_good_friday_family_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-04-05",
+      "description": "Family Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_family_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_good_friday_family_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-04-27",
+      "description": "Freedom Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_freedom_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_freedom_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-06-16",
+      "description": "Youth Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_youth_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_youth_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-08-09",
+      "description": "National Women's Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_national_womens_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_national_womens_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-09-24",
+      "description": "Heritage Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_heritage_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_heritage_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-12-16",
+      "description": "Day of Reconciliation",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_day_of_reconciliation",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_day_of_reconciliation",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2010-12-24",
+      "description": "Christmas Eve (Early Close)",
+      "evidence_ids": [
+        "jse-hotline-143-2022",
+        "jse-hotline-147-2017",
+        "jse-notice-f4993-2011",
+        "jse-notice-y555-2010"
+      ],
+      "key": "za_jse_christmas_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_jse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2010-12-25",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-12-27",
+      "description": "Day of Goodwill",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_day_of_goodwill",
+      "observation_lineage": [
+        "2010-12-26",
+        "2010-12-27"
+      ],
+      "observed_from": "2010-12-26",
+      "source_module": "module:za_day_of_goodwill",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2010-12-31",
+      "description": "New Year's Eve (Early Close)",
+      "evidence_ids": [
+        "jse-hotline-159-2023",
+        "jse-notice-y555-2010"
+      ],
+      "key": "za_jse_new_years_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_jse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2011-03-21",
+      "description": "Human Rights Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_human_rights_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_human_rights_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-04-22",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_good_friday_family_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-04-25",
+      "description": "Family Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_family_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_good_friday_family_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-04-27",
+      "description": "Freedom Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_freedom_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_freedom_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-05-02",
+      "description": "Workers' Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_workers_day",
+      "observation_lineage": [
+        "2011-05-01",
+        "2011-05-02"
+      ],
+      "observed_from": "2011-05-01",
+      "source_module": "module:za_workers_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-05-18",
+      "description": "Election Day (local government elections)",
+      "evidence_ids": [
+        "gov-gazette-40125-proc-45-2016",
+        "jse-hotline-057-2024",
+        "jse-notice-481a-2021",
+        "jse-notice-72-2019",
+        "jse-notice-y1346a-2014",
+        "sanews-2011-03-16",
+        "sanews-2026-09-15"
+      ],
+      "key": "za_election_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_one_off_public_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-06-16",
+      "description": "Youth Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_youth_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_youth_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-08-09",
+      "description": "National Women's Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_national_womens_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_national_womens_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-12-16",
+      "description": "Day of Reconciliation",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_day_of_reconciliation",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_day_of_reconciliation",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2011-12-23",
+      "description": "Christmas Eve (Early Close)",
+      "evidence_ids": [
+        "jse-hotline-143-2022",
+        "jse-hotline-147-2017",
+        "jse-notice-f4993-2011",
+        "jse-notice-y555-2010"
+      ],
+      "key": "za_jse_christmas_eve_early_close",
+      "observation_lineage": [
+        "2011-12-24",
+        "2011-12-23"
+      ],
+      "observed_from": "2011-12-24",
+      "source_module": "module:za_jse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2011-12-25",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-12-26",
+      "description": "Day of Goodwill",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_day_of_goodwill",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_day_of_goodwill",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-12-27",
+      "description": "Additional Public Holiday (Christmas on a Sunday)",
+      "evidence_ids": [
+        "jse-hotline-200-2016",
+        "jse-notice-600-2022",
+        "jse-notice-a1537-2011"
+      ],
+      "key": "za_christmas_sunday_additional_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_one_off_public_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2011-12-30",
+      "description": "New Year's Eve (Early Close)",
+      "evidence_ids": [
+        "jse-hotline-159-2023",
+        "jse-notice-y555-2010"
+      ],
+      "key": "za_jse_new_years_eve_early_close",
+      "observation_lineage": [
+        "2011-12-31",
+        "2011-12-30"
+      ],
+      "observed_from": "2011-12-31",
+      "source_module": "module:za_jse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2012-01-02",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_new_years_day",
+      "observation_lineage": [
+        "2012-01-01",
+        "2012-01-02"
+      ],
+      "observed_from": "2012-01-01",
+      "source_module": "module:za_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-03-21",
+      "description": "Human Rights Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_human_rights_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_human_rights_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-04-06",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_good_friday_family_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-04-09",
+      "description": "Family Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_family_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_good_friday_family_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-04-27",
+      "description": "Freedom Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_freedom_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_freedom_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-05-01",
+      "description": "Workers' Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_workers_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_workers_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-08-09",
+      "description": "National Women's Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_national_womens_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_national_womens_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-09-24",
+      "description": "Heritage Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_heritage_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_heritage_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-12-17",
+      "description": "Day of Reconciliation",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_day_of_reconciliation",
+      "observation_lineage": [
+        "2012-12-16",
+        "2012-12-17"
+      ],
+      "observed_from": "2012-12-16",
+      "source_module": "module:za_day_of_reconciliation",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2012-12-24",
+      "description": "Christmas Eve (Early Close)",
+      "evidence_ids": [
+        "jse-hotline-143-2022",
+        "jse-hotline-147-2017",
+        "jse-notice-f4993-2011",
+        "jse-notice-y555-2010"
+      ],
+      "key": "za_jse_christmas_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_jse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2012-12-25",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-12-26",
+      "description": "Day of Goodwill",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_day_of_goodwill",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_day_of_goodwill",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2012-12-31",
+      "description": "New Year's Eve (Early Close)",
+      "evidence_ids": [
+        "jse-hotline-159-2023",
+        "jse-notice-y555-2010"
+      ],
+      "key": "za_jse_new_years_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_jse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2013-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-03-21",
+      "description": "Human Rights Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_human_rights_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_human_rights_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-03-29",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_good_friday_family_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-04-01",
+      "description": "Family Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_family_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_good_friday_family_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-05-01",
+      "description": "Workers' Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_workers_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_workers_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-06-17",
+      "description": "Youth Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_youth_day",
+      "observation_lineage": [
+        "2013-06-16",
+        "2013-06-17"
+      ],
+      "observed_from": "2013-06-16",
+      "source_module": "module:za_youth_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-08-09",
+      "description": "National Women's Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_national_womens_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_national_womens_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-09-24",
+      "description": "Heritage Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_heritage_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_heritage_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-12-16",
+      "description": "Day of Reconciliation",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_day_of_reconciliation",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_day_of_reconciliation",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2013-12-24",
+      "description": "Christmas Eve (Early Close)",
+      "evidence_ids": [
+        "jse-hotline-143-2022",
+        "jse-hotline-147-2017",
+        "jse-notice-f4993-2011",
+        "jse-notice-y555-2010"
+      ],
+      "key": "za_jse_christmas_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_jse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2013-12-25",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-12-26",
+      "description": "Day of Goodwill",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_day_of_goodwill",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_day_of_goodwill",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2013-12-31",
+      "description": "New Year's Eve (Early Close)",
+      "evidence_ids": [
+        "jse-hotline-159-2023",
+        "jse-notice-y555-2010"
+      ],
+      "key": "za_jse_new_years_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_jse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2014-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-03-21",
+      "description": "Human Rights Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_human_rights_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_human_rights_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-04-18",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_good_friday_family_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-04-21",
+      "description": "Family Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_family_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_good_friday_family_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-04-28",
+      "description": "Freedom Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_freedom_day",
+      "observation_lineage": [
+        "2014-04-27",
+        "2014-04-28"
+      ],
+      "observed_from": "2014-04-27",
+      "source_module": "module:za_freedom_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-05-01",
+      "description": "Workers' Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_workers_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_workers_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-05-07",
+      "description": "Election Day (national and provincial elections)",
+      "evidence_ids": [
+        "gov-gazette-40125-proc-45-2016",
+        "jse-hotline-057-2024",
+        "jse-notice-481a-2021",
+        "jse-notice-72-2019",
+        "jse-notice-y1346a-2014",
+        "sanews-2011-03-16",
+        "sanews-2026-09-15"
+      ],
+      "key": "za_election_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_one_off_public_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-06-16",
+      "description": "Youth Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_youth_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_youth_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-09-24",
+      "description": "Heritage Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_heritage_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_heritage_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-12-16",
+      "description": "Day of Reconciliation",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_day_of_reconciliation",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_day_of_reconciliation",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2014-12-24",
+      "description": "Christmas Eve (Early Close)",
+      "evidence_ids": [
+        "jse-hotline-143-2022",
+        "jse-hotline-147-2017",
+        "jse-notice-f4993-2011",
+        "jse-notice-y555-2010"
+      ],
+      "key": "za_jse_christmas_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_jse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2014-12-25",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-12-26",
+      "description": "Day of Goodwill",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_day_of_goodwill",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_day_of_goodwill",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2014-12-31",
+      "description": "New Year's Eve (Early Close)",
+      "evidence_ids": [
+        "jse-hotline-159-2023",
+        "jse-notice-y555-2010"
+      ],
+      "key": "za_jse_new_years_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_jse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2015-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-04-03",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_good_friday_family_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-04-06",
+      "description": "Family Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_family_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_good_friday_family_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-04-27",
+      "description": "Freedom Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_freedom_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_freedom_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-05-01",
+      "description": "Workers' Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_workers_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_workers_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-06-16",
+      "description": "Youth Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_youth_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_youth_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-08-10",
+      "description": "National Women's Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_national_womens_day",
+      "observation_lineage": [
+        "2015-08-09",
+        "2015-08-10"
+      ],
+      "observed_from": "2015-08-09",
+      "source_module": "module:za_national_womens_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-09-24",
+      "description": "Heritage Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_heritage_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_heritage_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-12-16",
+      "description": "Day of Reconciliation",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_day_of_reconciliation",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_day_of_reconciliation",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2015-12-24",
+      "description": "Christmas Eve (Early Close)",
+      "evidence_ids": [
+        "jse-hotline-143-2022",
+        "jse-hotline-147-2017",
+        "jse-notice-f4993-2011",
+        "jse-notice-y555-2010"
+      ],
+      "key": "za_jse_christmas_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_jse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2015-12-25",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2015-12-31",
+      "description": "New Year's Eve (Early Close)",
+      "evidence_ids": [
+        "jse-hotline-159-2023",
+        "jse-notice-y555-2010"
+      ],
+      "key": "za_jse_new_years_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_jse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2016-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-03-21",
+      "description": "Human Rights Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_human_rights_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_human_rights_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-03-25",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_good_friday_family_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-03-28",
+      "description": "Family Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_family_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_good_friday_family_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-04-27",
+      "description": "Freedom Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_freedom_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_freedom_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-05-02",
+      "description": "Workers' Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_workers_day",
+      "observation_lineage": [
+        "2016-05-01",
+        "2016-05-02"
+      ],
+      "observed_from": "2016-05-01",
+      "source_module": "module:za_workers_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-06-16",
+      "description": "Youth Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_youth_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_youth_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-08-03",
+      "description": "Election Day (local government elections)",
+      "evidence_ids": [
+        "gov-gazette-40125-proc-45-2016",
+        "jse-hotline-057-2024",
+        "jse-notice-481a-2021",
+        "jse-notice-72-2019",
+        "jse-notice-y1346a-2014",
+        "sanews-2011-03-16",
+        "sanews-2026-09-15"
+      ],
+      "key": "za_election_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_one_off_public_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-08-09",
+      "description": "National Women's Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_national_womens_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_national_womens_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-12-16",
+      "description": "Day of Reconciliation",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_day_of_reconciliation",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_day_of_reconciliation",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2016-12-23",
+      "description": "Christmas Eve (Early Close)",
+      "evidence_ids": [
+        "jse-hotline-143-2022",
+        "jse-hotline-147-2017",
+        "jse-notice-f4993-2011",
+        "jse-notice-y555-2010"
+      ],
+      "key": "za_jse_christmas_eve_early_close",
+      "observation_lineage": [
+        "2016-12-24",
+        "2016-12-23"
+      ],
+      "observed_from": "2016-12-24",
+      "source_module": "module:za_jse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2016-12-25",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-12-26",
+      "description": "Day of Goodwill",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_day_of_goodwill",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_day_of_goodwill",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-12-27",
+      "description": "Additional Public Holiday (Christmas on a Sunday)",
+      "evidence_ids": [
+        "jse-hotline-200-2016",
+        "jse-notice-600-2022",
+        "jse-notice-a1537-2011"
+      ],
+      "key": "za_christmas_sunday_additional_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_one_off_public_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2016-12-30",
+      "description": "New Year's Eve (Early Close)",
+      "evidence_ids": [
+        "jse-hotline-159-2023",
+        "jse-notice-y555-2010"
+      ],
+      "key": "za_jse_new_years_eve_early_close",
+      "observation_lineage": [
+        "2016-12-31",
+        "2016-12-30"
+      ],
+      "observed_from": "2016-12-31",
+      "source_module": "module:za_jse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2017-01-02",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_new_years_day",
+      "observation_lineage": [
+        "2017-01-01",
+        "2017-01-02"
+      ],
+      "observed_from": "2017-01-01",
+      "source_module": "module:za_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-03-21",
+      "description": "Human Rights Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_human_rights_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_human_rights_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-04-14",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_good_friday_family_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-04-17",
+      "description": "Family Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_family_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_good_friday_family_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-04-27",
+      "description": "Freedom Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_freedom_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_freedom_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-05-01",
+      "description": "Workers' Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_workers_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_workers_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-06-16",
+      "description": "Youth Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_youth_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_youth_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-08-09",
+      "description": "National Women's Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_national_womens_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_national_womens_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-09-25",
+      "description": "Heritage Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_heritage_day",
+      "observation_lineage": [
+        "2017-09-24",
+        "2017-09-25"
+      ],
+      "observed_from": "2017-09-24",
+      "source_module": "module:za_heritage_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2017-12-22",
+      "description": "Christmas Eve (Early Close)",
+      "evidence_ids": [
+        "jse-hotline-143-2022",
+        "jse-hotline-147-2017",
+        "jse-notice-f4993-2011",
+        "jse-notice-y555-2010"
+      ],
+      "key": "za_jse_christmas_eve_early_close",
+      "observation_lineage": [
+        "2017-12-24",
+        "2017-12-22"
+      ],
+      "observed_from": "2017-12-24",
+      "source_module": "module:za_jse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2017-12-25",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-12-26",
+      "description": "Day of Goodwill",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_day_of_goodwill",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_day_of_goodwill",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2017-12-29",
+      "description": "New Year's Eve (Early Close)",
+      "evidence_ids": [
+        "jse-hotline-159-2023",
+        "jse-notice-y555-2010"
+      ],
+      "key": "za_jse_new_years_eve_early_close",
+      "observation_lineage": [
+        "2017-12-31",
+        "2017-12-29"
+      ],
+      "observed_from": "2017-12-31",
+      "source_module": "module:za_jse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2018-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-03-21",
+      "description": "Human Rights Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_human_rights_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_human_rights_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-03-30",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_good_friday_family_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-04-02",
+      "description": "Family Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_family_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_good_friday_family_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-04-27",
+      "description": "Freedom Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_freedom_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_freedom_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-05-01",
+      "description": "Workers' Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_workers_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_workers_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-08-09",
+      "description": "National Women's Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_national_womens_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_national_womens_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-09-24",
+      "description": "Heritage Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_heritage_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_heritage_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-12-17",
+      "description": "Day of Reconciliation",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_day_of_reconciliation",
+      "observation_lineage": [
+        "2018-12-16",
+        "2018-12-17"
+      ],
+      "observed_from": "2018-12-16",
+      "source_module": "module:za_day_of_reconciliation",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2018-12-24",
+      "description": "Christmas Eve (Early Close)",
+      "evidence_ids": [
+        "jse-hotline-143-2022",
+        "jse-hotline-147-2017",
+        "jse-notice-f4993-2011",
+        "jse-notice-y555-2010"
+      ],
+      "key": "za_jse_christmas_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_jse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2018-12-25",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-12-26",
+      "description": "Day of Goodwill",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_day_of_goodwill",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_day_of_goodwill",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2018-12-31",
+      "description": "New Year's Eve (Early Close)",
+      "evidence_ids": [
+        "jse-hotline-159-2023",
+        "jse-notice-y555-2010"
+      ],
+      "key": "za_jse_new_years_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_jse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2019-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-03-21",
+      "description": "Human Rights Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_human_rights_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_human_rights_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-04-19",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_good_friday_family_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-04-22",
+      "description": "Family Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_family_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_good_friday_family_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "15:00",
+      "date": "2019-04-26",
+      "description": "Early Close (Integrated Trading and Clearing go-live) (all JSE markets closed early before the ITaC go-live on Monday 29 April 2019)",
+      "evidence_ids": [
+        "jse-notice-104b-2019"
+      ],
+      "key": "za_jse_itac_go_live_early_close_2019",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_jse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2019-05-01",
+      "description": "Workers' Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_workers_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_workers_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-05-08",
+      "description": "Election Day (national and provincial elections)",
+      "evidence_ids": [
+        "gov-gazette-40125-proc-45-2016",
+        "jse-hotline-057-2024",
+        "jse-notice-481a-2021",
+        "jse-notice-72-2019",
+        "jse-notice-y1346a-2014",
+        "sanews-2011-03-16",
+        "sanews-2026-09-15"
+      ],
+      "key": "za_election_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_one_off_public_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-06-17",
+      "description": "Youth Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_youth_day",
+      "observation_lineage": [
+        "2019-06-16",
+        "2019-06-17"
+      ],
+      "observed_from": "2019-06-16",
+      "source_module": "module:za_youth_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-08-09",
+      "description": "National Women's Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_national_womens_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_national_womens_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-09-24",
+      "description": "Heritage Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_heritage_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_heritage_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-12-16",
+      "description": "Day of Reconciliation",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_day_of_reconciliation",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_day_of_reconciliation",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2019-12-24",
+      "description": "Christmas Eve (Early Close)",
+      "evidence_ids": [
+        "jse-hotline-143-2022",
+        "jse-hotline-147-2017",
+        "jse-notice-f4993-2011",
+        "jse-notice-y555-2010"
+      ],
+      "key": "za_jse_christmas_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_jse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2019-12-25",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-12-26",
+      "description": "Day of Goodwill",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_day_of_goodwill",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_day_of_goodwill",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2019-12-31",
+      "description": "New Year's Eve (Early Close)",
+      "evidence_ids": [
+        "jse-hotline-159-2023",
+        "jse-notice-y555-2010"
+      ],
+      "key": "za_jse_new_years_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_jse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2020-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-04-10",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_good_friday_family_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-04-13",
+      "description": "Family Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_family_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_good_friday_family_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-04-27",
+      "description": "Freedom Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_freedom_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_freedom_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-05-01",
+      "description": "Workers' Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_workers_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_workers_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-06-16",
+      "description": "Youth Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_youth_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_youth_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-08-10",
+      "description": "National Women's Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_national_womens_day",
+      "observation_lineage": [
+        "2020-08-09",
+        "2020-08-10"
+      ],
+      "observed_from": "2020-08-09",
+      "source_module": "module:za_national_womens_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-09-24",
+      "description": "Heritage Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_heritage_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_heritage_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-12-16",
+      "description": "Day of Reconciliation",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_day_of_reconciliation",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_day_of_reconciliation",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2020-12-24",
+      "description": "Christmas Eve (Early Close)",
+      "evidence_ids": [
+        "jse-hotline-143-2022",
+        "jse-hotline-147-2017",
+        "jse-notice-f4993-2011",
+        "jse-notice-y555-2010"
+      ],
+      "key": "za_jse_christmas_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_jse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2020-12-25",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2020-12-31",
+      "description": "New Year's Eve (Early Close)",
+      "evidence_ids": [
+        "jse-hotline-159-2023",
+        "jse-notice-y555-2010"
+      ],
+      "key": "za_jse_new_years_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_jse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2021-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-03-22",
+      "description": "Human Rights Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_human_rights_day",
+      "observation_lineage": [
+        "2021-03-21",
+        "2021-03-22"
+      ],
+      "observed_from": "2021-03-21",
+      "source_module": "module:za_human_rights_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-04-02",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_good_friday_family_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-04-05",
+      "description": "Family Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_family_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_good_friday_family_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-04-27",
+      "description": "Freedom Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_freedom_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_freedom_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-06-16",
+      "description": "Youth Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_youth_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_youth_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-08-09",
+      "description": "National Women's Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_national_womens_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_national_womens_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-09-24",
+      "description": "Heritage Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_heritage_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_heritage_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-11-01",
+      "description": "Election Day (local government elections)",
+      "evidence_ids": [
+        "gov-gazette-40125-proc-45-2016",
+        "jse-hotline-057-2024",
+        "jse-notice-481a-2021",
+        "jse-notice-72-2019",
+        "jse-notice-y1346a-2014",
+        "sanews-2011-03-16",
+        "sanews-2026-09-15"
+      ],
+      "key": "za_election_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_one_off_public_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-12-16",
+      "description": "Day of Reconciliation",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_day_of_reconciliation",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_day_of_reconciliation",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2021-12-24",
+      "description": "Christmas Eve (Early Close)",
+      "evidence_ids": [
+        "jse-hotline-143-2022",
+        "jse-hotline-147-2017",
+        "jse-notice-f4993-2011",
+        "jse-notice-y555-2010"
+      ],
+      "key": "za_jse_christmas_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_jse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2021-12-25",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-12-27",
+      "description": "Day of Goodwill",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_day_of_goodwill",
+      "observation_lineage": [
+        "2021-12-26",
+        "2021-12-27"
+      ],
+      "observed_from": "2021-12-26",
+      "source_module": "module:za_day_of_goodwill",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2021-12-31",
+      "description": "New Year's Eve (Early Close)",
+      "evidence_ids": [
+        "jse-hotline-159-2023",
+        "jse-notice-y555-2010"
+      ],
+      "key": "za_jse_new_years_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_jse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2022-03-21",
+      "description": "Human Rights Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_human_rights_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_human_rights_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-04-15",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_good_friday_family_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-04-18",
+      "description": "Family Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_family_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_good_friday_family_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-04-27",
+      "description": "Freedom Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_freedom_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_freedom_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-05-02",
+      "description": "Workers' Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_workers_day",
+      "observation_lineage": [
+        "2022-05-01",
+        "2022-05-02"
+      ],
+      "observed_from": "2022-05-01",
+      "source_module": "module:za_workers_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-06-16",
+      "description": "Youth Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_youth_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_youth_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-08-09",
+      "description": "National Women's Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_national_womens_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_national_womens_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-12-16",
+      "description": "Day of Reconciliation",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_day_of_reconciliation",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_day_of_reconciliation",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2022-12-23",
+      "description": "Christmas Eve (Early Close)",
+      "evidence_ids": [
+        "jse-hotline-143-2022",
+        "jse-hotline-147-2017",
+        "jse-notice-f4993-2011",
+        "jse-notice-y555-2010"
+      ],
+      "key": "za_jse_christmas_eve_early_close",
+      "observation_lineage": [
+        "2022-12-24",
+        "2022-12-23"
+      ],
+      "observed_from": "2022-12-24",
+      "source_module": "module:za_jse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2022-12-25",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-12-26",
+      "description": "Day of Goodwill",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_day_of_goodwill",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_day_of_goodwill",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-12-27",
+      "description": "Additional Public Holiday (Christmas on a Sunday)",
+      "evidence_ids": [
+        "jse-hotline-200-2016",
+        "jse-notice-600-2022",
+        "jse-notice-a1537-2011"
+      ],
+      "key": "za_christmas_sunday_additional_holiday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_one_off_public_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2022-12-30",
+      "description": "New Year's Eve (Early Close)",
+      "evidence_ids": [
+        "jse-hotline-159-2023",
+        "jse-notice-y555-2010"
+      ],
+      "key": "za_jse_new_years_eve_early_close",
+      "observation_lineage": [
+        "2022-12-31",
+        "2022-12-30"
+      ],
+      "observed_from": "2022-12-31",
+      "source_module": "module:za_jse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2023-01-02",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_new_years_day",
+      "observation_lineage": [
+        "2023-01-01",
+        "2023-01-02"
+      ],
+      "observed_from": "2023-01-01",
+      "source_module": "module:za_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-03-21",
+      "description": "Human Rights Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_human_rights_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_human_rights_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-04-07",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_good_friday_family_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-04-10",
+      "description": "Family Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_family_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_good_friday_family_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-04-27",
+      "description": "Freedom Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_freedom_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_freedom_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-05-01",
+      "description": "Workers' Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_workers_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_workers_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-06-16",
+      "description": "Youth Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_youth_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_youth_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-08-09",
+      "description": "National Women's Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_national_womens_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_national_womens_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-09-25",
+      "description": "Heritage Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_heritage_day",
+      "observation_lineage": [
+        "2023-09-24",
+        "2023-09-25"
+      ],
+      "observed_from": "2023-09-24",
+      "source_module": "module:za_heritage_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-12-15",
+      "description": "Public Holiday (Rugby World Cup celebration)",
+      "evidence_ids": [
+        "jse-hotline-169-2023"
+      ],
+      "key": "za_rugby_world_cup_holiday_2023",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_one_off_public_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2023-12-22",
+      "description": "Christmas Eve (Early Close)",
+      "evidence_ids": [
+        "jse-hotline-143-2022",
+        "jse-hotline-147-2017",
+        "jse-notice-f4993-2011",
+        "jse-notice-y555-2010"
+      ],
+      "key": "za_jse_christmas_eve_early_close",
+      "observation_lineage": [
+        "2023-12-24",
+        "2023-12-22"
+      ],
+      "observed_from": "2023-12-24",
+      "source_module": "module:za_jse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2023-12-25",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-12-26",
+      "description": "Day of Goodwill",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_day_of_goodwill",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_day_of_goodwill",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2023-12-29",
+      "description": "New Year's Eve (Early Close)",
+      "evidence_ids": [
+        "jse-hotline-159-2023",
+        "jse-notice-y555-2010"
+      ],
+      "key": "za_jse_new_years_eve_early_close",
+      "observation_lineage": [
+        "2023-12-31",
+        "2023-12-29"
+      ],
+      "observed_from": "2023-12-31",
+      "source_module": "module:za_jse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2024-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-03-21",
+      "description": "Human Rights Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_human_rights_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_human_rights_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-03-29",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_good_friday_family_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-04-01",
+      "description": "Family Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_family_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_good_friday_family_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-05-01",
+      "description": "Workers' Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_workers_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_workers_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-05-29",
+      "description": "Election Day (national and provincial elections)",
+      "evidence_ids": [
+        "gov-gazette-40125-proc-45-2016",
+        "jse-hotline-057-2024",
+        "jse-notice-481a-2021",
+        "jse-notice-72-2019",
+        "jse-notice-y1346a-2014",
+        "sanews-2011-03-16",
+        "sanews-2026-09-15"
+      ],
+      "key": "za_election_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_one_off_public_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-06-17",
+      "description": "Youth Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_youth_day",
+      "observation_lineage": [
+        "2024-06-16",
+        "2024-06-17"
+      ],
+      "observed_from": "2024-06-16",
+      "source_module": "module:za_youth_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-08-09",
+      "description": "National Women's Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_national_womens_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_national_womens_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-09-24",
+      "description": "Heritage Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_heritage_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_heritage_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-12-16",
+      "description": "Day of Reconciliation",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_day_of_reconciliation",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_day_of_reconciliation",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2024-12-24",
+      "description": "Christmas Eve (Early Close)",
+      "evidence_ids": [
+        "jse-hotline-143-2022",
+        "jse-hotline-147-2017",
+        "jse-notice-f4993-2011",
+        "jse-notice-y555-2010"
+      ],
+      "key": "za_jse_christmas_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_jse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2024-12-25",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-12-26",
+      "description": "Day of Goodwill",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_day_of_goodwill",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_day_of_goodwill",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2024-12-31",
+      "description": "New Year's Eve (Early Close)",
+      "evidence_ids": [
+        "jse-hotline-159-2023",
+        "jse-notice-y555-2010"
+      ],
+      "key": "za_jse_new_years_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_jse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2025-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-03-21",
+      "description": "Human Rights Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_human_rights_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_human_rights_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-04-18",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_good_friday_family_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-04-21",
+      "description": "Family Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_family_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_good_friday_family_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-04-28",
+      "description": "Freedom Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_freedom_day",
+      "observation_lineage": [
+        "2025-04-27",
+        "2025-04-28"
+      ],
+      "observed_from": "2025-04-27",
+      "source_module": "module:za_freedom_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-05-01",
+      "description": "Workers' Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_workers_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_workers_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-06-16",
+      "description": "Youth Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_youth_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_youth_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-09-24",
+      "description": "Heritage Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_heritage_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_heritage_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-12-16",
+      "description": "Day of Reconciliation",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_day_of_reconciliation",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_day_of_reconciliation",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2025-12-24",
+      "description": "Christmas Eve (Early Close)",
+      "evidence_ids": [
+        "jse-hotline-143-2022",
+        "jse-hotline-147-2017",
+        "jse-notice-f4993-2011",
+        "jse-notice-y555-2010"
+      ],
+      "key": "za_jse_christmas_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_jse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2025-12-25",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-12-26",
+      "description": "Day of Goodwill",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_day_of_goodwill",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_day_of_goodwill",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2025-12-31",
+      "description": "New Year's Eve (Early Close)",
+      "evidence_ids": [
+        "jse-hotline-159-2023",
+        "jse-notice-y555-2010"
+      ],
+      "key": "za_jse_new_years_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_jse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2026-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-04-03",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_good_friday_family_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-04-06",
+      "description": "Family Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_family_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_good_friday_family_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-04-27",
+      "description": "Freedom Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_freedom_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_freedom_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-05-01",
+      "description": "Workers' Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_workers_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_workers_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-06-16",
+      "description": "Youth Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_youth_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_youth_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-08-10",
+      "description": "National Women's Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_national_womens_day",
+      "observation_lineage": [
+        "2026-08-09",
+        "2026-08-10"
+      ],
+      "observed_from": "2026-08-09",
+      "source_module": "module:za_national_womens_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-09-24",
+      "description": "Heritage Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_heritage_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_heritage_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-11-04",
+      "description": "Election Day (local government elections; declared 15 September 2026 (sanews-2026-09-15), after the exchange's 2026 calendar)",
+      "evidence_ids": [
+        "gov-gazette-40125-proc-45-2016",
+        "jse-hotline-057-2024",
+        "jse-notice-481a-2021",
+        "jse-notice-72-2019",
+        "jse-notice-y1346a-2014",
+        "sanews-2011-03-16",
+        "sanews-2026-09-15"
+      ],
+      "key": "za_election_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_one_off_public_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-12-16",
+      "description": "Day of Reconciliation",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_day_of_reconciliation",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_day_of_reconciliation",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2026-12-24",
+      "description": "Christmas Eve (Early Close)",
+      "evidence_ids": [
+        "jse-hotline-143-2022",
+        "jse-hotline-147-2017",
+        "jse-notice-f4993-2011",
+        "jse-notice-y555-2010"
+      ],
+      "key": "za_jse_christmas_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_jse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2026-12-25",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2026-12-31",
+      "description": "New Year's Eve (Early Close)",
+      "evidence_ids": [
+        "jse-hotline-159-2023",
+        "jse-notice-y555-2010"
+      ],
+      "key": "za_jse_new_years_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_jse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2027-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-03-22",
+      "description": "Human Rights Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_human_rights_day",
+      "observation_lineage": [
+        "2027-03-21",
+        "2027-03-22"
+      ],
+      "observed_from": "2027-03-21",
+      "source_module": "module:za_human_rights_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-03-26",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_good_friday_family_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-03-29",
+      "description": "Family Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_family_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_good_friday_family_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-04-27",
+      "description": "Freedom Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_freedom_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_freedom_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-06-16",
+      "description": "Youth Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_youth_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_youth_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-08-09",
+      "description": "National Women's Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_national_womens_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_national_womens_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-09-24",
+      "description": "Heritage Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_heritage_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_heritage_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-12-16",
+      "description": "Day of Reconciliation",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_day_of_reconciliation",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_day_of_reconciliation",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2027-12-24",
+      "description": "Christmas Eve (Early Close)",
+      "evidence_ids": [
+        "jse-hotline-143-2022",
+        "jse-hotline-147-2017",
+        "jse-notice-f4993-2011",
+        "jse-notice-y555-2010"
+      ],
+      "key": "za_jse_christmas_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_jse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2027-12-25",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-12-27",
+      "description": "Day of Goodwill",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_day_of_goodwill",
+      "observation_lineage": [
+        "2027-12-26",
+        "2027-12-27"
+      ],
+      "observed_from": "2027-12-26",
+      "source_module": "module:za_day_of_goodwill",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2027-12-31",
+      "description": "New Year's Eve (Early Close)",
+      "evidence_ids": [
+        "jse-hotline-159-2023",
+        "jse-notice-y555-2010"
+      ],
+      "key": "za_jse_new_years_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_jse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2028-03-21",
+      "description": "Human Rights Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_human_rights_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_human_rights_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2028-04-14",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_good_friday_family_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2028-04-17",
+      "description": "Family Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_family_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_good_friday_family_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2028-04-27",
+      "description": "Freedom Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_freedom_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_freedom_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2028-05-01",
+      "description": "Workers' Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_workers_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_workers_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2028-06-16",
+      "description": "Youth Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_youth_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_youth_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2028-08-09",
+      "description": "National Women's Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_national_womens_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_national_womens_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2028-09-25",
+      "description": "Heritage Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_heritage_day",
+      "observation_lineage": [
+        "2028-09-24",
+        "2028-09-25"
+      ],
+      "observed_from": "2028-09-24",
+      "source_module": "module:za_heritage_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2028-12-22",
+      "description": "Christmas Eve (Early Close)",
+      "evidence_ids": [
+        "jse-hotline-143-2022",
+        "jse-hotline-147-2017",
+        "jse-notice-f4993-2011",
+        "jse-notice-y555-2010"
+      ],
+      "key": "za_jse_christmas_eve_early_close",
+      "observation_lineage": [
+        "2028-12-24",
+        "2028-12-22"
+      ],
+      "observed_from": "2028-12-24",
+      "source_module": "module:za_jse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2028-12-25",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2028-12-26",
+      "description": "Day of Goodwill",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_day_of_goodwill",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_day_of_goodwill",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2028-12-29",
+      "description": "New Year's Eve (Early Close)",
+      "evidence_ids": [
+        "jse-hotline-159-2023",
+        "jse-notice-y555-2010"
+      ],
+      "key": "za_jse_new_years_eve_early_close",
+      "observation_lineage": [
+        "2028-12-31",
+        "2028-12-29"
+      ],
+      "observed_from": "2028-12-31",
+      "source_module": "module:za_jse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2029-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2029-03-21",
+      "description": "Human Rights Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_human_rights_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_human_rights_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2029-03-30",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_good_friday_family_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2029-04-02",
+      "description": "Family Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_family_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_good_friday_family_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2029-04-27",
+      "description": "Freedom Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_freedom_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_freedom_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2029-05-01",
+      "description": "Workers' Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_workers_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_workers_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2029-08-09",
+      "description": "National Women's Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_national_womens_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_national_womens_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2029-09-24",
+      "description": "Heritage Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_heritage_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_heritage_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2029-12-17",
+      "description": "Day of Reconciliation",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_day_of_reconciliation",
+      "observation_lineage": [
+        "2029-12-16",
+        "2029-12-17"
+      ],
+      "observed_from": "2029-12-16",
+      "source_module": "module:za_day_of_reconciliation",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2029-12-24",
+      "description": "Christmas Eve (Early Close)",
+      "evidence_ids": [
+        "jse-hotline-143-2022",
+        "jse-hotline-147-2017",
+        "jse-notice-f4993-2011",
+        "jse-notice-y555-2010"
+      ],
+      "key": "za_jse_christmas_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_jse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2029-12-25",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2029-12-26",
+      "description": "Day of Goodwill",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_day_of_goodwill",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_day_of_goodwill",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2029-12-31",
+      "description": "New Year's Eve (Early Close)",
+      "evidence_ids": [
+        "jse-hotline-159-2023",
+        "jse-notice-y555-2010"
+      ],
+      "key": "za_jse_new_years_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_jse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2030-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2030-03-21",
+      "description": "Human Rights Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_human_rights_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_human_rights_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2030-04-19",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_good_friday_family_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2030-04-22",
+      "description": "Family Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_family_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_good_friday_family_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2030-05-01",
+      "description": "Workers' Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_workers_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_workers_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2030-06-17",
+      "description": "Youth Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_youth_day",
+      "observation_lineage": [
+        "2030-06-16",
+        "2030-06-17"
+      ],
+      "observed_from": "2030-06-16",
+      "source_module": "module:za_youth_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2030-08-09",
+      "description": "National Women's Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_national_womens_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_national_womens_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2030-09-24",
+      "description": "Heritage Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_heritage_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_heritage_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2030-12-16",
+      "description": "Day of Reconciliation",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_day_of_reconciliation",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_day_of_reconciliation",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2030-12-24",
+      "description": "Christmas Eve (Early Close)",
+      "evidence_ids": [
+        "jse-hotline-143-2022",
+        "jse-hotline-147-2017",
+        "jse-notice-f4993-2011",
+        "jse-notice-y555-2010"
+      ],
+      "key": "za_jse_christmas_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_jse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2030-12-25",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2030-12-26",
+      "description": "Day of Goodwill",
+      "evidence_ids": [
+        "za-public-holidays-act"
+      ],
+      "key": "za_day_of_goodwill",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_day_of_goodwill",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2030-12-31",
+      "description": "New Year's Eve (Early Close)",
+      "evidence_ids": [
+        "jse-hotline-159-2023",
+        "jse-notice-y555-2010"
+      ],
+      "key": "za_jse_new_years_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:za_jse_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    }
+  ],
+  "generated_at": "2026-10-14T00:02:04Z",
+  "kind": "market",
+  "mic": "XJSE",
+  "range_end": "2030-12-31",
+  "range_start": "2010-01-01",
+  "resolution_chain": [
+    "module:weekend_sat_sun",
+    "module:za_new_years_day",
+    "module:za_human_rights_day",
+    "module:za_good_friday_family_day",
+    "module:za_freedom_day",
+    "module:za_workers_day",
+    "module:za_youth_day",
+    "module:za_national_womens_day",
+    "module:za_heritage_day",
+    "module:za_day_of_reconciliation",
+    "module:za_christmas_day",
+    "module:za_day_of_goodwill",
+    "module:za_one_off_public_holidays",
+    "module:za_jse_early_closes",
+    "module:za_jse_holidays",
+    "calendar:ZA-JSE"
+  ],
+  "source_version": {
+    "git_sha": "1f63234a07eb72cc08a8c0d451983be39e88b2ae",
+    "semantic": "13.0.0"
+  },
+  "timezone": "Africa/Johannesburg",
+  "weekend_policy": {
+    "days": [
+      "SATURDAY",
+      "SUNDAY"
+    ],
+    "periods": []
+  }
+}
