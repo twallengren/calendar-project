@@ -1,0 +1,41 @@
+Saudi Exchange statistical reports (Market News pages), retrieved 2026-10-14 via Chrome. Verbatim trading-day sentences.
+
+[2021 annual] https://www.saudiexchange.sa/wps/portal/saudiexchange/newsandreports/issuer-news/news-details/!ut/p/z1/vVJNc4IwEP0r7aFHJstXIEfstKgDKlVQuDgRMhYLATVqp7--QXtQx4_20pz2Zd7Oe7tvUYImKOF0m8-pyCtOC4njBE9NB4PWtqHvjjwVgsjy7CgYqdAxUIQSlKRc1OIdxYJmdLcppow_wZoqP3Bf16s8ZWvKs5xnTFb7T852h6Kkqw8mDjAVR1DRQFNBBUOhnG9o8dDgRrKoUlowFNNVg-o0z1Csz1SKsTVTNJIyxVANXSEZwQohxCQptlWDqGh8OpHtuxiCnhP0NcsENwKU3B74rB-GAxOC14Gve_AGLuDf9cOV59zVj2W_dZXgSIFtznYo5NWqlAEO_7geyR4_-9MgfHmTSkdbbgPq3vMmryVfLJeJI0-i4oJ9CjT5r5sYN9aP7fUdYslkui234zm6ja1zwoXoTwkXst0TboQ3ZBzVZWnrpRKGk69Wz1zYviCdfDB__AbnEAnT/?uri=nm%3Aoid%3AZ6_5A602H80O8MG60QNAQO2750GV0
+04/01/2022 16:04 "Saudi Exchange Performance Report – Annual Statistical Report 2021"
+"*Number of trading days during 2021 were 250 days, against 251 trading days during 2020."
+
+[Q1 2022] https://www.saudiexchange.sa/wps/portal/saudiexchange/newsandreports/issuer-news/news-detail-wcm/?newsId=7073&locale=en
+03/04/2022 15:23 "The Saudi Exchange Performance Report – 1st Quarter Statistical Report 2022"
+"* Number of trading days during 1st Quarter 2022 were 64also against 64 trading days during 1st Quarter 2021."
+
+[2023 annual] https://www.saudiexchange.sa/wps/portal/saudiexchange/newsandreports/issuer-news/news-details/!ut/p/z1/tVJNc4IwFPwr7aFHJg8IkB7TL9TBKqIoXJgUQpsWAiqV_vxG7UEdP9pDc9rNbLLvvX0oRjMUS7YSr6wRlWSF4lFsJxa1wegQGLhjTwc_dDwS-mMduhiFKEZxKpu6eUNRwzLWfhYJlzewZNoP3eB6IVK-ZDITMuMKbS4lb7egZIsP3mxp2uxQ7Qp00A0w8FUpqrVXUaWs4Cjics3qVGQKZ3lmYYI1XQdHw05ua8TEqZblhomJlRP8YqDpfiuk79rgP1N_YDgWuCGg-HynB-8hGFrgPw37pgcjcMH-3Xs4cehF_0B1HKk_nJMiqkxWgrdoIqtFqdIL_jgipZ7e9xN_8jhSTjuT7gDqXapPrYp4n89jqvahkg3_atDs3xdiuq55t64BvXVULL07t-tRk9jOoeBI7vuCI8FuBGeSq8uSmKU2mczadsyj5MHLg66g198Y7o1b/dz/d5/L2dBISEvZ0FBIS9nQSEh/?locale=en
+01/01/2024 16:44 "The Saudi Exchange – Annual Statistical Report 2023"
+"*Number of trading days during 2023 were 249 days, against 248 trading days during 2022."
+
+[2024 annual] https://www.saudiexchange.sa/wps/portal/saudiexchange/newsandreports/issuer-news/news-details/?1dmy=&urile=wcm%3Apath%3A%2FTadawul_en%2FSA-Tadawul%2FSA-PricesAndIndeces%2FSA-News%2FSA-MarketNews%2FCT-marketnews-+01012025+miio&locale=en
+01/01/2025 16:22 "Saudi Exchange – Annual Statistical Report 2024"
+"* Number of trading days during 2024 were 250 days, against 249 trading days during 2023."
+
+[2025 annual] https://www.saudiexchange.sa/wps/portal/saudiexchange/newsandreports/issuer-news/news-detail-wcm/?newsId=9216&locale=en
+01/01/2026 15:52 "Saudi Exchange - Annual Statistical Report 2025"
+"- Number of trading days during 2025 were 251 days, against 250 trading days during 2024."
+
+[Q1 2026] https://www.saudiexchange.sa/wps/portal/saudiexchange/newsandreports/issuer-news/news-detail-wcm/?newsId=9316&locale=en
+01/04/2026 15:43 "Saudi Exchange – 1st Quarter Statistical Report 2026"
+"Number of trading days during 1st Quarter 2026 were 58, against 61 trading days during 1st Quarter 2025."
+
+[9M 2026] https://www.saudiexchange.sa/wps/portal/saudiexchange/newsandreports/issuer-news/news-detail-wcm/?newsId=9614&locale=en
+01/10/2026 15:42 "Saudi Exchange –1st Nine Months Statistical Report 2026"
+"- Number of trading days during the 1st Nine Months 2026 were 183, against 185 trading days during the 1st Nine Months 2025."
+
+[Ramadan/Eid al-Fitr 1447 notice] https://www.saudiexchange.sa/wps/portal/saudiexchange/newsandreports/issuer-news/news-detail-wcm/?newsId=9258&locale=en
+09/02/2026 09:38 "Trading Hours During the Holy Month of Ramadan and Eid Al Fiter holiday for the Saudi Exchange"
+"- Trading will discontinue at the end of Monday, 16 March 2026 (27th of Ramadan 1447). - Trading will resume after the holiday on Tuesday, 24 March 2026 (5th of Shawwal 1447)."
+Equity Markets: Opening Auction 9:30-10:00; Market Open 10:00-3:00 pm; Closing Auction 3:00-3:10 pm; Trade-at-last 3:10-3:20 pm; Post-trade 3:20-4:00 pm.
+
+[Search-engine snippets of exchange pages not opened in the browser]
+2024 Q1 report (CT-marketnews-20240401-mio2), 2025 Q1 report (ct-marketnews-+mio+28-03-2025): "Number of trading days during 1st Quarter 2025 were 61, against 64 trading days during 1st Quarter 2024."
+2025 H1 report (ct-marketnews-7-1-2025): "Number of trading days during 1st Half 2025 were 120, against 119 trading days during 1st Half 2024."
+2023 H1 report (ct-marketnews-20230702-mio+1st+2023): "Number of trading days during 1st Half 2023 were 119, against 124 trading days during 1st Half 2022."
+2025 annual PDF (Saudi+Exchange+Statistical+Annual+Report+2025.pdf): quarterly trading days 2025 = 61, 59, 65, 66.
+July 2026 monthly PDF (Saudi+Exchange+Statistical+Report+July+2026.pdf): "Number of trading days during July 2026 were 22".

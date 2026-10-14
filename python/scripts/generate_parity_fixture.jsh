@@ -14,6 +14,12 @@ import com.bdc.stream.BusinessDayConvention;
 import com.bdc.stream.OutsideCoverageException;
 import com.bdc.stream.UnresolvedDateException;
 import com.bdc.emitter.AssessmentEmitter;
+import com.bdc.finance.DayCount;
+import com.bdc.finance.Frequency;
+import com.bdc.finance.StubConvention;
+import com.bdc.finance.RollConvention;
+import com.bdc.finance.Tenor;
+import com.bdc.stream.ScheduleDefinition;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.function.Supplier;
 import java.io.PrintWriter;
@@ -97,6 +103,41 @@ String financial(Supplier<DateOperationResult> call) throws Exception {
         row.put("business_day_offset", result.businessDayOffset());
         row.put("month_offset", result.monthOffset());
         row.put("preserve_end_of_month", result.preserveEndOfMonth());
+        row.put("effective_confidence", result.effectiveConfidence().name());
+        row.put("examined_dates", result.examinedDates().stream().map(Object::toString).toList());
+        row.put("tenor", result.tenor());
+        return row;
+    });
+}
+
+String yearFraction(DateStream s, LocalDate start, LocalDate end, DayCount dayCount) throws Exception {
+    return query(() -> {
+        var result = s.yearFractionDetailed(start, end, dayCount);
+        var row = new LinkedHashMap<String, Object>();
+        row.put("start", result.start().toString());
+        row.put("end", result.end().toString());
+        row.put("day_count", result.dayCount().name());
+        row.put("days", result.days());
+        row.put("year_fraction", result.yearFraction());
+        row.put("effective_confidence", result.effectiveConfidence().name());
+        row.put("examined_dates", result.examinedDates().stream().map(Object::toString).toList());
+        return row;
+    });
+}
+
+String schedule(DateStream s, ScheduleDefinition definition) throws Exception {
+    return query(() -> {
+        var result = s.schedule(definition);
+        var row = new LinkedHashMap<String, Object>();
+        row.put("periods", result.periods().stream().map(p -> {
+            var period = new LinkedHashMap<String, Object>();
+            period.put("unadjusted_start", p.unadjustedStart().toString());
+            period.put("unadjusted_end", p.unadjustedEnd().toString());
+            period.put("start", p.start().toString());
+            period.put("end", p.end().toString());
+            period.put("stub", p.stub());
+            return period;
+        }).toList());
         row.put("effective_confidence", result.effectiveConfidence().name());
         row.put("examined_dates", result.examinedDates().stream().map(Object::toString).toList());
         return row;
@@ -204,6 +245,16 @@ for (LocalDate d : financialDates) {
         out.print(",\"offset_" + offset + "\":" + financial(() -> stream.businessDayOffsetDetailed(d, offset)));
     out.print(",\"eom\":" + financial(() -> stream.advanceMonthsDetailed(d, -1, BusinessDayConvention.MODIFIED_FOLLOWING, true)));
     out.print(",\"last\":" + financial(() -> stream.lastBusinessDayOfMonthDetailed(d)));
+    for (String tenor : List.of("3M", "T+2", "2W", "-1Y", "0D"))
+        out.print(",\"tenor_" + tenor + "\":" + financial(() -> stream.addTenorDetailed(d, Tenor.parse(tenor), BusinessDayConvention.MODIFIED_FOLLOWING, false)));
+    LocalDate yfEnd = d.plusDays(45).isAfter(end) ? end : d.plusDays(45);
+    for (DayCount dayCount : List.of(DayCount.ACT_360, DayCount.ACT_ACT_ISDA, DayCount.THIRTY_360_BOND, DayCount.THIRTY_E_360_ISDA, DayCount.BUS_252))
+        out.print(",\"yf_" + dayCount.name() + "\":" + yearFraction(stream, d, yfEnd, dayCount));
+    LocalDate scheduleEnd = d.plusMonths(10).isAfter(end) ? end : d.plusMonths(10);
+    if (scheduleEnd.isAfter(d)) {
+        out.print(",\"schedule_SHORT_FINAL\":" + schedule(stream, new ScheduleDefinition(d, scheduleEnd, Frequency.QUARTERLY, StubConvention.SHORT_FINAL, RollConvention.DAY_OF_MONTH, BusinessDayConvention.MODIFIED_FOLLOWING)));
+        out.print(",\"schedule_LONG_INITIAL_EOM\":" + schedule(stream, new ScheduleDefinition(d, scheduleEnd, Frequency.MONTHLY, StubConvention.LONG_INITIAL, RollConvention.EOM, BusinessDayConvention.FOLLOWING)));
+    }
     out.print("}");
 }
 out.print("]}");

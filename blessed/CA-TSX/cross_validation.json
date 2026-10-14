@@ -8,7 +8,7 @@
     "to" : "2030-12-31",
     "compared_types" : [ "CLOSED", "EARLY_CLOSE" ],
     "counts" : {
-      "matched" : 309,
+      "matched" : 314,
       "allowlisted" : 9,
       "unexplained" : 0
     },
@@ -23,7 +23,7 @@
     "compared_types" : [ "CLOSED" ],
     "counts" : {
       "matched" : 302,
-      "allowlisted" : 0,
+      "allowlisted" : 2,
       "unexplained" : 0
     },
     "unexplained_rows" : [ ],

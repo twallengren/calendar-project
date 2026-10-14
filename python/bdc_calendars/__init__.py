@@ -38,7 +38,27 @@ from .calendar import (
     list_aliases,
     list_calendars,
 )
-from .operations import BusinessDayConvention, DateOperation, DateOperationResult, MemberClose
+from .finance import (
+    DayCount,
+    Frequency,
+    RollConvention,
+    StubConvention,
+    Tenor,
+    imm_date,
+    is_imm,
+    next_imm,
+    next_quarterly_imm,
+)
+from .operations import (
+    BusinessDayConvention,
+    DateOperation,
+    DateOperationResult,
+    MemberClose,
+    Schedule,
+    ScheduleDefinition,
+    SchedulePeriod,
+    YearFractionResult,
+)
 from .errors import (
     BdcCalendarError,
     CalendarNotFoundError,
@@ -67,6 +87,19 @@ __all__ = [
     "DateOperation",
     "DateOperationResult",
     "MemberClose",
+    "DayCount",
+    "Frequency",
+    "RollConvention",
+    "StubConvention",
+    "Tenor",
+    "Schedule",
+    "ScheduleDefinition",
+    "SchedulePeriod",
+    "YearFractionResult",
+    "imm_date",
+    "is_imm",
+    "next_imm",
+    "next_quarterly_imm",
     "list_calendars",
     "list_aliases",
     "BusinessCalendar",

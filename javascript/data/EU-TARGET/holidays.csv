@@ -1,0 +1,9 @@
+date,type,description,key,source_module,observed_from,close_time,status
+2026-01-01,CLOSED,New Year's Day,eu_target_new_years_day,module:eu_target_holidays,,,CONFIRMED
+2026-04-03,CLOSED,Good Friday,eu_target_good_friday,module:eu_target_holidays,,,CONFIRMED
+2026-04-06,CLOSED,Easter Monday,eu_target_easter_monday,module:eu_target_holidays,,,CONFIRMED
+2026-05-01,CLOSED,Labour Day,eu_target_labour_day,module:eu_target_holidays,,,CONFIRMED
+2026-12-25,CLOSED,Christmas Day,eu_target_christmas_day,module:eu_target_holidays,,,CONFIRMED
+2027-01-01,CLOSED,New Year's Day,eu_target_new_years_day,module:eu_target_holidays,,,CONFIRMED
+2027-03-26,CLOSED,Good Friday,eu_target_good_friday,module:eu_target_holidays,,,CONFIRMED
+2027-03-29,CLOSED,Easter Monday,eu_target_easter_monday,module:eu_target_holidays,,,CONFIRMED

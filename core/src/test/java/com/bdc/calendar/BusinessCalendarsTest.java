@@ -129,14 +129,17 @@ class BusinessCalendarsTest {
             publicAssessment(published.assessment(date)),
             publicAssessment(bundled.assessment(date)),
             where + ": assessment");
-        if (published.status(date) == EventStatus.UNKNOWN) {
-          LocalDate unresolved = date;
+        LocalDate unresolved = date;
+        if (!published.assessment(date).isBusinessDayKnown()) {
           assertThrows(UnresolvedDateException.class, () -> published.isBusinessDay(unresolved));
           assertThrows(UnresolvedDateException.class, () -> bundled.isBusinessDay(unresolved));
+        } else {
+          assertEquals(published.isBusinessDay(date), bundled.isBusinessDay(date), where);
+        }
+        if (published.status(date) == EventStatus.UNKNOWN) {
           assertThrows(UnresolvedDateException.class, () -> bundled.isEarlyClose(unresolved));
           assertThrows(UnresolvedDateException.class, () -> bundled.closeTime(unresolved));
         } else {
-          assertEquals(published.isBusinessDay(date), bundled.isBusinessDay(date), where);
           assertEquals(published.isEarlyClose(date), bundled.isEarlyClose(date), where);
           assertEquals(published.closeTime(date), bundled.closeTime(date), where);
         }
@@ -216,7 +219,9 @@ class BusinessCalendarsTest {
                         detail.chronologyProfile(),
                         detail.chronologyProvider(),
                         detail.observationLineage()))
-            .toList());
+            .toList(),
+        day.businessDayState(),
+        day.businessDayConfidence());
   }
 
   private static LocalDate min(LocalDate a, LocalDate b) {

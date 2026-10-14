@@ -3,7 +3,7 @@
   "calendar_name" : "London Stock Exchange",
   "kind" : "market",
   "mic" : "XLON",
-  "generated_at" : "2026-09-15T10:01:34Z",
+  "generated_at" : "2026-10-14T00:02:04Z",
   "range_start" : "2000-01-01",
   "range_end" : "2030-12-31",
   "timezone" : "Europe/London",
@@ -15,8 +15,8 @@
       "scope" : "SCHEDULED_CLOSURES",
       "from" : "2000-01-01",
       "to" : "2020-12-31",
-      "quality" : "PROJECTED",
-      "evidence_ids" : [ "uk-1971-act" ]
+      "quality" : "VERIFIED",
+      "evidence_ids" : [ "uk-1971-act", "lse-smf-dec-2012", "lse-smf-dec-2013", "lse-smf-dec-2014", "lse-smf-dec-2015", "lse-smf-dec-2016", "lse-smf-dec-2017", "lse-smf-dec-2018", "lse-smf-dec-2019", "lse-smf-dec-2020", "lse-smf-dec-2021", "lseg-release-2008-01-09" ]
     }, {
       "scope" : "SCHEDULED_CLOSURES",
       "from" : "2021-01-01",
@@ -27,8 +27,8 @@
       "scope" : "SCHEDULED_CLOSURES",
       "from" : "2024-01-01",
       "to" : "2025-12-31",
-      "quality" : "PROJECTED",
-      "evidence_ids" : [ "govuk-bank-holidays" ]
+      "quality" : "VERIFIED",
+      "evidence_ids" : [ "govuk-bank-holidays", "lse-smf-dec-2024", "lse-smf-dec-2025" ]
     }, {
       "scope" : "SCHEDULED_CLOSURES",
       "from" : "2026-01-01",
@@ -146,6 +146,12 @@
     }, {
       "scope" : "UNSCHEDULED_EXCEPTIONS",
       "from" : "2000-01-01",
+      "to" : "2026-09-30",
+      "quality" : "VERIFIED",
+      "evidence_ids" : [ "lse-smf-dec-2012", "lse-smf-dec-2013", "lse-smf-dec-2014", "lse-smf-dec-2015", "lse-smf-dec-2016", "lse-smf-dec-2017", "lse-smf-dec-2018", "lse-smf-dec-2019", "lse-smf-dec-2020", "lse-smf-dec-2021", "lse-smf-dec-2022", "lse-smf-dec-2023", "lse-smf-dec-2024", "lse-smf-dec-2025", "lse-smf-sep-2026", "lseg-release-2008-01-09", "lse-rns-2000-04-05", "lse-service-update-2008-09-08", "lse-statement-2009-11-26", "lseg-statement-2011-02-25", "lse-market-notice-n15-22", "lse-service-announcement-2023-10-19", "lse-service-announcement-2023-12-05" ]
+    }, {
+      "scope" : "UNSCHEDULED_EXCEPTIONS",
+      "from" : "2026-10-01",
       "to" : "2030-12-31",
       "quality" : "PROJECTED",
       "evidence_ids" : [ "lse-business-days" ]
@@ -162,8 +168,8 @@
     "CONFIRMED" : 3552
   },
   "source_version" : {
-    "semantic" : "12.0.0",
-    "git_sha" : "e694faa4119f45ae284deefc496729f119fc16af"
+    "semantic" : "13.0.0",
+    "git_sha" : "1f63234a07eb72cc08a8c0d451983be39e88b2ae"
   },
   "event_details" : [ {
     "date" : "2000-01-03",

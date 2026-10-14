@@ -43,6 +43,7 @@ resources, published as `bdc-calendar-data`) and **`tools`** (the CLI and everyt
 # the same run also writes /compare/<A>/<B>/ for every unordered pair of market calendars and /sources/<ID>/ from sources/<ID>/README.md (--sources-dir, default `sources`)
 scripts/bless.sh                     # regenerate blessed/ reproducibly (no-op leaves git clean)
 ./gradlew :tools:run --args="crossvalidate --all --out blessed"   # writes blessed/<ID>/cross_validation.json; ./gradlew :tools:run --args="status --format markdown" renders the Market status table in README.md
+./gradlew :tools:run --args="coverage --out docs/delivery/COVERAGE.md"   # confidence counts per calendar for the business-day and session questions, from blessed/ (regenerate after bless)
 ```
 
 After `:tools:installDist`, compare all published calendars with:
@@ -62,6 +63,14 @@ python -m venv .venv && .venv/bin/pip install -e "python/[test,mcp]"
 python python/scripts/sync_data.py        # re-copy blessed/ into python/bdc_calendars/data/ (also run by the release workflow)
 python python/scripts/sync_data.py --check   # CI guard: bundled data still re-derives from blessed/
 python/scripts/generate_parity_fixture.sh    # refresh python/tests/fixtures/ from the Java toolchain (jshell)
+```
+
+**JavaScript package (`javascript/`):** `bdc-calendars` on npm mirrors the Query API for Node.js/TypeScript with zero runtime dependencies, reading the same bundled files as the Python package (`javascript/data/`, copied from `python/bdc_calendars/data/` by `node javascript/scripts/sync-data.mjs`, which `scripts/bless.sh` also runs). `test/parity.test.ts` replays the Python parity fixtures, so port every semantic change to Java, Python and TypeScript together.
+```bash
+cd javascript && npm install           # dev dependencies only
+npm test                               # node:test with native type stripping (Node 22.6+); includes parity for all calendars
+npm run build                          # tsc -> dist/
+npm run check-data                     # CI guard: javascript/data matches python/bdc_calendars/data
 ```
 
 **Onboarding a new market:** `./gradlew :tools:run --args="scaffold --market GB-LSE --name \"London Stock Exchange\" --timezone Europe/London --mic XLON"` generates the calendar YAML, a holiday group and one example holiday module, and a `sources/<MARKET>/README.md` citation table for a new market; it reuses the `weekend_sat_sun`/`weekend_fri_sat` policy modules or writes a new one with `--weekend custom`, appends the calendar's `blessed/manifest.json` and `scripts/reference/export_reference_calendars.py` entries, and prints the golden test stub and next steps (validate, generate, update goldens, cross-validation allowlist) referenced in `CONTRIBUTING.md`. It refuses to overwrite existing files unless `--force`, and `--dry-run` previews the plan without writing anything.
@@ -89,7 +98,8 @@ jar stays dependency-free. Package names are unchanged across the split (`com.bd
 | Package | Role |
 |---------|------|
 | `calendar` | **core** — `BusinessCalendars`, the entry point to the bundled data (`of`, `joint`, `available`, `dataVersion`); rebuilds WEEKEND rows from each calendar's weekend policy |
-| `stream` | **core** — the Query API: `DateStream`, `CsvDateStream`, `JointDateStream`, `OutsideCoverageException` (`LazyDateStream`, which queries the generator directly, stays in `tools`) |
+| `stream` | **core** — the Query API: `DateStream`, `CsvDateStream`, `JointDateStream`, `OutsideCoverageException` (`LazyDateStream`, which queries the generator directly, stays in `tools`); `FinancialDateOperations`/`ScheduleGenerator` implement the calendar-dependent financial operations (`addTenor`, `yearFraction`, `schedule`) |
+| `finance` | **core** — calendar-free financial vocabulary: `Tenor`, `Frequency`, `StubConvention`, `RollConvention`, `ImmDates`, `DayCount` (2006 ISDA §4.16); mirrored by `python/bdc_calendars/finance.py` |
 | `cli` | PicoCLI commands: validate, resolve, generate, query, ci-diff, history, changelog, site, serve, scaffold, manifest, crossvalidate, status |
 | `loader` | YAML parsing into model objects, SpecRegistry for lookups |
 | `resolver` | Calendar inheritance resolution and module merging |
@@ -143,7 +153,7 @@ Use scratch directories for verification. Update `blessed/` and `release-history
 
 ### Python bindings
 
-`python/` holds `bdc-calendars`: a dependency-free port of the Query API (`BusinessCalendar`, `get_calendar`/`get_joint_calendar`, the same out-of-range and status contract, exchange_calendars-style aliases). The Java `DateStream`/`JointDateStream` remain the reference implementation — `python/tests/test_parity.py` replays fixtures dumped from them, so port any semantic change to both. Release publishing to PyPI (Trusted Publishing) is in `release.yml`, guarded by the `PYPI_PUBLISH` repository variable.
+`python/` holds `bdc-calendars`: a dependency-free port of the Query API (`BusinessCalendar`, `get_calendar`/`get_joint_calendar`, the same out-of-range and status contract, exchange_calendars-style aliases). `javascript/` holds the TypeScript port of the same API (`getCalendar`/`getJointCalendar`, ISO-string dates). The Java `DateStream`/`JointDateStream` remain the reference implementation — `python/tests/test_parity.py` and `javascript/test/parity.test.ts` replay fixtures dumped from them, so port any semantic change to all three. Release publishing to PyPI (Trusted Publishing) is in `release.yml`, guarded by the `PYPI_PUBLISH` repository variable.
 
 ## Calendar correctness
 
@@ -185,13 +195,19 @@ identity and provider provenance through generation. `tools convert` shares the 
 conversion must fail explicitly outside its profile rather than emit blank dates.
 
 Coverage quality is per scope (scheduled closures, early closes, unscheduled exceptions).
-`INCOMPLETE` or a missing explicit scope makes actual state UNKNOWN and business-day operations
-raise `UnresolvedDateException` / `UnresolvedDateError`, compatible with coverage errors. Read
-`assessment` for scheduled state and evidence; raw event status remains CONFIRMED/PROJECTED.
+`INCOMPLETE` or a missing explicit scope makes actual state UNKNOWN. Each operation resolves only
+the scopes its question needs (`DateQuestion` in Java, `QUESTION_SCOPES` in Python): business-day
+operations need SCHEDULED_CLOSURES and UNSCHEDULED_EXCEPTIONS and raise `UnresolvedDateException` /
+`UnresolvedDateError` when one is incomplete; session operations (`closeTime`, `isEarlyClose`,
+`memberCloses`) additionally need EARLY_CLOSES. Read `assessment` for scheduled state, evidence,
+and both the strict (`state`/`effectiveConfidence`) and business-day (`businessDayState`/
+`businessDayConfidence`) views; raw event status remains CONFIRMED/PROJECTED.
 
-Financial date conventions, month advancement and last-business-day queries are defined in
-`spec/SPEC.md#financial-date-operations`. Keep detailed Java/Python/CLI/MCP results and full-path
-confidence in parity. Identity exceptions do not establish an open date. Member close times retain
+Financial date conventions, month advancement, last-business-day queries, tenors, day counts and
+schedule generation are defined in `spec/SPEC.md#financial-date-operations`. Keep detailed
+Java/Python/CLI/MCP results and full-path confidence in parity (the parity fixtures cover tenor,
+year-fraction and schedule cases; extend `generate_parity_fixture.jsh` and `test_parity.py`
+together). Identity exceptions do not establish an open date. Member close times retain
 calendar/timezone identity; comparing wall-clock close times across zones is deprecated.
 
 `EU-TARGET`, `US-FEDWIRE` and `GB-CHAPS` are payment-kind calendars without MICs, included alongside

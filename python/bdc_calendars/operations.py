@@ -5,7 +5,17 @@ from __future__ import annotations
 import calendar as _calendar
 import datetime as _dt
 from enum import Enum
-from typing import NamedTuple, Optional, Tuple
+from typing import List, NamedTuple, Optional, Tuple
+
+from .finance import (
+    DayCount,
+    Frequency,
+    RollConvention,
+    StubConvention,
+    Tenor,
+    TenorUnit,
+    roll as _roll,
+)
 
 
 class BusinessDayConvention(str, Enum):
@@ -21,6 +31,7 @@ class DateOperation(str, Enum):
     BUSINESS_DAY_OFFSET = "BUSINESS_DAY_OFFSET"
     ADVANCE_MONTHS = "ADVANCE_MONTHS"
     LAST_BUSINESS_DAY_OF_MONTH = "LAST_BUSINESS_DAY_OF_MONTH"
+    ADD_TENOR = "ADD_TENOR"
 
 
 class DateOperationResult(NamedTuple):
@@ -33,6 +44,60 @@ class DateOperationResult(NamedTuple):
     preserve_end_of_month: bool
     effective_confidence: str
     examined_dates: Tuple[_dt.date, ...]
+    #: Canonical tenor spelling for ``ADD_TENOR``; ``None`` for every other operation.
+    tenor: Optional[str] = None
+
+
+class YearFractionResult(NamedTuple):
+    """A year fraction with its day count and, for BUS/252, the counted days' confidence."""
+
+    start: _dt.date
+    end: _dt.date
+    day_count: str
+    days: int
+    year_fraction: float
+    effective_confidence: str
+    examined_dates: Tuple[_dt.date, ...]
+
+
+class ScheduleDefinition(NamedTuple):
+    """An unadjusted periodic schedule and the convention that adjusts its boundaries."""
+
+    start: _dt.date
+    end: _dt.date
+    frequency: Frequency
+    stub: StubConvention = StubConvention.SHORT_FINAL
+    roll: RollConvention = RollConvention.DAY_OF_MONTH
+    convention: BusinessDayConvention = BusinessDayConvention.MODIFIED_FOLLOWING
+
+
+class SchedulePeriod(NamedTuple):
+    unadjusted_start: _dt.date
+    unadjusted_end: _dt.date
+    start: _dt.date
+    end: _dt.date
+    stub: bool
+
+
+class Schedule(NamedTuple):
+    definition: ScheduleDefinition
+    periods: Tuple[SchedulePeriod, ...]
+    effective_confidence: str
+    examined_dates: Tuple[_dt.date, ...]
+
+    @property
+    def dates(self) -> List[_dt.date]:
+        if not self.periods:
+            return []
+        return [self.periods[0].start] + [period.end for period in self.periods]
+
+    @property
+    def unadjusted_dates(self) -> List[_dt.date]:
+        if not self.periods:
+            return []
+        return [self.periods[0].unadjusted_start] + [
+            period.unadjusted_end for period in self.periods
+        ]
 
 
 class MemberClose(NamedTuple):
@@ -62,12 +127,12 @@ class _Tracker:
             self._seen.add(date)
             self.examined.append(date)
         assessment = self.calendar.assessment(date)
-        if assessment.effective_confidence == "UNKNOWN":
+        if assessment.business_day_confidence == "UNKNOWN":
             self.confidence = "UNKNOWN"
-        elif assessment.effective_confidence == "PROJECTED" and self.confidence == "CONFIRMED":
+        elif assessment.business_day_confidence == "PROJECTED" and self.confidence == "CONFIRMED":
             self.confidence = "PROJECTED"
         if require:
-            self.calendar._require_resolved(date)
+            self.calendar._require_resolved(date, "BUSINESS_DAY")
 
     def identity(self, date):
         self._include(date, False)
@@ -88,6 +153,7 @@ class _Tracker:
         business_day_offset=None,
         month_offset=None,
         preserve_end_of_month=False,
+        tenor=None,
     ):
         return DateOperationResult(
             original,
@@ -99,6 +165,7 @@ class _Tracker:
             preserve_end_of_month,
             self.confidence,
             tuple(self.examined),
+            tenor,
         )
 
 
@@ -175,6 +242,157 @@ def advance_months_detailed(
         month_offset=months,
         preserve_end_of_month=preserve_end_of_month,
     )
+
+
+def add_tenor_detailed(calendar, date, tenor, convention_value, preserve_end_of_month=False):
+    """
+    Add a market tenor. Day/week tenors shift calendar days then adjust; month/
+    year tenors advance months then adjust; business-day tenors (``T+n``) walk
+    business days and ignore the convention.
+    """
+    tenor = Tenor.parse(tenor)
+    convention_value = convention(convention_value)
+    if tenor.unit == TenorUnit.BUSINESS_DAYS:
+        base = business_day_offset_detailed(calendar, date, tenor.amount)
+        convention_out = None
+    elif tenor.is_month_based:
+        base = advance_months_detailed(
+            calendar, date, tenor.months, convention_value, preserve_end_of_month
+        )
+        convention_out = convention_value.value
+    else:
+        tracker = _Tracker(calendar)
+        nominal = date + _dt.timedelta(days=tenor.days)
+        result = _adjust(calendar, nominal, convention_value, tracker)
+        base = tracker.result(date, result, DateOperation.ADD_TENOR, convention_value)
+        convention_out = convention_value.value
+    return base._replace(
+        operation=DateOperation.ADD_TENOR.value, convention=convention_out, tenor=str(tenor)
+    )
+
+
+def year_fraction_detailed(calendar, start, end, day_count):
+    """A year fraction; BUS/252 counts the calendar's business days in ``[start, end)``."""
+    day_count = DayCount.of(day_count)
+    if day_count != DayCount.BUS_252:
+        return YearFractionResult(
+            start,
+            end,
+            day_count.value,
+            day_count.days(start, end),
+            day_count.year_fraction(start, end),
+            "CONFIRMED",
+            (),
+        )
+    if end < start:
+        forward = year_fraction_detailed(calendar, end, start, day_count)
+        return forward._replace(
+            start=start, end=end, days=-forward.days, year_fraction=-forward.year_fraction
+        )
+    tracker = _Tracker(calendar)
+    count = 0
+    day = start
+    one = _dt.timedelta(days=1)
+    while day < end:
+        if tracker.is_business_day(day):
+            count += 1
+        day += one
+    return YearFractionResult(
+        start, end, day_count.value, count, count / 252.0, tracker.confidence, tuple(tracker.examined)
+    )
+
+
+_MAX_PERIODS = 10_000
+
+
+def _roll_from(definition, anchor, periods):
+    tenor = definition.frequency.tenor
+    if tenor.is_month_based:
+        return _roll(definition.roll, anchor, tenor.months * periods)
+    return anchor + _dt.timedelta(days=tenor.days * periods)
+
+
+def unadjusted_schedule_dates(definition):
+    """The unadjusted boundary dates of a schedule, start through end."""
+    definition = _definition(definition)
+    backward = definition.stub in (StubConvention.SHORT_INITIAL, StubConvention.LONG_INITIAL)
+    anchor = definition.end if backward else definition.start
+    limit = definition.start if backward else definition.end
+    direction = -1 if backward else 1
+    dates = [anchor]
+    rolled = None
+    for k in range(1, _MAX_PERIODS + 1):
+        rolled = _roll_from(definition, anchor, direction * k)
+        if (rolled <= limit) if backward else (rolled >= limit):
+            break
+        dates.append(rolled)
+    if rolled is None or ((rolled > limit) if backward else (rolled < limit)):
+        raise ValueError(
+            "Schedule from {} to {} exceeds {} periods".format(
+                definition.start, definition.end, _MAX_PERIODS
+            )
+        )
+    if rolled != limit:
+        if definition.stub == StubConvention.NONE:
+            raise ValueError(
+                "Schedule end {} is not on the {} cycle from {} and the stub convention is NONE".format(
+                    definition.end, definition.frequency.name, definition.start
+                )
+            )
+        if definition.stub in (StubConvention.LONG_FINAL, StubConvention.LONG_INITIAL):
+            if len(dates) > 1:
+                dates.pop()
+    dates.append(limit)
+    if backward:
+        dates.reverse()
+    return dates
+
+
+def _definition(definition) -> ScheduleDefinition:
+    definition = ScheduleDefinition(
+        definition.start,
+        definition.end,
+        Frequency.of(definition.frequency),
+        StubConvention(str(definition.stub).upper().split(".")[-1]),
+        RollConvention(str(definition.roll).upper().split(".")[-1]),
+        convention(definition.convention),
+    )
+    if definition.start >= definition.end:
+        raise ValueError(
+            "schedule start {} must precede end {}".format(definition.start, definition.end)
+        )
+    if not definition.frequency.tenor.is_month_based and definition.roll != RollConvention.DAY_OF_MONTH:
+        raise ValueError(
+            "{} applies to month-based frequencies only, not {}".format(
+                definition.roll.value, definition.frequency.name
+            )
+        )
+    return definition
+
+
+def _stub_index(definition, dates):
+    if len(dates) < 2:
+        return -1
+    backward = definition.stub in (StubConvention.SHORT_INITIAL, StubConvention.LONG_INITIAL)
+    index = 0 if backward else len(dates) - 2
+    period_start, period_end = dates[index], dates[index + 1]
+    if backward:
+        return -1 if _roll_from(definition, period_end, -1) == period_start else index
+    return -1 if _roll_from(definition, period_start, 1) == period_end else index
+
+
+def schedule(calendar, definition):
+    """Generate a periodic schedule on ``calendar`` with path confidence."""
+    definition = _definition(definition)
+    unadjusted = unadjusted_schedule_dates(definition)
+    tracker = _Tracker(calendar)
+    adjusted = [_adjust(calendar, date, definition.convention, tracker) for date in unadjusted]
+    stub_index = _stub_index(definition, unadjusted)
+    periods = tuple(
+        SchedulePeriod(unadjusted[i], unadjusted[i + 1], adjusted[i], adjusted[i + 1], i == stub_index)
+        for i in range(len(unadjusted) - 1)
+    )
+    return Schedule(definition, periods, tracker.confidence, tuple(tracker.examined))
 
 
 def last_business_day_of_month_detailed(calendar, date):

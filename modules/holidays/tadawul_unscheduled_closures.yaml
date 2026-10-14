@@ -1,0 +1,22 @@
+kind: module
+id: tadawul_unscheduled_closures
+
+# Unscheduled closures of the Saudi Exchange main market, each an exchange announcement. The set
+# is complete for 2020-01-01 to 2026-10-13: the exchange's own day-level session record
+# (saudi-exchange-tasi-sessions) and its published trading-day counts
+# (saudi-exchange-statistical-reports) reconcile with the schedule on every other day. The
+# intraday halt of 2 June 2021 and the delayed open of 19 August 2026 kept full sessions.
+
+event_sources:
+  - key: tadawul_unscheduled_closure
+    name: Unscheduled Closure
+    default_classification: CLOSED
+    shiftable: false
+    source:
+      - id: saudi-exchange-closure-2022-11-23
+        ref: "Saudi Exchange announces the discontinue of trading on Wednesday 23/11/2022"
+    rule:
+      type: explicit_dates
+      dates:
+        - date: 2022-11-23
+          comment: royal holiday after the World Cup win over Argentina

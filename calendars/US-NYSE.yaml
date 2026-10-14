@@ -18,11 +18,19 @@ metadata:
         to: 2007-12-31
         quality: VERIFIED
         evidence_ids: [nyse-history-2008]
+      # From 2008 the NYSE's own holiday history ends; the scheduled closures are reconciled
+      # day by day against two independent index series (blank on every non-trading day) through
+      # 12 October 2026, and the exchange's published schedule carries the years ahead.
       - scope: SCHEDULED_CLOSURES
         from: 2008-01-01
+        to: 2026-10-12
+        quality: VERIFIED
+        evidence_ids: [fred-nasdaqcom, fred-sp500, nyse-hours]
+      - scope: SCHEDULED_CLOSURES
+        from: 2026-10-13
         to: 2030-12-31
         quality: PROJECTED
-        evidence_ids: [nyse-hours]
+        evidence_ids: [nyse-hours, nyse-trading-days-2026-2028]
       - scope: EARLY_CLOSES
         from: 1900-01-01
         to: 2007-12-31
@@ -80,8 +88,16 @@ metadata:
         to: 2007-12-31
         quality: VERIFIED
         evidence_ids: [nyse-history-2008]
+      # Every unscheduled closure since 2008 (Hurricane Sandy 2012, the Bush and Carter days of
+      # mourning) is cited to the exchange's own release, and the index-series reconciliation
+      # shows no other missing trading day through 12 October 2026.
       - scope: UNSCHEDULED_EXCEPTIONS
         from: 2008-01-01
+        to: 2026-10-12
+        quality: VERIFIED
+        evidence_ids: [fred-nasdaqcom, fred-sp500, nyse-euronext-sandy-2012-10-28, sec-fr-2013-19145, nyse-pr-bush-2018, finra-rn-18-39, nyse-pr-carter-2024]
+      - scope: UNSCHEDULED_EXCEPTIONS
+        from: 2026-10-13
         to: 2030-12-31
         quality: PROJECTED
         evidence_ids: [nyse-hours]

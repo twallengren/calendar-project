@@ -8,7 +8,16 @@ date,type,description,key,source_module,observed_from,close_time,status
 2020-05-28,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
 2020-05-29,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
 2020-05-30,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2020-07-29,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2020-07-30,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2020-07-31,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2020-08-01,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2020-08-02,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2020-08-03,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2020-08-04,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
 2020-09-23,CLOSED,Saudi National Day,saudi_national_day,module:saudi_national_day,,,CONFIRMED
+2021-05-11,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2021-05-12,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
 2021-05-13,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
 2021-05-14,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
 2021-05-15,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
@@ -24,7 +33,6 @@ date,type,description,key,source_module,observed_from,close_time,status
 2021-07-24,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
 2021-09-23,CLOSED,Saudi National Day,saudi_national_day,module:saudi_national_day,,,CONFIRMED
 2022-02-22,CLOSED,Saudi Founding Day,saudi_founding_day,module:saudi_founding_day,,,CONFIRMED
-2022-04-28,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
 2022-04-29,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
 2022-04-30,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
 2022-05-01,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
@@ -34,7 +42,6 @@ date,type,description,key,source_module,observed_from,close_time,status
 2022-05-05,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
 2022-05-06,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
 2022-05-07,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
-2022-05-08,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
 2022-07-07,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
 2022-07-08,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
 2022-07-09,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
@@ -42,6 +49,7 @@ date,type,description,key,source_module,observed_from,close_time,status
 2022-07-11,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
 2022-07-12,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
 2022-09-22,CLOSED,Saudi National Day,saudi_national_day,module:saudi_national_day,2022-09-23,,CONFIRMED
+2022-11-23,CLOSED,Unscheduled Closure (royal holiday after the World Cup win over Argentina),tadawul_unscheduled_closure,module:tadawul_unscheduled_closures,,,CONFIRMED
 2023-02-22,CLOSED,Saudi Founding Day,saudi_founding_day,module:saudi_founding_day,,,CONFIRMED
 2023-04-18,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
 2023-04-19,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED

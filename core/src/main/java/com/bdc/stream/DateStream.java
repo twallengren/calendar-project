@@ -1,12 +1,15 @@
 package com.bdc.stream;
 
 import com.bdc.chronology.DateRange;
+import com.bdc.finance.DayCount;
+import com.bdc.finance.Tenor;
 import com.bdc.model.Event;
 import com.bdc.model.EventStatus;
 import com.bdc.model.EventType;
 import com.bdc.trust.CompletenessScope;
 import com.bdc.trust.CoverageInterval;
 import com.bdc.trust.CoverageQuality;
+import com.bdc.trust.DateQuestion;
 import com.bdc.trust.DayAssessment;
 import com.bdc.trust.DayState;
 import com.bdc.trust.EventDetails;
@@ -242,6 +245,50 @@ public interface DateStream {
         this, date, months, convention, preserveEndOfMonth);
   }
 
+  /**
+   * Adds a market tenor ({@code 3M}, {@code 2W}, {@code 1Y}, {@code T+2}) and adjusts the result
+   * under {@code convention}. Business-day tenors walk business days and ignore the convention.
+   */
+  default LocalDate addTenor(LocalDate date, Tenor tenor, BusinessDayConvention convention) {
+    return addTenorDetailed(date, tenor, convention, false).resultDate();
+  }
+
+  /** {@link #addTenor(LocalDate, Tenor, BusinessDayConvention)} with the tenor as text. */
+  default LocalDate addTenor(LocalDate date, String tenor, BusinessDayConvention convention) {
+    return addTenor(date, Tenor.parse(tenor), convention);
+  }
+
+  /** Rich tenor addition; {@code preserveEndOfMonth} applies to month and year tenors only. */
+  default DateOperationResult addTenorDetailed(
+      LocalDate date, Tenor tenor, BusinessDayConvention convention, boolean preserveEndOfMonth) {
+    return FinancialDateOperations.addTenor(this, date, tenor, convention, preserveEndOfMonth);
+  }
+
+  /**
+   * The year fraction between two dates under a day-count convention. {@link DayCount#BUS_252}
+   * counts this calendar's business days; ACT/ACT ICMA needs a reference period and is evaluated
+   * directly on {@link DayCount}.
+   */
+  default double yearFraction(LocalDate start, LocalDate end, DayCount dayCount) {
+    return yearFractionDetailed(start, end, dayCount).yearFraction();
+  }
+
+  /** Rich year fraction with the day count and, for BUS/252, the confidence of the counted days. */
+  default YearFractionResult yearFractionDetailed(
+      LocalDate start, LocalDate end, DayCount dayCount) {
+    return FinancialDateOperations.yearFraction(this, start, end, dayCount);
+  }
+
+  /**
+   * Generates a periodic schedule (coupon, payment, reset or settlement dates) on this calendar:
+   * the definition's frequency, stub and roll convention produce unadjusted boundaries and every
+   * boundary is then adjusted under its business-day convention. The result carries the weakest
+   * business-day confidence of every date examined along the way.
+   */
+  default Schedule schedule(ScheduleDefinition definition) {
+    return ScheduleGenerator.generate(this, definition);
+  }
+
   /** The last resolved business date in the input date's calendar month. */
   default LocalDate lastBusinessDayOfMonth(LocalDate date) {
     return lastBusinessDayOfMonthDetailed(date).resultDate();
@@ -356,6 +403,10 @@ public interface DateStream {
    * Explains the actual and scheduled state of a date without throwing. Missing explicit quality
    * for any scope is incomplete. Legacy artifacts stay query-compatible, but their enriched
    * completeness is reported as PROJECTED because they do not prove scope-specific evidence.
+   *
+   * <p>The result carries two views: {@code state}/{@code effectiveConfidence} for the full {@link
+   * DateQuestion#SESSION} question, and {@code businessDayState}/{@code businessDayConfidence} for
+   * {@link DateQuestion#BUSINESS_DAY}, which ignores early-close evidence.
    */
   default DayAssessment assessment(LocalDate date) {
     if (!range().contains(date)) {
@@ -370,7 +421,9 @@ public interface DateStream {
           EventStatus.UNKNOWN,
           unknown,
           List.of(),
-          List.of());
+          List.of(),
+          DayState.UNKNOWN,
+          EventStatus.UNKNOWN);
     }
 
     List<Event> rawEvents = eventsOn(date);
@@ -393,21 +446,30 @@ public interface DateStream {
       completeness.put(scope, quality == null ? CoverageQuality.INCOMPLETE : quality);
     }
 
-    boolean incomplete = completeness.containsValue(CoverageQuality.INCOMPLETE);
-    boolean projected = completeness.containsValue(CoverageQuality.PROJECTED);
-    boolean rawProjected = rawEvents.stream().anyMatch(e -> e.status() == EventStatus.PROJECTED);
-    EventStatus confidence =
-        incomplete
-            ? EventStatus.UNKNOWN
-            : projected || rawProjected ? EventStatus.PROJECTED : EventStatus.CONFIRMED;
-    if (!explicit) {
-      confidence =
-          verifiedThrough().map(date::isAfter).orElse(false) || rawProjected
-              ? EventStatus.PROJECTED
-              : EventStatus.CONFIRMED;
-    }
-    EventStatus effectiveConfidence = confidence;
-    DayState actual = incomplete ? DayState.UNKNOWN : scheduled;
+    boolean legacyProjected = verifiedThrough().map(date::isAfter).orElse(false);
+    EventStatus effectiveConfidence =
+        confidence(
+            completeness,
+            DateQuestion.SESSION,
+            rawEvents.stream().anyMatch(e -> e.status() == EventStatus.PROJECTED),
+            explicit,
+            legacyProjected);
+    EventStatus businessDayConfidence =
+        confidence(
+            completeness,
+            DateQuestion.BUSINESS_DAY,
+            rawEvents.stream()
+                .anyMatch(
+                    e ->
+                        e.status() == EventStatus.PROJECTED
+                            && (e.type() == EventType.CLOSED || e.type() == EventType.WEEKEND)),
+            explicit,
+            legacyProjected);
+    DayState actual = effectiveConfidence == EventStatus.UNKNOWN ? DayState.UNKNOWN : scheduled;
+    DayState businessDay =
+        businessDayConfidence == EventStatus.UNKNOWN
+            ? DayState.UNKNOWN
+            : scheduled == DayState.CLOSED ? DayState.CLOSED : DayState.OPEN;
     List<EventDetails> details =
         eventDetailsOn(date).stream()
             .map(
@@ -431,7 +493,35 @@ public interface DateStream {
         effectiveConfidence,
         completeness,
         evidence.stream().sorted().toList(),
-        details);
+        details,
+        businessDay,
+        businessDayConfidence);
+  }
+
+  /**
+   * The confidence of one question's answer: UNKNOWN when any of its scopes is incomplete,
+   * PROJECTED when any is projected or a relevant row is projected, CONFIRMED otherwise. Legacy
+   * artifacts without explicit quality fall back to {@code verified_through}.
+   */
+  private static EventStatus confidence(
+      Map<CompletenessScope, CoverageQuality> completeness,
+      DateQuestion question,
+      boolean rawProjected,
+      boolean explicit,
+      boolean legacyProjected) {
+    if (!explicit) {
+      return legacyProjected || rawProjected ? EventStatus.PROJECTED : EventStatus.CONFIRMED;
+    }
+    boolean incomplete = false;
+    boolean projected = false;
+    for (CompletenessScope scope : question.scopes()) {
+      CoverageQuality quality = completeness.get(scope);
+      incomplete |= quality == CoverageQuality.INCOMPLETE;
+      projected |= quality == CoverageQuality.PROJECTED;
+    }
+    return incomplete
+        ? EventStatus.UNKNOWN
+        : projected || rawProjected ? EventStatus.PROJECTED : EventStatus.CONFIRMED;
   }
 
   /** Raw event provenance, with assessment() supplying effective day confidence separately. */
@@ -453,21 +543,64 @@ public interface DateStream {
         .toList();
   }
 
-  /** Refuses boolean/session answers when an explicitly modelled scope is incomplete. */
+  /**
+   * Refuses an answer to the full {@link DateQuestion#SESSION} question when any explicitly
+   * modelled scope is incomplete. Equivalent to {@code requireResolved(date, SESSION)}.
+   */
   default void requireResolved(LocalDate date) {
-    DayAssessment assessment = assessment(date);
-    if (assessment.state() != DayState.UNKNOWN) {
-      return;
-    }
+    requireResolved(date, DateQuestion.SESSION);
+  }
+
+  /**
+   * Refuses an answer to {@code question} when one of the scopes it depends on is incomplete on
+   * this date.
+   *
+   * @throws OutsideCoverageException if the date lies outside {@link #range()}
+   * @throws UnresolvedDateException if a relevant scope is incomplete; its {@code
+   *     incompleteScopes()} names only the scopes the question needed
+   */
+  default void requireResolved(LocalDate date, DateQuestion question) {
     if (!range().contains(date)) {
       throw new OutsideCoverageException(calendarId(), date, range());
     }
-    Set<CompletenessScope> incomplete =
-        assessment.completeness().entrySet().stream()
-            .filter(entry -> entry.getValue() == CoverageQuality.INCOMPLETE)
-            .map(Map.Entry::getKey)
-            .collect(java.util.stream.Collectors.toUnmodifiableSet());
-    throw new UnresolvedDateException(calendarId(), date, range(), incomplete);
+    Set<CompletenessScope> incomplete = incompleteScopes(date, question);
+    if (!incomplete.isEmpty()) {
+      throw new UnresolvedDateException(calendarId(), date, range(), incomplete);
+    }
+  }
+
+  /**
+   * The scopes among {@code question}'s that are incomplete on {@code date}, computed from the
+   * coverage intervals alone. Equivalent to {@code assessment(date).incompleteScopes(question)}
+   * without materialising the assessment, which keeps day-by-day walks cheap.
+   */
+  default Set<CompletenessScope> incompleteScopes(LocalDate date, DateQuestion question) {
+    java.util.EnumSet<CompletenessScope> incomplete =
+        java.util.EnumSet.noneOf(CompletenessScope.class);
+    if (!range().contains(date)) {
+      incomplete.addAll(question.scopes());
+      return incomplete;
+    }
+    List<CoverageInterval> intervals = coverageIntervals();
+    if (intervals.isEmpty()) {
+      return incomplete;
+    }
+    for (CompletenessScope scope : question.scopes()) {
+      boolean covered = false;
+      for (CoverageInterval interval : intervals) {
+        if (interval.scope() == scope && interval.contains(date)) {
+          covered = true;
+          if (interval.quality() == CoverageQuality.INCOMPLETE) {
+            incomplete.add(scope);
+            break;
+          }
+        }
+      }
+      if (!covered) {
+        incomplete.add(scope);
+      }
+    }
+    return incomplete;
   }
 
   private static CoverageQuality strongerUncertainty(

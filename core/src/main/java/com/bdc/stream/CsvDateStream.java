@@ -4,6 +4,7 @@ import com.bdc.chronology.DateRange;
 import com.bdc.model.Event;
 import com.bdc.model.EventType;
 import com.bdc.trust.CoverageInterval;
+import com.bdc.trust.DateQuestion;
 import com.bdc.trust.EventDetails;
 import com.bdc.trust.PublishedEventDetails;
 import java.time.LocalDate;
@@ -180,7 +181,7 @@ public class CsvDateStream implements DateStream {
   @Override
   public boolean isBusinessDay(LocalDate date) {
     checkRange(date);
-    requireResolved(date);
+    requireResolved(date, DateQuestion.BUSINESS_DAY);
     return eventsOn(date).stream()
         .noneMatch(e -> e.type() == EventType.CLOSED || e.type() == EventType.WEEKEND);
   }

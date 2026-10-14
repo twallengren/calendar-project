@@ -19,13 +19,15 @@ import java.util.List;
   @JsonSubTypes.Type(value = Rule.ExplicitDates.class, name = "explicit_dates"),
   @JsonSubTypes.Type(value = Rule.FixedMonthDay.class, name = "fixed_month_day"),
   @JsonSubTypes.Type(value = Rule.NthWeekdayOfMonth.class, name = "nth_weekday_of_month"),
-  @JsonSubTypes.Type(value = Rule.RelativeToReference.class, name = "relative_to_reference")
+  @JsonSubTypes.Type(value = Rule.RelativeToReference.class, name = "relative_to_reference"),
+  @JsonSubTypes.Type(value = Rule.Weekly.class, name = "weekly")
 })
 public sealed interface Rule
     permits Rule.ExplicitDates,
         Rule.FixedMonthDay,
         Rule.NthWeekdayOfMonth,
         Rule.RelativeToReference,
+        Rule.Weekly,
         Rule.NativeRecurring,
         Rule.NativeExplicitDates {
 
@@ -200,6 +202,26 @@ public sealed interface Rule
    * 1st" would be weekday=TUESDAY, nth=1, direction=AFTER.
    */
   record WeekdayOffset(DayOfWeek weekday, int nth, OffsetDirection direction) {}
+
+  /**
+   * Every occurrence of a weekday, optionally bounded by inclusive {@code from}/{@code to} ISO
+   * dates: a recurring weekly session such as "every Friday closes at 13:50". Bound it further with
+   * the event source's {@code active_years}; a weekend occurrence is governed by the usual weekend
+   * and precedence rules.
+   */
+  record Weekly(String key, String name, DayOfWeek weekday, LocalDate from, LocalDate to)
+      implements Rule {
+    public Weekly {
+      if (from != null && to != null && from.isAfter(to)) {
+        throw new IllegalArgumentException("weekly from must not be after to");
+      }
+    }
+
+    @Override
+    public Weekly withIdentity(String key, String name) {
+      return new Weekly(key, name, weekday, from, to);
+    }
+  }
 
   record ExplicitDates(String key, String name, List<AnnotatedDate> dates) implements Rule {
     public ExplicitDates {

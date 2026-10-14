@@ -100,6 +100,7 @@ date,type,description,key,source_module,observed_from,close_time,status
 2022-10-23,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
 2022-10-29,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
 2022-10-30,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
+2022-11-02,EARLY_CLOSE,"Severe Weather Early Termination (Severe Tropical Storm Nalgae, Typhoon Signal No. 8 issued 13:40)",hk_hkex_severe_weather_early_termination,module:hk_hkex_severe_weather,,13:55,CONFIRMED
 2022-11-05,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
 2022-11-06,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
 2022-11-12,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED

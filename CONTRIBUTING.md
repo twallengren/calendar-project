@@ -283,7 +283,8 @@ The PR contains regenerated artifacts, immutable history, synchronized Python da
 fixtures, and `release/release.json`. The descriptor fixes the baseline, source SHA, versions,
 generation timestamp and hashes. `scripts/bless.sh` performs strict validation and cross-validation;
 a failed check aborts preparation. Review the complete report and intentional golden changes before
-merging the release PR. Never reconstruct an old published baseline from today's modified data.
+merging the release PR, and add a row to `docs/ERRATA.md` for every previously published answer
+a MAJOR release changes. Never reconstruct an old published baseline from today's modified data.
 
 `.github/workflows/release.yml` publishes only after CI succeeds on the exact release merge commit.
 It binds tags to that commit, builds once, verifies artifact hashes at every downstream step, and
@@ -307,6 +308,12 @@ publication: package installation from each registry must succeed before that ch
   with `./gradlew :tools:test --tests "ClassName"`.
 - New rule types, chronology algorithms, or CLI commands should update `spec/SPEC.md` and
   `AGENTS.md` alongside the code.
+- The Query API exists three times: Java `core` (the reference), `python/` and `javascript/`.
+  A semantic change to any query, assessment or financial operation is ported to all three and
+  covered by the parity fixtures: extend `python/scripts/generate_parity_fixture.jsh` and both
+  `python/tests/test_parity.py` and `javascript/test/parity.test.ts`, then regenerate the fixtures
+  with `python/scripts/generate_parity_fixture.sh`. Run `pytest python/ -q` and
+  `cd javascript && npm test` alongside the Gradle suite.
 
 ## Data corrections
 

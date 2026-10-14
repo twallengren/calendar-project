@@ -3,7 +3,7 @@
   "calendar_name" : "Toronto Stock Exchange",
   "kind" : "market",
   "mic" : "XTSE",
-  "generated_at" : "2026-09-15T10:01:34Z",
+  "generated_at" : "2026-10-14T00:02:04Z",
   "range_start" : "2000-01-01",
   "range_end" : "2030-12-31",
   "timezone" : "America/Toronto",
@@ -14,30 +14,42 @@
     "quality" : [ {
       "scope" : "SCHEDULED_CLOSURES",
       "from" : "2000-01-01",
+      "to" : "2007-12-31",
+      "quality" : "PROJECTED",
+      "evidence_ids" : [ "tsx-calendar-page", "holidays-act-canada", "ontario-family-day-2007" ]
+    }, {
+      "scope" : "SCHEDULED_CLOSURES",
+      "from" : "2008-01-01",
+      "to" : "2025-12-31",
+      "quality" : "VERIFIED",
+      "evidence_ids" : [ "tsx-stats-dec-2009", "tmx-stats-dec-2011", "tmx-stats-dec-2012", "tmx-stats-dec-2013", "tmx-stats-dec-2014", "tmx-stats-dec-2015", "tmx-stats-dec-2016", "tmx-stats-dec-2018", "tmx-stats-dec-2019", "tmx-stats-dec-2021", "tmx-stats-dec-2022", "tmx-stats-dec-2023", "tmx-stats-dec-2024", "tmx-stats-dec-2025", "tsx-calendar-page", "holidays-act-canada", "ontario-family-day-2007" ]
+    }, {
+      "scope" : "SCHEDULED_CLOSURES",
+      "from" : "2026-01-01",
       "to" : "2030-12-31",
       "quality" : "PROJECTED",
       "evidence_ids" : [ "tsx-calendar-page", "holidays-act-canada", "ontario-family-day-2007" ]
     }, {
       "scope" : "EARLY_CLOSES",
       "from" : "2000-01-01",
-      "to" : "2009-12-31",
+      "to" : "2008-12-31",
       "quality" : "PROJECTED",
       "evidence_ids" : [ "tsx-calendar-page" ]
     }, {
       "scope" : "EARLY_CLOSES",
-      "from" : "2010-01-01",
-      "to" : "2014-12-31",
-      "quality" : "INCOMPLETE",
-      "evidence_ids" : [ "tsx-calendar-page" ]
+      "from" : "2001-09-11",
+      "to" : "2001-09-11",
+      "quality" : "VERIFIED",
+      "evidence_ids" : [ "tse-2001-09-11-market-closed", "cbc-2002-09-11-tsx" ]
     }, {
       "scope" : "EARLY_CLOSES",
-      "from" : "2015-01-01",
-      "to" : "2024-12-31",
-      "quality" : "PROJECTED",
-      "evidence_ids" : [ "tsx-calendar-page" ]
+      "from" : "2009-01-01",
+      "to" : "2025-12-31",
+      "quality" : "VERIFIED",
+      "evidence_ids" : [ "tsx-stats-dec-2009", "tmx-stats-dec-2011", "tmx-stats-dec-2012", "tmx-stats-dec-2013", "tmx-stats-dec-2014", "tmx-stats-dec-2015", "tmx-stats-dec-2016", "tmx-stats-dec-2018", "tmx-stats-dec-2019", "tmx-stats-dec-2021", "tmx-stats-dec-2022", "tmx-stats-dec-2023", "tmx-stats-dec-2024", "tmx-stats-dec-2025", "tmx-2018-04-28-outage-update", "tmx-2020-02-27-incident-report", "tsx-calendar-page", "tmx-holiday-schedule-2025" ]
     }, {
       "scope" : "EARLY_CLOSES",
-      "from" : "2025-01-01",
+      "from" : "2026-01-01",
       "to" : "2026-12-31",
       "quality" : "VERIFIED",
       "evidence_ids" : [ "tsx-calendar-page", "tmx-holiday-schedule-2025" ]
@@ -50,31 +62,37 @@
     }, {
       "scope" : "UNSCHEDULED_EXCEPTIONS",
       "from" : "2000-01-01",
+      "to" : "2007-12-31",
+      "quality" : "PROJECTED",
+      "evidence_ids" : [ "tsx-calendar-page", "tse-2001-09-11-market-closed", "tse-2001-09-12-closed" ]
+    }, {
+      "scope" : "UNSCHEDULED_EXCEPTIONS",
+      "from" : "2008-01-01",
+      "to" : "2025-12-31",
+      "quality" : "VERIFIED",
+      "evidence_ids" : [ "tsx-stats-dec-2009", "tmx-stats-dec-2011", "tmx-stats-dec-2012", "tmx-stats-dec-2013", "tmx-stats-dec-2014", "tmx-stats-dec-2015", "tmx-stats-dec-2016", "tmx-stats-dec-2018", "tmx-stats-dec-2019", "tmx-stats-dec-2021", "tmx-stats-dec-2022", "tmx-stats-dec-2023", "tmx-stats-dec-2024", "tmx-stats-dec-2025", "tmx-2008-12-18-trading-resumes", "tmx-2018-04-28-outage-update", "tmx-2020-02-27-incident-report", "tmx-2022-11-01-ops-notice" ]
+    }, {
+      "scope" : "UNSCHEDULED_EXCEPTIONS",
+      "from" : "2026-01-01",
       "to" : "2030-12-31",
       "quality" : "PROJECTED",
       "evidence_ids" : [ "tsx-calendar-page" ]
-    }, {
-      "scope" : "UNSCHEDULED_EXCEPTIONS",
-      "from" : "2001-09-11",
-      "to" : "2001-09-12",
-      "quality" : "INCOMPLETE",
-      "evidence_ids" : [ "tsx-calendar-page" ]
     } ]
   },
-  "event_count" : 3546,
-  "resolution_chain" : [ "module:weekend_sat_sun", "module:ca_new_years_day", "module:ca_family_day", "module:ca_good_friday", "module:ca_victoria_day", "module:ca_canada_day", "module:ca_civic_holiday", "module:ca_labour_day", "module:ca_thanksgiving", "module:ca_christmas", "module:ca_boxing_day", "module:ca_tsx_holidays", "calendar:CA-TSX" ],
+  "event_count" : 3556,
+  "resolution_chain" : [ "module:weekend_sat_sun", "module:ca_new_years_day", "module:ca_family_day", "module:ca_good_friday", "module:ca_victoria_day", "module:ca_canada_day", "module:ca_civic_holiday", "module:ca_labour_day", "module:ca_thanksgiving", "module:ca_christmas", "module:ca_boxing_day", "module:ca_tsx_unscheduled_closures", "module:ca_tsx_holidays", "calendar:CA-TSX" ],
   "counts_by_type" : {
     "WEEKEND" : 3236,
-    "CLOSED" : 302,
-    "EARLY_CLOSE" : 8
+    "CLOSED" : 304,
+    "EARLY_CLOSE" : 16
   },
   "counts_by_status" : {
-    "CONFIRMED" : 3542,
+    "CONFIRMED" : 3552,
     "PROJECTED" : 4
   },
   "source_version" : {
-    "semantic" : "12.0.0",
-    "git_sha" : "e694faa4119f45ae284deefc496729f119fc16af"
+    "semantic" : "13.0.0",
+    "git_sha" : "1f63234a07eb72cc08a8c0d451983be39e88b2ae"
   },
   "event_details" : [ {
     "date" : "2000-01-03",
@@ -240,6 +258,28 @@
     "close_time" : null,
     "status" : "CONFIRMED",
     "evidence_ids" : [ "holidays-act-canada", "tsx-calendar-page" ],
+    "observation_lineage" : [ ]
+  }, {
+    "date" : "2001-09-11",
+    "type" : "EARLY_CLOSE",
+    "description" : "Unscheduled Early Termination (trading closed after the attacks in the United States)",
+    "key" : "ca_tsx_unscheduled_early_termination_2001",
+    "source_module" : "module:ca_tsx_unscheduled_closures",
+    "observed_from" : null,
+    "close_time" : "10:41",
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "cbc-2002-09-11-tsx", "tse-2001-09-11-market-closed" ],
+    "observation_lineage" : [ ]
+  }, {
+    "date" : "2001-09-12",
+    "type" : "CLOSED",
+    "description" : "Unscheduled Closure (closed after the 11 September attacks; reopened 13 September)",
+    "key" : "ca_tsx_unscheduled_closure",
+    "source_module" : "module:ca_tsx_unscheduled_closures",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "tmx-2008-12-18-trading-resumes", "tse-2001-09-12-closed" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2001-10-08",
@@ -957,6 +997,17 @@
     "evidence_ids" : [ "holidays-act-canada", "tsx-calendar-page" ],
     "observation_lineage" : [ ]
   }, {
+    "date" : "2008-12-17",
+    "type" : "CLOSED",
+    "description" : "Unscheduled Closure (Level 1 market-data feed failure; 18-minute session then halted for the day)",
+    "key" : "ca_tsx_unscheduled_closure",
+    "source_module" : "module:ca_tsx_unscheduled_closures",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "tmx-2008-12-18-trading-resumes", "tse-2001-09-12-closed" ],
+    "observation_lineage" : [ ]
+  }, {
     "date" : "2008-12-25",
     "type" : "CLOSED",
     "description" : "Christmas Day",
@@ -1067,6 +1118,17 @@
     "evidence_ids" : [ "holidays-act-canada", "tsx-calendar-page" ],
     "observation_lineage" : [ ]
   }, {
+    "date" : "2009-12-24",
+    "type" : "EARLY_CLOSE",
+    "description" : "Christmas Eve",
+    "key" : "ca_christmas_eve_early_close",
+    "source_module" : "module:ca_christmas",
+    "observed_from" : null,
+    "close_time" : "13:00",
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "holidays-act-canada", "tmx-holiday-schedule-2020", "tmx-holiday-schedule-2021", "tmx-holiday-schedule-2023", "tmx-holiday-schedule-2025", "tmx-stats-dec-2011", "tmx-stats-dec-2013", "tmx-stats-dec-2015", "tsx-calendar-page", "tsx-stats-dec-2009" ],
+    "observation_lineage" : [ ]
+  }, {
     "date" : "2009-12-25",
     "type" : "CLOSED",
     "description" : "Christmas Day",
@@ -1175,6 +1237,17 @@
     "close_time" : null,
     "status" : "CONFIRMED",
     "evidence_ids" : [ "holidays-act-canada", "tsx-calendar-page" ],
+    "observation_lineage" : [ ]
+  }, {
+    "date" : "2010-12-24",
+    "type" : "EARLY_CLOSE",
+    "description" : "Christmas Eve",
+    "key" : "ca_christmas_eve_early_close",
+    "source_module" : "module:ca_christmas",
+    "observed_from" : null,
+    "close_time" : "13:00",
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "holidays-act-canada", "tmx-holiday-schedule-2020", "tmx-holiday-schedule-2021", "tmx-holiday-schedule-2023", "tmx-holiday-schedule-2025", "tmx-stats-dec-2011", "tmx-stats-dec-2013", "tmx-stats-dec-2015", "tsx-calendar-page", "tsx-stats-dec-2009" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2010-12-27",
@@ -1397,6 +1470,17 @@
     "evidence_ids" : [ "holidays-act-canada", "tsx-calendar-page" ],
     "observation_lineage" : [ ]
   }, {
+    "date" : "2012-12-24",
+    "type" : "EARLY_CLOSE",
+    "description" : "Christmas Eve",
+    "key" : "ca_christmas_eve_early_close",
+    "source_module" : "module:ca_christmas",
+    "observed_from" : null,
+    "close_time" : "13:00",
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "holidays-act-canada", "tmx-holiday-schedule-2020", "tmx-holiday-schedule-2021", "tmx-holiday-schedule-2023", "tmx-holiday-schedule-2025", "tmx-stats-dec-2011", "tmx-stats-dec-2013", "tmx-stats-dec-2015", "tsx-calendar-page", "tsx-stats-dec-2009" ],
+    "observation_lineage" : [ ]
+  }, {
     "date" : "2012-12-25",
     "type" : "CLOSED",
     "description" : "Christmas Day",
@@ -1507,6 +1591,17 @@
     "evidence_ids" : [ "holidays-act-canada", "tsx-calendar-page" ],
     "observation_lineage" : [ ]
   }, {
+    "date" : "2013-12-24",
+    "type" : "EARLY_CLOSE",
+    "description" : "Christmas Eve",
+    "key" : "ca_christmas_eve_early_close",
+    "source_module" : "module:ca_christmas",
+    "observed_from" : null,
+    "close_time" : "13:00",
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "holidays-act-canada", "tmx-holiday-schedule-2020", "tmx-holiday-schedule-2021", "tmx-holiday-schedule-2023", "tmx-holiday-schedule-2025", "tmx-stats-dec-2011", "tmx-stats-dec-2013", "tmx-stats-dec-2015", "tsx-calendar-page", "tsx-stats-dec-2009" ],
+    "observation_lineage" : [ ]
+  }, {
     "date" : "2013-12-25",
     "type" : "CLOSED",
     "description" : "Christmas Day",
@@ -1615,6 +1710,17 @@
     "close_time" : null,
     "status" : "CONFIRMED",
     "evidence_ids" : [ "holidays-act-canada", "tsx-calendar-page" ],
+    "observation_lineage" : [ ]
+  }, {
+    "date" : "2014-12-24",
+    "type" : "EARLY_CLOSE",
+    "description" : "Christmas Eve",
+    "key" : "ca_christmas_eve_early_close",
+    "source_module" : "module:ca_christmas",
+    "observed_from" : null,
+    "close_time" : "13:00",
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "holidays-act-canada", "tmx-holiday-schedule-2020", "tmx-holiday-schedule-2021", "tmx-holiday-schedule-2023", "tmx-holiday-schedule-2025", "tmx-stats-dec-2011", "tmx-stats-dec-2013", "tmx-stats-dec-2015", "tsx-calendar-page", "tsx-stats-dec-2009" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2014-12-25",
@@ -1735,7 +1841,7 @@
     "observed_from" : null,
     "close_time" : "13:00",
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "holidays-act-canada", "tmx-holiday-schedule-2020", "tmx-holiday-schedule-2021", "tmx-holiday-schedule-2023", "tmx-holiday-schedule-2025", "tsx-calendar-page" ],
+    "evidence_ids" : [ "holidays-act-canada", "tmx-holiday-schedule-2020", "tmx-holiday-schedule-2021", "tmx-holiday-schedule-2023", "tmx-holiday-schedule-2025", "tmx-stats-dec-2011", "tmx-stats-dec-2013", "tmx-stats-dec-2015", "tsx-calendar-page", "tsx-stats-dec-2009" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2015-12-25",
@@ -2013,6 +2119,17 @@
     "evidence_ids" : [ "holidays-act-canada", "tsx-calendar-page" ],
     "observation_lineage" : [ ]
   }, {
+    "date" : "2018-04-27",
+    "type" : "EARLY_CLOSE",
+    "description" : "Unscheduled Early Termination (trading-system hardware failure, no re-open)",
+    "key" : "ca_tsx_unscheduled_early_termination_2018",
+    "source_module" : "module:ca_tsx_unscheduled_closures",
+    "observed_from" : null,
+    "close_time" : "13:39",
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "tmx-2018-04-28-outage-update" ],
+    "observation_lineage" : [ ]
+  }, {
     "date" : "2018-05-21",
     "type" : "CLOSED",
     "description" : "Victoria Day",
@@ -2076,7 +2193,7 @@
     "observed_from" : null,
     "close_time" : "13:00",
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "holidays-act-canada", "tmx-holiday-schedule-2020", "tmx-holiday-schedule-2021", "tmx-holiday-schedule-2023", "tmx-holiday-schedule-2025", "tsx-calendar-page" ],
+    "evidence_ids" : [ "holidays-act-canada", "tmx-holiday-schedule-2020", "tmx-holiday-schedule-2021", "tmx-holiday-schedule-2023", "tmx-holiday-schedule-2025", "tmx-stats-dec-2011", "tmx-stats-dec-2013", "tmx-stats-dec-2015", "tsx-calendar-page", "tsx-stats-dec-2009" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2018-12-25",
@@ -2197,7 +2314,7 @@
     "observed_from" : null,
     "close_time" : "13:00",
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "holidays-act-canada", "tmx-holiday-schedule-2020", "tmx-holiday-schedule-2021", "tmx-holiday-schedule-2023", "tmx-holiday-schedule-2025", "tsx-calendar-page" ],
+    "evidence_ids" : [ "holidays-act-canada", "tmx-holiday-schedule-2020", "tmx-holiday-schedule-2021", "tmx-holiday-schedule-2023", "tmx-holiday-schedule-2025", "tmx-stats-dec-2011", "tmx-stats-dec-2013", "tmx-stats-dec-2015", "tsx-calendar-page", "tsx-stats-dec-2009" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2019-12-25",
@@ -2242,6 +2359,17 @@
     "close_time" : null,
     "status" : "CONFIRMED",
     "evidence_ids" : [ "ontario-family-day-2007", "tsx-calendar-page" ],
+    "observation_lineage" : [ ]
+  }, {
+    "date" : "2020-02-27",
+    "type" : "EARLY_CLOSE",
+    "description" : "Unscheduled Early Termination (trading-engine capacity failure, no re-open)",
+    "key" : "ca_tsx_unscheduled_early_termination_2020",
+    "source_module" : "module:ca_tsx_unscheduled_closures",
+    "observed_from" : null,
+    "close_time" : "13:54",
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "tmx-2020-02-27-incident-report" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2020-04-10",
@@ -2318,7 +2446,7 @@
     "observed_from" : null,
     "close_time" : "13:00",
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "holidays-act-canada", "tmx-holiday-schedule-2020", "tmx-holiday-schedule-2021", "tmx-holiday-schedule-2023", "tmx-holiday-schedule-2025", "tsx-calendar-page" ],
+    "evidence_ids" : [ "holidays-act-canada", "tmx-holiday-schedule-2020", "tmx-holiday-schedule-2021", "tmx-holiday-schedule-2023", "tmx-holiday-schedule-2025", "tmx-stats-dec-2011", "tmx-stats-dec-2013", "tmx-stats-dec-2015", "tsx-calendar-page", "tsx-stats-dec-2009" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2020-12-25",
@@ -2439,7 +2567,7 @@
     "observed_from" : null,
     "close_time" : "13:00",
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "holidays-act-canada", "tmx-holiday-schedule-2020", "tmx-holiday-schedule-2021", "tmx-holiday-schedule-2023", "tmx-holiday-schedule-2025", "tsx-calendar-page" ],
+    "evidence_ids" : [ "holidays-act-canada", "tmx-holiday-schedule-2020", "tmx-holiday-schedule-2021", "tmx-holiday-schedule-2023", "tmx-holiday-schedule-2025", "tmx-stats-dec-2011", "tmx-stats-dec-2013", "tmx-stats-dec-2015", "tsx-calendar-page", "tsx-stats-dec-2009" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2021-12-27",
@@ -2780,7 +2908,7 @@
     "observed_from" : null,
     "close_time" : "13:00",
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "holidays-act-canada", "tmx-holiday-schedule-2020", "tmx-holiday-schedule-2021", "tmx-holiday-schedule-2023", "tmx-holiday-schedule-2025", "tsx-calendar-page" ],
+    "evidence_ids" : [ "holidays-act-canada", "tmx-holiday-schedule-2020", "tmx-holiday-schedule-2021", "tmx-holiday-schedule-2023", "tmx-holiday-schedule-2025", "tmx-stats-dec-2011", "tmx-stats-dec-2013", "tmx-stats-dec-2015", "tsx-calendar-page", "tsx-stats-dec-2009" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2024-12-25",
@@ -2901,7 +3029,7 @@
     "observed_from" : null,
     "close_time" : "13:00",
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "holidays-act-canada", "tmx-holiday-schedule-2020", "tmx-holiday-schedule-2021", "tmx-holiday-schedule-2023", "tmx-holiday-schedule-2025", "tsx-calendar-page" ],
+    "evidence_ids" : [ "holidays-act-canada", "tmx-holiday-schedule-2020", "tmx-holiday-schedule-2021", "tmx-holiday-schedule-2023", "tmx-holiday-schedule-2025", "tmx-stats-dec-2011", "tmx-stats-dec-2013", "tmx-stats-dec-2015", "tsx-calendar-page", "tsx-stats-dec-2009" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2025-12-25",
@@ -3022,7 +3150,7 @@
     "observed_from" : null,
     "close_time" : "13:00",
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "holidays-act-canada", "tmx-holiday-schedule-2020", "tmx-holiday-schedule-2021", "tmx-holiday-schedule-2023", "tmx-holiday-schedule-2025", "tsx-calendar-page" ],
+    "evidence_ids" : [ "holidays-act-canada", "tmx-holiday-schedule-2020", "tmx-holiday-schedule-2021", "tmx-holiday-schedule-2023", "tmx-holiday-schedule-2025", "tmx-stats-dec-2011", "tmx-stats-dec-2013", "tmx-stats-dec-2015", "tsx-calendar-page", "tsx-stats-dec-2009" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2026-12-25",

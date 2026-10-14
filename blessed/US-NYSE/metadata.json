@@ -4,7 +4,7 @@
   "kind" : "market",
   "mic" : "XNYS",
   "aliases" : [ "NYSE" ],
-  "generated_at" : "2026-09-15T10:01:34Z",
+  "generated_at" : "2026-10-14T00:02:04Z",
   "range_start" : "1900-01-01",
   "range_end" : "2030-12-31",
   "timezone" : "America/New_York",
@@ -21,9 +21,15 @@
     }, {
       "scope" : "SCHEDULED_CLOSURES",
       "from" : "2008-01-01",
+      "to" : "2026-10-12",
+      "quality" : "VERIFIED",
+      "evidence_ids" : [ "fred-nasdaqcom", "fred-sp500", "nyse-hours" ]
+    }, {
+      "scope" : "SCHEDULED_CLOSURES",
+      "from" : "2026-10-13",
       "to" : "2030-12-31",
       "quality" : "PROJECTED",
-      "evidence_ids" : [ "nyse-hours" ]
+      "evidence_ids" : [ "nyse-hours", "nyse-trading-days-2026-2028" ]
     }, {
       "scope" : "EARLY_CLOSES",
       "from" : "1900-01-01",
@@ -93,6 +99,12 @@
     }, {
       "scope" : "UNSCHEDULED_EXCEPTIONS",
       "from" : "2008-01-01",
+      "to" : "2026-10-12",
+      "quality" : "VERIFIED",
+      "evidence_ids" : [ "fred-nasdaqcom", "fred-sp500", "nyse-euronext-sandy-2012-10-28", "sec-fr-2013-19145", "nyse-pr-bush-2018", "finra-rn-18-39", "nyse-pr-carter-2024" ]
+    }, {
+      "scope" : "UNSCHEDULED_EXCEPTIONS",
+      "from" : "2026-10-13",
       "to" : "2030-12-31",
       "quality" : "PROJECTED",
       "evidence_ids" : [ "nyse-hours" ]
@@ -109,8 +121,8 @@
     "CONFIRMED" : 12837
   },
   "source_version" : {
-    "semantic" : "12.0.0",
-    "git_sha" : "e694faa4119f45ae284deefc496729f119fc16af"
+    "semantic" : "13.0.0",
+    "git_sha" : "1f63234a07eb72cc08a8c0d451983be39e88b2ae"
   },
   "event_details" : [ {
     "date" : "1900-01-01",
@@ -220,7 +232,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1900-11-29",
@@ -275,7 +287,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1901-02-12",
@@ -330,7 +342,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1901-05-11",
@@ -341,7 +353,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1901-05-30",
@@ -374,7 +386,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1901-07-06",
@@ -418,7 +430,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1901-09-19",
@@ -429,7 +441,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1901-11-05",
@@ -440,7 +452,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1901-11-28",
@@ -583,7 +595,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1902-08-30",
@@ -616,7 +628,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1902-11-27",
@@ -715,7 +727,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1903-05-29",
@@ -792,7 +804,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1903-11-26",
@@ -946,7 +958,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1904-11-24",
@@ -1078,7 +1090,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1905-11-30",
@@ -1177,7 +1189,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1906-11-29",
@@ -1309,7 +1321,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1907-11-28",
@@ -1485,7 +1497,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1908-11-26",
@@ -1661,7 +1673,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1909-10-12",
@@ -1683,7 +1695,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1909-11-25",
@@ -1870,7 +1882,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1910-11-24",
@@ -2024,7 +2036,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1911-11-30",
@@ -2178,7 +2190,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1912-11-05",
@@ -2189,7 +2201,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1912-11-28",
@@ -2365,7 +2377,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1913-11-27",
@@ -2486,7 +2498,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-08-01",
@@ -2497,7 +2509,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-08-03",
@@ -2508,7 +2520,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-08-04",
@@ -2519,7 +2531,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-08-05",
@@ -2530,7 +2542,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-08-06",
@@ -2541,7 +2553,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-08-07",
@@ -2552,7 +2564,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-08-08",
@@ -2563,7 +2575,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-08-10",
@@ -2574,7 +2586,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-08-11",
@@ -2585,7 +2597,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-08-12",
@@ -2596,7 +2608,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-08-13",
@@ -2607,7 +2619,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-08-14",
@@ -2618,7 +2630,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-08-15",
@@ -2629,7 +2641,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-08-17",
@@ -2640,7 +2652,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-08-18",
@@ -2651,7 +2663,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-08-19",
@@ -2662,7 +2674,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-08-20",
@@ -2673,7 +2685,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-08-21",
@@ -2684,7 +2696,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-08-22",
@@ -2695,7 +2707,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-08-24",
@@ -2706,7 +2718,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-08-25",
@@ -2717,7 +2729,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-08-26",
@@ -2728,7 +2740,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-08-27",
@@ -2739,7 +2751,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-08-28",
@@ -2750,7 +2762,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-08-29",
@@ -2761,7 +2773,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-08-31",
@@ -2772,7 +2784,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-09-01",
@@ -2783,7 +2795,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-09-02",
@@ -2794,7 +2806,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-09-03",
@@ -2805,7 +2817,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-09-04",
@@ -2816,7 +2828,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-09-05",
@@ -2827,7 +2839,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-09-07",
@@ -2849,7 +2861,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-09-09",
@@ -2860,7 +2872,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-09-10",
@@ -2871,7 +2883,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-09-11",
@@ -2882,7 +2894,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-09-12",
@@ -2893,7 +2905,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-09-14",
@@ -2904,7 +2916,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-09-15",
@@ -2915,7 +2927,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-09-16",
@@ -2926,7 +2938,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-09-17",
@@ -2937,7 +2949,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-09-18",
@@ -2948,7 +2960,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-09-19",
@@ -2959,7 +2971,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-09-21",
@@ -2970,7 +2982,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-09-22",
@@ -2981,7 +2993,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-09-23",
@@ -2992,7 +3004,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-09-24",
@@ -3003,7 +3015,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-09-25",
@@ -3014,7 +3026,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-09-26",
@@ -3025,7 +3037,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-09-28",
@@ -3036,7 +3048,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-09-29",
@@ -3047,7 +3059,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-09-30",
@@ -3058,7 +3070,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-10-01",
@@ -3069,7 +3081,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-10-02",
@@ -3080,7 +3092,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-10-03",
@@ -3091,7 +3103,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-10-05",
@@ -3102,7 +3114,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-10-06",
@@ -3113,7 +3125,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-10-07",
@@ -3124,7 +3136,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-10-08",
@@ -3135,7 +3147,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-10-09",
@@ -3146,7 +3158,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-10-10",
@@ -3157,7 +3169,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-10-12",
@@ -3179,7 +3191,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-10-14",
@@ -3190,7 +3202,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-10-15",
@@ -3201,7 +3213,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-10-16",
@@ -3212,7 +3224,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-10-17",
@@ -3223,7 +3235,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-10-19",
@@ -3234,7 +3246,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-10-20",
@@ -3245,7 +3257,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-10-21",
@@ -3256,7 +3268,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-10-22",
@@ -3267,7 +3279,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-10-23",
@@ -3278,7 +3290,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-10-24",
@@ -3289,7 +3301,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-10-26",
@@ -3300,7 +3312,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-10-27",
@@ -3311,7 +3323,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-10-28",
@@ -3322,7 +3334,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-10-29",
@@ -3333,7 +3345,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-10-30",
@@ -3344,7 +3356,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-10-31",
@@ -3355,7 +3367,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-11-02",
@@ -3366,7 +3378,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-11-03",
@@ -3377,7 +3389,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-11-04",
@@ -3388,7 +3400,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-11-05",
@@ -3399,7 +3411,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-11-06",
@@ -3410,7 +3422,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-11-07",
@@ -3421,7 +3433,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-11-09",
@@ -3432,7 +3444,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-11-10",
@@ -3443,7 +3455,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-11-11",
@@ -3454,7 +3466,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-11-12",
@@ -3465,7 +3477,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-11-13",
@@ -3476,7 +3488,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-11-14",
@@ -3487,7 +3499,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-11-16",
@@ -3498,7 +3510,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-11-17",
@@ -3509,7 +3521,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-11-18",
@@ -3520,7 +3532,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-11-19",
@@ -3531,7 +3543,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-11-20",
@@ -3542,7 +3554,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-11-21",
@@ -3553,7 +3565,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-11-23",
@@ -3564,7 +3576,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-11-24",
@@ -3575,7 +3587,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-11-25",
@@ -3586,7 +3598,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-11-26",
@@ -3608,7 +3620,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-11-28",
@@ -3619,7 +3631,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-11-30",
@@ -3630,7 +3642,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-12-01",
@@ -3641,7 +3653,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-12-02",
@@ -3652,7 +3664,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-12-03",
@@ -3663,7 +3675,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-12-04",
@@ -3674,7 +3686,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-12-05",
@@ -3685,7 +3697,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-12-07",
@@ -3696,7 +3708,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-12-08",
@@ -3707,7 +3719,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-12-09",
@@ -3718,7 +3730,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-12-10",
@@ -3729,7 +3741,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-12-11",
@@ -3740,7 +3752,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1914-12-25",
@@ -3850,7 +3862,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1915-11-25",
@@ -4015,7 +4027,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1916-11-30",
@@ -4114,7 +4126,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1917-06-14",
@@ -4147,7 +4159,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1917-08-29",
@@ -4224,7 +4236,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1917-11-29",
@@ -4268,7 +4280,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1918-02-04",
@@ -4279,7 +4291,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1918-02-11",
@@ -4290,7 +4302,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1918-02-12",
@@ -4389,7 +4401,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1918-10-11",
@@ -4422,7 +4434,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1918-11-07",
@@ -4532,7 +4544,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1919-04-18",
@@ -4554,7 +4566,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1919-05-30",
@@ -4642,7 +4654,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1919-10-13",
@@ -4664,7 +4676,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1919-11-27",
@@ -4752,7 +4764,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1920-05-31",
@@ -4851,7 +4863,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1920-11-25",
@@ -5049,7 +5061,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1921-11-11",
@@ -5192,7 +5204,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1922-11-30",
@@ -5313,7 +5325,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1923-08-10",
@@ -5324,7 +5336,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1923-09-03",
@@ -5357,7 +5369,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1923-11-29",
@@ -5522,7 +5534,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1924-11-27",
@@ -5687,7 +5699,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1925-11-26",
@@ -5863,7 +5875,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1926-11-25",
@@ -5984,7 +5996,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1927-06-14",
@@ -6039,7 +6051,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1927-11-24",
@@ -6292,7 +6304,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1928-11-24",
@@ -6512,7 +6524,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1929-11-06",
@@ -6908,7 +6920,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1930-11-27",
@@ -7084,7 +7096,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1931-11-26",
@@ -7238,7 +7250,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1932-11-24",
@@ -7282,7 +7294,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1933-02-13",
@@ -7315,7 +7327,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1933-03-06",
@@ -7326,7 +7338,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1933-03-07",
@@ -7337,7 +7349,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1933-03-08",
@@ -7348,7 +7360,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1933-03-09",
@@ -7359,7 +7371,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1933-03-10",
@@ -7370,7 +7382,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1933-03-11",
@@ -7381,7 +7393,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1933-03-13",
@@ -7392,7 +7404,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1933-03-14",
@@ -7403,7 +7415,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1933-04-14",
@@ -7535,7 +7547,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1933-11-30",
@@ -7667,7 +7679,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1934-11-12",
@@ -7821,7 +7833,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1935-11-11",
@@ -7997,7 +8009,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1936-11-11",
@@ -8173,7 +8185,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1937-11-11",
@@ -8349,7 +8361,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1938-11-11",
@@ -8492,7 +8504,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1939-11-10",
@@ -8657,7 +8669,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1940-11-11",
@@ -8822,7 +8834,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1941-11-11",
@@ -8987,7 +8999,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1942-11-11",
@@ -9130,7 +9142,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1943-11-11",
@@ -9306,7 +9318,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1944-11-10",
@@ -9405,7 +9417,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1945-05-30",
@@ -9449,7 +9461,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1945-08-16",
@@ -9460,7 +9472,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1945-09-03",
@@ -9504,7 +9516,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1945-11-06",
@@ -9515,7 +9527,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1945-11-12",
@@ -9625,7 +9637,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1946-05-30",
@@ -9702,7 +9714,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1946-11-11",
@@ -9845,7 +9857,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1947-11-11",
@@ -9900,7 +9912,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1948-02-12",
@@ -9999,7 +10011,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1948-11-11",
@@ -10175,7 +10187,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1949-11-11",
@@ -10329,7 +10341,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1950-11-10",
@@ -10494,7 +10506,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1951-11-12",
@@ -10637,7 +10649,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1952-11-11",
@@ -10758,7 +10770,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1953-11-11",
@@ -10868,7 +10880,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1954-11-25",
@@ -10945,7 +10957,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1955-11-24",
@@ -11044,7 +11056,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1956-11-22",
@@ -11154,7 +11166,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1957-11-28",
@@ -11242,7 +11254,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1958-11-27",
@@ -11275,7 +11287,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1959-01-01",
@@ -11341,7 +11353,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1959-11-26",
@@ -11440,7 +11452,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1960-11-24",
@@ -11506,7 +11518,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1961-05-30",
@@ -11550,7 +11562,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1961-11-23",
@@ -11649,7 +11661,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1962-11-22",
@@ -11748,7 +11760,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1963-11-22",
@@ -11770,7 +11782,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1963-11-28",
@@ -11858,7 +11870,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1964-11-26",
@@ -11957,7 +11969,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1965-11-25",
@@ -12045,7 +12057,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1966-11-24",
@@ -12155,7 +12167,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1967-11-23",
@@ -12199,7 +12211,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1968-02-22",
@@ -12221,7 +12233,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1968-04-12",
@@ -12254,7 +12266,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1968-06-19",
@@ -12265,7 +12277,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1968-06-26",
@@ -12276,7 +12288,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1968-07-03",
@@ -12287,7 +12299,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1968-07-04",
@@ -12309,7 +12321,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1968-07-10",
@@ -12320,7 +12332,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1968-07-17",
@@ -12331,7 +12343,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1968-07-24",
@@ -12342,7 +12354,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1968-07-31",
@@ -12353,7 +12365,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1968-08-07",
@@ -12364,7 +12376,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1968-08-14",
@@ -12375,7 +12387,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1968-08-21",
@@ -12386,7 +12398,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1968-08-28",
@@ -12397,7 +12409,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1968-09-02",
@@ -12419,7 +12431,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1968-09-11",
@@ -12430,7 +12442,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1968-09-18",
@@ -12441,7 +12453,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1968-09-25",
@@ -12452,7 +12464,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1968-10-02",
@@ -12463,7 +12475,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1968-10-09",
@@ -12474,7 +12486,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1968-10-16",
@@ -12485,7 +12497,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1968-10-23",
@@ -12496,7 +12508,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1968-10-30",
@@ -12507,7 +12519,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1968-11-05",
@@ -12518,7 +12530,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1968-11-06",
@@ -12529,7 +12541,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1968-11-13",
@@ -12540,7 +12552,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1968-11-20",
@@ -12551,7 +12563,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1968-11-27",
@@ -12562,7 +12574,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1968-11-28",
@@ -12584,7 +12596,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1968-12-11",
@@ -12595,7 +12607,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1968-12-18",
@@ -12606,7 +12618,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1968-12-24",
@@ -12617,7 +12629,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1968-12-25",
@@ -12650,7 +12662,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1969-03-31",
@@ -12661,7 +12673,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1969-04-04",
@@ -12705,7 +12717,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1969-09-01",
@@ -12969,7 +12981,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1972-11-23",
@@ -13002,7 +13014,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1973-01-01",
@@ -13024,7 +13036,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1973-02-19",
@@ -13376,7 +13388,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1976-11-25",
@@ -13453,7 +13465,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1977-09-05",
@@ -13739,7 +13751,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1980-11-27",
@@ -14179,7 +14191,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1985-11-28",
@@ -14993,7 +15005,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "1994-05-30",
@@ -15873,7 +15885,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2001-09-12",
@@ -15884,7 +15896,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2001-09-13",
@@ -15895,7 +15907,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2001-09-14",
@@ -15906,7 +15918,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2001-11-22",
@@ -16291,7 +16303,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2004-07-05",
@@ -16588,7 +16600,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2007-01-15",
@@ -17270,7 +17282,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2012-10-30",
@@ -17281,7 +17293,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2012-11-22",
@@ -18062,7 +18074,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2018-12-24",
@@ -18854,7 +18866,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "nyse-history-2008", "nyse-hours" ],
+    "evidence_ids" : [ "nyse-euronext-sandy-2012-10-28", "nyse-history-2008", "nyse-pr-bush-2018", "nyse-pr-carter-2024" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2025-01-20",

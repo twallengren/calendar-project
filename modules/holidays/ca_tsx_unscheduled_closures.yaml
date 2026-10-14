@@ -1,0 +1,74 @@
+kind: module
+id: ca_tsx_unscheduled_closures
+
+# Unscheduled closures and early terminations of the Toronto Stock Exchange, each an explicit,
+# individually cited exchange release (see sources/CA-TSX/README.md). The set is complete for
+# 2008-2025: TMX's own year-end trading-day counts equal the schedule in every year except 2008,
+# which is one day short for 17 December, and no release or press report of any other market-wide
+# closure exists. Intraday halts that ended with a normal close (1 November 2022 among them) and
+# delayed opens are not events.
+
+event_sources:
+  - key: ca_tsx_unscheduled_closure
+    name: Unscheduled Closure
+    default_classification: CLOSED
+    shiftable: false
+    source:
+      - id: tse-2001-09-12-closed
+        ref: "The TSE will remain closed today"
+      - id: tmx-2008-12-18-trading-resumes
+        ref: "2:30PM - The decision was made to remain closed for the day"
+    rule:
+      type: explicit_dates
+      dates:
+        - date: 2001-09-12
+          comment: closed after the 11 September attacks; reopened 13 September
+        - date: 2008-12-17
+          comment: Level 1 market-data feed failure; 18-minute session then halted for the day
+
+  # 11 September 2001: opened 9:30, closed about 71 minutes later with an official close (the
+  # time is press-sourced; the exchange's release gives the close but no time). 27 April 2018 and
+  # 27 February 2020: TMX trading-system outages with no re-open and no closing auction.
+  - key: ca_tsx_unscheduled_early_termination_2001
+    name: Unscheduled Early Termination
+    default_classification: EARLY_CLOSE
+    close_time: "10:41"
+    shiftable: false
+    source:
+      - id: tse-2001-09-11-market-closed
+        ref: "the Toronto Stock Exchange has closed ... At the close of trading, the TSE 300 Composite Index was down 293.86"
+      - id: cbc-2002-09-11-tsx
+        ref: "opened trading for 71 minutes before shutting down (the only source for the time)"
+    rule:
+      type: explicit_dates
+      dates:
+        - date: 2001-09-11
+          comment: trading closed after the attacks in the United States
+
+  - key: ca_tsx_unscheduled_early_termination_2018
+    name: Unscheduled Early Termination
+    default_classification: EARLY_CLOSE
+    close_time: "13:39"
+    shiftable: false
+    source:
+      - id: tmx-2018-04-28-outage-update
+        ref: "began at ... 1:39:13 pm EDT on TSX, TSXV, and TSX Alpha"
+    rule:
+      type: explicit_dates
+      dates:
+        - date: 2018-04-27
+          comment: trading-system hardware failure, no re-open
+
+  - key: ca_tsx_unscheduled_early_termination_2020
+    name: Unscheduled Early Termination
+    default_classification: EARLY_CLOSE
+    close_time: "13:54"
+    shiftable: false
+    source:
+      - id: tmx-2020-02-27-incident-report
+        ref: "full market halt at 1:54 pm"
+    rule:
+      type: explicit_dates
+      dates:
+        - date: 2020-02-27
+          comment: trading-engine capacity failure, no re-open

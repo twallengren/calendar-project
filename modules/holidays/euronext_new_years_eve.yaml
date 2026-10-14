@@ -4,7 +4,6 @@ id: euronext_new_years_eve
 # New Year's Eve (31 December) half trading day on the Euronext cash markets, for the venues
 # whose local wall clock is CET/CEST (Amsterdam, Brussels, Paris). See
 # euronext_new_years_eve_lisbon for the Europe/Lisbon (WET/WEST) equivalent, and
-# euronext_special_closures for 31 December 2015, which was a full closure instead.
 #
 # Close time 14:00 CET through 2013 and 14:05 CET from 2014; the half day is not moved when
 # 31 December falls on a weekend (2011, 2016, 2022: Sat; 2017, 2023: Sun).

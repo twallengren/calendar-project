@@ -17,16 +17,20 @@ metadata:
     - scope: SCHEDULED_CLOSURES
       from: 2020-01-01
       to: 2020-12-31
-      quality: INCOMPLETE
+      quality: VERIFIED
       evidence_ids:
+      - tadawul-holidays-page-2020
+      - tadawul-eid-al-adha-2020-notice
+      - tadawul-national-day-2020-notice
       - saudi-exchange-announcements
-      - argaam-tadawul-eid-adha-2020
     - scope: SCHEDULED_CLOSURES
       from: 2021-01-01
       to: 2029-12-31
       quality: VERIFIED
       evidence_ids:
       - saudi-exchange-announcements
+      - saudi-exchange-tasi-sessions
+      - tadawul-ramadan-eid-notice-2021
     - scope: SCHEDULED_CLOSURES
       from: 2030-01-01
       to: 2030-12-31
@@ -41,6 +45,16 @@ metadata:
       - saudi-exchange-announcements
     - scope: UNSCHEDULED_EXCEPTIONS
       from: 2020-01-01
+      to: 2026-10-13
+      quality: VERIFIED
+      evidence_ids:
+      - saudi-exchange-tasi-sessions
+      - saudi-exchange-statistical-reports
+      - saudi-exchange-closure-2022-11-23
+      - saudi-exchange-halt-2021-06-02
+      - saudi-exchange-halt-2026-08-19
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2026-10-14
       to: 2030-12-31
       quality: PROJECTED
       evidence_ids:
@@ -66,6 +80,7 @@ resolution_chain:
 - module:saudi_national_day
 - module:eid_al_fitr
 - module:eid_al_adha
+- module:tadawul_unscheduled_closures
 - module:tadawul_holidays
 - calendar:SA-TADAWUL
 event_sources:
@@ -103,6 +118,10 @@ event_sources:
   status: CONFIRMED
   source:
   - id: saudi-exchange-announcements
+  - id: saudi-exchange-tasi-sessions
+    ref: no session on 11-16 May 2021; full sessions on 28 April and 8 May 2022
+  - id: tadawul-ramadan-eid-notice-2021
+  - id: enbd-securities-eid-al-fitr-2022
   rule:
     type: explicit_dates
     dates:
@@ -115,11 +134,12 @@ event_sources:
     - 2020-05-28
     - 2020-05-29
     - 2020-05-30
+    - 2021-05-11
+    - 2021-05-12
     - 2021-05-13
     - 2021-05-14
     - 2021-05-15
     - 2021-05-16
-    - 2022-04-28
     - 2022-04-29
     - 2022-04-30
     - 2022-05-01
@@ -129,7 +149,6 @@ event_sources:
     - 2022-05-05
     - 2022-05-06
     - 2022-05-07
-    - 2022-05-08
     - 2023-04-18
     - 2023-04-19
     - 2023-04-20
@@ -194,6 +213,10 @@ event_sources:
     - null
   source:
   - id: saudi-exchange-announcements
+  - id: saudi-exchange-tasi-sessions
+    ref: no session on 11-16 May 2021; full sessions on 28 April and 8 May 2022
+  - id: tadawul-ramadan-eid-notice-2021
+  - id: enbd-securities-eid-al-fitr-2022
   rule:
     type: fixed_month_day
     month: 9
@@ -207,10 +230,20 @@ event_sources:
   classification: CLOSED
   status: CONFIRMED
   source:
+  - id: tadawul-eid-al-adha-2020-notice
+    ref: trading stops at the end of Tuesday 7/12/1441 (28/7/2020); resumes Wednesday
+      15/12/1441 (5/8/2020)
   - id: saudi-exchange-announcements
   rule:
     type: explicit_dates
     dates:
+    - 2020-07-29
+    - 2020-07-30
+    - 2020-07-31
+    - 2020-08-01
+    - 2020-08-02
+    - 2020-08-03
+    - 2020-08-04
     - 2021-07-16
     - 2021-07-17
     - 2021-07-18
@@ -301,3 +334,16 @@ event_sources:
     chronology: UMM_AL_QURA
     end_month: 12
     end_day: 13
+- key: tadawul_unscheduled_closure
+  name: Unscheduled Closure
+  origin: module:tadawul_unscheduled_closures
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: saudi-exchange-closure-2022-11-23
+    ref: Saudi Exchange announces the discontinue of trading on Wednesday 23/11/2022
+  rule:
+    type: explicit_dates
+    dates:
+    - date: 2022-11-23
+      comment: royal holiday after the World Cup win over Argentina

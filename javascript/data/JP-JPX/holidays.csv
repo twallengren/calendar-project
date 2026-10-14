@@ -1,0 +1,344 @@
+date,type,description,key,source_module,observed_from,close_time,status
+2010-01-01,CLOSED,New Year's Day,jp_new_years_day,module:jp_new_years_day,,,CONFIRMED
+2010-01-11,CLOSED,Coming of Age Day,jp_coming_of_age_day,module:jp_coming_of_age_day,,,CONFIRMED
+2010-02-11,CLOSED,National Foundation Day,jp_national_foundation_day,module:jp_national_foundation_day,,,CONFIRMED
+2010-03-22,CLOSED,Vernal Equinox Day,jp_vernal_equinox_day,module:jp_vernal_equinox_day,2010-03-21,,CONFIRMED
+2010-04-29,CLOSED,Showa Day,jp_showa_day,module:jp_showa_day,,,CONFIRMED
+2010-05-03,CLOSED,Constitution Memorial Day,jp_constitution_memorial_day,module:jp_constitution_memorial_day,,,CONFIRMED
+2010-05-04,CLOSED,Greenery Day,jp_greenery_day,module:jp_greenery_day,,,CONFIRMED
+2010-05-05,CLOSED,Children's Day,jp_childrens_day,module:jp_childrens_day,,,CONFIRMED
+2010-07-19,CLOSED,Marine Day,jp_marine_day,module:jp_marine_day,,,CONFIRMED
+2010-09-20,CLOSED,Respect for the Aged Day,jp_respect_for_the_aged_day,module:jp_respect_for_the_aged_day,,,CONFIRMED
+2010-09-23,CLOSED,Autumnal Equinox Day,jp_autumnal_equinox_day,module:jp_autumnal_equinox_day,,,CONFIRMED
+2010-10-11,CLOSED,Health and Sports Day,jp_health_and_sports_day,module:jp_sports_day,,,CONFIRMED
+2010-11-03,CLOSED,Culture Day,jp_culture_day,module:jp_culture_day,,,CONFIRMED
+2010-11-23,CLOSED,Labor Thanksgiving Day,jp_labour_thanksgiving_day,module:jp_labour_thanksgiving_day,,,CONFIRMED
+2010-12-23,CLOSED,Emperor's Birthday,jp_emperors_birthday_akihito,module:jp_emperors_birthday,,,CONFIRMED
+2010-12-31,CLOSED,Market Holiday (year end),jp_jpx_year_end_market_holiday,module:jp_jpx_market_holidays,,,CONFIRMED
+2011-01-03,CLOSED,Market Holiday (New Year),jp_jpx_new_year_market_holiday,module:jp_jpx_market_holidays,,,CONFIRMED
+2011-01-10,CLOSED,Coming of Age Day,jp_coming_of_age_day,module:jp_coming_of_age_day,,,CONFIRMED
+2011-02-11,CLOSED,National Foundation Day,jp_national_foundation_day,module:jp_national_foundation_day,,,CONFIRMED
+2011-03-21,CLOSED,Vernal Equinox Day,jp_vernal_equinox_day,module:jp_vernal_equinox_day,,,CONFIRMED
+2011-04-29,CLOSED,Showa Day,jp_showa_day,module:jp_showa_day,,,CONFIRMED
+2011-05-03,CLOSED,Constitution Memorial Day,jp_constitution_memorial_day,module:jp_constitution_memorial_day,,,CONFIRMED
+2011-05-04,CLOSED,Greenery Day,jp_greenery_day,module:jp_greenery_day,,,CONFIRMED
+2011-05-05,CLOSED,Children's Day,jp_childrens_day,module:jp_childrens_day,,,CONFIRMED
+2011-07-18,CLOSED,Marine Day,jp_marine_day,module:jp_marine_day,,,CONFIRMED
+2011-09-19,CLOSED,Respect for the Aged Day,jp_respect_for_the_aged_day,module:jp_respect_for_the_aged_day,,,CONFIRMED
+2011-09-23,CLOSED,Autumnal Equinox Day,jp_autumnal_equinox_day,module:jp_autumnal_equinox_day,,,CONFIRMED
+2011-10-10,CLOSED,Health and Sports Day,jp_health_and_sports_day,module:jp_sports_day,,,CONFIRMED
+2011-11-03,CLOSED,Culture Day,jp_culture_day,module:jp_culture_day,,,CONFIRMED
+2011-11-23,CLOSED,Labor Thanksgiving Day,jp_labour_thanksgiving_day,module:jp_labour_thanksgiving_day,,,CONFIRMED
+2011-12-23,CLOSED,Emperor's Birthday,jp_emperors_birthday_akihito,module:jp_emperors_birthday,,,CONFIRMED
+2012-01-02,CLOSED,Market Holiday (New Year),jp_jpx_new_year_market_holiday,module:jp_jpx_market_holidays,,,CONFIRMED
+2012-01-03,CLOSED,Market Holiday (New Year),jp_jpx_new_year_market_holiday,module:jp_jpx_market_holidays,,,CONFIRMED
+2012-01-09,CLOSED,Coming of Age Day,jp_coming_of_age_day,module:jp_coming_of_age_day,,,CONFIRMED
+2012-03-20,CLOSED,Vernal Equinox Day,jp_vernal_equinox_day,module:jp_vernal_equinox_day,,,CONFIRMED
+2012-04-30,CLOSED,Showa Day,jp_showa_day,module:jp_showa_day,2012-04-29,,CONFIRMED
+2012-05-03,CLOSED,Constitution Memorial Day,jp_constitution_memorial_day,module:jp_constitution_memorial_day,,,CONFIRMED
+2012-05-04,CLOSED,Greenery Day,jp_greenery_day,module:jp_greenery_day,,,CONFIRMED
+2012-07-16,CLOSED,Marine Day,jp_marine_day,module:jp_marine_day,,,CONFIRMED
+2012-09-17,CLOSED,Respect for the Aged Day,jp_respect_for_the_aged_day,module:jp_respect_for_the_aged_day,,,CONFIRMED
+2012-10-08,CLOSED,Health and Sports Day,jp_health_and_sports_day,module:jp_sports_day,,,CONFIRMED
+2012-11-23,CLOSED,Labor Thanksgiving Day,jp_labour_thanksgiving_day,module:jp_labour_thanksgiving_day,,,CONFIRMED
+2012-12-24,CLOSED,Emperor's Birthday,jp_emperors_birthday_akihito,module:jp_emperors_birthday,2012-12-23,,CONFIRMED
+2012-12-31,CLOSED,Market Holiday (year end),jp_jpx_year_end_market_holiday,module:jp_jpx_market_holidays,,,CONFIRMED
+2013-01-01,CLOSED,New Year's Day,jp_new_years_day,module:jp_new_years_day,,,CONFIRMED
+2013-01-02,CLOSED,Market Holiday (New Year),jp_jpx_new_year_market_holiday,module:jp_jpx_market_holidays,,,CONFIRMED
+2013-01-03,CLOSED,Market Holiday (New Year),jp_jpx_new_year_market_holiday,module:jp_jpx_market_holidays,,,CONFIRMED
+2013-01-14,CLOSED,Coming of Age Day,jp_coming_of_age_day,module:jp_coming_of_age_day,,,CONFIRMED
+2013-02-11,CLOSED,National Foundation Day,jp_national_foundation_day,module:jp_national_foundation_day,,,CONFIRMED
+2013-03-20,CLOSED,Vernal Equinox Day,jp_vernal_equinox_day,module:jp_vernal_equinox_day,,,CONFIRMED
+2013-04-29,CLOSED,Showa Day,jp_showa_day,module:jp_showa_day,,,CONFIRMED
+2013-05-03,CLOSED,Constitution Memorial Day,jp_constitution_memorial_day,module:jp_constitution_memorial_day,,,CONFIRMED
+2013-05-06,CLOSED,Children's Day,jp_childrens_day,module:jp_childrens_day,2013-05-05,,CONFIRMED
+2013-07-15,CLOSED,Marine Day,jp_marine_day,module:jp_marine_day,,,CONFIRMED
+2013-09-16,CLOSED,Respect for the Aged Day,jp_respect_for_the_aged_day,module:jp_respect_for_the_aged_day,,,CONFIRMED
+2013-09-23,CLOSED,Autumnal Equinox Day,jp_autumnal_equinox_day,module:jp_autumnal_equinox_day,,,CONFIRMED
+2013-10-14,CLOSED,Health and Sports Day,jp_health_and_sports_day,module:jp_sports_day,,,CONFIRMED
+2013-11-04,CLOSED,Culture Day,jp_culture_day,module:jp_culture_day,2013-11-03,,CONFIRMED
+2013-12-23,CLOSED,Emperor's Birthday,jp_emperors_birthday_akihito,module:jp_emperors_birthday,,,CONFIRMED
+2013-12-31,CLOSED,Market Holiday (year end),jp_jpx_year_end_market_holiday,module:jp_jpx_market_holidays,,,CONFIRMED
+2014-01-01,CLOSED,New Year's Day,jp_new_years_day,module:jp_new_years_day,,,CONFIRMED
+2014-01-02,CLOSED,Market Holiday (New Year),jp_jpx_new_year_market_holiday,module:jp_jpx_market_holidays,,,CONFIRMED
+2014-01-03,CLOSED,Market Holiday (New Year),jp_jpx_new_year_market_holiday,module:jp_jpx_market_holidays,,,CONFIRMED
+2014-01-13,CLOSED,Coming of Age Day,jp_coming_of_age_day,module:jp_coming_of_age_day,,,CONFIRMED
+2014-02-11,CLOSED,National Foundation Day,jp_national_foundation_day,module:jp_national_foundation_day,,,CONFIRMED
+2014-03-21,CLOSED,Vernal Equinox Day,jp_vernal_equinox_day,module:jp_vernal_equinox_day,,,CONFIRMED
+2014-04-29,CLOSED,Showa Day,jp_showa_day,module:jp_showa_day,,,CONFIRMED
+2014-05-05,CLOSED,Children's Day,jp_childrens_day,module:jp_childrens_day,,,CONFIRMED
+2014-05-06,CLOSED,Greenery Day,jp_greenery_day,module:jp_greenery_day,2014-05-04,,CONFIRMED
+2014-07-21,CLOSED,Marine Day,jp_marine_day,module:jp_marine_day,,,CONFIRMED
+2014-09-15,CLOSED,Respect for the Aged Day,jp_respect_for_the_aged_day,module:jp_respect_for_the_aged_day,,,CONFIRMED
+2014-09-23,CLOSED,Autumnal Equinox Day,jp_autumnal_equinox_day,module:jp_autumnal_equinox_day,,,CONFIRMED
+2014-10-13,CLOSED,Health and Sports Day,jp_health_and_sports_day,module:jp_sports_day,,,CONFIRMED
+2014-11-03,CLOSED,Culture Day,jp_culture_day,module:jp_culture_day,,,CONFIRMED
+2014-11-24,CLOSED,Labor Thanksgiving Day,jp_labour_thanksgiving_day,module:jp_labour_thanksgiving_day,2014-11-23,,CONFIRMED
+2014-12-23,CLOSED,Emperor's Birthday,jp_emperors_birthday_akihito,module:jp_emperors_birthday,,,CONFIRMED
+2014-12-31,CLOSED,Market Holiday (year end),jp_jpx_year_end_market_holiday,module:jp_jpx_market_holidays,,,CONFIRMED
+2015-01-01,CLOSED,New Year's Day,jp_new_years_day,module:jp_new_years_day,,,CONFIRMED
+2015-01-02,CLOSED,Market Holiday (New Year),jp_jpx_new_year_market_holiday,module:jp_jpx_market_holidays,,,CONFIRMED
+2015-01-12,CLOSED,Coming of Age Day,jp_coming_of_age_day,module:jp_coming_of_age_day,,,CONFIRMED
+2015-02-11,CLOSED,National Foundation Day,jp_national_foundation_day,module:jp_national_foundation_day,,,CONFIRMED
+2015-04-29,CLOSED,Showa Day,jp_showa_day,module:jp_showa_day,,,CONFIRMED
+2015-05-04,CLOSED,Greenery Day,jp_greenery_day,module:jp_greenery_day,,,CONFIRMED
+2015-05-05,CLOSED,Children's Day,jp_childrens_day,module:jp_childrens_day,,,CONFIRMED
+2015-05-06,CLOSED,Constitution Memorial Day,jp_constitution_memorial_day,module:jp_constitution_memorial_day,2015-05-03,,CONFIRMED
+2015-07-20,CLOSED,Marine Day,jp_marine_day,module:jp_marine_day,,,CONFIRMED
+2015-09-21,CLOSED,Respect for the Aged Day,jp_respect_for_the_aged_day,module:jp_respect_for_the_aged_day,,,CONFIRMED
+2015-09-22,CLOSED,Citizens' Holiday (between Respect for the Aged Day and Autumnal Equinox Day),jp_citizens_holiday,module:jp_citizens_holidays,,,CONFIRMED
+2015-09-23,CLOSED,Autumnal Equinox Day,jp_autumnal_equinox_day,module:jp_autumnal_equinox_day,,,CONFIRMED
+2015-10-12,CLOSED,Health and Sports Day,jp_health_and_sports_day,module:jp_sports_day,,,CONFIRMED
+2015-11-03,CLOSED,Culture Day,jp_culture_day,module:jp_culture_day,,,CONFIRMED
+2015-11-23,CLOSED,Labor Thanksgiving Day,jp_labour_thanksgiving_day,module:jp_labour_thanksgiving_day,,,CONFIRMED
+2015-12-23,CLOSED,Emperor's Birthday,jp_emperors_birthday_akihito,module:jp_emperors_birthday,,,CONFIRMED
+2015-12-31,CLOSED,Market Holiday (year end),jp_jpx_year_end_market_holiday,module:jp_jpx_market_holidays,,,CONFIRMED
+2016-01-01,CLOSED,New Year's Day,jp_new_years_day,module:jp_new_years_day,,,CONFIRMED
+2016-01-11,CLOSED,Coming of Age Day,jp_coming_of_age_day,module:jp_coming_of_age_day,,,CONFIRMED
+2016-02-11,CLOSED,National Foundation Day,jp_national_foundation_day,module:jp_national_foundation_day,,,CONFIRMED
+2016-03-21,CLOSED,Vernal Equinox Day,jp_vernal_equinox_day,module:jp_vernal_equinox_day,2016-03-20,,CONFIRMED
+2016-04-29,CLOSED,Showa Day,jp_showa_day,module:jp_showa_day,,,CONFIRMED
+2016-05-03,CLOSED,Constitution Memorial Day,jp_constitution_memorial_day,module:jp_constitution_memorial_day,,,CONFIRMED
+2016-05-04,CLOSED,Greenery Day,jp_greenery_day,module:jp_greenery_day,,,CONFIRMED
+2016-05-05,CLOSED,Children's Day,jp_childrens_day,module:jp_childrens_day,,,CONFIRMED
+2016-07-18,CLOSED,Marine Day,jp_marine_day,module:jp_marine_day,,,CONFIRMED
+2016-08-11,CLOSED,Mountain Day,jp_mountain_day,module:jp_mountain_day,,,CONFIRMED
+2016-09-19,CLOSED,Respect for the Aged Day,jp_respect_for_the_aged_day,module:jp_respect_for_the_aged_day,,,CONFIRMED
+2016-09-22,CLOSED,Autumnal Equinox Day,jp_autumnal_equinox_day,module:jp_autumnal_equinox_day,,,CONFIRMED
+2016-10-10,CLOSED,Health and Sports Day,jp_health_and_sports_day,module:jp_sports_day,,,CONFIRMED
+2016-11-03,CLOSED,Culture Day,jp_culture_day,module:jp_culture_day,,,CONFIRMED
+2016-11-23,CLOSED,Labor Thanksgiving Day,jp_labour_thanksgiving_day,module:jp_labour_thanksgiving_day,,,CONFIRMED
+2016-12-23,CLOSED,Emperor's Birthday,jp_emperors_birthday_akihito,module:jp_emperors_birthday,,,CONFIRMED
+2017-01-02,CLOSED,Market Holiday (New Year),jp_jpx_new_year_market_holiday,module:jp_jpx_market_holidays,,,CONFIRMED
+2017-01-03,CLOSED,Market Holiday (New Year),jp_jpx_new_year_market_holiday,module:jp_jpx_market_holidays,,,CONFIRMED
+2017-01-09,CLOSED,Coming of Age Day,jp_coming_of_age_day,module:jp_coming_of_age_day,,,CONFIRMED
+2017-03-20,CLOSED,Vernal Equinox Day,jp_vernal_equinox_day,module:jp_vernal_equinox_day,,,CONFIRMED
+2017-05-03,CLOSED,Constitution Memorial Day,jp_constitution_memorial_day,module:jp_constitution_memorial_day,,,CONFIRMED
+2017-05-04,CLOSED,Greenery Day,jp_greenery_day,module:jp_greenery_day,,,CONFIRMED
+2017-05-05,CLOSED,Children's Day,jp_childrens_day,module:jp_childrens_day,,,CONFIRMED
+2017-07-17,CLOSED,Marine Day,jp_marine_day,module:jp_marine_day,,,CONFIRMED
+2017-08-11,CLOSED,Mountain Day,jp_mountain_day,module:jp_mountain_day,,,CONFIRMED
+2017-09-18,CLOSED,Respect for the Aged Day,jp_respect_for_the_aged_day,module:jp_respect_for_the_aged_day,,,CONFIRMED
+2017-10-09,CLOSED,Health and Sports Day,jp_health_and_sports_day,module:jp_sports_day,,,CONFIRMED
+2017-11-03,CLOSED,Culture Day,jp_culture_day,module:jp_culture_day,,,CONFIRMED
+2017-11-23,CLOSED,Labor Thanksgiving Day,jp_labour_thanksgiving_day,module:jp_labour_thanksgiving_day,,,CONFIRMED
+2018-01-01,CLOSED,New Year's Day,jp_new_years_day,module:jp_new_years_day,,,CONFIRMED
+2018-01-02,CLOSED,Market Holiday (New Year),jp_jpx_new_year_market_holiday,module:jp_jpx_market_holidays,,,CONFIRMED
+2018-01-03,CLOSED,Market Holiday (New Year),jp_jpx_new_year_market_holiday,module:jp_jpx_market_holidays,,,CONFIRMED
+2018-01-08,CLOSED,Coming of Age Day,jp_coming_of_age_day,module:jp_coming_of_age_day,,,CONFIRMED
+2018-02-12,CLOSED,National Foundation Day,jp_national_foundation_day,module:jp_national_foundation_day,2018-02-11,,CONFIRMED
+2018-03-21,CLOSED,Vernal Equinox Day,jp_vernal_equinox_day,module:jp_vernal_equinox_day,,,CONFIRMED
+2018-04-30,CLOSED,Showa Day,jp_showa_day,module:jp_showa_day,2018-04-29,,CONFIRMED
+2018-05-03,CLOSED,Constitution Memorial Day,jp_constitution_memorial_day,module:jp_constitution_memorial_day,,,CONFIRMED
+2018-05-04,CLOSED,Greenery Day,jp_greenery_day,module:jp_greenery_day,,,CONFIRMED
+2018-07-16,CLOSED,Marine Day,jp_marine_day,module:jp_marine_day,,,CONFIRMED
+2018-09-17,CLOSED,Respect for the Aged Day,jp_respect_for_the_aged_day,module:jp_respect_for_the_aged_day,,,CONFIRMED
+2018-09-24,CLOSED,Autumnal Equinox Day,jp_autumnal_equinox_day,module:jp_autumnal_equinox_day,2018-09-23,,CONFIRMED
+2018-10-08,CLOSED,Health and Sports Day,jp_health_and_sports_day,module:jp_sports_day,,,CONFIRMED
+2018-11-23,CLOSED,Labor Thanksgiving Day,jp_labour_thanksgiving_day,module:jp_labour_thanksgiving_day,,,CONFIRMED
+2018-12-24,CLOSED,Emperor's Birthday,jp_emperors_birthday_akihito,module:jp_emperors_birthday,2018-12-23,,CONFIRMED
+2018-12-31,CLOSED,Market Holiday (year end),jp_jpx_year_end_market_holiday,module:jp_jpx_market_holidays,,,CONFIRMED
+2019-01-01,CLOSED,New Year's Day,jp_new_years_day,module:jp_new_years_day,,,CONFIRMED
+2019-01-02,CLOSED,Market Holiday (New Year),jp_jpx_new_year_market_holiday,module:jp_jpx_market_holidays,,,CONFIRMED
+2019-01-03,CLOSED,Market Holiday (New Year),jp_jpx_new_year_market_holiday,module:jp_jpx_market_holidays,,,CONFIRMED
+2019-01-14,CLOSED,Coming of Age Day,jp_coming_of_age_day,module:jp_coming_of_age_day,,,CONFIRMED
+2019-02-11,CLOSED,National Foundation Day,jp_national_foundation_day,module:jp_national_foundation_day,,,CONFIRMED
+2019-03-21,CLOSED,Vernal Equinox Day,jp_vernal_equinox_day,module:jp_vernal_equinox_day,,,CONFIRMED
+2019-04-29,CLOSED,Showa Day,jp_showa_day,module:jp_showa_day,,,CONFIRMED
+2019-04-30,CLOSED,Citizens' Holiday (between Showa Day and Accession Day),jp_citizens_holiday,module:jp_citizens_holidays,,,CONFIRMED
+2019-05-01,CLOSED,Accession Day (enthronement of Emperor Naruhito),jp_accession_day_2019,module:jp_imperial_transition_2019,,,CONFIRMED
+2019-05-02,CLOSED,Citizens' Holiday (between Accession Day and Constitution Memorial Day),jp_citizens_holiday,module:jp_citizens_holidays,,,CONFIRMED
+2019-05-03,CLOSED,Constitution Memorial Day,jp_constitution_memorial_day,module:jp_constitution_memorial_day,,,CONFIRMED
+2019-05-06,CLOSED,Children's Day,jp_childrens_day,module:jp_childrens_day,2019-05-05,,CONFIRMED
+2019-07-15,CLOSED,Marine Day,jp_marine_day,module:jp_marine_day,,,CONFIRMED
+2019-08-12,CLOSED,Mountain Day,jp_mountain_day,module:jp_mountain_day,2019-08-11,,CONFIRMED
+2019-09-16,CLOSED,Respect for the Aged Day,jp_respect_for_the_aged_day,module:jp_respect_for_the_aged_day,,,CONFIRMED
+2019-09-23,CLOSED,Autumnal Equinox Day,jp_autumnal_equinox_day,module:jp_autumnal_equinox_day,,,CONFIRMED
+2019-10-14,CLOSED,Health and Sports Day,jp_health_and_sports_day,module:jp_sports_day,,,CONFIRMED
+2019-10-22,CLOSED,Enthronement Ceremony Day (Sokui-rei Seiden no Gi),jp_enthronement_ceremony_day_2019,module:jp_imperial_transition_2019,,,CONFIRMED
+2019-11-04,CLOSED,Culture Day,jp_culture_day,module:jp_culture_day,2019-11-03,,CONFIRMED
+2019-12-31,CLOSED,Market Holiday (year end),jp_jpx_year_end_market_holiday,module:jp_jpx_market_holidays,,,CONFIRMED
+2020-01-01,CLOSED,New Year's Day,jp_new_years_day,module:jp_new_years_day,,,CONFIRMED
+2020-01-02,CLOSED,Market Holiday (New Year),jp_jpx_new_year_market_holiday,module:jp_jpx_market_holidays,,,CONFIRMED
+2020-01-03,CLOSED,Market Holiday (New Year),jp_jpx_new_year_market_holiday,module:jp_jpx_market_holidays,,,CONFIRMED
+2020-01-13,CLOSED,Coming of Age Day,jp_coming_of_age_day,module:jp_coming_of_age_day,,,CONFIRMED
+2020-02-11,CLOSED,National Foundation Day,jp_national_foundation_day,module:jp_national_foundation_day,,,CONFIRMED
+2020-02-24,CLOSED,Emperor's Birthday,jp_emperors_birthday,module:jp_emperors_birthday,2020-02-23,,CONFIRMED
+2020-03-20,CLOSED,Vernal Equinox Day,jp_vernal_equinox_day,module:jp_vernal_equinox_day,,,CONFIRMED
+2020-04-29,CLOSED,Showa Day,jp_showa_day,module:jp_showa_day,,,CONFIRMED
+2020-05-04,CLOSED,Greenery Day,jp_greenery_day,module:jp_greenery_day,,,CONFIRMED
+2020-05-05,CLOSED,Children's Day,jp_childrens_day,module:jp_childrens_day,,,CONFIRMED
+2020-05-06,CLOSED,Constitution Memorial Day,jp_constitution_memorial_day,module:jp_constitution_memorial_day,2020-05-03,,CONFIRMED
+2020-07-23,CLOSED,Marine Day (Tokyo Olympics),jp_marine_day_olympic,module:jp_marine_day,,,CONFIRMED
+2020-07-24,CLOSED,Sports Day (Tokyo Olympics),jp_sports_day_olympic,module:jp_sports_day,,,CONFIRMED
+2020-08-10,CLOSED,Mountain Day (Tokyo Olympics),jp_mountain_day_olympic,module:jp_mountain_day,,,CONFIRMED
+2020-09-21,CLOSED,Respect for the Aged Day,jp_respect_for_the_aged_day,module:jp_respect_for_the_aged_day,,,CONFIRMED
+2020-09-22,CLOSED,Autumnal Equinox Day,jp_autumnal_equinox_day,module:jp_autumnal_equinox_day,,,CONFIRMED
+2020-10-01,CLOSED,Market Closure (arrowhead system failure),jp_tse_system_failure,module:jp_jpx_special_closures,,,CONFIRMED
+2020-11-03,CLOSED,Culture Day,jp_culture_day,module:jp_culture_day,,,CONFIRMED
+2020-11-23,CLOSED,Labor Thanksgiving Day,jp_labour_thanksgiving_day,module:jp_labour_thanksgiving_day,,,CONFIRMED
+2020-12-31,CLOSED,Market Holiday (year end),jp_jpx_year_end_market_holiday,module:jp_jpx_market_holidays,,,CONFIRMED
+2021-01-01,CLOSED,New Year's Day,jp_new_years_day,module:jp_new_years_day,,,CONFIRMED
+2021-01-11,CLOSED,Coming of Age Day,jp_coming_of_age_day,module:jp_coming_of_age_day,,,CONFIRMED
+2021-02-11,CLOSED,National Foundation Day,jp_national_foundation_day,module:jp_national_foundation_day,,,CONFIRMED
+2021-02-23,CLOSED,Emperor's Birthday,jp_emperors_birthday,module:jp_emperors_birthday,,,CONFIRMED
+2021-04-29,CLOSED,Showa Day,jp_showa_day,module:jp_showa_day,,,CONFIRMED
+2021-05-03,CLOSED,Constitution Memorial Day,jp_constitution_memorial_day,module:jp_constitution_memorial_day,,,CONFIRMED
+2021-05-04,CLOSED,Greenery Day,jp_greenery_day,module:jp_greenery_day,,,CONFIRMED
+2021-05-05,CLOSED,Children's Day,jp_childrens_day,module:jp_childrens_day,,,CONFIRMED
+2021-07-22,CLOSED,Marine Day (Tokyo Olympics),jp_marine_day_olympic,module:jp_marine_day,,,CONFIRMED
+2021-07-23,CLOSED,Sports Day (Tokyo Olympics),jp_sports_day_olympic,module:jp_sports_day,,,CONFIRMED
+2021-08-09,CLOSED,Mountain Day (Tokyo Olympics),jp_mountain_day_olympic,module:jp_mountain_day,2021-08-08,,CONFIRMED
+2021-09-20,CLOSED,Respect for the Aged Day,jp_respect_for_the_aged_day,module:jp_respect_for_the_aged_day,,,CONFIRMED
+2021-09-23,CLOSED,Autumnal Equinox Day,jp_autumnal_equinox_day,module:jp_autumnal_equinox_day,,,CONFIRMED
+2021-11-03,CLOSED,Culture Day,jp_culture_day,module:jp_culture_day,,,CONFIRMED
+2021-11-23,CLOSED,Labor Thanksgiving Day,jp_labour_thanksgiving_day,module:jp_labour_thanksgiving_day,,,CONFIRMED
+2021-12-31,CLOSED,Market Holiday (year end),jp_jpx_year_end_market_holiday,module:jp_jpx_market_holidays,,,CONFIRMED
+2022-01-03,CLOSED,Market Holiday (New Year),jp_jpx_new_year_market_holiday,module:jp_jpx_market_holidays,,,CONFIRMED
+2022-01-10,CLOSED,Coming of Age Day,jp_coming_of_age_day,module:jp_coming_of_age_day,,,CONFIRMED
+2022-02-11,CLOSED,National Foundation Day,jp_national_foundation_day,module:jp_national_foundation_day,,,CONFIRMED
+2022-02-23,CLOSED,Emperor's Birthday,jp_emperors_birthday,module:jp_emperors_birthday,,,CONFIRMED
+2022-03-21,CLOSED,Vernal Equinox Day,jp_vernal_equinox_day,module:jp_vernal_equinox_day,,,CONFIRMED
+2022-04-29,CLOSED,Showa Day,jp_showa_day,module:jp_showa_day,,,CONFIRMED
+2022-05-03,CLOSED,Constitution Memorial Day,jp_constitution_memorial_day,module:jp_constitution_memorial_day,,,CONFIRMED
+2022-05-04,CLOSED,Greenery Day,jp_greenery_day,module:jp_greenery_day,,,CONFIRMED
+2022-05-05,CLOSED,Children's Day,jp_childrens_day,module:jp_childrens_day,,,CONFIRMED
+2022-07-18,CLOSED,Marine Day,jp_marine_day,module:jp_marine_day,,,CONFIRMED
+2022-08-11,CLOSED,Mountain Day,jp_mountain_day,module:jp_mountain_day,,,CONFIRMED
+2022-09-19,CLOSED,Respect for the Aged Day,jp_respect_for_the_aged_day,module:jp_respect_for_the_aged_day,,,CONFIRMED
+2022-09-23,CLOSED,Autumnal Equinox Day,jp_autumnal_equinox_day,module:jp_autumnal_equinox_day,,,CONFIRMED
+2022-10-10,CLOSED,Sports Day,jp_sports_day,module:jp_sports_day,,,CONFIRMED
+2022-11-03,CLOSED,Culture Day,jp_culture_day,module:jp_culture_day,,,CONFIRMED
+2022-11-23,CLOSED,Labor Thanksgiving Day,jp_labour_thanksgiving_day,module:jp_labour_thanksgiving_day,,,CONFIRMED
+2023-01-02,CLOSED,Market Holiday (New Year),jp_jpx_new_year_market_holiday,module:jp_jpx_market_holidays,,,CONFIRMED
+2023-01-03,CLOSED,Market Holiday (New Year),jp_jpx_new_year_market_holiday,module:jp_jpx_market_holidays,,,CONFIRMED
+2023-01-09,CLOSED,Coming of Age Day,jp_coming_of_age_day,module:jp_coming_of_age_day,,,CONFIRMED
+2023-02-23,CLOSED,Emperor's Birthday,jp_emperors_birthday,module:jp_emperors_birthday,,,CONFIRMED
+2023-03-21,CLOSED,Vernal Equinox Day,jp_vernal_equinox_day,module:jp_vernal_equinox_day,,,CONFIRMED
+2023-05-03,CLOSED,Constitution Memorial Day,jp_constitution_memorial_day,module:jp_constitution_memorial_day,,,CONFIRMED
+2023-05-04,CLOSED,Greenery Day,jp_greenery_day,module:jp_greenery_day,,,CONFIRMED
+2023-05-05,CLOSED,Children's Day,jp_childrens_day,module:jp_childrens_day,,,CONFIRMED
+2023-07-17,CLOSED,Marine Day,jp_marine_day,module:jp_marine_day,,,CONFIRMED
+2023-08-11,CLOSED,Mountain Day,jp_mountain_day,module:jp_mountain_day,,,CONFIRMED
+2023-09-18,CLOSED,Respect for the Aged Day,jp_respect_for_the_aged_day,module:jp_respect_for_the_aged_day,,,CONFIRMED
+2023-10-09,CLOSED,Sports Day,jp_sports_day,module:jp_sports_day,,,CONFIRMED
+2023-11-03,CLOSED,Culture Day,jp_culture_day,module:jp_culture_day,,,CONFIRMED
+2023-11-23,CLOSED,Labor Thanksgiving Day,jp_labour_thanksgiving_day,module:jp_labour_thanksgiving_day,,,CONFIRMED
+2024-01-01,CLOSED,New Year's Day,jp_new_years_day,module:jp_new_years_day,,,CONFIRMED
+2024-01-02,CLOSED,Market Holiday (New Year),jp_jpx_new_year_market_holiday,module:jp_jpx_market_holidays,,,CONFIRMED
+2024-01-03,CLOSED,Market Holiday (New Year),jp_jpx_new_year_market_holiday,module:jp_jpx_market_holidays,,,CONFIRMED
+2024-01-08,CLOSED,Coming of Age Day,jp_coming_of_age_day,module:jp_coming_of_age_day,,,CONFIRMED
+2024-02-12,CLOSED,National Foundation Day,jp_national_foundation_day,module:jp_national_foundation_day,2024-02-11,,CONFIRMED
+2024-02-23,CLOSED,Emperor's Birthday,jp_emperors_birthday,module:jp_emperors_birthday,,,CONFIRMED
+2024-03-20,CLOSED,Vernal Equinox Day,jp_vernal_equinox_day,module:jp_vernal_equinox_day,,,CONFIRMED
+2024-04-29,CLOSED,Showa Day,jp_showa_day,module:jp_showa_day,,,CONFIRMED
+2024-05-03,CLOSED,Constitution Memorial Day,jp_constitution_memorial_day,module:jp_constitution_memorial_day,,,CONFIRMED
+2024-05-06,CLOSED,Children's Day,jp_childrens_day,module:jp_childrens_day,2024-05-05,,CONFIRMED
+2024-07-15,CLOSED,Marine Day,jp_marine_day,module:jp_marine_day,,,CONFIRMED
+2024-08-12,CLOSED,Mountain Day,jp_mountain_day,module:jp_mountain_day,2024-08-11,,CONFIRMED
+2024-09-16,CLOSED,Respect for the Aged Day,jp_respect_for_the_aged_day,module:jp_respect_for_the_aged_day,,,CONFIRMED
+2024-09-23,CLOSED,Autumnal Equinox Day,jp_autumnal_equinox_day,module:jp_autumnal_equinox_day,2024-09-22,,CONFIRMED
+2024-10-14,CLOSED,Sports Day,jp_sports_day,module:jp_sports_day,,,CONFIRMED
+2024-11-04,CLOSED,Culture Day,jp_culture_day,module:jp_culture_day,2024-11-03,,CONFIRMED
+2024-12-31,CLOSED,Market Holiday (year end),jp_jpx_year_end_market_holiday,module:jp_jpx_market_holidays,,,CONFIRMED
+2025-01-01,CLOSED,New Year's Day,jp_new_years_day,module:jp_new_years_day,,,CONFIRMED
+2025-01-02,CLOSED,Market Holiday (New Year),jp_jpx_new_year_market_holiday,module:jp_jpx_market_holidays,,,CONFIRMED
+2025-01-03,CLOSED,Market Holiday (New Year),jp_jpx_new_year_market_holiday,module:jp_jpx_market_holidays,,,CONFIRMED
+2025-01-13,CLOSED,Coming of Age Day,jp_coming_of_age_day,module:jp_coming_of_age_day,,,CONFIRMED
+2025-02-11,CLOSED,National Foundation Day,jp_national_foundation_day,module:jp_national_foundation_day,,,CONFIRMED
+2025-02-24,CLOSED,Emperor's Birthday,jp_emperors_birthday,module:jp_emperors_birthday,2025-02-23,,CONFIRMED
+2025-03-20,CLOSED,Vernal Equinox Day,jp_vernal_equinox_day,module:jp_vernal_equinox_day,,,CONFIRMED
+2025-04-29,CLOSED,Showa Day,jp_showa_day,module:jp_showa_day,,,CONFIRMED
+2025-05-05,CLOSED,Children's Day,jp_childrens_day,module:jp_childrens_day,,,CONFIRMED
+2025-05-06,CLOSED,Greenery Day,jp_greenery_day,module:jp_greenery_day,2025-05-04,,CONFIRMED
+2025-07-21,CLOSED,Marine Day,jp_marine_day,module:jp_marine_day,,,CONFIRMED
+2025-08-11,CLOSED,Mountain Day,jp_mountain_day,module:jp_mountain_day,,,CONFIRMED
+2025-09-15,CLOSED,Respect for the Aged Day,jp_respect_for_the_aged_day,module:jp_respect_for_the_aged_day,,,CONFIRMED
+2025-09-23,CLOSED,Autumnal Equinox Day,jp_autumnal_equinox_day,module:jp_autumnal_equinox_day,,,CONFIRMED
+2025-10-13,CLOSED,Sports Day,jp_sports_day,module:jp_sports_day,,,CONFIRMED
+2025-11-03,CLOSED,Culture Day,jp_culture_day,module:jp_culture_day,,,CONFIRMED
+2025-11-24,CLOSED,Labor Thanksgiving Day,jp_labour_thanksgiving_day,module:jp_labour_thanksgiving_day,2025-11-23,,CONFIRMED
+2025-12-31,CLOSED,Market Holiday (year end),jp_jpx_year_end_market_holiday,module:jp_jpx_market_holidays,,,CONFIRMED
+2026-01-01,CLOSED,New Year's Day,jp_new_years_day,module:jp_new_years_day,,,CONFIRMED
+2026-01-02,CLOSED,Market Holiday (New Year),jp_jpx_new_year_market_holiday,module:jp_jpx_market_holidays,,,CONFIRMED
+2026-01-12,CLOSED,Coming of Age Day,jp_coming_of_age_day,module:jp_coming_of_age_day,,,CONFIRMED
+2026-02-11,CLOSED,National Foundation Day,jp_national_foundation_day,module:jp_national_foundation_day,,,CONFIRMED
+2026-02-23,CLOSED,Emperor's Birthday,jp_emperors_birthday,module:jp_emperors_birthday,,,CONFIRMED
+2026-03-20,CLOSED,Vernal Equinox Day,jp_vernal_equinox_day,module:jp_vernal_equinox_day,,,CONFIRMED
+2026-04-29,CLOSED,Showa Day,jp_showa_day,module:jp_showa_day,,,CONFIRMED
+2026-05-04,CLOSED,Greenery Day,jp_greenery_day,module:jp_greenery_day,,,CONFIRMED
+2026-05-05,CLOSED,Children's Day,jp_childrens_day,module:jp_childrens_day,,,CONFIRMED
+2026-05-06,CLOSED,Constitution Memorial Day,jp_constitution_memorial_day,module:jp_constitution_memorial_day,2026-05-03,,CONFIRMED
+2026-07-20,CLOSED,Marine Day,jp_marine_day,module:jp_marine_day,,,CONFIRMED
+2026-08-11,CLOSED,Mountain Day,jp_mountain_day,module:jp_mountain_day,,,CONFIRMED
+2026-09-21,CLOSED,Respect for the Aged Day,jp_respect_for_the_aged_day,module:jp_respect_for_the_aged_day,,,CONFIRMED
+2026-09-22,CLOSED,Citizens' Holiday (between Respect for the Aged Day and Autumnal Equinox Day),jp_citizens_holiday,module:jp_citizens_holidays,,,CONFIRMED
+2026-09-23,CLOSED,Autumnal Equinox Day,jp_autumnal_equinox_day,module:jp_autumnal_equinox_day,,,CONFIRMED
+2026-10-12,CLOSED,Sports Day,jp_sports_day,module:jp_sports_day,,,CONFIRMED
+2026-11-03,CLOSED,Culture Day,jp_culture_day,module:jp_culture_day,,,CONFIRMED
+2026-11-23,CLOSED,Labor Thanksgiving Day,jp_labour_thanksgiving_day,module:jp_labour_thanksgiving_day,,,CONFIRMED
+2026-12-31,CLOSED,Market Holiday (year end),jp_jpx_year_end_market_holiday,module:jp_jpx_market_holidays,,,CONFIRMED
+2027-01-01,CLOSED,New Year's Day,jp_new_years_day,module:jp_new_years_day,,,CONFIRMED
+2027-01-11,CLOSED,Coming of Age Day,jp_coming_of_age_day,module:jp_coming_of_age_day,,,CONFIRMED
+2027-02-11,CLOSED,National Foundation Day,jp_national_foundation_day,module:jp_national_foundation_day,,,CONFIRMED
+2027-02-23,CLOSED,Emperor's Birthday,jp_emperors_birthday,module:jp_emperors_birthday,,,CONFIRMED
+2027-03-22,CLOSED,Vernal Equinox Day,jp_vernal_equinox_day,module:jp_vernal_equinox_day,2027-03-21,,CONFIRMED
+2027-04-29,CLOSED,Showa Day,jp_showa_day,module:jp_showa_day,,,CONFIRMED
+2027-05-03,CLOSED,Constitution Memorial Day,jp_constitution_memorial_day,module:jp_constitution_memorial_day,,,CONFIRMED
+2027-05-04,CLOSED,Greenery Day,jp_greenery_day,module:jp_greenery_day,,,CONFIRMED
+2027-05-05,CLOSED,Children's Day,jp_childrens_day,module:jp_childrens_day,,,CONFIRMED
+2027-07-19,CLOSED,Marine Day,jp_marine_day,module:jp_marine_day,,,CONFIRMED
+2027-08-11,CLOSED,Mountain Day,jp_mountain_day,module:jp_mountain_day,,,CONFIRMED
+2027-09-20,CLOSED,Respect for the Aged Day,jp_respect_for_the_aged_day,module:jp_respect_for_the_aged_day,,,CONFIRMED
+2027-09-23,CLOSED,Autumnal Equinox Day,jp_autumnal_equinox_day,module:jp_autumnal_equinox_day,,,CONFIRMED
+2027-10-11,CLOSED,Sports Day,jp_sports_day,module:jp_sports_day,,,CONFIRMED
+2027-11-03,CLOSED,Culture Day,jp_culture_day,module:jp_culture_day,,,CONFIRMED
+2027-11-23,CLOSED,Labor Thanksgiving Day,jp_labour_thanksgiving_day,module:jp_labour_thanksgiving_day,,,CONFIRMED
+2027-12-31,CLOSED,Market Holiday (year end),jp_jpx_year_end_market_holiday,module:jp_jpx_market_holidays,,,CONFIRMED
+2028-01-03,CLOSED,Market Holiday (New Year),jp_jpx_new_year_market_holiday,module:jp_jpx_market_holidays,,,CONFIRMED
+2028-01-10,CLOSED,Coming of Age Day,jp_coming_of_age_day,module:jp_coming_of_age_day,,,CONFIRMED
+2028-02-11,CLOSED,National Foundation Day,jp_national_foundation_day,module:jp_national_foundation_day,,,CONFIRMED
+2028-02-23,CLOSED,Emperor's Birthday,jp_emperors_birthday,module:jp_emperors_birthday,,,CONFIRMED
+2028-03-20,CLOSED,Vernal Equinox Day,jp_vernal_equinox_day_projected,module:jp_vernal_equinox_day,,,PROJECTED
+2028-05-03,CLOSED,Constitution Memorial Day,jp_constitution_memorial_day,module:jp_constitution_memorial_day,,,CONFIRMED
+2028-05-04,CLOSED,Greenery Day,jp_greenery_day,module:jp_greenery_day,,,CONFIRMED
+2028-05-05,CLOSED,Children's Day,jp_childrens_day,module:jp_childrens_day,,,CONFIRMED
+2028-07-17,CLOSED,Marine Day,jp_marine_day,module:jp_marine_day,,,CONFIRMED
+2028-08-11,CLOSED,Mountain Day,jp_mountain_day,module:jp_mountain_day,,,CONFIRMED
+2028-09-18,CLOSED,Respect for the Aged Day,jp_respect_for_the_aged_day,module:jp_respect_for_the_aged_day,,,CONFIRMED
+2028-09-22,CLOSED,Autumnal Equinox Day,jp_autumnal_equinox_day_projected,module:jp_autumnal_equinox_day,,,PROJECTED
+2028-10-09,CLOSED,Sports Day,jp_sports_day,module:jp_sports_day,,,CONFIRMED
+2028-11-03,CLOSED,Culture Day,jp_culture_day,module:jp_culture_day,,,CONFIRMED
+2028-11-23,CLOSED,Labor Thanksgiving Day,jp_labour_thanksgiving_day,module:jp_labour_thanksgiving_day,,,CONFIRMED
+2029-01-01,CLOSED,New Year's Day,jp_new_years_day,module:jp_new_years_day,,,CONFIRMED
+2029-01-02,CLOSED,Market Holiday (New Year),jp_jpx_new_year_market_holiday,module:jp_jpx_market_holidays,,,CONFIRMED
+2029-01-03,CLOSED,Market Holiday (New Year),jp_jpx_new_year_market_holiday,module:jp_jpx_market_holidays,,,CONFIRMED
+2029-01-08,CLOSED,Coming of Age Day,jp_coming_of_age_day,module:jp_coming_of_age_day,,,CONFIRMED
+2029-02-12,CLOSED,National Foundation Day,jp_national_foundation_day,module:jp_national_foundation_day,2029-02-11,,CONFIRMED
+2029-02-23,CLOSED,Emperor's Birthday,jp_emperors_birthday,module:jp_emperors_birthday,,,CONFIRMED
+2029-03-20,CLOSED,Vernal Equinox Day,jp_vernal_equinox_day_projected,module:jp_vernal_equinox_day,,,PROJECTED
+2029-04-30,CLOSED,Showa Day,jp_showa_day,module:jp_showa_day,2029-04-29,,CONFIRMED
+2029-05-03,CLOSED,Constitution Memorial Day,jp_constitution_memorial_day,module:jp_constitution_memorial_day,,,CONFIRMED
+2029-05-04,CLOSED,Greenery Day,jp_greenery_day,module:jp_greenery_day,,,CONFIRMED
+2029-07-16,CLOSED,Marine Day,jp_marine_day,module:jp_marine_day,,,CONFIRMED
+2029-09-17,CLOSED,Respect for the Aged Day,jp_respect_for_the_aged_day,module:jp_respect_for_the_aged_day,,,CONFIRMED
+2029-09-24,CLOSED,Autumnal Equinox Day,jp_autumnal_equinox_day_projected,module:jp_autumnal_equinox_day,2029-09-23,,PROJECTED
+2029-10-08,CLOSED,Sports Day,jp_sports_day,module:jp_sports_day,,,CONFIRMED
+2029-11-23,CLOSED,Labor Thanksgiving Day,jp_labour_thanksgiving_day,module:jp_labour_thanksgiving_day,,,CONFIRMED
+2029-12-31,CLOSED,Market Holiday (year end),jp_jpx_year_end_market_holiday,module:jp_jpx_market_holidays,,,CONFIRMED
+2030-01-01,CLOSED,New Year's Day,jp_new_years_day,module:jp_new_years_day,,,CONFIRMED
+2030-01-02,CLOSED,Market Holiday (New Year),jp_jpx_new_year_market_holiday,module:jp_jpx_market_holidays,,,CONFIRMED
+2030-01-03,CLOSED,Market Holiday (New Year),jp_jpx_new_year_market_holiday,module:jp_jpx_market_holidays,,,CONFIRMED
+2030-01-14,CLOSED,Coming of Age Day,jp_coming_of_age_day,module:jp_coming_of_age_day,,,CONFIRMED
+2030-02-11,CLOSED,National Foundation Day,jp_national_foundation_day,module:jp_national_foundation_day,,,CONFIRMED
+2030-03-20,CLOSED,Vernal Equinox Day,jp_vernal_equinox_day_projected,module:jp_vernal_equinox_day,,,PROJECTED
+2030-04-29,CLOSED,Showa Day,jp_showa_day,module:jp_showa_day,,,CONFIRMED
+2030-05-03,CLOSED,Constitution Memorial Day,jp_constitution_memorial_day,module:jp_constitution_memorial_day,,,CONFIRMED
+2030-05-06,CLOSED,Children's Day,jp_childrens_day,module:jp_childrens_day,2030-05-05,,CONFIRMED
+2030-07-15,CLOSED,Marine Day,jp_marine_day,module:jp_marine_day,,,CONFIRMED
+2030-08-12,CLOSED,Mountain Day,jp_mountain_day,module:jp_mountain_day,2030-08-11,,CONFIRMED
+2030-09-16,CLOSED,Respect for the Aged Day,jp_respect_for_the_aged_day,module:jp_respect_for_the_aged_day,,,CONFIRMED
+2030-09-23,CLOSED,Autumnal Equinox Day,jp_autumnal_equinox_day_projected,module:jp_autumnal_equinox_day,,,PROJECTED
+2030-10-14,CLOSED,Sports Day,jp_sports_day,module:jp_sports_day,,,CONFIRMED
+2030-11-04,CLOSED,Culture Day,jp_culture_day,module:jp_culture_day,2030-11-03,,CONFIRMED
+2030-12-31,CLOSED,Market Holiday (year end),jp_jpx_year_end_market_holiday,module:jp_jpx_market_holidays,,,CONFIRMED

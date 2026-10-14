@@ -3,7 +3,7 @@
   "calendar_name" : "Hong Kong Exchanges and Clearing",
   "kind" : "market",
   "mic" : "XHKG",
-  "generated_at" : "2026-09-15T10:01:34Z",
+  "generated_at" : "2026-10-14T00:02:04Z",
   "range_start" : "2018-01-01",
   "range_end" : "2027-12-31",
   "timezone" : "Asia/Hong_Kong",
@@ -27,8 +27,8 @@
       "scope" : "UNSCHEDULED_EXCEPTIONS",
       "from" : "2018-01-01",
       "to" : "2024-09-22",
-      "quality" : "INCOMPLETE",
-      "evidence_ids" : [ "hkex-severe-weather-notices" ]
+      "quality" : "VERIFIED",
+      "evidence_ids" : [ "hko-warnings-database", "hkex-severe-weather-arrangements-2023", "hkex-swt-consultation-2023" ]
     }, {
       "scope" : "UNSCHEDULED_EXCEPTIONS",
       "from" : "2024-09-23",
@@ -37,19 +37,19 @@
       "evidence_ids" : [ "hkex-severe-weather-trading" ]
     } ]
   },
-  "event_count" : 1208,
-  "resolution_chain" : [ "module:weekend_sat_sun", "module:hk_new_years_day", "module:hk_lunar_new_year", "module:hk_ching_ming", "module:hk_good_friday", "module:hk_easter_monday", "module:hk_labour_day", "module:hk_buddhas_birthday", "module:hk_tuen_ng", "module:hk_hksar_establishment_day", "module:hk_mid_autumn", "module:hk_national_day", "module:hk_chung_yeung", "module:hk_christmas", "module:hk_hkex_early_closes", "module:hk_hkex_holidays", "calendar:HK-HKEX" ],
+  "event_count" : 1216,
+  "resolution_chain" : [ "module:weekend_sat_sun", "module:hk_new_years_day", "module:hk_lunar_new_year", "module:hk_ching_ming", "module:hk_good_friday", "module:hk_easter_monday", "module:hk_labour_day", "module:hk_buddhas_birthday", "module:hk_tuen_ng", "module:hk_hksar_establishment_day", "module:hk_mid_autumn", "module:hk_national_day", "module:hk_chung_yeung", "module:hk_christmas", "module:hk_hkex_early_closes", "module:hk_hkex_severe_weather", "module:hk_hkex_holidays", "calendar:HK-HKEX" ],
   "counts_by_type" : {
-    "CLOSED" : 141,
+    "CLOSED" : 147,
     "WEEKEND" : 1042,
-    "EARLY_CLOSE" : 25
+    "EARLY_CLOSE" : 27
   },
   "counts_by_status" : {
-    "CONFIRMED" : 1208
+    "CONFIRMED" : 1216
   },
   "source_version" : {
-    "semantic" : "12.0.0",
-    "git_sha" : "e694faa4119f45ae284deefc496729f119fc16af"
+    "semantic" : "13.0.0",
+    "git_sha" : "1f63234a07eb72cc08a8c0d451983be39e88b2ae"
   },
   "event_details" : [ {
     "date" : "2018-01-01",
@@ -486,6 +486,17 @@
     "evidence_ids" : [ "govhk-general-holidays", "hkex-calendar" ],
     "observation_lineage" : [ ]
   }, {
+    "date" : "2019-07-31",
+    "type" : "EARLY_CLOSE",
+    "description" : "Severe Weather Early Termination (Tropical Storm Wipha, Typhoon Signal No. 8 issued 13:40)",
+    "key" : "hk_hkex_severe_weather_early_termination",
+    "source_module" : "module:hk_hkex_severe_weather",
+    "observed_from" : null,
+    "close_time" : "13:55",
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "hkex-trading-suspended-2022-11-02", "hkex-trading-terminated-2019-07-31", "hko-warnings-database" ],
+    "observation_lineage" : [ ]
+  }, {
     "date" : "2019-10-01",
     "type" : "CLOSED",
     "description" : "National Day",
@@ -740,6 +751,17 @@
     "chronology_profile" : "modern-chinese-fixed-utc+08:00",
     "chronology_provider" : "ICU4J 78.3"
   }, {
+    "date" : "2020-10-13",
+    "type" : "CLOSED",
+    "description" : "Severe Weather Closure (Tropical Storm Nangka, Typhoon Signal No. 8)",
+    "key" : "hk_hkex_severe_weather_closure",
+    "source_module" : "module:hk_hkex_severe_weather",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "hkex-no-trading-2020-10-13", "hkex-no-trading-2021-10-13", "hkex-no-trading-2023-07-17", "hkex-no-trading-2023-09-01", "hkex-no-trading-2023-09-08", "hkex-no-trading-2024-09-06", "hko-warnings-database" ],
+    "observation_lineage" : [ ]
+  }, {
     "date" : "2020-10-26",
     "type" : "CLOSED",
     "description" : "Chung Yeung Festival",
@@ -970,6 +992,17 @@
     "close_time" : null,
     "status" : "CONFIRMED",
     "evidence_ids" : [ "govhk-general-holidays", "hkex-calendar" ],
+    "observation_lineage" : [ ]
+  }, {
+    "date" : "2021-10-13",
+    "type" : "CLOSED",
+    "description" : "Severe Weather Closure (Severe Tropical Storm Kompasu, Typhoon Signal No. 8)",
+    "key" : "hk_hkex_severe_weather_closure",
+    "source_module" : "module:hk_hkex_severe_weather",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "hkex-no-trading-2020-10-13", "hkex-no-trading-2021-10-13", "hkex-no-trading-2023-07-17", "hkex-no-trading-2023-09-01", "hkex-no-trading-2023-09-08", "hkex-no-trading-2024-09-06", "hko-warnings-database" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2021-10-14",
@@ -1231,6 +1264,17 @@
     "chronology_profile" : "modern-chinese-fixed-utc+08:00",
     "chronology_provider" : "ICU4J 78.3"
   }, {
+    "date" : "2022-11-02",
+    "type" : "EARLY_CLOSE",
+    "description" : "Severe Weather Early Termination (Severe Tropical Storm Nalgae, Typhoon Signal No. 8 issued 13:40)",
+    "key" : "hk_hkex_severe_weather_early_termination",
+    "source_module" : "module:hk_hkex_severe_weather",
+    "observed_from" : null,
+    "close_time" : "13:55",
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "hkex-trading-suspended-2022-11-02", "hkex-trading-terminated-2019-07-31", "hko-warnings-database" ],
+    "observation_lineage" : [ ]
+  }, {
     "date" : "2022-12-26",
     "type" : "CLOSED",
     "description" : "The first weekday after Christmas Day",
@@ -1402,6 +1446,39 @@
     },
     "chronology_profile" : "modern-chinese-fixed-utc+08:00",
     "chronology_provider" : "ICU4J 78.3"
+  }, {
+    "date" : "2023-07-17",
+    "type" : "CLOSED",
+    "description" : "Severe Weather Closure (Severe Tropical Storm Talim, Typhoon Signal No. 8)",
+    "key" : "hk_hkex_severe_weather_closure",
+    "source_module" : "module:hk_hkex_severe_weather",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "hkex-no-trading-2020-10-13", "hkex-no-trading-2021-10-13", "hkex-no-trading-2023-07-17", "hkex-no-trading-2023-09-01", "hkex-no-trading-2023-09-08", "hkex-no-trading-2024-09-06", "hko-warnings-database" ],
+    "observation_lineage" : [ ]
+  }, {
+    "date" : "2023-09-01",
+    "type" : "CLOSED",
+    "description" : "Severe Weather Closure (Super Typhoon Saola, Typhoon Signal No. 8 to No. 10)",
+    "key" : "hk_hkex_severe_weather_closure",
+    "source_module" : "module:hk_hkex_severe_weather",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "hkex-no-trading-2020-10-13", "hkex-no-trading-2021-10-13", "hkex-no-trading-2023-07-17", "hkex-no-trading-2023-09-01", "hkex-no-trading-2023-09-08", "hkex-no-trading-2024-09-06", "hko-warnings-database" ],
+    "observation_lineage" : [ ]
+  }, {
+    "date" : "2023-09-08",
+    "type" : "CLOSED",
+    "description" : "Severe Weather Closure (Black Rainstorm Warning and Extreme Conditions)",
+    "key" : "hk_hkex_severe_weather_closure",
+    "source_module" : "module:hk_hkex_severe_weather",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "hkex-no-trading-2020-10-13", "hkex-no-trading-2021-10-13", "hkex-no-trading-2023-07-17", "hkex-no-trading-2023-09-01", "hkex-no-trading-2023-09-08", "hkex-no-trading-2024-09-06", "hko-warnings-database" ],
+    "observation_lineage" : [ ]
   }, {
     "date" : "2023-10-02",
     "type" : "CLOSED",
@@ -1614,6 +1691,17 @@
     "close_time" : null,
     "status" : "CONFIRMED",
     "evidence_ids" : [ "govhk-general-holidays", "hkex-calendar" ],
+    "observation_lineage" : [ ]
+  }, {
+    "date" : "2024-09-06",
+    "type" : "CLOSED",
+    "description" : "Severe Weather Closure (Super Typhoon Yagi, Typhoon Signal No. 8)",
+    "key" : "hk_hkex_severe_weather_closure",
+    "source_module" : "module:hk_hkex_severe_weather",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "hkex-no-trading-2020-10-13", "hkex-no-trading-2021-10-13", "hkex-no-trading-2023-07-17", "hkex-no-trading-2023-09-01", "hkex-no-trading-2023-09-08", "hkex-no-trading-2024-09-06", "hko-warnings-database" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2024-09-18",

@@ -11,14 +11,14 @@
       "verified_through" : "2026-12-31"
     },
     "counts_by_type" : {
-      "CLOSED" : 127,
+      "CLOSED" : 126,
       "WEEKEND" : 2168,
-      "EARLY_CLOSE" : 29
+      "EARLY_CLOSE" : 30
     },
     "counts_by_status" : {
       "CONFIRMED" : 2324
     },
-    "checksum" : "sha256:2911e892195b38a6e9b53785ee42e6edcea6d5b11915ef44ef0f42684d8ec79d",
+    "checksum" : "sha256:f2651124e9777663f9d00fe0e822558038b99d9de7f4b2a8cc814716c93ed6d3",
     "years" : [ 2010, 2030 ],
     "href" : "calendars/BE-EURONEXT-BRUSSELS/manifest.json"
   }, {
@@ -34,14 +34,14 @@
     },
     "counts_by_type" : {
       "WEEKEND" : 3236,
-      "CLOSED" : 302,
-      "EARLY_CLOSE" : 8
+      "CLOSED" : 304,
+      "EARLY_CLOSE" : 16
     },
     "counts_by_status" : {
-      "CONFIRMED" : 3542,
+      "CONFIRMED" : 3552,
       "PROJECTED" : 4
     },
-    "checksum" : "sha256:e3990abc8d46393df7fd25ed647770bff025f0dc03034d88792aed52592b00c4",
+    "checksum" : "sha256:96981e7855dbd8e1ded3306c90c268451d8154f530f65cca342fe2da9d97e719",
     "years" : [ 2000, 2030 ],
     "href" : "calendars/CA-TSX/manifest.json"
   }, {
@@ -98,14 +98,14 @@
       "verified_through" : "2026-12-31"
     },
     "counts_by_type" : {
-      "CLOSED" : 127,
+      "CLOSED" : 126,
       "WEEKEND" : 2168,
-      "EARLY_CLOSE" : 29
+      "EARLY_CLOSE" : 30
     },
     "counts_by_status" : {
       "CONFIRMED" : 2324
     },
-    "checksum" : "sha256:2911e892195b38a6e9b53785ee42e6edcea6d5b11915ef44ef0f42684d8ec79d",
+    "checksum" : "sha256:f2651124e9777663f9d00fe0e822558038b99d9de7f4b2a8cc814716c93ed6d3",
     "years" : [ 2010, 2030 ],
     "href" : "calendars/FR-EURONEXT-PARIS/manifest.json"
   }, {
@@ -163,14 +163,14 @@
       "verified_through" : "2027-12-31"
     },
     "counts_by_type" : {
-      "CLOSED" : 141,
+      "CLOSED" : 147,
       "WEEKEND" : 1042,
-      "EARLY_CLOSE" : 25
+      "EARLY_CLOSE" : 27
     },
     "counts_by_status" : {
-      "CONFIRMED" : 1208
+      "CONFIRMED" : 1216
     },
-    "checksum" : "sha256:7816d1a238a72cc8105892e7ab8cd14b6185b477943185c4157854a56f54310e",
+    "checksum" : "sha256:99f9600b49a1a84fc9028c1b542002e2f9637b4a06d68ab4f40c0e3fe1868554",
     "years" : [ 2018, 2027 ],
     "href" : "calendars/HK-HKEX/manifest.json"
   }, {
@@ -181,19 +181,19 @@
     "aliases" : [ "TASE" ],
     "coverage" : {
       "from" : "2025-01-01",
-      "to" : "2027-12-31",
-      "verified_through" : "2025-12-31"
+      "to" : "2028-12-31",
+      "verified_through" : "2028-12-31"
     },
     "counts_by_type" : {
-      "WEEKEND" : 310,
-      "CLOSED" : 19,
-      "EARLY_CLOSE" : 12
+      "WEEKEND" : 404,
+      "CLOSED" : 78,
+      "EARLY_CLOSE" : 157
     },
     "counts_by_status" : {
-      "CONFIRMED" : 341
+      "CONFIRMED" : 639
     },
-    "checksum" : "sha256:65833fed51d56855f28d31a3d26ff3f289c5f364293c2844725be04cc60f3762",
-    "years" : [ 2025, 2027 ],
+    "checksum" : "sha256:860847da74c6af4cdf03edec7e7abca09abac869d7401ad1ae49b158168fe946",
+    "years" : [ 2025, 2028 ],
     "href" : "calendars/IL-TASE/manifest.json"
   }, {
     "id" : "JP-JPX",
@@ -229,14 +229,14 @@
       "verified_through" : "2026-12-31"
     },
     "counts_by_type" : {
-      "CLOSED" : 127,
+      "CLOSED" : 126,
       "WEEKEND" : 2168,
-      "EARLY_CLOSE" : 29
+      "EARLY_CLOSE" : 30
     },
     "counts_by_status" : {
       "CONFIRMED" : 2324
     },
-    "checksum" : "sha256:2911e892195b38a6e9b53785ee42e6edcea6d5b11915ef44ef0f42684d8ec79d",
+    "checksum" : "sha256:f2651124e9777663f9d00fe0e822558038b99d9de7f4b2a8cc814716c93ed6d3",
     "years" : [ 2010, 2030 ],
     "href" : "calendars/NL-EURONEXT-AMSTERDAM/manifest.json"
   }, {
@@ -251,14 +251,14 @@
       "verified_through" : "2026-12-31"
     },
     "counts_by_type" : {
-      "CLOSED" : 127,
+      "CLOSED" : 126,
       "WEEKEND" : 2168,
-      "EARLY_CLOSE" : 29
+      "EARLY_CLOSE" : 30
     },
     "counts_by_status" : {
       "CONFIRMED" : 2324
     },
-    "checksum" : "sha256:5f1f1df0a89a74e2108aa4c765f35bfde3a3b6c6d2510ad2935b4af49a65d2dc",
+    "checksum" : "sha256:532ef13c3d8c7e2b81f1b54a25be114567d11f15219b6b30029c96a0b525f92c",
     "years" : [ 2010, 2030 ],
     "href" : "calendars/PT-EURONEXT-LISBON/manifest.json"
   }, {
@@ -273,14 +273,14 @@
       "verified_through" : "2029-12-31"
     },
     "counts_by_type" : {
-      "WEEKEND" : 1084,
-      "CLOSED" : 187
+      "WEEKEND" : 1082,
+      "CLOSED" : 195
     },
     "counts_by_status" : {
-      "CONFIRMED" : 1255,
+      "CONFIRMED" : 1261,
       "PROJECTED" : 16
     },
-    "checksum" : "sha256:7abe60d0b866382dae15d4ab78bab9286fdceb737781776c08abcf3972a4bbe1",
+    "checksum" : "sha256:4f4ab3f4bab7908c22be6d0c57c396198c61774aae165451f3b609d624ffce4e",
     "years" : [ 2020, 2030 ],
     "href" : "calendars/SA-TADAWUL/manifest.json"
   }, {
@@ -328,9 +328,9 @@
     "href" : "calendars/US-NYSE/manifest.json"
   } ],
   "release" : {
-    "semantic" : "12.0.0",
-    "git_sha" : "e694faa4119f45ae284deefc496729f119fc16af",
-    "generation_date" : "2026-09-15"
+    "semantic" : "13.0.0",
+    "git_sha" : "1f63234a07eb72cc08a8c0d451983be39e88b2ae",
+    "generation_date" : "2026-10-14"
   },
   "generated_at" : "2026-06-01T00:00:00Z",
   "schema_version" : "1.0",

@@ -13,10 +13,13 @@ metadata:
     holidays retain CHINESE_HK native origins and Ching Ming uses a bounded HKO reference
     table. Every resulting closure remains bounded to, and confirmed against, the Government and
     exchange schedules through the last gazetted year (2027); computed future dates are not
-    published as confirmed holidays. Unscheduled closures for typhoons and black rainstorms are
-    out of scope: they are
-    announced on the day, are not part of any published schedule, and are not modelled here
-    (HKEX moved to trading through severe weather on 23 September 2024).
+    published as confirmed holidays. Unscheduled severe-weather closures before HKEX began
+    trading through severe weather on 23 September 2024 are modelled as explicit, individually
+    cited dates: six whole-day cancellations (Typhoon Signal No. 8 or above, a Black Rainstorm
+    Warning or Extreme Conditions in force at noon) and two afternoon sessions terminated at
+    13:55 when Signal No. 8 was issued mid-session. Days on which only the morning session was
+    cancelled traded to the scheduled close and are ordinary business days; a late open is not
+    an event in this model.
   chronology: ISO
   timezone: Asia/Hong_Kong
   mic: XHKG
@@ -36,13 +39,16 @@ metadata:
         quality: VERIFIED
         evidence_ids: [hkex-calendar, hkex-calendar-archived, hkex-securities-trading-hours]
       # Before severe-weather trading began, same-day typhoon/rainstorm cancellations were
-      # possible and are absent from this scheduled calendar. Known examples therefore make the
-      # actual day state incomplete even though assessment() can still report scheduled_state.
+      # possible. They are enumerated exhaustively from the Observatory's warnings database and
+      # the exchange's published arrangements, every affected day is cited to its own HKEX
+      # notice (see modules/holidays/hk_hkex_severe_weather.yaml), and HKEX's own count of
+      # closures since 2018 corroborates the set, so this interval is verified rather than
+      # incomplete.
       - scope: UNSCHEDULED_EXCEPTIONS
         from: 2018-01-01
         to: 2024-09-22
-        quality: INCOMPLETE
-        evidence_ids: [hkex-severe-weather-notices]
+        quality: VERIFIED
+        evidence_ids: [hko-warnings-database, hkex-severe-weather-arrangements-2023, hkex-swt-consultation-2023]
       - scope: UNSCHEDULED_EXCEPTIONS
         from: 2024-09-23
         to: 2027-12-31

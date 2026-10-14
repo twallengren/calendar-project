@@ -154,6 +154,594 @@
       "notes": "**Not a primary source and not cited by any event source.** Cross-validation reference only. It agrees with this calendar on all 315 compared rows, including the six pre-2022 preceding-Friday half days that no primary document we located covers (2000, 2005, 2006, 2011, 2016, 2017); that agreement is reported here as corroboration, but those six dates are justified by the LSE's own published shift behaviour (`lse-trading-calendar-2022`, `lse-trading-calendar-2023`, `lse-business-days` 2028), not by the library.",
       "local_files": [],
       "support_intervals": []
+    },
+    {
+      "id": "lse-smf-dec-2012",
+      "title": "Secondary Markets Factsheet, December 2012 (tables T1 Trading Summary and T3 Monthly Order Book Trading)",
+      "publisher": "London Stock Exchange",
+      "location": "https://docs.londonstockexchange.com/sites/default/files/reports/Secondary%20Markets%20factsheet%20December%202012.xls",
+      "retrieved": "2026-10-14",
+      "covers": "2000-01-01 to 2012-12-31",
+      "notes": "The exchange's own monthly trading-day counts from October 1997 to December 2012 (table T3) and the 2011-2012 year totals (T1). Every month and year from 2000 equals the modelled count of weekdays less scheduled closures, including the months of every known disruption (April 2000: 18, September 2001: 20, July 2005: 21, November 2007: 22, September 2008: 22, October and November 2009: 22 and 21, February 2011: 20), so each disrupted day counted as a trading day. T3's May and August 2012 rows print raw weekday counts (23); T1's 2012 total of 252 and the May 2012 Monthly Market Report (22 trading days on the LSE, 23 on Turquoise) settle the year at the modelled count.",
+      "local_files": [
+        {
+          "path": "GB-LSE/lse-secondary-markets-factsheet-2012-12.xls",
+          "sha256": "7e15ee683604dc96e14499f2c14b506d28a0dc082f8fe5ec0820cd4aed8d2f46"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2000-01-01",
+          "to": "2012-12-31"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2000-01-01",
+          "to": "2012-12-31"
+        }
+      ]
+    },
+    {
+      "id": "lse-smf-dec-2013",
+      "title": "Secondary Markets Factsheet, December 2013",
+      "publisher": "London Stock Exchange",
+      "location": "https://docs.londonstockexchange.com/sites/default/files/reports/Secondary%20Markets%20factsheet%20December%202013.xls",
+      "retrieved": "2026-10-14",
+      "covers": "2012-01-01 to 2013-12-31",
+      "notes": "The exchange's own trading-day count for 2013 and, restated, 2012 (\"Trading Days year to date\"); both equal the modelled count of weekdays less scheduled closures. Restates 2012 as 251 against the December 2012 factsheet's 252; the monthly reports settle 2012 at 252, the modelled count.",
+      "local_files": [
+        {
+          "path": "GB-LSE/lse-secondary-markets-factsheet-2013-12.xls",
+          "sha256": "7df1ebd73004a724a23153a137fafb39282a5f00e990d3d5260e2e9e8ac01e73"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2012-01-01",
+          "to": "2013-12-31"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2012-01-01",
+          "to": "2013-12-31"
+        }
+      ]
+    },
+    {
+      "id": "lse-smf-dec-2014",
+      "title": "Secondary Markets Factsheet, December 2014",
+      "publisher": "London Stock Exchange",
+      "location": "https://docs.londonstockexchange.com/sites/default/files/reports/Secondary%20Markets%20factsheet%20December%202014.xls",
+      "retrieved": "2026-10-14",
+      "covers": "2013-01-01 to 2014-12-31",
+      "notes": "The exchange's own trading-day count for 2014 and, restated, 2013 (\"Trading Days year to date\"); both equal the modelled count of weekdays less scheduled closures.",
+      "local_files": [
+        {
+          "path": "GB-LSE/lse-secondary-markets-factsheet-2014-12.xls",
+          "sha256": "f9ec9b7659c343e5ac679dd05747a825c396d362d24fe06927911dddc650d6e5"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2013-01-01",
+          "to": "2014-12-31"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2013-01-01",
+          "to": "2014-12-31"
+        }
+      ]
+    },
+    {
+      "id": "lse-smf-dec-2015",
+      "title": "Secondary Markets Factsheet, December 2015",
+      "publisher": "London Stock Exchange",
+      "location": "https://docs.londonstockexchange.com/sites/default/files/reports/Secondary%20Markets%20factsheet%20December%202015.xls",
+      "retrieved": "2026-10-14",
+      "covers": "2014-01-01 to 2015-12-31",
+      "notes": "The exchange's own trading-day count for 2015 and, restated, 2014 (\"Trading Days year to date\"); both equal the modelled count of weekdays less scheduled closures.",
+      "local_files": [
+        {
+          "path": "GB-LSE/lse-secondary-markets-factsheet-2015-12.xls",
+          "sha256": "40cf8d293338642fea9124e3ed69994d6f14f411b1d7f475dc54812d8018a593"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2014-01-01",
+          "to": "2015-12-31"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2014-01-01",
+          "to": "2015-12-31"
+        }
+      ]
+    },
+    {
+      "id": "lse-smf-dec-2016",
+      "title": "Secondary Markets Factsheet, December 2016",
+      "publisher": "London Stock Exchange",
+      "location": "https://docs.londonstockexchange.com/sites/default/files/reports/Secondary%20Markets%20factsheet%20December%202016.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2015-01-01 to 2016-12-31",
+      "notes": "The exchange's own trading-day count for 2016 and, restated, 2015 (\"Trading Days year to date\"); both equal the modelled count of weekdays less scheduled closures.",
+      "local_files": [
+        {
+          "path": "GB-LSE/lse-secondary-markets-factsheet-2016-12.pdf",
+          "sha256": "bd425b11e982c89c90486e1a1adae01a2d3d0ff10f5556095e4d3890c975a388"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2015-01-01",
+          "to": "2016-12-31"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2015-01-01",
+          "to": "2016-12-31"
+        }
+      ]
+    },
+    {
+      "id": "lse-smf-dec-2017",
+      "title": "Secondary Markets Factsheet, December 2017",
+      "publisher": "London Stock Exchange",
+      "location": "https://docs.londonstockexchange.com/sites/default/files/reports/Secondary%20Markets%20factsheet%20December%202017.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2016-01-01 to 2017-12-31",
+      "notes": "The exchange's own trading-day count for 2017 and, restated, 2016 (\"Trading Days year to date\"); both equal the modelled count of weekdays less scheduled closures.",
+      "local_files": [
+        {
+          "path": "GB-LSE/lse-secondary-markets-factsheet-2017-12.pdf",
+          "sha256": "c7f9a00199604f337b8675e3a4dd00aeb8450d9d632d8e773c63a340c744920d"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2016-01-01",
+          "to": "2017-12-31"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2016-01-01",
+          "to": "2017-12-31"
+        }
+      ]
+    },
+    {
+      "id": "lse-smf-dec-2018",
+      "title": "Secondary Markets Factsheet, December 2018",
+      "publisher": "London Stock Exchange",
+      "location": "https://docs.londonstockexchange.com/sites/default/files/reports/Secondary%20Markets%20factsheet%20December%202018.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2017-01-01 to 2018-12-31",
+      "notes": "The exchange's own trading-day count for 2018 and, restated, 2017 (\"Trading Days year to date\"); both equal the modelled count of weekdays less scheduled closures.",
+      "local_files": [
+        {
+          "path": "GB-LSE/lse-secondary-markets-factsheet-2018-12.pdf",
+          "sha256": "e3c6e3eba29c26e73128377df40aa7c97a29ffcef588da4916196af46ae70e28"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2017-01-01",
+          "to": "2018-12-31"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2017-01-01",
+          "to": "2018-12-31"
+        }
+      ]
+    },
+    {
+      "id": "lse-smf-dec-2019",
+      "title": "Secondary Markets Factsheet, December 2019",
+      "publisher": "London Stock Exchange",
+      "location": "https://docs.londonstockexchange.com/sites/default/files/reports/Secondary%20Markets%20factsheet%20December%202019.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2018-01-01 to 2019-12-31",
+      "notes": "The exchange's own trading-day count for 2019 and, restated, 2018 (\"Trading Days year to date\"); both equal the modelled count of weekdays less scheduled closures.",
+      "local_files": [
+        {
+          "path": "GB-LSE/lse-secondary-markets-factsheet-2019-12.pdf",
+          "sha256": "6ddf2986872bb903f21377d209aa368b3297a4274c2c245ad791aab2bcda1b57"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2018-01-01",
+          "to": "2019-12-31"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2018-01-01",
+          "to": "2019-12-31"
+        }
+      ]
+    },
+    {
+      "id": "lse-smf-dec-2020",
+      "title": "Secondary Markets Factsheet, December 2020",
+      "publisher": "London Stock Exchange",
+      "location": "https://docs.londonstockexchange.com/sites/default/files/reports/Secondary%20Markets%20factsheet%20December%202020.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2019-01-01 to 2020-12-31",
+      "notes": "The exchange's own trading-day count for 2020 and, restated, 2019 (\"Trading Days year to date\"); both equal the modelled count of weekdays less scheduled closures.",
+      "local_files": [
+        {
+          "path": "GB-LSE/lse-secondary-markets-factsheet-2020-12.pdf",
+          "sha256": "9c2153ad12ada3f70ec29a95e6c39e31e89284ef7469df96359e1eed6f5a529d"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2019-01-01",
+          "to": "2020-12-31"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2019-01-01",
+          "to": "2020-12-31"
+        }
+      ]
+    },
+    {
+      "id": "lse-smf-dec-2021",
+      "title": "Secondary Markets Factsheet, December 2021",
+      "publisher": "London Stock Exchange",
+      "location": "https://docs.londonstockexchange.com/sites/default/files/reports/Secondary%20Markets%20factsheet%20December%202021.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2020-01-01 to 2021-12-31",
+      "notes": "The exchange's own trading-day count for 2021 and, restated, 2020 (\"Trading Days year to date\"); both equal the modelled count of weekdays less scheduled closures.",
+      "local_files": [
+        {
+          "path": "GB-LSE/lse-secondary-markets-factsheet-2021-12.pdf",
+          "sha256": "7feebee78dbb0805e385d835721d4f7650cfe268f368bffeea55bb935449e04a"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2020-01-01",
+          "to": "2021-12-31"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2020-01-01",
+          "to": "2021-12-31"
+        }
+      ]
+    },
+    {
+      "id": "lse-smf-dec-2022",
+      "title": "Secondary Markets Factsheet, December 2022",
+      "publisher": "London Stock Exchange",
+      "location": "https://docs.londonstockexchange.com/sites/default/files/reports/Secondary%20Markets%20factsheet%20December%202022.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2021-01-01 to 2022-12-31",
+      "notes": "The exchange's own trading-day count for 2022 and, restated, 2021 (\"Trading Days year to date\"); both equal the modelled count of weekdays less scheduled closures.",
+      "local_files": [
+        {
+          "path": "GB-LSE/lse-secondary-markets-factsheet-2022-12.pdf",
+          "sha256": "15fc4d8f6d46635e6968dc464319388829cc5f4c06b5add472998b9effc61f08"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2021-01-01",
+          "to": "2022-12-31"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2021-01-01",
+          "to": "2022-12-31"
+        }
+      ]
+    },
+    {
+      "id": "lse-smf-dec-2023",
+      "title": "Secondary Markets Factsheet, December 2023",
+      "publisher": "London Stock Exchange",
+      "location": "https://docs.londonstockexchange.com/sites/default/files/reports/Secondary%20Markets%20factsheet%20December%202023.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2022-01-01 to 2023-12-31",
+      "notes": "The exchange's own trading-day count for 2023 and, restated, 2022 (\"Trading Days year to date\"); both equal the modelled count of weekdays less scheduled closures.",
+      "local_files": [
+        {
+          "path": "GB-LSE/lse-secondary-markets-factsheet-2023-12.pdf",
+          "sha256": "d57443d2d790d7b1f31a4128aa1d11ccc8a3b4b9ac5c4e9e221a0d74f619b2c4"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2022-01-01",
+          "to": "2023-12-31"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2022-01-01",
+          "to": "2023-12-31"
+        }
+      ]
+    },
+    {
+      "id": "lse-smf-dec-2024",
+      "title": "Secondary Markets Factsheet, December 2024",
+      "publisher": "London Stock Exchange",
+      "location": "https://docs.londonstockexchange.com/sites/default/files/reports/Secondary%20Markets%20factsheet%20December%202024.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2023-01-01 to 2024-12-31",
+      "notes": "The exchange's own trading-day count for 2024 and, restated, 2023 (\"Trading Days year to date\"); both equal the modelled count of weekdays less scheduled closures.",
+      "local_files": [
+        {
+          "path": "GB-LSE/lse-secondary-markets-factsheet-2024-12.pdf",
+          "sha256": "1eb79ebcc1fe17f0caea23255999e1d9c82548f46195af13aef0041b5cf21cf4"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2023-01-01",
+          "to": "2024-12-31"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2023-01-01",
+          "to": "2024-12-31"
+        }
+      ]
+    },
+    {
+      "id": "lse-smf-dec-2025",
+      "title": "Secondary Markets Factsheet, December 2025",
+      "publisher": "London Stock Exchange",
+      "location": "https://docs.londonstockexchange.com/sites/default/files/reports/Secondary%20Markets%20factsheet%20December%202025.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2024-01-01 to 2025-12-31",
+      "notes": "The exchange's own trading-day count for 2025 and, restated, 2024 (\"Trading Days year to date\"); both equal the modelled count of weekdays less scheduled closures.",
+      "local_files": [
+        {
+          "path": "GB-LSE/lse-secondary-markets-factsheet-2025-12.pdf",
+          "sha256": "22a3ed33b9d96c2332c52aa32b7700b6ef3cf7cf6fd4f155097d5e29a347af55"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2024-01-01",
+          "to": "2025-12-31"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2024-01-01",
+          "to": "2025-12-31"
+        }
+      ]
+    },
+    {
+      "id": "lse-smf-sep-2026",
+      "title": "Secondary Markets Factsheet, September 2026",
+      "publisher": "London Stock Exchange",
+      "location": "https://docs.londonstockexchange.com/sites/default/files/reports/Secondary%20Markets%20factsheet%20September%202026.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2026-01-01 to 2026-09-30",
+      "notes": "189 trading days year to date through 30 September 2026 (and 189 for the same period of 2025), equal to the modelled count; the latest published month bounds the verified interval.",
+      "local_files": [
+        {
+          "path": "GB-LSE/lse-secondary-markets-factsheet-2026-09.pdf",
+          "sha256": "bd73ea1bcb7df11031e5ac19212a0844e1c2956e739af7cc19bfc9f8b360e89d"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2026-01-01",
+          "to": "2026-09-30"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2026-01-01",
+          "to": "2026-09-30"
+        }
+      ]
+    },
+    {
+      "id": "lseg-release-2008-01-09",
+      "title": "Over 200 million electronic equity trades during 2007 (9 January 2008)",
+      "publisher": "London Stock Exchange Group (via Borsa Italiana)",
+      "location": "https://www.borsaitaliana.it/borsaitaliana/ufficio-stampa/comunicati-stampa/2008/080109datigennaio.en.htm",
+      "retrieved": "2026-10-14",
+      "covers": "2006-01-01 to 2007-12-31",
+      "notes": "States 253 trading days in 2007 and 252 in 2006 (and 19 in December 2007), equal to the modelled counts; corroborates the factsheet T3 months for those years. The December 2008 report (https://www.borsaitaliana.it/borsaitaliana/ufficio-stampa/comunicati-stampa/2009/090109-monthly-report-dicembre-08.en.htm) likewise states \"254 trading days on the London Stock Exchange in 2008, one more than during 2007\", and the December 2004 report (https://mondovisione.com/news/monthly-market-report-for-december-2004-december-trading-highlights-a-strong-200-2011124/) \"254 trading days in the year as a whole, compared with 253 in 2003\".",
+      "local_files": [
+        {
+          "path": "GB-LSE/lseg-release-2008-01-09.pdf",
+          "sha256": "0e76d815dc8e60ad74c85c125dbc6745d7c1427fa5375b0397d031dd2bbdecc9"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2003-01-01",
+          "to": "2008-12-31"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2003-01-01",
+          "to": "2008-12-31"
+        }
+      ]
+    },
+    {
+      "id": "lse-rns-2000-04-05",
+      "title": "Market Announcement, 5 April 2000",
+      "publisher": "London Stock Exchange (RNS; also republished by Mondo Visione)",
+      "location": "https://investegate.co.uk/announcement/rns/london-stock-exchange-group--lseg/market-announcement-/165639",
+      "retrieved": "2026-10-14",
+      "covers": "2000-04-05",
+      "notes": "The exchange's announcement of the delayed open at 15:45 and the extension of the close to 18:30 on 5 April 2000: a trading day with a late open, not a closure.",
+      "local_files": [],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2000-04-05",
+          "to": "2000-04-05"
+        }
+      ]
+    },
+    {
+      "id": "lse-service-update-2008-09-08",
+      "title": "Service Announcement: Service Update 7 and Service Update 8, 8 September 2008",
+      "publisher": "London Stock Exchange (republished by Mondo Visione)",
+      "location": "https://mondovisione.com/media-and-resources/news/london-stock-exchange-service-announcement-service-update-8--2011124/ (Update 7: https://mondovisione.com/news/london-stock-exchange-service-announcement-service-update-7-2011124/)",
+      "retrieved": "2026-10-14",
+      "covers": "2008-09-08",
+      "notes": "The connectivity outage of 8 September 2008: reconnection from 14:45, an auction, continuous trading from 16:00 and \"we will close as normal at 4.30\" (the exchange's spokeswoman as quoted by The Register); September 2008 counts 22 trading days in the exchange's own statistics. A trading day with a seven-hour halt, not a closure.",
+      "local_files": [],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2008-09-08",
+          "to": "2008-09-08"
+        }
+      ]
+    },
+    {
+      "id": "lse-statement-2009-11-26",
+      "title": "Statement following trading disruption, 26 November 2009",
+      "publisher": "London Stock Exchange (republished by Mondo Visione)",
+      "location": "https://mondovisione.com/media-and-resources/news/london-stock-exchange-statement-following-trading-disruption-2011124/",
+      "retrieved": "2026-10-14",
+      "covers": "2009-11-26",
+      "notes": "Halt from 10:33 with continuous trading resumed at 14:00 and a normal close; November 2009 counts 21 trading days in the exchange's statistics (9 and 26 November both counted).",
+      "local_files": [],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2009-11-26",
+          "to": "2009-11-26"
+        }
+      ]
+    },
+    {
+      "id": "lseg-statement-2011-02-25",
+      "title": "London Stock Exchange Group cash equity markets resume trading / Resumption of continuous trading, 25 February 2011",
+      "publisher": "London Stock Exchange Group (republished by Mondo Visione)",
+      "location": "https://mondovisione.com/media-and-resources/news/london-stock-exchange-group-cash-equity-markets-resume-trading-2011225/ ; https://mondovisione.com/media-and-resources/news/london-stock-exchange-resumption-of-continuous-trading-2011225/",
+      "retrieved": "2026-10-14",
+      "covers": "2011-02-25",
+      "notes": "Trading paused at 08:03, halted at 08:33 and resumed at 12:15; the exchange \"does not intend to extend its scheduled trading hours\", so the day closed normally. February 2011 counts 20 trading days in the exchange's statistics.",
+      "local_files": [],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2011-02-25",
+          "to": "2011-02-25"
+        }
+      ]
+    },
+    {
+      "id": "lse-market-notice-n15-22",
+      "title": "Market Notice N15/22 - Trading Update, 9 September 2022",
+      "publisher": "London Stock Exchange",
+      "location": "https://docs.londonstockexchange.com/sites/default/files/documents/n1522.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2022-09-09",
+      "notes": "After the death of Queen Elizabeth II: \"all ... markets will open as normal today and will close at the normal times\". Negative evidence for the mourning period.",
+      "local_files": [
+        {
+          "path": "GB-LSE/lse-market-notice-n15-22.pdf",
+          "sha256": "eab50a7c1098e4e6df221a70acdb63c9c4a5efee93b7eb1d294916e6a34fb80e"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2022-09-09",
+          "to": "2022-09-18"
+        }
+      ]
+    },
+    {
+      "id": "lse-market-notice-n16-22",
+      "title": "Market Notice N16/22 - Trading Update, 12 September 2022",
+      "publisher": "London Stock Exchange",
+      "location": "https://docs.londonstockexchange.com/sites/default/files/documents/n1622.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2022-09-19",
+      "notes": "Confirms the closure of 19 September 2022, the bank holiday for the State Funeral: the exchange's own notice for a closure already modelled from the gazetted bank holiday.",
+      "local_files": [
+        {
+          "path": "GB-LSE/lse-market-notice-n16-22.pdf",
+          "sha256": "e6023cf1a8aeb4669ff8fa6c5b83153ed203991cf1c36d810c930c01bd582a46"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2022-09-19",
+          "to": "2022-09-19"
+        }
+      ]
+    },
+    {
+      "id": "lse-service-announcement-2023-10-19",
+      "title": "Service Announcement Notice 001/20102023 - 19 October 2023 - Technical Incident Update",
+      "publisher": "London Stock Exchange",
+      "location": "https://docs.londonstockexchange.com/sites/default/files/documents/live_-_001_-_20102023_-_london_stock_exchange_-_19_october_2023_-technical_incident_update.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2023-10-19",
+      "notes": "Order-book securities outside the FTSE 100, FTSE 250 and IOB (partition 3) were halted from 15:11 to the close with no closing auction for them; the FTSE 100, FTSE 250 and IOB closed normally. A partial-instrument incident, not a market closure or early termination; no row.",
+      "local_files": [
+        {
+          "path": "GB-LSE/lse-service-announcement-2023-10-19.pdf",
+          "sha256": "1281d75890fb80818f4327bd337952a1678a846b010b39493d2d77eeeb6c08e0"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2023-10-19",
+          "to": "2023-10-19"
+        }
+      ]
+    },
+    {
+      "id": "lse-service-announcement-2023-12-05",
+      "title": "Service Announcement Notice 001/05122023 - 05 December 2023 - Technical Incident Update",
+      "publisher": "London Stock Exchange",
+      "location": "https://docs.londonstockexchange.com/sites/default/files/documents/live_-_001_-_05122023_-_london_stock_exchange_-_05_december_2023_-_technical_incident_update.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2023-12-05",
+      "notes": "Two partition-3 halts during the day; the closing auction ran at 16:30 as scheduled. Not a closure; no row.",
+      "local_files": [
+        {
+          "path": "GB-LSE/lse-service-announcement-2023-12-05.pdf",
+          "sha256": "5d113c625560c47a662fbf292e591781a73d3f1e10cef931d554f44a62269307"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2023-12-05",
+          "to": "2023-12-05"
+        }
+      ]
     }
   ]
 }

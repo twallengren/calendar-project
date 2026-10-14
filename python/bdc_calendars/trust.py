@@ -13,6 +13,17 @@ EARLY_CLOSES = "EARLY_CLOSES"
 UNSCHEDULED_EXCEPTIONS = "UNSCHEDULED_EXCEPTIONS"
 COMPLETENESS_SCOPES = (SCHEDULED_CLOSURES, EARLY_CLOSES, UNSCHEDULED_EXCEPTIONS)
 
+#: The question being asked about a date decides which scopes must be resolved first.
+#: Whether a market trades depends only on scheduled closures and unscheduled exceptions:
+#: an early close is still a business day, so incomplete early-close evidence cannot change
+#: a business-day answer. Session detail (close times) additionally needs early closes.
+BUSINESS_DAY_QUESTION = "BUSINESS_DAY"
+SESSION_QUESTION = "SESSION"
+QUESTION_SCOPES = {
+    BUSINESS_DAY_QUESTION: (SCHEDULED_CLOSURES, UNSCHEDULED_EXCEPTIONS),
+    SESSION_QUESTION: COMPLETENESS_SCOPES,
+}
+
 VERIFIED = "VERIFIED"
 PROJECTED = "PROJECTED"
 INCOMPLETE = "INCOMPLETE"
@@ -53,6 +64,16 @@ class EventDetails(NamedTuple):
 
 
 class DayAssessment(NamedTuple):
+    """
+    A non-throwing explanation of one date.
+
+    ``state``/``effective_confidence`` answer the full session question and are
+    ``UNKNOWN`` as soon as *any* scope is incomplete. ``business_day_state``
+    (``OPEN``, ``CLOSED`` or ``UNKNOWN``, never ``EARLY_CLOSE``) and
+    ``business_day_confidence`` answer only "is this a business day?", which
+    ignores early-close evidence.
+    """
+
     date: _dt.date
     state: str
     scheduled_state: str
@@ -60,3 +81,17 @@ class DayAssessment(NamedTuple):
     completeness: Dict[str, str]
     evidence_ids: List[str]
     events: List[EventDetails]
+    business_day_state: str
+    business_day_confidence: str
+
+    @property
+    def is_business_day_known(self) -> bool:
+        return self.business_day_state != UNKNOWN
+
+    def incomplete_scopes(self, question: str = SESSION_QUESTION) -> List[str]:
+        """The scopes among ``question``'s that are incomplete on this date."""
+        return [
+            scope
+            for scope in QUESTION_SCOPES[question]
+            if self.completeness.get(scope, INCOMPLETE) == INCOMPLETE
+        ]

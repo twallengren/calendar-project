@@ -13,9 +13,13 @@ metadata:
     \ HKO reference table. Every resulting closure remains bounded to, and confirmed\
     \ against, the Government and exchange schedules through the last gazetted year\
     \ (2027); computed future dates are not published as confirmed holidays. Unscheduled\
-    \ closures for typhoons and black rainstorms are out of scope: they are announced\
-    \ on the day, are not part of any published schedule, and are not modelled here\
-    \ (HKEX moved to trading through severe weather on 23 September 2024)."
+    \ severe-weather closures before HKEX began trading through severe weather on\
+    \ 23 September 2024 are modelled as explicit, individually cited dates: six whole-day\
+    \ cancellations (Typhoon Signal No. 8 or above, a Black Rainstorm Warning or Extreme\
+    \ Conditions in force at noon) and two afternoon sessions terminated at 13:55\
+    \ when Signal No. 8 was issued mid-session. Days on which only the morning session\
+    \ was cancelled traded to the scheduled close and are ordinary business days;\
+    \ a late open is not an event in this model."
   chronology: ISO
   timezone: Asia/Hong_Kong
   mic: XHKG
@@ -43,9 +47,11 @@ metadata:
     - scope: UNSCHEDULED_EXCEPTIONS
       from: 2018-01-01
       to: 2024-09-22
-      quality: INCOMPLETE
+      quality: VERIFIED
       evidence_ids:
-      - hkex-severe-weather-notices
+      - hko-warnings-database
+      - hkex-severe-weather-arrangements-2023
+      - hkex-swt-consultation-2023
     - scope: UNSCHEDULED_EXCEPTIONS
       from: 2024-09-23
       to: 2027-12-31
@@ -73,6 +79,7 @@ resolution_chain:
 - module:hk_chung_yeung
 - module:hk_christmas
 - module:hk_hkex_early_closes
+- module:hk_hkex_severe_weather
 - module:hk_hkex_holidays
 - calendar:HK-HKEX
 references:
@@ -436,6 +443,63 @@ event_sources:
       year: 2026
       month_code: M12
       day: 29
+- key: hk_hkex_severe_weather_closure
+  name: Severe Weather Closure
+  origin: module:hk_hkex_severe_weather
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: hkex-no-trading-2020-10-13
+    ref: No Trading Today ... due to the issuance of Typhoon Signal No. 8
+  - id: hkex-no-trading-2021-10-13
+    ref: No Trading Today ... due to the issuance of Typhoon Signal No. 8
+  - id: hkex-no-trading-2023-07-17
+    ref: No Trading Today ... all trading sessions today (Monday) ... have been cancelled
+  - id: hkex-no-trading-2023-09-01
+    ref: No Trading Today ... all trading sessions today (Friday) ... have been cancelled
+  - id: hkex-no-trading-2023-09-08
+    ref: No Trading Today ... due to a Black Rainstorm Warning remaining in force
+      ... Extreme Conditions
+  - id: hkex-no-trading-2024-09-06
+    ref: No Trading Today ... due to the issuance of Typhoon Signal No. 8
+  - id: hko-warnings-database
+    ref: Signal No. 8 or above / Black Rainstorm Warning in force at 12:00 noon on
+      each date
+  rule:
+    type: explicit_dates
+    dates:
+    - date: 2020-10-13
+      comment: "Tropical Storm Nangka, Typhoon Signal No. 8"
+    - date: 2021-10-13
+      comment: "Severe Tropical Storm Kompasu, Typhoon Signal No. 8"
+    - date: 2023-07-17
+      comment: "Severe Tropical Storm Talim, Typhoon Signal No. 8"
+    - date: 2023-09-01
+      comment: "Super Typhoon Saola, Typhoon Signal No. 8 to No. 10"
+    - date: 2023-09-08
+      comment: Black Rainstorm Warning and Extreme Conditions
+    - date: 2024-09-06
+      comment: "Super Typhoon Yagi, Typhoon Signal No. 8"
+- key: hk_hkex_severe_weather_early_termination
+  name: Severe Weather Early Termination
+  origin: module:hk_hkex_severe_weather
+  classification: EARLY_CLOSE
+  close_time: 13:55
+  status: CONFIRMED
+  source:
+  - id: hkex-trading-terminated-2019-07-31
+    ref: will be terminated at 1:55pm
+  - id: hkex-trading-suspended-2022-11-02
+    ref: will be suspended at 13:55
+  - id: hko-warnings-database
+    ref: Typhoon Signal No. 8 issued 13:40 HKT on each date
+  rule:
+    type: explicit_dates
+    dates:
+    - date: 2019-07-31
+      comment: "Tropical Storm Wipha, Typhoon Signal No. 8 issued 13:40"
+    - date: 2022-11-02
+      comment: "Severe Tropical Storm Nalgae, Typhoon Signal No. 8 issued 13:40"
 deltas:
 - action: remove
   key: hk_lunar_new_year

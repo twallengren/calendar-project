@@ -44,6 +44,9 @@ EXPECTED_TOOLS = {
     "is_early_close",
     "joint_settlement_date",
     "status",
+    "add_tenor",
+    "year_fraction",
+    "generate_schedule",
 }
 
 
@@ -122,7 +125,11 @@ async def test_assess_day_exposes_completeness_contract():
             assert payload["scheduled_state"] == "OPEN"
             expected = "PROJECTED" if bdc.get_calendar("US-NYSE").coverage_intervals else "CONFIRMED"
             assert payload["effective_confidence"] == expected
-            assert payload["completeness"]["SCHEDULED_CLOSURES"] == "PROJECTED"
+            # NYSE 2008-2026 is reconciled against index series (VERIFIED closures); the
+            # recurring early closes past the 2007 history remain a projection.
+            assert payload["completeness"]["SCHEDULED_CLOSURES"] == "VERIFIED"
+            assert payload["completeness"]["EARLY_CLOSES"] == "PROJECTED"
+            assert payload["business_day_confidence"] == "CONFIRMED"
 
 
 @pytest.mark.anyio
@@ -137,7 +144,12 @@ async def test_native_tase_assessment_and_unknown_error_through_stdio():
             event = next(event for event in payload["events"] if event["nominal_native_date"])
             assert event["nominal_native_date"] == dict(chronology_id="HEBREW", year=5786, month_code="TISHRI", day=1)
             assert event["evidence_ids"]
-            error = await _call(session, "is_business_day", {"calendar": "IL-TASE", "date": "2025-09-23"})
+            # Closures and unscheduled exceptions are verified for 2025, so the business-day
+            # question answers; the 2025 close times are unsourced, so the session question fails.
+            assert payload["business_day_state"] == "CLOSED"
+            closed = await _call(session, "is_business_day", {"calendar": "IL-TASE", "date": "2025-09-23"})
+            assert closed["is_business_day"] is False
+            error = await _call(session, "is_early_close", {"calendar": "IL-TASE", "date": "2025-09-23"})
             assert error["error"] == "UnresolvedDateError"
 
 
@@ -259,3 +271,46 @@ async def test_payment_operations_and_joint_conventions_through_stdio():
                 "calendar": "US-FEDWIRE", "date": "2027-12-31", "offset": 1,
             })
             assert error["error"] == "OutsideCoverageError"
+
+
+@pytest.mark.anyio
+async def test_finance_tools_round_trip():
+    async with stdio_client(SERVER_PARAMS) as (read, write), ClientSession(read, write) as session:
+        await session.initialize()
+        tenor = await _call(
+            session,
+            "add_tenor",
+            {"calendar": "US-NYSE", "date": "2024-01-31", "tenor": "3M", "convention": "MODIFIED_FOLLOWING"},
+        )
+        assert tenor["result_date"] == "2024-04-30" and tenor["tenor"] == "3M"
+        assert tenor["operation"] == "ADD_TENOR" and tenor["month_offset"] == 3
+
+        settlement = await _call(session, "add_tenor", {"calendar": "US-NYSE,GB-LSE", "date": "2024-05-24", "tenor": "T+2"})
+        assert settlement["result_date"] == "2024-05-29", "Monday 27 May is a UK bank holiday"
+        assert settlement["convention"] is None
+
+        fraction = await _call(
+            session,
+            "year_fraction",
+            {"calendar": "US-NYSE", "start": "2024-01-01", "end": "2024-02-01", "day_count": "BUS_252"},
+        )
+        assert fraction["days"] == 21 and fraction["year_fraction"] == 21 / 252
+        assert fraction["effective_confidence"] in ("CONFIRMED", "PROJECTED")
+
+        schedule = await _call(
+            session,
+            "generate_schedule",
+            {
+                "calendar": "US-NYSE",
+                "start": "2024-01-15",
+                "end": "2024-12-01",
+                "frequency": "QUARTERLY",
+                "stub": "SHORT_INITIAL",
+            },
+        )
+        assert [p["unadjusted_end"] for p in schedule["periods"]] == ["2024-03-01", "2024-06-01", "2024-09-01", "2024-12-01"]
+        assert schedule["periods"][0]["stub"] is True and schedule["periods"][0]["start"] == "2024-01-16"
+        assert schedule["frequency"] == "QUARTERLY" and schedule["roll"] == "DAY_OF_MONTH"
+
+        bad = await _call(session, "add_tenor", {"calendar": "US-NYSE", "date": "2024-01-31", "tenor": "3X"})
+        assert "error" in bad

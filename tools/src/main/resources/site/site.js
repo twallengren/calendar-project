@@ -57,6 +57,11 @@
     return false;
   }
 
+  /* The business-day question depends only on these scopes: an early close is still a business
+     day, so incomplete EARLY_CLOSES evidence never blocks or weakens a business-date walk.
+     Mirrors DateQuestion.BUSINESS_DAY in the Java reference. */
+  var BUSINESS_DAY_SCOPES = ["SCHEDULED_CLOSURES", "UNSCHEDULED_EXCEPTIONS"];
+
   /* A date is a business day when it carries no CLOSED row and is not a weekend day under the
      policy in effect on it. EARLY_CLOSE days are business days. */
   function isBusinessDay(calendar, iso, name) {
@@ -65,7 +70,7 @@
     }
     var quality = calendar.quality || [];
     if (quality.length) {
-      ["SCHEDULED_CLOSURES", "EARLY_CLOSES", "UNSCHEDULED_EXCEPTIONS"].forEach(function (scope) {
+      BUSINESS_DAY_SCOPES.forEach(function (scope) {
         var matches = quality.filter(function (row) {
           return row.scope === scope && iso >= row.from && iso <= row.to;
         });
@@ -83,6 +88,8 @@
     return error;
   }
 
+  /* The business-day confidence of a date: the weakest BUSINESS_DAY scope, or PROJECTED when a
+     CLOSED row on it is itself projected. Mirrors DayAssessment.businessDayConfidence. */
   function confidence(calendar, iso) {
     if ((calendar.from && iso < calendar.from) || (calendar.to && iso > calendar.to) ||
         !calendar.years[iso.slice(0, 4)]) return "UNKNOWN";
@@ -91,7 +98,7 @@
     if (!quality.length) {
       return projected || (calendar.verifiedThrough && iso > calendar.verifiedThrough) ? "PROJECTED" : "CONFIRMED";
     }
-    var scopes = ["SCHEDULED_CLOSURES", "EARLY_CLOSES", "UNSCHEDULED_EXCEPTIONS"];
+    var scopes = BUSINESS_DAY_SCOPES;
     for (var i = 0; i < scopes.length; i++) {
       var matches = quality.filter(function (row) {
         return row.scope === scopes[i] && iso >= row.from && iso <= row.to;
@@ -183,7 +190,9 @@
         calendar.pending[key] = fetchJson(api + id + "/" + key + ".json").then(
           function (document_) {
             (document_.events || []).forEach(function (event) {
-              if (event.status === "PROJECTED") calendar.projected[event.date] = true;
+              /* Only a projected closure weakens the business-day answer; a projected early close
+                 does not change whether the date is a business day. */
+              if (event.status === "PROJECTED" && event.type === "CLOSED") calendar.projected[event.date] = true;
               if (event.type === "CLOSED") {
                 calendar.closed[event.date] = true;
               }

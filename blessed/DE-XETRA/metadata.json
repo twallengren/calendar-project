@@ -3,7 +3,7 @@
   "calendar_name" : "Deutsche Börse Xetra",
   "kind" : "market",
   "mic" : "XETR",
-  "generated_at" : "2026-09-15T10:01:34Z",
+  "generated_at" : "2026-10-14T00:02:04Z",
   "range_start" : "2003-01-01",
   "range_end" : "2030-12-31",
   "timezone" : "Europe/Berlin",
@@ -38,6 +38,18 @@
     }, {
       "scope" : "UNSCHEDULED_EXCEPTIONS",
       "from" : "2003-01-01",
+      "to" : "2009-12-31",
+      "quality" : "PROJECTED",
+      "evidence_ids" : [ "xetra-cash-market-calendar-page" ]
+    }, {
+      "scope" : "UNSCHEDULED_EXCEPTIONS",
+      "from" : "2010-01-01",
+      "to" : "2026-09-30",
+      "quality" : "VERIFIED",
+      "evidence_ids" : [ "press-xetra-outages-2012-2018", "xetra-newsboard-emergency-search", "xetra-newsboard-emergency-2020-04-14", "xetra-newsboard-emergency-2020-07-01" ]
+    }, {
+      "scope" : "UNSCHEDULED_EXCEPTIONS",
+      "from" : "2026-10-01",
       "to" : "2030-12-31",
       "quality" : "PROJECTED",
       "evidence_ids" : [ "xetra-cash-market-calendar-page" ]
@@ -53,8 +65,8 @@
     "CONFIRMED" : 3112
   },
   "source_version" : {
-    "semantic" : "12.0.0",
-    "git_sha" : "e694faa4119f45ae284deefc496729f119fc16af"
+    "semantic" : "13.0.0",
+    "git_sha" : "1f63234a07eb72cc08a8c0d451983be39e88b2ae"
   },
   "event_details" : [ {
     "date" : "2003-01-01",

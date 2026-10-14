@@ -3,7 +3,7 @@
   "calendar_name" : "Euronext Amsterdam Trading Calendar",
   "kind" : "market",
   "mic" : "XAMS",
-  "generated_at" : "2026-09-15T10:01:34Z",
+  "generated_at" : "2026-10-14T00:02:04Z",
   "range_start" : "2010-01-01",
   "range_end" : "2030-12-31",
   "timezone" : "Europe/Amsterdam",
@@ -74,24 +74,30 @@
     }, {
       "scope" : "UNSCHEDULED_EXCEPTIONS",
       "from" : "2010-01-01",
+      "to" : "2026-09-30",
+      "quality" : "VERIFIED",
+      "evidence_ids" : [ "nyse-euronext-10k-2012", "euronext-volumes-dec-2014", "euronext-volumes-dec-2015", "euronext-volumes-dec-2016", "euronext-monthly-historical-volumes", "euronext-market-status-2020-10-19" ]
+    }, {
+      "scope" : "UNSCHEDULED_EXCEPTIONS",
+      "from" : "2026-10-01",
       "to" : "2030-12-31",
       "quality" : "PROJECTED",
       "evidence_ids" : [ "euronext-hours-holidays" ]
     } ]
   },
   "event_count" : 2324,
-  "resolution_chain" : [ "module:weekend_sat_sun", "module:euronext_new_years_day", "module:euronext_good_friday", "module:euronext_easter_monday", "module:euronext_labour_day", "module:euronext_christmas", "module:euronext_boxing_day", "module:euronext_special_closures", "module:euronext_holidays", "calendar:EU-EURONEXT", "module:euronext_christmas_eve", "module:euronext_new_years_eve", "calendar:NL-EURONEXT-AMSTERDAM" ],
+  "resolution_chain" : [ "module:weekend_sat_sun", "module:euronext_new_years_day", "module:euronext_good_friday", "module:euronext_easter_monday", "module:euronext_labour_day", "module:euronext_christmas", "module:euronext_boxing_day", "module:euronext_holidays", "calendar:EU-EURONEXT", "module:euronext_christmas_eve", "module:euronext_new_years_eve", "calendar:NL-EURONEXT-AMSTERDAM" ],
   "counts_by_type" : {
-    "CLOSED" : 127,
+    "CLOSED" : 126,
     "WEEKEND" : 2168,
-    "EARLY_CLOSE" : 29
+    "EARLY_CLOSE" : 30
   },
   "counts_by_status" : {
     "CONFIRMED" : 2324
   },
   "source_version" : {
-    "semantic" : "12.0.0",
-    "git_sha" : "e694faa4119f45ae284deefc496729f119fc16af"
+    "semantic" : "13.0.0",
+    "git_sha" : "1f63234a07eb72cc08a8c0d451983be39e88b2ae"
   },
   "event_details" : [ {
     "date" : "2010-01-01",
@@ -590,14 +596,14 @@
     "observation_lineage" : [ ]
   }, {
     "date" : "2015-12-31",
-    "type" : "CLOSED",
-    "description" : "Market Holiday (New Year's Eve)",
-    "key" : "euronext_special_closure",
-    "source_module" : "module:euronext_special_closures",
+    "type" : "EARLY_CLOSE",
+    "description" : "New Year's Eve (half trading day)",
+    "key" : "euronext_new_years_eve_1405",
+    "source_module" : "module:euronext_new_years_eve",
     "observed_from" : null,
-    "close_time" : null,
+    "close_time" : "14:05",
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "euronext-calendars-hours-archive" ],
+    "evidence_ids" : [ "euronext-hours-holidays" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2016-01-01",

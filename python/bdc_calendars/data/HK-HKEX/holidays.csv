@@ -29,6 +29,7 @@ date,type,description,key,source_module,observed_from,close_time,status
 2019-05-13,CLOSED,The Birthday of the Buddha,hk_buddhas_birthday,module:hk_buddhas_birthday,2019-05-12,,CONFIRMED
 2019-06-07,CLOSED,Tuen Ng Festival,hk_tuen_ng,module:hk_tuen_ng,,,CONFIRMED
 2019-07-01,CLOSED,Hong Kong Special Administrative Region Establishment Day,hk_hksar_establishment_day,module:hk_hksar_establishment_day,,,CONFIRMED
+2019-07-31,EARLY_CLOSE,"Severe Weather Early Termination (Tropical Storm Wipha, Typhoon Signal No. 8 issued 13:40)",hk_hkex_severe_weather_early_termination,module:hk_hkex_severe_weather,,13:55,CONFIRMED
 2019-10-01,CLOSED,National Day,hk_national_day,module:hk_national_day,,,CONFIRMED
 2019-10-07,CLOSED,Chung Yeung Festival,hk_chung_yeung,module:hk_chung_yeung,,,CONFIRMED
 2019-12-24,EARLY_CLOSE,Christmas Eve (Half Day),hk_hkex_christmas_eve_early_close,module:hk_hkex_early_closes,,12:00,CONFIRMED
@@ -47,6 +48,7 @@ date,type,description,key,source_module,observed_from,close_time,status
 2020-07-01,CLOSED,Hong Kong Special Administrative Region Establishment Day,hk_hksar_establishment_day,module:hk_hksar_establishment_day,,,CONFIRMED
 2020-10-01,CLOSED,National Day,hk_national_day,module:hk_national_day,,,CONFIRMED
 2020-10-02,CLOSED,The day following the Chinese Mid-Autumn Festival,hk_mid_autumn,module:hk_mid_autumn,,,CONFIRMED
+2020-10-13,CLOSED,"Severe Weather Closure (Tropical Storm Nangka, Typhoon Signal No. 8)",hk_hkex_severe_weather_closure,module:hk_hkex_severe_weather,,,CONFIRMED
 2020-10-26,CLOSED,Chung Yeung Festival,hk_chung_yeung,module:hk_chung_yeung,2020-10-25,,CONFIRMED
 2020-12-24,EARLY_CLOSE,Christmas Eve (Half Day),hk_hkex_christmas_eve_early_close,module:hk_hkex_early_closes,,12:00,CONFIRMED
 2020-12-25,CLOSED,Christmas Day,hk_christmas_day,module:hk_christmas,,,CONFIRMED
@@ -63,6 +65,7 @@ date,type,description,key,source_module,observed_from,close_time,status
 2021-07-01,CLOSED,Hong Kong Special Administrative Region Establishment Day,hk_hksar_establishment_day,module:hk_hksar_establishment_day,,,CONFIRMED
 2021-09-22,CLOSED,The day following the Chinese Mid-Autumn Festival,hk_mid_autumn,module:hk_mid_autumn,,,CONFIRMED
 2021-10-01,CLOSED,National Day,hk_national_day,module:hk_national_day,,,CONFIRMED
+2021-10-13,CLOSED,"Severe Weather Closure (Severe Tropical Storm Kompasu, Typhoon Signal No. 8)",hk_hkex_severe_weather_closure,module:hk_hkex_severe_weather,,,CONFIRMED
 2021-10-14,CLOSED,Chung Yeung Festival,hk_chung_yeung,module:hk_chung_yeung,,,CONFIRMED
 2021-12-24,EARLY_CLOSE,Christmas Eve (Half Day),hk_hkex_christmas_eve_early_close,module:hk_hkex_early_closes,,12:00,CONFIRMED
 2021-12-27,CLOSED,The first weekday after Christmas Day,hk_first_weekday_after_christmas,module:hk_christmas,2021-12-26,,CONFIRMED
@@ -80,6 +83,7 @@ date,type,description,key,source_module,observed_from,close_time,status
 2022-07-01,CLOSED,Hong Kong Special Administrative Region Establishment Day,hk_hksar_establishment_day,module:hk_hksar_establishment_day,,,CONFIRMED
 2022-09-12,CLOSED,The day following the Chinese Mid-Autumn Festival,hk_mid_autumn,module:hk_mid_autumn,2022-09-11,,CONFIRMED
 2022-10-04,CLOSED,Chung Yeung Festival,hk_chung_yeung,module:hk_chung_yeung,,,CONFIRMED
+2022-11-02,EARLY_CLOSE,"Severe Weather Early Termination (Severe Tropical Storm Nalgae, Typhoon Signal No. 8 issued 13:40)",hk_hkex_severe_weather_early_termination,module:hk_hkex_severe_weather,,13:55,CONFIRMED
 2022-12-26,CLOSED,The first weekday after Christmas Day,hk_first_weekday_after_christmas,module:hk_christmas,,,CONFIRMED
 2022-12-27,CLOSED,The second weekday after Christmas Day (25 December 2022 fell on a Sunday),hk_second_weekday_after_christmas,module:hk_christmas,,,CONFIRMED
 2023-01-02,CLOSED,The first day of January,hk_new_years_day,module:hk_new_years_day,2023-01-01,,CONFIRMED
@@ -92,6 +96,9 @@ date,type,description,key,source_module,observed_from,close_time,status
 2023-05-01,CLOSED,Labour Day,hk_labour_day,module:hk_labour_day,,,CONFIRMED
 2023-05-26,CLOSED,The Birthday of the Buddha,hk_buddhas_birthday,module:hk_buddhas_birthday,,,CONFIRMED
 2023-06-22,CLOSED,Tuen Ng Festival,hk_tuen_ng,module:hk_tuen_ng,,,CONFIRMED
+2023-07-17,CLOSED,"Severe Weather Closure (Severe Tropical Storm Talim, Typhoon Signal No. 8)",hk_hkex_severe_weather_closure,module:hk_hkex_severe_weather,,,CONFIRMED
+2023-09-01,CLOSED,"Severe Weather Closure (Super Typhoon Saola, Typhoon Signal No. 8 to No. 10)",hk_hkex_severe_weather_closure,module:hk_hkex_severe_weather,,,CONFIRMED
+2023-09-08,CLOSED,Severe Weather Closure (Black Rainstorm Warning and Extreme Conditions),hk_hkex_severe_weather_closure,module:hk_hkex_severe_weather,,,CONFIRMED
 2023-10-02,CLOSED,National Day,hk_national_day,module:hk_national_day,2023-10-01,,CONFIRMED
 2023-10-23,CLOSED,Chung Yeung Festival,hk_chung_yeung,module:hk_chung_yeung,,,CONFIRMED
 2023-12-25,CLOSED,Christmas Day,hk_christmas_day,module:hk_christmas,,,CONFIRMED
@@ -107,6 +114,7 @@ date,type,description,key,source_module,observed_from,close_time,status
 2024-05-15,CLOSED,The Birthday of the Buddha,hk_buddhas_birthday,module:hk_buddhas_birthday,,,CONFIRMED
 2024-06-10,CLOSED,Tuen Ng Festival,hk_tuen_ng,module:hk_tuen_ng,,,CONFIRMED
 2024-07-01,CLOSED,Hong Kong Special Administrative Region Establishment Day,hk_hksar_establishment_day,module:hk_hksar_establishment_day,,,CONFIRMED
+2024-09-06,CLOSED,"Severe Weather Closure (Super Typhoon Yagi, Typhoon Signal No. 8)",hk_hkex_severe_weather_closure,module:hk_hkex_severe_weather,,,CONFIRMED
 2024-09-18,CLOSED,The day following the Chinese Mid-Autumn Festival,hk_mid_autumn,module:hk_mid_autumn,,,CONFIRMED
 2024-10-01,CLOSED,National Day,hk_national_day,module:hk_national_day,,,CONFIRMED
 2024-10-11,CLOSED,Chung Yeung Festival,hk_chung_yeung,module:hk_chung_yeung,,,CONFIRMED

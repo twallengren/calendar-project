@@ -5,12 +5,12 @@
   "calendar_id": "IL-TASE",
   "calendar_name": "Tel Aviv Stock Exchange",
   "counts_by_status": {
-    "CONFIRMED": 341
+    "CONFIRMED": 639
   },
   "counts_by_type": {
-    "CLOSED": 19,
-    "EARLY_CLOSE": 12,
-    "WEEKEND": 310
+    "CLOSED": 78,
+    "EARLY_CLOSE": 157,
+    "WEEKEND": 404
   },
   "coverage": {
     "from": "2025-01-01",
@@ -26,31 +26,14 @@
       },
       {
         "evidence_ids": [
-          "isa-trading-week-2026",
-          "tase-q1-2026-report"
-        ],
-        "from": "2026-01-01",
-        "quality": "INCOMPLETE",
-        "scope": "SCHEDULED_CLOSURES",
-        "to": "2026-04-20"
-      },
-      {
-        "evidence_ids": [
-          "tase-weekly-review-2026-04-20"
-        ],
-        "from": "2026-04-21",
-        "quality": "VERIFIED",
-        "scope": "SCHEDULED_CLOSURES",
-        "to": "2026-04-22"
-      },
-      {
-        "evidence_ids": [
+          "tase-trading-vacation-schedule",
+          "tase-weekly-review-2026-04-20",
           "isa-trading-week-2026"
         ],
-        "from": "2026-04-23",
-        "quality": "INCOMPLETE",
+        "from": "2026-01-01",
+        "quality": "VERIFIED",
         "scope": "SCHEDULED_CLOSURES",
-        "to": "2027-12-31"
+        "to": "2028-12-31"
       },
       {
         "evidence_ids": [
@@ -60,239 +43,43 @@
         "from": "2025-01-01",
         "quality": "INCOMPLETE",
         "scope": "EARLY_CLOSES",
-        "to": "2026-01-08"
+        "to": "2026-01-03"
       },
       {
         "evidence_ids": [
+          "tase-trading-vacation-schedule",
+          "tase-tradingdays-change",
           "isa-trading-week-2026"
         ],
-        "from": "2026-01-09",
+        "from": "2026-01-04",
         "quality": "VERIFIED",
         "scope": "EARLY_CLOSES",
-        "to": "2026-01-09"
+        "to": "2028-12-31"
       },
       {
         "evidence_ids": [
-          "isa-trading-week-2026"
-        ],
-        "from": "2026-01-10",
-        "quality": "INCOMPLETE",
-        "scope": "EARLY_CLOSES",
-        "to": "2026-01-15"
-      },
-      {
-        "evidence_ids": [
-          "isa-trading-week-2026"
-        ],
-        "from": "2026-01-16",
-        "quality": "VERIFIED",
-        "scope": "EARLY_CLOSES",
-        "to": "2026-01-16"
-      },
-      {
-        "evidence_ids": [
-          "isa-trading-week-2026"
-        ],
-        "from": "2026-01-17",
-        "quality": "INCOMPLETE",
-        "scope": "EARLY_CLOSES",
-        "to": "2026-01-22"
-      },
-      {
-        "evidence_ids": [
-          "isa-trading-week-2026"
-        ],
-        "from": "2026-01-23",
-        "quality": "VERIFIED",
-        "scope": "EARLY_CLOSES",
-        "to": "2026-01-23"
-      },
-      {
-        "evidence_ids": [
-          "isa-trading-week-2026"
-        ],
-        "from": "2026-01-24",
-        "quality": "INCOMPLETE",
-        "scope": "EARLY_CLOSES",
-        "to": "2026-01-29"
-      },
-      {
-        "evidence_ids": [
-          "isa-trading-week-2026"
-        ],
-        "from": "2026-01-30",
-        "quality": "VERIFIED",
-        "scope": "EARLY_CLOSES",
-        "to": "2026-01-30"
-      },
-      {
-        "evidence_ids": [
-          "isa-trading-week-2026"
-        ],
-        "from": "2026-01-31",
-        "quality": "INCOMPLETE",
-        "scope": "EARLY_CLOSES",
-        "to": "2026-02-05"
-      },
-      {
-        "evidence_ids": [
-          "isa-trading-week-2026"
-        ],
-        "from": "2026-02-06",
-        "quality": "VERIFIED",
-        "scope": "EARLY_CLOSES",
-        "to": "2026-02-06"
-      },
-      {
-        "evidence_ids": [
-          "isa-trading-week-2026"
-        ],
-        "from": "2026-02-07",
-        "quality": "INCOMPLETE",
-        "scope": "EARLY_CLOSES",
-        "to": "2026-02-12"
-      },
-      {
-        "evidence_ids": [
-          "isa-trading-week-2026"
-        ],
-        "from": "2026-02-13",
-        "quality": "VERIFIED",
-        "scope": "EARLY_CLOSES",
-        "to": "2026-02-13"
-      },
-      {
-        "evidence_ids": [
-          "isa-trading-week-2026"
-        ],
-        "from": "2026-02-14",
-        "quality": "INCOMPLETE",
-        "scope": "EARLY_CLOSES",
-        "to": "2026-02-19"
-      },
-      {
-        "evidence_ids": [
-          "isa-trading-week-2026"
-        ],
-        "from": "2026-02-20",
-        "quality": "VERIFIED",
-        "scope": "EARLY_CLOSES",
-        "to": "2026-02-20"
-      },
-      {
-        "evidence_ids": [
-          "isa-trading-week-2026"
-        ],
-        "from": "2026-02-21",
-        "quality": "INCOMPLETE",
-        "scope": "EARLY_CLOSES",
-        "to": "2026-02-26"
-      },
-      {
-        "evidence_ids": [
-          "isa-trading-week-2026"
-        ],
-        "from": "2026-02-27",
-        "quality": "VERIFIED",
-        "scope": "EARLY_CLOSES",
-        "to": "2026-02-27"
-      },
-      {
-        "evidence_ids": [
-          "isa-trading-week-2026"
-        ],
-        "from": "2026-02-28",
-        "quality": "INCOMPLETE",
-        "scope": "EARLY_CLOSES",
-        "to": "2026-03-05"
-      },
-      {
-        "evidence_ids": [
-          "isa-trading-week-2026"
-        ],
-        "from": "2026-03-06",
-        "quality": "VERIFIED",
-        "scope": "EARLY_CLOSES",
-        "to": "2026-03-06"
-      },
-      {
-        "evidence_ids": [
-          "isa-trading-week-2026"
-        ],
-        "from": "2026-03-07",
-        "quality": "INCOMPLETE",
-        "scope": "EARLY_CLOSES",
-        "to": "2026-03-12"
-      },
-      {
-        "evidence_ids": [
-          "isa-trading-week-2026"
-        ],
-        "from": "2026-03-13",
-        "quality": "VERIFIED",
-        "scope": "EARLY_CLOSES",
-        "to": "2026-03-13"
-      },
-      {
-        "evidence_ids": [
-          "isa-trading-week-2026"
-        ],
-        "from": "2026-03-14",
-        "quality": "INCOMPLETE",
-        "scope": "EARLY_CLOSES",
-        "to": "2026-03-19"
-      },
-      {
-        "evidence_ids": [
-          "isa-trading-week-2026"
-        ],
-        "from": "2026-03-20",
-        "quality": "VERIFIED",
-        "scope": "EARLY_CLOSES",
-        "to": "2026-03-20"
-      },
-      {
-        "evidence_ids": [
-          "isa-trading-week-2026"
-        ],
-        "from": "2026-03-21",
-        "quality": "INCOMPLETE",
-        "scope": "EARLY_CLOSES",
-        "to": "2026-03-26"
-      },
-      {
-        "evidence_ids": [
-          "isa-trading-week-2026"
-        ],
-        "from": "2026-03-27",
-        "quality": "VERIFIED",
-        "scope": "EARLY_CLOSES",
-        "to": "2026-03-27"
-      },
-      {
-        "evidence_ids": [
-          "isa-trading-week-2026"
-        ],
-        "from": "2026-03-28",
-        "quality": "INCOMPLETE",
-        "scope": "EARLY_CLOSES",
-        "to": "2027-12-31"
-      },
-      {
-        "evidence_ids": [
-          "tase-vacation-schedule-2025",
-          "tase-weekly-review-2026-04-20"
+          "tase-ta35-eod-sessions",
+          "tase-quarterly-trading-days-2025-2026"
         ],
         "from": "2025-01-01",
-        "quality": "INCOMPLETE",
+        "quality": "VERIFIED",
         "scope": "UNSCHEDULED_EXCEPTIONS",
-        "to": "2027-12-31"
+        "to": "2026-10-13"
+      },
+      {
+        "evidence_ids": [
+          "tase-trading-vacation-schedule"
+        ],
+        "from": "2026-10-14",
+        "quality": "PROJECTED",
+        "scope": "UNSCHEDULED_EXCEPTIONS",
+        "to": "2028-12-31"
       }
     ],
-    "to": "2027-12-31",
-    "verified_through": "2025-12-31"
+    "to": "2028-12-31",
+    "verified_through": "2028-12-31"
   },
-  "event_count": 341,
+  "event_count": 639,
   "event_details": [
     {
       "chronology_profile": "fixed-arithmetic-hebrew-civil",
@@ -674,12 +461,13 @@
       "description": "Friday Session (Early Close)",
       "evidence_ids": [
         "isa-trading-week-2026",
-        "tase-q1-2026-report"
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
       ],
-      "key": "tase_friday_short_session_q1_2026",
+      "key": "tase_friday_session",
       "observation_lineage": [],
       "observed_from": null,
-      "source_module": "module:tase_verified_events_2026",
+      "source_module": "module:tase_shortened_sessions",
       "status": "CONFIRMED",
       "type": "EARLY_CLOSE"
     },
@@ -689,12 +477,13 @@
       "description": "Friday Session (Early Close)",
       "evidence_ids": [
         "isa-trading-week-2026",
-        "tase-q1-2026-report"
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
       ],
-      "key": "tase_friday_short_session_q1_2026",
+      "key": "tase_friday_session",
       "observation_lineage": [],
       "observed_from": null,
-      "source_module": "module:tase_verified_events_2026",
+      "source_module": "module:tase_shortened_sessions",
       "status": "CONFIRMED",
       "type": "EARLY_CLOSE"
     },
@@ -704,12 +493,13 @@
       "description": "Friday Session (Early Close)",
       "evidence_ids": [
         "isa-trading-week-2026",
-        "tase-q1-2026-report"
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
       ],
-      "key": "tase_friday_short_session_q1_2026",
+      "key": "tase_friday_session",
       "observation_lineage": [],
       "observed_from": null,
-      "source_module": "module:tase_verified_events_2026",
+      "source_module": "module:tase_shortened_sessions",
       "status": "CONFIRMED",
       "type": "EARLY_CLOSE"
     },
@@ -719,12 +509,13 @@
       "description": "Friday Session (Early Close)",
       "evidence_ids": [
         "isa-trading-week-2026",
-        "tase-q1-2026-report"
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
       ],
-      "key": "tase_friday_short_session_q1_2026",
+      "key": "tase_friday_session",
       "observation_lineage": [],
       "observed_from": null,
-      "source_module": "module:tase_verified_events_2026",
+      "source_module": "module:tase_shortened_sessions",
       "status": "CONFIRMED",
       "type": "EARLY_CLOSE"
     },
@@ -734,12 +525,13 @@
       "description": "Friday Session (Early Close)",
       "evidence_ids": [
         "isa-trading-week-2026",
-        "tase-q1-2026-report"
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
       ],
-      "key": "tase_friday_short_session_q1_2026",
+      "key": "tase_friday_session",
       "observation_lineage": [],
       "observed_from": null,
-      "source_module": "module:tase_verified_events_2026",
+      "source_module": "module:tase_shortened_sessions",
       "status": "CONFIRMED",
       "type": "EARLY_CLOSE"
     },
@@ -749,12 +541,13 @@
       "description": "Friday Session (Early Close)",
       "evidence_ids": [
         "isa-trading-week-2026",
-        "tase-q1-2026-report"
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
       ],
-      "key": "tase_friday_short_session_q1_2026",
+      "key": "tase_friday_session",
       "observation_lineage": [],
       "observed_from": null,
-      "source_module": "module:tase_verified_events_2026",
+      "source_module": "module:tase_shortened_sessions",
       "status": "CONFIRMED",
       "type": "EARLY_CLOSE"
     },
@@ -764,12 +557,13 @@
       "description": "Friday Session (Early Close)",
       "evidence_ids": [
         "isa-trading-week-2026",
-        "tase-q1-2026-report"
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
       ],
-      "key": "tase_friday_short_session_q1_2026",
+      "key": "tase_friday_session",
       "observation_lineage": [],
       "observed_from": null,
-      "source_module": "module:tase_verified_events_2026",
+      "source_module": "module:tase_shortened_sessions",
       "status": "CONFIRMED",
       "type": "EARLY_CLOSE"
     },
@@ -779,14 +573,37 @@
       "description": "Friday Session (Early Close)",
       "evidence_ids": [
         "isa-trading-week-2026",
-        "tase-q1-2026-report"
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
       ],
-      "key": "tase_friday_short_session_q1_2026",
+      "key": "tase_friday_session",
       "observation_lineage": [],
       "observed_from": null,
-      "source_module": "module:tase_verified_events_2026",
+      "source_module": "module:tase_shortened_sessions",
       "status": "CONFIRMED",
       "type": "EARLY_CLOSE"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2026-03-03",
+      "description": "Purim",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_purim",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 14,
+        "month_code": "ADAR",
+        "year": 5786
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_scheduled_closures_2026_2028",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
     },
     {
       "close_time": "13:50",
@@ -794,12 +611,13 @@
       "description": "Friday Session (Early Close)",
       "evidence_ids": [
         "isa-trading-week-2026",
-        "tase-q1-2026-report"
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
       ],
-      "key": "tase_friday_short_session_q1_2026",
+      "key": "tase_friday_session",
       "observation_lineage": [],
       "observed_from": null,
-      "source_module": "module:tase_verified_events_2026",
+      "source_module": "module:tase_shortened_sessions",
       "status": "CONFIRMED",
       "type": "EARLY_CLOSE"
     },
@@ -809,12 +627,13 @@
       "description": "Friday Session (Early Close)",
       "evidence_ids": [
         "isa-trading-week-2026",
-        "tase-q1-2026-report"
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
       ],
-      "key": "tase_friday_short_session_q1_2026",
+      "key": "tase_friday_session",
       "observation_lineage": [],
       "observed_from": null,
-      "source_module": "module:tase_verified_events_2026",
+      "source_module": "module:tase_shortened_sessions",
       "status": "CONFIRMED",
       "type": "EARLY_CLOSE"
     },
@@ -824,12 +643,13 @@
       "description": "Friday Session (Early Close)",
       "evidence_ids": [
         "isa-trading-week-2026",
-        "tase-q1-2026-report"
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
       ],
-      "key": "tase_friday_short_session_q1_2026",
+      "key": "tase_friday_session",
       "observation_lineage": [],
       "observed_from": null,
-      "source_module": "module:tase_verified_events_2026",
+      "source_module": "module:tase_shortened_sessions",
       "status": "CONFIRMED",
       "type": "EARLY_CLOSE"
     },
@@ -839,12 +659,171 @@
       "description": "Friday Session (Early Close)",
       "evidence_ids": [
         "isa-trading-week-2026",
-        "tase-q1-2026-report"
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
       ],
-      "key": "tase_friday_short_session_q1_2026",
+      "key": "tase_friday_session",
       "observation_lineage": [],
       "observed_from": null,
-      "source_module": "module:tase_verified_events_2026",
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2026-04-01",
+      "description": "Passover Eve",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_passover_eve",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 14,
+        "month_code": "NISAN",
+        "year": 5786
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_scheduled_closures_2026_2028",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2026-04-02",
+      "description": "Passover",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_passover",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 15,
+        "month_code": "NISAN",
+        "year": 5786
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_scheduled_closures_2026_2028",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2026-04-03",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": "14:30",
+      "date": "2026-04-06",
+      "description": "Passover Intermediate Day (Early Close)",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_passover_intermediate_session",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 19,
+        "month_code": "NISAN",
+        "year": 5786
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2026-04-07",
+      "description": "Seventh Day of Passover Eve",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_seventh_passover_eve",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 20,
+        "month_code": "NISAN",
+        "year": 5786
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_scheduled_closures_2026_2028",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2026-04-08",
+      "description": "Seventh Day of Passover",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_seventh_passover",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 21,
+        "month_code": "NISAN",
+        "year": 5786
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_scheduled_closures_2026_2028",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2026-04-10",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2026-04-17",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
       "status": "CONFIRMED",
       "type": "EARLY_CLOSE"
     },
@@ -855,6 +834,7 @@
       "date": "2026-04-21",
       "description": "Memorial Day",
       "evidence_ids": [
+        "tase-trading-vacation-schedule",
         "tase-weekly-review-2026-04-20"
       ],
       "key": "tase_memorial_day_2026",
@@ -877,6 +857,7 @@
       "date": "2026-04-22",
       "description": "Independence Day",
       "evidence_ids": [
+        "tase-trading-vacation-schedule",
         "tase-weekly-review-2026-04-20"
       ],
       "key": "tase_independence_day_2026",
@@ -891,23 +872,3539 @@
       "source_module": "module:tase_verified_events_2026",
       "status": "CONFIRMED",
       "type": "CLOSED"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2026-04-24",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2026-05-01",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2026-05-08",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2026-05-15",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2026-05-21",
+      "description": "Shavuot Eve",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_shavuot_eve",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 5,
+        "month_code": "SIVAN",
+        "year": 5786
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_scheduled_closures_2026_2028",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2026-05-22",
+      "description": "Shavuot",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_shavuot",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 6,
+        "month_code": "SIVAN",
+        "year": 5786
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_scheduled_closures_2026_2028",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2026-05-29",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2026-06-05",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2026-06-12",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2026-06-19",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2026-06-26",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2026-07-03",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2026-07-10",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2026-07-17",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2026-07-23",
+      "description": "Tisha B'Av",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_tisha_bav",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 9,
+        "month_code": "AV",
+        "year": 5786
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_scheduled_closures_2026_2028",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2026-07-24",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2026-07-31",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2026-08-07",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2026-08-14",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2026-08-21",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2026-08-28",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2026-09-04",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2026-09-11",
+      "description": "Rosh Hashanah Eve",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_rosh_hashanah_eve",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 29,
+        "month_code": "ELUL",
+        "year": 5786
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_scheduled_closures_2026_2028",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2026-09-12",
+      "description": "Rosh Hashanah",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_rosh_hashanah",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 1,
+        "month_code": "TISHRI",
+        "year": 5787
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_scheduled_closures_2026_2028",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2026-09-13",
+      "description": "Rosh Hashanah",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_rosh_hashanah",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 2,
+        "month_code": "TISHRI",
+        "year": 5787
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_scheduled_closures_2026_2028",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2026-09-18",
+      "description": "Friday Before a Sunday Holiday (No Trading)",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_friday_before_sunday_holiday",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 7,
+        "month_code": "TISHRI",
+        "year": 5787
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_scheduled_closures_2026_2028",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2026-09-20",
+      "description": "Yom Kippur Eve",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_yom_kippur_eve",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 9,
+        "month_code": "TISHRI",
+        "year": 5787
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_scheduled_closures_2026_2028",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2026-09-21",
+      "description": "Yom Kippur",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_yom_kippur",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 10,
+        "month_code": "TISHRI",
+        "year": 5787
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_scheduled_closures_2026_2028",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2026-09-25",
+      "description": "Sukkot Eve",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_sukkot_eve",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 14,
+        "month_code": "TISHRI",
+        "year": 5787
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_scheduled_closures_2026_2028",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2026-09-26",
+      "description": "Sukkot",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_sukkot",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 15,
+        "month_code": "TISHRI",
+        "year": 5787
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_scheduled_closures_2026_2028",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": "14:30",
+      "date": "2026-09-28",
+      "description": "Sukkot Intermediate Day (Early Close)",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_sukkot_intermediate_session",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 17,
+        "month_code": "TISHRI",
+        "year": 5787
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": "14:30",
+      "date": "2026-09-29",
+      "description": "Sukkot Intermediate Day (Early Close)",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_sukkot_intermediate_session",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 18,
+        "month_code": "TISHRI",
+        "year": 5787
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": "14:30",
+      "date": "2026-09-30",
+      "description": "Sukkot Intermediate Day (Early Close)",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_sukkot_intermediate_session",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 19,
+        "month_code": "TISHRI",
+        "year": 5787
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": "14:30",
+      "date": "2026-10-01",
+      "description": "Sukkot Intermediate Day (Early Close)",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_sukkot_intermediate_session",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 20,
+        "month_code": "TISHRI",
+        "year": 5787
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2026-10-02",
+      "description": "Simchat Torah Eve",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_simchat_torah_eve",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 21,
+        "month_code": "TISHRI",
+        "year": 5787
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_scheduled_closures_2026_2028",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2026-10-03",
+      "description": "Simchat Torah",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_simchat_torah",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 22,
+        "month_code": "TISHRI",
+        "year": 5787
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_scheduled_closures_2026_2028",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2026-10-09",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2026-10-16",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2026-10-23",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2026-10-27",
+      "description": "Knesset Election Day (26th Knesset election)",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_knesset_election_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_scheduled_closures_2026_2028",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2026-10-30",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2026-11-06",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2026-11-13",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2026-11-20",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2026-11-27",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2026-12-04",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2026-12-11",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2026-12-18",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2026-12-25",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2027-01-01",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2027-01-08",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2027-01-15",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2027-01-22",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2027-01-29",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2027-02-05",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2027-02-12",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2027-02-19",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2027-02-26",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2027-03-05",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2027-03-12",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2027-03-19",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2027-03-23",
+      "description": "Purim",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_purim",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 14,
+        "month_code": "ADAR_II",
+        "year": 5787
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_scheduled_closures_2026_2028",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2027-03-26",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2027-04-02",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2027-04-09",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2027-04-16",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2027-04-21",
+      "description": "Passover Eve",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_passover_eve",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 14,
+        "month_code": "NISAN",
+        "year": 5787
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_scheduled_closures_2026_2028",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2027-04-22",
+      "description": "Passover",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_passover",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 15,
+        "month_code": "NISAN",
+        "year": 5787
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_scheduled_closures_2026_2028",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2027-04-23",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": "14:30",
+      "date": "2027-04-26",
+      "description": "Passover Intermediate Day (Early Close)",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_passover_intermediate_session",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 19,
+        "month_code": "NISAN",
+        "year": 5787
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2027-04-27",
+      "description": "Seventh Day of Passover Eve",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_seventh_passover_eve",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 20,
+        "month_code": "NISAN",
+        "year": 5787
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_scheduled_closures_2026_2028",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2027-04-28",
+      "description": "Seventh Day of Passover",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_seventh_passover",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 21,
+        "month_code": "NISAN",
+        "year": 5787
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_scheduled_closures_2026_2028",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2027-04-30",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2027-05-07",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2027-05-11",
+      "description": "Memorial Day",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_memorial_day_2027",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 4,
+        "month_code": "IYAR",
+        "year": 5787
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_scheduled_closures_2026_2028",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2027-05-12",
+      "description": "Independence Day",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_independence_day_2027",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 5,
+        "month_code": "IYAR",
+        "year": 5787
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_scheduled_closures_2026_2028",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2027-05-14",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2027-05-21",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2027-05-28",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2027-06-04",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2027-06-10",
+      "description": "Shavuot Eve",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_shavuot_eve",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 5,
+        "month_code": "SIVAN",
+        "year": 5787
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_scheduled_closures_2026_2028",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2027-06-11",
+      "description": "Shavuot",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_shavuot",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 6,
+        "month_code": "SIVAN",
+        "year": 5787
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_scheduled_closures_2026_2028",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2027-06-18",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2027-06-25",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2027-07-02",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2027-07-09",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2027-07-16",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2027-07-23",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2027-07-30",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2027-08-06",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2027-08-12",
+      "description": "Tisha B'Av",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_tisha_bav",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 9,
+        "month_code": "AV",
+        "year": 5787
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_scheduled_closures_2026_2028",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2027-08-13",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2027-08-20",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2027-08-27",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2027-09-03",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2027-09-10",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2027-09-17",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2027-09-24",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2027-10-01",
+      "description": "Rosh Hashanah Eve",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_rosh_hashanah_eve",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 29,
+        "month_code": "ELUL",
+        "year": 5787
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_scheduled_closures_2026_2028",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2027-10-02",
+      "description": "Rosh Hashanah",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_rosh_hashanah",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 1,
+        "month_code": "TISHRI",
+        "year": 5788
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_scheduled_closures_2026_2028",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2027-10-03",
+      "description": "Rosh Hashanah",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_rosh_hashanah",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 2,
+        "month_code": "TISHRI",
+        "year": 5788
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_scheduled_closures_2026_2028",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2027-10-08",
+      "description": "Friday Before a Sunday Holiday (No Trading)",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_friday_before_sunday_holiday",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 7,
+        "month_code": "TISHRI",
+        "year": 5788
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_scheduled_closures_2026_2028",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2027-10-10",
+      "description": "Yom Kippur Eve",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_yom_kippur_eve",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 9,
+        "month_code": "TISHRI",
+        "year": 5788
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_scheduled_closures_2026_2028",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2027-10-11",
+      "description": "Yom Kippur",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_yom_kippur",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 10,
+        "month_code": "TISHRI",
+        "year": 5788
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_scheduled_closures_2026_2028",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2027-10-15",
+      "description": "Sukkot Eve",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_sukkot_eve",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 14,
+        "month_code": "TISHRI",
+        "year": 5788
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_scheduled_closures_2026_2028",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2027-10-16",
+      "description": "Sukkot",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_sukkot",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 15,
+        "month_code": "TISHRI",
+        "year": 5788
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_scheduled_closures_2026_2028",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": "14:30",
+      "date": "2027-10-18",
+      "description": "Sukkot Intermediate Day (Early Close)",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_sukkot_intermediate_session",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 17,
+        "month_code": "TISHRI",
+        "year": 5788
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": "14:30",
+      "date": "2027-10-19",
+      "description": "Sukkot Intermediate Day (Early Close)",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_sukkot_intermediate_session",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 18,
+        "month_code": "TISHRI",
+        "year": 5788
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": "14:30",
+      "date": "2027-10-20",
+      "description": "Sukkot Intermediate Day (Early Close)",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_sukkot_intermediate_session",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 19,
+        "month_code": "TISHRI",
+        "year": 5788
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": "14:30",
+      "date": "2027-10-21",
+      "description": "Sukkot Intermediate Day (Early Close)",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_sukkot_intermediate_session",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 20,
+        "month_code": "TISHRI",
+        "year": 5788
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2027-10-22",
+      "description": "Simchat Torah Eve",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_simchat_torah_eve",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 21,
+        "month_code": "TISHRI",
+        "year": 5788
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_scheduled_closures_2026_2028",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2027-10-23",
+      "description": "Simchat Torah",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_simchat_torah",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 22,
+        "month_code": "TISHRI",
+        "year": 5788
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_scheduled_closures_2026_2028",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2027-10-29",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2027-11-05",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2027-11-12",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2027-11-19",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2027-11-26",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2027-12-03",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2027-12-10",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2027-12-17",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2027-12-24",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2027-12-31",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2028-01-07",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2028-01-14",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2028-01-21",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2028-01-28",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2028-02-04",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2028-02-11",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2028-02-18",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2028-02-25",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2028-03-03",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2028-03-10",
+      "description": "Friday Before a Sunday Holiday (No Trading)",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_friday_before_sunday_holiday",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 12,
+        "month_code": "ADAR",
+        "year": 5788
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_scheduled_closures_2026_2028",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2028-03-12",
+      "description": "Purim",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_purim",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 14,
+        "month_code": "ADAR",
+        "year": 5788
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_scheduled_closures_2026_2028",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2028-03-17",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2028-03-24",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2028-03-31",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2028-04-07",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2028-04-10",
+      "description": "Passover Eve",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_passover_eve",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 14,
+        "month_code": "NISAN",
+        "year": 5788
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_scheduled_closures_2026_2028",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2028-04-11",
+      "description": "Passover",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_passover",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 15,
+        "month_code": "NISAN",
+        "year": 5788
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_scheduled_closures_2026_2028",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": "14:30",
+      "date": "2028-04-12",
+      "description": "Passover Intermediate Day (Early Close)",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_passover_intermediate_session",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 16,
+        "month_code": "NISAN",
+        "year": 5788
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": "14:30",
+      "date": "2028-04-13",
+      "description": "Passover Intermediate Day (Early Close)",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_passover_intermediate_session",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 17,
+        "month_code": "NISAN",
+        "year": 5788
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2028-04-14",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2028-04-16",
+      "description": "Seventh Day of Passover Eve",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_seventh_passover_eve",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 20,
+        "month_code": "NISAN",
+        "year": 5788
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_scheduled_closures_2026_2028",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2028-04-17",
+      "description": "Seventh Day of Passover",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_seventh_passover",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 21,
+        "month_code": "NISAN",
+        "year": 5788
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_scheduled_closures_2026_2028",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2028-04-21",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2028-04-28",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2028-05-01",
+      "description": "Memorial Day",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_memorial_day_2028",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 5,
+        "month_code": "IYAR",
+        "year": 5788
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_scheduled_closures_2026_2028",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2028-05-02",
+      "description": "Independence Day",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_independence_day_2028",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 6,
+        "month_code": "IYAR",
+        "year": 5788
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_scheduled_closures_2026_2028",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2028-05-05",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2028-05-12",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2028-05-19",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2028-05-26",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2028-05-30",
+      "description": "Shavuot Eve",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_shavuot_eve",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 5,
+        "month_code": "SIVAN",
+        "year": 5788
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_scheduled_closures_2026_2028",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2028-05-31",
+      "description": "Shavuot",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_shavuot",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 6,
+        "month_code": "SIVAN",
+        "year": 5788
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_scheduled_closures_2026_2028",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2028-06-02",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2028-06-09",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2028-06-16",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2028-06-23",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2028-06-30",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2028-07-07",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2028-07-14",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2028-07-21",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2028-07-28",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2028-08-01",
+      "description": "Tisha B'Av",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_tisha_bav",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 9,
+        "month_code": "AV",
+        "year": 5788
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_scheduled_closures_2026_2028",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2028-08-04",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2028-08-11",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2028-08-18",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2028-08-25",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2028-09-01",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2028-09-08",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2028-09-15",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2028-09-20",
+      "description": "Rosh Hashanah Eve",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_rosh_hashanah_eve",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 29,
+        "month_code": "ELUL",
+        "year": 5788
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_scheduled_closures_2026_2028",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2028-09-21",
+      "description": "Rosh Hashanah",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_rosh_hashanah",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 1,
+        "month_code": "TISHRI",
+        "year": 5789
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_scheduled_closures_2026_2028",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2028-09-22",
+      "description": "Rosh Hashanah",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_rosh_hashanah",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 2,
+        "month_code": "TISHRI",
+        "year": 5789
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_scheduled_closures_2026_2028",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2028-09-29",
+      "description": "Yom Kippur Eve",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_yom_kippur_eve",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 9,
+        "month_code": "TISHRI",
+        "year": 5789
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_scheduled_closures_2026_2028",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2028-09-30",
+      "description": "Yom Kippur",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_yom_kippur",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 10,
+        "month_code": "TISHRI",
+        "year": 5789
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_scheduled_closures_2026_2028",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2028-10-04",
+      "description": "Sukkot Eve",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_sukkot_eve",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 14,
+        "month_code": "TISHRI",
+        "year": 5789
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_scheduled_closures_2026_2028",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2028-10-05",
+      "description": "Sukkot",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_sukkot",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 15,
+        "month_code": "TISHRI",
+        "year": 5789
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_scheduled_closures_2026_2028",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2028-10-06",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": "14:30",
+      "date": "2028-10-09",
+      "description": "Sukkot Intermediate Day (Early Close)",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_sukkot_intermediate_session",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 19,
+        "month_code": "TISHRI",
+        "year": 5789
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": "14:30",
+      "date": "2028-10-10",
+      "description": "Sukkot Intermediate Day (Early Close)",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_sukkot_intermediate_session",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 20,
+        "month_code": "TISHRI",
+        "year": 5789
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2028-10-11",
+      "description": "Simchat Torah Eve",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_simchat_torah_eve",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 21,
+        "month_code": "TISHRI",
+        "year": 5789
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_scheduled_closures_2026_2028",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "chronology_profile": "fixed-arithmetic-hebrew-civil",
+      "chronology_provider": "ICU4J 78.3",
+      "close_time": null,
+      "date": "2028-10-12",
+      "description": "Simchat Torah",
+      "evidence_ids": [
+        "tase-trading-vacation-schedule"
+      ],
+      "key": "tase_simchat_torah",
+      "nominal_native_date": {
+        "chronology_id": "HEBREW",
+        "day": 22,
+        "month_code": "TISHRI",
+        "year": 5789
+      },
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_scheduled_closures_2026_2028",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2028-10-13",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2028-10-20",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2028-10-27",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2028-11-03",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2028-11-10",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2028-11-17",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2028-11-24",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2028-12-01",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2028-12-08",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2028-12-15",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2028-12-22",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "13:50",
+      "date": "2028-12-29",
+      "description": "Friday Session (Early Close)",
+      "evidence_ids": [
+        "isa-trading-week-2026",
+        "tase-trading-vacation-schedule",
+        "tase-tradingdays-change"
+      ],
+      "key": "tase_friday_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tase_shortened_sessions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
     }
   ],
-  "generated_at": "2026-09-15T10:01:34Z",
+  "generated_at": "2026-10-14T00:02:04Z",
   "kind": "market",
   "mic": "XTAE",
-  "range_end": "2027-12-31",
+  "range_end": "2028-12-31",
   "range_start": "2025-01-01",
   "resolution_chain": [
     "module:tase_weekends",
     "module:tase_scheduled_closures_2025",
     "module:tase_verified_events_2026",
+    "module:tase_scheduled_closures_2026_2028",
+    "module:tase_shortened_sessions",
     "module:tase_holidays",
     "calendar:IL-TASE"
   ],
   "source_version": {
-    "git_sha": "e694faa4119f45ae284deefc496729f119fc16af",
-    "semantic": "12.0.0"
+    "git_sha": "1f63234a07eb72cc08a8c0d451983be39e88b2ae",
+    "semantic": "13.0.0"
   },
   "timezone": "Asia/Jerusalem",
   "weekend_policy": {
@@ -923,14 +4420,14 @@
           "SATURDAY"
         ],
         "from": null,
-        "to": "2026-01-04"
+        "to": "2026-01-03"
       },
       {
         "days": [
           "SATURDAY",
           "SUNDAY"
         ],
-        "from": "2026-01-05",
+        "from": "2026-01-04",
         "to": null
       }
     ]

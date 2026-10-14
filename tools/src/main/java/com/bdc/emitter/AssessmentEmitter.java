@@ -15,6 +15,8 @@ public final class AssessmentEmitter {
     result.put("state", day.state().name());
     result.put("scheduled_state", day.scheduledState().name());
     result.put("effective_confidence", day.effectiveConfidence().name());
+    result.put("business_day_state", day.businessDayState().name());
+    result.put("business_day_confidence", day.businessDayConfidence().name());
     Map<String, String> completeness = new LinkedHashMap<>();
     day.completeness().entrySet().stream()
         .sorted(Map.Entry.comparingByKey())

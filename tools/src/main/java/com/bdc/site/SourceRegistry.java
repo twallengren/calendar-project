@@ -117,6 +117,14 @@ public final class SourceRegistry {
     return null;
   }
 
+  /**
+   * The {@code sources/} directory whose register documents {@code citationId} for this calendar
+   * (its own, else the nearest ancestor's), or null when no register documents it.
+   */
+  public String resolveRegister(String calendarId, String citationId) {
+    return resolve(calendarId, citationId);
+  }
+
   private String resolve(String calendarId, String citationId) {
     Market own = markets.get(calendarId);
     if (own != null && own.citationIds().contains(citationId)) {

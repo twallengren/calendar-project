@@ -313,6 +313,11 @@ public class SpecValidator {
           result.warning("UNSORTED_DATES", loc, "explicit_dates are not in ascending order");
         }
       }
+      case Rule.Weekly r -> {
+        if (r.weekday() == null) {
+          result.error("INVALID_RULE", loc, "weekly needs a weekday");
+        }
+      }
       case Rule.RelativeToReference r -> {
         if (!r.usesNamedReference() && !r.usesFixedReference()) {
           result.error(

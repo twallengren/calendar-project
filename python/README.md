@@ -55,6 +55,10 @@ installed version. Ids are matched case-insensitively, and `-` and `_` are inter
 | `business_day_offset(date, n)` | move by business dates; the detailed variant reports path-wide confidence |
 | `advance_months(date, months, convention, preserve_end_of_month=False)` | add calendar months, clip the nominal day, optionally preserve business month end, then adjust |
 | `last_business_day_of_month(date)` | final resolved business date in the input month |
+| `add_tenor(date, "3M", convention)` | add a market tenor (`D`/`W`/`M`/`Y`, or `T+2`/`2B` business days, which ignore the convention); the detailed variant carries the canonical `tenor` |
+| `year_fraction(start, end, day_count)` | `ACT_360`, `ACT_365F`, `ACT_ACT_ISDA`, `THIRTY_360_BOND`, `THIRTY_E_360`, `THIRTY_E_360_ISDA` (2006 ISDA §4.16) or `BUS_252` on this calendar's business days; `DayCount.ACT_ACT_ICMA.year_fraction(...)` takes the reference period |
+| `generate_schedule(ScheduleDefinition(start, end, frequency, stub, roll, convention))` | coupon/payment/reset dates: `Frequency` (ANNUAL … WEEKLY), `StubConvention` (NONE, SHORT/LONG_FINAL, SHORT/LONG_INITIAL), `RollConvention` (DAY_OF_MONTH, EOM, IMM); every boundary adjusted, path confidence reported |
+| `imm_date(y, m)`, `next_imm(date)`, `next_quarterly_imm(date)` | third-Wednesday IMM dates (module functions) |
 | `business_days_between(a, b)` | count of business days, **both endpoints included** |
 | `is_early_close(date)` / `close_time(date)` | shortened-session test and its local close time (`datetime.time` or `None`) |
 | `status(date)` | `"CONFIRMED"`, `"PROJECTED"` or `"UNKNOWN"` — never raises |
@@ -116,12 +120,33 @@ Inside the range, `status(date)` tells you how much the answer can be trusted:
   with explicit quality intervals.
 
 For calendars with explicit `coverage.quality`, `assessment(date)` keeps the scheduled answer
-separate from the effective state and reports completeness and evidence by scope. A scheduled
-closure list can be complete while actual business-day truth remains unknown if coverage of
-`UNSCHEDULED_EXCEPTIONS` is incomplete. Business-day boolean, navigation and count operations raise
-`UnresolvedDateError` on such dates; `status()` and `assessment()` are safe probes. Legacy data
-without explicit quality intervals keeps its legacy compatibility behavior and does not claim
-historical completeness.
+separate from the effective state and reports completeness and evidence by scope. Each operation
+only needs the scopes its question depends on:
+
+* **business-day questions** (`is_business_day`, navigation, counts, `adjust`,
+  `business_day_offset`, `advance_months`, `last_business_day_of_month`) need
+  `SCHEDULED_CLOSURES` and `UNSCHEDULED_EXCEPTIONS`. An early close is still a business day, so an
+  incomplete `EARLY_CLOSES` scope never blocks them;
+* **session questions** (`close_time`, `is_early_close`, `member_closes`) need all three scopes.
+
+A scheduled closure list can be complete while actual business-day truth remains unknown if
+coverage of `UNSCHEDULED_EXCEPTIONS` is incomplete; such dates raise `UnresolvedDateError` from
+business-day operations, and the error's `incomplete_scopes` names only the scopes that question
+needed. `status()` and `assessment()` are safe probes. `assessment(date)` reports both views:
+`state`/`effective_confidence` for the full session answer (``UNKNOWN`` as soon as any scope is
+incomplete) and `business_day_state`/`business_day_confidence` for the business-day answer alone:
+
+```python
+xetra = bdc_calendars.get_calendar("XETR")
+day = xetra.assessment(dt.date(2015, 1, 2))
+day.business_day_state, day.business_day_confidence   # ('OPEN', 'CONFIRMED')
+day.state, day.effective_confidence                   # ('UNKNOWN', 'UNKNOWN') — close time unresolved
+xetra.is_business_day(dt.date(2015, 1, 2))            # True
+xetra.close_time(dt.date(2015, 1, 2))                 # raises UnresolvedDateError(['EARLY_CLOSES'])
+```
+
+Legacy data without explicit quality intervals keeps its legacy compatibility behavior and does
+not claim historical completeness.
 
 Regular open and close times are **not** modelled: `close_time` answers only for shortened
 sessions, and `None` means either a regular session or a closed day — check `is_business_day` to

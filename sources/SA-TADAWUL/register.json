@@ -41,9 +41,253 @@
       "location": "https://www.argaam.com/en/article/articledetail/id/1387677",
       "retrieved": "2026-09-14",
       "covers": "29 July–4 August 2020",
-      "notes": "Contemporary report that attributes the closure and 5 August resumption to Tadawul. It establishes that the current calendar is incomplete, but is not used to confirm exact rows without the exchange's primary notice.",
+      "notes": "Contemporary report that attributes the closure and 5 August resumption to Tadawul; corroborates the exchange's own notice (tadawul-eid-al-adha-2020-notice).",
       "local_files": [],
       "support_intervals": []
+    },
+    {
+      "id": "tadawul-eid-al-adha-2020-notice",
+      "title": "إعلان السوق المالية السعودية (تداول) بشأن إجازة عيد الأضحى المبارك (Announcement regarding the Eid al-Adha holiday), market news ct-marketnews-20200630-ann4, 30 June 2020",
+      "publisher": "Saudi Stock Exchange (Tadawul)",
+      "location": "https://web.archive.org/web/20200927164532/https://www.tadawul.com.sa/wps/portal/tadawul/markets/Press-Release/news-details/?urile=wcm%3Apath%3A%2Ftadawul_ar%2Fsa-tadawul%2Fsa-pricesandindeces%2Fsa-news%2Fsa-marketnews%2Fct-marketnews-20200630-ann4 (Internet Archive capture of 27 September 2020 of the exchange's notice; the exchange's own @TadawulFeed tweet of 30 June 2020 linking to it is archived at https://web.archive.org/web/20200630122416/https://twitter.com/TadawulFeed/status/1277939985925181441)",
+      "retrieved": "2026-10-13",
+      "covers": "2020-07-29 to 2020-08-04",
+      "notes": "The exchange's own notice (Arabic): \"يتوقف التداول بنهاية يوم الثلاثاء 7/12/1441 هـ (حسب تقويم أم القرى) الموافق 28/7/2020 م - يستأنف التداول بعد الإجازة يوم الأربعاء 15/12/1441 هـ (حسب تقويم أم القرى) الموافق 5/8/2020 م\" (trading stops at the end of Tuesday 28 July 2020 and resumes Wednesday 5 August 2020), so the exchange was closed Wednesday 29 July through Tuesday 4 August 2020 inclusive. It was published as a market-news item rather than on the website's Holidays events page, which is why the live calendar never listed it. Corroborated by Argaam (argaam-tadawul-eid-adha-2020) and by SAMA's identical banking holiday.",
+      "local_files": [
+        {
+          "path": "SA-TADAWUL/tadawul-eid-al-adha-2020-notice-ar.html",
+          "sha256": "fdfaec61ef32ff1eac385eb1c8186c6124dabe3fbed25c50e69231331ca981b5"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2020-07-29",
+          "to": "2020-08-04"
+        }
+      ]
+    },
+    {
+      "id": "tadawul-national-day-2020-notice",
+      "title": "إجازة اليوم الوطني للسوق المالية السعودية (تداول) (National Day holiday of the Saudi Stock Exchange), market news CT-marketnews-20200910-Ann, 10 September 2020",
+      "publisher": "Saudi Stock Exchange (Tadawul)",
+      "location": "https://web.archive.org/web/20201003211015/https://www.tadawul.com.sa/wps/portal/tadawul/markets/Press-Release/news-%26-announcements/?urile=wcm:path:/Tadawul_en/SA-Tadawul/SA-PricesAndIndeces/SA-News/SA-MarketNews/CT-marketnews-20200910-Ann (Internet Archive capture of 3 October 2020; the exchange's @tadawul tweet and graphic of 16 September 2020 are archived at https://web.archive.org/web/20200916093736/https://twitter.com/tadawul/status/1306164877497643008)",
+      "retrieved": "2026-10-13",
+      "covers": "2020-09-23",
+      "notes": "The exchange's own notice: \"إجازة اليوم الوطني سوف تكون يوم الأربعاء 6/2/1442 هـ (حسب تقويم أم القرى) الموافق 23/9/2020 م. ويستأنف التداول بعد الإجازة يوم الخميس 7/2/1442 هـ ... الموافق 24/9/2020 م\" (the National Day holiday is Wednesday 23 September 2020; trading resumes Thursday 24 September 2020).",
+      "local_files": [
+        {
+          "path": "SA-TADAWUL/tadawul-national-day-2020-notice-ar.html",
+          "sha256": "ef1451d14da422bbfb957d14ef81fa61f7e720de012888256c053554804358fa"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2020-09-23",
+          "to": "2020-09-23"
+        }
+      ]
+    },
+    {
+      "id": "tadawul-holidays-page-2020",
+      "title": "Holidays (events calendar) of the Saudi Stock Exchange (Tadawul), archived captures 28 June 2020 to 20 February 2021",
+      "publisher": "Saudi Stock Exchange (Tadawul)",
+      "location": "https://web.archive.org/web/20200628160925/https://www.tadawul.com.sa/wps/portal/tadawul/about/about_events/events_calendar?locale=en (further captures 2020-06-30 Arabic, 2020-12-10, 2021-02-20)",
+      "retrieved": "2026-10-13",
+      "covers": "2020-01-01 to 2020-12-31",
+      "notes": "The exchange's Holidays page as it stood during 2020: it carries the Eid al-Fitr 1441 entry (\"Trading will discontinue at the end of trading day 21/5/2020. Trading will resume after the holiday on 31/5/2020.\") and no other 2020 closure. Together with the two archived market-news notices above (Eid al-Adha, National Day) and the complete set of 2020 market-news items captured by the Internet Archive, which contain no further holiday notice, this establishes the 2020 scheduled closures as complete: Eid al-Fitr 22-30 May, Eid al-Adha 29 July-4 August, National Day 23 September. COVID-19 shortened the session (10:00-13:00 from 26 March to 30 May 2020) but closed no day.",
+      "local_files": [
+        {
+          "path": "SA-TADAWUL/tadawul-holidays-page-2020-06-28-en.html",
+          "sha256": "684e554e5889a2dba1ad7b200976d6a48308b88eb539ce617279502f47f0b32d"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2020-01-01",
+          "to": "2020-12-31"
+        }
+      ]
+    },
+    {
+      "id": "saudi-exchange-tasi-sessions",
+      "title": "Historical Reports: Tadawul All Share Index (TASI) performance summary, one row per trading day, 1 January 2020 to 13 October 2026",
+      "publisher": "Saudi Exchange",
+      "location": "https://www.saudiexchange.sa/wps/portal/saudiexchange/newsandreports/reports-publications/historical-reports (Indices > Main Market > TASI, Performance Summary)",
+      "retrieved": "2026-10-14",
+      "covers": "2020-01-01 to 2026-10-13",
+      "notes": "The exchange's own day-level session record (1,691 sessions). Its totals equal the exchange's published annual counts (2020 251, 2021 250, 2022 248, 2023 249, 2024 250, 2025 251) and it reconciles with the modelled Sunday-Thursday grid minus closures on every day except the five corrected in 13.0.0: no session on 11-12 May 2021 (the 2021 Eid al-Fitr closure ran from 11 May, per the exchange's notice of 6 April 2021) and on 23 November 2022 (the royal holiday after the World Cup win over Argentina), and full sessions on 28 April and 8 May 2022 (the 2022 Eid al-Fitr closure was 1-5 May). The intraday halt of 2 June 2021 and the delayed open of 19 August 2026 have full session rows.",
+      "local_files": [
+        {
+          "path": "SA-TADAWUL/saudi-exchange-tasi-session-dates-2020-01-01-to-2026-10-13.txt",
+          "sha256": "a27e3b6d5965d17f95222709ad5c20f90525fcde8a0130a13dd0dba9f7771c87"
+        },
+        {
+          "path": "SA-TADAWUL/saudi-exchange-tasi-key-rows.txt",
+          "sha256": "1f1142e5cb33c82c2348d102d0c1102a59209e4b194cbcee3debd84e7b6d8946"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2020-01-01",
+          "to": "2026-10-13"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2020-01-01",
+          "to": "2026-10-13"
+        }
+      ]
+    },
+    {
+      "id": "saudi-exchange-statistical-reports",
+      "title": "Saudi Exchange annual and quarterly statistical reports: trading-day counts 2020-2026",
+      "publisher": "Saudi Exchange",
+      "location": "https://www.saudiexchange.sa/wps/portal/saudiexchange/newsandreports/issuer-news/ (market news of 4 January 2022, 1 January 2024, 1 January 2025, newsId 9216, 7073, 9316, 9614; 2020, 2022, 1H 2020, 9M 2020 and 9M 2022 via mondovisione.com copies)",
+      "retrieved": "2026-10-14",
+      "covers": "2020-01-01 to 2026-09-30",
+      "notes": "The exchange's published trading-day counts: 2020 251 (1H 125, 9M 185), 2021 250 (Q1 64, 1H 125, 9M 185), 2022 248 (Q1 64, 1H 124, 9M 184), 2023 249 (1H 119), 2024 250 (Q1 64, 1H 119), 2025 251 (61, 59, 65, 66), Q1 2026 58, 9M 2026 183. Each equals the modelled schedule after the 13.0.0 corrections; before them 2021 and 2022 were two days apart from the exchange's figures.",
+      "local_files": [
+        {
+          "path": "SA-TADAWUL/saudi-exchange-statistical-reports-trading-days.txt",
+          "sha256": "5b9e8defdc4e60d2950618c7a065b60bf6ba94ae0595b8eaa617ebf83431286a"
+        },
+        {
+          "path": "SA-TADAWUL/saudi-exchange-annual-statistical-report-2022-mondovisione.html",
+          "sha256": "532475572e647bcfbe7dbc6ae2deb0ad37f1415a4a14c3eeaf0fb293e69ddf75"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2020-01-01",
+          "to": "2026-09-30"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2020-01-01",
+          "to": "2026-09-30"
+        }
+      ]
+    },
+    {
+      "id": "saudi-exchange-closure-2022-11-23",
+      "title": "Announcement Regarding Suspended trading (market news, 22 November 2022, 20:14)",
+      "publisher": "Saudi Exchange",
+      "location": "https://www.saudiexchange.sa/wps/portal/saudiexchange/newsandreports/issuer-news/news-detail-wcm/?newsId=7392&locale=en",
+      "retrieved": "2026-10-14",
+      "covers": "2022-11-23",
+      "notes": "\"based on the royal direction dated 22/11/2022 .that Wednesday 23/11/2022 will be a holiday to all employees of the public and private sectors , Saudi Exchange announces the discontinue of trading on Wednesday 23/11/2022. Trading will resume on Thursday 24/11/2022.\" An unscheduled closure announced the evening before, after the World Cup win over Argentina; corroborated by Arab News (https://www.arabnews.com/node/2204176/saudi-arabia) and the exchange's session record.",
+      "local_files": [
+        {
+          "path": "SA-TADAWUL/saudi-exchange-news-7392-2022-11-22-suspended-trading.txt",
+          "sha256": "24676d695ebb3a7d0707a4bf75a245c94f8837bcc6e0d8edacaedee11e40138d"
+        },
+        {
+          "path": "SA-TADAWUL/arabnews-2022-11-22-wednesday-holiday.html",
+          "sha256": "8cdc8fcc5af72b69d869316db8dc5c5034b6668547d2b5cbbb30a85c965e68a3"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2022-11-23",
+          "to": "2022-11-23"
+        }
+      ]
+    },
+    {
+      "id": "tadawul-ramadan-eid-notice-2021",
+      "title": "Trading Hours During The Holy Month Of Ramadan / Eid Al Fiter holiday For The Saudi Stock Exchange (Tadawul), 6 April 2021",
+      "publisher": "Saudi Stock Exchange (Tadawul), republished by Mondo Visione",
+      "location": "https://mondovisione.com/media-and-resources/news/trading-hours-during-the-holy-month-of-ramadan-eid-al-fiter-holiday-for-the-saud-202146/ (Argaam copy: https://www.argaam.com/en/article/articledetail/id/1457396)",
+      "retrieved": "2026-10-14",
+      "covers": "2021-05-11 to 2021-05-16",
+      "notes": "\"Trading will discontinue at the end of trading day on 10th of May 2021 (28th of Ramadan 1442). Trading will resume after the holiday on Monday 17th of May 2021 (5th Shawal 1442).\" The Holidays-calendar entry (\"First day of Eid Al Fiter is 13/5/2021. Last day of Eid Al Fiter is 16/5/2021\") named the Eid days, not the closure; the closure ran 11-16 May, as the session record shows.",
+      "local_files": [
+        {
+          "path": "SA-TADAWUL/tadawul-ramadan-eid-notice-2021-04-06-mondovisione.html",
+          "sha256": "90516889a53ee116a91f7b26d1bfcc36e2b2d6cc697eec43315ad8c75630bcc8"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2021-05-11",
+          "to": "2021-05-16"
+        }
+      ]
+    },
+    {
+      "id": "enbd-securities-eid-al-fitr-2022",
+      "title": "Holiday Notification - Eid Al Fitr 2022 (28 April 2022)",
+      "publisher": "Emirates NBD Securities (broker)",
+      "location": "https://www.emiratesnbdsecurities.com/en/investor-updates/holiday-notification-eid-al-fitr-2022",
+      "retrieved": "2026-10-14",
+      "covers": "2022-05-01 to 2022-05-05",
+      "notes": "\"The Saudi Stock Exchange - TADAWUL will observe holiday from Sunday, 01 May 2022 till Thursday 05th May 2022 and will resume officially on Sunday 08th May 2022\". Corroborates the exchange's session record (full sessions on 28 April and 8 May 2022); the exchange's Holidays-calendar entry (\"First day ... 28/4/2022. Last day ... 8/5/2022\") named the bounding trading days, and no exchange market-news notice for Eid al-Fitr 1443 exists.",
+      "local_files": [
+        {
+          "path": "SA-TADAWUL/enbd-securities-eid-al-fitr-2022.html",
+          "sha256": "99e3238aad9a344db9bc22db8ef7eacf1048296e8208a33d3674110b189fc3fc"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "saudi-exchange-halt-2021-06-02",
+      "title": "Announcement regarding Market Suspension / on resumption of market activities (market news CT-marketnews-20210602-ANN and -ANN2, 2 June 2021)",
+      "publisher": "Saudi Stock Exchange (Tadawul), Internet Archive captures",
+      "location": "https://web.archive.org/web/20210602085116/https://tadawul.com.sa/ (CT-marketnews-20210602-ANN) and https://web.archive.org/web/20210602094816/ (CT-marketnews-20210602-ANN2)",
+      "retrieved": "2026-10-14",
+      "covers": "2021-06-02",
+      "notes": "\"market will be suspended temporary due to an unexpected technical issue out of the company's control\" (10:56) and \"technical issue has been resolved ... The trading has been resumed with auction period of 15 minutes\" (12:11). An intraday halt with a full session (close 10,656.81); not a closure or early close.",
+      "local_files": [
+        {
+          "path": "SA-TADAWUL/tadawul-marketnews-2021-06-02-suspension.html",
+          "sha256": "ef3812f1ae65a445cdb7c3dfe7c62d858e32fe8ef0263453e1b48d28d3f8251c"
+        },
+        {
+          "path": "SA-TADAWUL/tadawul-marketnews-2021-06-02-resumption.html",
+          "sha256": "f1ade0bcfacfdc0ae401ee2480950252e91bc180fc70d7602b04cf2c7d19c9fe"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2021-06-02",
+          "to": "2021-06-02"
+        }
+      ]
+    },
+    {
+      "id": "saudi-exchange-halt-2026-08-19",
+      "title": "Announcement regarding Market Suspension (10:05) / resuming market activities (10:24), 19 August 2026",
+      "publisher": "Saudi Exchange",
+      "location": "https://www.saudiexchange.sa/wps/portal/saudiexchange/newsandreports/issuer-news/news-detail-wcm/?newsId=9536&locale=en and ?newsId=9537&locale=en",
+      "retrieved": "2026-10-14",
+      "covers": "2026-08-19",
+      "notes": "\"trading will resume on Wednesday 19th of August 2026 with an auction that started at 10:15 AM and trading starts at 10:30 AM and all functions will be operating normally.\" A delayed open with a full session; not a closure or early close.",
+      "local_files": [
+        {
+          "path": "SA-TADAWUL/saudi-exchange-news-9536-2026-08-19-market-suspension.txt",
+          "sha256": "5365d7e52cbfefff7638bc57c001440d38e353a6a7deedd3630ac51dba8f037f"
+        },
+        {
+          "path": "SA-TADAWUL/saudi-exchange-news-9537-2026-08-19-resuming-market-activities.txt",
+          "sha256": "5ec67c9b37031e8e6819ab2d7d330a9cfa42bbb9bf073dea4cdf2420edd72c1a"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2026-08-19",
+          "to": "2026-08-19"
+        }
+      ]
     }
   ]
 }

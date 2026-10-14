@@ -419,6 +419,87 @@
       "notes": "Landing page; confirms the 2026 exceptions list and that regular trading occurs on Ascension Day, Whit Monday and Corpus Christi in 2026.",
       "local_files": [],
       "support_intervals": []
+    },
+    {
+      "id": "xetra-newsboard-emergency-2020-07-01",
+      "title": "Xetra & Frankfurt Newsboard: Emergency Information MIC: XETR, Update, Trading resumption (1 July 2020)",
+      "publisher": "Deutsche Börse AG",
+      "location": "https://cashmarket.deutsche-boerse.com/cash-en/Stay-Informed/newsroom/Xetra-Frankfurt-Newsboard/Emergency-Information-MIC-XETR-2090144 (update -2090372, resumption -2095186)",
+      "retrieved": "2026-10-14",
+      "covers": "2020-07-01",
+      "notes": "\"Due to problems the Xetra T7 is not available at the moment\"; restart with pre-trading not before 11:15 CEST and the auction call not before 11:45 CEST. The session completed with a normal close (Börsen-Zeitung: \"Der Dax schloss ... auf 12 261 Punkten\"). A delayed open, not a closure.",
+      "local_files": [],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2020-07-01",
+          "to": "2020-07-01"
+        }
+      ]
+    },
+    {
+      "id": "xetra-newsboard-emergency-2020-04-14",
+      "title": "Xetra & Frankfurt Newsboard: Emergency Information MIC: XETR (14 April 2020)",
+      "publisher": "Deutsche Börse AG",
+      "location": "https://cashmarket.deutsche-boerse.com/cash-en/Stay-Informed/newsroom/Xetra-Frankfurt-Newsboard/Emergency-Information-MIC-XETR-1932466",
+      "retrieved": "2026-10-14",
+      "covers": "2020-04-14",
+      "notes": "\"The technical problem in the Xetra market (MIC: XETR) is resolved.\" Trading halted from about 09:25 to 13:45 CEST and the closing auction ran (dpa: DAX 10,696.56 at 17:55). Reuters and the exchange called it one of the longest outages ever, which excludes any full-day closure in the system's history. An intraday halt, not a closure.",
+      "local_files": [],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2020-04-14",
+          "to": "2020-04-14"
+        }
+      ]
+    },
+    {
+      "id": "xetra-newsboard-emergency-search",
+      "title": "Xetra & Frankfurt Newsboard, every \"emergency\" item (2018-2026 retention)",
+      "publisher": "Deutsche Börse AG",
+      "location": "https://cashmarket.deutsche-boerse.com/cash-en/Stay-Informed/newsroom/Xetra-Frankfurt-Newsboard/4091644!search?query=emergency",
+      "retrieved": "2026-10-14",
+      "covers": "2018-01-01 to 2026-09-30",
+      "notes": "The exchange's own incident notices: besides the two 2020 items, every XETR notice (7 March 2024 FIX interface, 6 June 2024 matcher failover, 10 November 2025 partition 60 closing auction extended to 19:15 CET for some instruments, 21 November 2025 GUI) is partial, and the 29 October 2018 \"MARKET HALT\", 28 November 2025 and 31 August 2026 notices concern Börse Frankfurt (MIC XFRA), not Xetra. No notice records a whole-day closure or a market-wide early termination.",
+      "local_files": [
+        {
+          "path": "DE-XETRA/xetra-newsboard-emergency-search-2026-10-13.html",
+          "sha256": "41329e5eda319c102d5a25ae303813774f7201d5edacc6b555b1e4359dbb4c92"
+        },
+        {
+          "path": "DE-XETRA/xetra-newsboard-market-halt-xfra-2018-10-29.html",
+          "sha256": "d4ead2919b78445d4ce65f872104c5bf3d0473b5f40e91e0bb9119a49d225f31"
+        },
+        {
+          "path": "DE-XETRA/xetra-newsboard-partition-60-2025-11-10.html",
+          "sha256": "395b9e5c22950a9efd0e73cdd9efa86bdb182f07e0394dab76bd1f4757c9bedd"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2018-01-01",
+          "to": "2026-09-30"
+        }
+      ]
+    },
+    {
+      "id": "press-xetra-outages-2012-2018",
+      "title": "Contemporaneous press on the Xetra disruptions of 2012-2018",
+      "publisher": "Der Tagesspiegel (9 May 2012, 31 October 2014); Traders Magazine/Bloomberg (2 November 2014); Börse Online (7 November 2017); Cash./dpa (16 March 2018); WatersTechnology (15 October 2018); Börsen-Zeitung (4 December 2018)",
+      "location": "https://www.tagesspiegel.de/wirtschaft/nichts-geht-mehr-2110540.html ; https://www.tagesspiegel.de/wirtschaft/aktienhandel-setzt-wegen-technischer-probleme-aus-3596224.html ; https://www.tradersmagazine.com/news/computer-failure-makes-deutsche-boerse-halt-stocks-trading-friday/ ; https://www.boerse-online.de/nachrichten/aktien/stoerung-im-xetra-system-legt-frankfurter-boersenhandel-teilweise-lahm-20280424.html ; https://www.cash-online.de/a/boersenhandel-in-frankfurt-erliegt-technischer-stoerung-417042/ ; https://waterstechnology.com/node/3920276 ; https://www.boersen-zeitung.de/kapitalmaerkte/storung-im-xetra-handel",
+      "retrieved": "2026-10-14",
+      "covers": "2010-01-01 to 2018-12-31",
+      "notes": "Every reported disruption of the period was a delayed open or an intraday halt after which the session completed: 8 May 2012 (trading from 10:15-10:35), 5 June 2014 (10:21-10:30), 31 October 2014 (10:08 to about 11:20), 7 November 2017 (partial, normal from 15:46, DAX unaffected), 16 March 2018 (open delayed over an hour), 15 October 2018 (trading from 10:00 CET), 3 December 2018 (FIX slowdown, \"nicht eingestellt oder unterbrochen\"). The Tagesspiegel notes earlier failures in 2004, 2006 and November 2007 without dates; those years stay projected.",
+      "local_files": [],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2010-01-01",
+          "to": "2018-12-31"
+        }
+      ]
     }
   ]
 }

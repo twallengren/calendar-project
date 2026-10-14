@@ -14,14 +14,14 @@
       "scope" : "SCHEDULED_CLOSURES",
       "from" : "2020-01-01",
       "to" : "2020-12-31",
-      "quality" : "INCOMPLETE",
-      "evidence_ids" : [ "saudi-exchange-announcements", "argaam-tadawul-eid-adha-2020" ]
+      "quality" : "VERIFIED",
+      "evidence_ids" : [ "tadawul-holidays-page-2020", "tadawul-eid-al-adha-2020-notice", "tadawul-national-day-2020-notice", "saudi-exchange-announcements" ]
     }, {
       "scope" : "SCHEDULED_CLOSURES",
       "from" : "2021-01-01",
       "to" : "2029-12-31",
       "quality" : "VERIFIED",
-      "evidence_ids" : [ "saudi-exchange-announcements" ]
+      "evidence_ids" : [ "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ]
     }, {
       "scope" : "SCHEDULED_CLOSURES",
       "from" : "2030-01-01",
@@ -37,12 +37,18 @@
     }, {
       "scope" : "UNSCHEDULED_EXCEPTIONS",
       "from" : "2020-01-01",
+      "to" : "2026-10-13",
+      "quality" : "VERIFIED",
+      "evidence_ids" : [ "saudi-exchange-tasi-sessions", "saudi-exchange-statistical-reports", "saudi-exchange-closure-2022-11-23", "saudi-exchange-halt-2021-06-02", "saudi-exchange-halt-2026-08-19" ]
+    }, {
+      "scope" : "UNSCHEDULED_EXCEPTIONS",
+      "from" : "2026-10-14",
       "to" : "2030-12-31",
       "quality" : "PROJECTED",
       "evidence_ids" : [ "saudi-exchange-announcements" ]
     } ]
   },
-  "event_count" : 1271,
+  "event_count" : 1277,
   "events" : [ {
     "date" : "2020-01-03",
     "type" : "WEEKEND",
@@ -629,20 +635,65 @@
     "close_time" : null,
     "status" : "CONFIRMED"
   }, {
+    "date" : "2020-07-29",
+    "type" : "CLOSED",
+    "description" : "Eid al-Adha",
+    "key" : "eid_al_adha",
+    "source_module" : "module:eid_al_adha",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2020-07-30",
+    "type" : "CLOSED",
+    "description" : "Eid al-Adha",
+    "key" : "eid_al_adha",
+    "source_module" : "module:eid_al_adha",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
     "date" : "2020-07-31",
-    "type" : "WEEKEND",
-    "description" : "Friday",
-    "key" : "weekend",
-    "source_module" : "weekend_policy",
+    "type" : "CLOSED",
+    "description" : "Eid al-Adha",
+    "key" : "eid_al_adha",
+    "source_module" : "module:eid_al_adha",
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED"
   }, {
     "date" : "2020-08-01",
-    "type" : "WEEKEND",
-    "description" : "Saturday",
-    "key" : "weekend",
-    "source_module" : "weekend_policy",
+    "type" : "CLOSED",
+    "description" : "Eid al-Adha",
+    "key" : "eid_al_adha",
+    "source_module" : "module:eid_al_adha",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2020-08-02",
+    "type" : "CLOSED",
+    "description" : "Eid al-Adha",
+    "key" : "eid_al_adha",
+    "source_module" : "module:eid_al_adha",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2020-08-03",
+    "type" : "CLOSED",
+    "description" : "Eid al-Adha",
+    "key" : "eid_al_adha",
+    "source_module" : "module:eid_al_adha",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2020-08-04",
+    "type" : "CLOSED",
+    "description" : "Eid al-Adha",
+    "key" : "eid_al_adha",
+    "source_module" : "module:eid_al_adha",
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED"
@@ -1372,6 +1423,24 @@
     "description" : "Saturday",
     "key" : "weekend",
     "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2021-05-11",
+    "type" : "CLOSED",
+    "description" : "Eid al-Fitr",
+    "key" : "eid_al_fitr",
+    "source_module" : "module:eid_al_fitr",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2021-05-12",
+    "type" : "CLOSED",
+    "description" : "Eid al-Fitr",
+    "key" : "eid_al_fitr",
+    "source_module" : "module:eid_al_fitr",
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED"
@@ -2357,15 +2426,6 @@
     "close_time" : null,
     "status" : "CONFIRMED"
   }, {
-    "date" : "2022-04-28",
-    "type" : "CLOSED",
-    "description" : "Eid al-Fitr",
-    "key" : "eid_al_fitr",
-    "source_module" : "module:eid_al_fitr",
-    "observed_from" : null,
-    "close_time" : null,
-    "status" : "CONFIRMED"
-  }, {
     "date" : "2022-04-29",
     "type" : "CLOSED",
     "description" : "Eid al-Fitr",
@@ -2439,15 +2499,6 @@
     "status" : "CONFIRMED"
   }, {
     "date" : "2022-05-07",
-    "type" : "CLOSED",
-    "description" : "Eid al-Fitr",
-    "key" : "eid_al_fitr",
-    "source_module" : "module:eid_al_fitr",
-    "observed_from" : null,
-    "close_time" : null,
-    "status" : "CONFIRMED"
-  }, {
-    "date" : "2022-05-08",
     "type" : "CLOSED",
     "description" : "Eid al-Fitr",
     "key" : "eid_al_fitr",
@@ -3001,6 +3052,15 @@
     "description" : "Saturday",
     "key" : "weekend",
     "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2022-11-23",
+    "type" : "CLOSED",
+    "description" : "Unscheduled Closure (royal holiday after the World Cup win over Argentina)",
+    "key" : "tadawul_unscheduled_closure",
+    "source_module" : "module:tadawul_unscheduled_closures",
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED"

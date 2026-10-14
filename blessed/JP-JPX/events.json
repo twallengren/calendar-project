@@ -14,8 +14,8 @@
       "scope" : "SCHEDULED_CLOSURES",
       "from" : "2010-01-01",
       "to" : "2018-12-31",
-      "quality" : "PROJECTED",
-      "evidence_ids" : [ "cao-shukujitsu", "jpx-market-holidays" ]
+      "quality" : "VERIFIED",
+      "evidence_ids" : [ "cao-shukujitsu", "jpx-market-holidays", "jpx-monthly-report-2014-12", "jpx-monthly-report-2016-01", "jpx-monthly-report-2019-08" ]
     }, {
       "scope" : "SCHEDULED_CLOSURES",
       "from" : "2019-01-01",
@@ -37,6 +37,12 @@
     }, {
       "scope" : "UNSCHEDULED_EXCEPTIONS",
       "from" : "2010-01-01",
+      "to" : "2026-08-31",
+      "quality" : "VERIFIED",
+      "evidence_ids" : [ "jpx-system-failure-2020", "jpx-monthly-report-2014-12", "jpx-monthly-report-2016-01", "jpx-monthly-report-2019-08", "jpx-trading-overview-2020", "jpx-monthly-report-2026-08", "tse-statement-2011-03-14", "tse-arrowhead-2018-10-09" ]
+    }, {
+      "scope" : "UNSCHEDULED_EXCEPTIONS",
+      "from" : "2026-09-01",
       "to" : "2030-12-31",
       "quality" : "PROJECTED",
       "evidence_ids" : [ "jpx-system-failure-2020" ]

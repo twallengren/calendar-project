@@ -36,6 +36,17 @@ metadata:
       - euronext-hours-holidays
     - scope: UNSCHEDULED_EXCEPTIONS
       from: 2010-01-01
+      to: 2026-09-30
+      quality: VERIFIED
+      evidenceIds:
+      - nyse-euronext-10k-2012
+      - euronext-volumes-dec-2014
+      - euronext-volumes-dec-2015
+      - euronext-volumes-dec-2016
+      - euronext-monthly-historical-volumes
+      - euronext-market-status-2020-10-19
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2026-10-01
       to: 2030-12-31
       quality: PROJECTED
       evidenceIds:

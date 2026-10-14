@@ -140,13 +140,7 @@ public final class YearGridRenderer {
       state = "unknown";
       projected = false;
     } else if (calendar.assessments().containsKey(date)) {
-      projected =
-          calendar
-              .assessments()
-              .get(date)
-              .path("effective_confidence")
-              .asText()
-              .equals("PROJECTED");
+      projected = calendar.businessDayConfidence(date).equals("PROJECTED");
     }
     StringBuilder html = new StringBuilder(160);
     html.append("<td class=\"day ")

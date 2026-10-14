@@ -16,14 +16,14 @@
       "scope" : "SCHEDULED_CLOSURES",
       "from" : "2020-01-01",
       "to" : "2020-12-31",
-      "quality" : "INCOMPLETE",
-      "evidence_ids" : [ "saudi-exchange-announcements", "argaam-tadawul-eid-adha-2020" ]
+      "quality" : "VERIFIED",
+      "evidence_ids" : [ "tadawul-holidays-page-2020", "tadawul-eid-al-adha-2020-notice", "tadawul-national-day-2020-notice", "saudi-exchange-announcements" ]
     }, {
       "scope" : "SCHEDULED_CLOSURES",
       "from" : "2021-01-01",
       "to" : "2029-12-31",
       "quality" : "VERIFIED",
-      "evidence_ids" : [ "saudi-exchange-announcements" ]
+      "evidence_ids" : [ "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ]
     }, {
       "scope" : "SCHEDULED_CLOSURES",
       "from" : "2030-01-01",
@@ -39,13 +39,19 @@
     }, {
       "scope" : "UNSCHEDULED_EXCEPTIONS",
       "from" : "2020-01-01",
+      "to" : "2026-10-13",
+      "quality" : "VERIFIED",
+      "evidence_ids" : [ "saudi-exchange-tasi-sessions", "saudi-exchange-statistical-reports", "saudi-exchange-closure-2022-11-23", "saudi-exchange-halt-2021-06-02", "saudi-exchange-halt-2026-08-19" ]
+    }, {
+      "scope" : "UNSCHEDULED_EXCEPTIONS",
+      "from" : "2026-10-14",
       "to" : "2030-12-31",
       "quality" : "PROJECTED",
       "evidence_ids" : [ "saudi-exchange-announcements" ]
     } ]
   },
   "event_count" : 584,
-  "resolution_chain" : [ "module:saudi_weekends", "module:saudi_founding_day", "module:saudi_national_day", "module:eid_al_fitr", "module:eid_al_adha", "module:tadawul_holidays", "calendar:SA-TADAWUL" ],
+  "resolution_chain" : [ "module:saudi_weekends", "module:saudi_founding_day", "module:saudi_national_day", "module:eid_al_fitr", "module:eid_al_adha", "module:tadawul_unscheduled_closures", "module:tadawul_holidays", "calendar:SA-TADAWUL" ],
   "counts_by_type" : {
     "WEEKEND" : 492,
     "CLOSED" : 92

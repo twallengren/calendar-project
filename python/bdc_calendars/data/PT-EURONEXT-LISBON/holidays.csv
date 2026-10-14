@@ -44,7 +44,7 @@ date,type,description,key,source_module,observed_from,close_time,status
 2015-12-24,EARLY_CLOSE,Christmas Eve (half trading day),euronext_christmas_eve_1405,module:euronext_christmas_eve_lisbon,,13:05,CONFIRMED
 2015-12-25,CLOSED,Christmas Day,euronext_christmas,module:euronext_christmas,,,CONFIRMED
 2015-12-26,CLOSED,Boxing Day,euronext_boxing_day,module:euronext_boxing_day,,,CONFIRMED
-2015-12-31,CLOSED,Market Holiday (New Year's Eve),euronext_special_closure,module:euronext_special_closures,,,CONFIRMED
+2015-12-31,EARLY_CLOSE,New Year's Eve (half trading day),euronext_new_years_eve_1405,module:euronext_new_years_eve_lisbon,,13:05,CONFIRMED
 2016-01-01,CLOSED,New Year's Day,euronext_new_years_day,module:euronext_new_years_day,,,CONFIRMED
 2016-03-25,CLOSED,Good Friday,euronext_good_friday,module:euronext_good_friday,,,CONFIRMED
 2016-03-28,CLOSED,Easter Monday,euronext_easter_monday,module:euronext_easter_monday,,,CONFIRMED

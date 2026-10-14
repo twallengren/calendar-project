@@ -12,9 +12,11 @@ metadata:
     to: 2030-12-31
     verified_through: 2028-12-31
     quality:
-      - {scope: SCHEDULED_CLOSURES, from: 2000-01-01, to: 2020-12-31, quality: PROJECTED, evidence_ids: [uk-1971-act]}
+      # The exchange's Secondary Markets Factsheets give its own trading-day count for every
+      # month from 2000 and every year through September 2026; all equal the modelled schedule.
+      - {scope: SCHEDULED_CLOSURES, from: 2000-01-01, to: 2020-12-31, quality: VERIFIED, evidence_ids: [uk-1971-act, lse-smf-dec-2012, lse-smf-dec-2013, lse-smf-dec-2014, lse-smf-dec-2015, lse-smf-dec-2016, lse-smf-dec-2017, lse-smf-dec-2018, lse-smf-dec-2019, lse-smf-dec-2020, lse-smf-dec-2021, lseg-release-2008-01-09]}
       - {scope: SCHEDULED_CLOSURES, from: 2021-01-01, to: 2023-12-31, quality: VERIFIED, evidence_ids: [govuk-bank-holidays, lse-trading-calendar-2021, lse-trading-calendar-2022, lse-trading-calendar-2023]}
-      - {scope: SCHEDULED_CLOSURES, from: 2024-01-01, to: 2025-12-31, quality: PROJECTED, evidence_ids: [govuk-bank-holidays]}
+      - {scope: SCHEDULED_CLOSURES, from: 2024-01-01, to: 2025-12-31, quality: VERIFIED, evidence_ids: [govuk-bank-holidays, lse-smf-dec-2024, lse-smf-dec-2025]}
       - {scope: SCHEDULED_CLOSURES, from: 2026-01-01, to: 2028-12-31, quality: VERIFIED, evidence_ids: [lse-business-days, govuk-bank-holidays]}
       - {scope: SCHEDULED_CLOSURES, from: 2029-01-01, to: 2030-12-31, quality: PROJECTED, evidence_ids: [lse-business-days]}
       - {scope: EARLY_CLOSES, from: 2000-01-01, to: 2020-12-31, quality: PROJECTED, evidence_ids: [lse-business-days]}
@@ -36,7 +38,12 @@ metadata:
       - {scope: EARLY_CLOSES, from: 2016-12-30, to: 2016-12-30, quality: INCOMPLETE, evidence_ids: []}
       - {scope: EARLY_CLOSES, from: 2017-12-22, to: 2017-12-22, quality: INCOMPLETE, evidence_ids: []}
       - {scope: EARLY_CLOSES, from: 2017-12-29, to: 2017-12-29, quality: INCOMPLETE, evidence_ids: []}
-      - {scope: UNSCHEDULED_EXCEPTIONS, from: 2000-01-01, to: 2030-12-31, quality: PROJECTED, evidence_ids: [lse-business-days]}
+      # No unscheduled whole-day closure or market-wide early termination 2000-2026: every
+      # incident (delayed opens, intraday halts, two partial-instrument halts) ended in a normal
+      # or extended close, each is an exchange notice, and the factsheet counts leave no room for
+      # an unrecorded closure through the last published month.
+      - {scope: UNSCHEDULED_EXCEPTIONS, from: 2000-01-01, to: 2026-09-30, quality: VERIFIED, evidence_ids: [lse-smf-dec-2012, lse-smf-dec-2013, lse-smf-dec-2014, lse-smf-dec-2015, lse-smf-dec-2016, lse-smf-dec-2017, lse-smf-dec-2018, lse-smf-dec-2019, lse-smf-dec-2020, lse-smf-dec-2021, lse-smf-dec-2022, lse-smf-dec-2023, lse-smf-dec-2024, lse-smf-dec-2025, lse-smf-sep-2026, lseg-release-2008-01-09, lse-rns-2000-04-05, lse-service-update-2008-09-08, lse-statement-2009-11-26, lseg-statement-2011-02-25, lse-market-notice-n15-22, lse-service-announcement-2023-10-19, lse-service-announcement-2023-12-05]}
+      - {scope: UNSCHEDULED_EXCEPTIONS, from: 2026-10-01, to: 2030-12-31, quality: PROJECTED, evidence_ids: [lse-business-days]}
 
 # UK-style observance: a bank holiday that falls on a weekend moves to the next weekday not
 # already a holiday (cascading), e.g. Christmas Saturday -> Monday, Boxing Day Sunday -> Tuesday.

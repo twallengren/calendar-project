@@ -98,31 +98,68 @@ public record CalendarData(
         Map.of());
   }
 
+  /**
+   * Whether the business-day answer is unknown on this date: outside coverage, or the scheduled
+   * closure / unscheduled exception scopes are incomplete. An early-close gap alone does not make a
+   * date unknown (see {@link #isSessionUnknown}).
+   */
   public boolean isUnknown(LocalDate date) {
     if ((coverage.from() != null && date.isBefore(coverage.from()))
         || (coverage.to() != null && date.isAfter(coverage.to()))) return true;
-    return !assessments.isEmpty()
-        && (!assessments.containsKey(date)
-            || assessments.get(date).path("state").asText().equals("UNKNOWN"));
+    if (assessments.isEmpty()) return false;
+    JsonNode day = assessments.get(date);
+    if (day == null) return true;
+    JsonNode businessDay = day.path("business_day_state");
+    return businessDay.isMissingNode()
+        ? day.path("state").asText().equals("UNKNOWN")
+        : businessDay.asText().equals("UNKNOWN");
   }
 
-  /** Completeness across the published dates, using the weakest scope on each date. */
+  /** Whether the full session answer (close time included) is unknown on this date. */
+  public boolean isSessionUnknown(LocalDate date) {
+    if (isUnknown(date)) return true;
+    JsonNode day = assessments.get(date);
+    return day != null && day.path("state").asText().equals("UNKNOWN");
+  }
+
+  /** The business-day confidence of a date, falling back to the full confidence for old JSON. */
+  public String businessDayConfidence(LocalDate date) {
+    JsonNode day = assessments.get(date);
+    if (day == null) return "UNKNOWN";
+    JsonNode value = day.path("business_day_confidence");
+    return value.isMissingNode() ? day.path("effective_confidence").asText() : value.asText();
+  }
+
+  /**
+   * Completeness of the business-day answer across the published dates, with the number of days
+   * whose close time is additionally unresolved.
+   */
   public String coverageSummary() {
     if (assessments.isEmpty()) return "Completeness not recorded";
     int incomplete = 0;
     int projected = 0;
+    int sessionIncomplete = 0;
     for (JsonNode day : assessments.values()) {
-      List<String> scopes = new ArrayList<>();
-      day.path("completeness").elements().forEachRemaining(value -> scopes.add(value.asText()));
-      if (scopes.size() != 3 || scopes.contains("INCOMPLETE")) incomplete++;
-      else if (scopes.contains("PROJECTED")) projected++;
+      String confidence =
+          day.path("business_day_confidence").isMissingNode()
+              ? day.path("effective_confidence").asText()
+              : day.path("business_day_confidence").asText();
+      if (confidence.equals("UNKNOWN")) incomplete++;
+      else if (confidence.equals("PROJECTED")) projected++;
+      if (!confidence.equals("UNKNOWN")
+          && day.path("effective_confidence").asText().equals("UNKNOWN")) sessionIncomplete++;
     }
-    return incomplete
-        + " incomplete; "
-        + projected
-        + " projected; "
-        + (assessments.size() - incomplete - projected)
-        + " verified days";
+    String summary =
+        incomplete
+            + " incomplete; "
+            + projected
+            + " projected; "
+            + (assessments.size() - incomplete - projected)
+            + " verified business days";
+    if (sessionIncomplete > 0) {
+      summary += " (session detail incomplete on " + sessionIncomplete + ")";
+    }
+    return summary;
   }
 
   /** The published coverage window, plus the date through which the data has been verified. */

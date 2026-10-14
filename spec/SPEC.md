@@ -269,6 +269,28 @@ rule:
 
 Note: The weekday offset finds occurrences strictly before or after the reference date. If November 1st is a Tuesday and you're looking for the first Tuesday after November 1st, you'll get November 8th (not November 1st).
 
+### weekly
+
+Every occurrence of a weekday, optionally bounded by inclusive `from`/`to` dates; combine with
+`active_years` to bound it by year. The Tel Aviv Stock Exchange's Friday session, which ends at
+13:50 every week under the Monday-Friday trading week, is the motivating case:
+
+```yaml
+- key: tase_friday_session
+  name: Friday Session (Early Close)
+  default_classification: EARLY_CLOSE
+  close_time: "13:50"
+  active_years: [[2026, null]]
+  rule:
+    type: weekly
+    weekday: FRIDAY
+    from: 2026-01-09
+```
+
+A weekly occurrence that lands on a weekend day or on a `CLOSED` date follows the ordinary
+precedence rules (an `EARLY_CLOSE` is dropped there unless its `shift_policy` says otherwise), so
+a closed Friday needs no exclusion in the rule.
+
 ## Event Types
 
 - `CLOSED` - Market/business closed
@@ -715,18 +737,107 @@ walked to, because the source is not counted.
 These operations calculate business dates. They do not determine instrument-specific settlement
 eligibility, payment cutoffs, operating sessions or intraday deadlines.
 
+#### Tenors, day counts and schedules
+
+The same confidence-tracing machinery carries three further operations, implemented in Java
+(`com.bdc.finance` for the calendar-free vocabulary, `DateStream` for the calendar-dependent
+operations), Python (`bdc_calendars.finance`, `BusinessCalendar`), the CLI (`--add-tenor`,
+`--year-fraction`, `--schedule`) and MCP (`add_tenor`, `year_fraction`, `generate_schedule`), and
+held to the same answers by the parity fixtures.
+
+**Tenors.** A tenor is `<amount><unit>` with unit `D`, `W`, `M`, `Y` or `B` (business days), or
+the settlement spelling `T+n` / `T-n` (`T+2` is `2B`); amounts may be negative; the canonical
+spelling is `3M`, `-2W`, `2B`. `add_tenor(date, tenor, convention[, preserve_end_of_month])`:
+
+| Unit | Result |
+|------|--------|
+| `D`, `W` | `date` plus the calendar days, then `adjust(convention)` |
+| `M`, `Y` | `advance_months(date, months, convention, preserve_end_of_month)` |
+| `B` | `business_day_offset(date, n)`; the convention is ignored and reported as absent |
+
+The detailed result is a `DateOperationResult` with `operation = ADD_TENOR`, the additive `tenor`
+field holding the canonical spelling, and the offset/month fields of the underlying operation. A
+zero tenor is an identity operation.
+
+**Day counts** follow the 2006 ISDA Definitions §4.16: `ACT_360`, `ACT_365F`, `ACT_ACT_ISDA`,
+`ACT_ACT_ICMA`, `THIRTY_360_BOND` (4.16(f)), `THIRTY_E_360` (4.16(g)), `THIRTY_E_360_ISDA`
+(4.16(h), which needs to know whether the end is the termination date) and `BUS_252` (business
+days in `[start, end)` over 252). `year_fraction(start, end, day_count)` returns `days` (the
+convention's day count: actual days, the 30/360 count or the business-day count), `year_fraction`,
+`effective_confidence` and `examined_dates`. Calendar-free conventions are arithmetic: they
+examine nothing and report `CONFIRMED`. `BUS_252` examines every date in the interval and reports
+the weakest business-day confidence. `ACT_ACT_ICMA` needs the regular (or notional) period and
+the frequency and is evaluated on `DayCount` directly. A reversed interval gives the negated
+forward value.
+
+**IMM dates** are the third Wednesday of a month; the quarterly cycle is March, June, September,
+December (`ImmDates` / `imm_date`, `next_imm`, `next_quarterly_imm`).
+
+**Schedules.** `schedule(definition)` generates periodic dates (coupons, payments, resets,
+settlements). A definition is `{start, end, frequency, stub, roll, convention}`:
+
+- `frequency`: `ANNUAL` (1Y), `SEMI_ANNUAL` (6M), `QUARTERLY` (3M), `BI_MONTHLY` (2M), `MONTHLY`
+  (1M), `FOUR_WEEKLY` (4W), `BI_WEEKLY` (2W), `WEEKLY` (1W);
+- `stub`: `NONE` (the end must lie on the cycle; otherwise an error), `SHORT_FINAL` / `LONG_FINAL`
+  (roll forward from `start`; a short final period absorbs the remainder, or the final regular
+  period is extended to absorb it), `SHORT_INITIAL` / `LONG_INITIAL` (roll backward from `end`,
+  mirrored);
+- `roll`, for month-based frequencies only: `DAY_OF_MONTH` (keep the anchor's day, clipped to the
+  destination month; clipping is always computed from the anchor, so a 31st anchor returns to the
+  31st in long months), `EOM` (last day of each rolled month), `IMM` (third Wednesday of each
+  rolled month). Week-based frequencies add whole weeks;
+- `convention`: the business-day convention applied to **every** boundary, start and end
+  included.
+
+The result lists periods `{unadjusted_start, unadjusted_end, start, end, stub}` in date order,
+exactly one of which is flagged `stub` when the end did not lie on the cycle, with
+`effective_confidence` the weakest business-day confidence of every date examined while adjusting
+and `examined_dates` those dates. A boundary whose business-day question is unresolved raises, as
+for any other business-day operation; an early-close gap never does. At most 10,000 periods are
+generated.
+
 The CLI and MCP return the detailed result as JSON. Their financial-operation calendar argument
 accepts a single ID or comma-separated IDs for an all-members-open joint calendar. Nonzero month
 advancement with `UNADJUSTED` still requires a resolved destination; only identity operations may
 return an unresolved date without failing.
 
+### Questions and the scopes they need
+
+Coverage quality is declared per scope (`SCHEDULED_CLOSURES`, `EARLY_CLOSES`,
+`UNSCHEDULED_EXCEPTIONS`). Not every operation depends on every scope, and an operation must only
+refuse to answer when a scope *it depends on* is incomplete:
+
+| Question | Operations | Scopes that must be resolved |
+|----------|------------|------------------------------|
+| `BUSINESS_DAY` | `is_business_day`, `next_/prev_/nth_business_day`, `business_days_in_range`, `adjust`, `business_day_offset`, `advance_months`, `last_business_day_of_month`, joint and browser business-date walks | `SCHEDULED_CLOSURES`, `UNSCHEDULED_EXCEPTIONS` |
+| `SESSION` | `close_time`, `is_early_close`, `member_closes`, `event_count_in_range`, `status`, the assessment's `state` | all three |
+
+The rationale: an `EARLY_CLOSE` day **is** a business day, so no amount of missing early-close
+evidence can change whether a market trades on a date. A calendar whose only gap is its shortened
+sessions (Xetra 2010 onward, for example) therefore still answers "open" or "closed" for every
+weekday, while `close_time` on those dates raises. Conversely, an incomplete
+`UNSCHEDULED_EXCEPTIONS` scope (a period in which same-day closures are known to be missing) blocks
+the business-day question, because a date the schedule calls open may in fact have been closed.
+
+`requireResolved(date, question)` (Java) and `_require_resolved(date, question)` (Python)
+implement the table; the `UnresolvedDateException` / `UnresolvedDateError` they raise names only
+the incomplete scopes the question needed.
+
 ### Status
 
-`status(date)` says how much the answer can be trusted and **never raises**. Outside coverage it
-returns `UNKNOWN`. For calendars with explicit per-scope quality, it returns the assessment's
-effective confidence: a missing or incomplete scope means `UNKNOWN`; otherwise a projected scope
-or raw projected event means `PROJECTED`; otherwise it returns `CONFIRMED`. Explicit quality takes
-precedence over the legacy scalar `verified_through`.
+`status(date)` says how much the **full session answer** can be trusted and **never raises**.
+Outside coverage it returns `UNKNOWN`. For calendars with explicit per-scope quality, it returns
+the assessment's effective confidence: a missing or incomplete scope means `UNKNOWN`; otherwise a
+projected scope or raw projected event means `PROJECTED`; otherwise it returns `CONFIRMED`.
+Explicit quality takes precedence over the legacy scalar `verified_through`.
+
+The assessment reports a second, business-day view beside it. `business_day_confidence` considers
+only the `BUSINESS_DAY` scopes and only projected `CLOSED`/`WEEKEND` rows (a projected early close
+does not weaken a business-day answer), and `business_day_state` is `OPEN`, `CLOSED` or `UNKNOWN`
+(never `EARLY_CLOSE`): `UNKNOWN` exactly when `business_day_confidence` is `UNKNOWN`, otherwise
+`CLOSED` when the scheduled state is `CLOSED` and `OPEN` otherwise. `state` and
+`effective_confidence` keep the strict all-scopes meaning. The confidence a financial operation
+reports over its examined path is the weakest `business_day_confidence` along it.
 
 Legacy artifacts without per-scope quality retain this evaluation order:
 
@@ -747,7 +858,9 @@ Outside a stream's `range` the absence of a closure row means "not known", never
   should raise their own equivalent, an invalid-argument error) carrying the calendar id, the
   offending date and the range. This includes navigation whose bounded search would step past the
   edge of the range: `next_business_day(2030-12-31)` on a calendar covered through 2030-12-31
-  fails rather than guessing.
+  fails rather than guessing. Inside the range, an operation raises the `UnresolvedDateException`
+  subclass when a scope *its question* depends on is incomplete (see *Questions and the scopes
+  they need*).
 - Assessments and identity operations (`UNADJUSTED` adjustment, zero business-day offset, and zero
   month advancement with `UNADJUSTED` and no end-of-month preservation) remain
   safe to call outside coverage; they report `UNKNOWN` confidence without claiming an open date.
@@ -775,6 +888,7 @@ Composition rules:
 | `range` | the intersection of the member ranges; members whose ranges do not overlap are an error |
 | `verified_through` | the earliest value among the members that declare one; members that declare none do not constrain it; absent when no member declares one |
 | `status` | `UNKNOWN` if any member is `UNKNOWN`, else `PROJECTED` if any member is `PROJECTED`, else `CONFIRMED` — the joint answer is only as good as its worst member |
+| `business_day_state` / `business_day_confidence` | confidence is the worst member's; state is `UNKNOWN` when that confidence is, else `CLOSED` when any member's is `CLOSED`, else `OPEN` |
 | `close_time` | the earliest early close declared by any member that day. A joint date can carry an early close and still not be a business day (another member is closed), so check `is_business_day` first |
 
 The joint `close_time` interpretation is deprecated because comparing local wall-clock times in
@@ -824,13 +938,15 @@ The algorithm:
    Bound the walk at `366 * N + 366` days and fail rather than loop.
 5. **Out of range.** If the walk reaches a year the API does not publish for one of the calendars,
    raise rather than treat the missing rows as "open" — the out-of-range contract above applies
-   unchanged to a browser client. Missing or incomplete quality for any explicitly modelled scope
-   also stops the walk, even when another member is closed.
-6. **Confidence.** Return the weakest confidence across every examined date, including closed dates
-   skipped along the way. The detailed result records `effective_confidence` and `examined_dates`.
-   For zero offsets, assess the unchanged input without claiming it is a business date; confidence
-   can be `UNKNOWN`. This helper establishes neither instrument-specific eligibility nor sessions
-   or cutoffs.
+   unchanged to a browser client. Missing or incomplete quality for a `BUSINESS_DAY` scope
+   (`SCHEDULED_CLOSURES`, `UNSCHEDULED_EXCEPTIONS`) also stops the walk, even when another member
+   is closed; an `EARLY_CLOSES` gap does not, because it cannot change a business-day answer.
+6. **Confidence.** Return the weakest business-day confidence across every examined date, including
+   closed dates skipped along the way: the weakest `BUSINESS_DAY` scope on the date, or `PROJECTED`
+   when a `CLOSED` row on it is itself projected (a projected `EARLY_CLOSE` row does not count). The
+   detailed result records `effective_confidence` and `examined_dates`. For zero offsets, assess the
+   unchanged input without claiming it is a business date; confidence can be `UNKNOWN`. This helper
+   establishes neither instrument-specific eligibility nor sessions or cutoffs.
 
 This must agree with `JointDateStream` date for date. `/compare/settlement-selftest.html` ships a
 fixture covering every published market/payment pair with (pair, start date, N) cases whose answers were computed in Java, runs the browser
@@ -1290,11 +1406,11 @@ the NYSE Good Friday removals cite its published holiday history.
 
 ### JSON API v2 and enriched assessments
 
-`v2/index.json` advertises relative links to `calendars/<ID>/manifest.json`; each manifest advertises relative year links. The wire schema is `2.0`, independently of `data_version`. Each year contains an inclusive `days` array bounded by the artifact range. Every day reports `state`, `scheduled_state`, `effective_confidence`, scope-keyed `completeness`, `evidence_ids` and enriched `events`. `UNKNOWN` preserves the scheduled answer separately; it must never be interpreted as `OPEN`.
+`v2/index.json` advertises relative links to `calendars/<ID>/manifest.json`; each manifest advertises relative year links. The wire schema is `2.0`, independently of `data_version`. Each year contains an inclusive `days` array bounded by the artifact range. Every day reports `state`, `scheduled_state`, `effective_confidence`, `business_day_state`, `business_day_confidence`, scope-keyed `completeness`, `evidence_ids` and enriched `events`. `UNKNOWN` preserves the scheduled answer separately; it must never be interpreted as `OPEN`. `business_day_state`/`business_day_confidence` (additive) answer the business-day question alone, per *Questions and the scopes they need*: a day can be `state: UNKNOWN` (its close time is unresolved) and still `business_day_state: OPEN`.
 
 Event details retain complete published fields, `raw_status`, effective day status, evidence IDs, nominal native date (`chronology_id`, `year`, `month_code`, `day`), chronology profile/provider and observation lineage. These fields are also available through Java `DateStream.assessment` / `eventDetailsOn`, Python `assessment` / `event_details_on`, MCP `assess_day`, and CLI `query <ID> --assess-day <ISO-date>`. Existing Event constructors and Python event tuples remain unchanged. Compiler metadata's additive `event_details` contains one occurrence for every non-weekend CSV record; loaders reject missing or surplus occurrences instead of attaching evidence ambiguously. Legacy artifacts have no native provenance; it is not reconstructed from an observed ISO date.
 
-`explicit_quality: false` in a v2 manifest identifies a legacy artifact without scope-specific evidence. Such artifacts retain the legacy query compatibility behavior; their completeness is reported as projected, never represented as proof of historical completeness. Newly audited artifacts carry explicit scope intervals. Where any required scope is incomplete or absent within explicit intervals, boolean, navigation and count operations raise `UnresolvedDateException` / `UnresolvedDateError`, subclasses of the existing coverage exceptions. Joint operations cannot hide an unknown member behind another member's closed day. Zero-offset operations retain their existing unchanged-date behavior.
+`explicit_quality: false` in a v2 manifest identifies a legacy artifact without scope-specific evidence. Such artifacts retain the legacy query compatibility behavior; their completeness is reported as projected, never represented as proof of historical completeness. Newly audited artifacts carry explicit scope intervals. Where a scope the question depends on is incomplete or absent within explicit intervals, boolean, navigation and count operations raise `UnresolvedDateException` / `UnresolvedDateError`, subclasses of the existing coverage exceptions. Joint operations cannot hide an unknown member behind another member's closed day. Zero-offset operations retain their existing unchanged-date behavior.
 
 The browser business-date helper reads the same quality intervals from the additive v1 manifest metadata and rejects unresolved dates anywhere in its traversal, including gaps within a published year. `/v1` remains available during migration; `/v2` carries the new explicit daily-state semantics.
 

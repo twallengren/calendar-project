@@ -154,7 +154,7 @@ public class LazyDateStream implements DateStream {
   @Override
   public boolean isBusinessDay(LocalDate date) {
     checkRange(date);
-    requireResolved(date);
+    requireResolved(date, com.bdc.trust.DateQuestion.BUSINESS_DAY);
     if (weekend.isWeekend(date)) {
       return false;
     }

@@ -64,8 +64,13 @@ date,type,description,key,source_module,observed_from,close_time,status
 2020-07-18,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
 2020-07-24,WEEKEND,Friday,weekend,weekend_policy,,,CONFIRMED
 2020-07-25,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
-2020-07-31,WEEKEND,Friday,weekend,weekend_policy,,,CONFIRMED
-2020-08-01,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2020-07-29,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2020-07-30,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2020-07-31,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2020-08-01,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2020-08-02,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2020-08-03,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
+2020-08-04,CLOSED,Eid al-Adha,eid_al_adha,module:eid_al_adha,,,CONFIRMED
 2020-08-07,WEEKEND,Friday,weekend,weekend_policy,,,CONFIRMED
 2020-08-08,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
 2020-08-14,WEEKEND,Friday,weekend,weekend_policy,,,CONFIRMED
@@ -147,6 +152,8 @@ date,type,description,key,source_module,observed_from,close_time,status
 2021-05-01,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
 2021-05-07,WEEKEND,Friday,weekend,weekend_policy,,,CONFIRMED
 2021-05-08,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2021-05-11,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
+2021-05-12,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
 2021-05-13,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
 2021-05-14,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
 2021-05-15,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
@@ -256,7 +263,6 @@ date,type,description,key,source_module,observed_from,close_time,status
 2022-04-16,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
 2022-04-22,WEEKEND,Friday,weekend,weekend_policy,,,CONFIRMED
 2022-04-23,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
-2022-04-28,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
 2022-04-29,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
 2022-04-30,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
 2022-05-01,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
@@ -266,7 +272,6 @@ date,type,description,key,source_module,observed_from,close_time,status
 2022-05-05,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
 2022-05-06,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
 2022-05-07,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
-2022-05-08,CLOSED,Eid al-Fitr,eid_al_fitr,module:eid_al_fitr,,,CONFIRMED
 2022-05-13,WEEKEND,Friday,weekend,weekend_policy,,,CONFIRMED
 2022-05-14,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
 2022-05-20,WEEKEND,Friday,weekend,weekend_policy,,,CONFIRMED
@@ -328,6 +333,7 @@ date,type,description,key,source_module,observed_from,close_time,status
 2022-11-12,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
 2022-11-18,WEEKEND,Friday,weekend,weekend_policy,,,CONFIRMED
 2022-11-19,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
+2022-11-23,CLOSED,Unscheduled Closure (royal holiday after the World Cup win over Argentina),tadawul_unscheduled_closure,module:tadawul_unscheduled_closures,,,CONFIRMED
 2022-11-25,WEEKEND,Friday,weekend,weekend_policy,,,CONFIRMED
 2022-11-26,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
 2022-12-02,WEEKEND,Friday,weekend,weekend_policy,,,CONFIRMED
