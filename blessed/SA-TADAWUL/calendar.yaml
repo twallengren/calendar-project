@@ -25,6 +25,8 @@ metadata:
       quality: VERIFIED
       evidenceIds:
       - saudi-exchange-announcements
+      - saudi-exchange-tasi-sessions
+      - tadawul-ramadan-eid-notice-2021
     - scope: SCHEDULED_CLOSURES
       from: 2030-01-01
       to: 2030-12-31
@@ -39,6 +41,16 @@ metadata:
       - saudi-exchange-announcements
     - scope: UNSCHEDULED_EXCEPTIONS
       from: 2020-01-01
+      to: 2026-10-13
+      quality: VERIFIED
+      evidenceIds:
+      - saudi-exchange-tasi-sessions
+      - saudi-exchange-statistical-reports
+      - saudi-exchange-closure-2022-11-23
+      - saudi-exchange-halt-2021-06-02
+      - saudi-exchange-halt-2026-08-19
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2026-10-14
       to: 2030-12-31
       quality: PROJECTED
       evidenceIds:

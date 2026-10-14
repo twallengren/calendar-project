@@ -5,11 +5,11 @@
   "calendar_id": "SA-TADAWUL",
   "calendar_name": "Tadawul (Saudi Exchange) Trading Calendar",
   "counts_by_status": {
-    "CONFIRMED": 1260,
+    "CONFIRMED": 1261,
     "PROJECTED": 16
   },
   "counts_by_type": {
-    "CLOSED": 194,
+    "CLOSED": 195,
     "WEEKEND": 1082
   },
   "coverage": {
@@ -29,7 +29,9 @@
       },
       {
         "evidence_ids": [
-          "saudi-exchange-announcements"
+          "saudi-exchange-announcements",
+          "saudi-exchange-tasi-sessions",
+          "tadawul-ramadan-eid-notice-2021"
         ],
         "from": "2021-01-01",
         "quality": "VERIFIED",
@@ -56,9 +58,22 @@
       },
       {
         "evidence_ids": [
-          "saudi-exchange-announcements"
+          "saudi-exchange-tasi-sessions",
+          "saudi-exchange-statistical-reports",
+          "saudi-exchange-closure-2022-11-23",
+          "saudi-exchange-halt-2021-06-02",
+          "saudi-exchange-halt-2026-08-19"
         ],
         "from": "2020-01-01",
+        "quality": "VERIFIED",
+        "scope": "UNSCHEDULED_EXCEPTIONS",
+        "to": "2026-10-13"
+      },
+      {
+        "evidence_ids": [
+          "saudi-exchange-announcements"
+        ],
+        "from": "2026-10-14",
         "quality": "PROJECTED",
         "scope": "UNSCHEDULED_EXCEPTIONS",
         "to": "2030-12-31"
@@ -67,14 +82,17 @@
     "to": "2030-12-31",
     "verified_through": "2029-12-31"
   },
-  "event_count": 1276,
+  "event_count": 1277,
   "event_details": [
     {
       "close_time": null,
       "date": "2020-05-22",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -88,7 +106,10 @@
       "date": "2020-05-23",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -102,7 +123,10 @@
       "date": "2020-05-24",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -116,7 +140,10 @@
       "date": "2020-05-25",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -130,7 +157,10 @@
       "date": "2020-05-26",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -144,7 +174,10 @@
       "date": "2020-05-27",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -158,7 +191,10 @@
       "date": "2020-05-28",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -172,7 +208,10 @@
       "date": "2020-05-29",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -186,7 +225,10 @@
       "date": "2020-05-30",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -316,10 +358,47 @@
     },
     {
       "close_time": null,
+      "date": "2021-05-11",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-05-12",
+      "description": "Eid al-Fitr",
+      "evidence_ids": [
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
+      ],
+      "key": "eid_al_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:eid_al_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
       "date": "2021-05-13",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -333,7 +412,10 @@
       "date": "2021-05-14",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -347,7 +429,10 @@
       "date": "2021-05-15",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -361,7 +446,10 @@
       "date": "2021-05-16",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -535,24 +623,13 @@
     },
     {
       "close_time": null,
-      "date": "2022-04-28",
-      "description": "Eid al-Fitr",
-      "evidence_ids": [
-        "saudi-exchange-announcements"
-      ],
-      "key": "eid_al_fitr",
-      "observation_lineage": [],
-      "observed_from": null,
-      "source_module": "module:eid_al_fitr",
-      "status": "CONFIRMED",
-      "type": "CLOSED"
-    },
-    {
-      "close_time": null,
       "date": "2022-04-29",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -566,7 +643,10 @@
       "date": "2022-04-30",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -580,7 +660,10 @@
       "date": "2022-05-01",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -594,7 +677,10 @@
       "date": "2022-05-02",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -608,7 +694,10 @@
       "date": "2022-05-03",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -622,7 +711,10 @@
       "date": "2022-05-04",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -636,7 +728,10 @@
       "date": "2022-05-05",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -650,7 +745,10 @@
       "date": "2022-05-06",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -664,21 +762,10 @@
       "date": "2022-05-07",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
-      ],
-      "key": "eid_al_fitr",
-      "observation_lineage": [],
-      "observed_from": null,
-      "source_module": "module:eid_al_fitr",
-      "status": "CONFIRMED",
-      "type": "CLOSED"
-    },
-    {
-      "close_time": null,
-      "date": "2022-05-08",
-      "description": "Eid al-Fitr",
-      "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -796,6 +883,20 @@
     },
     {
       "close_time": null,
+      "date": "2022-11-23",
+      "description": "Unscheduled Closure (royal holiday after the World Cup win over Argentina)",
+      "evidence_ids": [
+        "saudi-exchange-closure-2022-11-23"
+      ],
+      "key": "tadawul_unscheduled_closure",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:tadawul_unscheduled_closures",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
       "date": "2023-02-22",
       "description": "Saudi Founding Day",
       "evidence_ids": [
@@ -813,7 +914,10 @@
       "date": "2023-04-18",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -827,7 +931,10 @@
       "date": "2023-04-19",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -841,7 +948,10 @@
       "date": "2023-04-20",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -855,7 +965,10 @@
       "date": "2023-04-21",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -869,7 +982,10 @@
       "date": "2023-04-22",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -883,7 +999,10 @@
       "date": "2023-04-23",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -897,7 +1016,10 @@
       "date": "2023-04-24",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -1077,7 +1199,10 @@
       "date": "2024-04-05",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -1091,7 +1216,10 @@
       "date": "2024-04-06",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -1105,7 +1233,10 @@
       "date": "2024-04-07",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -1119,7 +1250,10 @@
       "date": "2024-04-08",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -1133,7 +1267,10 @@
       "date": "2024-04-09",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -1147,7 +1284,10 @@
       "date": "2024-04-10",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -1161,7 +1301,10 @@
       "date": "2024-04-11",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -1175,7 +1318,10 @@
       "date": "2024-04-12",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -1189,7 +1335,10 @@
       "date": "2024-04-13",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -1369,7 +1518,10 @@
       "date": "2025-03-28",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -1383,7 +1535,10 @@
       "date": "2025-03-29",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -1397,7 +1552,10 @@
       "date": "2025-03-30",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -1411,7 +1569,10 @@
       "date": "2025-03-31",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -1425,7 +1586,10 @@
       "date": "2025-04-01",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -1439,7 +1603,10 @@
       "date": "2025-04-02",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -1571,7 +1738,10 @@
       "date": "2026-03-17",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -1585,7 +1755,10 @@
       "date": "2026-03-18",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -1599,7 +1772,10 @@
       "date": "2026-03-19",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -1613,7 +1789,10 @@
       "date": "2026-03-20",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -1627,7 +1806,10 @@
       "date": "2026-03-21",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -1641,7 +1823,10 @@
       "date": "2026-03-22",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -1655,7 +1840,10 @@
       "date": "2026-03-23",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -1832,7 +2020,10 @@
       "date": "2027-03-05",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -1846,7 +2037,10 @@
       "date": "2027-03-06",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -1860,7 +2054,10 @@
       "date": "2027-03-07",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -1874,7 +2071,10 @@
       "date": "2027-03-08",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -1888,7 +2088,10 @@
       "date": "2027-03-09",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -1902,7 +2105,10 @@
       "date": "2027-03-10",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -1916,7 +2122,10 @@
       "date": "2027-03-11",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -1930,7 +2139,10 @@
       "date": "2027-03-12",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -1944,7 +2156,10 @@
       "date": "2027-03-13",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -2121,7 +2336,10 @@
       "date": "2028-02-25",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -2135,7 +2353,10 @@
       "date": "2028-02-26",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -2149,7 +2370,10 @@
       "date": "2028-02-27",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -2163,7 +2387,10 @@
       "date": "2028-02-28",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -2177,7 +2404,10 @@
       "date": "2028-02-29",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -2191,7 +2421,10 @@
       "date": "2028-03-01",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -2205,7 +2438,10 @@
       "date": "2028-03-02",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -2219,7 +2455,10 @@
       "date": "2028-03-03",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -2233,7 +2472,10 @@
       "date": "2028-03-04",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -2369,7 +2611,10 @@
       "date": "2029-02-12",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -2383,7 +2628,10 @@
       "date": "2029-02-13",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -2397,7 +2645,10 @@
       "date": "2029-02-14",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -2411,7 +2662,10 @@
       "date": "2029-02-15",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -2425,7 +2679,10 @@
       "date": "2029-02-16",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -2439,7 +2696,10 @@
       "date": "2029-02-17",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -2453,7 +2713,10 @@
       "date": "2029-02-18",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr",
       "observation_lineage": [],
@@ -2630,7 +2893,10 @@
       "date": "2030-02-01",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr_projected",
       "observation_lineage": [],
@@ -2644,7 +2910,10 @@
       "date": "2030-02-02",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr_projected",
       "observation_lineage": [],
@@ -2658,7 +2927,10 @@
       "date": "2030-02-03",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr_projected",
       "observation_lineage": [],
@@ -2672,7 +2944,10 @@
       "date": "2030-02-04",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr_projected",
       "observation_lineage": [],
@@ -2686,7 +2961,10 @@
       "date": "2030-02-05",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr_projected",
       "observation_lineage": [],
@@ -2700,7 +2978,10 @@
       "date": "2030-02-06",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr_projected",
       "observation_lineage": [],
@@ -2714,7 +2995,10 @@
       "date": "2030-02-07",
       "description": "Eid al-Fitr",
       "evidence_ids": [
-        "saudi-exchange-announcements"
+        "enbd-securities-eid-al-fitr-2022",
+        "saudi-exchange-announcements",
+        "saudi-exchange-tasi-sessions",
+        "tadawul-ramadan-eid-notice-2021"
       ],
       "key": "eid_al_fitr_projected",
       "observation_lineage": [],
@@ -2881,7 +3165,7 @@
       "type": "CLOSED"
     }
   ],
-  "generated_at": "2026-10-13T23:21:05Z",
+  "generated_at": "2026-10-14T00:02:04Z",
   "kind": "market",
   "mic": "XSAU",
   "range_end": "2030-12-31",
@@ -2892,11 +3176,12 @@
     "module:saudi_national_day",
     "module:eid_al_fitr",
     "module:eid_al_adha",
+    "module:tadawul_unscheduled_closures",
     "module:tadawul_holidays",
     "calendar:SA-TADAWUL"
   ],
   "source_version": {
-    "git_sha": "c2a3fbcd1a814f9b607ab52b74714793b5ff2ace",
+    "git_sha": "1f63234a07eb72cc08a8c0d451983be39e88b2ae",
     "semantic": "13.0.0"
   },
   "timezone": "Asia/Riyadh",

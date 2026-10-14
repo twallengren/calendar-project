@@ -4,7 +4,7 @@
   "kind" : "market",
   "mic" : "XSAU",
   "aliases" : [ "TADAWUL" ],
-  "generated_at" : "2026-10-13T23:21:05Z",
+  "generated_at" : "2026-10-14T00:02:04Z",
   "range_start" : "2020-01-01",
   "range_end" : "2030-12-31",
   "timezone" : "Asia/Riyadh",
@@ -23,7 +23,7 @@
       "from" : "2021-01-01",
       "to" : "2029-12-31",
       "quality" : "VERIFIED",
-      "evidence_ids" : [ "saudi-exchange-announcements" ]
+      "evidence_ids" : [ "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ]
     }, {
       "scope" : "SCHEDULED_CLOSURES",
       "from" : "2030-01-01",
@@ -39,24 +39,30 @@
     }, {
       "scope" : "UNSCHEDULED_EXCEPTIONS",
       "from" : "2020-01-01",
+      "to" : "2026-10-13",
+      "quality" : "VERIFIED",
+      "evidence_ids" : [ "saudi-exchange-tasi-sessions", "saudi-exchange-statistical-reports", "saudi-exchange-closure-2022-11-23", "saudi-exchange-halt-2021-06-02", "saudi-exchange-halt-2026-08-19" ]
+    }, {
+      "scope" : "UNSCHEDULED_EXCEPTIONS",
+      "from" : "2026-10-14",
       "to" : "2030-12-31",
       "quality" : "PROJECTED",
       "evidence_ids" : [ "saudi-exchange-announcements" ]
     } ]
   },
-  "event_count" : 1276,
-  "resolution_chain" : [ "module:saudi_weekends", "module:saudi_founding_day", "module:saudi_national_day", "module:eid_al_fitr", "module:eid_al_adha", "module:tadawul_holidays", "calendar:SA-TADAWUL" ],
+  "event_count" : 1277,
+  "resolution_chain" : [ "module:saudi_weekends", "module:saudi_founding_day", "module:saudi_national_day", "module:eid_al_fitr", "module:eid_al_adha", "module:tadawul_unscheduled_closures", "module:tadawul_holidays", "calendar:SA-TADAWUL" ],
   "counts_by_type" : {
     "WEEKEND" : 1082,
-    "CLOSED" : 194
+    "CLOSED" : 195
   },
   "counts_by_status" : {
-    "CONFIRMED" : 1260,
+    "CONFIRMED" : 1261,
     "PROJECTED" : 16
   },
   "source_version" : {
     "semantic" : "13.0.0",
-    "git_sha" : "c2a3fbcd1a814f9b607ab52b74714793b5ff2ace"
+    "git_sha" : "1f63234a07eb72cc08a8c0d451983be39e88b2ae"
   },
   "event_details" : [ {
     "date" : "2020-05-22",
@@ -67,7 +73,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2020-05-23",
@@ -78,7 +84,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2020-05-24",
@@ -89,7 +95,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2020-05-25",
@@ -100,7 +106,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2020-05-26",
@@ -111,7 +117,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2020-05-27",
@@ -122,7 +128,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2020-05-28",
@@ -133,7 +139,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2020-05-29",
@@ -144,7 +150,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2020-05-30",
@@ -155,7 +161,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2020-07-29",
@@ -246,6 +252,28 @@
     "evidence_ids" : [ "saudi-exchange-announcements" ],
     "observation_lineage" : [ ]
   }, {
+    "date" : "2021-05-11",
+    "type" : "CLOSED",
+    "description" : "Eid al-Fitr",
+    "key" : "eid_al_fitr",
+    "source_module" : "module:eid_al_fitr",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
+    "observation_lineage" : [ ]
+  }, {
+    "date" : "2021-05-12",
+    "type" : "CLOSED",
+    "description" : "Eid al-Fitr",
+    "key" : "eid_al_fitr",
+    "source_module" : "module:eid_al_fitr",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
+    "observation_lineage" : [ ]
+  }, {
     "date" : "2021-05-13",
     "type" : "CLOSED",
     "description" : "Eid al-Fitr",
@@ -254,7 +282,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2021-05-14",
@@ -265,7 +293,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2021-05-15",
@@ -276,7 +304,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2021-05-16",
@@ -287,7 +315,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2021-07-16",
@@ -411,17 +439,6 @@
     "evidence_ids" : [ "saudi-exchange-announcements" ],
     "observation_lineage" : [ ]
   }, {
-    "date" : "2022-04-28",
-    "type" : "CLOSED",
-    "description" : "Eid al-Fitr",
-    "key" : "eid_al_fitr",
-    "source_module" : "module:eid_al_fitr",
-    "observed_from" : null,
-    "close_time" : null,
-    "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
-    "observation_lineage" : [ ]
-  }, {
     "date" : "2022-04-29",
     "type" : "CLOSED",
     "description" : "Eid al-Fitr",
@@ -430,7 +447,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2022-04-30",
@@ -441,7 +458,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2022-05-01",
@@ -452,7 +469,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2022-05-02",
@@ -463,7 +480,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2022-05-03",
@@ -474,7 +491,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2022-05-04",
@@ -485,7 +502,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2022-05-05",
@@ -496,7 +513,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2022-05-06",
@@ -507,7 +524,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2022-05-07",
@@ -518,18 +535,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
-    "observation_lineage" : [ ]
-  }, {
-    "date" : "2022-05-08",
-    "type" : "CLOSED",
-    "description" : "Eid al-Fitr",
-    "key" : "eid_al_fitr",
-    "source_module" : "module:eid_al_fitr",
-    "observed_from" : null,
-    "close_time" : null,
-    "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2022-07-07",
@@ -609,6 +615,17 @@
     "evidence_ids" : [ "saudi-exchange-announcements" ],
     "observation_lineage" : [ "2022-09-23", "2022-09-22" ]
   }, {
+    "date" : "2022-11-23",
+    "type" : "CLOSED",
+    "description" : "Unscheduled Closure (royal holiday after the World Cup win over Argentina)",
+    "key" : "tadawul_unscheduled_closure",
+    "source_module" : "module:tadawul_unscheduled_closures",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED",
+    "evidence_ids" : [ "saudi-exchange-closure-2022-11-23" ],
+    "observation_lineage" : [ ]
+  }, {
     "date" : "2023-02-22",
     "type" : "CLOSED",
     "description" : "Saudi Founding Day",
@@ -628,7 +645,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2023-04-19",
@@ -639,7 +656,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2023-04-20",
@@ -650,7 +667,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2023-04-21",
@@ -661,7 +678,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2023-04-22",
@@ -672,7 +689,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2023-04-23",
@@ -683,7 +700,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2023-04-24",
@@ -694,7 +711,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2023-06-23",
@@ -826,7 +843,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2024-04-06",
@@ -837,7 +854,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2024-04-07",
@@ -848,7 +865,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2024-04-08",
@@ -859,7 +876,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2024-04-09",
@@ -870,7 +887,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2024-04-10",
@@ -881,7 +898,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2024-04-11",
@@ -892,7 +909,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2024-04-12",
@@ -903,7 +920,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2024-04-13",
@@ -914,7 +931,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2024-06-14",
@@ -1046,7 +1063,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2025-03-29",
@@ -1057,7 +1074,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2025-03-30",
@@ -1068,7 +1085,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2025-03-31",
@@ -1079,7 +1096,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2025-04-01",
@@ -1090,7 +1107,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2025-04-02",
@@ -1101,7 +1118,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2025-06-05",
@@ -1200,7 +1217,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2026-03-18",
@@ -1211,7 +1228,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2026-03-19",
@@ -1222,7 +1239,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2026-03-20",
@@ -1233,7 +1250,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2026-03-21",
@@ -1244,7 +1261,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2026-03-22",
@@ -1255,7 +1272,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2026-03-23",
@@ -1266,7 +1283,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2026-05-22",
@@ -1398,7 +1415,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2027-03-06",
@@ -1409,7 +1426,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2027-03-07",
@@ -1420,7 +1437,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2027-03-08",
@@ -1431,7 +1448,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2027-03-09",
@@ -1442,7 +1459,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2027-03-10",
@@ -1453,7 +1470,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2027-03-11",
@@ -1464,7 +1481,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2027-03-12",
@@ -1475,7 +1492,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2027-03-13",
@@ -1486,7 +1503,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2027-05-14",
@@ -1618,7 +1635,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2028-02-26",
@@ -1629,7 +1646,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2028-02-27",
@@ -1640,7 +1657,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2028-02-28",
@@ -1651,7 +1668,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2028-02-29",
@@ -1662,7 +1679,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2028-03-01",
@@ -1673,7 +1690,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2028-03-02",
@@ -1684,7 +1701,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2028-03-03",
@@ -1695,7 +1712,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2028-03-04",
@@ -1706,7 +1723,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2028-05-03",
@@ -1805,7 +1822,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2029-02-13",
@@ -1816,7 +1833,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2029-02-14",
@@ -1827,7 +1844,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2029-02-15",
@@ -1838,7 +1855,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2029-02-16",
@@ -1849,7 +1866,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2029-02-17",
@@ -1860,7 +1877,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2029-02-18",
@@ -1871,7 +1888,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "CONFIRMED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2029-02-22",
@@ -2003,7 +2020,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "PROJECTED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2030-02-02",
@@ -2014,7 +2031,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "PROJECTED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2030-02-03",
@@ -2025,7 +2042,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "PROJECTED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2030-02-04",
@@ -2036,7 +2053,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "PROJECTED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2030-02-05",
@@ -2047,7 +2064,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "PROJECTED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2030-02-06",
@@ -2058,7 +2075,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "PROJECTED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2030-02-07",
@@ -2069,7 +2086,7 @@
     "observed_from" : null,
     "close_time" : null,
     "status" : "PROJECTED",
-    "evidence_ids" : [ "saudi-exchange-announcements" ],
+    "evidence_ids" : [ "enbd-securities-eid-al-fitr-2022", "saudi-exchange-announcements", "saudi-exchange-tasi-sessions", "tadawul-ramadan-eid-notice-2021" ],
     "observation_lineage" : [ ]
   }, {
     "date" : "2030-02-21",

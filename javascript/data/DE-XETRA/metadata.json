@@ -3702,7 +3702,7 @@
       "type": "CLOSED"
     }
   ],
-  "generated_at": "2026-10-13T23:21:05Z",
+  "generated_at": "2026-10-14T00:02:04Z",
   "kind": "market",
   "mic": "XETR",
   "range_end": "2030-12-31",
@@ -3724,7 +3724,7 @@
     "calendar:DE-XETRA"
   ],
   "source_version": {
-    "git_sha": "c2a3fbcd1a814f9b607ab52b74714793b5ff2ace",
+    "git_sha": "1f63234a07eb72cc08a8c0d451983be39e88b2ae",
     "semantic": "13.0.0"
   },
   "timezone": "Europe/Berlin",

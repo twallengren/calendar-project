@@ -274,13 +274,13 @@
     },
     "counts_by_type" : {
       "WEEKEND" : 1082,
-      "CLOSED" : 194
+      "CLOSED" : 195
     },
     "counts_by_status" : {
-      "CONFIRMED" : 1260,
+      "CONFIRMED" : 1261,
       "PROJECTED" : 16
     },
-    "checksum" : "sha256:401b715cbe1b3e43ddf8b4fd59c72ebc9c6b51b117333e5b4f0d080bd0d531e5",
+    "checksum" : "sha256:4f4ab3f4bab7908c22be6d0c57c396198c61774aae165451f3b609d624ffce4e",
     "years" : [ 2020, 2030 ],
     "href" : "calendars/SA-TADAWUL/manifest.json"
   }, {
@@ -329,8 +329,8 @@
   } ],
   "release" : {
     "semantic" : "13.0.0",
-    "git_sha" : "c2a3fbcd1a814f9b607ab52b74714793b5ff2ace",
-    "generation_date" : "2026-10-13"
+    "git_sha" : "1f63234a07eb72cc08a8c0d451983be39e88b2ae",
+    "generation_date" : "2026-10-14"
   },
   "generated_at" : "2026-06-01T00:00:00Z",
   "schema_version" : "1.0",
