@@ -135,6 +135,25 @@ def prove_tag_equivalence(output, tag):
     return checked
 
 
+DATASET_ARCHIVE = re.compile(r"bdc-calendars-\d+\.\d+\.\d+\.tar\.gz")
+
+
+def select_dataset_assets(assets):
+    """Pick the dataset archive and its checksums among a release's assets.
+
+    Releases also publish the Python sdist (``bdc_calendars-<v>.tar.gz``) and
+    other ``.tar.gz`` files, so the dataset archive is matched by its exact
+    ``bdc-calendars-<data version>.tar.gz`` name rather than by suffix.
+    """
+    archives = [a for a in assets if DATASET_ARCHIVE.fullmatch(a["name"])]
+    checksums = [a for a in assets if a["name"] == "checksums.txt"]
+    if len(archives) != 1 or len(checksums) != 1:
+        raise SystemExit(
+            "published release must contain one bdc-calendars-<version>.tar.gz and checksums.txt"
+        )
+    return archives[0], checksums[0]
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", required=True)
@@ -157,11 +176,7 @@ def main():
         raise SystemExit(
             "requested baseline was not the repository's latest release at observation time"
         )
-    archives = [a for a in release["assets"] if a["name"].endswith(".tar.gz")]
-    checksums = [a for a in release["assets"] if a["name"] == "checksums.txt"]
-    if len(archives) != 1 or len(checksums) != 1:
-        raise SystemExit("published release must contain one dataset tar.gz and checksums.txt")
-    archive, checksum_asset = archives[0], checksums[0]
+    archive, checksum_asset = select_dataset_assets(release["assets"])
     payload = download(archive["browser_download_url"])
     actual = sha256(payload)
     declared = str(archive.get("digest", ""))
