@@ -1,0 +1,550 @@
+kind: resolved_calendar
+id: KR-KRX
+metadata:
+  name: Korea Exchange
+  description: KRX securities market (KOSPI and KOSDAQ) trading calendar (MIC XKRX)
+  chronology: ISO
+  timezone: Asia/Seoul
+  mic: XKRX
+  coverage:
+    from: 2010-01-01
+    to: 2027-12-31
+    verified_through: 2026-12-31
+    quality:
+    - scope: SCHEDULED_CLOSURES
+      from: 2010-01-01
+      to: 2026-12-31
+      quality: VERIFIED
+      evidence_ids:
+      - krx-holidays
+      - krx-notice-2011-holidays
+      - krx-kind-notice-99340
+      - easylaw-trading-days
+      - moi-public-holidays-decree
+      - klri-public-holidays-act
+      - bizwatch-2026-05-20-krx-closures
+    - scope: SCHEDULED_CLOSURES
+      from: 2027-01-01
+      to: 2027-12-31
+      quality: PROJECTED
+      evidence_ids:
+      - krx-holidays
+      - moi-public-holidays-decree
+    - scope: EARLY_CLOSES
+      from: 2010-01-01
+      to: 2026-12-31
+      quality: VERIFIED
+      evidence_ids:
+      - krx-guide-to-trading
+      - easylaw-trading-days
+      - seoul-2016-07-31-hours
+      - samsungpop-notice-23456
+    - scope: EARLY_CLOSES
+      from: 2027-01-01
+      to: 2027-12-31
+      quality: PROJECTED
+      evidence_ids:
+      - krx-guide-to-trading
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2010-01-01
+      to: 2026-10-14
+      quality: VERIFIED
+      evidence_ids:
+      - krx-holidays
+      - newsis-2025-03-18-halt
+      - sbsbiz-2024-12-04-open
+      - krx-notice-2011-holidays
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2026-10-15
+      to: 2027-12-31
+      quality: PROJECTED
+      evidence_ids:
+      - krx-holidays
+weekend_policy:
+  days:
+  - SATURDAY
+  - SUNDAY
+weekend_shift_policy: NONE
+resolution_chain:
+- module:weekend_sat_sun
+- module:kr_new_years_day
+- module:kr_seollal
+- module:kr_independence_movement_day
+- module:kr_labour_day
+- module:kr_childrens_day
+- module:kr_buddhas_birthday
+- module:kr_memorial_day
+- module:kr_constitution_day
+- module:kr_liberation_day
+- module:kr_chuseok
+- module:kr_national_foundation_day
+- module:kr_hangul_day
+- module:kr_christmas_day
+- module:kr_election_days
+- module:kr_temporary_public_holidays
+- module:kr_krx_year_end_closure
+- module:kr_krx_holidays
+- calendar:KR-KRX
+event_sources:
+- key: kr_new_years_day
+  name: New Year's Day
+  origin: module:kr_new_years_day
+  classification: CLOSED
+  shift_policy: NONE
+  status: CONFIRMED
+  source:
+  - id: krx-holidays
+  rule:
+    type: fixed_month_day
+    month: 1
+    day: 1
+- key: kr_seollal
+  name: Seollal (Lunar New Year)
+  origin: module:kr_seollal
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: krx-holidays
+  rule:
+    type: explicit_dates
+    dates:
+    - 2010-02-15
+    - 2011-02-02
+    - 2011-02-03
+    - 2011-02-04
+    - 2012-01-23
+    - 2012-01-24
+    - 2013-02-11
+    - 2014-01-30
+    - 2014-01-31
+    - 2015-02-18
+    - 2015-02-19
+    - 2015-02-20
+    - 2016-02-08
+    - 2016-02-09
+    - 2016-02-10
+    - 2017-01-27
+    - date: 2017-01-30
+      comment: substitute holiday
+    - 2018-02-15
+    - 2018-02-16
+    - 2019-02-04
+    - 2019-02-05
+    - 2019-02-06
+    - 2020-01-24
+    - date: 2020-01-27
+      comment: substitute holiday
+    - 2021-02-11
+    - 2021-02-12
+    - 2022-01-31
+    - 2022-02-01
+    - 2022-02-02
+    - 2023-01-23
+    - date: 2023-01-24
+      comment: substitute holiday
+    - 2024-02-09
+    - date: 2024-02-12
+      comment: substitute holiday
+    - 2025-01-28
+    - 2025-01-29
+    - 2025-01-30
+    - 2026-02-16
+    - 2026-02-17
+    - 2026-02-18
+    - 2027-02-08
+    - date: 2027-02-09
+      comment: substitute holiday
+- key: kr_independence_movement_day
+  name: Independence Movement Day
+  origin: module:kr_independence_movement_day
+  classification: CLOSED
+  shift_policy: NONE
+  status: CONFIRMED
+  source:
+  - id: krx-holidays
+  rule:
+    type: fixed_month_day
+    month: 3
+    day: 1
+- key: kr_independence_movement_day_substitute
+  name: Independence Movement Day (substitute holiday)
+  origin: module:kr_independence_movement_day
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: krx-holidays
+  rule:
+    type: explicit_dates
+    dates:
+    - 2025-03-03
+    - 2026-03-02
+- key: kr_labour_day
+  name: Labour Day
+  origin: module:kr_labour_day
+  classification: CLOSED
+  shift_policy: NONE
+  status: CONFIRMED
+  source:
+  - id: krx-holidays
+  rule:
+    type: fixed_month_day
+    month: 5
+    day: 1
+- key: kr_labour_day_substitute
+  name: Labour Day (substitute holiday)
+  origin: module:kr_labour_day
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: krx-holidays
+  rule:
+    type: explicit_dates
+    dates:
+    - 2027-05-03
+- key: kr_childrens_day
+  name: Children's Day
+  origin: module:kr_childrens_day
+  classification: CLOSED
+  shift_policy: NONE
+  status: CONFIRMED
+  active_years:
+  - - 2010
+    - 2024
+  - - 2026
+    - null
+  source:
+  - id: krx-holidays
+  rule:
+    type: fixed_month_day
+    month: 5
+    day: 5
+- key: kr_childrens_day_substitute
+  name: Children's Day (substitute holiday)
+  origin: module:kr_childrens_day
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: krx-holidays
+  rule:
+    type: explicit_dates
+    dates:
+    - 2018-05-07
+    - 2019-05-06
+    - 2024-05-06
+    - 2025-05-06
+- key: kr_buddhas_birthday
+  name: Buddha's Birthday
+  origin: module:kr_buddhas_birthday
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: krx-holidays
+  rule:
+    type: explicit_dates
+    dates:
+    - 2010-05-21
+    - 2011-05-10
+    - 2012-05-28
+    - 2013-05-17
+    - 2014-05-06
+    - 2015-05-25
+    - 2017-05-03
+    - 2018-05-22
+    - 2020-04-30
+    - 2021-05-19
+    - date: 2023-05-29
+      comment: substitute holiday
+    - 2024-05-15
+    - 2025-05-05
+    - date: 2026-05-25
+      comment: substitute holiday
+    - 2027-05-13
+- key: kr_memorial_day
+  name: Memorial Day
+  origin: module:kr_memorial_day
+  classification: CLOSED
+  shift_policy: NONE
+  status: CONFIRMED
+  source:
+  - id: krx-holidays
+  rule:
+    type: fixed_month_day
+    month: 6
+    day: 6
+- key: kr_constitution_day
+  name: Constitution Day
+  origin: module:kr_constitution_day
+  classification: CLOSED
+  shift_policy: NONE
+  status: CONFIRMED
+  active_years:
+  - - 2026
+    - null
+  source:
+  - id: krx-holidays
+  rule:
+    type: fixed_month_day
+    month: 7
+    day: 17
+- key: kr_constitution_day_substitute
+  name: Constitution Day (substitute holiday)
+  origin: module:kr_constitution_day
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: krx-holidays
+  rule:
+    type: explicit_dates
+    dates:
+    - 2027-07-19
+- key: kr_liberation_day
+  name: Liberation Day
+  origin: module:kr_liberation_day
+  classification: CLOSED
+  shift_policy: NONE
+  status: CONFIRMED
+  source:
+  - id: krx-holidays
+  rule:
+    type: fixed_month_day
+    month: 8
+    day: 15
+- key: kr_liberation_day_substitute
+  name: Liberation Day (substitute holiday)
+  origin: module:kr_liberation_day
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: krx-holidays
+  rule:
+    type: explicit_dates
+    dates:
+    - 2021-08-16
+    - 2026-08-17
+    - 2027-08-16
+- key: kr_chuseok
+  name: Chuseok
+  origin: module:kr_chuseok
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: krx-holidays
+  rule:
+    type: explicit_dates
+    dates:
+    - 2010-09-21
+    - 2010-09-22
+    - 2010-09-23
+    - 2011-09-12
+    - 2011-09-13
+    - 2012-10-01
+    - 2013-09-18
+    - 2013-09-19
+    - 2013-09-20
+    - 2014-09-08
+    - 2014-09-09
+    - date: 2014-09-10
+      comment: substitute holiday
+    - 2015-09-28
+    - date: 2015-09-29
+      comment: substitute holiday
+    - 2016-09-14
+    - 2016-09-15
+    - 2016-09-16
+    - 2017-10-04
+    - 2017-10-05
+    - date: 2017-10-06
+      comment: substitute holiday
+    - 2018-09-24
+    - 2018-09-25
+    - date: 2018-09-26
+      comment: substitute holiday
+    - 2019-09-12
+    - 2019-09-13
+    - 2020-09-30
+    - 2020-10-01
+    - 2020-10-02
+    - 2021-09-20
+    - 2021-09-21
+    - 2021-09-22
+    - 2022-09-09
+    - date: 2022-09-12
+      comment: substitute holiday
+    - 2023-09-28
+    - 2023-09-29
+    - 2024-09-16
+    - 2024-09-17
+    - 2024-09-18
+    - 2025-10-06
+    - 2025-10-07
+    - date: 2025-10-08
+      comment: substitute holiday
+    - 2026-09-24
+    - 2026-09-25
+    - 2027-09-14
+    - 2027-09-15
+    - 2027-09-16
+- key: kr_national_foundation_day
+  name: National Foundation Day
+  origin: module:kr_national_foundation_day
+  classification: CLOSED
+  shift_policy: NONE
+  status: CONFIRMED
+  source:
+  - id: krx-holidays
+  rule:
+    type: fixed_month_day
+    month: 10
+    day: 3
+- key: kr_national_foundation_day_substitute
+  name: National Foundation Day (substitute holiday)
+  origin: module:kr_national_foundation_day
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: krx-holidays
+  rule:
+    type: explicit_dates
+    dates:
+    - 2021-10-04
+    - 2026-10-05
+    - 2027-10-04
+- key: kr_hangul_day
+  name: Hangul Day
+  origin: module:kr_hangul_day
+  classification: CLOSED
+  shift_policy: NONE
+  status: CONFIRMED
+  active_years:
+  - - 2013
+    - null
+  source:
+  - id: krx-holidays
+  rule:
+    type: fixed_month_day
+    month: 10
+    day: 9
+- key: kr_hangul_day_substitute
+  name: Hangul Day (substitute holiday)
+  origin: module:kr_hangul_day
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: krx-holidays
+  rule:
+    type: explicit_dates
+    dates:
+    - 2021-10-11
+    - 2022-10-10
+    - 2027-10-11
+- key: kr_christmas_day
+  name: Christmas Day
+  origin: module:kr_christmas_day
+  classification: CLOSED
+  shift_policy: NONE
+  status: CONFIRMED
+  source:
+  - id: krx-holidays
+  rule:
+    type: fixed_month_day
+    month: 12
+    day: 25
+- key: kr_christmas_day_substitute
+  name: Christmas Day (substitute holiday)
+  origin: module:kr_christmas_day
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: krx-holidays
+  rule:
+    type: explicit_dates
+    dates:
+    - 2027-12-27
+- key: kr_election_days
+  name: Election Day
+  origin: module:kr_election_days
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: krx-holidays
+  rule:
+    type: explicit_dates
+    dates:
+    - date: 2010-06-02
+      comment: 5th nationwide local elections
+    - date: 2012-04-11
+      comment: 19th National Assembly election
+    - date: 2012-12-19
+      comment: 18th presidential election
+    - date: 2014-06-04
+      comment: 6th nationwide local elections
+    - date: 2016-04-13
+      comment: 20th National Assembly election
+    - date: 2017-05-09
+      comment: 19th presidential election (early election; temporary public holiday)
+    - date: 2018-06-13
+      comment: 7th nationwide local elections
+    - date: 2020-04-15
+      comment: 21st National Assembly election
+    - date: 2022-03-09
+      comment: 20th presidential election
+    - date: 2022-06-01
+      comment: 8th nationwide local elections
+    - date: 2024-04-10
+      comment: 22nd National Assembly election
+    - date: 2025-06-03
+      comment: 21st presidential election (early election; temporary public holiday)
+    - date: 2026-06-03
+      comment: 9th nationwide local elections
+- key: kr_temporary_public_holidays
+  name: Temporary Public Holiday
+  origin: module:kr_temporary_public_holidays
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: krx-holidays
+  rule:
+    type: explicit_dates
+    dates:
+    - date: 2015-08-14
+      comment: 70th anniversary of Liberation (광복70주년 임시공휴일)
+    - date: 2016-05-06
+      comment: temporary public holiday (bridge day)
+    - date: 2017-10-02
+      comment: temporary public holiday (Chuseok bridge day)
+    - date: 2020-08-17
+      comment: temporary public holiday
+    - date: 2023-10-02
+      comment: temporary public holiday (Chuseok bridge day)
+    - date: 2024-10-01
+      comment: "Armed Forces Day, temporary public holiday"
+    - date: 2025-01-27
+      comment: temporary public holiday (Seollal bridge day)
+- key: kr_krx_year_end_closure
+  name: Year-End Closure
+  origin: module:kr_krx_year_end_closure
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: krx-holidays
+  rule:
+    type: explicit_dates
+    dates:
+    - 2010-12-31
+    - 2011-12-30
+    - 2012-12-31
+    - 2013-12-31
+    - 2014-12-31
+    - 2015-12-31
+    - 2016-12-30
+    - 2017-12-29
+    - 2018-12-31
+    - 2019-12-31
+    - 2020-12-31
+    - 2021-12-31
+    - 2022-12-30
+    - 2023-12-29
+    - 2024-12-31
+    - 2025-12-31
+    - 2026-12-31
+    - 2027-12-31

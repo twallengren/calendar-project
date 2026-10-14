@@ -240,6 +240,27 @@
     "years" : [ 2010, 2030 ],
     "href" : "calendars/JP-JPX/manifest.json"
   }, {
+    "id" : "KR-KRX",
+    "name" : "Korea Exchange",
+    "timezone" : "Asia/Seoul",
+    "mic" : "XKRX",
+    "aliases" : [ ],
+    "coverage" : {
+      "from" : "2010-01-01",
+      "to" : "2027-12-31",
+      "verified_through" : "2026-12-31"
+    },
+    "counts_by_type" : {
+      "CLOSED" : 318,
+      "WEEKEND" : 1828
+    },
+    "counts_by_status" : {
+      "CONFIRMED" : 2146
+    },
+    "checksum" : "sha256:bf10463f761183bb9963ebfd6f526fe4e833ef48e8b2353616623147d5a111cc",
+    "years" : [ 2010, 2027 ],
+    "href" : "calendars/KR-KRX/manifest.json"
+  }, {
     "id" : "NL-EURONEXT-AMSTERDAM",
     "name" : "Euronext Amsterdam Trading Calendar",
     "timezone" : "Europe/Amsterdam",

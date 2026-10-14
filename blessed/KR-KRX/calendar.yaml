@@ -1,0 +1,72 @@
+kind: calendar
+id: KR-KRX
+metadata:
+  name: Korea Exchange
+  description: KRX securities market (KOSPI and KOSDAQ) trading calendar (MIC XKRX)
+  chronology: ISO
+  timezone: Asia/Seoul
+  coverage:
+    from: 2010-01-01
+    to: 2027-12-31
+    quality:
+    - scope: SCHEDULED_CLOSURES
+      from: 2010-01-01
+      to: 2026-12-31
+      quality: VERIFIED
+      evidenceIds:
+      - krx-holidays
+      - krx-notice-2011-holidays
+      - krx-kind-notice-99340
+      - easylaw-trading-days
+      - moi-public-holidays-decree
+      - klri-public-holidays-act
+      - bizwatch-2026-05-20-krx-closures
+    - scope: SCHEDULED_CLOSURES
+      from: 2027-01-01
+      to: 2027-12-31
+      quality: PROJECTED
+      evidenceIds:
+      - krx-holidays
+      - moi-public-holidays-decree
+    - scope: EARLY_CLOSES
+      from: 2010-01-01
+      to: 2026-12-31
+      quality: VERIFIED
+      evidenceIds:
+      - krx-guide-to-trading
+      - easylaw-trading-days
+      - seoul-2016-07-31-hours
+      - samsungpop-notice-23456
+    - scope: EARLY_CLOSES
+      from: 2027-01-01
+      to: 2027-12-31
+      quality: PROJECTED
+      evidenceIds:
+      - krx-guide-to-trading
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2010-01-01
+      to: 2026-10-14
+      quality: VERIFIED
+      evidenceIds:
+      - krx-holidays
+      - newsis-2025-03-18-halt
+      - sbsbiz-2024-12-04-open
+      - krx-notice-2011-holidays
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2026-10-15
+      to: 2027-12-31
+      quality: PROJECTED
+      evidenceIds:
+      - krx-holidays
+    verified_through: 2026-12-31
+  kind: market
+  mic: XKRX
+  aliases: []
+uses:
+- weekend_sat_sun
+- kr_krx_holidays
+classifications: {}
+deltas: []
+extends: []
+event_sources: []
+weekend_shift_policy: NONE
