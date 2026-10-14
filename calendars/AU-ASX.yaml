@@ -12,16 +12,17 @@ metadata:
     to: 2030-12-31
     verified_through: 2027-12-31
     quality:
-      # The exchange publishes a complete cash-market calendar for each year ("any weekday not
-      # included in this list ... [is] a 'Business Day' and a 'Trading Day'"); the 2020 and
-      # 2022-2027 calendars survive online. 2010-2019 and 2021 follow the NSW public-holiday
-      # rules with the exchange's monthly trading-day counts and notices confirming the
-      # substitute-day decisions (26 April 2010 and 2011 closed; 27 April 2015, 27 April 2020,
-      # 26 April 2021 and 27 April 2026 open).
-      - {scope: SCHEDULED_CLOSURES, from: 2010-01-01, to: 2019-12-31, quality: PROJECTED, evidence_ids: [nsw-public-holidays-act, asx-activity-report-2011-04, asx-activity-report-2012-01, asx-activity-report-2015-04, asx-events-2016-04, asx-events-2018-12, asx24-trading-calendar-2019]}
-      - {scope: SCHEDULED_CLOSURES, from: 2020-01-01, to: 2020-12-31, quality: VERIFIED, evidence_ids: [asx-trade-calendar-2020]}
-      - {scope: SCHEDULED_CLOSURES, from: 2021-01-01, to: 2021-12-31, quality: PROJECTED, evidence_ids: [nsw-public-holidays-act, asx-notice-1320-20-10, asx-notice-0812-18-07, asx-activity-report-2021-04, asx-notice-1639-21-11]}
-      - {scope: SCHEDULED_CLOSURES, from: 2022-01-01, to: 2027-12-31, quality: VERIFIED, evidence_ids: [asx-trade-calendar-2022, asx-trade-calendar-2023, asx-trade-calendar-2024, asx-notice-0840-23-08, asx-trade-calendar-2025, asx-trade-calendar-2026, asx-trade-calendar-2026-2027]}
+      # The exchange's monthly activity reports print the cash market's "Total trading days";
+      # every month from January 2010 to September 2026 (asx-cash-market-trading-days-by-month)
+      # and every financial-year total in the preserved June reports equal the modelled
+      # weekdays less closures, so no closure is missing or spurious. The exchange also publishes
+      # a complete calendar for each year ("any weekday not included in this list ... [is] a
+      # 'Business Day' and a 'Trading Day'"); 2020 and 2022-2027 survive online and settle the
+      # years the counts do not yet reach.
+      - {scope: SCHEDULED_CLOSURES, from: 2010-01-01, to: 2019-12-31, quality: VERIFIED, evidence_ids: [asx-cash-market-trading-days-by-month, asx-activity-report-2010-06, asx-activity-report-2011-06, asx-activity-report-2012-06, asx-activity-report-2013-06, asx-activity-report-2014-06, asx-activity-report-2015-06, asx-activity-report-2016-06, asx-activity-report-2017-06, asx-activity-report-2018-06, asx-activity-report-2019-06, asx-activity-report-2020-06, asx-activity-report-2011-04, asx-activity-report-2012-01, asx-activity-report-2015-04, asx-events-2016-04, asx-events-2018-12, asx24-trading-calendar-2019]}
+      - {scope: SCHEDULED_CLOSURES, from: 2020-01-01, to: 2020-12-31, quality: VERIFIED, evidence_ids: [asx-trade-calendar-2020, asx-activity-report-2020-06, asx-activity-report-2021-06]}
+      - {scope: SCHEDULED_CLOSURES, from: 2021-01-01, to: 2021-12-31, quality: VERIFIED, evidence_ids: [asx-cash-market-trading-days-by-month, asx-activity-report-2021-06, asx-activity-report-2022-06, asx-notice-1320-20-10, asx-notice-0812-18-07, asx-activity-report-2021-04, asx-notice-1639-21-11]}
+      - {scope: SCHEDULED_CLOSURES, from: 2022-01-01, to: 2027-12-31, quality: VERIFIED, evidence_ids: [asx-trade-calendar-2022, asx-trade-calendar-2023, asx-trade-calendar-2024, asx-notice-0840-23-08, asx-trade-calendar-2025, asx-trade-calendar-2026, asx-trade-calendar-2026-2027, asx-activity-report-2022-06, asx-activity-report-2023-06, asx-activity-report-2024-06, asx-activity-report-2025-06, asx-activity-report-2026-06, asx-activity-report-2026-09]}
       - {scope: SCHEDULED_CLOSURES, from: 2028-01-01, to: 2030-12-31, quality: PROJECTED, evidence_ids: [nsw-public-holidays-act]}
       # Early closes only ever fall in December (14:10 on the last trading day before Christmas
       # and before New Year through 2016; on 24 and 31 December only, from 2017). The exchange's
@@ -42,9 +43,12 @@ metadata:
       # Every market-wide disruption the exchange or ASIC reported since 2010 is modelled (19
       # September 2016 and 16 November 2020 as early terminations; 27 October 2011 and the
       # 2011 partial outages ended in normal closes) and the 2022 National Day of Mourning is a
-      # closure. The exchange's monthly trading-day counts reconcile only the months cited, so
-      # the scope stays PROJECTED until a complete count reconciliation is on file.
-      - {scope: UNSCHEDULED_EXCEPTIONS, from: 2010-01-01, to: 2030-12-31, quality: PROJECTED, evidence_ids: [asx-notice-1111-16-09, asx-market-outage-report-2020-12-04, asx-notice-0984-22-09, asx-media-release-2011-10-27, asx-activity-report-2020-11, asx-activity-report-2022-09]}
+      # closure. The exchange's monthly trading-day counts equal the modelled schedule for every
+      # month through September 2026, so no unrecorded whole-day closure exists; early
+      # terminations are invisible to the counts (16 November 2020 is counted as a trading day)
+      # and rest on the incident reports alone.
+      - {scope: UNSCHEDULED_EXCEPTIONS, from: 2010-01-01, to: 2026-09-30, quality: VERIFIED, evidence_ids: [asx-cash-market-trading-days-by-month, asx-activity-report-2010-06, asx-activity-report-2011-06, asx-activity-report-2012-06, asx-activity-report-2013-06, asx-activity-report-2014-06, asx-activity-report-2015-06, asx-activity-report-2016-06, asx-activity-report-2017-06, asx-activity-report-2018-06, asx-activity-report-2019-06, asx-activity-report-2020-06, asx-activity-report-2021-06, asx-activity-report-2022-06, asx-activity-report-2023-06, asx-activity-report-2024-06, asx-activity-report-2025-06, asx-activity-report-2026-06, asx-activity-report-2026-09, asx-notice-1111-16-09, asx-media-alert-2016-09-19, asic-16-352mr, asx-market-outage-report-2020-12-04, asx-media-alert-2020-11-16, asx-notice-1469-20-11, asic-20-284mr, asx-notice-0984-22-09, asx-media-release-2011-10-27, asx-activity-report-2020-11, asx-activity-report-2022-09]}
+      - {scope: UNSCHEDULED_EXCEPTIONS, from: 2026-10-01, to: 2030-12-31, quality: PROJECTED, evidence_ids: [asx-notice-1111-16-09, asx-market-outage-report-2020-12-04]}
 
 # NSW-style observance: a public holiday that falls on a weekend is followed by an additional
 # holiday on the next weekday not already a holiday (Christmas Saturday -> Monday, Boxing Day

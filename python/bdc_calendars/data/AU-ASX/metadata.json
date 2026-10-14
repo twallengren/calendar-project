@@ -14,7 +14,18 @@
     "quality": [
       {
         "evidence_ids": [
-          "nsw-public-holidays-act",
+          "asx-cash-market-trading-days-by-month",
+          "asx-activity-report-2010-06",
+          "asx-activity-report-2011-06",
+          "asx-activity-report-2012-06",
+          "asx-activity-report-2013-06",
+          "asx-activity-report-2014-06",
+          "asx-activity-report-2015-06",
+          "asx-activity-report-2016-06",
+          "asx-activity-report-2017-06",
+          "asx-activity-report-2018-06",
+          "asx-activity-report-2019-06",
+          "asx-activity-report-2020-06",
           "asx-activity-report-2011-04",
           "asx-activity-report-2012-01",
           "asx-activity-report-2015-04",
@@ -23,13 +34,15 @@
           "asx24-trading-calendar-2019"
         ],
         "from": "2010-01-01",
-        "quality": "PROJECTED",
+        "quality": "VERIFIED",
         "scope": "SCHEDULED_CLOSURES",
         "to": "2019-12-31"
       },
       {
         "evidence_ids": [
-          "asx-trade-calendar-2020"
+          "asx-trade-calendar-2020",
+          "asx-activity-report-2020-06",
+          "asx-activity-report-2021-06"
         ],
         "from": "2020-01-01",
         "quality": "VERIFIED",
@@ -38,14 +51,16 @@
       },
       {
         "evidence_ids": [
-          "nsw-public-holidays-act",
+          "asx-cash-market-trading-days-by-month",
+          "asx-activity-report-2021-06",
+          "asx-activity-report-2022-06",
           "asx-notice-1320-20-10",
           "asx-notice-0812-18-07",
           "asx-activity-report-2021-04",
           "asx-notice-1639-21-11"
         ],
         "from": "2021-01-01",
-        "quality": "PROJECTED",
+        "quality": "VERIFIED",
         "scope": "SCHEDULED_CLOSURES",
         "to": "2021-12-31"
       },
@@ -57,7 +72,13 @@
           "asx-notice-0840-23-08",
           "asx-trade-calendar-2025",
           "asx-trade-calendar-2026",
-          "asx-trade-calendar-2026-2027"
+          "asx-trade-calendar-2026-2027",
+          "asx-activity-report-2022-06",
+          "asx-activity-report-2023-06",
+          "asx-activity-report-2024-06",
+          "asx-activity-report-2025-06",
+          "asx-activity-report-2026-06",
+          "asx-activity-report-2026-09"
         ],
         "from": "2022-01-01",
         "quality": "VERIFIED",
@@ -194,14 +215,48 @@
       },
       {
         "evidence_ids": [
+          "asx-cash-market-trading-days-by-month",
+          "asx-activity-report-2010-06",
+          "asx-activity-report-2011-06",
+          "asx-activity-report-2012-06",
+          "asx-activity-report-2013-06",
+          "asx-activity-report-2014-06",
+          "asx-activity-report-2015-06",
+          "asx-activity-report-2016-06",
+          "asx-activity-report-2017-06",
+          "asx-activity-report-2018-06",
+          "asx-activity-report-2019-06",
+          "asx-activity-report-2020-06",
+          "asx-activity-report-2021-06",
+          "asx-activity-report-2022-06",
+          "asx-activity-report-2023-06",
+          "asx-activity-report-2024-06",
+          "asx-activity-report-2025-06",
+          "asx-activity-report-2026-06",
+          "asx-activity-report-2026-09",
           "asx-notice-1111-16-09",
+          "asx-media-alert-2016-09-19",
+          "asic-16-352mr",
           "asx-market-outage-report-2020-12-04",
+          "asx-media-alert-2020-11-16",
+          "asx-notice-1469-20-11",
+          "asic-20-284mr",
           "asx-notice-0984-22-09",
           "asx-media-release-2011-10-27",
           "asx-activity-report-2020-11",
           "asx-activity-report-2022-09"
         ],
         "from": "2010-01-01",
+        "quality": "VERIFIED",
+        "scope": "UNSCHEDULED_EXCEPTIONS",
+        "to": "2026-09-30"
+      },
+      {
+        "evidence_ids": [
+          "asx-notice-1111-16-09",
+          "asx-market-outage-report-2020-12-04"
+        ],
+        "from": "2026-10-01",
         "quality": "PROJECTED",
         "scope": "UNSCHEDULED_EXCEPTIONS",
         "to": "2030-12-31"
