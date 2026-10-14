@@ -1,0 +1,24 @@
+kind: module
+id: sg_good_friday
+
+# Good Friday (two days before Western Easter Sunday), a Singapore public holiday. Always a
+# Friday, so no substitution arises.
+# Source: mom-public-holidays.
+
+source:
+  - id: mom-public-holidays
+
+references:
+  - key: easter
+    formula: EASTER_WESTERN
+
+event_sources:
+  - key: sg_good_friday
+    name: Good Friday
+    default_classification: CLOSED
+    rule:
+      type: relative_to_reference
+      key: sg_good_friday
+      name: Good Friday
+      reference: easter
+      offset_days: -2

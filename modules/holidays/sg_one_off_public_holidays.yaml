@@ -1,0 +1,67 @@
+kind: module
+id: sg_one_off_public_holidays
+
+# One-off public holidays within this calendar's coverage. Polling Day is a public holiday under
+# the Parliamentary Elections Act (s 35) and the Presidential Elections Act (s 17); the Saturday
+# polling days (7 May and 27 August 2011, 3 May 2025) fall on weekend days and bring no Monday
+# closure. The weekday ones closed the exchange:
+#   - Friday 7 August 2015: SG50 Public Holiday (SGX 2015 table: "7 Aug 2015 | Friday | SG50
+#     Public Holiday"; August 2015 had 19 trading days)
+#   - Friday 11 September 2015: Polling Day, general election (SGX 2015 table)
+#   - Friday 10 July 2020: Polling Day, general election (CDP 2020 Settlement Holidays:
+#     "Fri, 10-Jul-20 Polling Day"; MOM press release of 24 June 2020)
+#   - Friday 1 September 2023: Polling Day, presidential election (SGX circular DT/AM-64 of 2023;
+#     CDP 2023 Settlement Holidays; September 2023 had 20 trading days)
+# Source: sgx-calendar-wb-20150924, settlement-holidays-2020, dtam-64-2023, mom-public-holidays.
+
+source:
+  - id: mom-public-holidays
+
+event_sources:
+  - key: sg_sg50_public_holiday_2015
+    name: SG50 Public Holiday
+    default_classification: CLOSED
+    source:
+      - id: sgx-calendar-wb-20150924
+        ref: "7 Aug 2015 / Friday / SG50 Public Holiday"
+      - id: mom-holidays-wb-20150531
+        ref: "the President has declared 7 August 2015, Friday, as a special one-off SG50 Public Holiday"
+    rule:
+      type: explicit_dates
+      dates:
+        - 2015-08-07
+
+  - key: sg_polling_day
+    name: Polling Day
+    default_classification: CLOSED
+    shiftable: false
+    source:
+      - id: sgx-calendar-wb-20150924
+        ref: "11 Sep 2015 / Friday / Polling Day"
+      - id: settlement-holidays-2020
+        ref: "Fri, 10-Jul-20 Polling Day"
+      - id: mom-press-2020-0624-polling-day
+        ref: "Polling Day, Friday 10 July 2020 is a public holiday"
+      - id: dtam-64-2023
+        ref: "Following the announcement of Friday 1 September 2023 as a public holiday by Singapore Ministry of Manpower"
+      - id: settlement-holidays-2023
+        ref: "Friday, September 1, 2023 Polling Day"
+      - id: mom-holidays-wb-20130630
+        ref: "7 May 2011 ... In accordance with Section 35 of the Parliamentary Elections Act, Polling Day is a public holiday (Saturday)"
+      - id: datagov-public-holidays-2020-2027
+        ref: "2025-05-03 Saturday Polling Day"
+    rule:
+      type: explicit_dates
+      dates:
+        - date: 2011-05-07
+          comment: general election (Saturday)
+        - date: 2011-08-27
+          comment: presidential election (Saturday)
+        - date: 2015-09-11
+          comment: general election
+        - date: 2020-07-10
+          comment: general election
+        - date: 2023-09-01
+          comment: presidential election
+        - date: 2025-05-03
+          comment: general election (Saturday)

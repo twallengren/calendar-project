@@ -34,7 +34,7 @@ Real gaps, not modesty:
 
 **Earlier implementation** added LSE, Deutsche Börse (Xetra), TSX, the four Euronext cash markets, JPX and HKEX, taking the source dataset to eleven market calendars. The local candidate adds TASE plus three payment calendars. Priority areas going forward:
 
-- **Remaining major global exchanges** — BSE/NSE, SGX, KRX (ASX joined the source tree in October 2026, verified from the exchange's own calendars, notices and monthly trading-day counts)
+- **Remaining major global exchanges** — BSE/NSE, KRX (ASX and SGX joined the source tree in October 2026, each verified from the exchange's own calendars, notices and monthly trading-day counts)
 - **Regional and emerging markets** — TWSE, JSE, B3, BMV
 - **Non-exchange business calendars** — banking holidays, settlement calendars, government calendars
 

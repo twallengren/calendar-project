@@ -1,0 +1,38 @@
+kind: module
+id: sg_vesak_day
+
+# Vesak Day, dated each year by the Ministry of Manpower from the Singapore Buddhist Federation.
+# Sunday occurrences move to Monday (20 May 2019, 16 May 2022, 1 June 2026); Saturday
+# occurrences (21 May 2016) bring no substitute. 2023 was revised from Saturday 3 June to
+# Friday 2 June (MOM, 29 September 2022).
+# Source: mom-public-holidays and the per-year MOM lists.
+
+source:
+  - id: mom-public-holidays
+
+event_sources:
+  - key: sg_vesak_day
+    name: Vesak Day
+    default_classification: CLOSED
+    shiftable: true
+    rule:
+      type: explicit_dates
+      dates:
+        - 2010-05-28
+        - 2011-05-17
+        - 2012-05-05
+        - 2013-05-24
+        - 2014-05-13
+        - 2015-06-01
+        - 2016-05-21
+        - 2017-05-10
+        - 2018-05-29
+        - 2019-05-19
+        - 2020-05-07
+        - 2021-05-26
+        - 2022-05-15
+        - 2023-06-02
+        - 2024-05-22
+        - 2025-05-12
+        - 2026-05-31
+        - 2027-05-20

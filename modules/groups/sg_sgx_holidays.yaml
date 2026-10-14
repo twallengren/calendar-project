@@ -1,0 +1,22 @@
+kind: module
+id: sg_sgx_holidays
+
+# SGX securities market (SGX-ST) non-trading days: every Singapore public holiday gazetted by the
+# Ministry of Manpower ("SGX follows the Singapore holiday calendar available on the Ministry of
+# Manpower website"), the one-off SG50 and Polling Day holidays, the half-day sessions on the
+# eves of Chinese New Year, Christmas and New Year, and the 2016 market disruption.
+
+uses:
+  - sg_new_years_day
+  - sg_chinese_new_year
+  - sg_good_friday
+  - sg_labour_day
+  - sg_vesak_day
+  - sg_hari_raya_puasa
+  - sg_hari_raya_haji
+  - sg_national_day
+  - sg_deepavali
+  - sg_christmas_day
+  - sg_one_off_public_holidays
+  - sg_sgx_half_days
+  - sg_sgx_unscheduled_exceptions

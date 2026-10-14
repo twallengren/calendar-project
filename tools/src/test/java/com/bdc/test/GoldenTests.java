@@ -237,6 +237,18 @@ class GoldenTests {
   // Dec 24 early close.
 
   @Test
+  void sgSgx2026() throws IOException {
+    productionCalendarRunner.assertCsvGoldenMatch("SG-SGX", 2026);
+  }
+
+  @Test
+  void sgSgx2017() throws IOException {
+    // Saturday-Sunday Chinese New Year cascading to Monday, the Friday eve half day, Sunday New
+    // Year's Day and Hari Raya Puasa moved to Monday
+    productionCalendarRunner.assertCsvGoldenMatch("SG-SGX", 2017);
+  }
+
+  @Test
   void auAsx2026() throws IOException {
     productionCalendarRunner.assertCsvGoldenMatch("AU-ASX", 2026);
   }

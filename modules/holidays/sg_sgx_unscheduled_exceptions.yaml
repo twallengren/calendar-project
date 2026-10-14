@@ -1,0 +1,32 @@
+kind: module
+id: sg_sgx_unscheduled_exceptions
+
+# Unscheduled disruptions of the SGX securities market that changed the trading day. Disruptions
+# that ended in a normal or extended close carry no row and are recorded in
+# sources/SG-SGX/README.md: 5 November 2014 (power-supply fault; halted 14:51, reopened 17:15,
+# closed 17:51) and 3 December 2014 (delayed open, continuous trading from 12:30, normal close).
+#
+#   - Thursday 14 July 2016: "the exchange ceased trading at 1138 hours, and remained closed for
+#     the rest of the day" after duplicate clearing-confirmation messages; two announced restarts
+#     were missed and the market reopened normally on 15 July. Trades before the halt stood, so
+#     the day is an early termination at 11:38, and the exchange's statistics count it as a
+#     trading day (July 2016: 20).
+# exchange_calendars and QuantLib carry no such day (allowlisted).
+
+source:
+  - id: sgx-outage-2016-07-14
+
+event_sources:
+  - key: sg_sgx_unscheduled_early_termination_2016
+    name: Unscheduled Early Termination (SGX market disruption)
+    default_classification: EARLY_CLOSE
+    close_time: "11:38"
+    shiftable: false
+    source:
+      - id: sgx-outage-2016-07-14
+        ref: "the exchange ceased trading at 1138 hours, and remained closed for the rest of the day"
+    rule:
+      type: explicit_dates
+      dates:
+        - date: 2016-07-14
+          comment: disk failure produced duplicate trade confirmations; trading ceased at 11:38 and did not resume

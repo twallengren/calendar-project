@@ -1,0 +1,21 @@
+kind: module
+id: sg_new_years_day
+
+# New Year's Day (1 January), a Singapore public holiday under the Holidays Act. When it falls on
+# a Sunday the following Monday is a public holiday (2012, 2017, 2023); a Saturday New Year's Day
+# (2011, 2022) brings no substitute. The calendar's NEXT_AVAILABLE_FROM_LAST_WEEKEND_DAY policy
+# reproduces that. SGX: "There is no trading on Singapore public holidays. When a holiday falls
+# on Sunday, the following Monday will be a public holiday." (sgx-calendar-wb-20140821).
+# Source: mom-public-holidays, sgx-trading-page.
+
+source:
+  - id: mom-public-holidays
+
+event_sources:
+  - key: sg_new_years_day
+    name: New Year's Day
+    default_classification: CLOSED
+    rule:
+      type: fixed_month_day
+      month: 1
+      day: 1

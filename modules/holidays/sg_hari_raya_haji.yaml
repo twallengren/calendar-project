@@ -1,0 +1,38 @@
+kind: module
+id: sg_hari_raya_haji
+
+# Hari Raya Haji (Eid al-Adha), dated each year by the Ministry of Manpower from MUIS. Sunday
+# occurrences move to Monday (7 November 2011, 6 October 2014, 12 August 2019, 11 July 2022);
+# Saturday occurrences (7 June 2025) bring no substitute. 2022 was revised from Saturday 9 July
+# to Sunday 10 July (MOM, 21 October 2021).
+# Source: mom-public-holidays and the per-year MOM lists.
+
+source:
+  - id: mom-public-holidays
+
+event_sources:
+  - key: sg_hari_raya_haji
+    name: Hari Raya Haji
+    default_classification: CLOSED
+    shiftable: true
+    rule:
+      type: explicit_dates
+      dates:
+        - 2010-11-17
+        - 2011-11-06
+        - 2012-10-26
+        - 2013-10-15
+        - 2014-10-05
+        - 2015-09-24
+        - 2016-09-12
+        - 2017-09-01
+        - 2018-08-22
+        - 2019-08-11
+        - 2020-07-31
+        - 2021-07-20
+        - 2022-07-10
+        - 2023-06-29
+        - 2024-06-17
+        - 2025-06-07
+        - 2026-05-27
+        - 2027-05-17

@@ -1,0 +1,38 @@
+kind: module
+id: sg_hari_raya_puasa
+
+# Hari Raya Puasa (Eid al-Fitr), dated each year by the Ministry of Manpower from the Islamic
+# Religious Council (MUIS). Sunday occurrences move to Monday (20 August 2012, 26 June 2017,
+# 25 May 2020); Saturday occurrences (22 April 2023, 21 March 2026) bring no substitute. 2022 was
+# revised from 2 May to 3 May (MOM, 21 October 2021).
+# Source: mom-public-holidays and the per-year MOM lists.
+
+source:
+  - id: mom-public-holidays
+
+event_sources:
+  - key: sg_hari_raya_puasa
+    name: Hari Raya Puasa
+    default_classification: CLOSED
+    shiftable: true
+    rule:
+      type: explicit_dates
+      dates:
+        - 2010-09-10
+        - 2011-08-30
+        - 2012-08-19
+        - 2013-08-08
+        - 2014-07-28
+        - 2015-07-17
+        - 2016-07-06
+        - 2017-06-25
+        - 2018-06-15
+        - 2019-06-05
+        - 2020-05-24
+        - 2021-05-13
+        - 2022-05-03
+        - 2023-04-22
+        - 2024-04-10
+        - 2025-03-31
+        - 2026-03-21
+        - 2027-03-10
