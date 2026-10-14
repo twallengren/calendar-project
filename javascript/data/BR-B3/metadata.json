@@ -1,0 +1,4216 @@
+{
+  "calendar_id": "BR-B3",
+  "calendar_name": "B3 - Brasil Bolsa Balc\u00e3o",
+  "counts_by_status": {
+    "CONFIRMED": 2111
+  },
+  "counts_by_type": {
+    "CLOSED": 290,
+    "WEEKEND": 1821
+  },
+  "coverage": {
+    "from": "2010-01-01",
+    "quality": [
+      {
+        "evidence_ids": [
+          "b3-calendars",
+          "bmfbovespa-calendar-2014",
+          "bmfbovespa-numero-mensal-de-pregoes",
+          "b3-oc-068-2020",
+          "b3-oc-072-2020",
+          "b3-ce-001-2021",
+          "b3-oc-215-2023",
+          "b3-news-2025-11-17",
+          "br-lei-662-1949",
+          "br-lei-14759-2023"
+        ],
+        "from": "2010-01-01",
+        "quality": "VERIFIED",
+        "scope": "SCHEDULED_CLOSURES",
+        "to": "2026-12-31"
+      },
+      {
+        "evidence_ids": [
+          "anbima-feriados-2027",
+          "br-lei-662-1949"
+        ],
+        "from": "2027-01-01",
+        "quality": "PROJECTED",
+        "scope": "SCHEDULED_CLOSURES",
+        "to": "2027-12-31"
+      },
+      {
+        "evidence_ids": [
+          "b3-calendars",
+          "b3-ash-wednesday-circulars",
+          "bmfbovespa-hours-news",
+          "b3-hours-circulars"
+        ],
+        "from": "2010-01-01",
+        "quality": "VERIFIED",
+        "scope": "EARLY_CLOSES",
+        "to": "2026-12-31"
+      },
+      {
+        "evidence_ids": [
+          "b3-hours-circulars"
+        ],
+        "from": "2027-01-01",
+        "quality": "PROJECTED",
+        "scope": "EARLY_CLOSES",
+        "to": "2027-12-31"
+      },
+      {
+        "evidence_ids": [
+          "bmfbovespa-numero-mensal-de-pregoes",
+          "bmfbovespa-calendar-2014",
+          "press-exame-2010-11-22"
+        ],
+        "from": "2010-01-01",
+        "quality": "VERIFIED",
+        "scope": "UNSCHEDULED_EXCEPTIONS",
+        "to": "2015-12-31"
+      },
+      {
+        "evidence_ids": [
+          "b3-ce-009-2020-circuit-breaker",
+          "press-istoedinheiro-2017-05-18",
+          "press-moneytimes-2020-03-18",
+          "press-istoedinheiro-2025-08-01",
+          "press-infomoney-2026-07-31",
+          "press-noticiasagricolas-2026-07-31"
+        ],
+        "from": "2016-01-01",
+        "quality": "PROJECTED",
+        "scope": "UNSCHEDULED_EXCEPTIONS",
+        "to": "2027-12-31"
+      }
+    ],
+    "to": "2027-12-31",
+    "verified_through": "2026-12-31"
+  },
+  "event_count": 2111,
+  "event_details": [
+    {
+      "close_time": null,
+      "date": "2010-01-01",
+      "description": "Confraterniza\u00e7\u00e3o Universal",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-01-25",
+      "description": "Anivers\u00e1rio de S\u00e3o Paulo (municipal holiday)",
+      "evidence_ids": [
+        "br-lei-sp-13707-2004"
+      ],
+      "key": "br_b3_sao_paulo_anniversary",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_sao_paulo_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-02-15",
+      "description": "Carnaval",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_carnival_monday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-02-16",
+      "description": "Carnaval",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_carnival_tuesday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-04-02",
+      "description": "Paix\u00e3o de Cristo",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-04-21",
+      "description": "Tiradentes",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_tiradentes",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_tiradentes",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-05-01",
+      "description": "Dia do Trabalho",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_labour_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_labour_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-06-03",
+      "description": "Corpus Christi",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_corpus_christi",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-07-09",
+      "description": "Revolu\u00e7\u00e3o Constitucionalista (S\u00e3o Paulo state holiday)",
+      "evidence_ids": [
+        "b3-oc-072-2020",
+        "br-lei-sp-9497-1997"
+      ],
+      "key": "br_b3_revolucao_constitucionalista",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_sao_paulo_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-09-07",
+      "description": "Independ\u00eancia do Brasil",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_independence_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_independence_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-10-12",
+      "description": "Nossa Senhora Aparecida",
+      "evidence_ids": [
+        "br-lei-6802-1980"
+      ],
+      "key": "br_nossa_senhora_aparecida",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_nossa_senhora_aparecida",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-11-02",
+      "description": "Finados",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_finados",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_finados",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-11-15",
+      "description": "Proclama\u00e7\u00e3o da Rep\u00fablica",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_republic_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_republic_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-11-20",
+      "description": "Consci\u00eancia Negra (S\u00e3o Paulo municipal holiday)",
+      "evidence_ids": [
+        "b3-calendars",
+        "br-lei-sp-13707-2004"
+      ],
+      "key": "br_consciencia_negra_sao_paulo",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_consciencia_negra",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-12-24",
+      "description": "V\u00e9spera de Natal",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_b3_christmas_eve",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_christmas_eve",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-12-25",
+      "description": "Natal",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-12-31",
+      "description": "\u00daltimo dia \u00fatil do ano (sem sess\u00e3o de negocia\u00e7\u00e3o)",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_b3_year_end_closure",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_year_end_closure",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-01-01",
+      "description": "Confraterniza\u00e7\u00e3o Universal",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-01-25",
+      "description": "Anivers\u00e1rio de S\u00e3o Paulo (municipal holiday)",
+      "evidence_ids": [
+        "br-lei-sp-13707-2004"
+      ],
+      "key": "br_b3_sao_paulo_anniversary",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_sao_paulo_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-03-07",
+      "description": "Carnaval",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_carnival_monday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-03-08",
+      "description": "Carnaval",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_carnival_tuesday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-04-21",
+      "description": "Tiradentes",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_tiradentes",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_tiradentes",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-04-22",
+      "description": "Paix\u00e3o de Cristo",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-05-01",
+      "description": "Dia do Trabalho",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_labour_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_labour_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-06-23",
+      "description": "Corpus Christi",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_corpus_christi",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-07-09",
+      "description": "Revolu\u00e7\u00e3o Constitucionalista (S\u00e3o Paulo state holiday)",
+      "evidence_ids": [
+        "b3-oc-072-2020",
+        "br-lei-sp-9497-1997"
+      ],
+      "key": "br_b3_revolucao_constitucionalista",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_sao_paulo_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-09-07",
+      "description": "Independ\u00eancia do Brasil",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_independence_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_independence_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-10-12",
+      "description": "Nossa Senhora Aparecida",
+      "evidence_ids": [
+        "br-lei-6802-1980"
+      ],
+      "key": "br_nossa_senhora_aparecida",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_nossa_senhora_aparecida",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-11-02",
+      "description": "Finados",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_finados",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_finados",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-11-15",
+      "description": "Proclama\u00e7\u00e3o da Rep\u00fablica",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_republic_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_republic_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-11-20",
+      "description": "Consci\u00eancia Negra (S\u00e3o Paulo municipal holiday)",
+      "evidence_ids": [
+        "b3-calendars",
+        "br-lei-sp-13707-2004"
+      ],
+      "key": "br_consciencia_negra_sao_paulo",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_consciencia_negra",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-12-24",
+      "description": "V\u00e9spera de Natal",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_b3_christmas_eve",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_christmas_eve",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-12-25",
+      "description": "Natal",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-12-30",
+      "description": "\u00daltimo dia \u00fatil do ano (sem sess\u00e3o de negocia\u00e7\u00e3o)",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_b3_year_end_closure",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_year_end_closure",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-01-01",
+      "description": "Confraterniza\u00e7\u00e3o Universal",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-01-25",
+      "description": "Anivers\u00e1rio de S\u00e3o Paulo (municipal holiday)",
+      "evidence_ids": [
+        "br-lei-sp-13707-2004"
+      ],
+      "key": "br_b3_sao_paulo_anniversary",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_sao_paulo_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-02-20",
+      "description": "Carnaval",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_carnival_monday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-02-21",
+      "description": "Carnaval",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_carnival_tuesday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-04-06",
+      "description": "Paix\u00e3o de Cristo",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-04-21",
+      "description": "Tiradentes",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_tiradentes",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_tiradentes",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-05-01",
+      "description": "Dia do Trabalho",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_labour_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_labour_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-06-07",
+      "description": "Corpus Christi",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_corpus_christi",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-07-09",
+      "description": "Revolu\u00e7\u00e3o Constitucionalista (S\u00e3o Paulo state holiday)",
+      "evidence_ids": [
+        "b3-oc-072-2020",
+        "br-lei-sp-9497-1997"
+      ],
+      "key": "br_b3_revolucao_constitucionalista",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_sao_paulo_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-09-07",
+      "description": "Independ\u00eancia do Brasil",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_independence_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_independence_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-10-12",
+      "description": "Nossa Senhora Aparecida",
+      "evidence_ids": [
+        "br-lei-6802-1980"
+      ],
+      "key": "br_nossa_senhora_aparecida",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_nossa_senhora_aparecida",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-11-02",
+      "description": "Finados",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_finados",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_finados",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-11-15",
+      "description": "Proclama\u00e7\u00e3o da Rep\u00fablica",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_republic_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_republic_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-11-20",
+      "description": "Consci\u00eancia Negra (S\u00e3o Paulo municipal holiday)",
+      "evidence_ids": [
+        "b3-calendars",
+        "br-lei-sp-13707-2004"
+      ],
+      "key": "br_consciencia_negra_sao_paulo",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_consciencia_negra",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-12-24",
+      "description": "V\u00e9spera de Natal",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_b3_christmas_eve",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_christmas_eve",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-12-25",
+      "description": "Natal",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-12-31",
+      "description": "\u00daltimo dia \u00fatil do ano (sem sess\u00e3o de negocia\u00e7\u00e3o)",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_b3_year_end_closure",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_year_end_closure",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-01-01",
+      "description": "Confraterniza\u00e7\u00e3o Universal",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-01-25",
+      "description": "Anivers\u00e1rio de S\u00e3o Paulo (municipal holiday)",
+      "evidence_ids": [
+        "br-lei-sp-13707-2004"
+      ],
+      "key": "br_b3_sao_paulo_anniversary",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_sao_paulo_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-02-11",
+      "description": "Carnaval",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_carnival_monday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-02-12",
+      "description": "Carnaval",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_carnival_tuesday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-03-29",
+      "description": "Paix\u00e3o de Cristo",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-04-21",
+      "description": "Tiradentes",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_tiradentes",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_tiradentes",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-05-01",
+      "description": "Dia do Trabalho",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_labour_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_labour_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-05-30",
+      "description": "Corpus Christi",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_corpus_christi",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-07-09",
+      "description": "Revolu\u00e7\u00e3o Constitucionalista (S\u00e3o Paulo state holiday)",
+      "evidence_ids": [
+        "b3-oc-072-2020",
+        "br-lei-sp-9497-1997"
+      ],
+      "key": "br_b3_revolucao_constitucionalista",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_sao_paulo_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-09-07",
+      "description": "Independ\u00eancia do Brasil",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_independence_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_independence_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-10-12",
+      "description": "Nossa Senhora Aparecida",
+      "evidence_ids": [
+        "br-lei-6802-1980"
+      ],
+      "key": "br_nossa_senhora_aparecida",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_nossa_senhora_aparecida",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-11-02",
+      "description": "Finados",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_finados",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_finados",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-11-15",
+      "description": "Proclama\u00e7\u00e3o da Rep\u00fablica",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_republic_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_republic_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-11-20",
+      "description": "Consci\u00eancia Negra (S\u00e3o Paulo municipal holiday)",
+      "evidence_ids": [
+        "b3-calendars",
+        "br-lei-sp-13707-2004"
+      ],
+      "key": "br_consciencia_negra_sao_paulo",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_consciencia_negra",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-12-24",
+      "description": "V\u00e9spera de Natal",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_b3_christmas_eve",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_christmas_eve",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-12-25",
+      "description": "Natal",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-12-31",
+      "description": "\u00daltimo dia \u00fatil do ano (sem sess\u00e3o de negocia\u00e7\u00e3o)",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_b3_year_end_closure",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_year_end_closure",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-01-01",
+      "description": "Confraterniza\u00e7\u00e3o Universal",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-01-25",
+      "description": "Anivers\u00e1rio de S\u00e3o Paulo (municipal holiday)",
+      "evidence_ids": [
+        "br-lei-sp-13707-2004"
+      ],
+      "key": "br_b3_sao_paulo_anniversary",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_sao_paulo_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-03-03",
+      "description": "Carnaval",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_carnival_monday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-03-04",
+      "description": "Carnaval",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_carnival_tuesday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-04-18",
+      "description": "Paix\u00e3o de Cristo",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-04-21",
+      "description": "Tiradentes",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_tiradentes",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_tiradentes",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-05-01",
+      "description": "Dia do Trabalho",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_labour_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_labour_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-06-12",
+      "description": "Abertura da Copa do Mundo (feriado municipal)",
+      "evidence_ids": [
+        "bmfbovespa-calendar-2014"
+      ],
+      "key": "br_b3_world_cup_opening_2014",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_one_off_closures",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-06-19",
+      "description": "Corpus Christi",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_corpus_christi",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-07-09",
+      "description": "Revolu\u00e7\u00e3o Constitucionalista (S\u00e3o Paulo state holiday)",
+      "evidence_ids": [
+        "b3-oc-072-2020",
+        "br-lei-sp-9497-1997"
+      ],
+      "key": "br_b3_revolucao_constitucionalista",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_sao_paulo_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-09-07",
+      "description": "Independ\u00eancia do Brasil",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_independence_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_independence_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-10-12",
+      "description": "Nossa Senhora Aparecida",
+      "evidence_ids": [
+        "br-lei-6802-1980"
+      ],
+      "key": "br_nossa_senhora_aparecida",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_nossa_senhora_aparecida",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-11-02",
+      "description": "Finados",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_finados",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_finados",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-11-15",
+      "description": "Proclama\u00e7\u00e3o da Rep\u00fablica",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_republic_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_republic_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-11-20",
+      "description": "Consci\u00eancia Negra (S\u00e3o Paulo municipal holiday)",
+      "evidence_ids": [
+        "b3-calendars",
+        "br-lei-sp-13707-2004"
+      ],
+      "key": "br_consciencia_negra_sao_paulo",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_consciencia_negra",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-12-24",
+      "description": "V\u00e9spera de Natal",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_b3_christmas_eve",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_christmas_eve",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-12-25",
+      "description": "Natal",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-12-31",
+      "description": "\u00daltimo dia \u00fatil do ano (sem sess\u00e3o de negocia\u00e7\u00e3o)",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_b3_year_end_closure",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_year_end_closure",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-01-01",
+      "description": "Confraterniza\u00e7\u00e3o Universal",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-01-25",
+      "description": "Anivers\u00e1rio de S\u00e3o Paulo (municipal holiday)",
+      "evidence_ids": [
+        "br-lei-sp-13707-2004"
+      ],
+      "key": "br_b3_sao_paulo_anniversary",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_sao_paulo_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-02-16",
+      "description": "Carnaval",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_carnival_monday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-02-17",
+      "description": "Carnaval",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_carnival_tuesday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-04-03",
+      "description": "Paix\u00e3o de Cristo",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-04-21",
+      "description": "Tiradentes",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_tiradentes",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_tiradentes",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-05-01",
+      "description": "Dia do Trabalho",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_labour_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_labour_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-06-04",
+      "description": "Corpus Christi",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_corpus_christi",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-07-09",
+      "description": "Revolu\u00e7\u00e3o Constitucionalista (S\u00e3o Paulo state holiday)",
+      "evidence_ids": [
+        "b3-oc-072-2020",
+        "br-lei-sp-9497-1997"
+      ],
+      "key": "br_b3_revolucao_constitucionalista",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_sao_paulo_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-09-07",
+      "description": "Independ\u00eancia do Brasil",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_independence_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_independence_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-10-12",
+      "description": "Nossa Senhora Aparecida",
+      "evidence_ids": [
+        "br-lei-6802-1980"
+      ],
+      "key": "br_nossa_senhora_aparecida",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_nossa_senhora_aparecida",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-11-02",
+      "description": "Finados",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_finados",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_finados",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-11-15",
+      "description": "Proclama\u00e7\u00e3o da Rep\u00fablica",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_republic_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_republic_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-11-20",
+      "description": "Consci\u00eancia Negra (S\u00e3o Paulo municipal holiday)",
+      "evidence_ids": [
+        "b3-calendars",
+        "br-lei-sp-13707-2004"
+      ],
+      "key": "br_consciencia_negra_sao_paulo",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_consciencia_negra",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-12-24",
+      "description": "V\u00e9spera de Natal",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_b3_christmas_eve",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_christmas_eve",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-12-25",
+      "description": "Natal",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-12-31",
+      "description": "\u00daltimo dia \u00fatil do ano (sem sess\u00e3o de negocia\u00e7\u00e3o)",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_b3_year_end_closure",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_year_end_closure",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-01-01",
+      "description": "Confraterniza\u00e7\u00e3o Universal",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-01-25",
+      "description": "Anivers\u00e1rio de S\u00e3o Paulo (municipal holiday)",
+      "evidence_ids": [
+        "br-lei-sp-13707-2004"
+      ],
+      "key": "br_b3_sao_paulo_anniversary",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_sao_paulo_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-02-08",
+      "description": "Carnaval",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_carnival_monday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-02-09",
+      "description": "Carnaval",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_carnival_tuesday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-03-25",
+      "description": "Paix\u00e3o de Cristo",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-04-21",
+      "description": "Tiradentes",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_tiradentes",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_tiradentes",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-05-01",
+      "description": "Dia do Trabalho",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_labour_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_labour_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-05-26",
+      "description": "Corpus Christi",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_corpus_christi",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-07-09",
+      "description": "Revolu\u00e7\u00e3o Constitucionalista (S\u00e3o Paulo state holiday)",
+      "evidence_ids": [
+        "b3-oc-072-2020",
+        "br-lei-sp-9497-1997"
+      ],
+      "key": "br_b3_revolucao_constitucionalista",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_sao_paulo_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-09-07",
+      "description": "Independ\u00eancia do Brasil",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_independence_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_independence_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-10-12",
+      "description": "Nossa Senhora Aparecida",
+      "evidence_ids": [
+        "br-lei-6802-1980"
+      ],
+      "key": "br_nossa_senhora_aparecida",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_nossa_senhora_aparecida",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-11-02",
+      "description": "Finados",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_finados",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_finados",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-11-15",
+      "description": "Proclama\u00e7\u00e3o da Rep\u00fablica",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_republic_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_republic_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-11-20",
+      "description": "Consci\u00eancia Negra (S\u00e3o Paulo municipal holiday)",
+      "evidence_ids": [
+        "b3-calendars",
+        "br-lei-sp-13707-2004"
+      ],
+      "key": "br_consciencia_negra_sao_paulo",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_consciencia_negra",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-12-24",
+      "description": "V\u00e9spera de Natal",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_b3_christmas_eve",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_christmas_eve",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-12-25",
+      "description": "Natal",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-12-30",
+      "description": "\u00daltimo dia \u00fatil do ano (sem sess\u00e3o de negocia\u00e7\u00e3o)",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_b3_year_end_closure",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_year_end_closure",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-01-01",
+      "description": "Confraterniza\u00e7\u00e3o Universal",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-01-25",
+      "description": "Anivers\u00e1rio de S\u00e3o Paulo (municipal holiday)",
+      "evidence_ids": [
+        "br-lei-sp-13707-2004"
+      ],
+      "key": "br_b3_sao_paulo_anniversary",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_sao_paulo_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-02-27",
+      "description": "Carnaval",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_carnival_monday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-02-28",
+      "description": "Carnaval",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_carnival_tuesday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-04-14",
+      "description": "Paix\u00e3o de Cristo",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-04-21",
+      "description": "Tiradentes",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_tiradentes",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_tiradentes",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-05-01",
+      "description": "Dia do Trabalho",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_labour_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_labour_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-06-15",
+      "description": "Corpus Christi",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_corpus_christi",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-07-09",
+      "description": "Revolu\u00e7\u00e3o Constitucionalista (S\u00e3o Paulo state holiday)",
+      "evidence_ids": [
+        "b3-oc-072-2020",
+        "br-lei-sp-9497-1997"
+      ],
+      "key": "br_b3_revolucao_constitucionalista",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_sao_paulo_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-09-07",
+      "description": "Independ\u00eancia do Brasil",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_independence_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_independence_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-10-12",
+      "description": "Nossa Senhora Aparecida",
+      "evidence_ids": [
+        "br-lei-6802-1980"
+      ],
+      "key": "br_nossa_senhora_aparecida",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_nossa_senhora_aparecida",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-11-02",
+      "description": "Finados",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_finados",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_finados",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-11-15",
+      "description": "Proclama\u00e7\u00e3o da Rep\u00fablica",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_republic_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_republic_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-11-20",
+      "description": "Consci\u00eancia Negra (S\u00e3o Paulo municipal holiday)",
+      "evidence_ids": [
+        "b3-calendars",
+        "br-lei-sp-13707-2004"
+      ],
+      "key": "br_consciencia_negra_sao_paulo",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_consciencia_negra",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-12-24",
+      "description": "V\u00e9spera de Natal",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_b3_christmas_eve",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_christmas_eve",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-12-25",
+      "description": "Natal",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-12-29",
+      "description": "\u00daltimo dia \u00fatil do ano (sem sess\u00e3o de negocia\u00e7\u00e3o)",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_b3_year_end_closure",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_year_end_closure",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-01-01",
+      "description": "Confraterniza\u00e7\u00e3o Universal",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-01-25",
+      "description": "Anivers\u00e1rio de S\u00e3o Paulo (municipal holiday)",
+      "evidence_ids": [
+        "br-lei-sp-13707-2004"
+      ],
+      "key": "br_b3_sao_paulo_anniversary",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_sao_paulo_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-02-12",
+      "description": "Carnaval",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_carnival_monday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-02-13",
+      "description": "Carnaval",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_carnival_tuesday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-03-30",
+      "description": "Paix\u00e3o de Cristo",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-04-21",
+      "description": "Tiradentes",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_tiradentes",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_tiradentes",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-05-01",
+      "description": "Dia do Trabalho",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_labour_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_labour_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-05-31",
+      "description": "Corpus Christi",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_corpus_christi",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-07-09",
+      "description": "Revolu\u00e7\u00e3o Constitucionalista (S\u00e3o Paulo state holiday)",
+      "evidence_ids": [
+        "b3-oc-072-2020",
+        "br-lei-sp-9497-1997"
+      ],
+      "key": "br_b3_revolucao_constitucionalista",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_sao_paulo_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-09-07",
+      "description": "Independ\u00eancia do Brasil",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_independence_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_independence_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-10-12",
+      "description": "Nossa Senhora Aparecida",
+      "evidence_ids": [
+        "br-lei-6802-1980"
+      ],
+      "key": "br_nossa_senhora_aparecida",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_nossa_senhora_aparecida",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-11-02",
+      "description": "Finados",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_finados",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_finados",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-11-15",
+      "description": "Proclama\u00e7\u00e3o da Rep\u00fablica",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_republic_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_republic_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-11-20",
+      "description": "Consci\u00eancia Negra (S\u00e3o Paulo municipal holiday)",
+      "evidence_ids": [
+        "b3-calendars",
+        "br-lei-sp-13707-2004"
+      ],
+      "key": "br_consciencia_negra_sao_paulo",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_consciencia_negra",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-12-24",
+      "description": "V\u00e9spera de Natal",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_b3_christmas_eve",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_christmas_eve",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-12-25",
+      "description": "Natal",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-12-31",
+      "description": "\u00daltimo dia \u00fatil do ano (sem sess\u00e3o de negocia\u00e7\u00e3o)",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_b3_year_end_closure",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_year_end_closure",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-01-01",
+      "description": "Confraterniza\u00e7\u00e3o Universal",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-01-25",
+      "description": "Anivers\u00e1rio de S\u00e3o Paulo (municipal holiday)",
+      "evidence_ids": [
+        "br-lei-sp-13707-2004"
+      ],
+      "key": "br_b3_sao_paulo_anniversary",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_sao_paulo_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-03-04",
+      "description": "Carnaval",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_carnival_monday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-03-05",
+      "description": "Carnaval",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_carnival_tuesday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-04-19",
+      "description": "Paix\u00e3o de Cristo",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-04-21",
+      "description": "Tiradentes",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_tiradentes",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_tiradentes",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-05-01",
+      "description": "Dia do Trabalho",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_labour_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_labour_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-06-20",
+      "description": "Corpus Christi",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_corpus_christi",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-07-09",
+      "description": "Revolu\u00e7\u00e3o Constitucionalista (S\u00e3o Paulo state holiday)",
+      "evidence_ids": [
+        "b3-oc-072-2020",
+        "br-lei-sp-9497-1997"
+      ],
+      "key": "br_b3_revolucao_constitucionalista",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_sao_paulo_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-09-07",
+      "description": "Independ\u00eancia do Brasil",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_independence_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_independence_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-10-12",
+      "description": "Nossa Senhora Aparecida",
+      "evidence_ids": [
+        "br-lei-6802-1980"
+      ],
+      "key": "br_nossa_senhora_aparecida",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_nossa_senhora_aparecida",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-11-02",
+      "description": "Finados",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_finados",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_finados",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-11-15",
+      "description": "Proclama\u00e7\u00e3o da Rep\u00fablica",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_republic_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_republic_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-11-20",
+      "description": "Consci\u00eancia Negra (S\u00e3o Paulo municipal holiday)",
+      "evidence_ids": [
+        "b3-calendars",
+        "br-lei-sp-13707-2004"
+      ],
+      "key": "br_consciencia_negra_sao_paulo",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_consciencia_negra",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-12-24",
+      "description": "V\u00e9spera de Natal",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_b3_christmas_eve",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_christmas_eve",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-12-25",
+      "description": "Natal",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-12-31",
+      "description": "\u00daltimo dia \u00fatil do ano (sem sess\u00e3o de negocia\u00e7\u00e3o)",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_b3_year_end_closure",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_year_end_closure",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-01-01",
+      "description": "Confraterniza\u00e7\u00e3o Universal",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-01-25",
+      "description": "Anivers\u00e1rio de S\u00e3o Paulo (municipal holiday)",
+      "evidence_ids": [
+        "br-lei-sp-13707-2004"
+      ],
+      "key": "br_b3_sao_paulo_anniversary",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_sao_paulo_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-02-24",
+      "description": "Carnaval",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_carnival_monday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-02-25",
+      "description": "Carnaval",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_carnival_tuesday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-04-10",
+      "description": "Paix\u00e3o de Cristo",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-04-21",
+      "description": "Tiradentes",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_tiradentes",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_tiradentes",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-05-01",
+      "description": "Dia do Trabalho",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_labour_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_labour_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-06-11",
+      "description": "Corpus Christi",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_corpus_christi",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-09-07",
+      "description": "Independ\u00eancia do Brasil",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_independence_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_independence_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-10-12",
+      "description": "Nossa Senhora Aparecida",
+      "evidence_ids": [
+        "br-lei-6802-1980"
+      ],
+      "key": "br_nossa_senhora_aparecida",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_nossa_senhora_aparecida",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-11-02",
+      "description": "Finados",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_finados",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_finados",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-11-15",
+      "description": "Proclama\u00e7\u00e3o da Rep\u00fablica",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_republic_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_republic_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-12-24",
+      "description": "V\u00e9spera de Natal",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_b3_christmas_eve",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_christmas_eve",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-12-25",
+      "description": "Natal",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-12-31",
+      "description": "\u00daltimo dia \u00fatil do ano (sem sess\u00e3o de negocia\u00e7\u00e3o)",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_b3_year_end_closure",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_year_end_closure",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-01-01",
+      "description": "Confraterniza\u00e7\u00e3o Universal",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-01-25",
+      "description": "Anivers\u00e1rio de S\u00e3o Paulo (municipal holiday)",
+      "evidence_ids": [
+        "br-lei-sp-13707-2004"
+      ],
+      "key": "br_b3_sao_paulo_anniversary",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_sao_paulo_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-02-15",
+      "description": "Carnaval",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_carnival_monday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-02-16",
+      "description": "Carnaval",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_carnival_tuesday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-04-02",
+      "description": "Paix\u00e3o de Cristo",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-04-21",
+      "description": "Tiradentes",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_tiradentes",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_tiradentes",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-05-01",
+      "description": "Dia do Trabalho",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_labour_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_labour_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-06-03",
+      "description": "Corpus Christi",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_corpus_christi",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-07-09",
+      "description": "Revolu\u00e7\u00e3o Constitucionalista (S\u00e3o Paulo state holiday)",
+      "evidence_ids": [
+        "b3-oc-072-2020",
+        "br-lei-sp-9497-1997"
+      ],
+      "key": "br_b3_revolucao_constitucionalista",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_sao_paulo_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-09-07",
+      "description": "Independ\u00eancia do Brasil",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_independence_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_independence_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-10-12",
+      "description": "Nossa Senhora Aparecida",
+      "evidence_ids": [
+        "br-lei-6802-1980"
+      ],
+      "key": "br_nossa_senhora_aparecida",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_nossa_senhora_aparecida",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-11-02",
+      "description": "Finados",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_finados",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_finados",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-11-15",
+      "description": "Proclama\u00e7\u00e3o da Rep\u00fablica",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_republic_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_republic_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-12-24",
+      "description": "V\u00e9spera de Natal",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_b3_christmas_eve",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_christmas_eve",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-12-25",
+      "description": "Natal",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-12-31",
+      "description": "\u00daltimo dia \u00fatil do ano (sem sess\u00e3o de negocia\u00e7\u00e3o)",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_b3_year_end_closure",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_year_end_closure",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-01-01",
+      "description": "Confraterniza\u00e7\u00e3o Universal",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-02-28",
+      "description": "Carnaval",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_carnival_monday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-03-01",
+      "description": "Carnaval",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_carnival_tuesday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-04-15",
+      "description": "Paix\u00e3o de Cristo",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-04-21",
+      "description": "Tiradentes",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_tiradentes",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_tiradentes",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-05-01",
+      "description": "Dia do Trabalho",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_labour_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_labour_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-06-16",
+      "description": "Corpus Christi",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_corpus_christi",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-09-07",
+      "description": "Independ\u00eancia do Brasil",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_independence_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_independence_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-10-12",
+      "description": "Nossa Senhora Aparecida",
+      "evidence_ids": [
+        "br-lei-6802-1980"
+      ],
+      "key": "br_nossa_senhora_aparecida",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_nossa_senhora_aparecida",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-11-02",
+      "description": "Finados",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_finados",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_finados",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-11-15",
+      "description": "Proclama\u00e7\u00e3o da Rep\u00fablica",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_republic_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_republic_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-12-24",
+      "description": "V\u00e9spera de Natal",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_b3_christmas_eve",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_christmas_eve",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-12-25",
+      "description": "Natal",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-12-30",
+      "description": "\u00daltimo dia \u00fatil do ano (sem sess\u00e3o de negocia\u00e7\u00e3o)",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_b3_year_end_closure",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_year_end_closure",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-01-01",
+      "description": "Confraterniza\u00e7\u00e3o Universal",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-02-20",
+      "description": "Carnaval",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_carnival_monday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-02-21",
+      "description": "Carnaval",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_carnival_tuesday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-04-07",
+      "description": "Paix\u00e3o de Cristo",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-04-21",
+      "description": "Tiradentes",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_tiradentes",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_tiradentes",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-05-01",
+      "description": "Dia do Trabalho",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_labour_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_labour_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-06-08",
+      "description": "Corpus Christi",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_corpus_christi",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-09-07",
+      "description": "Independ\u00eancia do Brasil",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_independence_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_independence_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-10-12",
+      "description": "Nossa Senhora Aparecida",
+      "evidence_ids": [
+        "br-lei-6802-1980"
+      ],
+      "key": "br_nossa_senhora_aparecida",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_nossa_senhora_aparecida",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-11-02",
+      "description": "Finados",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_finados",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_finados",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-11-15",
+      "description": "Proclama\u00e7\u00e3o da Rep\u00fablica",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_republic_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_republic_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-12-24",
+      "description": "V\u00e9spera de Natal",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_b3_christmas_eve",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_christmas_eve",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-12-25",
+      "description": "Natal",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-12-29",
+      "description": "\u00daltimo dia \u00fatil do ano (sem sess\u00e3o de negocia\u00e7\u00e3o)",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_b3_year_end_closure",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_year_end_closure",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-01-01",
+      "description": "Confraterniza\u00e7\u00e3o Universal",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-02-12",
+      "description": "Carnaval",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_carnival_monday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-02-13",
+      "description": "Carnaval",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_carnival_tuesday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-03-29",
+      "description": "Paix\u00e3o de Cristo",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-04-21",
+      "description": "Tiradentes",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_tiradentes",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_tiradentes",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-05-01",
+      "description": "Dia do Trabalho",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_labour_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_labour_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-05-30",
+      "description": "Corpus Christi",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_corpus_christi",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-09-07",
+      "description": "Independ\u00eancia do Brasil",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_independence_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_independence_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-10-12",
+      "description": "Nossa Senhora Aparecida",
+      "evidence_ids": [
+        "br-lei-6802-1980"
+      ],
+      "key": "br_nossa_senhora_aparecida",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_nossa_senhora_aparecida",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-11-02",
+      "description": "Finados",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_finados",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_finados",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-11-15",
+      "description": "Proclama\u00e7\u00e3o da Rep\u00fablica",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_republic_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_republic_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-11-20",
+      "description": "Dia Nacional de Zumbi e da Consci\u00eancia Negra",
+      "evidence_ids": [
+        "b3-oc-215-2023",
+        "br-lei-14759-2023"
+      ],
+      "key": "br_consciencia_negra",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_consciencia_negra",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-12-24",
+      "description": "V\u00e9spera de Natal",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_b3_christmas_eve",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_christmas_eve",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-12-25",
+      "description": "Natal",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-12-31",
+      "description": "\u00daltimo dia \u00fatil do ano (sem sess\u00e3o de negocia\u00e7\u00e3o)",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_b3_year_end_closure",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_year_end_closure",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-01-01",
+      "description": "Confraterniza\u00e7\u00e3o Universal",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-03-03",
+      "description": "Carnaval",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_carnival_monday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-03-04",
+      "description": "Carnaval",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_carnival_tuesday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-04-18",
+      "description": "Paix\u00e3o de Cristo",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-04-21",
+      "description": "Tiradentes",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_tiradentes",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_tiradentes",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-05-01",
+      "description": "Dia do Trabalho",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_labour_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_labour_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-06-19",
+      "description": "Corpus Christi",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_corpus_christi",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-09-07",
+      "description": "Independ\u00eancia do Brasil",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_independence_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_independence_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-10-12",
+      "description": "Nossa Senhora Aparecida",
+      "evidence_ids": [
+        "br-lei-6802-1980"
+      ],
+      "key": "br_nossa_senhora_aparecida",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_nossa_senhora_aparecida",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-11-02",
+      "description": "Finados",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_finados",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_finados",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-11-15",
+      "description": "Proclama\u00e7\u00e3o da Rep\u00fablica",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_republic_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_republic_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-11-20",
+      "description": "Dia Nacional de Zumbi e da Consci\u00eancia Negra",
+      "evidence_ids": [
+        "b3-oc-215-2023",
+        "br-lei-14759-2023"
+      ],
+      "key": "br_consciencia_negra",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_consciencia_negra",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-12-24",
+      "description": "V\u00e9spera de Natal",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_b3_christmas_eve",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_christmas_eve",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-12-25",
+      "description": "Natal",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-12-31",
+      "description": "\u00daltimo dia \u00fatil do ano (sem sess\u00e3o de negocia\u00e7\u00e3o)",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_b3_year_end_closure",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_year_end_closure",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-01-01",
+      "description": "Confraterniza\u00e7\u00e3o Universal",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-02-16",
+      "description": "Carnaval",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_carnival_monday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-02-17",
+      "description": "Carnaval",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_carnival_tuesday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-04-03",
+      "description": "Paix\u00e3o de Cristo",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-04-21",
+      "description": "Tiradentes",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_tiradentes",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_tiradentes",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-05-01",
+      "description": "Dia do Trabalho",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_labour_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_labour_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-06-04",
+      "description": "Corpus Christi",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_corpus_christi",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-09-07",
+      "description": "Independ\u00eancia do Brasil",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_independence_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_independence_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-10-12",
+      "description": "Nossa Senhora Aparecida",
+      "evidence_ids": [
+        "br-lei-6802-1980"
+      ],
+      "key": "br_nossa_senhora_aparecida",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_nossa_senhora_aparecida",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-11-02",
+      "description": "Finados",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_finados",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_finados",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-11-15",
+      "description": "Proclama\u00e7\u00e3o da Rep\u00fablica",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_republic_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_republic_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-11-20",
+      "description": "Dia Nacional de Zumbi e da Consci\u00eancia Negra",
+      "evidence_ids": [
+        "b3-oc-215-2023",
+        "br-lei-14759-2023"
+      ],
+      "key": "br_consciencia_negra",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_consciencia_negra",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-12-24",
+      "description": "V\u00e9spera de Natal",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_b3_christmas_eve",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_christmas_eve",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-12-25",
+      "description": "Natal",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-12-31",
+      "description": "\u00daltimo dia \u00fatil do ano (sem sess\u00e3o de negocia\u00e7\u00e3o)",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_b3_year_end_closure",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_year_end_closure",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-01-01",
+      "description": "Confraterniza\u00e7\u00e3o Universal",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-02-08",
+      "description": "Carnaval",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_carnival_monday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-02-09",
+      "description": "Carnaval",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_carnival_tuesday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-03-26",
+      "description": "Paix\u00e3o de Cristo",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-04-21",
+      "description": "Tiradentes",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_tiradentes",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_tiradentes",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-05-01",
+      "description": "Dia do Trabalho",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_labour_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_labour_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-05-27",
+      "description": "Corpus Christi",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_corpus_christi",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_easter_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-09-07",
+      "description": "Independ\u00eancia do Brasil",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_independence_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_independence_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-10-12",
+      "description": "Nossa Senhora Aparecida",
+      "evidence_ids": [
+        "br-lei-6802-1980"
+      ],
+      "key": "br_nossa_senhora_aparecida",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_nossa_senhora_aparecida",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-11-02",
+      "description": "Finados",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_finados",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_finados",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-11-15",
+      "description": "Proclama\u00e7\u00e3o da Rep\u00fablica",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_republic_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_republic_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-11-20",
+      "description": "Dia Nacional de Zumbi e da Consci\u00eancia Negra",
+      "evidence_ids": [
+        "b3-oc-215-2023",
+        "br-lei-14759-2023"
+      ],
+      "key": "br_consciencia_negra",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_consciencia_negra",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-12-24",
+      "description": "V\u00e9spera de Natal",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_b3_christmas_eve",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_christmas_eve",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-12-25",
+      "description": "Natal",
+      "evidence_ids": [
+        "br-lei-662-1949"
+      ],
+      "key": "br_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-12-31",
+      "description": "\u00daltimo dia \u00fatil do ano (sem sess\u00e3o de negocia\u00e7\u00e3o)",
+      "evidence_ids": [
+        "b3-calendars"
+      ],
+      "key": "br_b3_year_end_closure",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:br_b3_year_end_closure",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    }
+  ],
+  "generated_at": "2026-10-14T00:02:04Z",
+  "kind": "market",
+  "mic": "BVMF",
+  "range_end": "2027-12-31",
+  "range_start": "2010-01-01",
+  "resolution_chain": [
+    "module:weekend_sat_sun",
+    "module:br_new_years_day",
+    "module:br_b3_sao_paulo_holidays",
+    "module:br_b3_easter_holidays",
+    "module:br_tiradentes",
+    "module:br_labour_day",
+    "module:br_independence_day",
+    "module:br_nossa_senhora_aparecida",
+    "module:br_finados",
+    "module:br_republic_day",
+    "module:br_consciencia_negra",
+    "module:br_b3_christmas_eve",
+    "module:br_christmas_day",
+    "module:br_b3_year_end_closure",
+    "module:br_b3_one_off_closures",
+    "module:br_b3_holidays",
+    "calendar:BR-B3"
+  ],
+  "source_version": {
+    "git_sha": "1f63234a07eb72cc08a8c0d451983be39e88b2ae",
+    "semantic": "13.0.0"
+  },
+  "timezone": "America/Sao_Paulo",
+  "weekend_policy": {
+    "days": [
+      "SATURDAY",
+      "SUNDAY"
+    ],
+    "periods": []
+  }
+}

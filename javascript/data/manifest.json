@@ -1,5 +1,6 @@
 {
   "aliases": {
+    "BVMF": "BR-B3",
     "NYSE": "US-NYSE",
     "TADAWUL": "SA-TADAWUL",
     "TASE": "IL-TASE",
@@ -32,6 +33,11 @@
     "BE-EURONEXT-BRUSSELS": {
       "kind": "market",
       "range_end": "2030-12-31",
+      "range_start": "2010-01-01"
+    },
+    "BR-B3": {
+      "kind": "market",
+      "range_end": "2027-12-31",
       "range_start": "2010-01-01"
     },
     "CA-TSX": {

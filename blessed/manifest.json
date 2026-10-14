@@ -17,6 +17,13 @@
       "event_count": 2324,
       "checksum": "sha256:f2651124e9777663f9d00fe0e822558038b99d9de7f4b2a8cc814716c93ed6d3"
     },
+    "BR-B3": {
+      "range_start": "2010-01-01",
+      "range_end": "2027-12-31",
+      "kind": "market",
+      "checksum": "sha256:1bba40a8e27b87776247efaede972c24b6305a03c412108ebeaaa759d03aa428",
+      "event_count": 2111
+    },
     "CA-TSX": {
       "range_start": "2000-01-01",
       "range_end": "2030-12-31",
@@ -171,6 +178,7 @@
     "generation_date": "2026-10-14"
   },
   "aliases": {
+    "BVMF": "BR-B3",
     "XAMS": "NL-EURONEXT-AMSTERDAM",
     "XASX": "AU-ASX",
     "XBRU": "BE-EURONEXT-BRUSSELS",

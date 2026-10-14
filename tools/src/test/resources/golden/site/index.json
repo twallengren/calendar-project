@@ -44,6 +44,27 @@
     "years" : [ 2010, 2030 ],
     "href" : "calendars/BE-EURONEXT-BRUSSELS/manifest.json"
   }, {
+    "id" : "BR-B3",
+    "name" : "B3 - Brasil Bolsa Balcão",
+    "timezone" : "America/Sao_Paulo",
+    "mic" : "BVMF",
+    "aliases" : [ ],
+    "coverage" : {
+      "from" : "2010-01-01",
+      "to" : "2027-12-31",
+      "verified_through" : "2026-12-31"
+    },
+    "counts_by_type" : {
+      "CLOSED" : 290,
+      "WEEKEND" : 1821
+    },
+    "counts_by_status" : {
+      "CONFIRMED" : 2111
+    },
+    "checksum" : "sha256:1bba40a8e27b87776247efaede972c24b6305a03c412108ebeaaa759d03aa428",
+    "years" : [ 2010, 2027 ],
+    "href" : "calendars/BR-B3/manifest.json"
+  }, {
     "id" : "CA-TSX",
     "name" : "Toronto Stock Exchange",
     "timezone" : "America/Toronto",

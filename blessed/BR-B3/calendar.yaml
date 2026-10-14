@@ -1,0 +1,80 @@
+kind: calendar
+id: BR-B3
+metadata:
+  name: B3 - Brasil Bolsa Balcão
+  description: B3 (São Paulo) listed equities and derivatives trading calendar (MIC
+    BVMF)
+  chronology: ISO
+  timezone: America/Sao_Paulo
+  coverage:
+    from: 2010-01-01
+    to: 2027-12-31
+    quality:
+    - scope: SCHEDULED_CLOSURES
+      from: 2010-01-01
+      to: 2026-12-31
+      quality: VERIFIED
+      evidenceIds:
+      - b3-calendars
+      - bmfbovespa-calendar-2014
+      - bmfbovespa-numero-mensal-de-pregoes
+      - b3-oc-068-2020
+      - b3-oc-072-2020
+      - b3-ce-001-2021
+      - b3-oc-215-2023
+      - b3-news-2025-11-17
+      - br-lei-662-1949
+      - br-lei-14759-2023
+    - scope: SCHEDULED_CLOSURES
+      from: 2027-01-01
+      to: 2027-12-31
+      quality: PROJECTED
+      evidenceIds:
+      - anbima-feriados-2027
+      - br-lei-662-1949
+    - scope: EARLY_CLOSES
+      from: 2010-01-01
+      to: 2026-12-31
+      quality: VERIFIED
+      evidenceIds:
+      - b3-calendars
+      - b3-ash-wednesday-circulars
+      - bmfbovespa-hours-news
+      - b3-hours-circulars
+    - scope: EARLY_CLOSES
+      from: 2027-01-01
+      to: 2027-12-31
+      quality: PROJECTED
+      evidenceIds:
+      - b3-hours-circulars
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2010-01-01
+      to: 2015-12-31
+      quality: VERIFIED
+      evidenceIds:
+      - bmfbovespa-numero-mensal-de-pregoes
+      - bmfbovespa-calendar-2014
+      - press-exame-2010-11-22
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2016-01-01
+      to: 2027-12-31
+      quality: PROJECTED
+      evidenceIds:
+      - b3-ce-009-2020-circuit-breaker
+      - press-istoedinheiro-2017-05-18
+      - press-moneytimes-2020-03-18
+      - press-istoedinheiro-2025-08-01
+      - press-infomoney-2026-07-31
+      - press-noticiasagricolas-2026-07-31
+    verified_through: 2026-12-31
+  kind: market
+  mic: BVMF
+  aliases: []
+uses:
+- weekend_sat_sun
+- br_b3_holidays
+classifications: {}
+deltas: []
+extends: []
+event_sources: []
+weekend_shift_policy: NONE
