@@ -122,6 +122,13 @@
       "checksum": "sha256:dcf7ce04af56044b84b639e1009d8ef6cfd7af5d9d4022aba68744d21459306f",
       "event_count": 2095
     },
+    "TW-TWSE": {
+      "range_start": "2010-01-01",
+      "range_end": "2027-12-31",
+      "kind": "market",
+      "checksum": "sha256:1c1eb63a49aa2bbc1c6b05c3f57e0e790e2db3c3208023b294a70ca68b9b7d59",
+      "event_count": 2166
+    },
     "US-CORP-IN-VISIBILITY": {
       "kind": "base",
       "range_start": "1900-01-01",
@@ -178,6 +185,7 @@
     "XSAU": "SA-TADAWUL",
     "XSES": "SG-SGX",
     "XTAE": "IL-TASE",
+    "XTAI": "TW-TWSE",
     "XTKS": "JP-JPX",
     "XTSE": "CA-TSX",
     "NYSE": "US-NYSE",

@@ -18,6 +18,7 @@
     "XSAU": "SA-TADAWUL",
     "XSES": "SG-SGX",
     "XTAE": "IL-TASE",
+    "XTAI": "TW-TWSE",
     "XTKS": "JP-JPX",
     "XTSE": "CA-TSX"
   },
@@ -104,6 +105,11 @@
       "range_start": "2020-01-01"
     },
     "SG-SGX": {
+      "kind": "market",
+      "range_end": "2027-12-31",
+      "range_start": "2010-01-01"
+    },
+    "TW-TWSE": {
       "kind": "market",
       "range_end": "2027-12-31",
       "range_start": "2010-01-01"

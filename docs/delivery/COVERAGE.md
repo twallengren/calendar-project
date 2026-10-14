@@ -37,6 +37,7 @@ registers are under `sources/`.
 | [PT-EURONEXT-LISBON](../../blessed/PT-EURONEXT-LISBON/metadata.json) | 2010-01-01 – 2030-12-31 | 7670 | 6117 | 1553 | 0 | 6111 | 1553 | 6 |
 | [SA-TADAWUL](../../blessed/SA-TADAWUL/metadata.json) | 2020-01-01 – 2030-12-31 | 4018 | 2478 | 1540 | 0 | 0 | 4018 | 0 |
 | [SG-SGX](../../blessed/SG-SGX/metadata.json) | 2010-01-01 – 2027-12-31 | 6574 | 5202 | 1372 | 0 | 2646 | 3928 | 0 |
+| [TW-TWSE](../../blessed/TW-TWSE/metadata.json) | 2010-01-01 – 2027-12-31 | 6574 | 6131 | 443 | 0 | 6131 | 443 | 0 |
 | [US-CORP-IN-VISIBILITY](../../blessed/US-CORP-IN-VISIBILITY/metadata.json) | 1900-01-01 – 2030-12-31 | 47847 | 0 | 47847 | 0 | 0 | 47847 | 0 |
 | [US-FEDWIRE](../../blessed/US-FEDWIRE/metadata.json) | 2026-01-01 – 2027-12-31 | 730 | 0 | 730 | 0 | 0 | 730 | 0 |
 | [US-MARKET-BASE](../../blessed/US-MARKET-BASE/metadata.json) | 1900-01-01 – 2030-12-31 | 47847 | 0 | 47847 | 0 | 0 | 47847 | 0 |

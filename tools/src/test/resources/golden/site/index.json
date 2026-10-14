@@ -349,6 +349,27 @@
     "years" : [ 2010, 2027 ],
     "href" : "calendars/SG-SGX/manifest.json"
   }, {
+    "id" : "TW-TWSE",
+    "name" : "Taiwan Stock Exchange",
+    "timezone" : "Asia/Taipei",
+    "mic" : "XTAI",
+    "aliases" : [ ],
+    "coverage" : {
+      "from" : "2010-01-01",
+      "to" : "2027-12-31",
+      "verified_through" : "2026-12-31"
+    },
+    "counts_by_type" : {
+      "CLOSED" : 303,
+      "WEEKEND" : 1863
+    },
+    "counts_by_status" : {
+      "CONFIRMED" : 2166
+    },
+    "checksum" : "sha256:1c1eb63a49aa2bbc1c6b05c3f57e0e790e2db3c3208023b294a70ca68b9b7d59",
+    "years" : [ 2010, 2027 ],
+    "href" : "calendars/TW-TWSE/manifest.json"
+  }, {
     "id" : "US-FEDWIRE",
     "name" : "Fedwire Funds Service",
     "timezone" : "America/New_York",
