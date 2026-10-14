@@ -237,6 +237,18 @@ class GoldenTests {
   // Dec 24 early close.
 
   @Test
+  void zaJse2026() throws IOException {
+    productionCalendarRunner.assertCsvGoldenMatch("ZA-JSE", 2026);
+  }
+
+  @Test
+  void zaJse2011() throws IOException {
+    // the election day, Workers' Day moved to Monday, the proclaimed 27 December after a Sunday
+    // Christmas, and the Friday early closes before a Saturday Christmas Eve and New Year's Eve
+    productionCalendarRunner.assertCsvGoldenMatch("ZA-JSE", 2011);
+  }
+
+  @Test
   void krKrx2026() throws IOException {
     productionCalendarRunner.assertCsvGoldenMatch("KR-KRX", 2026);
   }

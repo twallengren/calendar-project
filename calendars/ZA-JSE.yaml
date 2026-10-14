@@ -1,0 +1,74 @@
+kind: calendar
+id: ZA-JSE
+
+metadata:
+  name: Johannesburg Stock Exchange
+  description: JSE equity market trading calendar (MIC XJSE)
+  chronology: ISO
+  timezone: Africa/Johannesburg
+  mic: XJSE
+  coverage:
+    from: 2010-01-01
+    to: 2030-12-31
+    verified_through: 2026-12-31
+    quality:
+      # The exchange's markets calendars (2011, 2013-2016, 2018-2026) and holiday notices mark
+      # exactly the statutory and proclaimed public holidays; 2010, 2012 and 2017 have no located
+      # calendar and follow the Act with the December schedules and 2 January 2012 as anchors.
+      - {scope: SCHEDULED_CLOSURES, from: 2010-01-01, to: 2010-11-30, quality: PROJECTED, evidence_ids: [za-public-holidays-act, jse-notice-y555-2010]}
+      - {scope: SCHEDULED_CLOSURES, from: 2010-12-01, to: 2011-12-31, quality: VERIFIED, evidence_ids: [jse-notice-y555-2010, jse-notice-a1298-2010, sanews-2011-03-16, jse-notice-f4993-2011, jse-notice-a1537-2011, sanews-2011-12-15]}
+      - {scope: SCHEDULED_CLOSURES, from: 2012-01-01, to: 2012-12-31, quality: PROJECTED, evidence_ids: [za-public-holidays-act, jse-notice-a1537-2011]}
+      - {scope: SCHEDULED_CLOSURES, from: 2013-01-01, to: 2016-12-31, quality: VERIFIED, evidence_ids: [jse-notice-y928-2012, jse-notice-y994-2012, jse-notice-y1242-2013, jse-notice-y1245-2013, jse-notice-y1346a-2014, jse-notice-y1414-2014, jse-hotline-170-2014, jse-hotline-157-2015, jse-notice-792-2015, gov-gazette-40125-proc-45-2016, jse-hotline-200-2016, gov-gazette-40346-proc-58-2016]}
+      - {scope: SCHEDULED_CLOSURES, from: 2017-01-01, to: 2017-12-31, quality: PROJECTED, evidence_ids: [za-public-holidays-act, jse-hotline-200-2016, jse-hotline-147-2017]}
+      - {scope: SCHEDULED_CLOSURES, from: 2018-01-01, to: 2026-12-31, quality: VERIFIED, evidence_ids: [jse-notice-406-2017, jse-notice-395-2018, jse-notice-73-2019, jse-notice-72-2019, jse-notice-303-2019, jse-notice-517-2020, jse-notice-481a-2021, jse-notice-393-2021, jse-notice-600-2022, jse-notice-511-2022, jse-hotline-169-2023, jse-notice-323-2023, jse-notice-061-2024, jse-hotline-057-2024, jse-notice-305-2024, jse-notice-380-2025, sanews-2026-09-15]}
+      - {scope: SCHEDULED_CLOSURES, from: 2027-01-01, to: 2030-12-31, quality: PROJECTED, evidence_ids: [za-public-holidays-act, gov-public-holidays-2026-2027]}
+      # The exchange shortens 24 and 31 December (or the preceding business day) to a 12:00 close
+      # by a December schedule each year; those Decembers are VERIFIED where the schedule was
+      # located (2010, 2011, 2014-2025) and the 26 April 2019 go-live early close by its notice.
+      # Other months rest on the exchange's practice of announcing any other early close by
+      # notice (none found besides 2019), so they stay PROJECTED.
+      - {scope: EARLY_CLOSES, from: 2010-01-01, to: 2010-11-30, quality: PROJECTED, evidence_ids: [jse-hotline-130-2025, jse-hotline-060-2020]}
+      - {scope: EARLY_CLOSES, from: 2010-12-01, to: 2010-12-31, quality: VERIFIED, evidence_ids: [jse-notice-y555-2010]}
+      - {scope: EARLY_CLOSES, from: 2011-01-01, to: 2011-11-30, quality: PROJECTED, evidence_ids: [jse-hotline-130-2025, jse-hotline-060-2020]}
+      - {scope: EARLY_CLOSES, from: 2011-12-01, to: 2011-12-31, quality: VERIFIED, evidence_ids: [jse-notice-f4993-2011]}
+      - {scope: EARLY_CLOSES, from: 2012-01-01, to: 2014-11-30, quality: PROJECTED, evidence_ids: [jse-hotline-060-2020, jse-hotline-130-2025, jse-notice-y555-2010]}
+      - {scope: EARLY_CLOSES, from: 2014-12-01, to: 2014-12-31, quality: VERIFIED, evidence_ids: [jse-hotline-170-2014]}
+      - {scope: EARLY_CLOSES, from: 2015-01-01, to: 2015-11-30, quality: PROJECTED, evidence_ids: [jse-hotline-130-2025, jse-hotline-060-2020]}
+      - {scope: EARLY_CLOSES, from: 2015-12-01, to: 2015-12-31, quality: VERIFIED, evidence_ids: [jse-hotline-157-2015]}
+      - {scope: EARLY_CLOSES, from: 2016-01-01, to: 2016-11-30, quality: PROJECTED, evidence_ids: [jse-hotline-130-2025, jse-hotline-060-2020]}
+      - {scope: EARLY_CLOSES, from: 2016-12-01, to: 2016-12-31, quality: VERIFIED, evidence_ids: [jse-hotline-200-2016]}
+      - {scope: EARLY_CLOSES, from: 2017-01-01, to: 2017-11-30, quality: PROJECTED, evidence_ids: [jse-hotline-130-2025, jse-hotline-060-2020]}
+      - {scope: EARLY_CLOSES, from: 2017-12-01, to: 2017-12-31, quality: VERIFIED, evidence_ids: [jse-hotline-147-2017]}
+      - {scope: EARLY_CLOSES, from: 2018-01-01, to: 2018-11-30, quality: PROJECTED, evidence_ids: [jse-hotline-130-2025, jse-hotline-060-2020]}
+      - {scope: EARLY_CLOSES, from: 2018-12-01, to: 2018-12-31, quality: VERIFIED, evidence_ids: [jse-hotline-193-2018]}
+      - {scope: EARLY_CLOSES, from: 2019-01-01, to: 2019-04-25, quality: PROJECTED, evidence_ids: [jse-hotline-130-2025]}
+      - {scope: EARLY_CLOSES, from: 2019-04-26, to: 2019-04-26, quality: VERIFIED, evidence_ids: [jse-notice-104b-2019]}
+      - {scope: EARLY_CLOSES, from: 2019-04-27, to: 2019-11-30, quality: PROJECTED, evidence_ids: [jse-hotline-130-2025]}
+      - {scope: EARLY_CLOSES, from: 2019-12-01, to: 2019-12-31, quality: VERIFIED, evidence_ids: [jse-hotline-209-2019]}
+      - {scope: EARLY_CLOSES, from: 2020-01-01, to: 2020-11-30, quality: PROJECTED, evidence_ids: [jse-hotline-130-2025, jse-hotline-060-2020]}
+      - {scope: EARLY_CLOSES, from: 2020-12-01, to: 2020-12-31, quality: VERIFIED, evidence_ids: [jse-hotline-230-2020]}
+      - {scope: EARLY_CLOSES, from: 2021-01-01, to: 2021-11-30, quality: PROJECTED, evidence_ids: [jse-hotline-130-2025, jse-hotline-060-2020]}
+      - {scope: EARLY_CLOSES, from: 2021-12-01, to: 2021-12-31, quality: VERIFIED, evidence_ids: [jse-hotline-206-2021]}
+      - {scope: EARLY_CLOSES, from: 2022-01-01, to: 2022-11-30, quality: PROJECTED, evidence_ids: [jse-hotline-130-2025, jse-hotline-060-2020]}
+      - {scope: EARLY_CLOSES, from: 2022-12-01, to: 2022-12-31, quality: VERIFIED, evidence_ids: [jse-hotline-143-2022]}
+      - {scope: EARLY_CLOSES, from: 2023-01-01, to: 2023-11-30, quality: PROJECTED, evidence_ids: [jse-hotline-130-2025, jse-hotline-060-2020]}
+      - {scope: EARLY_CLOSES, from: 2023-12-01, to: 2023-12-31, quality: VERIFIED, evidence_ids: [jse-hotline-159-2023]}
+      - {scope: EARLY_CLOSES, from: 2024-01-01, to: 2024-11-30, quality: PROJECTED, evidence_ids: [jse-hotline-130-2025, jse-hotline-060-2020]}
+      - {scope: EARLY_CLOSES, from: 2024-12-01, to: 2024-12-31, quality: VERIFIED, evidence_ids: [jse-hotline-150-2024]}
+      - {scope: EARLY_CLOSES, from: 2025-01-01, to: 2025-11-30, quality: PROJECTED, evidence_ids: [jse-hotline-130-2025, jse-hotline-060-2020]}
+      - {scope: EARLY_CLOSES, from: 2025-12-01, to: 2025-12-31, quality: VERIFIED, evidence_ids: [jse-hotline-130-2025]}
+      - {scope: EARLY_CLOSES, from: 2026-01-01, to: 2030-12-31, quality: PROJECTED, evidence_ids: [jse-hotline-060-2020, jse-hotline-130-2025]}
+      # No disruption since 2010 shortened a trading day (delayed opens on 27 July 2010, 15
+      # September 2014, 21 September 2017, 18 June 2018 and 18 August 2021, the 6 July 2022 halt
+      # and the 6 December 2013 pause all ended with the normal or an extended close), but the
+      # exchange publishes no trading-day count, so there is no independent reconciliation.
+      - {scope: UNSCHEDULED_EXCEPTIONS, from: 2010-01-01, to: 2030-12-31, quality: PROJECTED, evidence_ids: [jse-notice-f4396-2010, jse-notice-171-2013, jse-hotline-180-2017, jse-hotline-109-2018, jse-hotline-175-2021, jse-hotline-101-2022, jse-hotline-168-2024, jse-hotline-060-2020]}
+
+# Public Holidays Act 36 of 1994, s 2(1): a public holiday on a Sunday makes the following Monday
+# a public holiday; a Saturday holiday is not substituted. FORWARD_ONLY shifts only from the last
+# weekend day. Christmas Day opts out (its Monday is already the Day of Goodwill).
+weekend_shift_policy: FORWARD_ONLY
+
+uses:
+  - weekend_sat_sun
+  - za_jse_holidays

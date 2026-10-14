@@ -1,0 +1,23 @@
+kind: module
+id: za_youth_day
+
+# South Africa's Public Holidays Act 36 of 1994, s 2(1): "whenever any public holiday falls on a
+# Sunday, the following Monday shall be a public holiday"; a Saturday holiday is not substituted.
+# The calendar's FORWARD_ONLY policy expresses that. The JSE closes all markets on every public
+# holiday ("As with all other public holidays in South Africa, the JSE will be closed for business
+# on this day", jse-notice-y1346a-2014).
+# Youth Day (16 June): Monday 17 June 2013, 2019 and 2024; Saturday 16 June 2018 brought no
+# substitute.
+# Source: za-public-holidays-act (the statute), jse-markets-calendars (the exchange's calendars).
+
+source:
+  - id: za-public-holidays-act
+
+event_sources:
+  - key: za_youth_day
+    name: Youth Day
+    default_classification: CLOSED
+    rule:
+      type: fixed_month_day
+      month: 6
+      day: 16

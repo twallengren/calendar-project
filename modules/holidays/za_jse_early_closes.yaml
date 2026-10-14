@@ -1,0 +1,69 @@
+kind: module
+id: za_jse_early_closes
+
+# JSE equity-market early closes. Every December the exchange publishes a "Trading, Clearing,
+# Settlement and Services Availability" schedule that shortens the two year-end days, 24 and
+# 31 December, or the preceding business day when they fall on a weekend: continuous trading
+# 09:00-11:50, closing auction call 11:50-12:00, "Close of Trading will be at 12:00". Verified for
+# 2010 (Friday 24 and 31 December), 2011 (Friday 23 and 30), 2014-2025 (including Friday 23 and
+# 30 December 2016 and 2022, Friday 22 and 29 December 2017 and 2023); the 2012 and 2013
+# schedules were not located. Expressed with shift_policy PREVIOUS_AVAILABLE_BUSINESS_DAY.
+# close_time is the close of trading (the closing-auction uncross), as for the other calendars.
+#
+# One further scheduled early close: Friday 26 April 2019, 15:00, for the Integrated Trading and
+# Clearing go-live weekend (jse-notice-104b-2019; the earlier plan for 5 April 2019 was cancelled
+# by the same notice).
+# Source: jse-hotline-130-2025 and the December schedules cited in sources/ZA-JSE/register.json.
+
+source:
+  - id: jse-hotline-130-2025
+    ref: "early close schedules... on 24 and 31 December 2025 only... Note: Close of Trading will be at 12:00"
+
+event_sources:
+  - key: za_jse_christmas_eve_early_close
+    name: Christmas Eve (Early Close)
+    default_classification: EARLY_CLOSE
+    close_time: "12:00"
+    shift_policy: PREVIOUS_AVAILABLE_BUSINESS_DAY
+    source:
+      - id: jse-notice-y555-2010
+        ref: "Trading Hours for JSE Markets on 24 and 31 December 2010 only... Market Close: Equity Market 12:00"
+      - id: jse-notice-f4993-2011
+        ref: "Trading Hours for JSE Markets on 23 and 30 December 2011 only... Equity Market 12:00"
+      - id: jse-hotline-147-2017
+        ref: "early close schedules... on 22 and 29 December 2017 only; Close of Trading will be at 12:00"
+      - id: jse-hotline-143-2022
+        ref: "Early Close Schedule... on 23 and 30 December 2022 only"
+    rule:
+      type: fixed_month_day
+      month: 12
+      day: 24
+
+  - key: za_jse_new_years_eve_early_close
+    name: New Year's Eve (Early Close)
+    default_classification: EARLY_CLOSE
+    close_time: "12:00"
+    shift_policy: PREVIOUS_AVAILABLE_BUSINESS_DAY
+    source:
+      - id: jse-notice-y555-2010
+        ref: "Trading Hours for JSE Markets on 24 and 31 December 2010 only"
+      - id: jse-hotline-159-2023
+        ref: "on 22 and 29 December 2023 only; Close of Trading will be at 12:00"
+    rule:
+      type: fixed_month_day
+      month: 12
+      day: 31
+
+  - key: za_jse_itac_go_live_early_close_2019
+    name: Early Close (Integrated Trading and Clearing go-live)
+    default_classification: EARLY_CLOSE
+    close_time: "15:00"
+    shiftable: false
+    source:
+      - id: jse-notice-104b-2019
+        ref: "ALL JSE MARKETS CLOSING EARLIER ON 26 APRIL 2019 (NO LONGER 5 APRIL 2019): Continuous Trading 09:00-14:50, Closing Auction Call 14:50-15:00"
+    rule:
+      type: explicit_dates
+      dates:
+        - date: 2019-04-26
+          comment: all JSE markets closed early before the ITaC go-live on Monday 29 April 2019

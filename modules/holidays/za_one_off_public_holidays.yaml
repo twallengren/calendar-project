@@ -1,0 +1,87 @@
+kind: module
+id: za_one_off_public_holidays
+
+# Public holidays declared by presidential proclamation under s 2A of the Public Holidays Act
+# 36 of 1994, each a JSE closure. Election days: 18 May 2011 and 3 August 2016 (municipal; the
+# proclamations are the evidence, the exchange's calendars for those years predate them and no
+# exchange notice was found), 7 May 2014 (jse-notice-y1346a-2014), 8 May 2019
+# (jse-notice-72-2019), 1 November 2021 (jse-notice-481a-2021), 29 May 2024
+# (jse-hotline-057-2024). The Tuesday after a Sunday Christmas: 27 December 2011
+# (jse-notice-a1537-2011), 2016 (jse-hotline-200-2016) and 2022 (jse-notice-600-2022). Friday
+# 15 December 2023, declared after the Rugby World Cup win (jse-hotline-169-2023). Wednesday
+# 4 November 2026, the local-government election day declared on 15 September 2026
+# (sanews-2026-09-15): the exchange's 2026 calendar predates the declaration and no notice had
+# been issued at retrieval; like 18 May 2011 and 3 August 2016 it rests on the proclamation and
+# the exchange's standing policy of closing on every public holiday.
+# Source: the government proclamations and exchange notices named above.
+
+source:
+  - id: za-public-holidays-act
+
+event_sources:
+  - key: za_election_day
+    name: Election Day
+    default_classification: CLOSED
+    shiftable: false
+    source:
+      - id: sanews-2011-03-16
+        ref: "President Jacob Zuma has declared 18 May 2011 as a public holiday throughout the Republic"
+      - id: jse-notice-y1346a-2014
+        ref: "Election Day, 7 May 2014 which has been declared a public holiday... the JSE will be closed for business on this day"
+      - id: gov-gazette-40125-proc-45-2016
+        ref: "I hereby declare the Third day of August 2016 [a] public holiday throughout the Republic"
+      - id: jse-notice-72-2019
+        ref: "Wednesday, 8 May 2019 has been gazetted as an official voting day... As a result, all JSE Markets will be closed"
+      - id: jse-notice-481a-2021
+        ref: "Monday, 1 November 2021 has been gazetted as an official voting day... all JSE Markets will be closed"
+      - id: jse-hotline-057-2024
+        ref: "Wednesday, 29 May 2024 has been declared as an official public holiday... all JSE Markets will be closed"
+      - id: sanews-2026-09-15
+        ref: "declared Wednesday, 4 November 2026 - the date for Local Government Elections - as a public holiday throughout the country"
+    rule:
+      type: explicit_dates
+      dates:
+        - date: 2011-05-18
+          comment: local government elections
+        - date: 2014-05-07
+          comment: national and provincial elections
+        - date: 2016-08-03
+          comment: local government elections
+        - date: 2019-05-08
+          comment: national and provincial elections
+        - date: 2021-11-01
+          comment: local government elections
+        - date: 2024-05-29
+          comment: national and provincial elections
+        - date: 2026-11-04
+          comment: local government elections; declared 15 September 2026 (sanews-2026-09-15), after the exchange's 2026 calendar
+
+  - key: za_christmas_sunday_additional_holiday
+    name: Additional Public Holiday (Christmas on a Sunday)
+    default_classification: CLOSED
+    shiftable: false
+    source:
+      - id: jse-notice-a1537-2011
+        ref: "27 December 2011 has been declared to be a public holiday throughout the Republic of South Africa and accordingly the JSE will be closed for business on this day"
+      - id: jse-hotline-200-2016
+        ref: "Tuesday 27 December 2016 and Monday 2 January 2017, therefore the JSE markets will not be open for trading on these days"
+      - id: jse-notice-600-2022
+        ref: "Tuesday, 27 December 2022 has been declared as an official public holiday in the Republic of South Africa and all JSE Markets will be closed"
+    rule:
+      type: explicit_dates
+      dates:
+        - 2011-12-27
+        - 2016-12-27
+        - 2022-12-27
+
+  - key: za_rugby_world_cup_holiday_2023
+    name: Public Holiday (Rugby World Cup celebration)
+    default_classification: CLOSED
+    shiftable: false
+    source:
+      - id: jse-hotline-169-2023
+        ref: "Friday, 15 December 2023 has been declared as an official public holiday... all JSE Markets will be closed"
+    rule:
+      type: explicit_dates
+      dates:
+        - 2023-12-15

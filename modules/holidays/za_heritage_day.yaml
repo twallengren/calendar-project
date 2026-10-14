@@ -1,0 +1,23 @@
+kind: module
+id: za_heritage_day
+
+# South Africa's Public Holidays Act 36 of 1994, s 2(1): "whenever any public holiday falls on a
+# Sunday, the following Monday shall be a public holiday"; a Saturday holiday is not substituted.
+# The calendar's FORWARD_ONLY policy expresses that. The JSE closes all markets on every public
+# holiday ("As with all other public holidays in South Africa, the JSE will be closed for business
+# on this day", jse-notice-y1346a-2014).
+# Heritage Day (24 September): Monday 25 September 2017 and 2023; Saturday 24 September 2011,
+# 2016 and 2022 brought no substitute.
+# Source: za-public-holidays-act (the statute), jse-markets-calendars (the exchange's calendars).
+
+source:
+  - id: za-public-holidays-act
+
+event_sources:
+  - key: za_heritage_day
+    name: Heritage Day
+    default_classification: CLOSED
+    rule:
+      type: fixed_month_day
+      month: 9
+      day: 24
