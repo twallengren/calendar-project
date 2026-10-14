@@ -206,17 +206,25 @@ class ChangelogBuilderTest {
     Changelog changelog = new ChangelogBuilder().build(store, Set.of("US-NYSE"));
 
     // release-history holds v11.0.0 as it shipped (2021-12-31 still a phantom closure); the
-    // correction lives in the current blessed/ entry, which the changelog lists after it.
-    Release v11 =
-        changelog.releases().stream()
-            .filter(Release::blessed)
-            .findFirst()
-            .orElseThrow(() -> new AssertionError("expected the blessed release in the changelog"));
-    Release shipped =
-        changelog.releases().stream()
-            .filter(r -> r.version().equals("11.0.0") && !r.blessed())
-            .findFirst()
-            .orElseThrow(() -> new AssertionError("expected the archived v11.0.0 snapshot"));
+    // correction shipped in the next release, which the changelog lists immediately before it
+    // (releases are newest first). That release was the blessed candidate until 12.0.0 was
+    // archived and is the archived 12.0.0 snapshot since; later releases diff against their own
+    // predecessors and must not be expected to repeat the removal.
+    assertTrue(
+        changelog.releases().stream().anyMatch(Release::blessed),
+        "expected the blessed release in the changelog");
+    List<Release> releases = changelog.releases();
+    int shippedIndex = -1;
+    for (int i = 0; i < releases.size(); i++) {
+      Release r = releases.get(i);
+      if (r.version().equals("11.0.0") && !r.blessed()) {
+        shippedIndex = i;
+        break;
+      }
+    }
+    assertTrue(shippedIndex >= 1, "expected the archived v11.0.0 snapshot and a release after it");
+    Release shipped = releases.get(shippedIndex);
+    Release v11 = releases.get(shippedIndex - 1);
     assertTrue(
         shipped.calendars().get("US-NYSE").removals().stream()
             .noneMatch(e -> e.date().equals(LocalDate.of(2021, 12, 31))),
