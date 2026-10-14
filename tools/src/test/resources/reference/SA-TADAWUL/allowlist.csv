@@ -23,3 +23,8 @@ exchange_calendars-XSAU,ours,2025-04-01,CLOSED,Eid al-Fitr 2025 closure Mar 28 -
 exchange_calendars-XSAU,ours,2025-04-02,CLOSED,Eid al-Fitr 2025 closure Mar 28 - Apr 2 per announcement
 exchange_calendars-XSAU,theirs,2025-06-04,CLOSED,Jun 4 2025 was the last trading day before Eid al-Adha per announcement
 exchange_calendars-XSAU,ours,2025-06-10,CLOSED,Eid al-Adha 2025 closure Jun 5 - Jun 10 per announcement
+exchange_calendars-XSAU,ours,2021-05-11,CLOSED,Eid al-Fitr 2021 closure ran from 11 May per the exchange's notice of 6 April 2021 (tadawul-ramadan-eid-notice-2021) and its session record; exchange_calendars closes from 13 May
+exchange_calendars-XSAU,ours,2021-05-12,CLOSED,Eid al-Fitr 2021 closure ran from 11 May per the exchange's notice of 6 April 2021 (tadawul-ramadan-eid-notice-2021) and its session record; exchange_calendars closes from 13 May
+exchange_calendars-XSAU,theirs,2022-04-28,CLOSED,Full trading session per the exchange's session record (saudi-exchange-tasi-sessions); the 2022 Eid al-Fitr closure was 1-5 May
+exchange_calendars-XSAU,theirs,2022-05-08,CLOSED,Full trading session per the exchange's session record (saudi-exchange-tasi-sessions); the 2022 Eid al-Fitr closure was 1-5 May
+exchange_calendars-XSAU,ours,2022-11-23,CLOSED,Unscheduled closure for the royal holiday after the World Cup win over Argentina (saudi-exchange-closure-2022-11-23); absent from exchange_calendars

@@ -13,6 +13,10 @@ id: eid_al_fitr
 
 source:
   - id: saudi-exchange-announcements
+  - id: saudi-exchange-tasi-sessions
+    ref: "no session on 11-16 May 2021; full sessions on 28 April and 8 May 2022"
+  - id: tadawul-ramadan-eid-notice-2021
+  - id: enbd-securities-eid-al-fitr-2022
 
 event_sources:
   - key: eid_al_fitr
@@ -33,13 +37,18 @@ event_sources:
         - 2020-05-28
         - 2020-05-29
         - 2020-05-30
-        # 2021: first day May 13, last day May 16
+        # 2021: close after May 10, resume May 17 (tadawul-ramadan-eid-notice-2021; the
+        # Holidays-calendar entry "first day 13/5, last day 16/5" named the Eid days, not the
+        # closure; the exchange's session record has no sessions 11-16 May)
+        - 2021-05-11
+        - 2021-05-12
         - 2021-05-13
         - 2021-05-14
         - 2021-05-15
         - 2021-05-16
-        # 2022: first day Apr 28, last day May 8
-        - 2022-04-28
+        # 2022: closed May 1-5 only; the Holidays-calendar entry "first day 28/4, last day 8/5"
+        # named the bounding trading days, and the exchange's session record has full sessions
+        # on 28 April and 8 May (enbd-securities-eid-al-fitr-2022 corroborates)
         - 2022-04-29
         - 2022-04-30
         - 2022-05-01
@@ -49,7 +58,6 @@ event_sources:
         - 2022-05-05
         - 2022-05-06
         - 2022-05-07
-        - 2022-05-08
         # 2023: close after Apr 17, resume Apr 25
         - 2023-04-18
         - 2023-04-19
