@@ -1,0 +1,740 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="ctl00_Head1"><link href="../../../aspnet_client/system_web/2_0_50727/Themes/SiteBmfBovespa/Calendar/Skins/SiteBmfBovespa/Calendar.css" type="text/css" rel="stylesheet" /><link href="../../../aspnet_client/system_web/2_0_50727/Themes/SiteBmfBovespa/Calendar/Skins/SiteBmfBovespa/RadTimePicker.css" type="text/css" rel="stylesheet" /><link href="../../../aspnet_client/system_web/2_0_50727/Themes/SiteBmfBovespa/Combobox/Skins/SiteBmfBovespa/Styles.css" type="text/css" rel="stylesheet" /><link href="../../../aspnet_client/system_web/2_0_50727/Themes/SiteBmfBovespa/Controles.css" type="text/css" rel="stylesheet" /><link href="../../../aspnet_client/system_web/2_0_50727/Themes/SiteBmfBovespa/datepicker.css" type="text/css" rel="stylesheet" /><link href="../../../aspnet_client/system_web/2_0_50727/Themes/SiteBmfBovespa/Estrutura.css" type="text/css" rel="stylesheet" /><link href="../../../aspnet_client/system_web/2_0_50727/Themes/SiteBmfBovespa/Grid.SiteBmfBovespa.css" type="text/css" rel="stylesheet" /><link href="../../../aspnet_client/system_web/2_0_50727/Themes/SiteBmfBovespa/Grid/Skins/SiteBmfBovespa/Styles.css" type="text/css" rel="stylesheet" /><link href="../../../aspnet_client/system_web/2_0_50727/Themes/SiteBmfBovespa/Grid/styles.css" type="text/css" rel="stylesheet" /><link href="../../../aspnet_client/system_web/2_0_50727/Themes/SiteBmfBovespa/Home.css" type="text/css" rel="stylesheet" /><link href="../../../aspnet_client/system_web/2_0_50727/Themes/SiteBmfBovespa/Input/Skins/SiteBmfBovespa/styles.css" type="text/css" rel="stylesheet" /><link href="../../../aspnet_client/system_web/2_0_50727/Themes/SiteBmfBovespa/jquery-ui-1.8.17.custom.css" type="text/css" rel="stylesheet" /><link href="../../../aspnet_client/system_web/2_0_50727/Themes/SiteBmfBovespa/Lumis.css" type="text/css" rel="stylesheet" /><link href="../../../aspnet_client/system_web/2_0_50727/Themes/SiteBmfBovespa/Menu/Scripts/4_4_4/menu.css" type="text/css" rel="stylesheet" /><link href="../../../aspnet_client/system_web/2_0_50727/Themes/SiteBmfBovespa/Menu/Skins/SiteBmfBovespa/Styles.css" type="text/css" rel="stylesheet" /><link href="../../../aspnet_client/system_web/2_0_50727/Themes/SiteBmfBovespa/Menu/Skins/SiteBmfBovespa_Esp/Styles.css" type="text/css" rel="stylesheet" /><link href="../../../aspnet_client/system_web/2_0_50727/Themes/SiteBmfBovespa/Menu/Skins/SiteBmfBovespa_Ing/Styles.css" type="text/css" rel="stylesheet" /><link href="../../../aspnet_client/system_web/2_0_50727/Themes/SiteBmfBovespa/Panelbar/Scripts/4_3_4/panelbar.css" type="text/css" rel="stylesheet" /><link href="../../../aspnet_client/system_web/2_0_50727/Themes/SiteBmfBovespa/Panelbar/Skins/SiteBmfBovespa/styles.css" type="text/css" rel="stylesheet" /><link href="../../../aspnet_client/system_web/2_0_50727/Themes/SiteBmfBovespa/Tabstrip/Scripts/3_6_4/tabstrip.css" type="text/css" rel="stylesheet" /><link href="../../../aspnet_client/system_web/2_0_50727/Themes/SiteBmfBovespa/Tabstrip/Scripts/3_6_4/vtabstrip.css" type="text/css" rel="stylesheet" /><link href="../../../aspnet_client/system_web/2_0_50727/Themes/SiteBmfBovespa/Tabstrip/Skins/SiteBmfBovespa/styles.css" type="text/css" rel="stylesheet" /><link href="../../../aspnet_client/system_web/2_0_50727/Themes/SiteBmfBovespa/thickbox.css" type="text/css" rel="stylesheet" /><meta name="google-site-verification" content="UGLGgb5TdJT9W1ix_yv2wY6TaWJcWQyhA-peb0RmHbw" />
+    <script type="text/javascript" src="/shared/js/ferramentas.js"></script>
+    <script type="text/javascript" src="/shared/js/GlobalizacaoMsgValidacao.js"></script>
+    <script type="text/javascript" src="/shared/js/menu.js"></script>
+    <script type="text/javascript" src="/shared/js/rodape.js"></script>
+    <script type="text/javascript" src="/shared/js/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="/shared/js/jquery.tablesorter.min.js"></script>
+    <script type="text/javascript" src="/shared/js/thickbox.js"></script>
+    <script type="text/javascript" src="/shared/js/DicionarioFinanceiro.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="WT.cg_n" content="VS_PORTUGUES" />
+  <meta name="description" content="Consulte os horários de negociação do mercado de ações da BM&FBOVESPA." />
+  <meta name="keywords" content="horários de negociação ações, horários de negociação mercado de ações" />
+  <style>
+  .borderTop {border-top:1px solid white !important}
+  .borderLeft {border-left:1px solid white !important}
+  .borderRightDest {border-right:1px solid #CCC !important}
+  table tbody tr td {padding: 1px 2px !important;}
+  </style>
+<link rel="shortcut icon" href="/img/favicon.ico" />
+    <script type="text/javascript">
+    	function downloadFile(fileTitle, downloadKey, downloadArgs) {
+    		var downloadUrl = "/download.ashx?key=" + downloadKey;
+
+    		if (downloadArgs != null) {
+    			downloadUrl += "&p=" + downloadArgs.join("&p=");
+    		}
+
+    		dcsMultiTrack("DCS.dcsuri", downloadUrl, "WT.ti", fileTitle);
+
+    		window.top.location.href = downloadUrl;
+    	}
+
+    	function aplicarOrdenacao(idTabela) {
+    		var tabela = document.getElementById(idTabela);
+    		var style = document.createElement("style");
+
+    		var initialBackgroundImageUrl = "/aspnet_client/system_web/2_0_50727/Themes/SiteBmfBovespa/Grid/Skins/SiteBmfBovespa/img/SortDesc.gif";
+    		var sortUpBackgroundImageUrl = "/aspnet_client/system_web/2_0_50727/Themes/SiteBmfBovespa/Grid/Skins/SiteBmfBovespa/img/SortDesc.gif";
+    		var sortDownBackgroundImageUrl = "/aspnet_client/system_web/2_0_50727/Themes/SiteBmfBovespa/Grid/Skins/SiteBmfBovespa/img/SortAsc.gif";
+
+    		var columnsInitialBackgroundImage = [];
+    		var columnsSortUpBackgroundImage = [];
+    		var columnsSortDownBackgroundImage = [];
+
+    		var styleHtml = [];
+
+    		$(tabela).tablesorter();
+
+    		style.type = "text/css";
+
+    		$(tabela).find("th").each(function (index, element) {
+    			var columnClassName = idTabela + "_col" + index;
+    			var leftPosition = element.firstChild.offsetLeft + element.firstChild.offsetWidth;
+    			var middleSpot = element.firstChild.offsetTop + (element.firstChild.offsetHeight / 2);
+    			var initialTop = middleSpot - 4;
+    			var sortUpTop = initialTop;
+    			var sortDownTop = middleSpot - 7;
+
+    			columnsInitialBackgroundImage.push("#" + idTabela + " th." + columnClassName + " { background-position: " + leftPosition + "px " + initialTop + "px; }");
+    			columnsSortUpBackgroundImage.push("#" + idTabela + " th.headerSortUp." + columnClassName + " { background-position: " + leftPosition + "px " + sortUpTop + "px; }");
+    			columnsSortDownBackgroundImage.push("#" + idTabela + " th.headerSortDown." + columnClassName + " { background-position: " + leftPosition + "px " + sortDownTop + "px; }");
+
+    			$(element).addClass(columnClassName);
+    		});
+
+    		styleHtml.push("#" + idTabela + " th                { background-image: url('" + initialBackgroundImageUrl + "'); background-repeat: no-repeat; }");
+    		styleHtml.push("#" + idTabela + " th.headerSortUp   { background-image: url('" + sortUpBackgroundImageUrl + "'); }");
+    		styleHtml.push("#" + idTabela + " th.headerSortDown { background-image: url('" + sortDownBackgroundImageUrl + "'); }");
+
+    		styleHtml.push(columnsInitialBackgroundImage.join("\n"));
+    		styleHtml.push(columnsSortUpBackgroundImage.join("\n"));
+    		styleHtml.push(columnsSortDownBackgroundImage.join("\n"));
+
+    		if (style.styleSheet) {
+    			style.styleSheet.cssText = styleHtml.join("\n");
+    		}
+    		else {
+    			style.appendChild(document.createTextNode(styleHtml.join("\n")));
+    		}
+
+    		document.getElementsByTagName("head")[0].appendChild(style);
+    	}
+	</script>
+    <!--[if (gte IE 5.5)&(lte IE 8)]>
+    <script type="text/javascript" src="/shared/js/ie-css3.js"></script>
+    <![endif]-->
+<link href='/shared/css/menu_pt.css' rel='stylesheet' type='text/css' /><link type="text/css" rel="stylesheet" href="/WebResource.axd?d=k_Cqt8SHupjEAy6C5Rb7D_OcG5zF4QaUPTsqcsgGrweLWyTLDU3MBaocdI4_mg0_O3k0S9cap4bjv7DJN4ic3-7hJCeOUE8bcQEUMLfSLeBfdDTuxfTWMFYpaEOTq0GXWPSrSiERE6kdkn5m4N830hv2FU0fs7qc_JncRr6DiRdnEpOvbaElAvg6Zjai5EXF6xo9ko8ONjZ_kB-UOd7DowrvM2Q1&amp;amp;t=634530856700472237" /><link type="text/css" rel="stylesheet" href="/RadControls/Panelbar/Skins/SiteBmfBovespa/styles.css" /><title>
+	Horários de Negociação no Mercado de Ações | BM&FBOVESPA
+</title></head>
+<body id="ctl00_bovespa">
+
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-N4GS4P"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>    (function (w, d, s, l, i) {
+        w[l] = w[l] || []; w[l].push({ 'gtm.start':
+new Date().getTime(), event: 'gtm.js'
+        }); var f = d.getElementsByTagName(s)[0],
+j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+'//www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-N4GS4P');</script>
+<!-- End Google Tag Manager -->
+
+    <div id="estruturaPrincipal">
+        <form name="aspnetForm" method="post" action="/pt-br/regulacao/horarios-de-negociacao/acoes.aspx?Idioma=pt-br" id="aspnetForm">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMjEwNDQyMTMxMw9kFgJmDw8WCB4Ebm9kZQUkNjYzNDczOTktODQ3My00NDQ2LTg2NGQtNDIxNTliZWRiZjYwHgpQYXJlbnROb2RlBTwvcHQtYnIvaW50cm9zL2ludHJvLWhvcmFyaW9zLWRlLW5lZ29jaWFjYW8uYXNweD9JZGlvbWE9cHQtYnIeC0N1cnJlbnROb2RlBT8vcHQtYnIvcmVndWxhY2FvL2hvcmFyaW9zLWRlLW5lZ29jaWFjYW8vYWNvZXMuYXNweD9JZGlvbWE9cHQtYnIeCkN1cnJlbnRVcmwFPy9wdC1ici9yZWd1bGFjYW8vaG9yYXJpb3MtZGUtbmVnb2NpYWNhby9hY29lcy5hc3B4P0lkaW9tYT1wdC1icmQWAgIDD2QWAgIBD2QWCAIBD2QWCAIDDxYCHgdWaXNpYmxlaGQCDA8WBh4Hb25jbGljawUQdGhpcy52YWx1ZSA9ICcnOx4Gb25ibHVyBTFpZih0aGlzLnZhbHVlID09ICcnKSB7dGhpcy52YWx1ZT0gbm9tZVRleHRCdXNjYTt9HgpvbmtleXByZXNzBSRyZXR1cm4ga2V5UHJlc3NQZXNxdWlzYSh0aGlzLGV2ZW50KTtkAg0PDxYCHg1PbkNsaWVudENsaWNrBRxyZXR1cm4gVmVyaWZpY2FyQ2FtcG9CdXNjYSgpZGQCDg8WAh4EVGV4dAWMMzxkaXYgaWQ9J21lbnUnPjx1bCBpZD0nbWVudUhvcml6Jz48bGkgaWQ9J2FibWZib3Zlc3BhJz48YSBocmVmPScjJyBjbGFzcz0nYWJtZmJvdmVzcGEnIGlkPSdsaW5rQWJtZic+PGltZyBzcmM9Jy9zaGFyZWQvY3NzL2ltZy90cmFuc3AuZ2lmJyAvPjwvYT48dWwgb25tb3VzZW92ZXI9ImxpbmtBYm1mLmNsYXNzTmFtZT0nYWJtZmJvdmVzcGFob3Zlcic7IiBvbm1vdXNlb3V0PSJsaW5rQWJtZi5jbGFzc05hbWU9J2FibWZib3Zlc3BhJzsiPjxsaT48YSBocmVmPScvcHQtYnIvaW50cm9zL2ludHJvLXNvYnJlLWEtYm9sc2EuYXNweCcgdGFyZ2V0PScnPk8gcXVlIGEgQm9sc2EgZmF6PC9hPjwvbGk+PGxpPjxhIGhyZWY9Jy9wdC1ici9hLWJtZmJvdmVzcGEvdmlzaXRhcy1hLWJvbHNhL3Zpc2l0YXMtYS1ib2xzYS5hc3B4JyB0YXJnZXQ9Jyc+VmlzaXRlIGEgQm9sc2E8L2E+PC9saT48bGk+PGEgaHJlZj0nL3B0LWJyL2EtYm1mYm92ZXNwYS91bmlkYWRlcy91bmlkYWRlcy5hc3B4JyB0YXJnZXQ9Jyc+Tm9zc2FzIHVuaWRhZGVzPC9hPjwvbGk+PGxpPjxhIGhyZWY9Jy9wdC1ici9hLWJtZmJvdmVzcGEvc3VzdGVudGFiaWxpZGFkZS5hc3B4JyB0YXJnZXQ9Jyc+U3VzdGVudGFiaWxpZGFkZTwvYT48L2xpPjxsaT48YSBocmVmPSdodHRwOi8vd3d3Lmluc3RpdHV0b2JtZmJvdmVzcGEub3JnLmJyL3B0LWJyL2hvbWUuYXNwJyB0YXJnZXQ9J19ibGFuayc+SW5zdGl0dXRvIEJNJkZCT1ZFU1BBPC9hPjwvbGk+PGxpPjxhIGhyZWY9Jy9wdC1ici9hLWJtZmJvdmVzcGEvdHJhYmFsaGUtY29ub3Njby90cmFiYWxoZS1jb25vc2NvLmFzcHgnIHRhcmdldD0nJz5UcmFiYWxoZSBuYSBCb2xzYTwvYT48L2xpPjxsaT48YSBocmVmPScvc2FsYS1kZS1pbXByZW5zYS9zYWxhaW1wcmVuc2EuYXNweD9pZGlvbWE9cHQtYnInIHRhcmdldD0nJz5TYWxhIGRlIEltcHJlbnNhPC9hPjwvbGk+PC91bD48L2xpPjxsaSBpZD0nbWVyY2Fkbyc+PGEgaHJlZj0nIycgY2xhc3M9J21lcmNhZG9zJyBpZD0nbGlua01lcmNhZG8nPjxpbWcgc3JjPScvc2hhcmVkL2Nzcy9pbWcvdHJhbnNwLmdpZicgLz48L2E+PHVsIG9ubW91c2VvdmVyPSJsaW5rTWVyY2Fkby5jbGFzc05hbWU9J21lcmNhZG9zaG92ZXInOyIgb25tb3VzZW91dD0ibGlua01lcmNhZG8uY2xhc3NOYW1lPSdtZXJjYWRvcyc7Ij48bGk+PGEgaHJlZj0nL3B0LWJyL21lcmNhZG9zL2Fjb2VzLmFzcHgnIHRhcmdldD0nJz5Bw6fDtWVzIDwvYT48L2xpPjxsaT48YSBocmVmPScvcHQtYnIvbWVyY2Fkb3MvbWVyY2Fkb3JpYXMtZS1mdXR1cm9zLmFzcHgnIHRhcmdldD0nJz5NZXJjYWRvcmlhcyBlIEZ1dHVyb3M8L2E+PC9saT48bGk+PGEgaHJlZj0nL3B0LWJyL2ludHJvcy9pbnRyby1jYW1iaW8uYXNweCcgdGFyZ2V0PScnPkPDom1iaW88L2E+PC9saT48bGk+PGEgaHJlZj0nL3B0LWJyL2ludHJvcy9pbnRyby1hdGl2b3MuYXNweCcgdGFyZ2V0PScnPkF0aXZvczwvYT48L2xpPjxsaT48YSBocmVmPScvcHQtYnIvaW50cm9zL2ludHJvLWZ1bmRvcy5hc3B4JyB0YXJnZXQ9Jyc+RnVuZG9zIC8gRVRGczwvYT48L2xpPjxsaT48YSBocmVmPScvcHQtYnIvaW50cm9zL2ludHJvLWxlaWxvZXMuYXNweCcgdGFyZ2V0PScnPkxlaWzDtWVzPC9hPjwvbGk+PGxpPjxhIGhyZWY9Jy9SZW5kYS1GaXhhL1JlbmRhRml4YS5hc3B4JyB0YXJnZXQ9Jyc+UmVuZGEgRml4YTwvYT48L2xpPjxsaT48YSBocmVmPScvcHQtYnIvaW50cm9zL2ludHJvLW91dHJvcy10aXR1bG9zLmFzcHgnIHRhcmdldD0nJz5PdXRyb3MgVMOtdHVsb3M8L2E+PC9saT48L3VsPjwvbGk+PGxpIGlkPSdjZW50cm9kZWluZm9ybWFjb2VzJz48YSBocmVmPScjJyBjbGFzcz0nY2VudHJvZGVpbmZvcm1hY29lcycgaWQ9J2xpbmtDZW50cm8nPjxpbWcgc3JjPScvc2hhcmVkL2Nzcy9pbWcvdHJhbnNwLmdpZicgLz48L2E+PHVsIG9ubW91c2VvdmVyPSJsaW5rQ2VudHJvLmNsYXNzTmFtZT0nY2VudHJvZGVpbmZvcm1hY29lc2hvdmVyJzsiIG9ubW91c2VvdXQ9ImxpbmtDZW50cm8uY2xhc3NOYW1lPSdjZW50cm9kZWluZm9ybWFjb2VzJzsiPjxsaT48YSBocmVmPScvcHQtYnIvZWR1Y2FjaW9uYWwvY3Vyc29zL2N1cnNvcy5hc3B4JyB0YXJnZXQ9Jyc+Q3Vyc29zPC9hPjwvbGk+PGxpPjxhIGhyZWY9Jy9wdC1ici9lZHVjYWNpb25hbC9zaW11bGFkb3Jlcy9zaW11bGFkb3Jlcy5hc3B4JyB0YXJnZXQ9Jyc+U2ltdWxhZG9yZXM8L2E+PC9saT48bGk+PGEgaHJlZj0nL3B0LWJyL2VkdWNhY2lvbmFsL29yY2FtZW50by1wZXNzb2FsLmFzcHgnIHRhcmdldD0nJz5PcsOnYW1lbnRvIHBlc3NvYWw8L2E+PC9saT48bGk+PGEgaHJlZj0nL3B0LWJyL2VkdWNhY2lvbmFsL3ZpZGVvcy1mb2xoZXRvcy1lZHVjYXRpdm9zLmFzcHgnIHRhcmdldD0nJz5Ww61kZW9zIGUgRm9saGV0b3MgRWR1Y2F0aXZvczwvYT48L2xpPjxsaT48YSBocmVmPScvc2hhcmVkL2lmcmFtZS5hc3B4P2lkaW9tYT1wdC1iciZ1cmw9aHR0cDovL3d3dy5ibWZib3Zlc3BhLmNvbS5ici9wdC1ici9lZHVjYWNpb25hbC9lZHVjYXIvRm9ybUluc2NyaWNhb1BhbGVzdHJhQWNlc3NvSW5zdC5hc3AnIHRhcmdldD0nJz5QYWxlc3RyYXMgSW5zdGl0dWNpb25haXM8L2E+PC9saT48bGk+PGEgaHJlZj0nL3B0LWJyL2VkdWNhY2lvbmFsL2luaWNpYXRpdmFzLmFzcHgnIHRhcmdldD0nJz5JbmljaWF0aXZhczwvYT48L2xpPjxsaT48YSBocmVmPSdodHRwOi8vd3d3Mi5ibWYuY29tLmJyL2NpbS9pbmRleC5hc3AnIHRhcmdldD0nX2JsYW5rJz5CaWJsaW90ZWNhPC9hPjwvbGk+PC91bD48L2xpPjxsaSBpZD0nYWJhc2Vydmljb3MnPjxhIGhyZWY9JyMnIGNsYXNzPSdhYmFzZXJ2aWNvcycgaWQ9J2xpbmtTZXJ2aWNvJz48aW1nIHNyYz0nL3NoYXJlZC9jc3MvaW1nL3RyYW5zcC5naWYnIC8+PC9hPjx1bCBvbm1vdXNlb3Zlcj0ibGlua1NlcnZpY28uY2xhc3NOYW1lPSdzZXJ2aWNvc2hvdmVyJzsiIG9ubW91c2VvdXQ9ImxpbmtTZXJ2aWNvLmNsYXNzTmFtZT0nYWJhc2Vydmljb3MnOyI+PGxpPjxhIGhyZWY9Jy9wdC1ici9pbnRyb3MvaW50cm8tY29uZWN0aXZpZGFkZS5hc3B4JyB0YXJnZXQ9Jyc+U29sdcOnw7VlcyBkZSBDb25lY3RpdmlkYWRlPC9hPjwvbGk+PGxpPjxhIGhyZWY9Jy9wdC1ici9pbnRyb3MvaW50cm8tc2Vydmljb3MtZGUtaW5mb3JtYWNhby5hc3B4JyB0YXJnZXQ9Jyc+U2VydmnDp29zIGRlIEluZm9ybWHDp8OjbzwvYT48L2xpPjxsaT48YSBocmVmPScvcHQtYnIvaW50cm9zL2ludHJvLXNvbHVjb2VzLXBhcmEtbmVnb2NpYWNhby5hc3B4JyB0YXJnZXQ9Jyc+U29sdcOnw7VlcyBwYXJhIE5lZ29jaWHDp8OjbzwvYT48L2xpPjxsaT48YSBocmVmPScvcHQtYnIvaW50cm9zL2ludHJvLXNlcnZpY29zLWRlLXBvcy1uZWdvY2lhY2FvLmFzcHgnIHRhcmdldD0nJz5TZXJ2acOnb3MgZGUgUMOzcy1uZWdvY2lhw6fDo288L2E+PC9saT48bGk+PGEgaHJlZj0nL3B0LWJyL2ludHJvcy9pbnRyby1jZXJ0aWZpY2FjYW8uYXNweCcgdGFyZ2V0PScnPkNlcnRpZmljYcOnw6NvPC9hPjwvbGk+PGxpPjxhIGhyZWY9Jy9wdC1ici9zZXJ2aWNvcy9zb2x1Y29lcy1wYXJhLWVtcHJlc2FzL3NvbHVjb2VzLXBhcmEtZW1wcmVzYXMuYXNweCcgdGFyZ2V0PScnPlNvbHXDp8O1ZXMgcGFyYSBFbXByZXNhczwvYT48L2xpPjxsaT48YSBocmVmPScvcHQtYnIvaW50cm9zL2ludHJvLWVtcHJlc3RpbW8tZGUtYXRpdm9zLmFzcHgnIHRhcmdldD0nJz5FbXByw6lzdGltbyBkZSBBdGl2b3M8L2E+PC9saT48bGk+PGEgaHJlZj0naHR0cDovL3d3dy5ibWZib3Zlc3BhLmNvbS5ici9iYW5jbycgdGFyZ2V0PSdfYmxhbmsnPkJhbmNvIEJNJkZCT1ZFU1BBPC9hPjwvbGk+PGxpPjxhIGhyZWY9Jy9wdC1ici9pbnRyb3MvaW50cm8tY3VzdG9zLWUtdHJpYnV0b3MuYXNweCcgdGFyZ2V0PScnPkN1c3RvcyBlIFRyaWJ1dG9zPC9hPjwvbGk+PC91bD48L2xpPjxsaSBpZD0ncmVndWxhY2FvJz48YSBocmVmPScjJyBjbGFzcz0ncmVndWxhY2FvaG92ZXInIGlkPSdsaW5rUmVndWxhY2FvJz48aW1nIHNyYz0nL3NoYXJlZC9jc3MvaW1nL3RyYW5zcC5naWYnIC8+PC9hPjx1bD48bGk+PGEgaHJlZj0nL3B0LWJyL2ludHJvcy9pbnRyby1yZWd1bGFtZW50b3MtZS1ub3JtYXMuYXNweCcgdGFyZ2V0PScnPlJlZ3VsYW1lbnRvcyBlIE5vcm1hczwvYT48L2xpPjxsaT48YSBocmVmPSdodHRwOi8vd3d3LmJzbS1hdXRvcnJlZ3VsYWNhby5jb20uYnIvaG9tZS5hc3AnIHRhcmdldD0nX2JsYW5rJz5TdXBlcnZpc8OjbyBkZSBNZXJjYWRvIC0gQlNNPC9hPjwvbGk+PGxpPjxhIGhyZWY9Jy9wdC1ici9yZWd1bGFjYW8vY2FtYXJhLWRlLWFyYml0cmFnZW0tZG8tbWVyY2Fkby9jYW1hcmEtZGUtYXJiaXRyYWdlbS1kby1tZXJjYWRvLmFzcHgnIHRhcmdldD0nJz5Dw6JtYXJhIGRlIEFyYml0cmFnZW0gZG8gTWVyY2FkbyA8L2E+PC9saT48bGk+PGEgaHJlZj0nL29maWNpb3NDb211bmljYWRvcy9vZmljaW9zQ29tdW5pY2Fkb3MuYXNweD9pZGlvbWE9cHQtYnInIHRhcmdldD0nJz5JbmZvcm1lcyBhb3MgUGFydGljaXBhbnRlcyBkbyBNZXJjYWRvPC9hPjwvbGk+PGxpPjxhIGhyZWY9Jy9wdC1ici9yZWd1bGFjYW8vY2FsZW5kYXJpby1kby1tZXJjYWRvL2NhbGVuZGFyaW8tZG8tbWVyY2Fkby5hc3B4JyB0YXJnZXQ9Jyc+Q2FsZW5kw6FyaW8gZG8gTWVyY2FkbzwvYT48L2xpPjxsaT48YSBocmVmPScvcHQtYnIvaW50cm9zL2ludHJvLWhvcmFyaW9zLWRlLW5lZ29jaWFjYW8uYXNweCcgdGFyZ2V0PScnPkhvcsOhcmlvcyBkZSBOZWdvY2lhw6fDo288L2E+PC9saT48L3VsPjwvbGk+PGxpIGlkPSdwYXJ0aWNpcGFudGVzJz48YSBocmVmPScjJyBjbGFzcz0ncGFydGljaXBhbnRlcycgaWQ9J2xpbmtQYXJ0aWNpcGFudGVzJz48aW1nIHNyYz0nL3NoYXJlZC9jc3MvaW1nL3RyYW5zcC5naWYnIC8+PC9hPjx1bCBvbm1vdXNlb3Zlcj0ibGlua1BhcnRpY2lwYW50ZXMuY2xhc3NOYW1lPSdwYXJ0aWNpcGFudGVzaG92ZXInOyIgb25tb3VzZW91dD0ibGlua1BhcnRpY2lwYW50ZXMuY2xhc3NOYW1lPSdwYXJ0aWNpcGFudGVzJzsiPjxsaT48YSBocmVmPScvcHQtYnIvaW50cm9zL2ludHJvLWNvcnJldG9yYXMuYXNweCcgdGFyZ2V0PScnPkNvcnJldG9yYXM8L2E+PC9saT48bGk+PGEgaHJlZj0nL0FnZW50ZXMvYWdlbnRlcy5hc3B4JyB0YXJnZXQ9Jyc+QWdlbnRlcyBkZSBDdXN0w7NkaWEgZSBDb21wZW5zYcOnw6NvPC9hPjwvbGk+PGxpPjxhIGhyZWY9Jy9zaGFyZWQvaWZyYW1lLmFzcHg/YWx0dXJhPTE0NTAmaWRpb21hPXB0LWJyJnVybD13d3cyLmJtZi5jb20uYnIvcGFnZXMvcG9ydGFsL2JtZmJvdmVzcGEvYXNzb2NpYWRvczEvYXNzb2NpYWRvc1Blc3F1aXNhMS5hc3AnIHRhcmdldD0nJz5PdXRyb3MgUGFydGljaXBhbnRlczwvYT48L2xpPjxsaT48YSBocmVmPScvcHQtYnIvUGFydGljaXBhbnRlcy9QUU8vUHJvZ3JhbWEtZGUtcXVhbGlmaWNhY2FvLW9wZXJhY2lvbmFsLmFzcHgnIHRhcmdldD0nJz5Qcm9ncmFtYSBkZSBRdWFsaWZpY2HDp8OjbyBPcGVyYWNpb25hbDwvYT48L2xpPjxsaT48YSBocmVmPScvc2hhcmVkL2lmcmFtZS5hc3B4P2FsdHVyYT00MDAmaWRpb21hPXB0LWJyJnVybD1odHRwOi8vd3d3LmJtZmJvdmVzcGEuY29tLmJyL3B0LWJyL21lcmNhZG9zL21lcmNhZG9yaWFzLWUtZnV0dXJvcy9wYXJ0aWNpcGFudGVzL2RvY3VtZW50YWNhby1jYWRhc3RyYWwuYXNwJyB0YXJnZXQ9Jyc+RG9jdW1lbnRhw6fDo28gQ2FkYXN0cmFsPC9hPjwvbGk+PC91bD48L2xpPjxsaSBpZD0naW52aXN0YWphJz48YSBocmVmPScjJyBjbGFzcz0naW52aXN0YWphJyBpZD0nbGlua2ludmlzdGFqYSc+PGltZyBzcmM9Jy9zaGFyZWQvY3NzL2ltZy90cmFuc3AuZ2lmJyAvPjwvYT48dWwgb25tb3VzZW92ZXI9ImxpbmtpbnZpc3RhamEuY2xhc3NOYW1lPSdpbnZpc3RhamFob3Zlcic7IiBvbm1vdXNlb3V0PSJsaW5raW52aXN0YWphLmNsYXNzTmFtZT0naW52aXN0YWphJzsiPjxsaT48YSBocmVmPScvY29tby1pbnZlc3Rpci1uYS1ib2xzYS5hc3B4JyB0YXJnZXQ9Jyc+Q29tbyBpbnZlc3RpciBlbSBhw6fDtWVzIDwvYT48L2xpPjxsaT48YSBocmVmPScvcHQtYnIvbWVyY2Fkb3Mvb3V0cm9zLXRpdHVsb3MvdGVzb3Vyby1kaXJldG8vY29tby1pbnZlc3Rpci1uby10ZXNvdXJvLWRpcmV0by5hc3B4JyB0YXJnZXQ9Jyc+Q29tbyBpbnZlc3RpciBubyBUZXNvdXJvIERpcmV0bzwvYT48L2xpPjxsaT48YSBocmVmPScvZXRmL2NvbW8taW52ZXN0aXItZW0tZXRmcy5hc3B4JyB0YXJnZXQ9Jyc+Q29tbyBpbnZlc3RpciBlbSBFVEZzPC9hPjwvbGk+PGxpPjxhIGhyZWY9Jy9GdW5kb3MtTGlzdGFkb3MvY29tby1pbnZlc3Rpci1lbS1mdW5kb3MtaW1vYmlsaWFyaW9zLmFzcHgnIHRhcmdldD0nJz5Db21vIGludmVzdGlyIGVtIGZ1bmRvcyBpbW9iaWxpw6FyaW9zPC9hPjwvbGk+PGxpPjxhIGhyZWY9Jy9wdC1ici9pbnRyb3MvaW50cm8tdGlwb3MtZGUtaW52ZXN0aW1lbnRvcy5hc3B4JyB0YXJnZXQ9Jyc+VGlwb3MgZGUgaW52ZXN0aW1lbnRvczwvYT48L2xpPjwvdWw+PC9saT48L3VsPjwvZGl2PmQCCQ9kFgICBQ9kFgICAw8PZBYCHwUFe3dpbmRvdy5vcGVuKCdodHRwOi8vd3d3LmJtZmJvdmVzcGEuY29tLmJyL3B0LWJyL3JlZ3VsYWNhby9ob3Jhcmlvcy1kZS1uZWdvY2lhY2FvL2Fjb2VzLmFzcHg/SWRpb21hPXB0LWJyJnZlcnNhbz1pbXByZXNzYW8nKWQCDQ8PZBYCHwUFHGhpc3RvcnkuYmFjaygpOyByZXR1cm4gZmFsc2VkAhMPDxYCHwRnZGQYAQUeX19Db250cm9sc1JlcXVpcmVQb3N0QmFja0tleV9fFgEFG2N0bDAwJG1lbnVCT1ZFU1BBU2VjdW5kYXJpb+3UtERCk3knsljvEdpjVv6Al4HY" />
+
+<script type='text/javascript'> var nomeTextBusca ='Busca';</script>
+<script type="text/javascript">
+//<![CDATA[
+function ConsultaServicoDicionario(chavePesquisa){WebForm_DoCallback('ctl00$DicionarioFinancas',chavePesquisa,ResultadoExecucaoClientCallBack,null,null,false)}//]]>
+</script>
+
+<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWBgKOuOuwDwKatY+lDgLz2ISXCALR05XvBgKWjICHCwK0s+TyDgBWJhCCQYTUFwqpooV41CDfyDt6" />
+            <noindex>
+<div id="topo">
+    <div id="sitesGrupo">
+        <div id="carregar">
+            <img src="/img/load_sites-grupo.gif" /></div>
+    </div>
+    <!-- LOGO BmfBovespa -->
+    <img src="/img/LogoBmfBovespaImpressao-pt-br.gif" class="logoImpressao" alt="" />
+    <h1 id="ctl00_ucTopo_H1" class="logoBmfBovespa-pt-br">
+        <a id="ctl00_ucTopo_acessoLogoBmfBovespa" href="../../../home.aspx">BM&FBOVESPA – A Bolsa é pra você!</a>
+    </h1>
+    <div id="agrupador">
+        <!-- MENU SECUNDÁRIO TOPO -->
+        <div id="menuBmfBovespaAuxiliar">
+            <ul id="selecaoIdiomas">
+                <li id="idiomaChines"><a href="/zh-cn/home.asp" class="acessoIdiomaChines" onclick="dcsMultiTrack('WT.ac','band-chines');">Chinese</a></li>
+                <li id="ctl00_ucTopo_idiomaEspanhol">
+                    <a onclick="dcsMultiTrack('WT.ac','band-espanha');" id="ctl00_ucTopo_acessoIdiomaEspanhol" title="Español" class="acessoIdiomaEspanhol" href="javascript:__doPostBack('ctl00$ucTopo$acessoIdiomaEspanhol','')">Español</a>
+                </li>
+                <li id="ctl00_ucTopo_idiomaIngles">
+                    <a onclick="dcsMultiTrack('WT.ac','band-ingles');" id="ctl00_ucTopo_acessoIdiomaIngles" title="English" class="acessoIdiomaIngles" href="javascript:__doPostBack('ctl00$ucTopo$acessoIdiomaIngles','')">English</a>
+                </li>
+                
+            </ul>
+            <div id="linksMenuAuxiliar">
+                <!-- SITES DO GRUPO -->
+                <div id="contLinkSitesGrp">
+                    <a id="ctl00_ucTopo_lnkSitesDoGrupo" class="sitesgrupo" onclick="dcsMultiTrack('WT.ac',WTlnkSitesDoGrupo);" href="javascript:SitesDoGrupo('pt-br')">Sites relacionados</a>
+                </div>
+                <div id="contLinkFAQ">
+                    <a id="ctl00_ucTopo_lnkPerguntasFrequentes" onclick="dcsMultiTrack('WT.ac',WTlnkPerguntasFrequentes);" href="/pt-br/perguntas-frequentes.aspx">Perguntas Frequentes</a>
+                </div>
+                <!--div>
+                    <a id="ctl00_ucTopo_HyperLink1" onclick="dcsMultiTrack('WT.ac',WTlnkCorretoras);" href="/pt-br/intros/intro-corretoras.aspx"> </a>
+                </div-->
+                <div id="contLinkOmbudsman">
+                    <a id="ctl00_ucTopo_lnkOmbudsman" onclick="dcsMultiTrack('WT.ac',WTlnkOmbudsman);" href="http://ri.bmfbovespa.com.br" target="_blank">Relações com Investidores</a>
+                </div>
+                <div class="first">
+                    <a id="ctl00_ucTopo_lnkContato" onclick="dcsMultiTrack('WT.ac',WTlnkContato);" href="/Contato/Contatos.aspx" target="_self">Contato</a>
+                </div>
+                <!--
+                <div>
+                    <a id="ctl00_ucTopo_lnkEmpresasListadas" onclick="dcsMultiTrack('WT.ac',WTlnkEmpresasListadas);" href="/cias-listadas/empresas-listadas/BuscaEmpresaListada.aspx">Empresas Listadas</a>
+                </div>
+                <div>
+                    <a id="ctl00_ucTopo_lnkAberturaCapital" onclick="dcsMultiTrack('WT.ac',WTlnkAberturaCapital);" href="/empresas/pages/empresas_abertura_capital_como_abrir.asp" target="_blank">abertura de capital</a>
+                </div>
+                <div>
+                    <a id="ctl00_ucTopo_lnkRelacaoInvestidores" onclick="dcsMultiTrack('WT.ac',WTlnkRelacaoInvestidores);" href="http://ri.bmfbovespa.com.br" target="_blank">Relações com Investidores</a>
+                </div>
+                
+                -->
+            </div>
+        </div>
+        <!-- SELEÇÃO DE IDIOMAS -->
+    </div>
+    <!-- ÁREA DE BUSCA -->
+    <div id="busca">
+        <fieldset>
+            <input name="ctl00$ucTopo$btnBusca" type="text" id="ctl00_ucTopo_btnBusca" value="Busca" onclick="this.value = '';" onblur="if(this.value == '') {this.value= nomeTextBusca;}" onkeypress="return keyPressPesquisa(this,event);" />
+            <input type="submit" name="ctl00$ucTopo$btnPesquisa" value="ok" onclick="return VerificarCampoBusca();" id="ctl00_ucTopo_btnPesquisa" class="botaoOk" />
+        </fieldset>
+    </div>
+    <!-- MENU PRINCIPAL -->
+    <div id="areaMenuBmfBovespa">
+        <div id='menu'><ul id='menuHoriz'><li id='abmfbovespa'><a href='#' class='abmfbovespa' id='linkAbmf'><img src='/shared/css/img/transp.gif' /></a><ul onmouseover="linkAbmf.className='abmfbovespahover';" onmouseout="linkAbmf.className='abmfbovespa';"><li><a href='/pt-br/intros/intro-sobre-a-bolsa.aspx' target=''>O que a Bolsa faz</a></li><li><a href='/pt-br/a-bmfbovespa/visitas-a-bolsa/visitas-a-bolsa.aspx' target=''>Visite a Bolsa</a></li><li><a href='/pt-br/a-bmfbovespa/unidades/unidades.aspx' target=''>Nossas unidades</a></li><li><a href='/pt-br/a-bmfbovespa/sustentabilidade.aspx' target=''>Sustentabilidade</a></li><li><a href='http://www.institutobmfbovespa.org.br/pt-br/home.asp' target='_blank'>Instituto BM&FBOVESPA</a></li><li><a href='/pt-br/a-bmfbovespa/trabalhe-conosco/trabalhe-conosco.aspx' target=''>Trabalhe na Bolsa</a></li><li><a href='/sala-de-imprensa/salaimprensa.aspx?idioma=pt-br' target=''>Sala de Imprensa</a></li></ul></li><li id='mercado'><a href='#' class='mercados' id='linkMercado'><img src='/shared/css/img/transp.gif' /></a><ul onmouseover="linkMercado.className='mercadoshover';" onmouseout="linkMercado.className='mercados';"><li><a href='/pt-br/mercados/acoes.aspx' target=''>Ações </a></li><li><a href='/pt-br/mercados/mercadorias-e-futuros.aspx' target=''>Mercadorias e Futuros</a></li><li><a href='/pt-br/intros/intro-cambio.aspx' target=''>Câmbio</a></li><li><a href='/pt-br/intros/intro-ativos.aspx' target=''>Ativos</a></li><li><a href='/pt-br/intros/intro-fundos.aspx' target=''>Fundos / ETFs</a></li><li><a href='/pt-br/intros/intro-leiloes.aspx' target=''>Leilões</a></li><li><a href='/Renda-Fixa/RendaFixa.aspx' target=''>Renda Fixa</a></li><li><a href='/pt-br/intros/intro-outros-titulos.aspx' target=''>Outros Títulos</a></li></ul></li><li id='centrodeinformacoes'><a href='#' class='centrodeinformacoes' id='linkCentro'><img src='/shared/css/img/transp.gif' /></a><ul onmouseover="linkCentro.className='centrodeinformacoeshover';" onmouseout="linkCentro.className='centrodeinformacoes';"><li><a href='/pt-br/educacional/cursos/cursos.aspx' target=''>Cursos</a></li><li><a href='/pt-br/educacional/simuladores/simuladores.aspx' target=''>Simuladores</a></li><li><a href='/pt-br/educacional/orcamento-pessoal.aspx' target=''>Orçamento pessoal</a></li><li><a href='/pt-br/educacional/videos-folhetos-educativos.aspx' target=''>Vídeos e Folhetos Educativos</a></li><li><a href='/shared/iframe.aspx?idioma=pt-br&url=http://www.bmfbovespa.com.br/pt-br/educacional/educar/FormInscricaoPalestraAcessoInst.asp' target=''>Palestras Institucionais</a></li><li><a href='/pt-br/educacional/iniciativas.aspx' target=''>Iniciativas</a></li><li><a href='http://www2.bmf.com.br/cim/index.asp' target='_blank'>Biblioteca</a></li></ul></li><li id='abaservicos'><a href='#' class='abaservicos' id='linkServico'><img src='/shared/css/img/transp.gif' /></a><ul onmouseover="linkServico.className='servicoshover';" onmouseout="linkServico.className='abaservicos';"><li><a href='/pt-br/intros/intro-conectividade.aspx' target=''>Soluções de Conectividade</a></li><li><a href='/pt-br/intros/intro-servicos-de-informacao.aspx' target=''>Serviços de Informação</a></li><li><a href='/pt-br/intros/intro-solucoes-para-negociacao.aspx' target=''>Soluções para Negociação</a></li><li><a href='/pt-br/intros/intro-servicos-de-pos-negociacao.aspx' target=''>Serviços de Pós-negociação</a></li><li><a href='/pt-br/intros/intro-certificacao.aspx' target=''>Certificação</a></li><li><a href='/pt-br/servicos/solucoes-para-empresas/solucoes-para-empresas.aspx' target=''>Soluções para Empresas</a></li><li><a href='/pt-br/intros/intro-emprestimo-de-ativos.aspx' target=''>Empréstimo de Ativos</a></li><li><a href='http://www.bmfbovespa.com.br/banco' target='_blank'>Banco BM&FBOVESPA</a></li><li><a href='/pt-br/intros/intro-custos-e-tributos.aspx' target=''>Custos e Tributos</a></li></ul></li><li id='regulacao'><a href='#' class='regulacaohover' id='linkRegulacao'><img src='/shared/css/img/transp.gif' /></a><ul><li><a href='/pt-br/intros/intro-regulamentos-e-normas.aspx' target=''>Regulamentos e Normas</a></li><li><a href='http://www.bsm-autorregulacao.com.br/home.asp' target='_blank'>Supervisão de Mercado - BSM</a></li><li><a href='/pt-br/regulacao/camara-de-arbitragem-do-mercado/camara-de-arbitragem-do-mercado.aspx' target=''>Câmara de Arbitragem do Mercado </a></li><li><a href='/oficiosComunicados/oficiosComunicados.aspx?idioma=pt-br' target=''>Informes aos Participantes do Mercado</a></li><li><a href='/pt-br/regulacao/calendario-do-mercado/calendario-do-mercado.aspx' target=''>Calendário do Mercado</a></li><li><a href='/pt-br/intros/intro-horarios-de-negociacao.aspx' target=''>Horários de Negociação</a></li></ul></li><li id='participantes'><a href='#' class='participantes' id='linkParticipantes'><img src='/shared/css/img/transp.gif' /></a><ul onmouseover="linkParticipantes.className='participanteshover';" onmouseout="linkParticipantes.className='participantes';"><li><a href='/pt-br/intros/intro-corretoras.aspx' target=''>Corretoras</a></li><li><a href='/Agentes/agentes.aspx' target=''>Agentes de Custódia e Compensação</a></li><li><a href='/shared/iframe.aspx?altura=1450&idioma=pt-br&url=www2.bmf.com.br/pages/portal/bmfbovespa/associados1/associadosPesquisa1.asp' target=''>Outros Participantes</a></li><li><a href='/pt-br/Participantes/PQO/Programa-de-qualificacao-operacional.aspx' target=''>Programa de Qualificação Operacional</a></li><li><a href='/shared/iframe.aspx?altura=400&idioma=pt-br&url=http://www.bmfbovespa.com.br/pt-br/mercados/mercadorias-e-futuros/participantes/documentacao-cadastral.asp' target=''>Documentação Cadastral</a></li></ul></li><li id='invistaja'><a href='#' class='invistaja' id='linkinvistaja'><img src='/shared/css/img/transp.gif' /></a><ul onmouseover="linkinvistaja.className='invistajahover';" onmouseout="linkinvistaja.className='invistaja';"><li><a href='/como-investir-na-bolsa.aspx' target=''>Como investir em ações </a></li><li><a href='/pt-br/mercados/outros-titulos/tesouro-direto/como-investir-no-tesouro-direto.aspx' target=''>Como investir no Tesouro Direto</a></li><li><a href='/etf/como-investir-em-etfs.aspx' target=''>Como investir em ETFs</a></li><li><a href='/Fundos-Listados/como-investir-em-fundos-imobiliarios.aspx' target=''>Como investir em fundos imobiliários</a></li><li><a href='/pt-br/intros/intro-tipos-de-investimentos.aspx' target=''>Tipos de investimentos</a></li></ul></li></ul></div>
+    </div>
+    <!-- WEBTRENDS -->
+    <script type="text/javascript">
+        var WTlnkSitesDoGrupo = 'Home pt-BR Topo Sites do Grupo';
+        var WTlnkPerguntasFrequentes = 'Home pt-BR Topo FAQ';
+        var WTlnkOmbudsman = 'Home pt-BR Topo Ombudsman';
+        var WTlnkContato = 'Home pt-BR Topo Contato';
+        var WTlnkEmpresasListadas = 'Home pt-BR Topo Empresas Listadas';
+        var WTlnkAberturaCapital = 'Home pt-BR Topo Abertura de Capital';
+        var WTlnkRelacaoInvestidores = 'Home pt-BR Topo RI';
+        var WTlnkCorretoras = 'Home pt-BR Topo Corretoras';
+    </script>
+    <script type="text/javascript">
+
+        function VerificarCampoBusca() {
+            if (document.getElementById('ctl00_ucTopo_btnBusca').value == nomeTextBusca) {
+                return false;
+            }
+        }
+
+        function keyPressPesquisa(object, evt) {
+            if (evt.which || evt.keyCode) {
+                if ((evt.which == 13) || (evt.keyCode == 13)) {
+                    document.getElementById('ctl00_ucTopo_btnPesquisa').click();
+                    return false;
+                }
+            }
+        }
+    </script>
+</div>
+</noindex>
+            <div id="estruturaConteudo">
+
+                <script language="javascript" type="text/javascript">
+               // substituír a classe css quando o elemento não tiver post back        
+               function onClicking(sender, eventArgs) {
+                   var mylist = document.getElementById("ctl00_menuBOVESPASecundario")
+                   var listitems = mylist.getElementsByTagName("A")
+
+                   for (i = 0; i < listitems.length; i++) {
+
+                       if (listitems[i].className.indexOf("clicadoNivel1") >= 0
+						    || listitems[i].className.indexOf("clicadoNivel2") >= 0) {
+
+                           listitems[i].className = "link";
+                       }
+
+
+                   }
+
+               } 
+
+                </script>
+
+                
+                <noindex><div id="ctl00_menuBOVESPASecundario" class="panelbar RadPanelbar_SiteBmfBovespa ">
+	<!-- 4.3.4 --><script type="text/javascript" src="/WebResource.axd?d=6AV-WpWZR7gRGB2YXOyT4GXehw-EwxbRE31qaHOTc6d35Gu1FC9QkXiIlbZcNCyK83mEtGYVqPEVFWvBkH2LmRWe7NaJct4DvcYmQAfJwfJMJBFv_mNxIWD8GMDhZH2p8iWKEN23FjHKakLVyJJ6m5rOczmttwdtBLgjcJgjK7rP6jRcoy91CPgNDTmjyticw9jvGWIYkC8nlPYeWiJFcTwKlu81&amp;t=634530856700472237"></script><span id="ctl00_menuBOVESPASecundarioStyleSheetHolder" style="display:none;"></span><ul class="rootGroup">
+		<li class="item first last"><a href="#" id="ctl00_menuBOVESPASecundario_p0" title="Horários de Negociação" class="link expandable"><span class="text">Horários de Negociação</span></a><div class="slide" style="display:block;">
+			<ul class="group level1 " style="display:block;">
+				<li class="item first"><a href="/pt-br/regulacao/horarios-de-negociacao/acoes.aspx?Idioma=pt-br" id="ctl00_menuBOVESPASecundario_p0_p0" title="Ações" class="link clicadoNivel1"><span class="text">Ações</span></a></li><li class="item"><a href="/pt-br/regulacao/horarios-de-negociacao/derivativos.aspx?Idioma=pt-br" id="ctl00_menuBOVESPASecundario_p0_p1" title="Derivativos" class="link"><span class="text">Derivativos</span></a></li><li class="item"><a href="/pt-br/regulacao/horarios-de-negociacao/cambio.aspx?Idioma=pt-br" id="ctl00_menuBOVESPASecundario_p0_p2" title="Câmbio" class="link"><span class="text">Câmbio</span></a></li><li class="item"><a href="/pt-br/regulacao/horarios-de-negociacao/renda-fixa.aspx?Idioma=pt-br" id="ctl00_menuBOVESPASecundario_p0_p3" title="Renda Fixa" class="link"><span class="text">Renda Fixa</span></a></li><li class="item last"><a href="/pt-br/regulacao/horarios-de-negociacao/balcao-organizado.aspx?Idioma=pt-br" id="ctl00_menuBOVESPASecundario_p0_p4" title="Balcão Organizado" class="link"><span class="text">Balcão Organizado</span></a></li>
+			</ul>
+		</div></li>
+	</ul><input type="hidden" id="ctl00_menuBOVESPASecundario_Hidden" name="ctl00$menuBOVESPASecundario" /><script type="text/javascript">window["ctl00_menuBOVESPASecundario"] = new RadPanelbar("ctl00_menuBOVESPASecundario");window["ctl00_menuBOVESPASecundario"].Initialize({"CookieName":"ctl00_menuBOVESPASecundario","CausesValidation":false,"Enabled":true,"Skin":"SiteBmfBovespa","ExpandAnimation":{"Type":"OutCubic"},"CollapseAnimation":{"Type":"InCubic"},"ExpandMode":1,"OnClientItemClicking":"onClicking"},{"ctl00_menuBOVESPASecundario_p0":{"Expanded":true,"Value":"Horários de Negociação","NavigateAfterClick":false},"ctl00_menuBOVESPASecundario_p0_p0":{"Value":"Ações","CssClass":"clicadoNivel1"},"ctl00_menuBOVESPASecundario_p0_p1":{"Value":"Derivativos"},"ctl00_menuBOVESPASecundario_p0_p2":{"Value":"Câmbio"},"ctl00_menuBOVESPASecundario_p0_p3":{"Value":"Renda Fixa"},"ctl00_menuBOVESPASecundario_p0_p4":{"Value":"Balcão Organizado"}});</script>
+</div></noindex>
+                
+                <div id="estruturaConteudoInterna">
+                    <noindex><div class="agrupadorHistNavegacaoFerrConteudo">
+						
+						<div id="breadcrumb" class="areaHistoricoNavegacao">
+							<span id="ctl00_historicoNavegacao" class="areaHistoricoNavegacao"><a href="#ctl00_historicoNavegacao_SkipLink"><img alt="Skip Navigation Links" height="0" width="0" src="/WebResource.axd?d=Rr-kWMDOb1F4J5qMV3qIgKIJ4NQZWqa6wlfg85guvcNaj4LQP5Qp_5YfddkbYciIaiL0eAIDIwttjilq7LR6kjWANg81&amp;t=635164183754315614" border="0" /></a><span>
+                                <a href="/home.aspx" id="ctl00_historicoNavegacao_ctl00_A1">
+                                Home
+                                </a>
+                                
+                                </span><span class="separador">/</span><span>
+                                <a id="ctl00_historicoNavegacao_ctl02_A1">
+                                Regulação
+                                </a>
+                                
+                                </span><span class="separador">/</span><span>
+                                <a href="/pt-br/intros/intro-horarios-de-negociacao.aspx" id="ctl00_historicoNavegacao_ctl04_A1">
+                                Horários de Negociação
+                                </a>
+                                
+                                </span><span class="separador">/</span><span>
+                                <a href="/pt-br/regulacao/horarios-de-negociacao/acoes.aspx" id="ctl00_historicoNavegacao_ctl06_A1">
+                                Ações
+                                </a>
+                                
+                                </span><a id="ctl00_historicoNavegacao_SkipLink"></a></span>
+							<p></p>
+						</div>
+
+						
+						<div id="ctl00_ferramentasConteudo" class="ferramentasConteudo">
+							<ul>
+								
+								
+								
+								
+								
+								
+                            
+								<script language="javascript" type="text/javascript">
+								    
+								    gstrUrlPagina = window.location.href;
+								    gstrNomeArquivo = window.location.pathname.split("/")[4];
+								    gstrTitulo = window.document.title.split("|")[0];
+								   							   
+								    
+								    $(document).ready(function() {
+								        if (typeof gstrUrlEncurtada != 'undefined') {
+								            document.getElementById("socialBookmarking").style.display = 'inline-block';
+								        }
+								    });
+								    
+								    function limitadorCaracteres(gstrTitulo) {
+								        if (gstrTitulo.length >= 105) {
+								            return gstrTitulo.substr(0, 105) + "...";
+								        } else {
+								            return gstrTitulo.substr(0, 105);
+								        }
+								    }
+								    
+								    function EnviarViaRedeSocial(gstrNomeRedeSocial, gstrTitulo, gstrNomeArquivo, gstrUrlPagina) {
+								        switch (gstrNomeRedeSocial) {
+								            case 'Twitter':
+								                window.open('http://twitter.com/home?status=' + encodeURIComponent(limitadorCaracteres(gstrTitulo)) + ' ' + gstrUrlEncurtada + encodeURIComponent(' #BMFBOVESPA'));
+								                break;
+								            case 'Facebook':
+								                window.open('http://www.facebook.com/sharer.php?t=' + encodeURIComponent(gstrTitulo) + '?' + "" + '&u=' + 'http://www.bmfbovespa.com.br' + window.location.pathname);
+								                break;
+								            case 'Orkut':
+								                window.open('http://promote.orkut.com/preview?nt=orkut.com&tt=' + encodeURIComponent(document.title) + '&du=' + 'http://www.bmfbovespa.com.br' + window.location.pathname);
+								                break;
+								                
+								            //exemplo para abertura do compartilhamento por email
+								            case 'Email':
+								                var tituloFormatado = gstrTitulo;
+								                tituloFormatado = tituloFormatado.replace("&","||");								                								                
+								                window.open('/NoticiasHome/EnvioNoticiaEmail.aspx?url='+ gstrUrlPagina + "&titulo=" + tituloFormatado, 'BMFBOVESPA', 'toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=480,height=380');								                
+								                break;
+								        }
+								    }
+								    
+                                </script>
+                                
+								<div id="socialBookmarking">
+                                      <p>compartilhe:</p>
+                                      <ul>
+                                        <li>
+                                          <a href="javascript:;" onclick="EnviarViaRedeSocial('Twitter', gstrTitulo, gstrNomeArquivo, gstrUrlPagina);" id="tweeter" title="Twitter">
+                                            <span>Twitter</span>&nbsp;
+                                          </a>
+                                        </li>
+                                        <li>
+                                          <a href="javascript:;" onclick="EnviarViaRedeSocial('Facebook',gstrTitulo, gstrNomeArquivo,'');" id='facebook' title='Facebook'>
+                                            <span>Facebook</span>&nbsp;
+                                          </a>
+                                        </li>
+                                        <li>
+                                          <a href="javascript:;" onclick="EnviarViaRedeSocial('Email', gstrTitulo, gstrNomeArquivo, gstrUrlPagina);" id='sendByMail' title='E-mail'>
+                                            <span>E-mail</span>&nbsp;
+                                          </a>
+                                        </li>                                        
+                                      </ul>
+                                </div>
+                                
+							</ul>							
+							
+							
+
+<div id="divDicionario">
+	<a href="javascript:DicionarioFechar();" class="closeDic"><span>x</span></a>
+	<p class="titulo">Busca por:</p>
+	<input type="text" id="txtCampoBuscaDicionarioFinanceiro" onkeydown="TeclaEspecial(event);" class="campoBuscaDic" maxlength="90" />
+	<div id="resAutoCompletar"></div>
+	<div id="DicResult">					
+		<div class="container">
+			<div id="painelResultadoConsultaVerbete" class="interna"></div>
+		</div>
+		<p><a href="http://www.edicoeseletronicas.com.br/" target="_blank">Copyright © Edições Eletrônicas</a></p>
+	</div>
+</div>
+							
+						</div>
+						
+					</div>
+					</noindex>
+                    <div id="conteudo" class="conteudo">
+                            
+  
+<h1>Horários de Negociação no Mercado de Ações (Mercado de Bolsa)</h1>
+  <p>Conheça os horários de negociação no mercado de ações da BM&amp;FBOVESPA.</p>
+  
+  <div class="tabela">
+
+  <table>
+  <thead>
+  <tr>
+    <th rowspan="3">Mercado<sup>2</sup></th>
+    <th colspan="2" rowspan="3">Cancelamento de Ofertas</th>
+    <th colspan="2" rowspan="3">Pré-Abertura</th>
+    <th colspan="2" rowspan="3">Negociação</th>
+    <th colspan="4">Exercício de Opções</th>
+    <th colspan="2" rowspan="3">Call de Fechamento</th>
+    <th colspan="4">After-Market</th>
+  </tr>
+  <tr>
+    <td colspan="2" class="borderTop borderLeft">Antes do vencimento</td>
+    <td colspan="2" class="borderTop">No vencimento</td>
+    <td colspan="2" rowspan="2" class="borderTop">Cancelamento de Ofertas</td>
+    <td colspan="2" rowspan="2" class="borderTop">Negociação</td>
+  </tr>
+  <tr>
+    <td class="subTituloTerceiroNivel borderTop" colspan="2">Exercício de posição titular</td>
+    <td class="subTituloTerceiroNivel borderTop" colspan="2">Exercício de posição titular</td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td class="tdDestaque borderRightDest" align="center"></td>
+    <td class="tdDestaque borderRightDest" align="center">Início </td>
+    <td class="tdDestaque borderRightDest" align="center">Fim </td>
+    <td class="tdDestaque borderRightDest" align="center">Início </td>
+    <td class="tdDestaque borderRightDest" align="center">Fim </td>
+    <td class="tdDestaque borderRightDest" align="center">Início </td>
+    <td class="tdDestaque borderRightDest" align="center">Fim </td>
+    <td class="tdDestaque borderRightDest" align="center">Início </td>
+    <td class="tdDestaque borderRightDest" align="center">Fim </td>
+    <td class="tdDestaque borderRightDest" align="center">Início </td>
+    <td class="tdDestaque borderRightDest" align="center">Fim </td>
+    <td class="tdDestaque borderRightDest" align="center">Início </td>
+    <td class="tdDestaque borderRightDest" align="center">Fim </td>
+    <td class="tdDestaque borderRightDest" align="center">Início </td>
+    <td class="tdDestaque borderRightDest" align="center">Fim </td>
+    <td class="tdDestaque borderRightDest" align="center">Início </td>
+    <td class="tdDestaque" align="center">Fim </td>
+  </tr>
+  <tr>
+    <td>Mercado a vista</td>
+    <td>09:30</td>
+    <td>09:45</td>
+    <td>09:45</td>
+    <td>10:00</td>
+    <td>10:00</td>
+    <td>16:55</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>16:55</td>
+    <td>17:00</td>
+    <td>17:25</td>
+    <td>17:30</td>
+    <td>17:30</td>
+    <td>18:00</td>
+  </tr>
+  <tr>
+    <td>Fracionário </td>
+    <td>09:30</td>
+    <td>09:45</td>
+    <td>09:45</td>
+    <td>10:00</td>
+    <td>10:00</td>
+    <td>16:55</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>16:55</td>
+    <td>17:00</td>
+    <td>17:25</td>
+    <td>17:30</td>
+    <td>17:30</td>
+    <td>18:00</td>
+  </tr>
+  <tr>
+    <td>Mercado a termo</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>10:00</td>
+    <td>17:20</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>Mercado de opções</td>
+    <td>09:30</td>
+    <td>09:45</td>
+    <td>09:45</td>
+    <td>10:00</td>
+    <td>10:00</td>
+    <td>16:55</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>BOVESPA Mais – Mercado a vista</td>
+    <td>09:30</td>
+    <td>09:45</td>
+    <td>09:45</td>
+    <td>10:00</td>
+    <td>10:00</td>
+    <td>16:55</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>16:55</td>
+    <td>17:00</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>BOVESPA Mais – Fracionário</td>
+    <td>09:30</td>
+    <td>09:45</td>
+    <td>09:45</td>
+    <td>10:00</td>
+    <td>10:00</td>
+    <td>16:55</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>16:55</td>
+    <td>17:00</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>Opções sobre Ações e ETFs</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>10:00</td>
+    <td>16:00</td>
+    <td>10:00</td>
+    <td>13:00</td>
+    <td>16:55</td>
+    <td>17:15</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>Opções sobre índice de ações </td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>10:00</td>
+    <td>13:00</td>
+    <td>17:00<sup>1</sup></td>
+    <td>-</td>
+    <td>16:50</td>
+    <td>17:15</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+  </tr>
+  </tbody>
+</table>
+</div>
+
+
+<div class="obs">
+<!--sup>1</sup>O período de call de fechamento para ETFs é estendido por 2 minutos a partir do encerramento do último call de ação. 
+<br /-->
+<sup>1</sup>Exercício automático após 17h00 sempre que: 
+<br />
+(i) para opção de compra, o índice de liquidação for superior ao preço de exercício; e (ii) para opção de venda, o índice de liquidação for inferior ao preço de exercício. 
+<br />
+<sup>2</sup>Correções de operações: podem ser efetuadas, em todos dos mercados e fases de negociação, até 19h00. 
+<!--br />
+<sup>4</sup>Apenas ativos integrantes de carteiras de índices da Bolsa, ETFs e outros ativos, a critério da Bolsa. 
+<br /><sup>5</sup>Apenas ativos integrantes do IBOVESPA e/ou do IBrX-100. 
+<br /><sup>6</sup>Apenas opções sobre o IBrX-100.--> 
+</div>
+
+                        
+                    </div>
+                    <fieldset class="agrupadorBotoesNavegacao">
+                        <input type="submit" name="ctl00$botaoNavegacaoVoltar" value="Voltar" onclick="history.back(); return false;" id="ctl00_botaoNavegacaoVoltar" class="botaoNavegacaoVoltar" />
+                    </fieldset>
+                </div>
+            </div>
+            
+            
+            
+            
+<style type="text/css">
+<!--
+#social {
+    width: 200px !important;
+	}
+	
+.footerGeral {
+    width: 550px !important;
+}
+-->
+</style>
+
+
+<div id="cleaner"> </div>
+<div class="rodapeContainer PTBR">
+  <div class="ColunasRodape">
+    <div id="Left">
+      <div id="LeftDentro">
+        <div class="logoCEI"> </div>
+        <div class="loginCEIOrdemAlfabetica comboCEIOrdemAlfabetica" onclik="javascript:CarregarAgenteCorretora();"> <strong>Acesse sua conta. Escolha:</strong><br />
+          <select name="cboAgentesCorretorasNome" id="cboAgentesCorretorasNome" onchange="SelecionarCombo(this);" onmousedown="CarregarAgenteCorretora(0,this);">
+            <option value="#" selected="selected">Nome do agente/corretora</option>
+          </select>
+        </div>
+        <div class="loginCEI comboCEI" onclik="javascript:CarregarAgenteCorretora();">
+          <select name="cboAgentesCorretorasCodigo" id="cboAgentesCorretorasCodigo" onchange="SelecionarCombo(this);" onmousedown="CarregarAgenteCorretora(1,this)">
+            <option value="#" selected="selected">Número do agente/corretora</option>
+          </select>
+        </div>
+        <div class="linksCEI"> <a class="itemBullet" href="/pt-br/intros/intro-canal-eletronico-do-investidor.aspx" onclick="dcsMultiTrack('WT.ac','Home Rodapé CEI O que é o CEI?');" title="O que é o CEI?">O que é o CEI?</a> <a class="divisor" href="/pt-br/intros/intro-canal-eletronico-do-investidor.aspx?aba=tabItem1#abaSenha" onclick="dcsMultiTrack('WT.ac','Home Rodapé CEI Esqueci minha senha');" title="Esqueci minha senha">Esqueci minha senha</a> </div>
+      </div>
+    </div>
+    <div id="Right">
+      <div id="coluna1"> <span>Sobre o Mercado:</span>
+        <ul>
+          <li><a href="/pt-br/intros/intro-horarios-de-negociacao.aspx" onclick="dcsMultiTrack('WT.ac','Home Rodapé Sobre o Mercado Horários de negociação');" title="Horários de negociação">Horários de negociação</a></li>
+          <li><a href="/pt-br/regulacao/calendario-do-mercado/calendario-do-mercado.aspx" onclick="dcsMultiTrack('WT.ac','Home Rodapé Sobre o Mercado Calendário do mercado');" title="Calendário do mercado">Calendário do mercado</a></li>
+          <li><a href="/shared/iframe.aspx?altura=3000&amp;idioma=pt-br&amp;url=www.bmf.com.br/bmfbovespa/pages/boletim1/bd_manual/calendarioMercadosFinanceiros1.asp" onclick="dcsMultiTrack('WT.ac','Home Rodapé Sobre o Mercado Calendário de vencimentos');" title="Calendário de vencimentos">Calendário de vencimentos</a></li>
+          <li><a href="/shared/iframe.aspx?altura=400&idioma=pt-br&url=http://www.bmfbovespa.com.br/pt-br/mercados/acoes/cotacoes/boletim-diario/BoletimDiario.asp" onclick="dcsMultiTrack('WT.ac','Home Rodapé Sobre o Mercado Boletim Diário');" title="Boletim Diário (BD)">Boletim Diário (BD)</a></li>
+          <li><a href="/pt-br/regulacao/custos-e-tributos/tributacao/tributacao.aspx" onclick="dcsMultiTrack('WT.ac','Home Rodapé Sobre o Mercado Tributação dos investimentos');" title="Tributação dos investimentos">Tributação dos investimentos</a></li>
+          <li><a href="/indices/BuscarIndices.aspx" onclick="dcsMultiTrack('WT.ac','Home Rodapé Sobre o Mercado Índices');" title="Tributação dos investimentos">Índices</a></li>
+        </ul>
+        <p>&nbsp;</p>
+        <span>TRABALHE NA BOLSA:</span>
+        <ul>
+          <li><a href="/pt-br/a-bmfbovespa/trabalhe-conosco/trabalhe-conosco.aspx" onclick="dcsMultiTrack('WT.ac','Home Rodapé Trabalhe na Bolsa Cadastre o seu currículo');" title="Trabalhe na Bolsa">Cadastre o seu currículo</a></li>
+        </ul>
+      </div>
+      <div id="coluna2"> <span>Para empresas:</span>
+        <ul>
+          <li><a href="http://www.bmfbovespa.com.br/pt-br/servicos/solucoes-para-empresas/abertura-de-capital/como-abrir-o-capital.aspx?Idioma=pt-br" onclick="dcsMultiTrack('WT.ac','Home Rodapé Para Empresas Como abrir capital?');" title="Como abrir capital?" target="_blank">Como abrir capital?</a></li>
+          <li><a href="/pt-br/servicos/solucoes-para-empresas/desenvolvimento-empresarial/instituto-educacional.aspx" onclick="dcsMultiTrack('WT.ac','Home Rodapé Para Empresas Cursos de formação e treinamentos');" title="Cursos de formação e treinamentos" target="_blank">Cursos de formação e treinamentos</a></li>
+        </ul>
+        <!--p>&nbsp;</p>
+        <span>Sobre o site:</span>
+        <ul>
+          <li><a href="/pt-br/MapaSite.aspx" onclick="dcsMultiTrack('WT.ac','Home Rodapé Sobre o site Mapa do site');" title="Mapa do site">Mapa do site</a></li>
+          <li><a href="/pt-br/termos-e-condicoes-de-uso.aspx" onclick="dcsMultiTrack('WT.ac','Home Rodapé Sobre o site Termos e condições de uso');" title="Termos e condições de uso">Termos e condições de uso</a></li>
+        </ul-->
+      </div>
+      <div id="coluna3"> <span>Informações para:</span>
+        <ul>
+          <li><a href="http://www.bmfbovespa.com.br/imprensa" onclick="dcsMultiTrack('WT.ac','Home Rodapé Informações para Jornalistas');" title="Jornalistas (Sala de Imprensa)">Jornalistas (Sala de Imprensa)</a></li>
+          <li><a href="/pt-br/navegue-por-perfil/profissionais-do-mercado.aspx" onclick="dcsMultiTrack('WT.ac','Home Rodapé Informações para Profissionais do Mercado');" title="Profissionais do Mercado">Profissionais do Mercado</a></li>
+          <li><a href="/pt-br/servicos/solucoes-para-empresas/solucoes-para-empresas.aspx" onclick="dcsMultiTrack('WT.ac','Home Rodapé Informações para Empresas');" title="Empresas">Empresas</a></li>
+        </ul>
+        <p>&nbsp;</p>
+        <span>RI:</span>
+        <ul>
+          <li><a href="http://ri.bmfbovespa.com.br" onclick="dcsMultiTrack('WT.ac','Home Rodapé RI Relações com Investidores');" title="Relações com Investidores" target="_blank">Relações com Investidores</a></li>
+        </ul>
+        <p>&nbsp;</p>
+        <ul class="partnership">
+          <span>Parceiro:</span>
+          <li><a href="/pt-br/a-bmfbovespa/parceria-estrategica-cmegroup/parceria-estrategica-cmegroup.aspx" onclick="dcsMultiTrack('WT.ac','Home Rodapé Parceiro Logo CME Group');" title="Parceiro: CMEGroup" target="_self"><img src="/img/imgLogoCMEGroup_2011.gif" border="0" alt="CMEGroup" /></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="rodapeTVBookmarks">
+
+<div class="footerGeral">
+    <ul>
+      <li><a href="/pt-br/MapaSite.aspx" onclick="dcsMultiTrack('WT.ac','Home Rodapé Sobre o site Mapa do site');" title="Mapa do site">Mapa do site</a> &nbsp;|</li>
+      <li><a href="/pt-br/termos-e-condicoes-de-uso.aspx" onclick="dcsMultiTrack('WT.ac','Home Rodapé Sobre o site Termos e condições de uso');" title="Termos e condições de uso">Termos e condições de uso</a></li>
+    </ul>
+  </div>
+
+
+  <div id="social">
+    <ul>
+      <li><a href="http://www.facebook.com/pages/BMFBOVESPA-A-Nova-Bolsa/180911050859?ref=3Dnf" id="facebook" onclick="dcsMultiTrack('WT.ac','Home Rodapé Redes Sociais Facebook');" title="Facebook" target="_blank"><span>Facebook</span></a></li>
+      <li><a href="https://twitter.com/bmfbovespa" id="twitter" onclick="dcsMultiTrack('WT.ac','Home Rodapé Redes Sociais Twitter');" title="Twitter" target="_blank"><span>Twitter</span></a></li>
+      <li><a href="http://www.linkedin.com/company/bm&fbovespa" id="linkedin" onclick="dcsMultiTrack('WT.ac','Home Rodapé Redes Sociais Linkedin');" title="Linkedin" target="_blank"><span>Linkedin</span></a></li>
+      <li><a href="http://www.youtube.com/user/bmfbovespa" id="youtube" onclick="dcsMultiTrack('WT.ac','Home Rodapé Redes Sociais Youtube');" title="Youtube" target="_blank"><span>Youtube</span></a></li>
+      <li><a href="https://pt.foursquare.com/info_bmfbovespa" id="foursquare" onclick="dcsMultiTrack('WT.ac','Home Rodapé Redes Sociais Foursquare');" title="Foursquare" target="_blank"><span>Foursquare</span></a></li>
+    </ul>
+  </div>
+</div>
+
+        </form>
+    </div>
+    
+<!-- START OF SmartSource Data Collector TAG -->
+<!-- Copyright (c) 1996-2010 WebTrends Inc.  All rights reserved. -->
+<!-- Version: 8.6.2 -->
+<!-- Tag Builder Version: 3.0  -->
+<!-- Created: 3/30/2010 4:35:15 PM -->
+<script src="/shared/js/webtrends.js" type="text/javascript"></script>
+<!-- ----------------------------------------------------------------------------------- -->
+<!-- Warning: The two script blocks below must remain inline. Moving them to an external -->
+<!-- JavaScript include file can cause serious problems with cross-domain tracking.      -->
+<!-- ----------------------------------------------------------------------------------- -->
+<script type="text/javascript">
+//<![CDATA[
+var _tag=new WebTrends();
+_tag.dcsGetId();
+//]]>>
+</script>
+<script type="text/javascript">
+//<![CDATA[
+// Add custom parameters here.
+//_tag.DCSext.param_name=param_value;
+_tag.dcsCollect();
+//]]>>
+</script>
+<noscript>
+<div><img alt="DCSIMG" id="DCSIMG" width="1" height="1" src="http://sdcbov.bovespa.com.br/dcs7cxucm10000g0rpvv97ynr_2s8b/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=8.6.2"/></div>
+</noscript>
+<!-- END OF SmartSource Data Collector TAG -->
+</body>
+</html>

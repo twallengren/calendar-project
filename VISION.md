@@ -35,7 +35,7 @@ Real gaps, not modesty:
 **Earlier implementation** added LSE, Deutsche Börse (Xetra), TSX, the four Euronext cash markets, JPX and HKEX, taking the source dataset to eleven market calendars. The local candidate adds TASE plus three payment calendars. Priority areas going forward:
 
 - **Remaining major global exchanges** — BSE/NSE (ASX, SGX, KRX, JSE and TWSE joined the source tree in October 2026, each verified from the exchange's own calendars and notices, and ASX, SGX and TWSE against the exchange's own trading-day records)
-- **Regional and emerging markets** — B3, BMV
+- **Regional and emerging markets** — BMV (B3 joined the source tree in October 2026)
 - **Non-exchange business calendars** — banking holidays, settlement calendars, government calendars
 
 Each new market validates and stress-tests the composition model — this round produced the `displaces` observance-priority primitive and `EARLY_CLOSE` shifting directly from trying to model GB-LSE and CA-TSX honestly instead of special-casing them. Markets with unusual rules (e.g., lunar-calendar-driven closures, ad-hoc government declarations) are still especially valuable for surfacing gaps in the spec — HKEX's Christmas-on-Sunday case (still an `explicit_dates` entry; see *Known limitations* above) is the next one waiting for a general solution.

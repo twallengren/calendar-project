@@ -1,0 +1,8 @@
+source,side,date,type,close_time,reason
+# Known differences between our BR-B3 data and the reference datasets. exchange_calendars'
+# BVMF calendar reproduces the exchange's calendars exactly 2010-2027 (no rows below). QuantLib's
+# Brazil(Exchange) calendar lacks the 2014 World Cup opening-day closure and still closes on the
+# two Sao Paulo holidays of 2020 on which the exchange traded.
+quantlib-brazil-exchange,ours,2014-06-12,CLOSED,,FIFA World Cup opening match in Sao Paulo declared a municipal holiday; the exchange's 2014 calendar: "Não haverá negociação nos mercados do segmento BOVESPA e de derivativos do segmento BM&F" (bmfbovespa-calendar-2014); the official monthly session count for June 2014 (19) confirms it
+quantlib-brazil-exchange,theirs,2020-07-09,CLOSED,,The state moved its 2020 holiday to 25 May and the exchange traded on 9 July 2020 (b3-oc-072-2020: "as atividades de negociação ... funcionarão normalmente")
+quantlib-brazil-exchange,theirs,2020-11-20,CLOSED,,The exchange traded on 20 November 2020 (b3-oc-072-2020); the day was a Sao Paulo municipal holiday the exchange had stopped observing that year and became a national holiday only from 2024

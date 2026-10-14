@@ -237,6 +237,18 @@ class GoldenTests {
   // Dec 24 early close.
 
   @Test
+  void brB32026() throws IOException {
+    productionCalendarRunner.assertCsvGoldenMatch("BR-B3", 2026);
+  }
+
+  @Test
+  void brB32014() throws IOException {
+    // the World Cup opening-day closure, the Sao Paulo state and municipal holidays the exchange
+    // still observed, Carnival, Corpus Christi, Christmas Eve and the 31 December closure
+    productionCalendarRunner.assertCsvGoldenMatch("BR-B3", 2014);
+  }
+
+  @Test
   void twTwse2026() throws IOException {
     productionCalendarRunner.assertCsvGoldenMatch("TW-TWSE", 2026);
   }

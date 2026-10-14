@@ -1,0 +1,952 @@
+{
+  "schema_version": "1.0",
+  "entries": [
+    {
+      "id": "b3-calendars",
+      "title": "The exchange's annual holiday calendars 2010-2026 (BM&FBOVESPA 'Calendário do Mercado' pages and news 2010-2016; Ofícios Circulares 111/2016-DP, 021/2017-DO, 049/2018-VOP, 003/2020-VOP, the 2021-2026 calendar page, CE 109/2021-VNC, OC 151/2022-PRE, 182/2023-PRE, 166/2023-PRE, 048/2024-PRE, 085/2024-PRE, 026/2025-PRE, 054/2025-VNC, 041/2026-VNC)",
+      "publisher": "B3 S.A. - Brasil, Bolsa, Balcão (BM&FBOVESPA until 2017)",
+      "location": "https://www.b3.com.br/pt_br/solucoes/plataformas/puma-trading-system/para-participantes-e-traders/calendario-de-negociacao/feriados/",
+      "retrieved": "2026-10-14",
+      "covers": "2010-01-01 to 2026-12-31",
+      "notes": "The exchange's own list of non-trading days for every year 2010-2026 (\"não haverá negociação nos mercados de renda variável, de derivativos e de renda fixa privada\"), including the São Paulo holidays it observed through 2021, the Christmas Eve and last-business-day closures, and the Ash Wednesday 13:00 late open each year. The generated calendar reproduces every listed weekday and nothing else. Archived copies: the Internet Archive captures are recorded in sources/BR-B3/manifest.csv.",
+      "local_files": [
+        {
+          "path": "BR-B3/bmfbovespa-feriados-es-2010.html",
+          "sha256": "50d6c34f1c03ea56dbe082b180dd192583ac3a0d596899965168944f7e7ea2d7"
+        },
+        {
+          "path": "BR-B3/bmfbovespa-news-calendar-2011.html",
+          "sha256": "15ef6b0d1a170938f2a068021595ca92e96e76426770b55823f908de9cc1e671"
+        },
+        {
+          "path": "BR-B3/bmfbovespa-calendar-page-2011.html",
+          "sha256": "47ca33b8358df1403c24d023ca1400d833aaf3493a0a520ca6aaf4562b45ac31"
+        },
+        {
+          "path": "BR-B3/bmfbovespa-news-calendar-2012.html",
+          "sha256": "ea57acfdac300b222d3dee92480378d237ede62c2ffd1f5fa02b3992941d812c"
+        },
+        {
+          "path": "BR-B3/bmfbovespa-calendar-page-2012.html",
+          "sha256": "2e63a824f648885edd723921879f4c6091016c90a7890a2f2feeec9d5b527e62"
+        },
+        {
+          "path": "BR-B3/bmfbovespa-calendar-page-2013.html",
+          "sha256": "d0f40bace1090cb01b2da0587d97e93846e44959409465a935ebb2c6342f1a84"
+        },
+        {
+          "path": "BR-B3/bmfbovespa-calendar-page-2014.html",
+          "sha256": "8a38246bd2a6c23a93fb782f29c3b7707d70b223afd444e9fd5e14a82e2f1aec"
+        },
+        {
+          "path": "BR-B3/bmfbovespa-calendar-page-2015.html",
+          "sha256": "5d339ca8d11887e802a082e4306e21138c4b52e2f0abca6d62e64245ad3cc411"
+        },
+        {
+          "path": "BR-B3/bmfbovespa-calendar-page-2016.html",
+          "sha256": "9952a202026eafb9a0ecfacf715139b0cef8e11aa852d3a158f56e7ab00f90aa"
+        },
+        {
+          "path": "BR-B3/b3-oc-111-2016-calendar-2017.pdf",
+          "sha256": "005c1b551910dfbc46d116900283d84d02f360c766c0192d8123d29b47f3fa6a"
+        },
+        {
+          "path": "BR-B3/b3-oc-021-2017-calendar-2018.pdf",
+          "sha256": "ff7547e488453f9e554b2cf4698b1b23d4b477ed561c09c3e066d4dac6bac2ab"
+        },
+        {
+          "path": "BR-B3/b3-oc-049-2018-calendar-2019.pdf",
+          "sha256": "fd69886d62a77978f67ee7541f4bd8e9aee08a05b05893783fde8565c048ccff"
+        },
+        {
+          "path": "BR-B3/b3-oc-003-2020-calendar-2020.pdf",
+          "sha256": "e4e84f2b1b9e1f8b8cbffefd7c77425ec67532e567525fec58a2aad040416aa3"
+        },
+        {
+          "path": "BR-B3/b3-feriados-page.html",
+          "sha256": "98e13e3be4871c44c91a37a7a6c2d134452e8da12e72454d2148beb5a13bc584"
+        },
+        {
+          "path": "BR-B3/b3-ce-109-2021-calendar-2022.pdf",
+          "sha256": "3267a3ce6d56c6570674252e4bb344e9929213406f9fb5c51e60727bd78af658"
+        },
+        {
+          "path": "BR-B3/b3-oc-151-2022-calendar-2023.pdf",
+          "sha256": "c88b9481dab15aecc30bb388c1b8ee28680843452a87b1f952e55407979d4d0e"
+        },
+        {
+          "path": "BR-B3/b3-oc-182-2023-calendar-2023.pdf",
+          "sha256": "2417111b18bf000deaee66078cdf90f23d9181fb61583dc24d37456d9b9a046d"
+        },
+        {
+          "path": "BR-B3/b3-oc-166-2023-calendar-2024.pdf",
+          "sha256": "e6dfdd71859f8bb2cd6a8d3e031bba3f2c9522aae598d07c0054d8bf64af2476"
+        },
+        {
+          "path": "BR-B3/b3-oc-048-2024.pdf",
+          "sha256": "e09703439c030b51a40dc4f547c045dbc8ec5a303c9b28d5c38774c400dd19d8"
+        },
+        {
+          "path": "BR-B3/b3-oc-085-2024.pdf",
+          "sha256": "cf616743bff845edd8697bc993c4a1bd08058496c400869e6944cda9424fdbaa"
+        },
+        {
+          "path": "BR-B3/b3-oc-026-2025-calendar-2025.pdf",
+          "sha256": "e09743fe2f9834c44e420bcb715015ccb21fc1365a960c0487b2d3b9c60a42af"
+        },
+        {
+          "path": "BR-B3/b3-oc-054-2025-calendar-2026.pdf",
+          "sha256": "4ba01ad1dafc8caa2def925e006e5d7631e8fc7906f33334265e0a9889a2d44a"
+        },
+        {
+          "path": "BR-B3/b3-oc-041-2026-errata-2026.pdf",
+          "sha256": "82d42d34a3d856db380581be9b239b79475daf6530f5fe66ae9643013ac34958"
+        },
+        {
+          "path": "BR-B3/b3-news-2026-01-09-calendar.html",
+          "sha256": "fc4ed977f7b758de09ff443cdeaa3361e2a7341274f2b8c282938289f5ae65f9"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2010-01-01",
+          "to": "2026-12-31"
+        },
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2010-01-01",
+          "to": "2026-12-31"
+        }
+      ]
+    },
+    {
+      "id": "bmfbovespa-calendar-2014",
+      "title": "BM&FBOVESPA Calendário do Mercado 2014, mid-year snapshots (24 June and 13 July 2014) with the World Cup entries",
+      "publisher": "B3 S.A. - Brasil, Bolsa, Balcão (BM&FBOVESPA until 2017)",
+      "location": "http://www.bmfbovespa.com.br/pt-br/regulacao/calendario-do-mercado/calendario-do-mercado.aspx?idioma=pt-br",
+      "retrieved": "2026-10-14",
+      "covers": "2014-01-01 to 2014-12-31",
+      "notes": "\"Abertura da Copa do Mundo (feriado municipal)\": 12 June 2014 \"Não haverá negociação nos mercados do segmento BOVESPA e de derivativos do segmento BM&F\"; 17 and 23 June, 4 and 8 July 2014 under the special hours of OC 037/2014-DP. Archived copies: the Internet Archive captures are recorded in sources/BR-B3/manifest.csv.",
+      "local_files": [
+        {
+          "path": "BR-B3/bmfbovespa-calendar-page-2014-june.html",
+          "sha256": "d212013a5e31ed1d1cf4b1294dc83de04e464cd36f87ef8d6cac7eafdd1ed73a"
+        },
+        {
+          "path": "BR-B3/bmfbovespa-calendar-page-2014-july.html",
+          "sha256": "1f9dedd5ff85b9f4413d9249828994267b1122f3f06f107845f302c867fa8e8e"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2014-01-01",
+          "to": "2014-12-31"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2014-06-12",
+          "to": "2014-06-12"
+        }
+      ]
+    },
+    {
+      "id": "bmfbovespa-numero-mensal-de-pregoes",
+      "title": "BM&FBOVESPA 'Número de Pregões Mensal' (monthly session counts since 1964; snapshots of 1 May 2014 and 23 November 2015)",
+      "publisher": "B3 S.A. - Brasil, Bolsa, Balcão (BM&FBOVESPA until 2017)",
+      "location": "http://www.bmfbovespa.com.br/pt-br/regulacao/calendario-do-mercado/download/Numero-Mensal-de-Pregoes.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2010-01-01 to 2015-12-31",
+      "notes": "The exchange's official number of trading sessions per month; all 72 months 2010-2015 equal the modelled calendar (annual totals 247, 249, 246, 248, 248, 246). Archived copies: the Internet Archive captures are recorded in sources/BR-B3/manifest.csv.",
+      "local_files": [
+        {
+          "path": "BR-B3/bmfbovespa-numero-mensal-de-pregoes-2014.pdf",
+          "sha256": "16a57c80899842cf938df93e78d44d032db5d59709b3147d109f2cbe1ecf14fd"
+        },
+        {
+          "path": "BR-B3/bmfbovespa-numero-mensal-de-pregoes-2015.pdf",
+          "sha256": "8f233a07024c57d119a450a7d4bf259ac2591809df167926ec60b42a6c003aef"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2010-01-01",
+          "to": "2015-12-31"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2010-01-01",
+          "to": "2015-12-31"
+        }
+      ]
+    },
+    {
+      "id": "b3-oc-072-2020",
+      "title": "OC 072/2020-PRE (8 June 2020): funcionamento da B3 em 11/06, 09/07 e 20/11/2020",
+      "publisher": "B3 S.A. - Brasil, Bolsa, Balcão (BM&FBOVESPA until 2017)",
+      "location": "https://www.b3.com.br/data/files/0B/D3/7F/D1/83592710547B5127AC094EA8/OC%20072-2020%20PRE%20%20Funcionamento%20da%20B3%20em%2011_06%2009_07%20e%2020_11.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2020-06-11, 2020-07-09, 2020-11-20",
+      "notes": "Corpus Christi 11 June 2020 kept closed; \"09/07/20: as atividades de negociação, liquidação, registro e depósito centralizado de ativos funcionarão normalmente\" and likewise 20 November 2020.",
+      "local_files": [
+        {
+          "path": "BR-B3/b3-oc-072-2020.pdf",
+          "sha256": "640613790022f51ee2c4b4cb00d911076eecca491e6405f9e801bf9b21698058"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2020-06-11",
+          "to": "2020-11-20"
+        }
+      ]
+    },
+    {
+      "id": "b3-oc-068-2020",
+      "title": "OC 068/2020-PRE (19 May 2020): funcionamento da B3 em 20-25/05/2020",
+      "publisher": "B3 S.A. - Brasil, Bolsa, Balcão (BM&FBOVESPA until 2017)",
+      "location": "https://www.b3.com.br/data/files/B7/95/7D/9E/20E22710547B5127AC094EA8/OC%20068-2020%20PRE%20-funcionamentoB3_19_05.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2020-05-20 to 2020-05-25",
+      "notes": "The exchange stayed open during São Paulo's anticipated holidays of 20-25 May 2020.",
+      "local_files": [
+        {
+          "path": "BR-B3/b3-oc-068-2020.pdf",
+          "sha256": "da09df4c2099a6d4706cd9dbede1208fb2f664cbf5fbf7517374312a8808bcd7"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2020-05-20",
+          "to": "2020-05-25"
+        }
+      ]
+    },
+    {
+      "id": "b3-ce-001-2021",
+      "title": "CE 001/2021-VPF (23 March 2021): antecipação de feriados municipais",
+      "publisher": "B3 S.A. - Brasil, Bolsa, Balcão (BM&FBOVESPA until 2017)",
+      "location": "https://www.b3.com.br/data/files/09/72/54/BA/6B068710240ED387AC094EA8/CE%20001-2021-VPF%20Antecipa%C3%A7%C3%A3o%20Feriados_REVISADO_TIME%20DE%20OFICIOS.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2021-03-26 to 2021-04-01",
+      "notes": "The exchange stayed open during São Paulo's anticipated holidays of 26 March-1 April 2021 (citing OC 018/2021-PRE).",
+      "local_files": [
+        {
+          "path": "BR-B3/b3-ce-001-2021.pdf",
+          "sha256": "a863d44da87132401ad46a99cde9d007c8bef35b99b33fba96d4d0e00cbd9f7e"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2021-03-26",
+          "to": "2021-04-01"
+        }
+      ]
+    },
+    {
+      "id": "b3-oc-215-2023",
+      "title": "OC 215/2023-PRE (22 December 2023): Calendário de Feriados 2024 - Feriado 20.11",
+      "publisher": "B3 S.A. - Brasil, Bolsa, Balcão (BM&FBOVESPA until 2017)",
+      "location": "https://www.b3.com.br/data/files/39/05/97/98/A339C8103152D4C8AC094EA8/OC%20215-2023%20PRE%20Calendario%20de%20Feriados%202024%20-%20Feriado%2020.11(PT).pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2024-11-20",
+      "notes": "\"em virtude da Lei 14.759/2023\": 20 November 2024 moved into the national-holiday table (closed).",
+      "local_files": [
+        {
+          "path": "BR-B3/b3-oc-215-2023-calendar-2024-20nov.pdf",
+          "sha256": "a9d091f0b1bbc8738f0773a9b91d6429e0c6abcaf6d3b823497ab75c73e1fd48"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2024-11-20",
+          "to": "2024-11-20"
+        }
+      ]
+    },
+    {
+      "id": "b3-news-2025-11-17",
+      "title": "B3 news (17 November 2025): funcionamento no feriado nacional de Zumbi e Consciência Negra",
+      "publisher": "B3 S.A. - Brasil, Bolsa, Balcão (BM&FBOVESPA until 2017)",
+      "location": "https://www.b3.com.br/pt_br/noticias/veja-como-sera-o-funcionamento-da-b3-no-feriado-nacional-de-zumbi-e-consciencia-negra.htm",
+      "retrieved": "2026-10-14",
+      "covers": "2025-11-20",
+      "notes": "\"a B3 não terá operação e volta a funcionar normalmente na sexta-feira, 21.\"",
+      "local_files": [
+        {
+          "path": "BR-B3/b3-news-2025-11-17-20nov.html",
+          "sha256": "578f564d77a56059018b621762cf9cf8a9b884a3e8accf22c13e2d355fb2da4f"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2025-11-20",
+          "to": "2025-11-20"
+        }
+      ]
+    },
+    {
+      "id": "b3-ash-wednesday-circulars",
+      "title": "Ash Wednesday hours: BM&FBOVESPA news 21 January 2016 and OC 008/2018-PRE, 016/2019-PRE, 012/2020-PRE, 003/2021-PRE, 017/2022-PRE",
+      "publisher": "B3 S.A. - Brasil, Bolsa, Balcão (BM&FBOVESPA until 2017)",
+      "location": "https://www.b3.com.br/pt_br/solucoes/plataformas/puma-trading-system/para-participantes-e-traders/calendario-de-negociacao/feriados/",
+      "retrieved": "2026-10-14",
+      "covers": "2016-02-10 to 2022-03-02 (each Ash Wednesday)",
+      "notes": "Trading starts at 13:00 on Ash Wednesday (pre-opening 12:45-13:00, continuous 13:00 to the normal close): a late open, not a shortened close. Archived copies: the Internet Archive captures are recorded in sources/BR-B3/manifest.csv.",
+      "local_files": [
+        {
+          "path": "BR-B3/bmfbovespa-ash-wednesday-news-2016-01-21.html",
+          "sha256": "05b8b65b8f4e11f66df1e1e738377eac5b3bb22b38d2962e3bda7183ade974a3"
+        },
+        {
+          "path": "BR-B3/b3-oc-008-2018-ash-wednesday.pdf",
+          "sha256": "0d83194dae89bb691128adeb0bae256378161271505209c37ae58e9781b9024c"
+        },
+        {
+          "path": "BR-B3/b3-oc-016-2019-ash-wednesday.pdf",
+          "sha256": "d8ef5673c5e1a6d522361ad6772bc560e9146689c5f09565f855be7bcdee1d37"
+        },
+        {
+          "path": "BR-B3/b3-oc-012-2020-ash-wednesday.pdf",
+          "sha256": "0ee4f3b06b885e6c7ac047cf8d0aff22a0ca3370b273b14bf5a5528fb2e34d45"
+        },
+        {
+          "path": "BR-B3/b3-oc-003-2021-ash-wednesday.pdf",
+          "sha256": "3f4c1d42fe0a138a5a0c83de11e558d3f6e4a1b1305d6aaaced82c0530a46a17"
+        },
+        {
+          "path": "BR-B3/b3-oc-017-2022-ash-wednesday.pdf",
+          "sha256": "bba9cfb48683896b754b7a714390adf3bedf55df2c72ed1b9bdbafa3922d0f88"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "b3-hours-circulars",
+      "title": "Trading-hours circulars 2020-2026 (OC 094/2020-PRE, 125/2021-PRE, 020/2022-PRE, 022/2023-PRE, 027/2023-PRE, 132/2024-PRE, 014/2025-PRE, 040/2025-VNC, 043/2025-VNC, 005/2026-PRE)",
+      "publisher": "B3 S.A. - Brasil, Bolsa, Balcão (BM&FBOVESPA until 2017)",
+      "location": "https://www.b3.com.br/pt_br/regulacao/estrutura-normativa/oficios-circulares/",
+      "retrieved": "2026-10-14",
+      "covers": "2020-11-03 onward",
+      "notes": "The regular session: 10:00 to 17:55 with the closing call to 18:00 while New York is on standard time, 10:00 to 16:55 with the closing call to 17:00 while New York is on daylight-saving time. No shortened session on any day.",
+      "local_files": [
+        {
+          "path": "BR-B3/b3-oc-094-2020-hours.pdf",
+          "sha256": "db5b068dd799372e4a908b686abdaf9623d2da71d13992b93f73e907afc528d1"
+        },
+        {
+          "path": "BR-B3/b3-oc-125-2021-hours.pdf",
+          "sha256": "79d4be66a7bbfc240805b884fc54efaa22d5630588d48837c6dd56c8bfd94722"
+        },
+        {
+          "path": "BR-B3/b3-oc-020-2022-hours.pdf",
+          "sha256": "9db649dde85c385a7388f7ba9036666e360889ea3661e7e3674a2fcf0deb6f9b"
+        },
+        {
+          "path": "BR-B3/b3-oc-022-2023-hours.pdf",
+          "sha256": "5c12170ebdea0c29dd5857e75a31f9176cd3115d8ddf956b7b1f96879293a0b3"
+        },
+        {
+          "path": "BR-B3/b3-oc-027-2023-hours.pdf",
+          "sha256": "a9cdcb3598f4f1533d635e8ec282bb974e6e3d1c23f84b2ada3b4b1a8911f3d4"
+        },
+        {
+          "path": "BR-B3/b3-oc-132-2024-hours.pdf",
+          "sha256": "15bd49ce3b24a2b78c73556d78bbef7c9a765ddc21a80c477ba188aa4f0dbb5a"
+        },
+        {
+          "path": "BR-B3/b3-oc-014-2025-hours.pdf",
+          "sha256": "5d05de243aec12f183d3e94de2d4f29880b622a057c498bace4fad03c95fb89a"
+        },
+        {
+          "path": "BR-B3/b3-oc-040-2025-hours.pdf",
+          "sha256": "31fb69c74d7d85ae8e4bfb009d4a5d60c3da71a38af530ae8e51781168795aea"
+        },
+        {
+          "path": "BR-B3/b3-oc-043-2025-hours.pdf",
+          "sha256": "a6e7c5982fa27bb3c425eb4bd1a28a46782bc1b146b47e9500b7f53b057b1f18"
+        },
+        {
+          "path": "BR-B3/b3-oc-005-2026-hours.pdf",
+          "sha256": "807c7d5044e04067ed75e02e53a25596cd3aeb4160d3f722b87dad9bed4f63d0"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2020-11-03",
+          "to": "2026-12-31"
+        }
+      ]
+    },
+    {
+      "id": "bmfbovespa-hours-news",
+      "title": "BM&FBOVESPA trading-hours announcements 2010-2016 and archived hours pages 2013-2020",
+      "publisher": "B3 S.A. - Brasil, Bolsa, Balcão (BM&FBOVESPA until 2017)",
+      "location": "http://www.bmfbovespa.com.br/pt-br/regulacao/horarios-de-negociacao/acoes.aspx?idioma=pt-br",
+      "retrieved": "2026-10-14",
+      "covers": "2010-10-18 to 2020-11-01",
+      "notes": "The session grids by period (11:00-18:00 during Brazilian daylight saving in 2010-2011, 10:00-17:00 or 10:00-16:55 plus closing call afterwards), the 2010 World Cup statement that trading hours were unchanged, and the 2013 PUMA migration. Archived copies: the Internet Archive captures are recorded in sources/BR-B3/manifest.csv.",
+      "local_files": [
+        {
+          "path": "BR-B3/bmfbovespa-hours-news-2010-10-13.html",
+          "sha256": "d4687ac123ab52819e377295953f73815454620a6cdaa949b6735b04a1430c8c"
+        },
+        {
+          "path": "BR-B3/bmfbovespa-hours-news-2011-03-11.html",
+          "sha256": "6bb5ea03033c9e314b8ee4aea02bd79320aa3b367f1411feccf537bd9cb48e37"
+        },
+        {
+          "path": "BR-B3/bmfbovespa-hours-news-2011-10-07.html",
+          "sha256": "ed96343b9b2b78429f99e9c202ed2cbeb4d9bc634cd929cabdbcb605c3c78b44"
+        },
+        {
+          "path": "BR-B3/bmfbovespa-hours-news-2012-02-24.html",
+          "sha256": "f18a386b44548b598e67e5ef88e601c74eb7238a67a074afb8b15f10cbfafa45"
+        },
+        {
+          "path": "BR-B3/bmfbovespa-hours-news-2012-10-09.html",
+          "sha256": "74c31cacc90d9a04f3448a560b5716402734ee84fcd57c2d4edbf291b84bc7e1"
+        },
+        {
+          "path": "BR-B3/bmfbovespa-hours-news-2013-07-08.html",
+          "sha256": "9200a4562804ba215288f7a5c6eb7db2c0a60545d58efda9eb2d7436a00186ba"
+        },
+        {
+          "path": "BR-B3/bmfbovespa-hours-news-2016-03-07.html",
+          "sha256": "382c00207dff6112ea845f51984ad853a69f7d5c1d3d291dd4d36b960185ce0a"
+        },
+        {
+          "path": "BR-B3/bmfbovespa-worldcup-news-2010-06-09.html",
+          "sha256": "d5c4cd7b12669b7805270ba740676017326d5851fd5620fe84008c52083bf3da"
+        },
+        {
+          "path": "BR-B3/bmfbovespa-hours-page-2013-08-09.html",
+          "sha256": "417e0da4d50e6325639b03036af4146b386a9a4487cee03a04a2e5085a513eb9"
+        },
+        {
+          "path": "BR-B3/bmfbovespa-hours-page-2014-04-30.html",
+          "sha256": "ac3fd6d22b01716d3c96ab2609c8a3d8b1042d8df6bd4868fc7067c1bcd25b8c"
+        },
+        {
+          "path": "BR-B3/bmfbovespa-hours-page-2014-12-05.html",
+          "sha256": "f6268ce8d944c76f931715ec48af926ec9716b26b5a69d3fb1c5abbd4c2b3f8b"
+        },
+        {
+          "path": "BR-B3/bmfbovespa-hours-page-2015-03-05.html",
+          "sha256": "28d8bb6796da82f47b0069b8a9e3abdc540c39d16b2d18b8555e90192782a71e"
+        },
+        {
+          "path": "BR-B3/bmfbovespa-hours-page-2015-11-17.html",
+          "sha256": "d1a1550b4f36644da3ae9f7beb263d1c84e05f8dfbdc3c67009fcdba21c25976"
+        },
+        {
+          "path": "BR-B3/bmfbovespa-hours-page-2016-03-04.html",
+          "sha256": "6e8d05e41e404c5ac840ef54e28e3f642492101e7fa35d7166013e48adeaea9f"
+        },
+        {
+          "path": "BR-B3/b3-hours-page-2018-09-14.html",
+          "sha256": "99852d1f79d4283e48ebffc6dcfa334c37ca440884742b68105c8113d5896c28"
+        },
+        {
+          "path": "BR-B3/b3-hours-page-2018-11-17.html",
+          "sha256": "39401a77dc458234d452a7543bb59651573fb60bf8012f6a6b4073ed60ae6785"
+        },
+        {
+          "path": "BR-B3/b3-hours-page-2019-02-15.html",
+          "sha256": "c9a3e39aeed0308dc412d29737ce0a8ed07ead3b02aaa0267ca4a6b00b1600b8"
+        },
+        {
+          "path": "BR-B3/b3-hours-page-2019-03-04.html",
+          "sha256": "7a67c110fe50bad1207e0726b2b05c4461b0f39fec2301c6db0f2724158260d8"
+        },
+        {
+          "path": "BR-B3/b3-hours-page-2019-10-05.html",
+          "sha256": "0caea1ef9fde407dec2b6e1bab6bbd44a62ed8bf9bd3ba7d6b30eaf89696947e"
+        },
+        {
+          "path": "BR-B3/b3-hours-page-2019-11-20.html",
+          "sha256": "428c1301f774a0c45718d9435c8c57aaab376d1a7725c09867983a3add46934b"
+        },
+        {
+          "path": "BR-B3/b3-hours-page-2020-02-28.html",
+          "sha256": "86e94f67ee67cf8cdcd76fca3be636dd0f0abc98358b90a7f06845ee53b308b6"
+        },
+        {
+          "path": "BR-B3/b3-hours-page-2020-03-15.html",
+          "sha256": "c096376275d20c7d81cd2d0e2e825216e768070da3ae190b3eab07998068eb04"
+        },
+        {
+          "path": "BR-B3/b3-hours-page-2020-11-01.html",
+          "sha256": "ba4bca99f490e9c1ac34184579ebd406ea6fec96694663ae15780c7b0c953811"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2010-01-01",
+          "to": "2020-11-02"
+        }
+      ]
+    },
+    {
+      "id": "b3-ce-009-2020-circuit-breaker",
+      "title": "CE 009/2020-VPC (20 March 2020): esclarecimentos sobre limites de oscilação e circuit breaker, and the exchange's 'Circuit breaker' news of 18 March 2020",
+      "publisher": "B3 S.A. - Brasil, Bolsa, Balcão (BM&FBOVESPA until 2017)",
+      "location": "https://www.b3.com.br/data/files/51/A5/27/60/52AF0710CF51CE07AC094EA8/CE%20009-2020-VPC%20-%20Limite%20de%20Oscila%C3%A7%C3%A3o_REVISADO_R_2%20(003).pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2020-03-09 to 2020-03-18",
+      "notes": "The circuit-breaker rules (30 minutes at -10%, one hour at -15%, none in the last 30 minutes) and the acknowledgement that the March 2020 halts were temporary suspensions within the session.",
+      "local_files": [
+        {
+          "path": "BR-B3/b3-ce-009-2020-circuit-breaker.pdf",
+          "sha256": "8905f5e2e0648caa496e410bf08c1bab0c03b3f5efe064161c9a6d16328d1908"
+        },
+        {
+          "path": "BR-B3/b3-news-2020-03-18-circuit-breaker.html",
+          "sha256": "beac050777ee783f96b369ce1b37a66d05d12a9349dc593e9a9ea83a2393d648"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2020-03-09",
+          "to": "2020-03-18"
+        }
+      ]
+    },
+    {
+      "id": "br-lei-662-1949",
+      "title": "Lei 662/1949 (as amended by Lei 10.607/2002): national holidays",
+      "publisher": "Presidência da República, Brazil (planalto.gov.br)",
+      "location": "https://www.planalto.gov.br/ccivil_03/leis/l0662.htm",
+      "retrieved": "2026-10-14",
+      "covers": "1949 onward",
+      "notes": "\"São feriados nacionais os dias 1º de janeiro, 21 de abril, 1º de maio, 7 de setembro, 2 de novembro, 15 de novembro e 25 de dezembro.\"",
+      "local_files": [
+        {
+          "path": "BR-B3/lei-662.html",
+          "sha256": "a2787151f8b7bdb0882ec336932e01bdf8ee4ae5f861c82f6539c7d421b3470d"
+        },
+        {
+          "path": "BR-B3/lei-10607.html",
+          "sha256": "86cdd0ad863e42344f5615da3ae96c4f6c4c1f3ecbed43e9874c464a50912809"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "br-lei-6802-1980",
+      "title": "Lei 6.802/1980: 12 October a national holiday",
+      "publisher": "Presidência da República, Brazil",
+      "location": "https://www.planalto.gov.br/ccivil_03/leis/l6802.htm",
+      "retrieved": "2026-10-14",
+      "covers": "1980 onward",
+      "notes": "\"É declarado feriado nacional o dia 12 de outubro\".",
+      "local_files": [
+        {
+          "path": "BR-B3/lei-6802.html",
+          "sha256": "f19e68e372e2b286b7feb48bff75afdf55bfb184479eea2536516d94bd4e4793"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "br-lei-9093-1995",
+      "title": "Lei 9.093/1995: civil and religious holidays",
+      "publisher": "Presidência da República, Brazil",
+      "location": "https://www.planalto.gov.br/ccivil_03/leis/l9093.htm",
+      "retrieved": "2026-10-14",
+      "covers": "1995 onward",
+      "notes": "State and municipal holidays (the state's 'data magna'; up to four municipal religious holidays including Good Friday).",
+      "local_files": [
+        {
+          "path": "BR-B3/lei-9093.html",
+          "sha256": "9772e1088f7964200b843b808c1b95c06ee07781e2972330e86c2409c1b61764"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "br-lei-14759-2023",
+      "title": "Lei 14.759/2023: 20 November a national holiday",
+      "publisher": "Presidência da República, Brazil",
+      "location": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/l14759.htm",
+      "retrieved": "2026-10-14",
+      "covers": "2023-12-21 onward",
+      "notes": "\"Art. 1º Fica declarado feriado nacional o dia 20 de novembro, para a celebração do Dia Nacional de Zumbi e da Consciência Negra.\"",
+      "local_files": [
+        {
+          "path": "BR-B3/lei-14759.html",
+          "sha256": "b2e44c6140906bbd5b9ba7328723357cf47f723a6a775ea90dfe8b7a7bf447f1"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "br-lei-sp-9497-1997",
+      "title": "Lei estadual (SP) 9.497/1997: 9 July the state's 'data magna' (compiled, including Lei 17.264/2020)",
+      "publisher": "Assembleia Legislativa do Estado de São Paulo",
+      "location": "https://www.al.sp.gov.br/repositorio/legislacao/lei/1997/compilacao-lei-9497-05.03.1997.html",
+      "retrieved": "2026-10-14",
+      "covers": "1997 onward",
+      "notes": "9 July a state civil holiday; moved to 25 May for 2020 only.",
+      "local_files": [
+        {
+          "path": "BR-B3/lei-sp-9497.html",
+          "sha256": "399f8f1baa0cbcb887b3adcbc973356bb3a825db3d5bcdd1008a73b3d41f2e8d"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "br-lei-sp-13707-2004",
+      "title": "Lei municipal (São Paulo) 13.707/2004, amending Lei 7.008/1967: municipal holidays",
+      "publisher": "Câmara Municipal de São Paulo",
+      "location": "https://saopaulo.sp.leg.br/iah/fulltext/leis/L13707.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2004 onward",
+      "notes": "\"São considerados feriados no Município da Capital … os dias 25 de janeiro, 2 de novembro, 20 de novembro, sexta-feira da Semana Santa e 'Corpus Christi'.\"",
+      "local_files": [
+        {
+          "path": "BR-B3/lei-sp-13707.pdf",
+          "sha256": "8c7bb11298a926b0c307041d9520ef05d0a6ca2c481dd99a145470daf1e80e3c"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "br-portaria-mgi-11460-2025",
+      "title": "Portaria MGI 11.460/2025 (DOU 30 December 2025): federal holidays and 'pontos facultativos' for 2026",
+      "publisher": "Ministério da Gestão e da Inovação em Serviços Públicos, Brazil",
+      "location": "https://www.in.gov.br/web/dou/-/portaria-mgi-n-11.460-de-29-de-dezembro-de-2025-678388627",
+      "retrieved": "2026-10-14",
+      "covers": "2026-01-01 to 2026-12-31",
+      "notes": "Carnival (16-17 February), Ash Wednesday until 14:00, Corpus Christi (4 June), Christmas Eve and New Year's Eve after 13:00 as 'pontos facultativos'.",
+      "local_files": [
+        {
+          "path": "BR-B3/portaria-mgi-11460-2025.pdf",
+          "sha256": "c596a8c8a854dc89ecc1bbe9279b2d0c1320acd04bed657a38387bd0960ee935"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "anbima-feriados-2027",
+      "title": "ANBIMA: feriados nacionais 2027",
+      "publisher": "ANBIMA",
+      "location": "https://www.anbima.com.br/feriados/fer_nacionais/2027.asp",
+      "retrieved": "2026-10-14",
+      "covers": "2027-01-01 to 2027-12-31",
+      "notes": "The market association's 2027 national-holiday list used for the projection of 2027 (the exchange's circular not yet published).",
+      "local_files": [
+        {
+          "path": "BR-B3/anbima-feriados-2027.html",
+          "sha256": "ed16f3ce8495bb0152c459a122e3df7b0bd3bf74369647d6345a0e2e49ebacda"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "press-exame-2010-11-22",
+      "title": "Exame 22/11/2010 BM&FBovespa: Falha em no-break causou problemas no pregao",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://exame.com/invest/mercados/bm-fbovespa-falha-em-no-break-causou-problemas-no-pregao/",
+      "retrieved": "2026-10-14",
+      "covers": "2010-11-17 and 2010-11-22",
+      "notes": "Exame: the Mega Bolsa core fault of 17 November 2010 (trading continued) and the BM&F segment halt of 22 November 2010 (09:40-10:55); both intraday.",
+      "local_files": [
+        {
+          "path": "BR-B3/press-exame-2010-11-22.html",
+          "sha256": "481b3d32d6d899c7d9fb17b1c2ea44ad6d307422c7fcdf32b3c24a1d30e1b674"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2010-11-17",
+          "to": "2010-11-22"
+        }
+      ]
+    },
+    {
+      "id": "press-istoedinheiro-2017-05-18",
+      "title": "IstoE Dinheiro 18/05/2017 Bolsa cai 10% na abertura e trava negociacoes pela primeira vez desde 2008",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://istoedinheiro.com.br/bolsa-cai-10-na-abertura-e-trava-negociacoes-pela-primeira-vez-desde-2008",
+      "retrieved": "2026-10-14",
+      "covers": "2017-05-18",
+      "notes": "Circuit breaker of 18 May 2017: a 30-minute halt at the open, trading resumed about 11:00.",
+      "local_files": [
+        {
+          "path": "BR-B3/press-istoedinheiro-2017-05-18.html",
+          "sha256": "f40c23c2fcbd015f0fccc1fe0143889722da7fe5e06525b83a4c55347d92427e"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2017-05-18",
+          "to": "2017-05-18"
+        }
+      ]
+    },
+    {
+      "id": "press-moneytimes-2020-03-12",
+      "title": "Money Times 12/03/2020 B3 aciona circuit break pela terceira vez nesta semana",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://www.moneytimes.com.br/b3-aciona-circuit-break-pela-terceira-vez-nesta-semana-apos-queda-de-1165/",
+      "retrieved": "2026-10-14",
+      "covers": "2020-03-12",
+      "notes": "Third circuit breaker of the week, 12 March 2020.",
+      "local_files": [
+        {
+          "path": "BR-B3/press-moneytimes-2020-03-12.html",
+          "sha256": "af8be9ed42bd1886d9b426ef87ebbece78ed97f5febb29bcd7ee6ba5e45f7f14"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2020-03-12",
+          "to": "2020-03-12"
+        }
+      ]
+    },
+    {
+      "id": "press-moneytimes-2020-03-16",
+      "title": "Money Times 16/03/2020 Bolsa despenca 12,53% e circuit breaker e acionado novamente",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://www.moneytimes.com.br/bolsa-despenca-1253-e-circuit-breaker-e-acionado-novamente",
+      "retrieved": "2026-10-14",
+      "covers": "2020-03-16",
+      "notes": "Circuit breaker of 16 March 2020.",
+      "local_files": [
+        {
+          "path": "BR-B3/press-moneytimes-2020-03-16.html",
+          "sha256": "2b4c8a1840e392a4594d6b8599e5748ecb98086bc069a135ee9588488444a377"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2020-03-16",
+          "to": "2020-03-16"
+        }
+      ]
+    },
+    {
+      "id": "press-moneytimes-2020-03-18",
+      "title": "Money Times 18/03/2020 Ibovespa cai 10,26% e circuit breaker e acionado pela sexta vez",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://www.moneytimes.com.br/ibovespa-cai-1026-e-circuit-breaker-e-acionado-pela-sexta-vez/",
+      "retrieved": "2026-10-14",
+      "covers": "2020-03-18",
+      "notes": "Sixth circuit breaker, 18 March 2020 (13:17-13:47).",
+      "local_files": [
+        {
+          "path": "BR-B3/press-moneytimes-2020-03-18.html",
+          "sha256": "ddce38d4308385eaa16df7c88c4000dc65138be153a5aff624b568f3fc0f882e"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2020-03-18",
+          "to": "2020-03-18"
+        }
+      ]
+    },
+    {
+      "id": "press-noticiasagricolas-2020-03-12",
+      "title": "Noticias Agricolas 12/03/2020 Ibovespa entra em 2o circuit breaker, em queda de 15,43%",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://www.noticiasagricolas.com.br/noticias/politica-economia/254282-ibovespa-entra-em-2-circuit-breaker-em-queda-de-1543-aos-72-02668-pontos.amp.html",
+      "retrieved": "2026-10-14",
+      "covers": "2020-03-12",
+      "notes": "Second circuit breaker of 12 March 2020 (-15%, one hour, reopened 12:12).",
+      "local_files": [
+        {
+          "path": "BR-B3/press-noticiasagricolas-2020-03-12.html",
+          "sha256": "ce86b118c71383c18b893653baa200a27a588d5ae08e20fbc74dc694aef6e771"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2020-03-12",
+          "to": "2020-03-12"
+        }
+      ]
+    },
+    {
+      "id": "press-suno-2020-03-09",
+      "title": "Suno 09/03/2020 (upd. 2021) Circuit breaker: o que e",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://www.suno.com.br/noticias/circuit-breaker-o-que-e/amp/",
+      "retrieved": "2026-10-14",
+      "covers": "2020-03-09 to 2020-03-18",
+      "notes": "Suno's list of circuit-breaker events, including the 2020 series.",
+      "local_files": [
+        {
+          "path": "BR-B3/press-suno-2020-03-09.html",
+          "sha256": "2316d7bc0e3921d708ef5b7039d52ce3886b94c4d50f0ee6fad5659ad3c9eafe"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "press-infomoney-2026-07-31",
+      "title": "InfoMoney 31/07/2026 Sem precedentes? O que causou pane na B3 por 3 horas e meia",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://www.infomoney.com.br/mercados/sem-precedentes-mercado-repercute-b3-fora-do-ar-e-impactos-futuros-para-a-bolsa/amp/",
+      "retrieved": "2026-10-14",
+      "covers": "2026-07-31",
+      "notes": "Delayed open of 31 July 2026 after a clearing incident; equities from about 12:30, session ran to the normal close.",
+      "local_files": [
+        {
+          "path": "BR-B3/press-infomoney-2026-07-31.html",
+          "sha256": "1778ffe41fec6e9c50692015b6c367579d29c6dffe18b5209cbb12f79b6d4384"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2026-07-31",
+          "to": "2026-07-31"
+        }
+      ]
+    },
+    {
+      "id": "press-noticiasagricolas-2026-07-31",
+      "title": "Noticias Agricolas 31/07/2026 Ibovespa fecha em alta em dia de sessao encurtada por problema tecnico",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://www.noticiasagricolas.com.br/noticias/politica-economia/425750-ibovespa-fecha-em-alta-em-dia-de-sessao-encurtada-por-problema-tecnico.amp.html",
+      "retrieved": "2026-10-14",
+      "covers": "2026-07-31",
+      "notes": "The 31 July 2026 session closed normally after the delayed open.",
+      "local_files": [
+        {
+          "path": "BR-B3/press-noticiasagricolas-2026-07-31.html",
+          "sha256": "2c17402a742860117b0363e6560ea954e0525191ef09f007cf376269b59be91a"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2026-07-31",
+          "to": "2026-07-31"
+        }
+      ]
+    },
+    {
+      "id": "press-istoedinheiro-2025-08-01",
+      "title": "IstoE Dinheiro 01/08/2025 Ibovespa: B3 fora do ar por falha tecnica",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://istoedinheiro.com.br/ibovespa-b3-fora-do-ar-falha-tecnica",
+      "retrieved": "2026-10-14",
+      "covers": "2025-08-01",
+      "notes": "Index-publication failure of 1 August 2025; share trading itself normal.",
+      "local_files": [
+        {
+          "path": "BR-B3/press-istoedinheiro-2025-08-01.html",
+          "sha256": "b439c8c2715ba10aacdd6760333c6271ce73965de7efb091ad69a5ec9c052018"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2025-08-01",
+          "to": "2025-08-01"
+        }
+      ]
+    },
+    {
+      "id": "press-forbes-2021-01-06",
+      "title": "Forbes Brasil 06/01/2021 B3 divulga calendario dos pregoes de 2021",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://forbes.com.br/negocios/2021/01/b3-divulga-calendario-dos-pregoes-de-2021-e-mantem-pausa-para-o-carnaval-em-fevereiro/",
+      "retrieved": "2026-10-14",
+      "covers": "2019-2021",
+      "notes": "Forbes Brasil quoting the exchange's calendar: 247 sessions in 2021, 248 in 2019 and 2020 (the model gives 249 for 2020 after the two mid-year circulars opened 9 July and 20 November).",
+      "local_files": [
+        {
+          "path": "BR-B3/press-forbes-2021-01-06.html",
+          "sha256": "7269419d6b5d541f00111e26dbc04c26e11bb25e1811f2ed60e8b63e206d1e2c"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "press-investnews-2020-11-18",
+      "title": "InvestNews/Estadao 18/11/2020 Bolsa vai funcionar em feriados municipais de Sao Paulo a partir de 2022",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://investnews.com.br/financas/bolsa-vai-funcionar-em-feriados-municipais-de-sao-paulo-a-partir-de-2022/amp/",
+      "retrieved": "2026-10-14",
+      "covers": "2022 onward",
+      "notes": "\"A B3 informou nesta quarta-feira, 18, que, a partir de 2022, haverá pregão de negociação e liquidação regular na bolsa de valores em feriados municipais na cidade de São Paulo.\"",
+      "local_files": [
+        {
+          "path": "BR-B3/press-investnews-2020-11-18.html",
+          "sha256": "743b01aa1b431fcc981be01e19e17847ebb112a62c17e0315da764446eb30581"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "press-trademap-2020-11-18",
+      "title": "Trademap 18/11/2020 A partir de 2022, B3 tera pregao em feriados municipais",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://trademap.com.br/noticias/news-1946420",
+      "retrieved": "2026-10-14",
+      "covers": "2022 onward",
+      "notes": "Same announcement (OC 150/2020-PRE).",
+      "local_files": [
+        {
+          "path": "BR-B3/press-trademap-2020-11-18.html",
+          "sha256": "eda66fd20edc0a1de0fc5fa235b66049ea680418643231dd06b336055fc95774"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "press-istoedinheiro-2022-11-04",
+      "title": "IstoE Dinheiro 04/11/2022 B3 amplia funcionamento a partir de 2a feira com NY",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://istoedinheiro.com.br/b3-amplia-funcionamento-a-partir-de-2a-feira-com-ny-2",
+      "retrieved": "2026-10-14",
+      "covers": "2022-11-07",
+      "notes": "Session extended to 18:00 from 7 November 2022 with New York's return to standard time.",
+      "local_files": [
+        {
+          "path": "BR-B3/press-istoedinheiro-2022-11-04.html",
+          "sha256": "1c3a304236b43445122e0ead2ac667e99e1a8e81526020c87dc2243b385d28bc"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "press-bpmoney-2024-03-11",
+      "title": "BP Money (Mar 2024) B3 tem novo horario a partir de segunda-feira (11)",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://bpmoney.com.br/mercado/b3-tem-novo-horario-a-partir-de-segunda-feira-11-confira/",
+      "retrieved": "2026-10-14",
+      "covers": "2024-03-11",
+      "notes": "Session shortened to 17:00 from 11 March 2024 with New York's daylight-saving start.",
+      "local_files": [
+        {
+          "path": "BR-B3/press-bpmoney-2024-03-11.html",
+          "sha256": "78cd33ebcfe6f4c4e697c82ad07bf984d67c53cf674b515a8178c5ed13a7a4bd"
+        }
+      ],
+      "support_intervals": []
+    }
+  ]
+}

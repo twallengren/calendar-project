@@ -1,0 +1,38 @@
+kind: module
+id: br_b3_year_end_closure
+
+# The last business day of the year: 31 December ("Expediente interno nas instituições bancárias
+# (sem sessão de negociação na B3)") or, when 31 December falls on a weekend, the preceding Friday
+# ("Último dia útil do ano"): Friday 30 December 2011, 2016 and 2022, Friday 29 December 2017 and
+# 2023, as the exchange's calendars list. 2027 projected (31 December 2027 is a Friday).
+# Source: b3-calendars.
+
+source:
+  - id: b3-calendars
+
+event_sources:
+  - key: br_b3_year_end_closure
+    name: Último dia útil do ano (sem sessão de negociação)
+    default_classification: CLOSED
+    shiftable: false
+    rule:
+      type: explicit_dates
+      dates:
+        - 2010-12-31
+        - 2011-12-30
+        - 2012-12-31
+        - 2013-12-31
+        - 2014-12-31
+        - 2015-12-31
+        - 2016-12-30
+        - 2017-12-29
+        - 2018-12-31
+        - 2019-12-31
+        - 2020-12-31
+        - 2021-12-31
+        - 2022-12-30
+        - 2023-12-29
+        - 2024-12-31
+        - 2025-12-31
+        - 2026-12-31
+        - 2027-12-31
