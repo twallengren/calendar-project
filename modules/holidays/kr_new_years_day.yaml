@@ -1,0 +1,20 @@
+kind: module
+id: kr_new_years_day
+
+# New Year's Day (1 January). A public holiday that never receives a substitute day (Regulations
+# on Public Holidays of Government Offices, art. 3 excludes art. 2 no. 3); a weekend 1 January
+# (2011, 2012, 2017, 2022, 2023) brings no closure. KRX name: 신정.
+# Source: krx-holidays (the exchange's own non-trading-day lists), moi-public-holidays-decree.
+
+source:
+  - id: krx-holidays
+
+event_sources:
+  - key: kr_new_years_day
+    name: New Year's Day
+    default_classification: CLOSED
+    shift_policy: NONE
+    rule:
+      type: fixed_month_day
+      month: 1
+      day: 1

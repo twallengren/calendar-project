@@ -47,6 +47,7 @@ EXPORTS = [
     ("HK-HKEX", "XHKG", "2018-01-01", "2027-12-31"),
     ("AU-ASX", "XASX", "2010-01-01", "2030-12-31"),
     ("SG-SGX", "XSES", "2010-01-01", "2025-12-31"),
+    ("KR-KRX", "XKRX", "2010-01-01", "2030-12-31"),
 ]
 
 
@@ -221,6 +222,15 @@ def main() -> int:
             "2010-01-01",
             "2030-12-31",
             "QuantLib Australia(ASX): no ANZAC Day substitute days (2010, 2011)",
+        )
+    if ql is not None:
+        export_quantlib(
+            "KR-KRX",
+            "south-korea-krx",
+            ql.SouthKorea(ql.SouthKorea.KRX),
+            "2010-01-01",
+            "2030-12-31",
+            "QuantLib SouthKorea(KRX): hard-coded substitute holidays per year",
         )
     if ql is not None:
         export_quantlib(

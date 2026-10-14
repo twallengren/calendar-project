@@ -1,0 +1,36 @@
+kind: module
+id: kr_childrens_day
+
+# Children's Day (어린이날, 5 May). Substitute holidays from 2014 (decree of 5 November 2013) for a
+# Saturday, Sunday or other-holiday overlap: Monday 7 May 2018, Monday 6 May 2019, Monday 6 May
+# 2024 and Tuesday 6 May 2025 (5 May 2025 coincided with Buddha's Birthday, which the exchange's
+# list names for that day; this rule therefore skips 2025 and kr_buddhas_birthday carries the
+# date). Sunday 5 May 2013 brought none.
+# Source: krx-holidays (the exchange's own non-trading-day lists), moi-public-holidays-decree.
+
+source:
+  - id: krx-holidays
+
+event_sources:
+  - key: kr_childrens_day
+    name: Children's Day
+    default_classification: CLOSED
+    shift_policy: NONE
+    active_years:
+      - [2010, 2024]
+      - [2026, null]
+    rule:
+      type: fixed_month_day
+      month: 5
+      day: 5
+
+  - key: kr_childrens_day_substitute
+    name: Children's Day (substitute holiday)
+    default_classification: CLOSED
+    rule:
+      type: explicit_dates
+      dates:
+        - 2018-05-07
+        - 2019-05-06
+        - 2024-05-06
+        - 2025-05-06

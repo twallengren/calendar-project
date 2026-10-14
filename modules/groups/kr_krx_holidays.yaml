@@ -1,0 +1,26 @@
+kind: module
+id: kr_krx_holidays
+
+# KRX securities market (KOSPI, KOSDAQ) non-trading days under 유가증권시장 업무규정 제5조: the public
+# holidays of the Regulations on Public Holidays of Government Offices (with their substitute
+# days), Labour Day, election days, temporary public holidays and the exchange's year-end closure.
+# The market has no early closes; the one-hour-late sessions on the first trading day of the year
+# and on the college entrance exam day are session structure, out of scope.
+
+uses:
+  - kr_new_years_day
+  - kr_seollal
+  - kr_independence_movement_day
+  - kr_labour_day
+  - kr_childrens_day
+  - kr_buddhas_birthday
+  - kr_memorial_day
+  - kr_constitution_day
+  - kr_liberation_day
+  - kr_chuseok
+  - kr_national_foundation_day
+  - kr_hangul_day
+  - kr_christmas_day
+  - kr_election_days
+  - kr_temporary_public_holidays
+  - kr_krx_year_end_closure

@@ -1,0 +1,31 @@
+kind: module
+id: kr_constitution_day
+
+# Constitution Day (제헌절, 17 July). Not a public holiday from 2008; restored by the decree
+# amendment in force on 11 May 2026 (제36290호), and the exchange closed on Friday 17 July 2026
+# (bizwatch-2026-05-20). Substitutes on a weekend overlap: Monday 19 July 2027 per the exchange's
+# 2027 list.
+# Source: krx-holidays (the exchange's own non-trading-day lists), moi-public-holidays-decree.
+
+source:
+  - id: krx-holidays
+
+event_sources:
+  - key: kr_constitution_day
+    name: Constitution Day
+    default_classification: CLOSED
+    shift_policy: NONE
+    active_years:
+      - [2026, null]
+    rule:
+      type: fixed_month_day
+      month: 7
+      day: 17
+
+  - key: kr_constitution_day_substitute
+    name: Constitution Day (substitute holiday)
+    default_classification: CLOSED
+    rule:
+      type: explicit_dates
+      dates:
+        - 2027-07-19

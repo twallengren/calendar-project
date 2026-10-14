@@ -1,0 +1,17 @@
+source,side,date,type,close_time,reason
+# Known differences between our KR-KRX data and the reference datasets. Both references
+# reproduce the exchange's lists 2010-2025 exactly; they have not caught up with the 2026 law
+# changes (Labour Day and Constitution Day became public holidays with substitute days,
+# 대통령령 제36290호) and the 2026 election day, and exchange_calendars also misses the 2026
+# Buddha's Birthday substitute introduced by the 2023 amendment.
+exchange_calendars-XKRX,ours,2026-05-25,CLOSED,,Substitute holiday for Buddha's Birthday on Sunday 24 May 2026 (decree art. 3 as amended 4 May 2023); listed by the exchange (krx-holidays 2026)
+exchange_calendars-XKRX,ours,2026-06-03,CLOSED,,9th nationwide local elections; listed by the exchange as 임시공휴일 (krx-holidays 2026; bizwatch-2026-05-20-krx-closures)
+exchange_calendars-XKRX,ours,2026-07-17,CLOSED,,Constitution Day restored as a public holiday from 11 May 2026 (대통령령 제36290호); listed by the exchange (krx-holidays 2026)
+exchange_calendars-XKRX,ours,2027-05-03,CLOSED,,Substitute holiday for Labour Day on Saturday 1 May 2027 (a public holiday from 2026); listed by the exchange (krx-holidays 2027)
+exchange_calendars-XKRX,ours,2027-07-19,CLOSED,,Substitute holiday for Constitution Day on Saturday 17 July 2027; listed by the exchange (krx-holidays 2027)
+exchange_calendars-XKRX,ours,2027-12-27,CLOSED,,Substitute holiday for Christmas Day on Saturday 25 December 2027 (decree art. 3 as amended 4 May 2023); listed by the exchange (krx-holidays 2027)
+quantlib-south-korea-krx,ours,2025-06-03,CLOSED,,21st presidential election (early election; temporary public holiday); listed by the exchange (krx-holidays 2025; eurex-circular-4443920)
+quantlib-south-korea-krx,ours,2026-06-03,CLOSED,,9th nationwide local elections; listed by the exchange (krx-holidays 2026)
+quantlib-south-korea-krx,ours,2026-07-17,CLOSED,,Constitution Day restored as a public holiday from 11 May 2026; listed by the exchange (krx-holidays 2026)
+quantlib-south-korea-krx,ours,2027-05-03,CLOSED,,Substitute holiday for Labour Day on Saturday 1 May 2027; listed by the exchange (krx-holidays 2027)
+quantlib-south-korea-krx,ours,2027-07-19,CLOSED,,Substitute holiday for Constitution Day on Saturday 17 July 2027; listed by the exchange (krx-holidays 2027)

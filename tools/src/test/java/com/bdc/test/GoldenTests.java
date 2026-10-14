@@ -237,6 +237,19 @@ class GoldenTests {
   // Dec 24 early close.
 
   @Test
+  void krKrx2026() throws IOException {
+    productionCalendarRunner.assertCsvGoldenMatch("KR-KRX", 2026);
+  }
+
+  @Test
+  void krKrx2017() throws IOException {
+    // Seollal Sunday substitute, the early presidential election, the Chuseok bridge day, the
+    // Chuseok block overlapping National Foundation Day with its Friday substitute, and the
+    // year-end closure on Friday 29 December
+    productionCalendarRunner.assertCsvGoldenMatch("KR-KRX", 2017);
+  }
+
+  @Test
   void sgSgx2026() throws IOException {
     productionCalendarRunner.assertCsvGoldenMatch("SG-SGX", 2026);
   }

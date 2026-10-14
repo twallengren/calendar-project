@@ -1,0 +1,37 @@
+kind: module
+id: kr_buddhas_birthday
+
+# Buddha's Birthday (부처님 오신 날, lunar 4/8), as dated in the exchange's lists. Substitutes for a
+# weekend overlap from the decree amendment of 4 May 2023: Monday 29 May 2023 and Monday 25 May
+# 2026; Saturday 14 May 2016, Sunday 12 May 2019 and Sunday 8 May 2022 brought none. Monday 5 May
+# 2025 coincided with Children's Day and is listed here, as the exchange names it, with the
+# substitute on Tuesday 6 May 2025 carried by kr_childrens_day.
+# Source: krx-holidays.
+
+source:
+  - id: krx-holidays
+
+event_sources:
+  - key: kr_buddhas_birthday
+    name: Buddha's Birthday
+    default_classification: CLOSED
+    rule:
+      type: explicit_dates
+      dates:
+        - 2010-05-21
+        - 2011-05-10
+        - 2012-05-28
+        - 2013-05-17
+        - 2014-05-06
+        - 2015-05-25
+        - 2017-05-03
+        - 2018-05-22
+        - 2020-04-30
+        - 2021-05-19
+        - date: 2023-05-29
+          comment: substitute holiday
+        - 2024-05-15
+        - 2025-05-05
+        - date: 2026-05-25
+          comment: substitute holiday
+        - 2027-05-13

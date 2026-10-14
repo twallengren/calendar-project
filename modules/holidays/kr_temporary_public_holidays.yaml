@@ -1,0 +1,33 @@
+kind: module
+id: kr_temporary_public_holidays
+
+# Temporary public holidays designated by the government (decree art. 2 no. 11), each a KRX
+# non-trading day per the exchange's lists. 10 October 2025 and 28 September 2026 were discussed
+# but not designated and the exchange traded.
+# Source: krx-holidays.
+
+source:
+  - id: krx-holidays
+
+event_sources:
+  - key: kr_temporary_public_holidays
+    name: Temporary Public Holiday
+    default_classification: CLOSED
+    shiftable: false
+    rule:
+      type: explicit_dates
+      dates:
+        - date: 2015-08-14
+          comment: 70th anniversary of Liberation (광복70주년 임시공휴일)
+        - date: 2016-05-06
+          comment: temporary public holiday (bridge day)
+        - date: 2017-10-02
+          comment: temporary public holiday (Chuseok bridge day)
+        - date: 2020-08-17
+          comment: temporary public holiday
+        - date: 2023-10-02
+          comment: temporary public holiday (Chuseok bridge day)
+        - date: 2024-10-01
+          comment: Armed Forces Day, temporary public holiday
+        - date: 2025-01-27
+          comment: temporary public holiday (Seollal bridge day)
