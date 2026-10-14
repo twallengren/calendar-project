@@ -293,7 +293,25 @@ cancelling active work. Dataset, Java core, Python software and wire-schema vers
 `release/versions.json` records the selected versions. Manual dispatch supports recovery and retries.
 
 Release PR creation requires the repository-scoped GitHub App configured with `RELEASE_APP_ID` and
-`RELEASE_APP_PRIVATE_KEY`; its PRs run normal checks and do not bypass branch protection. Registry
+`RELEASE_APP_PRIVATE_KEY`; its PRs run normal checks and do not bypass branch protection. Until the
+App is configured, prepare the same PR locally from a clean checkout of the `main` commit (the
+`generated_at` timestamp is recorded in the descriptor, so pick one and keep it for retries):
+
+```bash
+GITHUB_TOKEN=$(gh auth token) python3 scripts/release/fetch_baseline.py \
+  --repository twallengren/calendar-project --tag v12.0.0 --tag-commit "$(git rev-parse v12.0.0^{commit})" \
+  --output /tmp/published-baseline --evidence /tmp/baseline-evidence.json --prove-tag-equivalence
+scripts/release/prepare.sh --baseline-ref v12.0.0 --baseline-dir /tmp/published-baseline \
+  --baseline-evidence /tmp/baseline-evidence.json --source-sha "$(git rev-parse HEAD)" \
+  --generated-at "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+git add blessed release release-history python/bdc_calendars javascript/data python/tests/fixtures \
+  tools/src/main/resources/site/settlement-fixture.json tools/src/test/resources/golden/site
+git commit -m "chore: prepare release $(jq -r .release_tag release/release.json)"   # then open the PR from release/next
+```
+
+Any commit that touches a reproducibility input (`scripts/release/descriptor.py`, `input_hashes`;
+the release workflows are among them) must come *before* preparation, or `descriptor.py --verify`
+fails and the publication gate rejects the merge. Registry
 credentials and repository settings must be configured for the intended publication channels.
 The publication workflow deploys Pages directly. Configure Pages to use **GitHub Actions**;
 there is no separate bot-push-triggered `pages.yml`. A local build is not evidence of remote

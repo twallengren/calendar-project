@@ -1,0 +1,3266 @@
+{
+  "calendar_id" : "IL-TASE",
+  "calendar_name" : "Tel Aviv Stock Exchange",
+  "timezone" : "Asia/Jerusalem",
+  "range" : {
+    "from" : "2025-01-01",
+    "to" : "2027-12-31"
+  },
+  "coverage" : {
+    "from" : "2025-01-01",
+    "to" : "2027-12-31",
+    "verified_through" : "2025-12-31",
+    "quality" : [ {
+      "scope" : "SCHEDULED_CLOSURES",
+      "from" : "2025-01-01",
+      "to" : "2025-12-31",
+      "quality" : "VERIFIED",
+      "evidence_ids" : [ "tase-vacation-schedule-2025" ]
+    }, {
+      "scope" : "SCHEDULED_CLOSURES",
+      "from" : "2026-01-01",
+      "to" : "2026-04-20",
+      "quality" : "INCOMPLETE",
+      "evidence_ids" : [ "isa-trading-week-2026", "tase-q1-2026-report" ]
+    }, {
+      "scope" : "SCHEDULED_CLOSURES",
+      "from" : "2026-04-21",
+      "to" : "2026-04-22",
+      "quality" : "VERIFIED",
+      "evidence_ids" : [ "tase-weekly-review-2026-04-20" ]
+    }, {
+      "scope" : "SCHEDULED_CLOSURES",
+      "from" : "2026-04-23",
+      "to" : "2027-12-31",
+      "quality" : "INCOMPLETE",
+      "evidence_ids" : [ "isa-trading-week-2026" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "2025-01-01",
+      "to" : "2026-01-08",
+      "quality" : "INCOMPLETE",
+      "evidence_ids" : [ "tase-vacation-schedule-2025", "tase-board-trading-hours-2024" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "2026-01-09",
+      "to" : "2026-01-09",
+      "quality" : "VERIFIED",
+      "evidence_ids" : [ "isa-trading-week-2026" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "2026-01-10",
+      "to" : "2026-01-15",
+      "quality" : "INCOMPLETE",
+      "evidence_ids" : [ "isa-trading-week-2026" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "2026-01-16",
+      "to" : "2026-01-16",
+      "quality" : "VERIFIED",
+      "evidence_ids" : [ "isa-trading-week-2026" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "2026-01-17",
+      "to" : "2026-01-22",
+      "quality" : "INCOMPLETE",
+      "evidence_ids" : [ "isa-trading-week-2026" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "2026-01-23",
+      "to" : "2026-01-23",
+      "quality" : "VERIFIED",
+      "evidence_ids" : [ "isa-trading-week-2026" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "2026-01-24",
+      "to" : "2026-01-29",
+      "quality" : "INCOMPLETE",
+      "evidence_ids" : [ "isa-trading-week-2026" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "2026-01-30",
+      "to" : "2026-01-30",
+      "quality" : "VERIFIED",
+      "evidence_ids" : [ "isa-trading-week-2026" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "2026-01-31",
+      "to" : "2026-02-05",
+      "quality" : "INCOMPLETE",
+      "evidence_ids" : [ "isa-trading-week-2026" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "2026-02-06",
+      "to" : "2026-02-06",
+      "quality" : "VERIFIED",
+      "evidence_ids" : [ "isa-trading-week-2026" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "2026-02-07",
+      "to" : "2026-02-12",
+      "quality" : "INCOMPLETE",
+      "evidence_ids" : [ "isa-trading-week-2026" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "2026-02-13",
+      "to" : "2026-02-13",
+      "quality" : "VERIFIED",
+      "evidence_ids" : [ "isa-trading-week-2026" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "2026-02-14",
+      "to" : "2026-02-19",
+      "quality" : "INCOMPLETE",
+      "evidence_ids" : [ "isa-trading-week-2026" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "2026-02-20",
+      "to" : "2026-02-20",
+      "quality" : "VERIFIED",
+      "evidence_ids" : [ "isa-trading-week-2026" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "2026-02-21",
+      "to" : "2026-02-26",
+      "quality" : "INCOMPLETE",
+      "evidence_ids" : [ "isa-trading-week-2026" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "2026-02-27",
+      "to" : "2026-02-27",
+      "quality" : "VERIFIED",
+      "evidence_ids" : [ "isa-trading-week-2026" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "2026-02-28",
+      "to" : "2026-03-05",
+      "quality" : "INCOMPLETE",
+      "evidence_ids" : [ "isa-trading-week-2026" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "2026-03-06",
+      "to" : "2026-03-06",
+      "quality" : "VERIFIED",
+      "evidence_ids" : [ "isa-trading-week-2026" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "2026-03-07",
+      "to" : "2026-03-12",
+      "quality" : "INCOMPLETE",
+      "evidence_ids" : [ "isa-trading-week-2026" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "2026-03-13",
+      "to" : "2026-03-13",
+      "quality" : "VERIFIED",
+      "evidence_ids" : [ "isa-trading-week-2026" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "2026-03-14",
+      "to" : "2026-03-19",
+      "quality" : "INCOMPLETE",
+      "evidence_ids" : [ "isa-trading-week-2026" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "2026-03-20",
+      "to" : "2026-03-20",
+      "quality" : "VERIFIED",
+      "evidence_ids" : [ "isa-trading-week-2026" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "2026-03-21",
+      "to" : "2026-03-26",
+      "quality" : "INCOMPLETE",
+      "evidence_ids" : [ "isa-trading-week-2026" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "2026-03-27",
+      "to" : "2026-03-27",
+      "quality" : "VERIFIED",
+      "evidence_ids" : [ "isa-trading-week-2026" ]
+    }, {
+      "scope" : "EARLY_CLOSES",
+      "from" : "2026-03-28",
+      "to" : "2027-12-31",
+      "quality" : "INCOMPLETE",
+      "evidence_ids" : [ "isa-trading-week-2026" ]
+    }, {
+      "scope" : "UNSCHEDULED_EXCEPTIONS",
+      "from" : "2025-01-01",
+      "to" : "2027-12-31",
+      "quality" : "INCOMPLETE",
+      "evidence_ids" : [ "tase-vacation-schedule-2025", "tase-weekly-review-2026-04-20" ]
+    } ]
+  },
+  "event_count" : 341,
+  "events" : [ {
+    "date" : "2025-01-03",
+    "type" : "WEEKEND",
+    "description" : "Friday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-01-04",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-01-10",
+    "type" : "WEEKEND",
+    "description" : "Friday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-01-11",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-01-17",
+    "type" : "WEEKEND",
+    "description" : "Friday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-01-18",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-01-24",
+    "type" : "WEEKEND",
+    "description" : "Friday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-01-25",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-01-31",
+    "type" : "WEEKEND",
+    "description" : "Friday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-02-01",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-02-07",
+    "type" : "WEEKEND",
+    "description" : "Friday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-02-08",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-02-14",
+    "type" : "WEEKEND",
+    "description" : "Friday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-02-15",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-02-21",
+    "type" : "WEEKEND",
+    "description" : "Friday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-02-22",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-02-28",
+    "type" : "WEEKEND",
+    "description" : "Friday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-03-01",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-03-07",
+    "type" : "WEEKEND",
+    "description" : "Friday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-03-08",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-03-14",
+    "type" : "CLOSED",
+    "description" : "Purim",
+    "key" : "tase_purim_2025",
+    "source_module" : "module:tase_scheduled_closures_2025",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-03-15",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-03-21",
+    "type" : "WEEKEND",
+    "description" : "Friday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-03-22",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-03-28",
+    "type" : "WEEKEND",
+    "description" : "Friday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-03-29",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-04-04",
+    "type" : "WEEKEND",
+    "description" : "Friday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-04-05",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-04-11",
+    "type" : "WEEKEND",
+    "description" : "Friday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-04-12",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-04-13",
+    "type" : "CLOSED",
+    "description" : "Passover",
+    "key" : "tase_passover_2025",
+    "source_module" : "module:tase_scheduled_closures_2025",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-04-18",
+    "type" : "CLOSED",
+    "description" : "Seventh Day of Passover Eve",
+    "key" : "tase_seventh_passover_eve_2025",
+    "source_module" : "module:tase_scheduled_closures_2025",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-04-19",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-04-25",
+    "type" : "WEEKEND",
+    "description" : "Friday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-04-26",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-04-30",
+    "type" : "CLOSED",
+    "description" : "Memorial Day",
+    "key" : "tase_memorial_day_2025",
+    "source_module" : "module:tase_scheduled_closures_2025",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-05-01",
+    "type" : "CLOSED",
+    "description" : "Independence Day",
+    "key" : "tase_independence_day_2025",
+    "source_module" : "module:tase_scheduled_closures_2025",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-05-02",
+    "type" : "WEEKEND",
+    "description" : "Friday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-05-03",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-05-09",
+    "type" : "WEEKEND",
+    "description" : "Friday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-05-10",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-05-16",
+    "type" : "WEEKEND",
+    "description" : "Friday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-05-17",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-05-23",
+    "type" : "WEEKEND",
+    "description" : "Friday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-05-24",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-05-30",
+    "type" : "WEEKEND",
+    "description" : "Friday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-05-31",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-06-01",
+    "type" : "CLOSED",
+    "description" : "Shavuot Eve",
+    "key" : "tase_shavuot_eve_2025",
+    "source_module" : "module:tase_scheduled_closures_2025",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-06-02",
+    "type" : "CLOSED",
+    "description" : "Shavuot",
+    "key" : "tase_shavuot_2025",
+    "source_module" : "module:tase_scheduled_closures_2025",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-06-06",
+    "type" : "WEEKEND",
+    "description" : "Friday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-06-07",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-06-13",
+    "type" : "WEEKEND",
+    "description" : "Friday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-06-14",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-06-20",
+    "type" : "WEEKEND",
+    "description" : "Friday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-06-21",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-06-27",
+    "type" : "WEEKEND",
+    "description" : "Friday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-06-28",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-07-04",
+    "type" : "WEEKEND",
+    "description" : "Friday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-07-05",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-07-11",
+    "type" : "WEEKEND",
+    "description" : "Friday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-07-12",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-07-18",
+    "type" : "WEEKEND",
+    "description" : "Friday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-07-19",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-07-25",
+    "type" : "WEEKEND",
+    "description" : "Friday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-07-26",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-08-01",
+    "type" : "WEEKEND",
+    "description" : "Friday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-08-02",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-08-03",
+    "type" : "CLOSED",
+    "description" : "Tisha B'Av",
+    "key" : "tase_tisha_bav_2025",
+    "source_module" : "module:tase_scheduled_closures_2025",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-08-08",
+    "type" : "WEEKEND",
+    "description" : "Friday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-08-09",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-08-15",
+    "type" : "WEEKEND",
+    "description" : "Friday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-08-16",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-08-22",
+    "type" : "WEEKEND",
+    "description" : "Friday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-08-23",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-08-29",
+    "type" : "WEEKEND",
+    "description" : "Friday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-08-30",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-09-05",
+    "type" : "WEEKEND",
+    "description" : "Friday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-09-06",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-09-12",
+    "type" : "WEEKEND",
+    "description" : "Friday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-09-13",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-09-19",
+    "type" : "WEEKEND",
+    "description" : "Friday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-09-20",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-09-22",
+    "type" : "CLOSED",
+    "description" : "Rosh Hashanah Eve",
+    "key" : "tase_rosh_hashanah_eve_2025",
+    "source_module" : "module:tase_scheduled_closures_2025",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-09-23",
+    "type" : "CLOSED",
+    "description" : "Rosh Hashanah",
+    "key" : "tase_rosh_hashanah_2025",
+    "source_module" : "module:tase_scheduled_closures_2025",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-09-24",
+    "type" : "CLOSED",
+    "description" : "Rosh Hashanah",
+    "key" : "tase_rosh_hashanah_2025",
+    "source_module" : "module:tase_scheduled_closures_2025",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-09-26",
+    "type" : "WEEKEND",
+    "description" : "Friday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-09-27",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-10-01",
+    "type" : "CLOSED",
+    "description" : "Yom Kippur Eve",
+    "key" : "tase_yom_kippur_eve_2025",
+    "source_module" : "module:tase_scheduled_closures_2025",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-10-02",
+    "type" : "CLOSED",
+    "description" : "Yom Kippur",
+    "key" : "tase_yom_kippur_2025",
+    "source_module" : "module:tase_scheduled_closures_2025",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-10-03",
+    "type" : "WEEKEND",
+    "description" : "Friday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-10-04",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-10-06",
+    "type" : "CLOSED",
+    "description" : "Sukkot Eve",
+    "key" : "tase_sukkot_eve_2025",
+    "source_module" : "module:tase_scheduled_closures_2025",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-10-07",
+    "type" : "CLOSED",
+    "description" : "Sukkot",
+    "key" : "tase_sukkot_2025",
+    "source_module" : "module:tase_scheduled_closures_2025",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-10-10",
+    "type" : "WEEKEND",
+    "description" : "Friday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-10-11",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-10-13",
+    "type" : "CLOSED",
+    "description" : "Simchat Torah Eve",
+    "key" : "tase_simchat_torah_eve_2025",
+    "source_module" : "module:tase_scheduled_closures_2025",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-10-14",
+    "type" : "CLOSED",
+    "description" : "Simchat Torah",
+    "key" : "tase_simchat_torah_2025",
+    "source_module" : "module:tase_scheduled_closures_2025",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-10-17",
+    "type" : "WEEKEND",
+    "description" : "Friday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-10-18",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-10-24",
+    "type" : "WEEKEND",
+    "description" : "Friday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-10-25",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-10-31",
+    "type" : "WEEKEND",
+    "description" : "Friday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-11-01",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-11-07",
+    "type" : "WEEKEND",
+    "description" : "Friday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-11-08",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-11-14",
+    "type" : "WEEKEND",
+    "description" : "Friday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-11-15",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-11-21",
+    "type" : "WEEKEND",
+    "description" : "Friday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-11-22",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-11-28",
+    "type" : "WEEKEND",
+    "description" : "Friday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-11-29",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-12-05",
+    "type" : "WEEKEND",
+    "description" : "Friday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-12-06",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-12-12",
+    "type" : "WEEKEND",
+    "description" : "Friday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-12-13",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-12-19",
+    "type" : "WEEKEND",
+    "description" : "Friday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-12-20",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-12-26",
+    "type" : "WEEKEND",
+    "description" : "Friday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2025-12-27",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-01-02",
+    "type" : "WEEKEND",
+    "description" : "Friday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-01-03",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-01-09",
+    "type" : "EARLY_CLOSE",
+    "description" : "Friday Session (Early Close)",
+    "key" : "tase_friday_short_session_q1_2026",
+    "source_module" : "module:tase_verified_events_2026",
+    "observed_from" : null,
+    "close_time" : "13:50",
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-01-10",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-01-11",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-01-16",
+    "type" : "EARLY_CLOSE",
+    "description" : "Friday Session (Early Close)",
+    "key" : "tase_friday_short_session_q1_2026",
+    "source_module" : "module:tase_verified_events_2026",
+    "observed_from" : null,
+    "close_time" : "13:50",
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-01-17",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-01-18",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-01-23",
+    "type" : "EARLY_CLOSE",
+    "description" : "Friday Session (Early Close)",
+    "key" : "tase_friday_short_session_q1_2026",
+    "source_module" : "module:tase_verified_events_2026",
+    "observed_from" : null,
+    "close_time" : "13:50",
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-01-24",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-01-25",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-01-30",
+    "type" : "EARLY_CLOSE",
+    "description" : "Friday Session (Early Close)",
+    "key" : "tase_friday_short_session_q1_2026",
+    "source_module" : "module:tase_verified_events_2026",
+    "observed_from" : null,
+    "close_time" : "13:50",
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-01-31",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-02-01",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-02-06",
+    "type" : "EARLY_CLOSE",
+    "description" : "Friday Session (Early Close)",
+    "key" : "tase_friday_short_session_q1_2026",
+    "source_module" : "module:tase_verified_events_2026",
+    "observed_from" : null,
+    "close_time" : "13:50",
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-02-07",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-02-08",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-02-13",
+    "type" : "EARLY_CLOSE",
+    "description" : "Friday Session (Early Close)",
+    "key" : "tase_friday_short_session_q1_2026",
+    "source_module" : "module:tase_verified_events_2026",
+    "observed_from" : null,
+    "close_time" : "13:50",
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-02-14",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-02-15",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-02-20",
+    "type" : "EARLY_CLOSE",
+    "description" : "Friday Session (Early Close)",
+    "key" : "tase_friday_short_session_q1_2026",
+    "source_module" : "module:tase_verified_events_2026",
+    "observed_from" : null,
+    "close_time" : "13:50",
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-02-21",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-02-22",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-02-27",
+    "type" : "EARLY_CLOSE",
+    "description" : "Friday Session (Early Close)",
+    "key" : "tase_friday_short_session_q1_2026",
+    "source_module" : "module:tase_verified_events_2026",
+    "observed_from" : null,
+    "close_time" : "13:50",
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-02-28",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-03-01",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-03-06",
+    "type" : "EARLY_CLOSE",
+    "description" : "Friday Session (Early Close)",
+    "key" : "tase_friday_short_session_q1_2026",
+    "source_module" : "module:tase_verified_events_2026",
+    "observed_from" : null,
+    "close_time" : "13:50",
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-03-07",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-03-08",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-03-13",
+    "type" : "EARLY_CLOSE",
+    "description" : "Friday Session (Early Close)",
+    "key" : "tase_friday_short_session_q1_2026",
+    "source_module" : "module:tase_verified_events_2026",
+    "observed_from" : null,
+    "close_time" : "13:50",
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-03-14",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-03-15",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-03-20",
+    "type" : "EARLY_CLOSE",
+    "description" : "Friday Session (Early Close)",
+    "key" : "tase_friday_short_session_q1_2026",
+    "source_module" : "module:tase_verified_events_2026",
+    "observed_from" : null,
+    "close_time" : "13:50",
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-03-21",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-03-22",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-03-27",
+    "type" : "EARLY_CLOSE",
+    "description" : "Friday Session (Early Close)",
+    "key" : "tase_friday_short_session_q1_2026",
+    "source_module" : "module:tase_verified_events_2026",
+    "observed_from" : null,
+    "close_time" : "13:50",
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-03-28",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-03-29",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-04-04",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-04-05",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-04-11",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-04-12",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-04-18",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-04-19",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-04-21",
+    "type" : "CLOSED",
+    "description" : "Memorial Day",
+    "key" : "tase_memorial_day_2026",
+    "source_module" : "module:tase_verified_events_2026",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-04-22",
+    "type" : "CLOSED",
+    "description" : "Independence Day",
+    "key" : "tase_independence_day_2026",
+    "source_module" : "module:tase_verified_events_2026",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-04-25",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-04-26",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-05-02",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-05-03",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-05-09",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-05-10",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-05-16",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-05-17",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-05-23",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-05-24",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-05-30",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-05-31",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-06-06",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-06-07",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-06-13",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-06-14",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-06-20",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-06-21",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-06-27",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-06-28",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-07-04",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-07-05",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-07-11",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-07-12",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-07-18",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-07-19",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-07-25",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-07-26",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-08-01",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-08-02",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-08-08",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-08-09",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-08-15",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-08-16",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-08-22",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-08-23",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-08-29",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-08-30",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-09-05",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-09-06",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-09-12",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-09-13",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-09-19",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-09-20",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-09-26",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-09-27",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-10-03",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-10-04",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-10-10",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-10-11",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-10-17",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-10-18",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-10-24",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-10-25",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-10-31",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-11-01",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-11-07",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-11-08",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-11-14",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-11-15",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-11-21",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-11-22",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-11-28",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-11-29",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-12-05",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-12-06",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-12-12",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-12-13",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-12-19",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-12-20",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-12-26",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2026-12-27",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-01-02",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-01-03",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-01-09",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-01-10",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-01-16",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-01-17",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-01-23",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-01-24",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-01-30",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-01-31",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-02-06",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-02-07",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-02-13",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-02-14",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-02-20",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-02-21",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-02-27",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-02-28",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-03-06",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-03-07",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-03-13",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-03-14",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-03-20",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-03-21",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-03-27",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-03-28",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-04-03",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-04-04",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-04-10",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-04-11",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-04-17",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-04-18",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-04-24",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-04-25",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-05-01",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-05-02",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-05-08",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-05-09",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-05-15",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-05-16",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-05-22",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-05-23",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-05-29",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-05-30",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-06-05",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-06-06",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-06-12",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-06-13",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-06-19",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-06-20",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-06-26",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-06-27",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-07-03",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-07-04",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-07-10",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-07-11",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-07-17",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-07-18",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-07-24",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-07-25",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-07-31",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-08-01",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-08-07",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-08-08",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-08-14",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-08-15",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-08-21",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-08-22",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-08-28",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-08-29",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-09-04",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-09-05",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-09-11",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-09-12",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-09-18",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-09-19",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-09-25",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-09-26",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-10-02",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-10-03",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-10-09",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-10-10",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-10-16",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-10-17",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-10-23",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-10-24",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-10-30",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-10-31",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-11-06",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-11-07",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-11-13",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-11-14",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-11-20",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-11-21",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-11-27",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-11-28",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-12-04",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-12-05",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-12-11",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-12-12",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-12-18",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-12-19",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-12-25",
+    "type" : "WEEKEND",
+    "description" : "Saturday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  }, {
+    "date" : "2027-12-26",
+    "type" : "WEEKEND",
+    "description" : "Sunday",
+    "key" : "weekend",
+    "source_module" : "weekend_policy",
+    "observed_from" : null,
+    "close_time" : null,
+    "status" : "CONFIRMED"
+  } ]
+}

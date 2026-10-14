@@ -182,7 +182,8 @@ jobs:
           git switch -C "$BRANCH"
           git config user.name "calendar-release[bot]"
           git config user.email "calendar-release[bot]@users.noreply.github.com"
-          git add blessed release release-history python/bdc_calendars
+          git add blessed release release-history python/bdc_calendars javascript/data
+          git add python/tests/fixtures
           git add tools/src/main/resources/site/settlement-fixture.json
           git add tools/src/test/resources/golden/site
           git commit -m "chore: prepare release ${RELEASE_TAG}"

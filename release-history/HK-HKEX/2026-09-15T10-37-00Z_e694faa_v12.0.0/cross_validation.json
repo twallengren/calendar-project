@@ -1,0 +1,33 @@
+{
+  "calendar_id" : "HK-HKEX",
+  "status" : "ok",
+  "results" : [ {
+    "source" : "exchange_calendars-XHKG",
+    "library_version" : "exchange_calendars 4.11, python 3.13.12, 2026-09-14",
+    "from" : "2018-01-02",
+    "to" : "2027-12-31",
+    "compared_types" : [ "CLOSED", "EARLY_CLOSE" ],
+    "counts" : {
+      "matched" : 165,
+      "allowlisted" : 4,
+      "unexplained" : 0
+    },
+    "unexplained_rows" : [ ],
+    "stale_allowlist_rows" : [ ],
+    "status" : "ok"
+  }, {
+    "source" : "quantlib-hong-kong",
+    "library_version" : "QuantLib 1.43, python 3.13.12, 2026-09-14",
+    "from" : "2018-01-01",
+    "to" : "2027-10-01",
+    "compared_types" : [ "CLOSED" ],
+    "counts" : {
+      "matched" : 122,
+      "allowlisted" : 17,
+      "unexplained" : 0
+    },
+    "unexplained_rows" : [ ],
+    "stale_allowlist_rows" : [ ],
+    "status" : "ok"
+  } ]
+}

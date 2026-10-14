@@ -1,0 +1,222 @@
+kind: resolved_calendar
+id: US-FEDWIRE
+metadata:
+  name: Fedwire Funds Service
+  description: "Funds-transfer business dates for the Federal Reserve Banks' Fedwire\
+    \ Funds Service. This date-only calendar models the 2026-2027 operating-day schedule\
+    \ and does not represent daily hours, cutoffs, extensions, Fedwire Securities,\
+    \ NSS, FedACH or FedNow. Saturday holidays leave the preceding Friday open; Sunday\
+    \ holidays are observed on Monday. The announced move to Sundays and weekday holidays\
+    \ is due in 2028 or 2029, beyond this calendar's coverage."
+  chronology: ISO
+  timezone: America/New_York
+  coverage:
+    from: 2026-01-01
+    to: 2027-12-31
+    verified_through: 2027-12-31
+    quality:
+    - scope: SCHEDULED_CLOSURES
+      from: 2026-01-01
+      to: 2027-12-31
+      quality: VERIFIED
+      evidence_ids:
+      - frfs-fedwire-operating-hours
+      - frfs-holiday-schedule
+    - scope: EARLY_CLOSES
+      from: 2026-01-01
+      to: 2027-12-31
+      quality: PROJECTED
+      evidence_ids:
+      - frfs-fedwire-operating-hours
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2026-01-01
+      to: 2027-12-31
+      quality: PROJECTED
+      evidence_ids:
+      - frfs-fedwire-operating-hours
+weekend_policy:
+  days:
+  - SATURDAY
+  - SUNDAY
+weekend_shift_policy: FORWARD_ONLY
+resolution_chain:
+- module:weekend_sat_sun
+- module:us_fedwire_holidays
+- calendar:US-FEDWIRE
+event_sources:
+- key: fedwire_new_years_day
+  name: New Year's Day
+  origin: module:us_fedwire_holidays
+  classification: CLOSED
+  shiftable: true
+  status: CONFIRMED
+  active_years:
+  - - 2026
+    - 2027
+  source:
+  - id: frfs-fedwire-operating-hours
+  - id: frfs-holiday-schedule
+  rule:
+    type: fixed_month_day
+    month: 1
+    day: 1
+- key: fedwire_martin_luther_king_jr_day
+  name: Martin Luther King Jr. Day
+  origin: module:us_fedwire_holidays
+  classification: CLOSED
+  status: CONFIRMED
+  active_years:
+  - - 2026
+    - 2027
+  source:
+  - id: frfs-fedwire-operating-hours
+  - id: frfs-holiday-schedule
+  rule:
+    type: nth_weekday_of_month
+    month: 1
+    weekday: MONDAY
+    nth: 3
+- key: fedwire_washingtons_birthday
+  name: Washington's Birthday (Presidents Day)
+  origin: module:us_fedwire_holidays
+  classification: CLOSED
+  status: CONFIRMED
+  active_years:
+  - - 2026
+    - 2027
+  source:
+  - id: frfs-fedwire-operating-hours
+  - id: frfs-holiday-schedule
+  rule:
+    type: nth_weekday_of_month
+    month: 2
+    weekday: MONDAY
+    nth: 3
+- key: fedwire_memorial_day
+  name: Memorial Day
+  origin: module:us_fedwire_holidays
+  classification: CLOSED
+  status: CONFIRMED
+  active_years:
+  - - 2026
+    - 2027
+  source:
+  - id: frfs-fedwire-operating-hours
+  - id: frfs-holiday-schedule
+  rule:
+    type: nth_weekday_of_month
+    month: 5
+    weekday: MONDAY
+    nth: -1
+- key: fedwire_juneteenth
+  name: Juneteenth National Independence Day
+  origin: module:us_fedwire_holidays
+  classification: CLOSED
+  shiftable: true
+  status: CONFIRMED
+  active_years:
+  - - 2026
+    - 2027
+  source:
+  - id: frfs-fedwire-operating-hours
+  - id: frfs-holiday-schedule
+  rule:
+    type: fixed_month_day
+    month: 6
+    day: 19
+- key: fedwire_independence_day
+  name: Independence Day
+  origin: module:us_fedwire_holidays
+  classification: CLOSED
+  shiftable: true
+  status: CONFIRMED
+  active_years:
+  - - 2026
+    - 2027
+  source:
+  - id: frfs-fedwire-operating-hours
+  - id: frfs-holiday-schedule
+  rule:
+    type: fixed_month_day
+    month: 7
+    day: 4
+- key: fedwire_labor_day
+  name: Labor Day
+  origin: module:us_fedwire_holidays
+  classification: CLOSED
+  status: CONFIRMED
+  active_years:
+  - - 2026
+    - 2027
+  source:
+  - id: frfs-fedwire-operating-hours
+  - id: frfs-holiday-schedule
+  rule:
+    type: nth_weekday_of_month
+    month: 9
+    weekday: MONDAY
+    nth: 1
+- key: fedwire_columbus_day
+  name: Columbus Day
+  origin: module:us_fedwire_holidays
+  classification: CLOSED
+  status: CONFIRMED
+  active_years:
+  - - 2026
+    - 2027
+  source:
+  - id: frfs-fedwire-operating-hours
+  - id: frfs-holiday-schedule
+  rule:
+    type: nth_weekday_of_month
+    month: 10
+    weekday: MONDAY
+    nth: 2
+- key: fedwire_veterans_day
+  name: Veterans Day
+  origin: module:us_fedwire_holidays
+  classification: CLOSED
+  shiftable: true
+  status: CONFIRMED
+  active_years:
+  - - 2026
+    - 2027
+  source:
+  - id: frfs-fedwire-operating-hours
+  - id: frfs-holiday-schedule
+  rule:
+    type: fixed_month_day
+    month: 11
+    day: 11
+- key: fedwire_thanksgiving_day
+  name: Thanksgiving Day
+  origin: module:us_fedwire_holidays
+  classification: CLOSED
+  status: CONFIRMED
+  active_years:
+  - - 2026
+    - 2027
+  source:
+  - id: frfs-fedwire-operating-hours
+  - id: frfs-holiday-schedule
+  rule:
+    type: nth_weekday_of_month
+    month: 11
+    weekday: THURSDAY
+    nth: 4
+- key: fedwire_christmas_day
+  name: Christmas Day
+  origin: module:us_fedwire_holidays
+  classification: CLOSED
+  shiftable: true
+  status: CONFIRMED
+  active_years:
+  - - 2026
+    - 2027
+  source:
+  - id: frfs-fedwire-operating-hours
+  - id: frfs-holiday-schedule
+  rule:
+    type: fixed_month_day
+    month: 12
+    day: 25
