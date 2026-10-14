@@ -108,6 +108,13 @@
       "event_count": 1277,
       "checksum": "sha256:4f4ab3f4bab7908c22be6d0c57c396198c61774aae165451f3b609d624ffce4e"
     },
+    "SG-SGX": {
+      "range_start": "2010-01-01",
+      "range_end": "2027-12-31",
+      "kind": "market",
+      "checksum": "sha256:dcf7ce04af56044b84b639e1009d8ef6cfd7af5d9d4022aba68744d21459306f",
+      "event_count": 2095
+    },
     "US-CORP-IN-VISIBILITY": {
       "kind": "base",
       "range_start": "1900-01-01",
@@ -153,6 +160,7 @@
     "XNYS": "US-NYSE",
     "XPAR": "FR-EURONEXT-PARIS",
     "XSAU": "SA-TADAWUL",
+    "XSES": "SG-SGX",
     "XTAE": "IL-TASE",
     "XTKS": "JP-JPX",
     "XTSE": "CA-TSX",

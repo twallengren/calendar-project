@@ -306,6 +306,28 @@
     "years" : [ 2020, 2030 ],
     "href" : "calendars/SA-TADAWUL/manifest.json"
   }, {
+    "id" : "SG-SGX",
+    "name" : "Singapore Exchange",
+    "timezone" : "Asia/Singapore",
+    "mic" : "XSES",
+    "aliases" : [ ],
+    "coverage" : {
+      "from" : "2010-01-01",
+      "to" : "2027-12-31",
+      "verified_through" : "2027-12-31"
+    },
+    "counts_by_type" : {
+      "CLOSED" : 180,
+      "WEEKEND" : 1875,
+      "EARLY_CLOSE" : 40
+    },
+    "counts_by_status" : {
+      "CONFIRMED" : 2095
+    },
+    "checksum" : "sha256:dcf7ce04af56044b84b639e1009d8ef6cfd7af5d9d4022aba68744d21459306f",
+    "years" : [ 2010, 2027 ],
+    "href" : "calendars/SG-SGX/manifest.json"
+  }, {
     "id" : "US-FEDWIRE",
     "name" : "Fedwire Funds Service",
     "timezone" : "America/New_York",

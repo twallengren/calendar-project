@@ -322,6 +322,7 @@ actual-day completeness. Use the [coverage assessment summary](docs/delivery/COV
 | NL-EURONEXT-AMSTERDAM | Euronext Amsterdam Trading Calendar | market | Europe/Amsterdam | 2010-01-01 to 2030-12-31 | 2026-12-31 | 126 | 30 | 0 | 14 | exchange_calendars-XAMS: ok (allowlisted=12) | 13.0.0 |
 | PT-EURONEXT-LISBON | Euronext Lisbon Trading Calendar | market | Europe/Lisbon | 2010-01-01 to 2030-12-31 | 2026-12-31 | 126 | 30 | 0 | 14 | exchange_calendars-XLIS: ok (allowlisted=12) | 13.0.0 |
 | SA-TADAWUL | Tadawul (Saudi Exchange) Trading Calendar | market | Asia/Riyadh | 2020-01-01 to 2030-12-31 | 2029-12-31 | 195 | 0 | 16 | 13 | exchange_calendars-XSAU: ok (allowlisted=24) | 13.0.0 |
+| SG-SGX | Singapore Exchange | market | Asia/Singapore | 2010-01-01 to 2027-12-31 | 2027-12-31 | 180 | 40 | 0 | 46 | exchange_calendars-XSES: ok (allowlisted=34) | 13.0.0 |
 | US-NYSE | NYSE Trading Calendar | market | America/New_York | 1900-01-01 to 2030-12-31 | 2026-12-31 | 1649 | 127 | 0 | 11 | exchange_calendars-XNYS: ok (allowlisted=8); quantlib-nyse: ok (allowlisted=0) | 13.0.0 |
 | EU-EURONEXT | Euronext Cash Markets Base Calendar | base | Europe/Paris | 2010-01-01 to 2030-12-31 | 2026-12-31 | 126 | 0 | 0 | 14 | none | 13.0.0 |
 | EU-TARGET | T2 euro RTGS | payment | Europe/Berlin | 2026-01-01 to 2027-12-31 | 2027-12-31 | 8 | 0 | 0 | 3 | none | 13.0.0 |
