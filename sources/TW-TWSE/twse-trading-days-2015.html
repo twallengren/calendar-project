@@ -1,0 +1,257 @@
+<!DOCTYPE HTML>
+<html lang="zh-TW">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <title>TWSE 臺灣證券交易所市場開休市日期</title>
+  
+  <script src="/ch/src/js/jquery-1.11.2.min.js"></script>
+  <!-- 提示 -->
+  <script src="/ch/src/js/jquery.inputhints.min.js"></script>
+	<!-- 選單 -->
+  <link   href="/ch/src/js/superfish/superfish-twse-simple.css" rel="stylesheet">
+  <script src="/ch/src/js/superfish/hoverIntent.js"></script>
+	<script src="/ch/src/js/superfish/superfish.js"></script>
+  <!-- 外觀 -->
+  <link href="/ch/src/css/simple-layout.css" type="text/css" rel="stylesheet">
+  <script src="/ch/src/js/simple-layout.js" type="text/javascript" charset="utf-8"></script>
+	<!-- google 瀏覽量統計 -->
+	<script type="text/javascript">
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-5220600-3']);
+	  _gaq.push(['_trackPageview']);
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+	</script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#loadingMessage").hide();
+		});
+		function showWaiting() {
+			$("#loadingMessage").show();
+		}
+	</script>
+
+<link href="/ch/src/css/simple-layout-table.css" rel="stylesheet">
+
+<script>
+	$(function(){
+		//列印下載按鈕
+		$('button.dl-csv').on('click',function(){ $('input[name=download]').val('csv'); $('form[name=query-form]').submit(); });
+		$('button.dl-html').on('click',function(){ $('input[name=download]').val('html');  $('form[name=query-form]').submit(); }); 
+		$('button.printout').on('click',function() { window.print(); });
+		
+		$('input[name=query-button]').on('click',function(){ $('input[name=download]').val(''); showWaiting(); $('form[name=query-form]').submit(); });
+	});
+</script>
+<meta name="description" content="TWSE 臺灣證券交易所 交易資訊 市場開休市日期">
+<meta name="keywords" content="市場開休市日期,證券,上市,大盤,國際股市指數,匯率,個股行情等,年報,投資,期貨,台灣50,ETF">
+<meta name="author" content="TWSE">
+
+  
+
+
+</head>
+<body class="twse">
+
+<div id="header">
+	<div class="page-width">
+    <a href="/"><h1>台灣證券交易所</h1></a>
+
+    <ul id="lan-links">
+      <li><a href="/en/"><i class="ball lan1"></i> ENGLISH</a>&nbsp;&nbsp;</li> 
+      <li><a href="/jp/"><i class="ball lan2"></i> 日本語</a>&nbsp;&nbsp;</li>
+      <li><a href="http://www.twitter.com/TWSETC"><i class="social i1">Twitter</i></a></li>
+      <li><a href="http://www.facebook.com/pages/%E8%87%BA%E7%81%A3%E8%AD%89%E5%88%B8%E4%BA%A4%E6%98%93%E6%89%80/195512170520589"><i class="social i2">Facebook</i></a></li>
+      <li><a href="http://www.plurk.com/twsetc"><i class="social i3">Plurk</i></a></li>
+    </ul>
+
+    <div id="search-form">
+      <select id="support-links" class="hint">
+        <option class="hint">線上支援</option>
+        <option target="popup516x500" value="/ch/sitemap.php">網站地圖</option>
+        <option target="popup516x500" value="/ch/help.php">網站求助</option>
+        <option value="/ch/products/stock_code2.php">證券編碼</option>
+        <option value="/ch/vocabulary/term_search.php">證券詞彙</option>
+      </select>
+      <select id="site-links" class="hint">
+        <option class="hint">相關服務平台</option>
+        <option target="_blank" value="http://newmops.twse.com.tw/">公開資訊觀測站</option>
+        <option target="_blank" value="http://mis.twse.com.tw/">基本市況報導</option>
+        <option target="_blank" value="http://dataeshop.twse.com.tw/">網路資訊商店</option>
+        <option target="_blank" value="http://webpro.twse.com.tw/">影音傳播網</option>
+      </select>
+			<gcse:searchbox-only resultsUrl="/ch/search/search.php" queryParameterName="q" enableAutoComplete="true"></gcse:searchbox-only>
+    </div>
+
+	</div>
+</div>
+<div id="menu"><div class="page-width"></div></div>
+<div id="body">
+  <div class="page-width">
+    <div id="sidebar"></div>
+    <div id="main-content">
+      <div id="breadcrumbs">&nbsp;<a class="backhome" href="/ch/">回首頁</a></div>
+<!-- CONTENT BEGIN -->
+
+<img src='images/trading_pic.jpg' width='774' height='90' class='noprint'>
+
+<form method="post" name="query-form" class='search_form noprint' action="/ch/trading/trading_days.php">
+	<input type="hidden" name="download" value="" >
+	歷年開休市日期：民國
+	<select name="holiday_year" onChange="changed()">
+		<option value="104" selected >104</option>
+		<option value="103"  >103</option>
+		<option value="102"  >102</option>
+		<option value="101"  >101</option>
+		<option value="100"  >100</option>
+	</select> 年&nbsp;&nbsp;
+	<input name='query-button' type='button' class='board' value='查詢'>
+</form>
+
+<div class="info noprint">
+&nbsp;
+</div>
+
+<div id="loadingMessage" style="color:yellow;background-color:blue;font-size:32px;" align="center">
+   資料處理中,請稍候..............................
+</div>
+
+<div class="noprint">
+  <button class="printout board">列印</button>
+  <button class="dl-html board">下載HTML</button>
+  <button class="dl-csv board">下載CSV</button>
+</div>
+
+      <table width="590" border="0" cellpadding="0" cellspacing="1" class="board_trad">
+        <tr bgcolor="#F7F0E8">
+          <td height="30" colspan="4"><div align="center" class="til_2">中華民國104年有價證券集中交易市場開（休）市日期表</div></td>
+        </tr>
+        <tr bgcolor="#EBDCC9" class="basic">
+          <td width="120" height="20"><div align="center">名稱</div></td>
+          <td width="120" height="20"><div align="center">日 期</div></td>
+          <td width="25" height="20"><div align="center">星期</div></td>
+          <td height="20"><div align="center">說 明</div></td>
+        </tr>
+        <tr bgcolor="#FFFFFF" class="gray12">
+          <td height="20"><div align="center">中華民國開國紀念日</div></td>
+          <td height="20"><div align="center"> 1月 1日<br>1月 2日</div></td>
+          <td height="20"><div align="center">四<br>五</div></td>
+          <td height="20"><div align="left">依規定放假1日，1月2日調整放假，於103年12月27日(星期六)補行上班。</div></td>
+        </tr>
+		<tr bgcolor="#FFFFFF" class="gray12">
+          <td height="20"><div align="center">國曆新年開始交易日</div></td>
+          <td height="20"><div align="center"> 1月 5日</div></td>
+          <td height="20"><div align="center">一</div></td>
+          <td height="20"><div align="left">國曆新年開始交易。</div></td>
+        </tr>
+        <tr bgcolor="#FFFFFF" class="gray12">
+          <td height="20"><div align="center">農曆春節前最後交易日</div></td>
+          <td height="20"><div align="center"> 2月 13日</div></td>
+          <td height="20"><div align="center">五</div></td>
+          <td height="20"><div align="left">2月16日及2月17日市場無交易，僅辦理結算交割作業。</div></td>
+        </tr>
+        <tr bgcolor="#FFFFFF" class="gray12">
+          <td><div align="center">農曆除夕</div></td>
+          <td><div align="center"> 2月 18日</div></td>
+          <td><div align="center">三</div></td>
+          <td><div align="left">依規定放假1日。</div></td>
+        </tr>
+        <tr bgcolor="#FFFFFF" class="gray12">
+          <td height="20"><div align="center">農曆春節</div></td>
+          <td height="20"><div align="center">
+            2月19日<BR>
+            2月 20日<BR>
+            2月 21日<BR>
+            2月 22日<BR>
+            2月 23日</div></td>
+          <td height="20"><div align="center">
+            四<BR>
+            五<BR>
+            六<BR>
+            日<BR>
+            一</div></td>
+          <td height="20"><div align="left">依規定於2月19日至2月21日放假3日。2月21日適逢星期六，2月23日（星期一）補假1日。</div></td>
+        </tr>
+        <tr bgcolor="#FFFFFF" class="gray12">
+          <td height="20"><div align="center">農曆春節後開始交易日</div></td>
+          <td height="20"><div align="center"> 2月 24日</div></td>
+          <td height="20"><div align="center">二</div></td>
+          <td height="20"><div align="left">農曆春節後開始交易。</div></td>
+        </tr>
+        <tr bgcolor="#FFFFFF" class="gray12">
+          <td height="20"><div align="center">和平紀念日</div></td>
+          <td height="20"><div align="center"> 2月 27日<BR>2月 28日</div></td>
+          <td height="20"><div align="center">五<BR>六</div></td>
+          <td height="20"><div align="left">依規定放假1日，2月27日（星期五）補假1日。</div></td>
+        </tr>
+        <tr bgcolor="#FFFFFF" class="gray12">
+          <td height="20"><div align="center">兒童節</div></td>
+          <td height="20"><div align="center"> 4月 3日<BR>4月 4日</div></td>
+          <td height="20"><div align="center">五<BR>六</div></td>
+          <td height="20"><div align="left">依規定放假1日，4月3日（星期五）補假1日。</div></td>
+        </tr>
+		<tr bgcolor="#FFFFFF" class="gray12">
+          <td height="20"><div align="center">民族掃墓節</div></td>
+          <td height="20"><div align="center"> 4月 5日<BR>4月 6日</div></td>
+          <td height="20"><div align="center">日<BR>一</div></td>
+          <td height="20"><div align="left">依規定放假1日，4月6日（星期一）補假1日。</div></td>
+        </tr>
+        <tr bgcolor="#FFFFFF" class="gray12">
+          <td height="20"><div align="center">勞動節</div></td>
+          <td height="20"><div align="center"> 5月 1日</div></td>
+          <td height="20"><div align="center">五</div></td>
+          <td height="20"><div align="left">依規定放假1日。</div></td>
+        </tr>
+        <tr bgcolor="#FFFFFF" class="gray12">
+          <td height="20"><div align="center">端午節</div></td>
+          <td height="20"><div align="center"> 6月 19日<BR>6月 20日</div></td>
+          <td height="20"><div align="center">五<BR>六</div></td>
+          <td height="20"><div align="left">依規定放假1日，6月19日（星期五）補假1日。</div></td>
+        </tr>
+        <tr bgcolor="#FFFFFF" class="gray12">
+          <td height="20"><div align="center">中秋節</div></td>
+          <td height="20"><div align="center"> 9月 27日<BR>9月 28日</div></td>
+          <td height="20"><div align="center">日<BR>一</div></td>
+          <td height="20"><div align="left">依規定放假1日，9月28日（星期一）補假1日。</div></td>
+        </tr>
+        <tr bgcolor="#FFFFFF" class="gray12">
+          <td height="20"><div align="center">國慶日</div></td>
+          <td height="20"><div align="center">10月 9日<BR>10月 10日</div></td>
+          <td height="20"><div align="center">五<BR>六</div></td>
+          <td height="20"><div align="left">依規定放假1日，10月9日（星期五）補假1日。</div></td>
+        </tr>
+		<tr>
+		  <td align="left" colspan="4"><font size=1>配合銀行業調整104年1月2日為休假日為上班日，本公司市場104年開（休）市日期亦配合調整，並於103年11月12日公布在案。</font></td>
+		</tr>
+      </table>
+
+<!-- CONTENT END -->
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+<div id="footer">
+  <div class="page-width">
+    <ul class="terms">
+  	  <li><a href="http://SuggestionBox.twse.com.tw" target="_blank">聯絡我們</a></li>
+      <li><a href="/ch/about/company/subscribe.php">訂閱電子報</a></li>
+      <li><a href="/ch/about/links.php">相關網站</a></li>
+      <li><a href="/ch/sitemap.php" target="popup516x500">網站地圖</a></li>
+      <li><a href="/ch/use.php',null" target="popup516x500">使用條款</a></li>
+      <li><a href="/ch/privacy.php" target="popup516x500">隱私權保護說明</a></li>
+      <li><a href="/ch/about/press_room/doc/P.doc">個人資料管理政策聲明</a></li>
+      <li><a href="/ch/about/press_room/doc/P2.docx">個資蒐集告知事項</a></li>
+		</ul>
+    <div class="contect">台北市 11049 信義路五段7號3樓、9至12樓　電話︰(02)8101-3101　投資人服務中心專線︰(02)2792-8188</div>
+    <div class="copyright">Copyright &copy; 2015 Taiwan Stock Exchange Corporation. All rights reserved. 本站最佳解析度 1024x768 以上，瀏覽建議使用 Chrome、FireFox 或 IE8 以上。</div>
+    
+  </div>
+</div>
+
+</body>
+</html><!-- End Of File -->

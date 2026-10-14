@@ -237,6 +237,18 @@ class GoldenTests {
   // Dec 24 early close.
 
   @Test
+  void twTwse2026() throws IOException {
+    productionCalendarRunner.assertCsvGoldenMatch("TW-TWSE", 2026);
+  }
+
+  @Test
+  void twTwse2017() throws IOException {
+    // three make-up Saturday sessions, the Lunar New Year settlement-only days, bridge days
+    // and the Mid-Autumn Festival in October
+    productionCalendarRunner.assertCsvGoldenMatch("TW-TWSE", 2017);
+  }
+
+  @Test
   void zaJse2026() throws IOException {
     productionCalendarRunner.assertCsvGoldenMatch("ZA-JSE", 2026);
   }

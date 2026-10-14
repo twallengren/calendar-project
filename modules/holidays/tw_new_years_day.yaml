@@ -1,0 +1,46 @@
+kind: module
+id: tw_new_years_day
+
+# New Year's Day (開國紀念日, 1 January) as the exchange's annual tables list it. Before 2015 a
+# weekend occurrence was not made up ("適逢星期日不補假" for 2012); from 2015 a Saturday holiday
+# is made up on the preceding working day and a Sunday one on the next (紀念日及節日實施辦法
+# 第5條之1): Friday 31 December 2021 for Saturday 1 January 2022, Monday 2 January 2017 and 2023.
+# Friday 2 January 2015 was a bridge day (調整放假, made up on Saturday 27 December 2014, a trading
+# day). 2027 rows follow the government's 116年 calendar (the exchange's 2027 table is not yet
+# published): Friday 31 December 2027 for Saturday 1 January 2028.
+# Source: twse-holiday-schedules.
+
+source:
+  - id: twse-holiday-schedules
+
+event_sources:
+  - key: tw_new_years_day
+    name: New Year's Day
+    default_classification: CLOSED
+    shiftable: false
+    rule:
+      type: explicit_dates
+      dates:
+        - 2010-01-01
+        - 2013-01-01
+        - 2014-01-01
+        - 2015-01-01
+        - date: 2015-01-02
+          comment: bridge day, made up on Saturday 27 December 2014
+        - 2016-01-01
+        - date: 2017-01-02
+          comment: substitute for Sunday 1 January
+        - 2018-01-01
+        - 2019-01-01
+        - 2020-01-01
+        - 2021-01-01
+        - date: 2021-12-31
+          comment: substitute for Saturday 1 January 2022
+        - date: 2023-01-02
+          comment: substitute for Sunday 1 January
+        - 2024-01-01
+        - 2025-01-01
+        - 2026-01-01
+        - 2027-01-01
+        - date: 2027-12-31
+          comment: substitute for Saturday 1 January 2028 (government calendar)

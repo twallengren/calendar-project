@@ -1,0 +1,47 @@
+kind: module
+id: tw_national_day
+
+# National Day (國慶日, 10 October) as the exchange's tables list it: Sunday 2010 not made up;
+# Friday 9 October 2015, 2020 and 2026 and Monday 11 October 2021 and 2027 for weekend
+# occurrences; bridge days Monday 9 October 2017 and 2023 and Friday 11 October 2019.
+# Source: twse-holiday-schedules.
+
+source:
+  - id: twse-holiday-schedules
+
+event_sources:
+  - key: tw_national_day
+    name: National Day
+    default_classification: CLOSED
+    shiftable: false
+    rule:
+      type: explicit_dates
+      dates:
+        - 2011-10-10
+        - 2012-10-10
+        - 2013-10-10
+        - 2014-10-10
+        - date: 2015-10-09
+          comment: substitute for Saturday 10 October
+        - 2016-10-10
+        - date: 2017-10-09
+          comment: bridge day
+        - 2017-10-10
+        - 2018-10-10
+        - 2019-10-10
+        - date: 2019-10-11
+          comment: bridge day
+        - date: 2020-10-09
+          comment: substitute for Saturday 10 October
+        - date: 2021-10-11
+          comment: substitute for Sunday 10 October
+        - 2022-10-10
+        - date: 2023-10-09
+          comment: bridge day
+        - 2023-10-10
+        - 2024-10-10
+        - 2025-10-10
+        - date: 2026-10-09
+          comment: substitute for Saturday 10 October
+        - date: 2027-10-11
+          comment: substitute for Sunday 10 October (government calendar)

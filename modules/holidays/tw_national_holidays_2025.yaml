@@ -1,0 +1,39 @@
+kind: module
+id: tw_national_holidays_2025
+
+# The holidays added by the 紀念日及節日實施條例 (promulgated 28 May 2025): Teachers' Day (教師節,
+# 28 September), Retrocession Day (臺灣光復暨金門古寧頭大捷紀念日, 25 October) and Constitution Day
+# (行憲紀念日, 25 December), with weekend occurrences made up (Monday 29 September 2025, Friday
+# 24 October 2025, Monday 26 October 2026, Friday 24 December 2027). 2025 and 2026 from the
+# exchange's tables; 2027 from the government calendar.
+# Source: twse-holiday-schedules.
+
+source:
+  - id: twse-holiday-schedules
+
+event_sources:
+  - key: tw_national_holidays_2025
+    name: National Holidays (2025 Act)
+    default_classification: CLOSED
+    shiftable: false
+    rule:
+      type: explicit_dates
+      dates:
+        - date: 2025-09-29
+          comment: Teachers' Day, substitute for Sunday 28 September
+        - date: 2025-10-24
+          comment: Retrocession Day, substitute for Saturday 25 October
+        - date: 2025-12-25
+          comment: Constitution Day
+        - date: 2026-09-28
+          comment: Teachers' Day
+        - date: 2026-10-26
+          comment: Retrocession Day, substitute for Sunday 25 October
+        - date: 2026-12-25
+          comment: Constitution Day
+        - date: 2027-09-28
+          comment: Teachers' Day (government calendar)
+        - date: 2027-10-25
+          comment: Retrocession Day (government calendar)
+        - date: 2027-12-24
+          comment: Constitution Day, substitute for Saturday 25 December (government calendar)

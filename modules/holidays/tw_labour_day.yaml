@@ -1,0 +1,44 @@
+kind: module
+id: tw_labour_day
+
+# Labour Day (勞動節, 1 May). A closure every year although government offices stayed open before
+# 2025: the exchange follows the banking industry's holiday ("依行政院金融監督管理委員會...公告，
+# 銀行業於5月2日（星期一）補假1日，爰本公司市場當日補假1日", 2011 table). Saturday 1 May 2010 was
+# not made up; Monday 2 May 2011, 2016 and 2022 and Friday 30 April 2021 ("5月1日適逢星期六，
+# 4月30日（星期五）補假1日") were. A statutory national holiday from 2025; Friday 30 April 2027 per
+# the government calendar.
+# Source: twse-holiday-schedules.
+
+source:
+  - id: twse-holiday-schedules
+
+event_sources:
+  - key: tw_labour_day
+    name: Labour Day
+    default_classification: CLOSED
+    shiftable: false
+    rule:
+      type: explicit_dates
+      dates:
+        - date: 2011-05-02
+          comment: banking-industry substitute for Sunday 1 May
+        - 2012-05-01
+        - 2013-05-01
+        - 2014-05-01
+        - 2015-05-01
+        - date: 2016-05-02
+          comment: substitute for Sunday 1 May
+        - 2017-05-01
+        - 2018-05-01
+        - 2019-05-01
+        - 2020-05-01
+        - date: 2021-04-30
+          comment: substitute for Saturday 1 May
+        - date: 2022-05-02
+          comment: substitute for Sunday 1 May
+        - 2023-05-01
+        - 2024-05-01
+        - 2025-05-01
+        - 2026-05-01
+        - date: 2027-04-30
+          comment: substitute for Saturday 1 May (government calendar)

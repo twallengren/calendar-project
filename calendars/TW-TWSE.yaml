@@ -1,0 +1,37 @@
+kind: calendar
+id: TW-TWSE
+
+metadata:
+  name: Taiwan Stock Exchange
+  description: TWSE centralised securities market trading calendar (MIC XTAI)
+  chronology: ISO
+  timezone: Asia/Taipei
+  mic: XTAI
+  coverage:
+    from: 2010-01-01
+    to: 2027-12-31
+    verified_through: 2026-12-31
+    quality:
+      # The exchange's annual tables list every non-trading day 2010-2026 and its daily market
+      # summary records every day it traded; the two agree with the generated calendar day by
+      # day (4,112 trading days to the retrieval date) and with the Fact Book's annual counts.
+      # 2027 follows the government calendar until the exchange publishes its table.
+      - {scope: SCHEDULED_CLOSURES, from: 2010-01-01, to: 2026-12-31, quality: VERIFIED, evidence_ids: [twse-holiday-schedules, twse-trading-days, twse-factbook, twse-eshop-lny-2026, law-moj-D0020033, law-moj-D0020095]}
+      - {scope: SCHEDULED_CLOSURES, from: 2027-01-01, to: 2027-12-31, quality: PROJECTED, evidence_ids: [dgpa-calendars, law-moj-D0020095]}
+      # No shortened session exists: the session has been 09:00-13:30 since 2001, none of the
+      # seventeen annual tables lists a half day, and the disaster rule knows only full-day
+      # closure or post-close cancellation.
+      - {scope: EARLY_CLOSES, from: 2010-01-01, to: 2026-12-31, quality: VERIFIED, evidence_ids: [twse-holiday-schedules, twse-history, twse-trading-system, twse-suspended]}
+      - {scope: EARLY_CLOSES, from: 2027-01-01, to: 2027-12-31, quality: PROJECTED, evidence_ids: [twse-trading-system]}
+      # Every typhoon closure is a full-day Taipei suspension in the city's register, absent from
+      # the exchange's daily record and announced by the exchange; the daily record leaves no
+      # room for any other unscheduled closure through the retrieval date.
+      - {scope: UNSCHEDULED_EXCEPTIONS, from: 2010-01-01, to: 2026-10-14, quality: VERIFIED, evidence_ids: [twse-trading-days, taipei-suspension-register, twse-suspended, twse-factbook, press-ctee-2012-08-02, press-ctee-2013-08-21, press-ettoday-2014-07-22, press-cna-2015-07-09, press-bloomberg-2015-09-28, press-cmoney-2016-07-08, press-ettoday-2016-09-28, press-ctee-2019-08-08, press-ettoday-2019-09-29, cbc-2019-09-30, press-ettoday-2023-08-02, press-cnyes-2024-07-23, press-yahoo-2024-07-24, press-cnyes-2024-10-01, press-newtalk-2024-10-03, press-taiwannews-2024-10-31, press-ettoday-2026-07-09]}
+      - {scope: UNSCHEDULED_EXCEPTIONS, from: 2026-10-15, to: 2027-12-31, quality: PROJECTED, evidence_ids: [twse-suspended, taipei-suspension-register]}
+
+# Taiwan's substitute and bridge rules changed in 2015 and 2025 and the exchange's own tables are
+# the authority, so every closure is an explicit date and nothing shifts by rule.
+weekend_shift_policy: NONE
+
+uses:
+  - tw_twse_holidays

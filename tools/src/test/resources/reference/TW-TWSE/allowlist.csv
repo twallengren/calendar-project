@@ -1,0 +1,29 @@
+source,side,date,type,close_time,reason
+# Known differences between our TW-TWSE data and exchange_calendars' XTAI calendar, which
+# reproduces the exchange's tables closely (including the typhoon closures through 2024) but
+# lacks the banking-industry Labour Day substitute of 2011, two bridge/settlement days, the
+# 2024 Kong-rey and 2026 Bavi closures, the holidays added by the 2025 Act, and the 2027
+# projections, and carries a 2 January 2026 closure the exchange's 2026 table does not list.
+# QuantLib's Taiwan() calendar is not used as a reference: it disagrees on 82 days 2010-2027,
+# including the whole 2010 Lunar New Year block.
+exchange_calendars-XTAI,ours,2011-05-02,CLOSED,,Labour Day substitute for Sunday 1 May 2011 under the banking industry's holiday, listed in the exchange's 2011 table (twse-holiday-schedules); absent from exchange_calendars
+exchange_calendars-XTAI,ours,2022-02-04,CLOSED,,Lunar New Year bridge day (調整放假) listed in the exchange's 2022 table; the exchange's daily market summary has no session (twse-trading-days)
+exchange_calendars-XTAI,ours,2023-01-18,CLOSED,,first of the two settlement-only days before the 2023 Lunar New Year closure (last trading day 17 January 2023; twse-holiday-schedules, twse-trading-days)
+exchange_calendars-XTAI,ours,2024-10-31,CLOSED,,Typhoon Kong-rey closure (Taipei full-day suspension; taipei-suspension-register, twse-trading-days)
+exchange_calendars-XTAI,ours,2025-09-29,CLOSED,,Teachers' Day substitute (new holiday under the 2025 Act), listed in the exchange's 2025 table
+exchange_calendars-XTAI,ours,2025-10-24,CLOSED,,Retrocession Day substitute (new holiday under the 2025 Act), listed in the exchange's 2025 table
+exchange_calendars-XTAI,ours,2025-12-25,CLOSED,,Constitution Day (new holiday under the 2025 Act), listed in the exchange's 2025 table
+exchange_calendars-XTAI,ours,2026-02-12,CLOSED,,first settlement-only day before the 2026 Lunar New Year closure (exchange notice: closed 12-20 February 2026)
+exchange_calendars-XTAI,ours,2026-02-20,CLOSED,,Lunar New Year substitute holiday (Friday 20 February for Sunday 15 February 小年夜), listed in the exchange's 2026 table
+exchange_calendars-XTAI,ours,2026-07-10,CLOSED,,Typhoon Bavi closure (Taipei full-day suspension; taipei-suspension-register, twse-trading-days)
+exchange_calendars-XTAI,ours,2026-09-28,CLOSED,,Teachers' Day, listed in the exchange's 2026 table
+exchange_calendars-XTAI,ours,2026-10-26,CLOSED,,Retrocession Day substitute for Sunday 25 October, listed in the exchange's 2026 table
+exchange_calendars-XTAI,ours,2026-12-25,CLOSED,,Constitution Day, listed in the exchange's 2026 table
+exchange_calendars-XTAI,ours,2027-02-02,CLOSED,,projected settlement-only day before the 2027 Lunar New Year closure (exchange table not yet published; PROJECTED)
+exchange_calendars-XTAI,ours,2027-02-03,CLOSED,,projected settlement-only day before the 2027 Lunar New Year closure (PROJECTED)
+exchange_calendars-XTAI,ours,2027-04-06,CLOSED,,Tomb-Sweeping Day substitute per the government's 2027 calendar (PROJECTED)
+exchange_calendars-XTAI,ours,2027-04-30,CLOSED,,Labour Day substitute for Saturday 1 May 2027 per the government's 2027 calendar (PROJECTED)
+exchange_calendars-XTAI,ours,2027-09-28,CLOSED,,Teachers' Day per the government's 2027 calendar (PROJECTED)
+exchange_calendars-XTAI,ours,2027-10-25,CLOSED,,Retrocession Day per the government's 2027 calendar (PROJECTED)
+exchange_calendars-XTAI,ours,2027-12-24,CLOSED,,Constitution Day substitute for Saturday 25 December 2027 per the government's 2027 calendar (PROJECTED)
+exchange_calendars-XTAI,theirs,2026-01-02,CLOSED,,Not a closure: the exchange's 2026 table lists 1 January only and its daily market summary records a session on Friday 2 January 2026 (twse-holiday-schedules, twse-trading-days)

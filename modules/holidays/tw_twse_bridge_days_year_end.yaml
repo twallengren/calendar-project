@@ -1,0 +1,23 @@
+kind: module
+id: tw_twse_bridge_days_year_end
+
+# Government bridge days (調整放假) at the year end that the exchange's tables list as closures:
+# Monday 31 December 2012 (made up on Saturday 22 December 2012, a trading day) and Monday
+# 31 December 2018 (made up on Saturday 22 December 2018, the last Saturday session).
+# Source: twse-holiday-schedules.
+
+source:
+  - id: twse-holiday-schedules
+
+event_sources:
+  - key: tw_twse_bridge_days_year_end
+    name: Bridge Day (year end)
+    default_classification: CLOSED
+    shiftable: false
+    rule:
+      type: explicit_dates
+      dates:
+        - date: 2012-12-31
+          comment: bridge day, made up on Saturday 22 December 2012
+        - date: 2018-12-31
+          comment: bridge day, made up on Saturday 22 December 2018

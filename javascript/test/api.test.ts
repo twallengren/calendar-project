@@ -28,7 +28,8 @@ function syntheticCalendar(incompleteFrom: string): bdc.SingleCalendar {
 }
 
 test("ids, aliases and the data version", () => {
-  assert.equal(bdc.listCalendars().length, 22);
+  assert.equal(bdc.listCalendars().length, 23);
+  assert.equal(bdc.resolveId("xtai"), "TW-TWSE");
   assert.equal(bdc.resolveId("xjse"), "ZA-JSE");
   assert.equal(bdc.resolveId("xkrx"), "KR-KRX");
   assert.equal(bdc.resolveId("xses"), "SG-SGX");
