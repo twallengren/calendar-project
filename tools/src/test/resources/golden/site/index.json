@@ -1,5 +1,27 @@
 {
   "calendars" : [ {
+    "id" : "AU-ASX",
+    "name" : "Australian Securities Exchange",
+    "timezone" : "Australia/Sydney",
+    "mic" : "XASX",
+    "aliases" : [ ],
+    "coverage" : {
+      "from" : "2010-01-01",
+      "to" : "2030-12-31",
+      "verified_through" : "2027-12-31"
+    },
+    "counts_by_type" : {
+      "CLOSED" : 170,
+      "WEEKEND" : 2186,
+      "EARLY_CLOSE" : 36
+    },
+    "counts_by_status" : {
+      "CONFIRMED" : 2392
+    },
+    "checksum" : "sha256:9eff0198124333b4f9d02aec38404d7167a14ce842ebc399763ff335a4668852",
+    "years" : [ 2010, 2030 ],
+    "href" : "calendars/AU-ASX/manifest.json"
+  }, {
     "id" : "BE-EURONEXT-BRUSSELS",
     "name" : "Euronext Brussels Trading Calendar",
     "timezone" : "Europe/Brussels",

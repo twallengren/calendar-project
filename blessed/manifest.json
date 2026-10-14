@@ -3,6 +3,13 @@
   "blessed_at": "2026-10-14T00:02:04Z",
   "blessed_by": "github-actions",
   "calendars": {
+    "AU-ASX": {
+      "range_start": "2010-01-01",
+      "range_end": "2030-12-31",
+      "kind": "market",
+      "checksum": "sha256:9eff0198124333b4f9d02aec38404d7167a14ce842ebc399763ff335a4668852",
+      "event_count": 2392
+    },
     "BE-EURONEXT-BRUSSELS": {
       "kind": "market",
       "range_start": "2010-01-01",
@@ -137,6 +144,7 @@
   },
   "aliases": {
     "XAMS": "NL-EURONEXT-AMSTERDAM",
+    "XASX": "AU-ASX",
     "XBRU": "BE-EURONEXT-BRUSSELS",
     "XETR": "DE-XETRA",
     "XHKG": "HK-HKEX",

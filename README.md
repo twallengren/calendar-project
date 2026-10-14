@@ -310,6 +310,7 @@ actual-day completeness. Use the [coverage assessment summary](docs/delivery/COV
 
 | ID | Name | Kind | Timezone | Coverage | Verified Through | Closures | Early Closes | Projected | Sources | Cross-validation | Release |
 |----|------|------|----------|----------|-------------------|----------|---------------|-----------|---------|-------------------|---------|
+| AU-ASX | Australian Securities Exchange | market | Australia/Sydney | 2010-01-01 to 2030-12-31 | 2027-12-31 | 170 | 36 | 0 | 45 | exchange_calendars-XASX: ok (allowlisted=8); quantlib-australia-asx: ok (allowlisted=2) | 13.0.0 |
 | BE-EURONEXT-BRUSSELS | Euronext Brussels Trading Calendar | market | Europe/Brussels | 2010-01-01 to 2030-12-31 | 2026-12-31 | 126 | 30 | 0 | 14 | exchange_calendars-XBRU: ok (allowlisted=12) | 13.0.0 |
 | CA-TSX | Toronto Stock Exchange | market | America/Toronto | 2000-01-01 to 2030-12-31 | 2026-12-31 | 304 | 16 | 4 | 33 | exchange_calendars-XTSE: ok (allowlisted=9); quantlib-tsx: ok (allowlisted=2) | 13.0.0 |
 | DE-XETRA | Deutsche Börse Xetra | market | Europe/Berlin | 2003-01-01 to 2030-12-31 | 2026-12-31 | 238 | 0 | 0 | 29 | exchange_calendars-XETR: ok (allowlisted=21); quantlib-germany-xetra: ok (allowlisted=33) | 13.0.0 |
