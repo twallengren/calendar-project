@@ -1,0 +1,211 @@
+kind: calendar
+id: IL-TASE
+metadata:
+  name: Tel Aviv Stock Exchange
+  description: "Tel Aviv Stock Exchange (TASE) equity trading calendar. Scheduled\
+    \ closures are complete for 2025. The 2026-2027 range deliberately contains only\
+    \ the verified trading-week change, verified Q1 Friday sessions, and two individually\
+    \ announced April 2026 closures. Exact 2025 shortened-session close times, other\
+    \ scheduled closures, and unscheduled exceptions remain incomplete."
+  chronology: ISO
+  timezone: Asia/Jerusalem
+  coverage:
+    from: 2025-01-01
+    to: 2027-12-31
+    quality:
+    - scope: SCHEDULED_CLOSURES
+      from: 2025-01-01
+      to: 2025-12-31
+      quality: VERIFIED
+      evidenceIds:
+      - tase-vacation-schedule-2025
+    - scope: SCHEDULED_CLOSURES
+      from: 2026-01-01
+      to: 2026-04-20
+      quality: INCOMPLETE
+      evidenceIds:
+      - isa-trading-week-2026
+      - tase-q1-2026-report
+    - scope: SCHEDULED_CLOSURES
+      from: 2026-04-21
+      to: 2026-04-22
+      quality: VERIFIED
+      evidenceIds:
+      - tase-weekly-review-2026-04-20
+    - scope: SCHEDULED_CLOSURES
+      from: 2026-04-23
+      to: 2027-12-31
+      quality: INCOMPLETE
+      evidenceIds:
+      - isa-trading-week-2026
+    - scope: EARLY_CLOSES
+      from: 2025-01-01
+      to: 2026-01-08
+      quality: INCOMPLETE
+      evidenceIds:
+      - tase-vacation-schedule-2025
+      - tase-board-trading-hours-2024
+    - scope: EARLY_CLOSES
+      from: 2026-01-09
+      to: 2026-01-09
+      quality: VERIFIED
+      evidenceIds:
+      - isa-trading-week-2026
+    - scope: EARLY_CLOSES
+      from: 2026-01-10
+      to: 2026-01-15
+      quality: INCOMPLETE
+      evidenceIds:
+      - isa-trading-week-2026
+    - scope: EARLY_CLOSES
+      from: 2026-01-16
+      to: 2026-01-16
+      quality: VERIFIED
+      evidenceIds:
+      - isa-trading-week-2026
+    - scope: EARLY_CLOSES
+      from: 2026-01-17
+      to: 2026-01-22
+      quality: INCOMPLETE
+      evidenceIds:
+      - isa-trading-week-2026
+    - scope: EARLY_CLOSES
+      from: 2026-01-23
+      to: 2026-01-23
+      quality: VERIFIED
+      evidenceIds:
+      - isa-trading-week-2026
+    - scope: EARLY_CLOSES
+      from: 2026-01-24
+      to: 2026-01-29
+      quality: INCOMPLETE
+      evidenceIds:
+      - isa-trading-week-2026
+    - scope: EARLY_CLOSES
+      from: 2026-01-30
+      to: 2026-01-30
+      quality: VERIFIED
+      evidenceIds:
+      - isa-trading-week-2026
+    - scope: EARLY_CLOSES
+      from: 2026-01-31
+      to: 2026-02-05
+      quality: INCOMPLETE
+      evidenceIds:
+      - isa-trading-week-2026
+    - scope: EARLY_CLOSES
+      from: 2026-02-06
+      to: 2026-02-06
+      quality: VERIFIED
+      evidenceIds:
+      - isa-trading-week-2026
+    - scope: EARLY_CLOSES
+      from: 2026-02-07
+      to: 2026-02-12
+      quality: INCOMPLETE
+      evidenceIds:
+      - isa-trading-week-2026
+    - scope: EARLY_CLOSES
+      from: 2026-02-13
+      to: 2026-02-13
+      quality: VERIFIED
+      evidenceIds:
+      - isa-trading-week-2026
+    - scope: EARLY_CLOSES
+      from: 2026-02-14
+      to: 2026-02-19
+      quality: INCOMPLETE
+      evidenceIds:
+      - isa-trading-week-2026
+    - scope: EARLY_CLOSES
+      from: 2026-02-20
+      to: 2026-02-20
+      quality: VERIFIED
+      evidenceIds:
+      - isa-trading-week-2026
+    - scope: EARLY_CLOSES
+      from: 2026-02-21
+      to: 2026-02-26
+      quality: INCOMPLETE
+      evidenceIds:
+      - isa-trading-week-2026
+    - scope: EARLY_CLOSES
+      from: 2026-02-27
+      to: 2026-02-27
+      quality: VERIFIED
+      evidenceIds:
+      - isa-trading-week-2026
+    - scope: EARLY_CLOSES
+      from: 2026-02-28
+      to: 2026-03-05
+      quality: INCOMPLETE
+      evidenceIds:
+      - isa-trading-week-2026
+    - scope: EARLY_CLOSES
+      from: 2026-03-06
+      to: 2026-03-06
+      quality: VERIFIED
+      evidenceIds:
+      - isa-trading-week-2026
+    - scope: EARLY_CLOSES
+      from: 2026-03-07
+      to: 2026-03-12
+      quality: INCOMPLETE
+      evidenceIds:
+      - isa-trading-week-2026
+    - scope: EARLY_CLOSES
+      from: 2026-03-13
+      to: 2026-03-13
+      quality: VERIFIED
+      evidenceIds:
+      - isa-trading-week-2026
+    - scope: EARLY_CLOSES
+      from: 2026-03-14
+      to: 2026-03-19
+      quality: INCOMPLETE
+      evidenceIds:
+      - isa-trading-week-2026
+    - scope: EARLY_CLOSES
+      from: 2026-03-20
+      to: 2026-03-20
+      quality: VERIFIED
+      evidenceIds:
+      - isa-trading-week-2026
+    - scope: EARLY_CLOSES
+      from: 2026-03-21
+      to: 2026-03-26
+      quality: INCOMPLETE
+      evidenceIds:
+      - isa-trading-week-2026
+    - scope: EARLY_CLOSES
+      from: 2026-03-27
+      to: 2026-03-27
+      quality: VERIFIED
+      evidenceIds:
+      - isa-trading-week-2026
+    - scope: EARLY_CLOSES
+      from: 2026-03-28
+      to: 2027-12-31
+      quality: INCOMPLETE
+      evidenceIds:
+      - isa-trading-week-2026
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2025-01-01
+      to: 2027-12-31
+      quality: INCOMPLETE
+      evidenceIds:
+      - tase-vacation-schedule-2025
+      - tase-weekly-review-2026-04-20
+    verified_through: 2025-12-31
+  kind: market
+  mic: XTAE
+  aliases:
+  - TASE
+uses:
+- tase_weekends
+- tase_holidays
+classifications: {}
+deltas: []
+extends: []
+event_sources: []
+weekend_shift_policy: NONE

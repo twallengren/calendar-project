@@ -1,0 +1,33 @@
+{
+  "calendar_id" : "DE-XETRA",
+  "status" : "ok",
+  "results" : [ {
+    "source" : "exchange_calendars-XETR",
+    "library_version" : "exchange_calendars 4.11, python 3.13.12, 2026-09-14",
+    "from" : "2003-01-02",
+    "to" : "2030-12-30",
+    "compared_types" : [ "CLOSED", "EARLY_CLOSE" ],
+    "counts" : {
+      "matched" : 188,
+      "allowlisted" : 21,
+      "unexplained" : 0
+    },
+    "unexplained_rows" : [ ],
+    "stale_allowlist_rows" : [ ],
+    "status" : "ok"
+  }, {
+    "source" : "quantlib-germany-xetra",
+    "library_version" : "QuantLib 1.43, python 3.13.12, 2026-09-14",
+    "from" : "2003-01-01",
+    "to" : "2030-12-26",
+    "compared_types" : [ "CLOSED" ],
+    "counts" : {
+      "matched" : 156,
+      "allowlisted" : 33,
+      "unexplained" : 0
+    },
+    "unexplained_rows" : [ ],
+    "stale_allowlist_rows" : [ ],
+    "status" : "ok"
+  } ]
+}
