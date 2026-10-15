@@ -22,7 +22,7 @@ calendar data is exposed as :data:`data_version` together with the
 :data:`data_git_sha` it was generated from.
 """
 
-from ._loader import Event
+from ._loader import Event, SpecialSessionEvent
 from ._version import DATA_GENERATION_DATE, DATA_GIT_SHA, DATA_VERSION, __version__
 from ._weekend import WeekendPeriod, WeekendPolicy
 from .calendar import (
@@ -57,6 +57,7 @@ from .operations import (
     Schedule,
     ScheduleDefinition,
     SchedulePeriod,
+    SpecialSession,
     YearFractionResult,
 )
 from .errors import (
@@ -87,6 +88,7 @@ __all__ = [
     "DateOperation",
     "DateOperationResult",
     "MemberClose",
+    "SpecialSession",
     "DayCount",
     "Frequency",
     "RollConvention",
@@ -107,6 +109,7 @@ __all__ = [
     "JointCalendar",
     "DateRange",
     "Event",
+    "SpecialSessionEvent",
     "WeekendPolicy",
     "WeekendPeriod",
     "BdcCalendarError",

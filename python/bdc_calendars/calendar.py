@@ -31,6 +31,7 @@ from .operations import (
     MemberClose,
     Schedule,
     ScheduleDefinition,
+    SpecialSession,
     YearFractionResult,
     add_tenor_detailed as _add_tenor_detailed,
     schedule as _generate_schedule,
@@ -165,6 +166,53 @@ class BusinessCalendar:
         ``EARLY_CLOSE`` day *is* a business day.
         """
         raise NotImplementedError
+
+    def is_trading_day(self, date: DateLike) -> bool:
+        """
+        Whether trades are struck on this date: a business day, or a
+        non-business day that carries a ``SPECIAL_SESSION`` (Diwali Muhurat
+        trading on an exchange holiday, say).
+
+        Date arithmetic never uses this; it answers "did the market trade?",
+        not "is this a business day?". It needs the same scopes as
+        :meth:`is_business_day`, because special sessions are part of the
+        schedule that evidence verifies.
+
+        :raises OutsideCoverageError: if the date lies outside :attr:`range`
+        :raises UnresolvedDateError: if a business-day scope is incomplete on the date
+        """
+        day = _as_date(date)
+        if self.is_business_day(day):
+            return True
+        return any(event.type == "SPECIAL_SESSION" for event in self.events_on(day))
+
+    def special_sessions(self, date: DateLike) -> List[SpecialSession]:
+        """
+        The special sessions held on a date, ordered by open time and then close
+        time; empty on most dates. Times are local to the calendar's
+        :attr:`timezone`. Session detail needs every scope, like :meth:`close_time`.
+
+        :raises OutsideCoverageError: if the date lies outside :attr:`range`
+        :raises UnresolvedDateError: if any scope is incomplete on the date
+        """
+        day = _as_date(date)
+        self._require_resolved(day)
+        sessions = sorted(
+            (event for event in self.events_on(day) if event.type == "SPECIAL_SESSION"),
+            key=lambda event: (event.open_time, event.close_time),
+        )
+        return [
+            SpecialSession(
+                self.calendar_id,
+                self.timezone,
+                event.open_time,
+                event.close_time,
+                event.key,
+                event.description,
+                event.status,
+            )
+            for event in sessions
+        ]
 
     def event_on(self, date: DateLike) -> Optional[Event]:
         """The first of :meth:`events_on`, or ``None``."""
@@ -378,7 +426,9 @@ class BusinessCalendar:
         """
         The local close time of a shortened session, or ``None``.
 
-        Where several early closes apply the earliest wins. The time is local to
+        Where several early closes apply the earliest wins. Only ``EARLY_CLOSE``
+        events count: a special session's close is reported by
+        :meth:`special_sessions`. The time is local to
         the calendar's declared :attr:`timezone`; a regular session and a fully
         closed date both answer ``None`` (use :meth:`is_business_day` to tell
         them apart).
@@ -817,6 +867,23 @@ class JointCalendar(BusinessCalendar):
         self._check_range(day)
         self._require_resolved(day, BUSINESS_DAY_QUESTION)
         return all(member.is_business_day(day) for member in self._members)
+
+    def is_trading_day(self, date: DateLike) -> bool:
+        """A joint trading day is a date on which every member trades."""
+        day = _as_date(date)
+        self._check_range(day)
+        self._require_resolved(day, BUSINESS_DAY_QUESTION)
+        return all(member.is_trading_day(day) for member in self._members)
+
+    def special_sessions(self, date: DateLike) -> List[SpecialSession]:
+        """Every member's special sessions, in member order, each with its own identity."""
+        day = _as_date(date)
+        self._check_range(day)
+        self._require_resolved(day)
+        sessions: List[SpecialSession] = []
+        for member in self._members:
+            sessions.extend(member.special_sessions(day))
+        return sessions
 
     def close_time(self, date: DateLike) -> Optional[_dt.time]:
         """Deprecated for joint calendars; use ``member_closes`` for timezone identity."""
