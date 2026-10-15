@@ -31,3 +31,11 @@ python3 -m venv .venv
 | `FR-EURONEXT-PARIS/exchange_calendars-XPAR.csv` | exchange_calendars 4.11 | Same shape for XAMS, XBRU, XLIS under their venue directories. |
 | `HK-HKEX/exchange_calendars-XHKG.csv` | exchange_calendars 4.11 | Includes unscheduled severe-weather closures. |
 | `HK-HKEX/quantlib-hong-kong.csv` | QuantLib 1.43 `HongKong(HKEx)` | Hard-coded per-year lists, ends after 2025. |
+| `AU-ASX/exchange_calendars-XASX.csv` | exchange_calendars 4.11 | Bounded to 2010-2030 here. Carries the 2010 and 2011 ANZAC Day additional days; still moves weekend Christmas Eve / New Year's Eve early closes to the Friday after the exchange stopped doing so in 2017 (see allowlist). |
+| `AU-ASX/quantlib-australia-asx.csv` | QuantLib 1.43 `Australia(ASX)` | Full closures only; no ANZAC Day additional days (2010, 2011). |
+| `SG-SGX/exchange_calendars-XSES.csv` | exchange_calendars 4.11 | Recorded only to 2025; every scheduled closure 2010-2025 matches; models no half-day sessions (see allowlist). QuantLib `Singapore(SGX)` is not used: it omits most lunar and religious holidays in several years. |
+| `KR-KRX/exchange_calendars-XKRX.csv` | exchange_calendars 4.11 | Matches the exchange's lists 2010-2025; misses the 2026 Buddha's Birthday substitute, the 2026 election day and the 2026-2027 Labour Day / Constitution Day holidays (see allowlist). |
+| `KR-KRX/quantlib-south-korea-krx.csv` | QuantLib 1.43 `SouthKorea(KRX)` | Hard-coded per-year lists; matches 2010-2024; misses the 2025 and 2026 election days and the 2026-2027 Labour Day / Constitution Day holidays. |
+| `ZA-JSE/exchange_calendars-XJSE.csv` | exchange_calendars 4.11 | Statutory holidays with the Sunday rule plus some proclaimed days (to 2019); no early closes, no 2021-2026 proclamations (see allowlist). |
+| `ZA-JSE/quantlib-south-africa.csv` | QuantLib 1.43 `SouthAfrica()` | National-holiday calendar with hard-coded one-off days; missing the 2011, 2014 and 2019 election days and the 2011/2016 27 December holidays. |
+| `TW-TWSE/exchange_calendars-XTAI.csv` | exchange_calendars 4.11 | Close to the exchange's tables, typhoon closures included through 2024; see allowlist for the 2011 Labour Day substitute, settlement/bridge days, 2024-2026 typhoons, the 2025 Act's holidays and a spurious 2 January 2026. QuantLib `Taiwan()` is not used (82 disagreements). |

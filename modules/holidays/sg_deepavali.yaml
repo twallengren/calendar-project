@@ -1,0 +1,40 @@
+kind: module
+id: sg_deepavali
+
+# Deepavali, dated each year by the Ministry of Manpower from the Hindu Endowments Board. Sunday
+# occurrences move to Monday (28 October 2019, 13 November 2023, 9 November 2026); Saturday
+# occurrences (2 November 2013, 29 October 2016, 14 November 2020) bring no substitute. 2013 was
+# revised from Sunday 3 November to Saturday 2 November, so Monday 4 November 2013 was a trading
+# day (SGX 2013 table: "4 November 2013 (Monday) will not be a public holiday"); 2014 was
+# revised from 23 to 22 October.
+# Source: mom-public-holidays and the per-year MOM lists.
+
+source:
+  - id: mom-public-holidays
+
+event_sources:
+  - key: sg_deepavali
+    name: Deepavali
+    default_classification: CLOSED
+    shiftable: true
+    rule:
+      type: explicit_dates
+      dates:
+        - 2010-11-05
+        - 2011-10-26
+        - 2012-11-13
+        - 2013-11-02
+        - 2014-10-22
+        - 2015-11-10
+        - 2016-10-29
+        - 2017-10-18
+        - 2018-11-06
+        - 2019-10-27
+        - 2020-11-14
+        - 2021-11-04
+        - 2022-10-24
+        - 2023-11-12
+        - 2024-10-31
+        - 2025-10-20
+        - 2026-11-08
+        - 2027-10-28

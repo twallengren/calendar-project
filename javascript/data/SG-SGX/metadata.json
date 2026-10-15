@@ -1,0 +1,3622 @@
+{
+  "calendar_id": "SG-SGX",
+  "calendar_name": "Singapore Exchange",
+  "counts_by_status": {
+    "CONFIRMED": 2095
+  },
+  "counts_by_type": {
+    "CLOSED": 180,
+    "EARLY_CLOSE": 40,
+    "WEEKEND": 1875
+  },
+  "coverage": {
+    "from": "2010-01-01",
+    "quality": [
+      {
+        "evidence_ids": [
+          "mom-holidays-wb-20100627",
+          "mom-holidays-wb-20130630",
+          "mom-holidays-wb-20130125",
+          "sgx-calendar-wb-20090515",
+          "sgx-calendar-wb-20140821",
+          "sgx-trading-days-by-month"
+        ],
+        "from": "2010-01-01",
+        "quality": "VERIFIED",
+        "scope": "SCHEDULED_CLOSURES",
+        "to": "2012-12-31"
+      },
+      {
+        "evidence_ids": [
+          "sgx-calendar-wb-20140821",
+          "sgx-calendar-wb-20150924",
+          "sgx-calendar-wb-20160108",
+          "sgx-calendar-wb-20170608",
+          "sgx-calendar-wb-20181020",
+          "sgx-calendar-wb-20181223",
+          "mom-holidays-wb-20130124",
+          "mom-holidays-wb-20130413",
+          "mom-holidays-wb-20140410",
+          "mom-holidays-wb-20150531",
+          "mom-holidays-wb-20170602",
+          "mom-holidays-wb-20190630",
+          "sgx-trading-days-by-month"
+        ],
+        "from": "2013-01-01",
+        "quality": "VERIFIED",
+        "scope": "SCHEDULED_CLOSURES",
+        "to": "2019-12-31"
+      },
+      {
+        "evidence_ids": [
+          "settlement-holidays-2020",
+          "mom-press-2019-0408",
+          "mom-press-2020-0624-polling-day",
+          "datagov-public-holidays-2020-2027",
+          "sgx-trading-days-by-month"
+        ],
+        "from": "2020-01-01",
+        "quality": "VERIFIED",
+        "scope": "SCHEDULED_CLOSURES",
+        "to": "2020-12-31"
+      },
+      {
+        "evidence_ids": [
+          "mom-press-2020-0624-holidays-2021",
+          "mom-press-2021-0406",
+          "mom-press-2021-1021",
+          "datagov-public-holidays-2020-2027",
+          "sgx-trading-days-by-month"
+        ],
+        "from": "2021-01-01",
+        "quality": "VERIFIED",
+        "scope": "SCHEDULED_CLOSURES",
+        "to": "2022-12-31"
+      },
+      {
+        "evidence_ids": [
+          "settlement-holidays-2023",
+          "mom-press-2022-0408",
+          "mom-press-2022-0929",
+          "dtam-64-2023",
+          "datagov-public-holidays-2020-2027",
+          "sgx-trading-days-by-month"
+        ],
+        "from": "2023-01-01",
+        "quality": "VERIFIED",
+        "scope": "SCHEDULED_CLOSURES",
+        "to": "2023-12-31"
+      },
+      {
+        "evidence_ids": [
+          "settlement-holidays-2024",
+          "gazette-1387",
+          "datagov-public-holidays-2020-2027",
+          "sgx-trading-days-by-month"
+        ],
+        "from": "2024-01-01",
+        "quality": "VERIFIED",
+        "scope": "SCHEDULED_CLOSURES",
+        "to": "2024-12-31"
+      },
+      {
+        "evidence_ids": [
+          "settlement-holidays-2025",
+          "mom-public-holidays",
+          "sgx-trading-page",
+          "datagov-public-holidays-2020-2027",
+          "sgx-trading-days-by-month"
+        ],
+        "from": "2025-01-01",
+        "quality": "VERIFIED",
+        "scope": "SCHEDULED_CLOSURES",
+        "to": "2025-12-31"
+      },
+      {
+        "evidence_ids": [
+          "gazette-2258",
+          "gazette-3467",
+          "mom-public-holidays",
+          "sgx-trading-page",
+          "datagov-public-holidays-2020-2027"
+        ],
+        "from": "2026-01-01",
+        "quality": "VERIFIED",
+        "scope": "SCHEDULED_CLOSURES",
+        "to": "2027-12-31"
+      },
+      {
+        "evidence_ids": [
+          "sgx-calendar-wb-20140821",
+          "sgx-rulebook-pn13-1-rev7300",
+          "sgx-rulebook-pn13-1-rev7712"
+        ],
+        "from": "2010-01-01",
+        "quality": "PROJECTED",
+        "scope": "EARLY_CLOSES",
+        "to": "2013-12-31"
+      },
+      {
+        "evidence_ids": [
+          "sgx-calendar-wb-20140821",
+          "sgx-calendar-wb-20150924",
+          "sgx-calendar-wb-20160108",
+          "sgx-calendar-wb-20170608",
+          "sgx-calendar-wb-20181020",
+          "sgx-calendar-wb-20181223",
+          "sgx-rulebook-pn13-1-rev9845"
+        ],
+        "from": "2014-01-01",
+        "quality": "VERIFIED",
+        "scope": "EARLY_CLOSES",
+        "to": "2019-12-31"
+      },
+      {
+        "evidence_ids": [
+          "sgx-rulebook-rn-8-2-1",
+          "sgx-trading-page"
+        ],
+        "from": "2020-01-01",
+        "quality": "PROJECTED",
+        "scope": "EARLY_CLOSES",
+        "to": "2024-12-31"
+      },
+      {
+        "evidence_ids": [
+          "sgx-trading-page",
+          "sgx-rulebook-rn-8-2-1"
+        ],
+        "from": "2025-01-01",
+        "quality": "VERIFIED",
+        "scope": "EARLY_CLOSES",
+        "to": "2026-12-31"
+      },
+      {
+        "evidence_ids": [
+          "sgx-trading-page"
+        ],
+        "from": "2027-01-01",
+        "quality": "PROJECTED",
+        "scope": "EARLY_CLOSES",
+        "to": "2027-12-31"
+      },
+      {
+        "evidence_ids": [
+          "sgx-outage-2016-07-14"
+        ],
+        "from": "2010-01-01",
+        "quality": "PROJECTED",
+        "scope": "UNSCHEDULED_EXCEPTIONS",
+        "to": "2010-11-30"
+      },
+      {
+        "evidence_ids": [
+          "sgx-trading-days-by-month",
+          "sgx-release-2011-06-30"
+        ],
+        "from": "2010-12-01",
+        "quality": "VERIFIED",
+        "scope": "UNSCHEDULED_EXCEPTIONS",
+        "to": "2012-06-30"
+      },
+      {
+        "evidence_ids": [
+          "sgx-trading-days-by-month"
+        ],
+        "from": "2012-07-01",
+        "quality": "PROJECTED",
+        "scope": "UNSCHEDULED_EXCEPTIONS",
+        "to": "2012-07-31"
+      },
+      {
+        "evidence_ids": [
+          "sgx-trading-days-by-month"
+        ],
+        "from": "2012-08-01",
+        "quality": "VERIFIED",
+        "scope": "UNSCHEDULED_EXCEPTIONS",
+        "to": "2013-03-31"
+      },
+      {
+        "evidence_ids": [
+          "sgx-trading-days-by-month"
+        ],
+        "from": "2013-04-01",
+        "quality": "PROJECTED",
+        "scope": "UNSCHEDULED_EXCEPTIONS",
+        "to": "2013-10-31"
+      },
+      {
+        "evidence_ids": [
+          "sgx-trading-days-by-month"
+        ],
+        "from": "2013-11-01",
+        "quality": "VERIFIED",
+        "scope": "UNSCHEDULED_EXCEPTIONS",
+        "to": "2013-11-30"
+      },
+      {
+        "evidence_ids": [
+          "sgx-trading-days-by-month"
+        ],
+        "from": "2013-12-01",
+        "quality": "PROJECTED",
+        "scope": "UNSCHEDULED_EXCEPTIONS",
+        "to": "2013-12-31"
+      },
+      {
+        "evidence_ids": [
+          "sgx-trading-days-by-month"
+        ],
+        "from": "2014-01-01",
+        "quality": "VERIFIED",
+        "scope": "UNSCHEDULED_EXCEPTIONS",
+        "to": "2014-04-30"
+      },
+      {
+        "evidence_ids": [
+          "sgx-trading-days-by-month"
+        ],
+        "from": "2014-05-01",
+        "quality": "PROJECTED",
+        "scope": "UNSCHEDULED_EXCEPTIONS",
+        "to": "2014-06-30"
+      },
+      {
+        "evidence_ids": [
+          "sgx-trading-days-by-month",
+          "sgx-outage-2014-11-05",
+          "sgx-outage-2014-12-03"
+        ],
+        "from": "2014-07-01",
+        "quality": "VERIFIED",
+        "scope": "UNSCHEDULED_EXCEPTIONS",
+        "to": "2015-05-31"
+      },
+      {
+        "evidence_ids": [
+          "sgx-trading-days-by-month"
+        ],
+        "from": "2015-06-01",
+        "quality": "PROJECTED",
+        "scope": "UNSCHEDULED_EXCEPTIONS",
+        "to": "2015-06-30"
+      },
+      {
+        "evidence_ids": [
+          "sgx-trading-days-by-month",
+          "sgx-outage-2016-07-14",
+          "sgx-release-2020-04-03"
+        ],
+        "from": "2015-07-01",
+        "quality": "VERIFIED",
+        "scope": "UNSCHEDULED_EXCEPTIONS",
+        "to": "2020-06-30"
+      },
+      {
+        "evidence_ids": [
+          "sgx-trading-days-by-month",
+          "mom-press-2020-0624-polling-day"
+        ],
+        "from": "2020-07-01",
+        "quality": "PROJECTED",
+        "scope": "UNSCHEDULED_EXCEPTIONS",
+        "to": "2020-07-31"
+      },
+      {
+        "evidence_ids": [
+          "sgx-trading-days-by-month"
+        ],
+        "from": "2020-08-01",
+        "quality": "VERIFIED",
+        "scope": "UNSCHEDULED_EXCEPTIONS",
+        "to": "2023-03-31"
+      },
+      {
+        "evidence_ids": [
+          "sgx-trading-days-by-month"
+        ],
+        "from": "2023-04-01",
+        "quality": "PROJECTED",
+        "scope": "UNSCHEDULED_EXCEPTIONS",
+        "to": "2023-06-30"
+      },
+      {
+        "evidence_ids": [
+          "sgx-trading-days-by-month"
+        ],
+        "from": "2023-07-01",
+        "quality": "VERIFIED",
+        "scope": "UNSCHEDULED_EXCEPTIONS",
+        "to": "2026-06-30"
+      },
+      {
+        "evidence_ids": [
+          "sgx-outage-2016-07-14"
+        ],
+        "from": "2026-07-01",
+        "quality": "PROJECTED",
+        "scope": "UNSCHEDULED_EXCEPTIONS",
+        "to": "2027-12-31"
+      }
+    ],
+    "to": "2027-12-31",
+    "verified_through": "2027-12-31"
+  },
+  "event_count": 2095,
+  "event_details": [
+    {
+      "close_time": null,
+      "date": "2010-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-02-15",
+      "description": "Chinese New Year",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_chinese_new_year",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_chinese_new_year",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-02-16",
+      "description": "Chinese New Year",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_chinese_new_year",
+      "observation_lineage": [
+        "2010-02-14",
+        "2010-02-16"
+      ],
+      "observed_from": "2010-02-14",
+      "source_module": "module:sg_chinese_new_year",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-04-02",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-05-28",
+      "description": "Vesak Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_vesak_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_vesak_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-08-09",
+      "description": "National Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_national_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_national_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-09-10",
+      "description": "Hari Raya Puasa",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_hari_raya_puasa",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_hari_raya_puasa",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-11-05",
+      "description": "Deepavali",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_deepavali",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_deepavali",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-11-17",
+      "description": "Hari Raya Haji",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_hari_raya_haji",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_hari_raya_haji",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2010-12-24",
+      "description": "Christmas Eve (Half Day)",
+      "evidence_ids": [
+        "sgx-calendar-wb-20140821"
+      ],
+      "key": "sg_sgx_christmas_eve_half_day_1230",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_sgx_half_days",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2010-12-31",
+      "description": "New Year's Eve (Half Day)",
+      "evidence_ids": [
+        "sgx-calendar-wb-20140821"
+      ],
+      "key": "sg_sgx_new_years_eve_half_day_1230",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_sgx_half_days",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2011-02-02",
+      "description": "Chinese New Year Eve (Half Day)",
+      "evidence_ids": [
+        "sgx-calendar-wb-20170608"
+      ],
+      "key": "sg_sgx_chinese_new_year_eve_half_day_1230",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_sgx_half_days",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2011-02-03",
+      "description": "Chinese New Year",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_chinese_new_year",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_chinese_new_year",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-02-04",
+      "description": "Chinese New Year",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_chinese_new_year",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_chinese_new_year",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-04-22",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-05-02",
+      "description": "Labour Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_labour_day",
+      "observation_lineage": [
+        "2011-05-01",
+        "2011-05-02"
+      ],
+      "observed_from": "2011-05-01",
+      "source_module": "module:sg_labour_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-05-07",
+      "description": "Polling Day (general election (Saturday))",
+      "evidence_ids": [
+        "datagov-public-holidays-2020-2027",
+        "dtam-64-2023",
+        "mom-holidays-wb-20130630",
+        "mom-press-2020-0624-polling-day",
+        "settlement-holidays-2020",
+        "settlement-holidays-2023",
+        "sgx-calendar-wb-20150924"
+      ],
+      "key": "sg_polling_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_one_off_public_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-05-17",
+      "description": "Vesak Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_vesak_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_vesak_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-08-09",
+      "description": "National Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_national_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_national_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-08-27",
+      "description": "Polling Day (presidential election (Saturday))",
+      "evidence_ids": [
+        "datagov-public-holidays-2020-2027",
+        "dtam-64-2023",
+        "mom-holidays-wb-20130630",
+        "mom-press-2020-0624-polling-day",
+        "settlement-holidays-2020",
+        "settlement-holidays-2023",
+        "sgx-calendar-wb-20150924"
+      ],
+      "key": "sg_polling_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_one_off_public_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-08-30",
+      "description": "Hari Raya Puasa",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_hari_raya_puasa",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_hari_raya_puasa",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-10-26",
+      "description": "Deepavali",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_deepavali",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_deepavali",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-11-07",
+      "description": "Hari Raya Haji",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_hari_raya_haji",
+      "observation_lineage": [
+        "2011-11-06",
+        "2011-11-07"
+      ],
+      "observed_from": "2011-11-06",
+      "source_module": "module:sg_hari_raya_haji",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-12-26",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_christmas_day",
+      "observation_lineage": [
+        "2011-12-25",
+        "2011-12-26"
+      ],
+      "observed_from": "2011-12-25",
+      "source_module": "module:sg_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-01-02",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_new_years_day",
+      "observation_lineage": [
+        "2012-01-01",
+        "2012-01-02"
+      ],
+      "observed_from": "2012-01-01",
+      "source_module": "module:sg_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-01-23",
+      "description": "Chinese New Year",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_chinese_new_year",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_chinese_new_year",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-01-24",
+      "description": "Chinese New Year",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_chinese_new_year",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_chinese_new_year",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-04-06",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-05-01",
+      "description": "Labour Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_labour_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_labour_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-08-09",
+      "description": "National Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_national_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_national_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-08-20",
+      "description": "Hari Raya Puasa",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_hari_raya_puasa",
+      "observation_lineage": [
+        "2012-08-19",
+        "2012-08-20"
+      ],
+      "observed_from": "2012-08-19",
+      "source_module": "module:sg_hari_raya_puasa",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-10-26",
+      "description": "Hari Raya Haji",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_hari_raya_haji",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_hari_raya_haji",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-11-13",
+      "description": "Deepavali",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_deepavali",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_deepavali",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2012-12-24",
+      "description": "Christmas Eve (Half Day)",
+      "evidence_ids": [
+        "sgx-calendar-wb-20140821"
+      ],
+      "key": "sg_sgx_christmas_eve_half_day_1230",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_sgx_half_days",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2012-12-25",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2012-12-31",
+      "description": "New Year's Eve (Half Day)",
+      "evidence_ids": [
+        "sgx-calendar-wb-20140821"
+      ],
+      "key": "sg_sgx_new_years_eve_half_day_1230",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_sgx_half_days",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2013-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-02-11",
+      "description": "Chinese New Year",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_chinese_new_year",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_chinese_new_year",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-02-12",
+      "description": "Chinese New Year",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_chinese_new_year",
+      "observation_lineage": [
+        "2013-02-10",
+        "2013-02-12"
+      ],
+      "observed_from": "2013-02-10",
+      "source_module": "module:sg_chinese_new_year",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-03-29",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-05-01",
+      "description": "Labour Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_labour_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_labour_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-05-24",
+      "description": "Vesak Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_vesak_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_vesak_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-08-08",
+      "description": "Hari Raya Puasa",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_hari_raya_puasa",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_hari_raya_puasa",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-08-09",
+      "description": "National Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_national_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_national_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-10-15",
+      "description": "Hari Raya Haji",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_hari_raya_haji",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_hari_raya_haji",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2013-12-24",
+      "description": "Christmas Eve (Half Day)",
+      "evidence_ids": [
+        "sgx-calendar-wb-20140821"
+      ],
+      "key": "sg_sgx_christmas_eve_half_day_1230",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_sgx_half_days",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2013-12-25",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2013-12-31",
+      "description": "New Year's Eve (Half Day)",
+      "evidence_ids": [
+        "sgx-calendar-wb-20140821"
+      ],
+      "key": "sg_sgx_new_years_eve_half_day_1230",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_sgx_half_days",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2014-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2014-01-30",
+      "description": "Chinese New Year Eve (Half Day)",
+      "evidence_ids": [
+        "sgx-calendar-wb-20170608"
+      ],
+      "key": "sg_sgx_chinese_new_year_eve_half_day_1230",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_sgx_half_days",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2014-01-31",
+      "description": "Chinese New Year",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_chinese_new_year",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_chinese_new_year",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-04-18",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-05-01",
+      "description": "Labour Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_labour_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_labour_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-05-13",
+      "description": "Vesak Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_vesak_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_vesak_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-07-28",
+      "description": "Hari Raya Puasa",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_hari_raya_puasa",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_hari_raya_puasa",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-10-06",
+      "description": "Hari Raya Haji",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_hari_raya_haji",
+      "observation_lineage": [
+        "2014-10-05",
+        "2014-10-06"
+      ],
+      "observed_from": "2014-10-05",
+      "source_module": "module:sg_hari_raya_haji",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-10-22",
+      "description": "Deepavali",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_deepavali",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_deepavali",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2014-12-24",
+      "description": "Christmas Eve (Half Day)",
+      "evidence_ids": [
+        "sgx-calendar-wb-20140821"
+      ],
+      "key": "sg_sgx_christmas_eve_half_day_1230",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_sgx_half_days",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2014-12-25",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2014-12-31",
+      "description": "New Year's Eve (Half Day)",
+      "evidence_ids": [
+        "sgx-calendar-wb-20140821"
+      ],
+      "key": "sg_sgx_new_years_eve_half_day_1230",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_sgx_half_days",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2015-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2015-02-18",
+      "description": "Chinese New Year Eve (Half Day)",
+      "evidence_ids": [
+        "sgx-calendar-wb-20170608"
+      ],
+      "key": "sg_sgx_chinese_new_year_eve_half_day_1230",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_sgx_half_days",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2015-02-19",
+      "description": "Chinese New Year",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_chinese_new_year",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_chinese_new_year",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-02-20",
+      "description": "Chinese New Year",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_chinese_new_year",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_chinese_new_year",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-04-03",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-05-01",
+      "description": "Labour Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_labour_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_labour_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-06-01",
+      "description": "Vesak Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_vesak_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_vesak_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-07-17",
+      "description": "Hari Raya Puasa",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_hari_raya_puasa",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_hari_raya_puasa",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-08-07",
+      "description": "SG50 Public Holiday",
+      "evidence_ids": [
+        "mom-holidays-wb-20150531",
+        "sgx-calendar-wb-20150924"
+      ],
+      "key": "sg_sg50_public_holiday_2015",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_one_off_public_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-08-10",
+      "description": "National Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_national_day",
+      "observation_lineage": [
+        "2015-08-09",
+        "2015-08-10"
+      ],
+      "observed_from": "2015-08-09",
+      "source_module": "module:sg_national_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-09-11",
+      "description": "Polling Day (general election)",
+      "evidence_ids": [
+        "datagov-public-holidays-2020-2027",
+        "dtam-64-2023",
+        "mom-holidays-wb-20130630",
+        "mom-press-2020-0624-polling-day",
+        "settlement-holidays-2020",
+        "settlement-holidays-2023",
+        "sgx-calendar-wb-20150924"
+      ],
+      "key": "sg_polling_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_one_off_public_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-09-24",
+      "description": "Hari Raya Haji",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_hari_raya_haji",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_hari_raya_haji",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-11-10",
+      "description": "Deepavali",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_deepavali",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_deepavali",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2015-12-24",
+      "description": "Christmas Eve (Half Day)",
+      "evidence_ids": [
+        "sgx-calendar-wb-20140821"
+      ],
+      "key": "sg_sgx_christmas_eve_half_day_1230",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_sgx_half_days",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2015-12-25",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2015-12-31",
+      "description": "New Year's Eve (Half Day)",
+      "evidence_ids": [
+        "sgx-calendar-wb-20140821"
+      ],
+      "key": "sg_sgx_new_years_eve_half_day_1230",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_sgx_half_days",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2016-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-02-08",
+      "description": "Chinese New Year",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_chinese_new_year",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_chinese_new_year",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-02-09",
+      "description": "Chinese New Year",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_chinese_new_year",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_chinese_new_year",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-03-25",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-05-02",
+      "description": "Labour Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_labour_day",
+      "observation_lineage": [
+        "2016-05-01",
+        "2016-05-02"
+      ],
+      "observed_from": "2016-05-01",
+      "source_module": "module:sg_labour_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-07-06",
+      "description": "Hari Raya Puasa",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_hari_raya_puasa",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_hari_raya_puasa",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "11:38",
+      "date": "2016-07-14",
+      "description": "Unscheduled Early Termination (SGX market disruption) (disk failure produced duplicate trade confirmations; trading ceased at 11:38 and did not resume)",
+      "evidence_ids": [
+        "sgx-outage-2016-07-14"
+      ],
+      "key": "sg_sgx_unscheduled_early_termination_2016",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_sgx_unscheduled_exceptions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2016-08-09",
+      "description": "National Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_national_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_national_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-09-12",
+      "description": "Hari Raya Haji",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_hari_raya_haji",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_hari_raya_haji",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-12-26",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_christmas_day",
+      "observation_lineage": [
+        "2016-12-25",
+        "2016-12-26"
+      ],
+      "observed_from": "2016-12-25",
+      "source_module": "module:sg_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-01-02",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_new_years_day",
+      "observation_lineage": [
+        "2017-01-01",
+        "2017-01-02"
+      ],
+      "observed_from": "2017-01-01",
+      "source_module": "module:sg_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2017-01-27",
+      "description": "Chinese New Year Eve (Half Day)",
+      "evidence_ids": [
+        "sgx-calendar-wb-20170608"
+      ],
+      "key": "sg_sgx_chinese_new_year_eve_half_day_1230",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_sgx_half_days",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2017-01-30",
+      "description": "Chinese New Year",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_chinese_new_year",
+      "observation_lineage": [
+        "2017-01-29",
+        "2017-01-30"
+      ],
+      "observed_from": "2017-01-29",
+      "source_module": "module:sg_chinese_new_year",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-04-14",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-05-01",
+      "description": "Labour Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_labour_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_labour_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-05-10",
+      "description": "Vesak Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_vesak_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_vesak_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-06-26",
+      "description": "Hari Raya Puasa",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_hari_raya_puasa",
+      "observation_lineage": [
+        "2017-06-25",
+        "2017-06-26"
+      ],
+      "observed_from": "2017-06-25",
+      "source_module": "module:sg_hari_raya_puasa",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-08-09",
+      "description": "National Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_national_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_national_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-09-01",
+      "description": "Hari Raya Haji",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_hari_raya_haji",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_hari_raya_haji",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-10-18",
+      "description": "Deepavali",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_deepavali",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_deepavali",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-12-25",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2018-02-15",
+      "description": "Chinese New Year Eve (Half Day)",
+      "evidence_ids": [
+        "sgx-calendar-wb-20181020",
+        "sgx-trading-page"
+      ],
+      "key": "sg_sgx_chinese_new_year_eve_half_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_sgx_half_days",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2018-02-16",
+      "description": "Chinese New Year",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_chinese_new_year",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_chinese_new_year",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-03-30",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-05-01",
+      "description": "Labour Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_labour_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_labour_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-05-29",
+      "description": "Vesak Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_vesak_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_vesak_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-06-15",
+      "description": "Hari Raya Puasa",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_hari_raya_puasa",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_hari_raya_puasa",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-08-09",
+      "description": "National Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_national_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_national_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-08-22",
+      "description": "Hari Raya Haji",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_hari_raya_haji",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_hari_raya_haji",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-11-06",
+      "description": "Deepavali",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_deepavali",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_deepavali",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2018-12-24",
+      "description": "Christmas Eve (Half Day)",
+      "evidence_ids": [
+        "sgx-calendar-wb-20181020",
+        "sgx-trading-page"
+      ],
+      "key": "sg_sgx_christmas_eve_half_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_sgx_half_days",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2018-12-25",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2018-12-31",
+      "description": "New Year's Eve (Half Day)",
+      "evidence_ids": [
+        "sgx-calendar-wb-20181020",
+        "sgx-trading-page"
+      ],
+      "key": "sg_sgx_new_years_eve_half_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_sgx_half_days",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2019-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2019-02-04",
+      "description": "Chinese New Year Eve (Half Day)",
+      "evidence_ids": [
+        "sgx-calendar-wb-20181020",
+        "sgx-trading-page"
+      ],
+      "key": "sg_sgx_chinese_new_year_eve_half_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_sgx_half_days",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2019-02-05",
+      "description": "Chinese New Year",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_chinese_new_year",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_chinese_new_year",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-02-06",
+      "description": "Chinese New Year",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_chinese_new_year",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_chinese_new_year",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-04-19",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-05-01",
+      "description": "Labour Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_labour_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_labour_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-05-20",
+      "description": "Vesak Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_vesak_day",
+      "observation_lineage": [
+        "2019-05-19",
+        "2019-05-20"
+      ],
+      "observed_from": "2019-05-19",
+      "source_module": "module:sg_vesak_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-06-05",
+      "description": "Hari Raya Puasa",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_hari_raya_puasa",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_hari_raya_puasa",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-08-09",
+      "description": "National Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_national_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_national_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-08-12",
+      "description": "Hari Raya Haji",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_hari_raya_haji",
+      "observation_lineage": [
+        "2019-08-11",
+        "2019-08-12"
+      ],
+      "observed_from": "2019-08-11",
+      "source_module": "module:sg_hari_raya_haji",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-10-28",
+      "description": "Deepavali",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_deepavali",
+      "observation_lineage": [
+        "2019-10-27",
+        "2019-10-28"
+      ],
+      "observed_from": "2019-10-27",
+      "source_module": "module:sg_deepavali",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2019-12-24",
+      "description": "Christmas Eve (Half Day)",
+      "evidence_ids": [
+        "sgx-calendar-wb-20181020",
+        "sgx-trading-page"
+      ],
+      "key": "sg_sgx_christmas_eve_half_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_sgx_half_days",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2019-12-25",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2019-12-31",
+      "description": "New Year's Eve (Half Day)",
+      "evidence_ids": [
+        "sgx-calendar-wb-20181020",
+        "sgx-trading-page"
+      ],
+      "key": "sg_sgx_new_years_eve_half_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_sgx_half_days",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2020-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2020-01-24",
+      "description": "Chinese New Year Eve (Half Day)",
+      "evidence_ids": [
+        "sgx-calendar-wb-20181020",
+        "sgx-trading-page"
+      ],
+      "key": "sg_sgx_chinese_new_year_eve_half_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_sgx_half_days",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2020-01-27",
+      "description": "Chinese New Year",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_chinese_new_year",
+      "observation_lineage": [
+        "2020-01-26",
+        "2020-01-27"
+      ],
+      "observed_from": "2020-01-26",
+      "source_module": "module:sg_chinese_new_year",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-04-10",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-05-01",
+      "description": "Labour Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_labour_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_labour_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-05-07",
+      "description": "Vesak Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_vesak_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_vesak_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-05-25",
+      "description": "Hari Raya Puasa",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_hari_raya_puasa",
+      "observation_lineage": [
+        "2020-05-24",
+        "2020-05-25"
+      ],
+      "observed_from": "2020-05-24",
+      "source_module": "module:sg_hari_raya_puasa",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-07-10",
+      "description": "Polling Day (general election)",
+      "evidence_ids": [
+        "datagov-public-holidays-2020-2027",
+        "dtam-64-2023",
+        "mom-holidays-wb-20130630",
+        "mom-press-2020-0624-polling-day",
+        "settlement-holidays-2020",
+        "settlement-holidays-2023",
+        "sgx-calendar-wb-20150924"
+      ],
+      "key": "sg_polling_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_one_off_public_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-07-31",
+      "description": "Hari Raya Haji",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_hari_raya_haji",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_hari_raya_haji",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-08-10",
+      "description": "National Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_national_day",
+      "observation_lineage": [
+        "2020-08-09",
+        "2020-08-10"
+      ],
+      "observed_from": "2020-08-09",
+      "source_module": "module:sg_national_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2020-12-24",
+      "description": "Christmas Eve (Half Day)",
+      "evidence_ids": [
+        "sgx-calendar-wb-20181020",
+        "sgx-trading-page"
+      ],
+      "key": "sg_sgx_christmas_eve_half_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_sgx_half_days",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2020-12-25",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2020-12-31",
+      "description": "New Year's Eve (Half Day)",
+      "evidence_ids": [
+        "sgx-calendar-wb-20181020",
+        "sgx-trading-page"
+      ],
+      "key": "sg_sgx_new_years_eve_half_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_sgx_half_days",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2021-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2021-02-11",
+      "description": "Chinese New Year Eve (Half Day)",
+      "evidence_ids": [
+        "sgx-calendar-wb-20181020",
+        "sgx-trading-page"
+      ],
+      "key": "sg_sgx_chinese_new_year_eve_half_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_sgx_half_days",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2021-02-12",
+      "description": "Chinese New Year",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_chinese_new_year",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_chinese_new_year",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-04-02",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-05-13",
+      "description": "Hari Raya Puasa",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_hari_raya_puasa",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_hari_raya_puasa",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-05-26",
+      "description": "Vesak Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_vesak_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_vesak_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-07-20",
+      "description": "Hari Raya Haji",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_hari_raya_haji",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_hari_raya_haji",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-08-09",
+      "description": "National Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_national_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_national_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-11-04",
+      "description": "Deepavali",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_deepavali",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_deepavali",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2021-12-24",
+      "description": "Christmas Eve (Half Day)",
+      "evidence_ids": [
+        "sgx-calendar-wb-20181020",
+        "sgx-trading-page"
+      ],
+      "key": "sg_sgx_christmas_eve_half_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_sgx_half_days",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2021-12-31",
+      "description": "New Year's Eve (Half Day)",
+      "evidence_ids": [
+        "sgx-calendar-wb-20181020",
+        "sgx-trading-page"
+      ],
+      "key": "sg_sgx_new_years_eve_half_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_sgx_half_days",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2022-01-31",
+      "description": "Chinese New Year Eve (Half Day)",
+      "evidence_ids": [
+        "sgx-calendar-wb-20181020",
+        "sgx-trading-page"
+      ],
+      "key": "sg_sgx_chinese_new_year_eve_half_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_sgx_half_days",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2022-02-01",
+      "description": "Chinese New Year",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_chinese_new_year",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_chinese_new_year",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-02-02",
+      "description": "Chinese New Year",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_chinese_new_year",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_chinese_new_year",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-04-15",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-05-02",
+      "description": "Labour Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_labour_day",
+      "observation_lineage": [
+        "2022-05-01",
+        "2022-05-02"
+      ],
+      "observed_from": "2022-05-01",
+      "source_module": "module:sg_labour_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-05-03",
+      "description": "Hari Raya Puasa",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_hari_raya_puasa",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_hari_raya_puasa",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-05-16",
+      "description": "Vesak Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_vesak_day",
+      "observation_lineage": [
+        "2022-05-15",
+        "2022-05-16"
+      ],
+      "observed_from": "2022-05-15",
+      "source_module": "module:sg_vesak_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-07-11",
+      "description": "Hari Raya Haji",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_hari_raya_haji",
+      "observation_lineage": [
+        "2022-07-10",
+        "2022-07-11"
+      ],
+      "observed_from": "2022-07-10",
+      "source_module": "module:sg_hari_raya_haji",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-08-09",
+      "description": "National Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_national_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_national_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-10-24",
+      "description": "Deepavali",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_deepavali",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_deepavali",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-12-26",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_christmas_day",
+      "observation_lineage": [
+        "2022-12-25",
+        "2022-12-26"
+      ],
+      "observed_from": "2022-12-25",
+      "source_module": "module:sg_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-01-02",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_new_years_day",
+      "observation_lineage": [
+        "2023-01-01",
+        "2023-01-02"
+      ],
+      "observed_from": "2023-01-01",
+      "source_module": "module:sg_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-01-23",
+      "description": "Chinese New Year",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_chinese_new_year",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_chinese_new_year",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-01-24",
+      "description": "Chinese New Year",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_chinese_new_year",
+      "observation_lineage": [
+        "2023-01-22",
+        "2023-01-24"
+      ],
+      "observed_from": "2023-01-22",
+      "source_module": "module:sg_chinese_new_year",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-04-07",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-05-01",
+      "description": "Labour Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_labour_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_labour_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-06-02",
+      "description": "Vesak Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_vesak_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_vesak_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-06-29",
+      "description": "Hari Raya Haji",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_hari_raya_haji",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_hari_raya_haji",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-08-09",
+      "description": "National Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_national_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_national_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-09-01",
+      "description": "Polling Day (presidential election)",
+      "evidence_ids": [
+        "datagov-public-holidays-2020-2027",
+        "dtam-64-2023",
+        "mom-holidays-wb-20130630",
+        "mom-press-2020-0624-polling-day",
+        "settlement-holidays-2020",
+        "settlement-holidays-2023",
+        "sgx-calendar-wb-20150924"
+      ],
+      "key": "sg_polling_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_one_off_public_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-11-13",
+      "description": "Deepavali",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_deepavali",
+      "observation_lineage": [
+        "2023-11-12",
+        "2023-11-13"
+      ],
+      "observed_from": "2023-11-12",
+      "source_module": "module:sg_deepavali",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-12-25",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2024-02-09",
+      "description": "Chinese New Year Eve (Half Day)",
+      "evidence_ids": [
+        "sgx-calendar-wb-20181020",
+        "sgx-trading-page"
+      ],
+      "key": "sg_sgx_chinese_new_year_eve_half_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_sgx_half_days",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2024-02-12",
+      "description": "Chinese New Year",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_chinese_new_year",
+      "observation_lineage": [
+        "2024-02-11",
+        "2024-02-12"
+      ],
+      "observed_from": "2024-02-11",
+      "source_module": "module:sg_chinese_new_year",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-03-29",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-04-10",
+      "description": "Hari Raya Puasa",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_hari_raya_puasa",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_hari_raya_puasa",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-05-01",
+      "description": "Labour Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_labour_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_labour_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-05-22",
+      "description": "Vesak Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_vesak_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_vesak_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-06-17",
+      "description": "Hari Raya Haji",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_hari_raya_haji",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_hari_raya_haji",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-08-09",
+      "description": "National Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_national_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_national_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-10-31",
+      "description": "Deepavali",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_deepavali",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_deepavali",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2024-12-24",
+      "description": "Christmas Eve (Half Day)",
+      "evidence_ids": [
+        "sgx-calendar-wb-20181020",
+        "sgx-trading-page"
+      ],
+      "key": "sg_sgx_christmas_eve_half_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_sgx_half_days",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2024-12-25",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2024-12-31",
+      "description": "New Year's Eve (Half Day)",
+      "evidence_ids": [
+        "sgx-calendar-wb-20181020",
+        "sgx-trading-page"
+      ],
+      "key": "sg_sgx_new_years_eve_half_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_sgx_half_days",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2025-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2025-01-28",
+      "description": "Chinese New Year Eve (Half Day)",
+      "evidence_ids": [
+        "sgx-calendar-wb-20181020",
+        "sgx-trading-page"
+      ],
+      "key": "sg_sgx_chinese_new_year_eve_half_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_sgx_half_days",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2025-01-29",
+      "description": "Chinese New Year",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_chinese_new_year",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_chinese_new_year",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-01-30",
+      "description": "Chinese New Year",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_chinese_new_year",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_chinese_new_year",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-03-31",
+      "description": "Hari Raya Puasa",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_hari_raya_puasa",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_hari_raya_puasa",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-04-18",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-05-01",
+      "description": "Labour Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_labour_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_labour_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-05-03",
+      "description": "Polling Day (general election (Saturday))",
+      "evidence_ids": [
+        "datagov-public-holidays-2020-2027",
+        "dtam-64-2023",
+        "mom-holidays-wb-20130630",
+        "mom-press-2020-0624-polling-day",
+        "settlement-holidays-2020",
+        "settlement-holidays-2023",
+        "sgx-calendar-wb-20150924"
+      ],
+      "key": "sg_polling_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_one_off_public_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-05-12",
+      "description": "Vesak Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_vesak_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_vesak_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-10-20",
+      "description": "Deepavali",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_deepavali",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_deepavali",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2025-12-24",
+      "description": "Christmas Eve (Half Day)",
+      "evidence_ids": [
+        "sgx-calendar-wb-20181020",
+        "sgx-trading-page"
+      ],
+      "key": "sg_sgx_christmas_eve_half_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_sgx_half_days",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2025-12-25",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2025-12-31",
+      "description": "New Year's Eve (Half Day)",
+      "evidence_ids": [
+        "sgx-calendar-wb-20181020",
+        "sgx-trading-page"
+      ],
+      "key": "sg_sgx_new_years_eve_half_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_sgx_half_days",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2026-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2026-02-16",
+      "description": "Chinese New Year Eve (Half Day)",
+      "evidence_ids": [
+        "sgx-calendar-wb-20181020",
+        "sgx-trading-page"
+      ],
+      "key": "sg_sgx_chinese_new_year_eve_half_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_sgx_half_days",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2026-02-17",
+      "description": "Chinese New Year",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_chinese_new_year",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_chinese_new_year",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-02-18",
+      "description": "Chinese New Year",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_chinese_new_year",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_chinese_new_year",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-04-03",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-05-01",
+      "description": "Labour Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_labour_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_labour_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-05-27",
+      "description": "Hari Raya Haji",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_hari_raya_haji",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_hari_raya_haji",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-06-01",
+      "description": "Vesak Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_vesak_day",
+      "observation_lineage": [
+        "2026-05-31",
+        "2026-06-01"
+      ],
+      "observed_from": "2026-05-31",
+      "source_module": "module:sg_vesak_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-08-10",
+      "description": "National Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_national_day",
+      "observation_lineage": [
+        "2026-08-09",
+        "2026-08-10"
+      ],
+      "observed_from": "2026-08-09",
+      "source_module": "module:sg_national_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-11-09",
+      "description": "Deepavali",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_deepavali",
+      "observation_lineage": [
+        "2026-11-08",
+        "2026-11-09"
+      ],
+      "observed_from": "2026-11-08",
+      "source_module": "module:sg_deepavali",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2026-12-24",
+      "description": "Christmas Eve (Half Day)",
+      "evidence_ids": [
+        "sgx-calendar-wb-20181020",
+        "sgx-trading-page"
+      ],
+      "key": "sg_sgx_christmas_eve_half_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_sgx_half_days",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2026-12-25",
+      "description": "Christmas Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2026-12-31",
+      "description": "New Year's Eve (Half Day)",
+      "evidence_ids": [
+        "sgx-calendar-wb-20181020",
+        "sgx-trading-page"
+      ],
+      "key": "sg_sgx_new_years_eve_half_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_sgx_half_days",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2027-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2027-02-05",
+      "description": "Chinese New Year Eve (Half Day)",
+      "evidence_ids": [
+        "sgx-calendar-wb-20181020",
+        "sgx-trading-page"
+      ],
+      "key": "sg_sgx_chinese_new_year_eve_half_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_sgx_half_days",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2027-02-08",
+      "description": "Chinese New Year",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_chinese_new_year",
+      "observation_lineage": [
+        "2027-02-07",
+        "2027-02-08"
+      ],
+      "observed_from": "2027-02-07",
+      "source_module": "module:sg_chinese_new_year",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-03-10",
+      "description": "Hari Raya Puasa",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_hari_raya_puasa",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_hari_raya_puasa",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-03-26",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-05-17",
+      "description": "Hari Raya Haji",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_hari_raya_haji",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_hari_raya_haji",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-05-20",
+      "description": "Vesak Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_vesak_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_vesak_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-08-09",
+      "description": "National Day",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_national_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_national_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-10-28",
+      "description": "Deepavali",
+      "evidence_ids": [
+        "mom-public-holidays"
+      ],
+      "key": "sg_deepavali",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_deepavali",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2027-12-24",
+      "description": "Christmas Eve (Half Day)",
+      "evidence_ids": [
+        "sgx-calendar-wb-20181020",
+        "sgx-trading-page"
+      ],
+      "key": "sg_sgx_christmas_eve_half_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_sgx_half_days",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2027-12-31",
+      "description": "New Year's Eve (Half Day)",
+      "evidence_ids": [
+        "sgx-calendar-wb-20181020",
+        "sgx-trading-page"
+      ],
+      "key": "sg_sgx_new_years_eve_half_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:sg_sgx_half_days",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    }
+  ],
+  "generated_at": "2026-10-14T14:07:08Z",
+  "kind": "market",
+  "mic": "XSES",
+  "range_end": "2027-12-31",
+  "range_start": "2010-01-01",
+  "resolution_chain": [
+    "module:weekend_sat_sun",
+    "module:sg_new_years_day",
+    "module:sg_chinese_new_year",
+    "module:sg_good_friday",
+    "module:sg_labour_day",
+    "module:sg_vesak_day",
+    "module:sg_hari_raya_puasa",
+    "module:sg_hari_raya_haji",
+    "module:sg_national_day",
+    "module:sg_deepavali",
+    "module:sg_christmas_day",
+    "module:sg_one_off_public_holidays",
+    "module:sg_sgx_half_days",
+    "module:sg_sgx_unscheduled_exceptions",
+    "module:sg_sgx_holidays",
+    "calendar:SG-SGX"
+  ],
+  "source_version": {
+    "git_sha": "74d854cdbdfa9f622720d205ef9e999d23f008eb",
+    "semantic": "13.0.0"
+  },
+  "timezone": "Asia/Singapore",
+  "weekend_policy": {
+    "days": [
+      "SATURDAY",
+      "SUNDAY"
+    ],
+    "periods": []
+  }
+}

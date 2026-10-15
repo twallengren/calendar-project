@@ -1,5 +1,27 @@
 {
   "calendars" : [ {
+    "id" : "AU-ASX",
+    "name" : "Australian Securities Exchange",
+    "timezone" : "Australia/Sydney",
+    "mic" : "XASX",
+    "aliases" : [ ],
+    "coverage" : {
+      "from" : "2010-01-01",
+      "to" : "2030-12-31",
+      "verified_through" : "2027-12-31"
+    },
+    "counts_by_type" : {
+      "CLOSED" : 170,
+      "WEEKEND" : 2186,
+      "EARLY_CLOSE" : 36
+    },
+    "counts_by_status" : {
+      "CONFIRMED" : 2392
+    },
+    "checksum" : "sha256:9eff0198124333b4f9d02aec38404d7167a14ce842ebc399763ff335a4668852",
+    "years" : [ 2010, 2030 ],
+    "href" : "calendars/AU-ASX/manifest.json"
+  }, {
     "id" : "BE-EURONEXT-BRUSSELS",
     "name" : "Euronext Brussels Trading Calendar",
     "timezone" : "Europe/Brussels",
@@ -218,6 +240,27 @@
     "years" : [ 2010, 2030 ],
     "href" : "calendars/JP-JPX/manifest.json"
   }, {
+    "id" : "KR-KRX",
+    "name" : "Korea Exchange",
+    "timezone" : "Asia/Seoul",
+    "mic" : "XKRX",
+    "aliases" : [ ],
+    "coverage" : {
+      "from" : "2010-01-01",
+      "to" : "2027-12-31",
+      "verified_through" : "2026-12-31"
+    },
+    "counts_by_type" : {
+      "CLOSED" : 318,
+      "WEEKEND" : 1828
+    },
+    "counts_by_status" : {
+      "CONFIRMED" : 2146
+    },
+    "checksum" : "sha256:bf10463f761183bb9963ebfd6f526fe4e833ef48e8b2353616623147d5a111cc",
+    "years" : [ 2010, 2027 ],
+    "href" : "calendars/KR-KRX/manifest.json"
+  }, {
     "id" : "NL-EURONEXT-AMSTERDAM",
     "name" : "Euronext Amsterdam Trading Calendar",
     "timezone" : "Europe/Amsterdam",
@@ -284,6 +327,49 @@
     "years" : [ 2020, 2030 ],
     "href" : "calendars/SA-TADAWUL/manifest.json"
   }, {
+    "id" : "SG-SGX",
+    "name" : "Singapore Exchange",
+    "timezone" : "Asia/Singapore",
+    "mic" : "XSES",
+    "aliases" : [ ],
+    "coverage" : {
+      "from" : "2010-01-01",
+      "to" : "2027-12-31",
+      "verified_through" : "2027-12-31"
+    },
+    "counts_by_type" : {
+      "CLOSED" : 180,
+      "WEEKEND" : 1875,
+      "EARLY_CLOSE" : 40
+    },
+    "counts_by_status" : {
+      "CONFIRMED" : 2095
+    },
+    "checksum" : "sha256:dcf7ce04af56044b84b639e1009d8ef6cfd7af5d9d4022aba68744d21459306f",
+    "years" : [ 2010, 2027 ],
+    "href" : "calendars/SG-SGX/manifest.json"
+  }, {
+    "id" : "TW-TWSE",
+    "name" : "Taiwan Stock Exchange",
+    "timezone" : "Asia/Taipei",
+    "mic" : "XTAI",
+    "aliases" : [ ],
+    "coverage" : {
+      "from" : "2010-01-01",
+      "to" : "2027-12-31",
+      "verified_through" : "2026-12-31"
+    },
+    "counts_by_type" : {
+      "CLOSED" : 303,
+      "WEEKEND" : 1863
+    },
+    "counts_by_status" : {
+      "CONFIRMED" : 2166
+    },
+    "checksum" : "sha256:1c1eb63a49aa2bbc1c6b05c3f57e0e790e2db3c3208023b294a70ca68b9b7d59",
+    "years" : [ 2010, 2027 ],
+    "href" : "calendars/TW-TWSE/manifest.json"
+  }, {
     "id" : "US-FEDWIRE",
     "name" : "Fedwire Funds Service",
     "timezone" : "America/New_York",
@@ -326,6 +412,28 @@
     "checksum" : "sha256:2e256009884c6adf7876f375336f547b8bb88bd54174522382c152de791de2cc",
     "years" : [ 1900, 2030 ],
     "href" : "calendars/US-NYSE/manifest.json"
+  }, {
+    "id" : "ZA-JSE",
+    "name" : "Johannesburg Stock Exchange",
+    "timezone" : "Africa/Johannesburg",
+    "mic" : "XJSE",
+    "aliases" : [ ],
+    "coverage" : {
+      "from" : "2010-01-01",
+      "to" : "2030-12-31",
+      "verified_through" : "2026-12-31"
+    },
+    "counts_by_type" : {
+      "CLOSED" : 236,
+      "WEEKEND" : 2186,
+      "EARLY_CLOSE" : 43
+    },
+    "counts_by_status" : {
+      "CONFIRMED" : 2465
+    },
+    "checksum" : "sha256:40c252b7240ba41859874ca26dc6591aa7aa274d178aa1a5f52071a24bda64ea",
+    "years" : [ 2010, 2030 ],
+    "href" : "calendars/ZA-JSE/manifest.json"
   } ],
   "release" : {
     "semantic" : "13.0.0",

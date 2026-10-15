@@ -1,0 +1,47 @@
+kind: module
+id: tw_dragon_boat_festival
+
+# Dragon Boat Festival (端午節, lunar 5/5) as the exchange's tables list it: Saturday 23 June 2012
+# not made up; Friday 19 June 2015 and Friday 30 May 2025 for Saturday occurrences; bridge days
+# Friday 10 June 2016, Monday 29 May 2017, Friday 26 June 2020 and Friday 23 June 2023.
+# Source: twse-holiday-schedules.
+
+source:
+  - id: twse-holiday-schedules
+
+event_sources:
+  - key: tw_dragon_boat_festival
+    name: Dragon Boat Festival
+    default_classification: CLOSED
+    shiftable: false
+    rule:
+      type: explicit_dates
+      dates:
+        - 2010-06-16
+        - 2011-06-06
+        - 2013-06-12
+        - 2014-06-02
+        - date: 2015-06-19
+          comment: substitute for Saturday 20 June
+        - 2016-06-09
+        - date: 2016-06-10
+          comment: bridge day
+        - date: 2017-05-29
+          comment: bridge day
+        - 2017-05-30
+        - 2018-06-18
+        - 2019-06-07
+        - 2020-06-25
+        - date: 2020-06-26
+          comment: bridge day
+        - 2021-06-14
+        - 2022-06-03
+        - 2023-06-22
+        - date: 2023-06-23
+          comment: bridge day
+        - 2024-06-10
+        - date: 2025-05-30
+          comment: substitute for Saturday 31 May
+        - 2026-06-19
+        - date: 2027-06-09
+          comment: government calendar

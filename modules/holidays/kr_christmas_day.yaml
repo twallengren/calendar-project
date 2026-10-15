@@ -1,0 +1,28 @@
+kind: module
+id: kr_christmas_day
+
+# Christmas Day (성탄절, 25 December). Substitutes from the decree amendment of 4 May 2023
+# (제33448호): Monday 27 December 2027 per the exchange's 2027 list; the weekend Christmases of
+# 2016, 2021 and 2022 brought none.
+# Source: krx-holidays (the exchange's own non-trading-day lists), moi-public-holidays-decree.
+
+source:
+  - id: krx-holidays
+
+event_sources:
+  - key: kr_christmas_day
+    name: Christmas Day
+    default_classification: CLOSED
+    shift_policy: NONE
+    rule:
+      type: fixed_month_day
+      month: 12
+      day: 25
+
+  - key: kr_christmas_day_substitute
+    name: Christmas Day (substitute holiday)
+    default_classification: CLOSED
+    rule:
+      type: explicit_dates
+      dates:
+        - 2027-12-27

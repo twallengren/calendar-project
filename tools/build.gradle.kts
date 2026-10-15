@@ -39,6 +39,9 @@ application {
 tasks.named<Test>("test") {
     useJUnitPlatform()
     workingDir = rootProject.projectDir
+    // The site tests render every blessed calendar and its release history in one JVM; the
+    // default 512m heap ran out at 23 calendars.
+    maxHeapSize = "2g"
     // Pass system properties to tests
     systemProperty("updateGoldens", System.getProperty("updateGoldens", "false"))
 }
@@ -54,6 +57,7 @@ tasks.register<Test>("fastTest") {
         excludeTags("slow", "cross-validation")
     }
     workingDir = rootProject.projectDir
+    maxHeapSize = "2g"
     // Pass system properties to tests
     systemProperty("updateGoldens", System.getProperty("updateGoldens", "false"))
 }

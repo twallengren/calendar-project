@@ -1,0 +1,59 @@
+kind: module
+id: au_asx_unscheduled_exceptions
+
+# Unscheduled whole-market disruptions of ASX Trade that changed the trading day itself. Halts
+# that ended in a normal close are not calendar events and are recorded in
+# sources/AU-ASX/README.md only (27 October 2011: halted just after 10:05, resumed 14:00, closed
+# as normal; 28 February and 4 March 2011 partial outages; 7 November 2002 SEATS outage, before
+# this calendar's coverage).
+#
+#   - Monday 19 September 2016: a hardware failure delayed the open to a staggered start from
+#     11:30; "At 2.05pm ASX placed the entire market back into Enquire", it "would not re-open
+#     and ... there would be no CSPA", and closing prices were the last traded prices. Modelled
+#     as an early close at 14:05 (the open delay is session structure, out of scope).
+#   - Monday 16 November 2020: the market opened at 10:00 and "All markets on ASX Trade were
+#     placed in an ENQUIRE Session State at 10:24:05. They remained in ENQUIRE for the rest of
+#     the trading day"; "The market will remain closed today". Trades executed before the halt
+#     were valid, so the day is an early termination at 10:24, not a closure. The exchange's own
+#     monthly statistics still count it as a trading day (asx-activity-report-2020-11: 21 days).
+# exchange_calendars and QuantLib carry neither day (allowlisted).
+
+source:
+  - id: asx-notice-1111-16-09
+
+event_sources:
+  - key: au_asx_unscheduled_early_termination_2016
+    name: Unscheduled Early Termination (ASX Trade outage)
+    default_classification: EARLY_CLOSE
+    close_time: "14:05"
+    shiftable: false
+    source:
+      - id: asx-notice-1111-16-09
+        ref: "At 2.05pm ASX placed the entire market back into Enquire. ... At 3.35pm ASX announced that the market would not re-open and that there would be no CSPA."
+      - id: asx-media-alert-2016-09-19
+        ref: "a delay to the market open and the decision to close the market early"
+      - id: asic-16-352mr
+        ref: "This caused a delay to the market opening and an early market close"
+    rule:
+      type: explicit_dates
+      dates:
+        - date: 2016-09-19
+          comment: hardware failure in the main ASX Trade database; staggered open from 11:30, closed 14:05 without a closing auction
+
+  - key: au_asx_unscheduled_early_termination_2020
+    name: Unscheduled Early Termination (ASX Trade outage)
+    default_classification: EARLY_CLOSE
+    close_time: "10:24"
+    shiftable: false
+    source:
+      - id: asx-market-outage-report-2020-12-04
+        ref: "All markets on ASX Trade were placed in an ENQUIRE Session State at 10:24:05. They remained in ENQUIRE for the rest of the trading day until 18:50"
+      - id: asx-media-alert-2020-11-16
+        ref: "The market will remain closed today, Monday 16 November. It will reopen at the normal time (10am) tomorrow, Tuesday 17 November."
+      - id: asx-notice-1469-20-11
+        ref: "All trades executed and reported today are valid"
+    rule:
+      type: explicit_dates
+      dates:
+        - date: 2020-11-16
+          comment: ASX Trade software fault in the opening auction; trading ceased at 10:24:05 for the rest of the day

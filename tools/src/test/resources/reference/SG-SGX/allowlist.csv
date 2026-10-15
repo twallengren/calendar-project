@@ -1,0 +1,43 @@
+source,side,date,type,close_time,reason
+# Known differences between our SG-SGX data and exchange_calendars' XSES calendar (recorded only
+# to 2025). It reproduces every scheduled closure 2010-2025 but models no half-day sessions and
+# no unscheduled early termination. QuantLib's Singapore(SGX) calendar is not used as a
+# reference: it omits most of the lunar and religious holidays in several years.
+#
+# Half days: SGX trades 09:00-12:30 (to 2017) / 09:00-12:00 (from 13 November 2017) on the
+# eves of Chinese New Year, Christmas and New Year when the eve is a trading day
+# (sgx-calendar-wb-20140821, sgx-calendar-wb-20181020, sgx-trading-page).
+exchange_calendars-XSES,ours,2010-12-24,EARLY_CLOSE,12:30,Christmas Eve half day (09:00-12:30; sgx-calendar-wb-20140821 rule)
+exchange_calendars-XSES,ours,2010-12-31,EARLY_CLOSE,12:30,New Year's Eve half day
+exchange_calendars-XSES,ours,2011-02-02,EARLY_CLOSE,12:30,Chinese New Year eve half day
+exchange_calendars-XSES,ours,2012-12-24,EARLY_CLOSE,12:30,Christmas Eve half day
+exchange_calendars-XSES,ours,2012-12-31,EARLY_CLOSE,12:30,New Year's Eve half day
+exchange_calendars-XSES,ours,2013-12-24,EARLY_CLOSE,12:30,Christmas Eve half day
+exchange_calendars-XSES,ours,2013-12-31,EARLY_CLOSE,12:30,New Year's Eve half day
+exchange_calendars-XSES,ours,2014-01-30,EARLY_CLOSE,12:30,Chinese New Year eve half day
+exchange_calendars-XSES,ours,2014-12-24,EARLY_CLOSE,12:30,Christmas Eve half day
+exchange_calendars-XSES,ours,2014-12-31,EARLY_CLOSE,12:30,New Year's Eve half day
+exchange_calendars-XSES,ours,2015-02-18,EARLY_CLOSE,12:30,Chinese New Year eve half day
+exchange_calendars-XSES,ours,2015-12-24,EARLY_CLOSE,12:30,Christmas Eve half day
+exchange_calendars-XSES,ours,2015-12-31,EARLY_CLOSE,12:30,New Year's Eve half day
+exchange_calendars-XSES,ours,2016-07-14,EARLY_CLOSE,11:38,Unscheduled early termination: trading ceased at 11:38 and did not resume (sgx-outage-2016-07-14); exchange_calendars keeps a full session
+exchange_calendars-XSES,ours,2017-01-27,EARLY_CLOSE,12:30,"Chinese New Year eve half day (sgx-calendar-wb-20170608: ""The preceding Friday, 27-Jan-17, is a half-day trading day."")"
+exchange_calendars-XSES,ours,2018-02-15,EARLY_CLOSE,12:00,Chinese New Year eve half day (sgx-calendar-wb-20181020 marker)
+exchange_calendars-XSES,ours,2018-12-24,EARLY_CLOSE,12:00,Christmas Eve half day (sgx-calendar-wb-20181020 marker)
+exchange_calendars-XSES,ours,2018-12-31,EARLY_CLOSE,12:00,New Year's Eve half day (sgx-calendar-wb-20181020 marker)
+exchange_calendars-XSES,ours,2019-02-04,EARLY_CLOSE,12:00,Chinese New Year eve half day (sgx-calendar-wb-20181020 marker)
+exchange_calendars-XSES,ours,2019-12-24,EARLY_CLOSE,12:00,Christmas Eve half day (sgx-calendar-wb-20181020 marker)
+exchange_calendars-XSES,ours,2019-12-31,EARLY_CLOSE,12:00,New Year's Eve half day (sgx-calendar-wb-20181020 marker)
+exchange_calendars-XSES,ours,2020-01-24,EARLY_CLOSE,12:00,Chinese New Year eve half day
+exchange_calendars-XSES,ours,2020-12-24,EARLY_CLOSE,12:00,Christmas Eve half day
+exchange_calendars-XSES,ours,2020-12-31,EARLY_CLOSE,12:00,New Year's Eve half day
+exchange_calendars-XSES,ours,2021-02-11,EARLY_CLOSE,12:00,Chinese New Year eve half day
+exchange_calendars-XSES,ours,2021-12-24,EARLY_CLOSE,12:00,Christmas Eve half day
+exchange_calendars-XSES,ours,2021-12-31,EARLY_CLOSE,12:00,New Year's Eve half day
+exchange_calendars-XSES,ours,2022-01-31,EARLY_CLOSE,12:00,Chinese New Year eve half day
+exchange_calendars-XSES,ours,2024-02-09,EARLY_CLOSE,12:00,Chinese New Year eve half day
+exchange_calendars-XSES,ours,2024-12-24,EARLY_CLOSE,12:00,Christmas Eve half day
+exchange_calendars-XSES,ours,2024-12-31,EARLY_CLOSE,12:00,New Year's Eve half day
+exchange_calendars-XSES,ours,2025-01-28,EARLY_CLOSE,12:00,Chinese New Year eve half day (sgx-trading-page)
+exchange_calendars-XSES,ours,2025-12-24,EARLY_CLOSE,12:00,Christmas Eve half day (sgx-trading-page)
+exchange_calendars-XSES,ours,2025-12-31,EARLY_CLOSE,12:00,New Year's Eve half day (sgx-trading-page)

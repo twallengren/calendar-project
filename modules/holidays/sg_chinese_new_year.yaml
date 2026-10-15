@@ -1,0 +1,61 @@
+kind: module
+id: sg_chinese_new_year
+
+# Chinese New Year: the first two days of the first lunar month are public holidays, dated each
+# year by the Ministry of Manpower's gazetted list. When either day falls on a Sunday the next
+# day that is not already a holiday is a public holiday: Tuesday 16 February 2010, Tuesday
+# 12 February 2013, Monday 30 January 2017, Monday 27 January 2020, Tuesday 24 January 2023,
+# Monday 12 February 2024 and Monday 8 February 2027 (MOM 2013: "As Chinese New Year falls on
+# Sunday 10 February 2013 and Monday 11 February 2013, the next day, Tuesday 12 February 2013,
+# will be a public holiday."). A Saturday first day (2014, 2018, 2021, 2024, 2027) gets no
+# substitute of its own. The calendar's NEXT_AVAILABLE_FROM_LAST_WEEKEND_DAY policy produces
+# exactly these dates from the gazetted days.
+# Source: mom-public-holidays and the per-year MOM lists cited in sources/SG-SGX/register.json.
+
+source:
+  - id: mom-public-holidays
+
+event_sources:
+  - key: sg_chinese_new_year
+    name: Chinese New Year
+    default_classification: CLOSED
+    shiftable: true
+    rule:
+      type: explicit_dates
+      dates:
+        - 2010-02-14
+        - 2010-02-15
+        - 2011-02-03
+        - 2011-02-04
+        - 2012-01-23
+        - 2012-01-24
+        - 2013-02-10
+        - 2013-02-11
+        - 2014-01-31
+        - 2014-02-01
+        - 2015-02-19
+        - 2015-02-20
+        - 2016-02-08
+        - 2016-02-09
+        - 2017-01-28
+        - 2017-01-29
+        - 2018-02-16
+        - 2018-02-17
+        - 2019-02-05
+        - 2019-02-06
+        - 2020-01-25
+        - 2020-01-26
+        - 2021-02-12
+        - 2021-02-13
+        - 2022-02-01
+        - 2022-02-02
+        - 2023-01-22
+        - 2023-01-23
+        - 2024-02-10
+        - 2024-02-11
+        - 2025-01-29
+        - 2025-01-30
+        - 2026-02-17
+        - 2026-02-18
+        - 2027-02-06
+        - 2027-02-07

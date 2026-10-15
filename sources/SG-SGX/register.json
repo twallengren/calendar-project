@@ -1,0 +1,1071 @@
+{
+  "schema_version": "1.0",
+  "entries": [
+    {
+      "id": "mom-public-holidays",
+      "title": "Public holidays (2025, 2026 and 2027 lists)",
+      "publisher": "Ministry of Manpower, Singapore",
+      "location": "https://www.mom.gov.sg/employment-practices/public-holidays",
+      "retrieved": "2026-10-14",
+      "covers": "2025-01-01 to 2027-12-31",
+      "notes": "The ministry's gazetted list for each year with the note that a Sunday holiday is followed by a Monday public holiday; 2026 Hari Raya dates marked subject to confirmation. SGX adopts this list (sgx-trading-page).",
+      "local_files": [
+        {
+          "path": "SG-SGX/mom-public-holidays.html",
+          "sha256": "c2fce280834ef420bf428965da8f43108fa0133ac3cd59660be3097fc4dd813f"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2025-01-01",
+          "to": "2027-12-31"
+        }
+      ]
+    },
+    {
+      "id": "mom-holidays-wb-20100627",
+      "title": "Public holidays page, Ministry of Manpower (archived 2010-06-27)",
+      "publisher": "Ministry of Manpower, Singapore",
+      "location": "https://web.archive.org/web/20100627/http://www.mom.gov.sg/employment-practices/public-holidays",
+      "retrieved": "2026-10-14",
+      "covers": "2010",
+      "notes": "Internet Archive capture of the ministry's page. Public Holidays 2010 page: Chinese New Year Sunday 14 and Monday 15 February with Tuesday 16 February in lieu; Vesak 28 May; Hari Raya Puasa 10 September; Deepavali 5 November; Hari Raya Haji 17 November.",
+      "local_files": [
+        {
+          "path": "SG-SGX/mom-holidays-wb-20100627.html",
+          "sha256": "d02d3ec47acf2fa4a31e5ec8131fb0992182b9245f8fb5788d80004eaf5e7de3"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2010-01-01",
+          "to": "2010-12-31"
+        }
+      ]
+    },
+    {
+      "id": "mom-holidays-wb-20130630",
+      "title": "Public holidays page, Ministry of Manpower (archived 2013-06-30)",
+      "publisher": "Ministry of Manpower, Singapore",
+      "location": "https://web.archive.org/web/20130630/http://www.mom.gov.sg/employment-practices/public-holidays",
+      "retrieved": "2026-10-14",
+      "covers": "2011",
+      "notes": "Internet Archive capture of the ministry's page. Public Holidays 2011 page: Chinese New Year 3-4 February, Labour Day Sunday with Monday 2 May in lieu, Vesak 17 May, Hari Raya Puasa 30 August, Deepavali 26 October, Hari Raya Haji Sunday 6 November with Monday 7 November in lieu, Christmas Sunday with Monday 26 December in lieu; the Saturday Polling Days 7 May and 27 August with the note that a Saturday holiday entitles employees to a day off in lieu rather than a substitute holiday.",
+      "local_files": [
+        {
+          "path": "SG-SGX/mom-holidays-wb-20130630.html",
+          "sha256": "76fe9c2877d492629a7da4caa2a2edbccfee1e9516276a7b8907fe8fa85d354e"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2011-01-01",
+          "to": "2011-12-31"
+        }
+      ]
+    },
+    {
+      "id": "mom-holidays-wb-20130125",
+      "title": "Public holidays page, Ministry of Manpower (archived 2013-01-25)",
+      "publisher": "Ministry of Manpower, Singapore",
+      "location": "https://web.archive.org/web/20130125/http://www.mom.gov.sg/employment-practices/public-holidays",
+      "retrieved": "2026-10-14",
+      "covers": "2012",
+      "notes": "Internet Archive capture of the ministry's page. Public Holidays 2012 page: New Year's Day Sunday with Monday 2 January in lieu, Chinese New Year 23-24 January, Vesak Saturday 5 May, Hari Raya Puasa Sunday 19 August with Monday 20 August in lieu, Hari Raya Haji 26 October, Deepavali 13 November.",
+      "local_files": [
+        {
+          "path": "SG-SGX/mom-holidays-wb-20130125.html",
+          "sha256": "8532d77120d98d9dfd35c80d801d71b6c04a3f1fc0f53d1d914ac3d134a516eb"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2012-01-01",
+          "to": "2012-12-31"
+        }
+      ]
+    },
+    {
+      "id": "mom-holidays-wb-20130124",
+      "title": "Public holidays page, Ministry of Manpower (archived 2013-01-24)",
+      "publisher": "Ministry of Manpower, Singapore",
+      "location": "https://web.archive.org/web/20130124/http://www.mom.gov.sg/employment-practices/public-holidays",
+      "retrieved": "2026-10-14",
+      "covers": "2013",
+      "notes": "Internet Archive capture of the ministry's page. Public Holidays 2013 page: Chinese New Year Sunday 10 and Monday 11 February, \"the next day, Tuesday 12 February 2013, will be a public holiday\"; Vesak 24 May; Hari Raya Puasa 8 August; Hari Raya Haji 15 October; Deepavali as first gazetted (Sunday 3 November, later revised to Saturday 2 November).",
+      "local_files": [
+        {
+          "path": "SG-SGX/mom-holidays-wb-20130124.html",
+          "sha256": "4442c05df4584e85e58622687ebfcfe39063a56ca9d25f3a4f9f27a5882d8e0f"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2013-01-01",
+          "to": "2013-12-31"
+        }
+      ]
+    },
+    {
+      "id": "mom-holidays-wb-20130413",
+      "title": "Public holidays page, Ministry of Manpower (archived 2013-04-13)",
+      "publisher": "Ministry of Manpower, Singapore",
+      "location": "https://web.archive.org/web/20130413/http://www.mom.gov.sg/employment-practices/public-holidays",
+      "retrieved": "2026-10-14",
+      "covers": "2014",
+      "notes": "Internet Archive capture of the ministry's page. Public Holidays 2014 page: Chinese New Year Friday 31 January and Saturday 1 February, Vesak 13 May, Hari Raya Puasa 28 July, Hari Raya Haji Sunday 5 October with Monday 6 October in lieu, Deepavali as first gazetted (23 October, later revised to 22 October).",
+      "local_files": [
+        {
+          "path": "SG-SGX/mom-holidays-wb-20130413.html",
+          "sha256": "61d5b793fff9d22e2c347796efcac59ce133e056558e7561cba5758e89523240"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2014-01-01",
+          "to": "2014-12-31"
+        }
+      ]
+    },
+    {
+      "id": "mom-holidays-wb-20140410",
+      "title": "Public holidays page, Ministry of Manpower (archived 2014-04-10)",
+      "publisher": "Ministry of Manpower, Singapore",
+      "location": "https://web.archive.org/web/20140410/http://www.mom.gov.sg/employment-practices/public-holidays",
+      "retrieved": "2026-10-14",
+      "covers": "2015",
+      "notes": "Internet Archive capture of the ministry's page. Public Holidays 2015 page: Chinese New Year 19-20 February, Vesak 1 June, Hari Raya Puasa 17 July, National Day Sunday with Monday 10 August in lieu, Hari Raya Haji 24 September, Deepavali 10 November.",
+      "local_files": [
+        {
+          "path": "SG-SGX/mom-holidays-wb-20140410.html",
+          "sha256": "326a59625561012a76d218c22f5882e49b902bcd24e8c184496f269b99a98f8f"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2015-01-01",
+          "to": "2015-12-31"
+        }
+      ]
+    },
+    {
+      "id": "mom-holidays-wb-20150531",
+      "title": "Public holidays page, Ministry of Manpower (archived 2015-05-31)",
+      "publisher": "Ministry of Manpower, Singapore",
+      "location": "https://web.archive.org/web/20150531/http://www.mom.gov.sg/employment-practices/public-holidays",
+      "retrieved": "2026-10-14",
+      "covers": "2014-10-22 and 2015-08-07",
+      "notes": "Internet Archive capture of the ministry's page. Consolidated public-holidays page (May 2015): the Hindu Advisory Board's revision of Deepavali 2014 to 22 October and \"the President has declared 7 August 2015, Friday, as a special one-off SG50 Public Holiday\".",
+      "local_files": [
+        {
+          "path": "SG-SGX/mom-holidays-wb-20150531.html",
+          "sha256": "2b6f83d5f0f89adab9d1dc6bcbd562041123a7b5c1530c1b4ad7e9f95ec1e0e9"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "mom-holidays-wb-20170602",
+      "title": "Public holidays page, Ministry of Manpower (archived 2017-06-02)",
+      "publisher": "Ministry of Manpower, Singapore",
+      "location": "https://web.archive.org/web/20170602/http://www.mom.gov.sg/employment-practices/public-holidays",
+      "retrieved": "2026-10-14",
+      "covers": "2016 and 2017",
+      "notes": "Internet Archive capture of the ministry's page. Consolidated page (June 2017): the 2016 list (Chinese New Year 8-9 February, Labour Day Monday 2 May in lieu, Vesak Saturday 21 May, Hari Raya Puasa 6 July, Hari Raya Haji 12 September, Deepavali Saturday 29 October, Christmas Monday 26 December in lieu) and the 2017 list (New Year's Day Monday 2 January in lieu, Chinese New Year Saturday 28 and Sunday 29 January with Monday 30 January in lieu, Vesak 10 May, Hari Raya Puasa Sunday 25 June with Monday 26 June in lieu, Hari Raya Haji 1 September, Deepavali 18 October).",
+      "local_files": [
+        {
+          "path": "SG-SGX/mom-holidays-wb-20170602.html",
+          "sha256": "01614bfbfac991532c18606538259c7d3106763dd1e44519e559ae0d846a90ef"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2016-01-01",
+          "to": "2016-12-31"
+        },
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2017-01-01",
+          "to": "2017-12-31"
+        }
+      ]
+    },
+    {
+      "id": "mom-holidays-wb-20190630",
+      "title": "Public holidays page, Ministry of Manpower (archived 2019-06-30)",
+      "publisher": "Ministry of Manpower, Singapore",
+      "location": "https://web.archive.org/web/20190630/http://www.mom.gov.sg/employment-practices/public-holidays",
+      "retrieved": "2026-10-14",
+      "covers": "2018 and 2019",
+      "notes": "Internet Archive capture of the ministry's page. Consolidated page (June 2019): the 2018 list (Chinese New Year 16-17 February, Vesak 29 May, Hari Raya Puasa 15 June, Hari Raya Haji 22 August, Deepavali 6 November) and the 2019 list (Chinese New Year 5-6 February, Vesak Sunday 19 May with Monday 20 May in lieu, Hari Raya Puasa 5 June, Hari Raya Haji Sunday 11 August with Monday 12 August in lieu, Deepavali Sunday 27 October with Monday 28 October in lieu).",
+      "local_files": [
+        {
+          "path": "SG-SGX/mom-holidays-wb-20190630.html",
+          "sha256": "d6c6cf4cae0c40554e71667823be5277105f6972fcc187298119a36779a1a435"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2018-01-01",
+          "to": "2018-12-31"
+        },
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2019-01-01",
+          "to": "2019-12-31"
+        }
+      ]
+    },
+    {
+      "id": "mom-press-2019-0408",
+      "title": "Public holidays for 2020 (press release, 8 April 2019)",
+      "publisher": "Ministry of Manpower, Singapore",
+      "location": "https://mom.gov.sg/newsroom/press-releases/2019/0408-public-holidays-for-2020",
+      "retrieved": "2026-10-14",
+      "covers": "2020",
+      "notes": "Chinese New Year Saturday 25 and Sunday 26 January with Monday 27 January in lieu, Vesak 7 May, Hari Raya Puasa Sunday 24 May with Monday 25 May in lieu, Hari Raya Haji 31 July, National Day Sunday with Monday 10 August in lieu, Deepavali Saturday 14 November.",
+      "local_files": [
+        {
+          "path": "SG-SGX/mom-press-2019-0408.html",
+          "sha256": "8d0a81344f4b62ce9c3dc75b4c49cd5459ff9018007fb7a341f1bec984984f67"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2020-01-01",
+          "to": "2020-12-31"
+        }
+      ]
+    },
+    {
+      "id": "mom-press-2020-0624-holidays-2021",
+      "title": "Public holidays for 2021 (press release, 24 June 2020)",
+      "publisher": "Ministry of Manpower, Singapore",
+      "location": "https://www.mom.gov.sg/newsroom/press-releases/2020/0624-public-holidays-for-2021",
+      "retrieved": "2026-10-14",
+      "covers": "2021",
+      "notes": "Chinese New Year 12-13 February, Hari Raya Puasa 13 May, Vesak 26 May, Hari Raya Haji 20 July, Deepavali 4 November; Labour Day and Christmas on Saturdays with no substitute.",
+      "local_files": [
+        {
+          "path": "SG-SGX/mom-press-2020-0624-holidays-2021.html",
+          "sha256": "660c1d03ce22f64ab9e5ce94cc1f84095dae11edcb4ebac8a1954eb44049ad49"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2021-01-01",
+          "to": "2021-12-31"
+        }
+      ]
+    },
+    {
+      "id": "mom-press-2020-0624-polling-day",
+      "title": "Public holiday on Polling Day, 10 July 2020 (press release, 24 June 2020)",
+      "publisher": "Ministry of Manpower, Singapore",
+      "location": "https://www.mom.gov.sg/newsroom/press-releases/2020/0624-public-holiday-on-polling-day---10-july-2020",
+      "retrieved": "2026-10-14",
+      "covers": "2020-07-10",
+      "notes": "\"Polling Day, Friday 10 July 2020 is a public holiday\".",
+      "local_files": [
+        {
+          "path": "SG-SGX/mom-press-2020-0624-polling-day.html",
+          "sha256": "a261e6268a9e1860eb81ec99fabd10d026922a6aa4fffd6892f2c4b927364b39"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2020-07-10",
+          "to": "2020-07-10"
+        }
+      ]
+    },
+    {
+      "id": "mom-press-2021-0406",
+      "title": "Public holidays for 2022 (press release, 6 April 2021)",
+      "publisher": "Ministry of Manpower, Singapore",
+      "location": "https://www.mom.gov.sg/newsroom/press-releases/2021/0406-public-holidays-2022",
+      "retrieved": "2026-10-14",
+      "covers": "2022",
+      "notes": "The first 2022 list: Chinese New Year 1-2 February, Labour Day Sunday with Monday 2 May in lieu, Vesak Sunday 15 May with Monday 16 May in lieu, Deepavali 24 October, Christmas Sunday with Monday 26 December in lieu; Hari Raya dates later revised.",
+      "local_files": [
+        {
+          "path": "SG-SGX/mom-press-2021-0406.html",
+          "sha256": "25f8466a68c5a527e70daf1086f986183f6a114ad0c03c35ff2ec60edc872663"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2022-01-01",
+          "to": "2022-12-31"
+        }
+      ]
+    },
+    {
+      "id": "mom-press-2021-1021",
+      "title": "Revised dates for Hari Raya Puasa and Hari Raya Haji public holidays in 2022 (press release, 21 October 2021)",
+      "publisher": "Ministry of Manpower, Singapore",
+      "location": "https://www.mom.gov.sg/newsroom/press-releases/2021/1021-revised-dates-for-hari-raya-puasa-and--hari-raya-haji-public-holidays-in-2022",
+      "retrieved": "2026-10-14",
+      "covers": "2022-05-03 and 2022-07-10",
+      "notes": "\"Hari Raya Puasa: 3 May 2022\" and \"Hari Raya Haji: 10 Jul 2022\" (a Sunday, so Monday 11 July 2022 in lieu).",
+      "local_files": [
+        {
+          "path": "SG-SGX/mom-press-2021-1021.html",
+          "sha256": "7663f25c5efb95fd33e28107ed8e33be7fad72cba4ac6f4efd931ebd56a4486f"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2022-05-01",
+          "to": "2022-07-31"
+        }
+      ]
+    },
+    {
+      "id": "mom-press-2022-0408",
+      "title": "Public holidays for 2023 (press release, 8 April 2022)",
+      "publisher": "Ministry of Manpower, Singapore",
+      "location": "https://mom.gov.sg/newsroom/press-releases/2022/0408-public-holidays-for-2023",
+      "retrieved": "2026-10-14",
+      "covers": "2023",
+      "notes": "New Year's Day Sunday with Monday 2 January in lieu, Chinese New Year Sunday 22 and Monday 23 January with Tuesday 24 January in lieu, Hari Raya Puasa Saturday 22 April, Hari Raya Haji 29 June, Deepavali Sunday 12 November with Monday 13 November in lieu; Vesak later revised.",
+      "local_files": [
+        {
+          "path": "SG-SGX/mom-press-2022-0408.html",
+          "sha256": "722212f28cb90443808cfada800e7be86592481c4334235bbc4fc3513bc842a4"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2023-01-01",
+          "to": "2023-12-31"
+        }
+      ]
+    },
+    {
+      "id": "mom-press-2022-0929",
+      "title": "Revised date for Vesak Day 2023 (press release, 29 September 2022)",
+      "publisher": "Ministry of Manpower, Singapore",
+      "location": "https://www.mom.gov.sg/newsroom/press-releases/2022/0929-revised-date-for-vesak-day-2023",
+      "retrieved": "2026-10-14",
+      "covers": "2023-06-02",
+      "notes": "Vesak Day 2023 moved from Saturday 3 June to Friday 2 June.",
+      "local_files": [
+        {
+          "path": "SG-SGX/mom-press-2022-0929.html",
+          "sha256": "9da99c7472111c3e8cad2d1bb8ee0eebae44ee349b93c73a17eefb1aa762f79d"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2023-06-01",
+          "to": "2023-06-30"
+        }
+      ]
+    },
+    {
+      "id": "gazette-1387",
+      "title": "Government Gazette notice No. 1387: public holidays for 2024 (24 May 2023)",
+      "publisher": "Government of Singapore (egazette.gov.sg)",
+      "location": "https://assets.egazette.gov.sg/2023/Government%20Gazette/Others/1387.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2024",
+      "notes": "The gazetted 2024 public holidays with the footnote \"*The following Monday will be a public holiday.\" for Sunday holidays.",
+      "local_files": [
+        {
+          "path": "SG-SGX/gazette-1387.pdf",
+          "sha256": "7766dd549d43a77a3602031b35d117d878edb5e994bc1ab016119bc4eb08425b"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2024-01-01",
+          "to": "2024-12-31"
+        }
+      ]
+    },
+    {
+      "id": "gazette-2258",
+      "title": "Government Gazette notice No. 2258: public holidays for 2026 (16 June 2025)",
+      "publisher": "Government of Singapore (egazette.gov.sg)",
+      "location": "https://assets.egazette.gov.sg/2025/Government%20Gazette/Others/2258.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2026",
+      "notes": "The gazetted 2026 public holidays with the footnote \"*The following Monday will be a public holiday.\" for Sunday holidays.",
+      "local_files": [
+        {
+          "path": "SG-SGX/gazette-2258.pdf",
+          "sha256": "c7fff9ceec082604da8691814d4202fe56460f7ce9c769a1154dfb39978903e7"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2026-01-01",
+          "to": "2026-12-31"
+        }
+      ]
+    },
+    {
+      "id": "gazette-3467",
+      "title": "Government Gazette notice No. 3467: public holidays for 2027 (18 June 2026)",
+      "publisher": "Government of Singapore (egazette.gov.sg)",
+      "location": "https://assets.egazette.gov.sg/2026/Government%20Gazette/Others/3467.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2027",
+      "notes": "The gazetted 2027 public holidays with the footnote \"*The following Monday will be a public holiday.\" for Sunday holidays.",
+      "local_files": [
+        {
+          "path": "SG-SGX/gazette-3467.pdf",
+          "sha256": "efa5f78937c421dc436e413738b606c094e49ecb8d9fd21e26584e17c6135c2e"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2027-01-01",
+          "to": "2027-12-31"
+        }
+      ]
+    },
+    {
+      "id": "datagov-public-holidays-2020-2027",
+      "title": "Singapore public holidays 2020-2027 (data.gov.sg dataset d_8ef23381f9417e4d4254ee8b4dcdb176)",
+      "publisher": "Ministry of Manpower, Singapore via data.gov.sg",
+      "location": "https://data.gov.sg/datasets/d_8ef23381f9417e4d4254ee8b4dcdb176/view",
+      "retrieved": "2026-10-14",
+      "covers": "2020-01-01 to 2027-12-31",
+      "notes": "Machine-readable list with the \"(Observed)\" Mondays and the Polling Days of 10 July 2020, 1 September 2023 and Saturday 3 May 2025. Its 2022 rows label 2 May as Hari Raya Puasa and 3 May as Labour Day observed (the pre-revision labelling); the dates are the same.",
+      "local_files": [
+        {
+          "path": "SG-SGX/datagov-public-holidays-2020-2027.csv",
+          "sha256": "1ed034a6a7e07165ad13e6b6f0c11726bf2b0216d832e80477d428842e09b4f3"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "sgx-trading-page",
+      "title": "Trading hours, half-day trading and Singapore public holidays (sgx.com/stock-exchange/trading, content API)",
+      "publisher": "Singapore Exchange Limited",
+      "location": "https://www.sgx.com/stock-exchange/trading",
+      "retrieved": "2026-10-14",
+      "covers": "2025-01-01 to 2026-12-31",
+      "notes": "\"SGX follows the Singapore holiday calendar available on the Ministry of Manpower website. The Eve of Chinese New Year, Eve of Christmas and Eve of New Year in 2025 & 2026 fall on business days. As such, there will be half-day trading in 2025 & 2026\": 28 January, 24 and 31 December 2025; 16 February, 24 and 31 December 2026. Session tables with the 12:16 half-day close (trade-at-close).",
+      "local_files": [
+        {
+          "path": "SG-SGX/sgx-trading-page.json",
+          "sha256": "d40239628be36a0374d8ce9534233d1f5ec772168fb7dd64cbf12233423659be"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2025-01-01",
+          "to": "2026-12-31"
+        },
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2025-01-01",
+          "to": "2026-12-31"
+        }
+      ]
+    },
+    {
+      "id": "sgx-calendar-wb-20090515",
+      "title": "SGX Trading Hours & Calendar page (archived 2009-05-15)",
+      "publisher": "Singapore Exchange Limited",
+      "location": "https://web.archive.org/web/20090515/http://www.sgx.com/wps/portal/sgxweb/home/trading/securities/trading_hours_calendar",
+      "retrieved": "2026-10-14",
+      "covers": "rule (pre-2011 sessions)",
+      "notes": "Internet Archive capture of the exchange's page. Trading hours and calendar page: morning session 09:00-12:30 and afternoon 14:00-17:00 before 1 August 2011; the Sunday-to-Monday rule.",
+      "local_files": [
+        {
+          "path": "SG-SGX/sgx-calendar-wb-20090515.html",
+          "sha256": "1ec48d7108d6e329dbf66619254fff23b9c2e07eee843f0d8ff03c0fa9cdfcf2"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "sgx-calendar-wb-20140821",
+      "title": "SGX Trading Hours & Calendar page (archived 2014-08-21)",
+      "publisher": "Singapore Exchange Limited",
+      "location": "https://web.archive.org/web/20140821/http://www.sgx.com/wps/portal/sgxweb/home/trading/securities/trading_hours_calendar",
+      "retrieved": "2026-10-14",
+      "covers": "2013-01-01 to 2014-12-31",
+      "notes": "Internet Archive capture of the exchange's page. \"There is no trading on Singapore public holidays. When a holiday falls on Sunday, the following Monday will be a public holiday.\" \"Trading on the eves of Christmas, New Year and Chinese New Year will be from 9.00 a.m. to 12.30 p.m. The Opening Routine will be from 8.30 a.m. to 9.00 a.m. and the Closing Routine from 12.30 p.m. to 12.36 p.m.\" Holiday tables for 2013 (with \"4 November 2013 (Monday) will not be a public holiday\" after Deepavali moved to Saturday) and 2014.",
+      "local_files": [
+        {
+          "path": "SG-SGX/sgx-calendar-wb-20140821.html",
+          "sha256": "1025d2182f31d1d73a058a59ef757b82530ddecfd8df17da6b3c53ebb18b3e33"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2013-01-01",
+          "to": "2014-12-31"
+        },
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2014-01-01",
+          "to": "2014-12-31"
+        }
+      ]
+    },
+    {
+      "id": "sgx-calendar-wb-20150924",
+      "title": "SGX Trading Hours & Calendar page (archived 2015-09-24)",
+      "publisher": "Singapore Exchange Limited",
+      "location": "https://web.archive.org/web/20150924/http://www.sgx.com/wps/portal/sgxweb/home/trading/securities/trading_hours_calendar",
+      "retrieved": "2026-10-14",
+      "covers": "2015-01-01 to 2015-12-31",
+      "notes": "Internet Archive capture of the exchange's page. The 2015 table: \"7 Aug 2015 / Friday / SG50 Public Holiday\" and \"11 Sep 2015 / Friday / Polling Day\"; the eve half-day rule.",
+      "local_files": [
+        {
+          "path": "SG-SGX/sgx-calendar-wb-20150924.html",
+          "sha256": "21c74bf1c2261e6118b8b6b822ed92651aaeffd04cd52ab746e99d06ef2b23de"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2015-01-01",
+          "to": "2015-12-31"
+        },
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2015-01-01",
+          "to": "2015-12-31"
+        }
+      ]
+    },
+    {
+      "id": "sgx-calendar-wb-20160108",
+      "title": "SGX Trading Hours & Calendar page (archived 2016-01-08)",
+      "publisher": "Singapore Exchange Limited",
+      "location": "https://web.archive.org/web/20160108/http://www.sgx.com/wps/portal/sgxweb/home/trading/securities/trading_hours_calendar",
+      "retrieved": "2026-10-14",
+      "covers": "2015-01-01 to 2016-12-31",
+      "notes": "Internet Archive capture of the exchange's page. The 2015 and 2016 tables and the eve half-day rule.",
+      "local_files": [
+        {
+          "path": "SG-SGX/sgx-calendar-wb-20160108.html",
+          "sha256": "e51c3933d83c95acd3bfe5a0c16ca55df28aea4484fe8e88349884b0b8783309"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2016-01-01",
+          "to": "2016-12-31"
+        },
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2016-01-01",
+          "to": "2016-12-31"
+        }
+      ]
+    },
+    {
+      "id": "sgx-calendar-wb-20170608",
+      "title": "SGX Trading Hours & Calendar page (archived 2017-06-08)",
+      "publisher": "Singapore Exchange Limited",
+      "location": "https://web.archive.org/web/20170608/http://www.sgx.com/wps/portal/sgxweb/home/trading/securities/trading_hours_calendar",
+      "retrieved": "2026-10-14",
+      "covers": "2017-01-01 to 2017-12-31",
+      "notes": "Internet Archive capture of the exchange's page. The 2017 table with the footnote \"# The preceding Friday, 27-Jan-17, is a half-day trading day.\"",
+      "local_files": [
+        {
+          "path": "SG-SGX/sgx-calendar-wb-20170608.html",
+          "sha256": "0b32187a41caa01ac6a93f5f146e2d9e6332d377849122bb3dfa3e2c4ac2f522"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2017-01-01",
+          "to": "2017-12-31"
+        },
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2017-01-01",
+          "to": "2017-12-31"
+        }
+      ]
+    },
+    {
+      "id": "sgx-calendar-wb-20181020",
+      "title": "SGX Trading Hours & Calendar page (archived 2018-10-20)",
+      "publisher": "Singapore Exchange Limited",
+      "location": "https://web.archive.org/web/20181020/http://www.sgx.com/wps/portal/sgxweb/home/trading/securities/trading_hours_calendar",
+      "retrieved": "2026-10-14",
+      "covers": "2018-01-01 to 2019-12-31",
+      "notes": "Internet Archive capture of the exchange's page. Half-day session tables before and after 13 November 2017 (close 12:36, then 12:06) and the 2018 and 2019 tables marking the holidays whose preceding day is a half day: 16 February, 25 December 2018, 1 January 2019, 5 February 2019, 25 December 2019, 1 January 2020 (not 1 January 2018: 31 December 2017 was a Sunday).",
+      "local_files": [
+        {
+          "path": "SG-SGX/sgx-calendar-wb-20181020.html",
+          "sha256": "bf8b5ad6bbd7a0ec2f88ee9f54e0df4fba1d3a518d80167812729327612eef16"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2018-01-01",
+          "to": "2019-12-31"
+        },
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2018-01-01",
+          "to": "2019-12-31"
+        }
+      ]
+    },
+    {
+      "id": "sgx-calendar-wb-20181223",
+      "title": "SGX Trading Hours & Calendar page (archived 2018-12-23)",
+      "publisher": "Singapore Exchange Limited",
+      "location": "https://web.archive.org/web/20181223/http://www.sgx.com/wps/portal/sgxweb/home/trading/securities/trading_hours_calendar",
+      "retrieved": "2026-10-14",
+      "covers": "2019-01-01 to 2019-12-31",
+      "notes": "Internet Archive capture of the exchange's page. The 2019 table with half-day markers.",
+      "local_files": [
+        {
+          "path": "SG-SGX/sgx-calendar-wb-20181223.html",
+          "sha256": "818e043305ce491a2279d98d4279a26eed2b6d6aae61df9afca7ec3bdbf516ba"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2019-01-01",
+          "to": "2019-12-31"
+        },
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2019-01-01",
+          "to": "2019-12-31"
+        }
+      ]
+    },
+    {
+      "id": "settlement-holidays-2020",
+      "title": "Settlement Holidays 2020 (Central Depository)",
+      "publisher": "Singapore Exchange Limited",
+      "location": "https://api2.sgx.com/sites/default/files/2020-06/Settlement%20Holidays%202020%20%28updated%2025%20Jun%202020%29.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2020",
+      "notes": "CDP settlement holidays 2020 (updated 25 June 2020), including \"Fri, 10-Jul-20 Polling Day\". The depository's non-settlement days are the securities market's non-trading days.",
+      "local_files": [
+        {
+          "path": "SG-SGX/settlement-holidays-2020.pdf",
+          "sha256": "87afb313e78c8a2accb50266b6bf71c631fd0a527ce3582e198cc7fb2b16fbeb"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2020-01-01",
+          "to": "2020-12-31"
+        }
+      ]
+    },
+    {
+      "id": "settlement-holidays-2023",
+      "title": "Settlement Holidays 2023 (Central Depository)",
+      "publisher": "Singapore Exchange Limited",
+      "location": "https://api2.sgx.com/sites/default/files/2023-08/Settlement%20Holidays%202023_0.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2023",
+      "notes": "CDP settlement holidays 2023 (as of 23 August 2023), including \"Friday, September 1, 2023 Polling Day\". The depository's non-settlement days are the securities market's non-trading days.",
+      "local_files": [
+        {
+          "path": "SG-SGX/settlement-holidays-2023.pdf",
+          "sha256": "59f369139a3927ebb77573c0ea74a029e2b017e918bf7ca7822ca40e363c2fc7"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2023-01-01",
+          "to": "2023-12-31"
+        }
+      ]
+    },
+    {
+      "id": "settlement-holidays-2024",
+      "title": "Settlement Holidays 2024 (Central Depository)",
+      "publisher": "Singapore Exchange Limited",
+      "location": "https://api2.sgx.com/sites/default/files/2023-12/Settlement%20Holidays%202024_1.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2024",
+      "notes": "CDP settlement holidays 2024 (as of 11 December 2023). The depository's non-settlement days are the securities market's non-trading days.",
+      "local_files": [
+        {
+          "path": "SG-SGX/settlement-holidays-2024.pdf",
+          "sha256": "c56322fa146ad0eb54051ab7e03a085999c9a0fb8e3800a9ec2d72450175015a"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2024-01-01",
+          "to": "2024-12-31"
+        }
+      ]
+    },
+    {
+      "id": "settlement-holidays-2025",
+      "title": "Settlement Holidays 2025 (Central Depository)",
+      "publisher": "Singapore Exchange Limited",
+      "location": "https://api2.sgx.com/sites/default/files/2024-12/Settlement%20Holidays%202025_0.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2025",
+      "notes": "CDP settlement holidays 2025 (as of 12 December 2024): nine Singapore holidays, omitting the Saturday ones. The depository's non-settlement days are the securities market's non-trading days.",
+      "local_files": [
+        {
+          "path": "SG-SGX/settlement-holidays-2025.pdf",
+          "sha256": "23a256e394b9541333d60ecf5fb7b52d4bcb1517372944874db44f13423b30aa"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2025-01-01",
+          "to": "2025-12-31"
+        }
+      ]
+    },
+    {
+      "id": "dtam-64-2023",
+      "title": "DT/AM-64 of 2023: Announcement of Singapore Public Holiday on 1 September 2023 (23 August 2023)",
+      "publisher": "Singapore Exchange Limited",
+      "location": "https://api2.sgx.com/sites/default/files/2023-08/DTAM%2064%20of%202023%20-%20Announcement%20of%20Singapore%20Public%20Holiday%20on%201%20September%202023.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2023-09-01",
+      "notes": "\"Following the announcement of Friday 1 September 2023 as a public holiday by Singapore Ministry of Manpower\" (Presidential Election Polling Day).",
+      "local_files": [
+        {
+          "path": "SG-SGX/dtam-64-2023.pdf",
+          "sha256": "2cc0ddf686f75823dfd79bad853039e0ee4d66e1b3f42a777a8fcb76edc5979d"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2023-09-01",
+          "to": "2023-09-01"
+        }
+      ]
+    },
+    {
+      "id": "sgx-rulebook-pn13-1-rev7300",
+      "title": "SGX-ST Practice Note 13.1, Trading Hours (revision 7300, effective to 31 July 2011)",
+      "publisher": "Singapore Exchange Limited",
+      "location": "https://rulebook.sgx.com/node/5671/revisions/7300/view",
+      "retrieved": "2026-10-14",
+      "covers": "to 31 July 2011",
+      "notes": "\"Our trading hours is from 9.00 am to 12.30 pm and 2.00 pm to 5.00 pm.\"",
+      "local_files": [
+        {
+          "path": "SG-SGX/rulebook-pn13-1-rev7300.html",
+          "sha256": "d865b3280a67de888ecf379d0a8e0013b12aae9c28948c893eb55370ba81358a"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "sgx-rulebook-pn13-1-rev7712",
+      "title": "SGX-ST Practice Note 13.1, Trading Hours (revision 7712, effective 29 September 2011 to 12 November 2017)",
+      "publisher": "Singapore Exchange Limited",
+      "location": "https://rulebook.sgx.com/node/5671/revisions/7712/view",
+      "retrieved": "2026-10-14",
+      "covers": "29 September 2011 to 12 November 2017",
+      "notes": "Continuous all-day trading 09:00-17:00; half-day trading to 12:30 with the closing routine to 12:36.",
+      "local_files": [
+        {
+          "path": "SG-SGX/rulebook-pn13-1-rev7712.html",
+          "sha256": "796248dd21716a38ff75ec8ecb7029d65c06dc83d8489e371904bbb92aeff38d"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "sgx-rulebook-pn13-1-rev9845",
+      "title": "SGX-ST Practice Note 13.1, Trading Hours (revision 9845, effective 13 November 2017 to 2 June 2019)",
+      "publisher": "Singapore Exchange Limited",
+      "location": "https://rulebook.sgx.com/node/5671/revisions/9845/view",
+      "retrieved": "2026-10-14",
+      "covers": "13 November 2017 to 2 June 2019",
+      "notes": "\"For half day trading, our trading hours are from 9:00 am to 12:00 pm. ... Closing Routine will run for 6 minutes after 12.00 pm, i.e. 12.00 pm to 12.06 pm.\"",
+      "local_files": [
+        {
+          "path": "SG-SGX/rulebook-pn13-1-rev9845.html",
+          "sha256": "802c858584512b3a2c22c09434619b6278841e2375d205cd3fa2bc5fc215e47c"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "sgx-rulebook-pn13-1-rev11581",
+      "title": "SGX-ST Practice Note 13.1, Trading Hours (revision 11581, effective 3 June 2019 to 6 February 2020)",
+      "publisher": "Singapore Exchange Limited",
+      "location": "https://rulebook.sgx.com/node/5671/revisions/11581/view",
+      "retrieved": "2026-10-14",
+      "covers": "3 June 2019 to 6 February 2020",
+      "notes": "Half-day trading to 12:00 with the closing routine and trade-at-close phase to 12:16.",
+      "local_files": [
+        {
+          "path": "SG-SGX/rulebook-pn13-1-rev11581.html",
+          "sha256": "127859a85c6cb26c730dd575397a0c1c2449a44e473979871a1bf167fea7378d"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "sgx-rulebook-rn-8-2-1",
+      "title": "SGX-ST Regulatory Notice 8.2.1, Trading Hours and Market Phases (added 3 June 2019)",
+      "publisher": "Singapore Exchange Limited",
+      "location": "https://rulebook.sgx.com/node/9044",
+      "retrieved": "2026-10-14",
+      "covers": "2019-06-03 onward",
+      "notes": "The exchange's current normal and half-day phase table: continuous trading to 17:00 / 12:00, closing routine, trade-at-close to 17:16 / 12:16.",
+      "local_files": [
+        {
+          "path": "SG-SGX/rulebook-rn-8-2-1.html",
+          "sha256": "e17364231d2a249c0f0e4c48bb0010816de8bbefdfa72ac244531f8fa81644c8"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "sgx-outage-2014-11-05",
+      "title": "SGX markets' outage resulted from malfunction in power supply (news release, 5 November 2014)",
+      "publisher": "Singapore Exchange Limited",
+      "location": "https://links.sgx.com/1.0.0/corporate-announcements/D1G8AYPNIQDHNB39/323055_20141105_1942_release_EOD.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2014-11-05",
+      "notes": "\"Market participants were disconnected at 1418 hours and SGX declared a formal trading halt at 1451 hours ... the market reopened for trading at 1715 hours ... the market closed at 1751 hours.\" An extended, not shortened, trading day: no calendar event.",
+      "local_files": [
+        {
+          "path": "SG-SGX/outage-2014-11-05.pdf",
+          "sha256": "ba4a8abe891a3800356755f6ac58e27c64fcd81fd512591eac3df18bc8648e52"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2014-11-05",
+          "to": "2014-11-05"
+        }
+      ]
+    },
+    {
+      "id": "sgx-outage-2014-12-03",
+      "title": "Delayed market open for the securities market on 3 December 2014 (news release)",
+      "publisher": "Singapore Exchange Limited",
+      "location": "https://links.sgx.com/1.0.0/corporate-announcements/UMQ91I89MF9QWJF0/326900_20141203_SGX_announced_delayed_market_open_for_its_securities_market_on_3rd_December.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2014-12-03",
+      "notes": "\"the securities market will start continuous trading at 1230 hrs on 3rd December 2014 ... The market will remain open till 1700 hrs and close as per normal.\" A delayed open with a normal close: no calendar event.",
+      "local_files": [
+        {
+          "path": "SG-SGX/outage-2014-12-03.pdf",
+          "sha256": "ed1ed661f572a9473c45b1c545538aa026c38d62bf6b960338b08735121c13e8"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2014-12-03",
+          "to": "2014-12-03"
+        }
+      ]
+    },
+    {
+      "id": "sgx-outage-2016-07-14",
+      "title": "SGX provides further details on market disruption (news release, 19 July 2016)",
+      "publisher": "Singapore Exchange Limited",
+      "location": "https://links.sgx.com/1.0.0/corporate-announcements/5BUU78PM42FZ20P5/413202_20160719_SGX_provides_further_details_on_market_disruption.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2016-07-14",
+      "notes": "\"Singapore Exchange's (SGX) securities market experienced a market disruption on Thursday, 14 July 2016, when the exchange ceased trading at 1138 hours, and remained closed for the rest of the day.\"",
+      "local_files": [
+        {
+          "path": "SG-SGX/outage-2016-07-14.pdf",
+          "sha256": "f04f015b2d11f4a98fbf0ac420ef3a525d2d84f4c32739b9b5e4bc331b61a97f"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2016-07-14",
+          "to": "2016-07-14"
+        }
+      ]
+    },
+    {
+      "id": "sgx-release-2011-06-30",
+      "title": "SGX securities market trades all day from 1 August 2011 (news release, republished by Mondo Visione)",
+      "publisher": "Singapore Exchange Limited",
+      "location": "https://mondovisione.com/news/sgx-securities-market-trades-all-day-from-1-august-2011630/",
+      "retrieved": "2026-10-14",
+      "covers": "2011-08-01",
+      "notes": "Removal of the 12:30-14:00 lunch break: session structure only.",
+      "local_files": [
+        {
+          "path": "SG-SGX/sgx-release-2011-06-30.html",
+          "sha256": "4fe419a38d5d8501aa9e9391ec4b16e8d4a58e82e526a3b4ba5ed420d19c894c"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "sgx-release-2020-04-03",
+      "title": "SGX's securities and derivatives markets will remain open (statement, 3 April 2020, republished by Mondo Visione)",
+      "publisher": "Singapore Exchange Limited",
+      "location": "https://mondovisione.com/media-and-resources/news/sgxs-securities-and-derivatives-markets-will-remain-open-202043/",
+      "retrieved": "2026-10-14",
+      "covers": "2020-04-07 to 2020-06-01",
+      "notes": "The exchange stayed open through Singapore's COVID-19 circuit breaker.",
+      "local_files": [
+        {
+          "path": "SG-SGX/sgx-release-2020-04-03.html",
+          "sha256": "f6ed10f326607c62e9488d8c98cd2c898d05df56aca8a08722af585615c87d3a"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "isda-singapore-elections",
+      "title": "ISDA guidance on Singapore election market closures (Equity Definitions)",
+      "publisher": "International Swaps and Derivatives Association",
+      "location": "https://www.isda.org/a/rWmTE/ISDA-Singapore-Elections-Market-Closures-Guidance_Equity-Definitions.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2020-07-10",
+      "notes": "Corroboration: \"the SGX will not be open for trading on Friday 10th July 2020 ... in respect of the securities market\".",
+      "local_files": [
+        {
+          "path": "SG-SGX/isda-singapore-elections.pdf",
+          "sha256": "e26fe5091a0468238da7df854c2eb8dc45d5273b000e82b52476115ae4dd0a82"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "sgx-trading-days-by-month",
+      "title": "SGX securities market \"Number of Trading Days\" by month, December 2010 - June 2026 (table compiled from the SGX Monthly Market Statistics Reports and the exchange's monthly statistics releases)",
+      "publisher": "Singapore Exchange Limited (figures); this repository (compilation)",
+      "location": "https://www.sgx.com/research-education/historical-data/market-statistics",
+      "retrieved": "2026-10-14",
+      "covers": "2010-12-01 to 2026-06-30 (171 months; see notes for the gaps)",
+      "notes": "One row per month read directly from the exchange's report PDF or its \"SGX reports market statistics\" release, with the document URL and the SHA-256 of the document as retrieved. Every month equals the modelled weekdays less closures (half days and the 14 July 2016 disruption count as trading days). Not found: January-November 2010 (the row was added to the reports from October 2010), July 2012, April-October and December 2013, May-June 2014, June 2015, July 2020 and April-June 2023; those months stay PROJECTED.",
+      "local_files": [
+        {
+          "path": "SG-SGX/sgx-trading-days-by-month.csv",
+          "sha256": "891d304fb2ad1550ec8a5b5040d5f416ee75618ebd930b7e1af8854e1881828c"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2010-12-01",
+          "to": "2012-06-30"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2010-12-01",
+          "to": "2012-06-30"
+        },
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2012-08-01",
+          "to": "2013-03-31"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2012-08-01",
+          "to": "2013-03-31"
+        },
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2013-11-01",
+          "to": "2013-11-30"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2013-11-01",
+          "to": "2013-11-30"
+        },
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2014-01-01",
+          "to": "2014-04-30"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2014-01-01",
+          "to": "2014-04-30"
+        },
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2014-07-01",
+          "to": "2015-05-31"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2014-07-01",
+          "to": "2015-05-31"
+        },
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2015-07-01",
+          "to": "2020-06-30"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2015-07-01",
+          "to": "2020-06-30"
+        },
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2020-08-01",
+          "to": "2023-03-31"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2020-08-01",
+          "to": "2023-03-31"
+        },
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2023-07-01",
+          "to": "2026-06-30"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2023-07-01",
+          "to": "2026-06-30"
+        }
+      ]
+    }
+  ]
+}

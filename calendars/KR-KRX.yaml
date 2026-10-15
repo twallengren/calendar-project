@@ -1,0 +1,46 @@
+kind: calendar
+id: KR-KRX
+
+metadata:
+  name: Korea Exchange
+  description: KRX securities market (KOSPI and KOSDAQ) trading calendar (MIC XKRX)
+  chronology: ISO
+  timezone: Asia/Seoul
+  mic: XKRX
+  coverage:
+    from: 2010-01-01
+    to: 2027-12-31
+    verified_through: 2026-12-31
+    quality:
+      # The exchange publishes its own non-trading-day list for every year (open.krx.co.kr
+      # 휴장일; 2010-2027 preserved as krx-holidays), the authority under 유가증권시장 업무규정
+      # 제5조 for public holidays, substitute days, Labour Day, election days, temporary public
+      # holidays and the year-end closure. The 2027 list is served but not yet offered in the
+      # page's year selector and the lunar dates beyond 2027 are not gazetted, which bounds
+      # coverage.
+      - {scope: SCHEDULED_CLOSURES, from: 2010-01-01, to: 2026-12-31, quality: VERIFIED, evidence_ids: [krx-holidays, krx-notice-2011-holidays, krx-kind-notice-99340, easylaw-trading-days, moi-public-holidays-decree, klri-public-holidays-act, bizwatch-2026-05-20-krx-closures]}
+      - {scope: SCHEDULED_CLOSURES, from: 2027-01-01, to: 2027-12-31, quality: PROJECTED, evidence_ids: [krx-holidays, moi-public-holidays-decree]}
+      # The market has no shortened sessions: the exchange's rule fixes the regular session
+      # (09:00-15:00, 09:00-15:30 from 1 August 2016) on every trading day, and the only hour
+      # changes (10:00 opening on the first trading day of the year and on the college entrance
+      # exam day) delay the open without shortening the close.
+      - {scope: EARLY_CLOSES, from: 2010-01-01, to: 2026-12-31, quality: VERIFIED, evidence_ids: [krx-guide-to-trading, easylaw-trading-days, seoul-2016-07-31-hours, samsungpop-notice-23456]}
+      - {scope: EARLY_CLOSES, from: 2027-01-01, to: 2027-12-31, quality: PROJECTED, evidence_ids: [krx-guide-to-trading]}
+      # The exchange's lists are its own record of every non-trading day, scheduled or not (they
+      # carry the election days and temporary holidays as they were declared), and no whole-day
+      # closure or early termination has occurred since 2010: the KOSPI-wide halt of 18 March
+      # 2025 lasted seven minutes and was "the first since the exchange's 2005 integration"
+      # (newsis-2025-03-18-halt); the market opened normally on 4 December 2024
+      # (sbsbiz-2024-12-04-open). No KRX-published monthly trading-day count was retrievable, so
+      # the scope is VERIFIED only through the day the lists were retrieved.
+      - {scope: UNSCHEDULED_EXCEPTIONS, from: 2010-01-01, to: 2026-10-14, quality: VERIFIED, evidence_ids: [krx-holidays, newsis-2025-03-18-halt, sbsbiz-2024-12-04-open, krx-notice-2011-holidays]}
+      - {scope: UNSCHEDULED_EXCEPTIONS, from: 2026-10-15, to: 2027-12-31, quality: PROJECTED, evidence_ids: [krx-holidays]}
+
+# Korean substitute holidays depend on the holiday and the year (none before 2014; Sunday-only for
+# Seollal and Chuseok; Saturday or Sunday for the others, extended in 2021, 2023 and 2026), so
+# every substitute is listed explicitly from the exchange's lists and nothing shifts by rule.
+weekend_shift_policy: NONE
+
+uses:
+  - weekend_sat_sun
+  - kr_krx_holidays

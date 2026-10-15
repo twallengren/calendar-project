@@ -1,0 +1,23 @@
+kind: module
+id: au_easter_monday
+
+# Easter Monday (the day after Western Easter Sunday). Always a weekday, so no shifting.
+# Source: nsw-public-holidays-act.
+
+source:
+  - id: nsw-public-holidays-act
+
+references:
+  - key: easter
+    formula: EASTER_WESTERN
+
+event_sources:
+  - key: au_easter_monday
+    name: Easter Monday
+    default_classification: CLOSED
+    rule:
+      type: relative_to_reference
+      key: au_easter_monday
+      name: Easter Monday
+      reference: easter
+      offset_days: 1

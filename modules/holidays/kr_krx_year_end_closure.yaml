@@ -1,0 +1,38 @@
+kind: module
+id: kr_krx_year_end_closure
+
+# The exchange's own year-end closure: 31 December, or the immediately preceding trading day when
+# 31 December is a holiday or a Saturday (유가증권시장 업무규정 제5조: "12월 31일(공휴일 또는 토요일인
+# 경우에는 직전의 매매거래일로 함)"): Friday 30 December in 2011, 2016 and 2022 (Saturday 31st),
+# Friday 29 December in 2017 and 2023 (Sunday 31st). KRX name: 연말휴장일. Settlement also skips it.
+# Source: krx-holidays.
+
+source:
+  - id: krx-holidays
+
+event_sources:
+  - key: kr_krx_year_end_closure
+    name: Year-End Closure
+    default_classification: CLOSED
+    shiftable: false
+    rule:
+      type: explicit_dates
+      dates:
+        - 2010-12-31
+        - 2011-12-30
+        - 2012-12-31
+        - 2013-12-31
+        - 2014-12-31
+        - 2015-12-31
+        - 2016-12-30
+        - 2017-12-29
+        - 2018-12-31
+        - 2019-12-31
+        - 2020-12-31
+        - 2021-12-31
+        - 2022-12-30
+        - 2023-12-29
+        - 2024-12-31
+        - 2025-12-31
+        - 2026-12-31
+        - 2027-12-31

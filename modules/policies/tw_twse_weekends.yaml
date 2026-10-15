@@ -1,0 +1,38 @@
+kind: module
+id: tw_twse_weekends
+
+# Effective-dated weekend definition for the Taiwan Stock Exchange.
+#
+# Saturday and Sunday are weekend days throughout, except the fifteen government make-up working
+# Saturdays (補行上班) of 2010-2018 on which the exchange held a full session: the exchange's own
+# tables say so ("於2月6日(星期六)補行交易" for 2010; "Additional Trading Days on Saturday" in the
+# 2017 English table) and its daily market summary records a trading day on each. From 1 January
+# 2019 the exchange "forgoes Saturday trading and settlement, even with the presence of work"
+# (twse-history), so every later make-up Saturday is an ordinary weekend day here ("補行上班，但
+# 不交易亦不交割"). Each session is a one-day period in which only Sunday is a weekend day;
+# later periods win for overlapping dates.
+#
+# Source: twse-holiday-schedules, twse-trading-days, twse-history.
+
+source:
+  - id: twse-holiday-schedules
+  - id: twse-trading-days
+
+policies:
+  weekends:
+    - {days: [SATURDAY, SUNDAY]}
+    - {days: [SUNDAY], from: 2010-02-06, to: 2010-02-06}
+    - {days: [SUNDAY], from: 2012-02-04, to: 2012-02-04}
+    - {days: [SUNDAY], from: 2012-03-03, to: 2012-03-03}
+    - {days: [SUNDAY], from: 2012-12-22, to: 2012-12-22}
+    - {days: [SUNDAY], from: 2013-02-23, to: 2013-02-23}
+    - {days: [SUNDAY], from: 2013-09-14, to: 2013-09-14}
+    - {days: [SUNDAY], from: 2014-12-27, to: 2014-12-27}
+    - {days: [SUNDAY], from: 2016-01-30, to: 2016-01-30}
+    - {days: [SUNDAY], from: 2016-06-04, to: 2016-06-04}
+    - {days: [SUNDAY], from: 2016-09-10, to: 2016-09-10}
+    - {days: [SUNDAY], from: 2017-02-18, to: 2017-02-18}
+    - {days: [SUNDAY], from: 2017-06-03, to: 2017-06-03}
+    - {days: [SUNDAY], from: 2017-09-30, to: 2017-09-30}
+    - {days: [SUNDAY], from: 2018-03-31, to: 2018-03-31}
+    - {days: [SUNDAY], from: 2018-12-22, to: 2018-12-22}

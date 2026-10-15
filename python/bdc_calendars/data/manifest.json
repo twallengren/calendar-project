@@ -4,21 +4,31 @@
     "TADAWUL": "SA-TADAWUL",
     "TASE": "IL-TASE",
     "XAMS": "NL-EURONEXT-AMSTERDAM",
+    "XASX": "AU-ASX",
     "XBRU": "BE-EURONEXT-BRUSSELS",
     "XETR": "DE-XETRA",
     "XHKG": "HK-HKEX",
     "XJPX": "JP-JPX",
+    "XJSE": "ZA-JSE",
+    "XKRX": "KR-KRX",
     "XLIS": "PT-EURONEXT-LISBON",
     "XLON": "GB-LSE",
     "XNYS": "US-NYSE",
     "XPAR": "FR-EURONEXT-PARIS",
     "XSAU": "SA-TADAWUL",
+    "XSES": "SG-SGX",
     "XTAE": "IL-TASE",
+    "XTAI": "TW-TWSE",
     "XTKS": "JP-JPX",
     "XTSE": "CA-TSX"
   },
   "blessed_at": "2026-10-14T14:07:08Z",
   "calendars": {
+    "AU-ASX": {
+      "kind": "market",
+      "range_end": "2030-12-31",
+      "range_start": "2010-01-01"
+    },
     "BE-EURONEXT-BRUSSELS": {
       "kind": "market",
       "range_end": "2030-12-31",
@@ -74,6 +84,11 @@
       "range_end": "2030-12-31",
       "range_start": "2010-01-01"
     },
+    "KR-KRX": {
+      "kind": "market",
+      "range_end": "2027-12-31",
+      "range_start": "2010-01-01"
+    },
     "NL-EURONEXT-AMSTERDAM": {
       "kind": "market",
       "range_end": "2030-12-31",
@@ -88,6 +103,16 @@
       "kind": "market",
       "range_end": "2030-12-31",
       "range_start": "2020-01-01"
+    },
+    "SG-SGX": {
+      "kind": "market",
+      "range_end": "2027-12-31",
+      "range_start": "2010-01-01"
+    },
+    "TW-TWSE": {
+      "kind": "market",
+      "range_end": "2027-12-31",
+      "range_start": "2010-01-01"
     },
     "US-CORP-IN-VISIBILITY": {
       "kind": "base",
@@ -108,6 +133,11 @@
       "kind": "market",
       "range_end": "2030-12-31",
       "range_start": "1900-01-01"
+    },
+    "ZA-JSE": {
+      "kind": "market",
+      "range_end": "2030-12-31",
+      "range_start": "2010-01-01"
     }
   },
   "data_git_sha": "74d854cdbdfa9f622720d205ef9e999d23f008eb",

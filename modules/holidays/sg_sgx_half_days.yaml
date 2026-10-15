@@ -1,0 +1,117 @@
+kind: module
+id: sg_sgx_half_days
+
+# SGX securities-market half-day trading on the eves of Chinese New Year, Christmas and New
+# Year, when the eve is a trading day: "Trading on the eves of Christmas, New Year and Chinese
+# New Year will be from 9.00 a.m. to 12.30 p.m. The Opening Routine will be from 8.30 a.m. to
+# 9.00 a.m. and the Closing Routine from 12.30 p.m. to 12.36 p.m." (sgx-calendar-wb-20140821,
+# identical through the 2017 capture). From 13 November 2017 continuous trading on a half day
+# ends at 12:00 with the closing routine to 12:06 (sgx-rulebook-pn13-1-rev9845) and, from 3 June
+# 2019, a trade-at-close phase to 12:16 (sgx-rulebook-rn-8-2-1); the exchange's live page lists
+# the 2025 and 2026 half days with the same rule (sgx-trading-page). An eve that falls on a
+# weekend produces no half day and is not moved: the 2018 table marks 25 December 2018 but not
+# 1 January 2018 (31 December 2017 was a Sunday), and 2016 and 2023 had none. close_time is the
+# end of continuous trading, as for the other calendars.
+#
+# Christmas Eve and New Year's Eve use fixed rules with the default DROP policy; the Chinese New
+# Year eve is listed per year (the day before the gazetted first day, when a weekday). Half days
+# count as trading days in the exchange's statistics.
+# Source: sgx-calendar-wb-20140821, sgx-calendar-wb-20181020, sgx-trading-page.
+
+source:
+  - id: sgx-calendar-wb-20140821
+    ref: "Trading on the eves of Christmas, New Year and Chinese New Year will be from 9.00 a.m. to 12.30 p.m."
+
+event_sources:
+  - key: sg_sgx_christmas_eve_half_day_1230
+    name: Christmas Eve (Half Day)
+    default_classification: EARLY_CLOSE
+    close_time: "12:30"
+    active_years:
+      - [2010, 2017]
+    rule:
+      type: fixed_month_day
+      month: 12
+      day: 24
+
+  - key: sg_sgx_new_years_eve_half_day_1230
+    name: New Year's Eve (Half Day)
+    default_classification: EARLY_CLOSE
+    close_time: "12:30"
+    active_years:
+      - [2010, 2017]
+    rule:
+      type: fixed_month_day
+      month: 12
+      day: 31
+
+  - key: sg_sgx_christmas_eve_half_day
+    name: Christmas Eve (Half Day)
+    default_classification: EARLY_CLOSE
+    close_time: "12:00"
+    active_years:
+      - [2018, null]
+    source:
+      - id: sgx-calendar-wb-20181020
+        ref: "# The preceding day is a half-day trading day (25-Dec-18, 1-Jan-19, 25-Dec-19, 1-Jan-20)"
+      - id: sgx-trading-page
+        ref: "24 Dec 2025 Wednesday Eve of Christmas; 31 Dec 2025 Wednesday Eve of New Year; 24 Dec 2026 Thursday Eve of Christmas; 31 Dec 2026 Thursday Eve of New Year"
+    rule:
+      type: fixed_month_day
+      month: 12
+      day: 24
+
+  - key: sg_sgx_new_years_eve_half_day
+    name: New Year's Eve (Half Day)
+    default_classification: EARLY_CLOSE
+    close_time: "12:00"
+    active_years:
+      - [2018, null]
+    source:
+      - id: sgx-calendar-wb-20181020
+        ref: "# The preceding day is a half-day trading day"
+      - id: sgx-trading-page
+        ref: "31 Dec 2025 Wednesday Eve of New Year; 31 Dec 2026 Thursday Eve of New Year"
+    rule:
+      type: fixed_month_day
+      month: 12
+      day: 31
+
+  - key: sg_sgx_chinese_new_year_eve_half_day_1230
+    name: Chinese New Year Eve (Half Day)
+    default_classification: EARLY_CLOSE
+    close_time: "12:30"
+    shiftable: false
+    source:
+      - id: sgx-calendar-wb-20170608
+        ref: "# The preceding Friday, 27-Jan-17, is a half-day trading day."
+    rule:
+      type: explicit_dates
+      dates:
+        - 2011-02-02
+        - 2014-01-30
+        - 2015-02-18
+        - 2017-01-27
+
+  - key: sg_sgx_chinese_new_year_eve_half_day
+    name: Chinese New Year Eve (Half Day)
+    default_classification: EARLY_CLOSE
+    close_time: "12:00"
+    shiftable: false
+    source:
+      - id: sgx-calendar-wb-20181020
+        ref: "# The preceding day is a half-day trading day (16-Feb-18, 5-Feb-19)"
+      - id: sgx-trading-page
+        ref: "28 Jan 2025 Tuesday Eve of Chinese New Year; 16 Feb 2026 Monday Eve of Chinese New Year"
+    rule:
+      type: explicit_dates
+      dates:
+        - 2018-02-15
+        - 2019-02-04
+        - 2020-01-24
+        - 2021-02-11
+        - 2022-01-31
+        - 2024-02-09
+        - 2025-01-28
+        - 2026-02-16
+        - 2027-02-05

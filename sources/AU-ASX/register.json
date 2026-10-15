@@ -1,0 +1,1631 @@
+{
+  "schema_version": "1.0",
+  "entries": [
+    {
+      "id": "nsw-public-holidays-act",
+      "title": "Public Holidays Act 2010 No 115 (NSW)",
+      "publisher": "New South Wales Government (legislation.nsw.gov.au)",
+      "location": "https://legislation.nsw.gov.au/view/html/inforce/current/act-2010-115",
+      "retrieved": "2026-10-14",
+      "covers": "2011-01-01 onward",
+      "notes": "The statute behind the holidays ASX Trade observes: New Year's Day, Australia Day, Good Friday, Easter Monday, Anzac Day, the Sovereign's Birthday (second Monday in June), Christmas Day and Boxing Day, with the additional-day rules (New Year's Day, Christmas Day and Boxing Day on a weekend: an additional holiday on the following Monday or Tuesday; Australia Day on a weekend: the following Monday instead; Anzac Day: 25 April whatever the weekday). The site blocks automated retrieval, so the rules are quoted from the NSW Government's own summaries (nsw-public-holidays-page, nsw-public-holidays-2021-2023). ASX trades on the NSW-only Labour Day and Bank Holiday.",
+      "local_files": [],
+      "support_intervals": []
+    },
+    {
+      "id": "nsw-public-holidays-page",
+      "title": "NSW public holidays (2026 and 2027 tables with Additional Day rows; FAQ on Anzac Day, Australia Day and the Bank Holiday)",
+      "publisher": "NSW Government",
+      "location": "https://www.nsw.gov.au/about-nsw/public-holidays",
+      "retrieved": "2026-10-14",
+      "covers": "2026-01-01 to 2027-12-31 (NSW public holidays, not exchange days)",
+      "notes": "States the Act's observance rules: \"The Anzac Day holiday is always recognised and observed on the 25 April every year. This includes when it falls on a weekend.\"; \"Where Australia Day falls on a weekend, there is no public holiday on that day. Instead, the following Monday is the public holiday.\"; New Year's Day, Christmas Day or Boxing Day on a weekend bring \"an additional gazetted public holiday on the following available weekday\"; the Bank Holiday \"is not a declared public holiday\". Lists the one-off Additional Days Monday 27 April 2026 and Monday 26 April 2027, which the exchange did not observe (asx-trade-calendar-2026-2027).",
+      "local_files": [
+        {
+          "path": "AU-ASX/nsw-public-holidays.html",
+          "sha256": "18c4c1ea424b51e5cac45b391a3df9002157b073513befe2ee6f768b440a4e7b"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "nsw-public-holidays-2021-2023",
+      "title": "NSW Public Holidays 2021-2023 (NSW Industrial Relations table, Transport for NSW open-data copy)",
+      "publisher": "NSW Government",
+      "location": "https://opendata.transport.nsw.gov.au/dataset/963e4946-46c0-4c9c-b4dc-5033c9e61f5c/resource/db789f49-2591-48fb-9219-3815ad0176cb/download/nsw-public-holidays-2021-2023.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2021-01-01 to 2023-12-31 (NSW public holidays)",
+      "notes": "The state's own dated list with the Act's footnotes; shows Sunday 25 April 2021 with no additional Monday.",
+      "local_files": [
+        {
+          "path": "AU-ASX/nsw-public-holidays-2021-2023.pdf",
+          "sha256": "f46ecbfdd31165e90349b3fe9499863f4994409da7f7c9eda2646e5e895ddc30"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "asx-trade-calendar-2026-2027",
+      "title": "ASX Trade calendar (live page: 2026 and 2027 tables)",
+      "publisher": "ASX Limited",
+      "location": "https://www.asx.com.au/markets/market-resources/trading-hours-calendar/cash-market-trading-hours/trading-calendar",
+      "retrieved": "2026-10-14",
+      "covers": "2026-01-01 to 2027-12-31",
+      "notes": "The exchange's cash-market calendar: every non-trading day and every CLOSE EARLY day with the footnote \"Normal trading ceases at 14:10 (Sydney time)\". 2027 prints \"ANZAC Day Monday 26 April OPEN - Substitute for Sunday 25 April\" and 2026 lists Saturday 25 April CLOSED with no Monday row, so the exchange trades on NSW's additional Anzac Day holidays. Any weekday not listed is a trading day.",
+      "local_files": [
+        {
+          "path": "AU-ASX/asx-trade-calendar-2026-2027.html",
+          "sha256": "2aa039074a56873da7fa5a583c6f94d4496f827e2399253ce1a80d50d838c89b"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2026-01-01",
+          "to": "2027-12-31"
+        },
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2026-01-01",
+          "to": "2027-12-31"
+        }
+      ]
+    },
+    {
+      "id": "asx-trade-calendar-2026",
+      "title": "ASX Trade trading calendar 2026",
+      "publisher": "ASX Limited",
+      "location": "https://asxonline.com/content/dam/asxonline/public/notices/2025/august/asxtrade2026.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2026-01-01 to 2026-12-31",
+      "notes": "Public Holiday Dates for 2026 (notice attachment, 20 August 2025): Thu 1 Jan, Mon 26 Jan, Fri 3 Apr, Mon 6 Apr, Sat 25 Apr (CLOSED, no Monday row), Mon 8 Jun King's Birthday, Thu 24 Dec CLOSE EARLY, Fri 25 Dec, Mon 28 Dec Boxing Day, Thu 31 Dec CLOSE EARLY. Any weekday not listed is a trading day.",
+      "local_files": [
+        {
+          "path": "AU-ASX/asx-trade-calendar-2026.pdf",
+          "sha256": "2074806b064e7b9ea32aa532d6668cc60bcbcb0d2f49f0246f52a75942cf129e"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2026-01-01",
+          "to": "2026-12-31"
+        },
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2026-01-01",
+          "to": "2026-12-31"
+        }
+      ]
+    },
+    {
+      "id": "asx-trade-calendar-2025",
+      "title": "ASX Trade trading calendar 2025",
+      "publisher": "ASX Limited",
+      "location": "https://asxonline.com/content/dam/asxonline/public/notices/2024/august/asx-trade-2025-attach.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2025-01-01 to 2025-12-31",
+      "notes": "ASX Trade trading calendar 2025 (notice 0957.24.08 attachment): Wed 1 Jan, Mon 27 Jan, Fri 18 Apr, Mon 21 Apr, Fri 25 Apr, Mon 9 Jun, Wed 24 Dec CLOSE EARLY, Thu 25 Dec, Fri 26 Dec, Wed 31 Dec CLOSE EARLY. Any weekday not listed is a trading day.",
+      "local_files": [
+        {
+          "path": "AU-ASX/asx-trade-calendar-2025.pdf",
+          "sha256": "1dc08a13a56e99a5a4625662cd35940b99d560741ab0a1e0da233324b827d7b2"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2025-01-01",
+          "to": "2025-12-31"
+        },
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2025-01-01",
+          "to": "2025-12-31"
+        }
+      ]
+    },
+    {
+      "id": "asx-trade-calendar-2024",
+      "title": "ASX Trade trading calendar 2024",
+      "publisher": "ASX Limited",
+      "location": "https://asxonline.com/content/dam/asxonline/public/notices/2023/august/asx-trade-2024-calendar.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2024-01-01 to 2024-12-31",
+      "notes": "ASX Trade trading calendar 2024 (notice 0840.23.08 attachment): Mon 1 Jan, Fri 26 Jan, Fri 29 Mar, Mon 1 Apr, Thu 25 Apr, Mon 10 Jun King's Birthday, Tue 24 Dec CLOSE EARLY, Wed 25 Dec, Thu 26 Dec, Tue 31 Dec CLOSE EARLY. Any weekday not listed is a trading day.",
+      "local_files": [
+        {
+          "path": "AU-ASX/asx-trade-calendar-2024.pdf",
+          "sha256": "969f9ff3e8c85af8c2692c182086c30de5c5b3652447678eb122c9ae3430c644"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2024-01-01",
+          "to": "2024-12-31"
+        },
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2024-01-01",
+          "to": "2024-12-31"
+        }
+      ]
+    },
+    {
+      "id": "asx-trade-calendar-2023",
+      "title": "ASX Trade trading calendar 2023",
+      "publisher": "ASX Limited",
+      "location": "https://asxonline.com/content/dam/asxonline/public/notices/2022/august/asx-trade-2023-notice-attachment.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2023-01-01 to 2023-12-31",
+      "notes": "ASX Trade trading calendar 2023 (notice attachment, August 2022): Mon 2 Jan (substitute for Sunday 1 January), Thu 26 Jan, Fri 7 Apr, Mon 10 Apr, Tue 25 Apr, Mon 12 Jun (printed as Queen's Birthday), Fri 22 Dec OPEN, Mon 25 Dec, Tue 26 Dec, Fri 29 Dec OPEN: no early close when 24 and 31 December fall on a weekend. Any weekday not listed is a trading day.",
+      "local_files": [
+        {
+          "path": "AU-ASX/asx-trade-calendar-2023.pdf",
+          "sha256": "b7f5c9502487c32eb00dd5b0415b78d12295b95b72dae5ae97fefaf9ebbbfa92"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2023-01-01",
+          "to": "2023-12-31"
+        },
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2023-01-01",
+          "to": "2023-12-31"
+        }
+      ]
+    },
+    {
+      "id": "asx-trade-calendar-2022",
+      "title": "ASX Trade trading calendar 2022",
+      "publisher": "ASX Limited",
+      "location": "https://asxonline.com/content/dam/asxonline/public/notices/2021/September/ASXTrade2022attach.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2022-01-01 to 2022-12-31",
+      "notes": "ASX Trade trading calendar 2022 (notice 1287.21.09 attachment): Mon 3 Jan (substitute for Saturday 1 January), Wed 26 Jan, Fri 15 Apr, Mon 18 Apr, Mon 25 Apr, Mon 13 Jun, Fri 23 Dec OPEN, Mon 26 Dec Boxing Day, Tue 27 Dec Christmas Day (substitute for Sunday 25 December), Fri 30 Dec OPEN. Published before the 22 September 2022 National Day of Mourning (asx-notice-0984-22-09). Any weekday not listed is a trading day.",
+      "local_files": [
+        {
+          "path": "AU-ASX/asx-trade-calendar-2022.pdf",
+          "sha256": "f2ea2862cd09a8eb200b7184301198fec263e4dc3a584172190dedbdc65af286"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2022-01-01",
+          "to": "2022-12-31"
+        },
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2022-01-01",
+          "to": "2022-12-31"
+        }
+      ]
+    },
+    {
+      "id": "asx-trade-calendar-2020",
+      "title": "ASX Trade trading calendar 2020",
+      "publisher": "ASX Limited",
+      "location": "https://www.asxonline.com/content/dam/asxonline/public/notices/2019/Sept/asx-trade-2020-calendar.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2020-01-01 to 2020-12-31",
+      "notes": "ASX Trade trading calendar 2020 (notice 1021.19.09 attachment): Wed 1 Jan, Mon 27 Jan (\"As 26 Jan falls on a Sunday, the following Monday is observed\"), Fri 10 Apr, Mon 13 Apr, Sat 25 Apr CLOSED with no Monday row, Mon 8 Jun, Thu 24 Dec CLOSE EARLY, Fri 25 Dec, Mon 28 Dec Boxing Day/Proclamation Day, Thu 31 Dec CLOSE EARLY. Published before the 16 November 2020 outage. Any weekday not listed is a trading day.",
+      "local_files": [
+        {
+          "path": "AU-ASX/asx-trade-calendar-2020.pdf",
+          "sha256": "cbe39daed3907e1661e92ae20dec233848832ad4df38b839f26b7e4068d8f8ec"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2020-01-01",
+          "to": "2020-12-31"
+        },
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2020-01-01",
+          "to": "2020-12-31"
+        }
+      ]
+    },
+    {
+      "id": "asx-notice-0840-23-08",
+      "title": "ASX Trade - Trading calendar 2024 (notice 0840.23.08, 23 August 2023)",
+      "publisher": "ASX Limited",
+      "location": "https://asxonline.com/content/asxonline/public/notices/2023/August/0840.23.08.html",
+      "retrieved": "2026-10-14",
+      "covers": "2024-01-01 to 2024-12-31",
+      "notes": "Carries the attachment asx-trade-calendar-2024 and the sentence every calendar notice repeats: \"any weekday not included in this list will have settlement being performed by both ASX Settlement and ASX Clear, as well as being considered a 'Business Day' and a 'Trading Day' as defined in the Definitions section of the ASX Operating Rules.\"",
+      "local_files": [
+        {
+          "path": "AU-ASX/asx-notice-0840-23-08.html",
+          "sha256": "3b840d67010e9178723c7a5dd877ba60a2a1c1bf4a07fb61c76ef3b3b6a5df80"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2024-01-01",
+          "to": "2024-12-31"
+        }
+      ]
+    },
+    {
+      "id": "asx-notice-1320-20-10",
+      "title": "ASX Trade - Trading calendar 2021 (notice 1320.20.10, 22 October 2020)",
+      "publisher": "ASX Limited",
+      "location": "https://asxonline.com/public/notices/2020/oct/1320.20.10.html",
+      "retrieved": "2026-10-14",
+      "covers": "2021-01-01 to 2021-12-31",
+      "notes": "The 2021 calendar notice; its table does not render in the archived page and the attachment link now serves HTML, so 2021 rests on the rules, asx-notice-0812-18-07 (26 April 2021 open), asx-notice-1541-20-11 (1 January 2021) and asx-notice-1639-21-11 (24-31 December 2021).",
+      "local_files": [
+        {
+          "path": "AU-ASX/asx-notice-1320-20-10.html",
+          "sha256": "72c3d14b4f25e5970da642f3113b5403ba1d2d267febef61cf21a76afbbb9231"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "asx24-trading-calendar-2019",
+      "title": "ASX 24 trading calendar 2019 (notice 1193.18.10 attachment)",
+      "publisher": "ASX Limited",
+      "location": "https://www.asxonline.com/content/dam/asxonline/public/notices/2018/oct/asx-trade-24-trading-calendar-2019.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2019-01-01 to 2019-12-31 (ASX 24 futures market)",
+      "notes": "Lists the Australian public holidays of 2019 (Mon 28 Jan, Fri 19 Apr, Mon 22 Apr, Thu 25 Apr, Mon 10 Jun, Wed 25 Dec, Thu 26 Dec) for the futures market; the cash market's own 2019 calendar was not retrievable, so 2019 stays PROJECTED.",
+      "local_files": [
+        {
+          "path": "AU-ASX/asx24-trading-calendar-2019.pdf",
+          "sha256": "b15b58f4bf7b4101dbc0cd600b78bb8abede5763cc1ee44585a5d920d3909278"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "asx-notice-1357-16-11",
+      "title": "Trading Days, Business Days & Settlement Activity for 2017 (notice 1357.16.11, 15 November 2016)",
+      "publisher": "ASX Limited",
+      "location": "https://asxonline.com/public/notices/2016/nov/1357.16.11.html",
+      "retrieved": "2026-10-14",
+      "covers": "2017-01-01 onward (early-close policy)",
+      "notes": "Changes the early-close rule: \"From 2017 ASX will only close early when the last trading day before Christmas and New Year's Holidays are the respective Eve of these holidays. As such ASX trade will not observe an early close on the 22nd or 29th December 2017.\" The 2017 calendar attachment is no longer served.",
+      "local_files": [
+        {
+          "path": "AU-ASX/asx-notice-1357-16-11.html",
+          "sha256": "6bdad9a05bb225c7c162a4c916e2bb36fb1670983af783f23414c0d0df839694"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2017-12-01",
+          "to": "2017-12-31"
+        }
+      ]
+    },
+    {
+      "id": "asx-notice-1514-16-12",
+      "title": "ASX Trade hours for Christmas and New Year 2016/2017 (notice 1514.16.12, 12 December 2016)",
+      "publisher": "ASX Limited",
+      "location": "https://asxonline.com/content/asxonline/public/notices/2016/dec/1514.16.12.html",
+      "retrieved": "2026-10-14",
+      "covers": "2016-12-01 to 2016-12-31",
+      "notes": "\"trading hours on Friday 23 December 2016 and Friday 30 December will be shortened in accordance with usual practice\"; closing single price auction at 14:10:30. The last documented year of the pre-2017 practice of shortening the last trading day before Christmas and the last trading day of the year whatever their dates.",
+      "local_files": [
+        {
+          "path": "AU-ASX/asx-notice-1514-16-12.html",
+          "sha256": "cbbd9d7f2c54b3d0e0c2149acb14165565418d39502e3b31a181ad7e817e46d9"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2016-12-01",
+          "to": "2016-12-31"
+        }
+      ]
+    },
+    {
+      "id": "asx-events-2016-12",
+      "title": "ASX Online event calendar, December 2016",
+      "publisher": "ASX Limited",
+      "location": "https://asxonline.com/public/events.html?queryMonth=2016-12",
+      "retrieved": "2026-10-14",
+      "covers": "2016-12-01 to 2016-12-31",
+      "notes": "Events \"Last Business Day Before Christmas Day 2016 operating hours\" (Friday 23 December 2016) and \"Last Business Day of the Year 2016 operating hours\" (Friday 30 December 2016), both keyed Trading Day (Early Close), and the Non Trading Day entries for 26 and 27 December 2016.",
+      "local_files": [
+        {
+          "path": "AU-ASX/asx-events-2016-12.html",
+          "sha256": "bfbc55f43fb4fa7bcda0722ea3831c41167d115234c43e6ff4f7cb7053a4bf81"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2016-12-01",
+          "to": "2016-12-31"
+        }
+      ]
+    },
+    {
+      "id": "asx-event-2016-12-23",
+      "title": "Last Business Day Before Christmas Day 2016 operating hours (ASX Online event)",
+      "publisher": "ASX Limited",
+      "location": "https://asxonline.com/content/asxonline/public/events/2016/dec/last-business-day-before-christmas-day-2016-operating-hours.html",
+      "retrieved": "2026-10-14",
+      "covers": "2016-12-23",
+      "notes": "\"Normal trading ceases at 14:10 (Sydney time)\" on Friday 23 December 2016.",
+      "local_files": [
+        {
+          "path": "AU-ASX/asx-event-2016-12-23-operating-hours.html",
+          "sha256": "16c8b92d1c2b032b85951f489039439637adcebc0a1029b9fa05a0f20e7a53d2"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2016-12-23",
+          "to": "2016-12-23"
+        }
+      ]
+    },
+    {
+      "id": "asx-events-2016-04",
+      "title": "ASX Online event calendar, April 2016",
+      "publisher": "ASX Limited",
+      "location": "https://asxonline.com/public/events.html?queryMonth=2016-04",
+      "retrieved": "2026-10-14",
+      "covers": "2016-04-01 to 2016-04-30",
+      "notes": "ANZAC Day Monday 25 April 2016: ASX Market closed (Non Trading Day).",
+      "local_files": [
+        {
+          "path": "AU-ASX/asx-events-2016-04.html",
+          "sha256": "8572782644b4c8a58bb78a04e188e48deb9a3680134a265f984358e8780cca8c"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2016-04-01",
+          "to": "2016-04-30"
+        }
+      ]
+    },
+    {
+      "id": "asx-events-2018-12",
+      "title": "ASX Online event calendar, December 2018",
+      "publisher": "ASX Limited",
+      "location": "https://asxonline.com/public/events.html?queryMonth=2018-12",
+      "retrieved": "2026-10-14",
+      "covers": "2018-12-01 to 2018-12-31",
+      "notes": "Non Trading Day entries for Tuesday 25 and Wednesday 26 December 2018.",
+      "local_files": [
+        {
+          "path": "AU-ASX/asx-events-2018-12.html",
+          "sha256": "5c77c487ad94cf897d701fb881e71d2d047c8484acbcd401eb945ec3f2e1a262"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2018-12-01",
+          "to": "2018-12-31"
+        }
+      ]
+    },
+    {
+      "id": "asx-notice-1305-17-11",
+      "title": "ASX Trade hours for Christmas and New Year 2017/2018 (notice 1305.17.11)",
+      "publisher": "ASX Limited",
+      "location": "https://www.asxonline.com/content/asxonline/public/notices/2017/nov/1305.17.11.html",
+      "retrieved": "2026-10-14",
+      "covers": "2017-12-01 to 2017-12-31",
+      "notes": "\"normal trading hours will apply on Friday 22 December 2017 and Friday 29 December\": the first December under the 2017 policy, with 24 and 31 December on a weekend and no early close.",
+      "local_files": [
+        {
+          "path": "AU-ASX/asx-notice-1305-17-11.html",
+          "sha256": "faa39ec401d62ecfc5da93918eb56c56c6dffa5b321f49c6035d28a9c70ac618"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2017-12-01",
+          "to": "2017-12-31"
+        }
+      ]
+    },
+    {
+      "id": "asx-notice-1396-18-12",
+      "title": "Change to ASX Trade trading hours for Christmas and New Year 2018/2019 (notice 1396.18.12, 6 December 2018)",
+      "publisher": "ASX Limited",
+      "location": "https://www.asxonline.com/public/notices/2018/dec/1396.18.12.html",
+      "retrieved": "2026-10-14",
+      "covers": "2018-12-01 to 2019-01-01",
+      "notes": "Shortened trading on Monday 24 and Monday 31 December 2018 with the closing single price auction at 14:10:30; Tuesday 1 January 2019 closed.",
+      "local_files": [
+        {
+          "path": "AU-ASX/asx-notice-1396-18-12.html",
+          "sha256": "27ba8fe2bcfe95ed166c78fa06e7d582d8ec2096f8d3732a4b3ab0e5d2ea2880"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2018-12-01",
+          "to": "2018-12-31"
+        }
+      ]
+    },
+    {
+      "id": "asx-notice-1541-20-11",
+      "title": "ASX Trade hours for Christmas and New Year 2020/2021 (notice 1541.20.11)",
+      "publisher": "ASX Limited",
+      "location": "https://www.asxonline.com/public/notices/2020/nov/1541.20.11.html",
+      "retrieved": "2026-10-14",
+      "covers": "2020-12-01 to 2021-01-01",
+      "notes": "Shortened trading on Thursday 24 and Thursday 31 December 2020; 25 and 28 December 2020 and 1 January 2021 closed.",
+      "local_files": [
+        {
+          "path": "AU-ASX/asx-notice-1541-20-11.html",
+          "sha256": "f6a0a093b5a3977f552c6048d0f2f30e7c5d4532182e6e8feec7b86c4c8a0d12"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2020-12-01",
+          "to": "2020-12-31"
+        }
+      ]
+    },
+    {
+      "id": "asx-notice-1639-21-11",
+      "title": "ASX Trade hours for Christmas and New Year 2021/2022 (notice 1639.21.11)",
+      "publisher": "ASX Limited",
+      "location": "https://asxonline.com/public/notices/2021/November/1639.21.11.html",
+      "retrieved": "2026-10-14",
+      "covers": "2021-12-01 to 2022-01-03",
+      "notes": "Shortened trading on Friday 24 and Friday 31 December 2021; Monday 27 and Tuesday 28 December 2021 and Monday 3 January 2022 \"Non-Trading Day and Non-Business Day - ASX Trade closed\".",
+      "local_files": [
+        {
+          "path": "AU-ASX/asx-notice-1639-21-11.html",
+          "sha256": "71354149e6542de3bd63483effa5bec642aaa2834574dc2fdf5e9c17ea06bb1d"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2021-12-01",
+          "to": "2021-12-31"
+        },
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2021-12-01",
+          "to": "2021-12-31"
+        }
+      ]
+    },
+    {
+      "id": "asx-notice-1253-22-11",
+      "title": "ASX Trade hours for Christmas and New Year 2022/2023 (notice 1253.22.11)",
+      "publisher": "ASX Limited",
+      "location": "https://asxonline.com/public/notices/2022/november/1253.22.11.html",
+      "retrieved": "2026-10-14",
+      "covers": "2022-12-01 to 2022-12-31",
+      "notes": "\"normal trading hours will apply on Friday 23 December and Friday 30 December\" 2022.",
+      "local_files": [
+        {
+          "path": "AU-ASX/asx-notice-1253-22-11.html",
+          "sha256": "bb41890f48a93345ed25b50ccc1b16568b9296fde16937762ae94ac28bc1a290"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2022-12-01",
+          "to": "2022-12-31"
+        }
+      ]
+    },
+    {
+      "id": "asx-notice-0984-22-09",
+      "title": "ASX to close on 22 September 2022 to observe National Day of Mourning and Public Holiday (notice 0984.22.09, 12 September 2022)",
+      "publisher": "ASX Limited",
+      "location": "https://asxonline.com/public/notices/2022/september/0984.22.09.html",
+      "retrieved": "2026-10-14",
+      "covers": "2022-09-22",
+      "notes": "\"ASX has declared that the ASX Trade Market will be closed on that day.\" \"It is standard practice for ASX to observe national holidays by declaring a non-trading and non-settlement day.\"",
+      "local_files": [
+        {
+          "path": "AU-ASX/asx-notice-0984-22-09.html",
+          "sha256": "dc3494a3317d71a9dacf81fe29f9b38360ec74c196088f28fd2b16b2d83a4c6a"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2022-09-22",
+          "to": "2022-09-22"
+        }
+      ]
+    },
+    {
+      "id": "federation-national-day-of-mourning-2022",
+      "title": "National Day of Mourning for Her Majesty Queen Elizabeth II, 22 September 2022",
+      "publisher": "Australian Government, Department of the Prime Minister and Cabinet (federation.gov.au)",
+      "location": "https://federation.gov.au/national-day-mourning-her-majesty-queen-elizabeth-ii-22-september-2022",
+      "retrieved": "2026-10-14",
+      "covers": "2022-09-22",
+      "notes": "\"The National Day of Mourning will be a one-off national public holiday\" agreed by National Cabinet.",
+      "local_files": [
+        {
+          "path": "AU-ASX/federation-national-day-of-mourning-2022.html",
+          "sha256": "eb4737081edea1cdf8f65b3b2113c48e0580ec7b0694500924af46034e197732"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "asx-notice-1111-16-09",
+      "title": "ASX Trade Outage - 19 September 2016 (notice 1111.16.09)",
+      "publisher": "ASX Limited",
+      "location": "https://asxonline.com/public/notices/2016/sep/1111.16.09.html",
+      "retrieved": "2026-10-14",
+      "covers": "2016-09-19",
+      "notes": "The exchange's timeline: \"At 9.45am ASX announced the market would not open on schedule and was placed into Enquire\"; staggered opening from 11:30; \"At 2.05pm ASX placed the entire market back into Enquire\"; \"At 3.35pm ASX announced that the market would not re-open and that there would be no CSPA\"; closing prices were the last traded prices.",
+      "local_files": [
+        {
+          "path": "AU-ASX/asx-notice-1111-16-09.html",
+          "sha256": "286bc8b9c3e6affbfb12659c1fe9fc6b4e81048e968d0766eeb75dd6bfb2c8db"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2016-09-19",
+          "to": "2016-09-19"
+        }
+      ]
+    },
+    {
+      "id": "asx-media-alert-2016-09-19",
+      "title": "ASX media alert on the ASX Trade outage, 19 September 2016",
+      "publisher": "ASX Limited",
+      "location": "https://www.asx.com.au/content/dam/asx/about/media-releases/2016/asx-media-alert-190916.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2016-09-19",
+      "notes": "\"The primary issue arose from a hardware failure in the main database used by the system\"; consequences \"included a delay to the market open and the decision to close the market early\".",
+      "local_files": [
+        {
+          "path": "AU-ASX/asx-media-alert-2016-09-19.pdf",
+          "sha256": "ea3c9232b880f80206976623e0b51e566aea492f7e3cbbf7b5bdaaab44b7e279"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2016-09-19",
+          "to": "2016-09-19"
+        }
+      ]
+    },
+    {
+      "id": "asic-16-352mr",
+      "title": "ASIC 16-352MR: statement on review of ASX technical failure on 19 September 2016",
+      "publisher": "Australian Securities and Investments Commission",
+      "location": "https://asic.gov.au/about-asic/news-centre/find-a-media-release/2016-releases/16-352mr-asic-statement-on-review-of-asx-technical-failure-on-19-september-2016/",
+      "retrieved": "2026-10-14",
+      "covers": "2016-09-19",
+      "notes": "\"This caused a delay to the market opening and an early market close\".",
+      "local_files": [
+        {
+          "path": "AU-ASX/asic-16-352mr.html",
+          "sha256": "8ceed98adeee1de2f3f51a538c609bb7da4fbf6a385aec37a699d71efb0fb937"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2016-09-19",
+          "to": "2016-09-19"
+        }
+      ]
+    },
+    {
+      "id": "asx-market-outage-report-2020-12-04",
+      "title": "ASX Market Outage, 16 November 2020 (incident report, 4 December 2020)",
+      "publisher": "ASX Limited",
+      "location": "https://www.asxonline.com/content/dam/asxonline/public/notices/2020/Dec/asx-market-outage.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2020-11-16",
+      "notes": "\"The market was closed from 10:24:05 on 16 November 2020.\" \"All markets on ASX Trade were placed in an ENQUIRE Session State at 10:24:05. They remained in ENQUIRE for the rest of the trading day until 18:50\".",
+      "local_files": [
+        {
+          "path": "AU-ASX/asx-market-outage-report-2020-12-04.pdf",
+          "sha256": "9792bf40f72adfc6d6f26d125f222bb10ad97d165cf09a36f468358a5cbd99a2"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2020-11-16",
+          "to": "2020-11-16"
+        }
+      ]
+    },
+    {
+      "id": "asx-media-alert-2020-11-16",
+      "title": "Message from ASX about the ASX Trade outage, 16 November 2020",
+      "publisher": "ASX Limited",
+      "location": "https://asx.com.au/content/dam/asx/about/media-releases/2020/message-from-asx-about-asx-trade-outage-16-november-2020.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2020-11-16",
+      "notes": "\"The market will remain closed today, Monday 16 November. It will reopen at the normal time (10am) tomorrow, Tuesday 17 November.\"",
+      "local_files": [
+        {
+          "path": "AU-ASX/asx-media-alert-2020-11-16.pdf",
+          "sha256": "eb0a9fc8ba526c0ce906f071bf7f9f025e995818e37f0a54c020fbd1b3283435"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2020-11-16",
+          "to": "2020-11-16"
+        }
+      ]
+    },
+    {
+      "id": "asx-notice-1469-20-11",
+      "title": "ASX Trade market outage notice, 16 November 2020 (notice 1469.20.11)",
+      "publisher": "ASX Limited",
+      "location": "https://asxonline.com/public/notices/2020/nov/1469.20.11.html",
+      "retrieved": "2026-10-14",
+      "covers": "2020-11-16",
+      "notes": "\"All trades executed and reported today are valid\": the 24 minutes of trading stand, so the day is an early termination rather than a closure.",
+      "local_files": [
+        {
+          "path": "AU-ASX/asx-notice-1469-20-11.html",
+          "sha256": "7360493c407f3384f964090d22161056b0f8d2953e671fe8841f5fa48155591c"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2020-11-16",
+          "to": "2020-11-16"
+        }
+      ]
+    },
+    {
+      "id": "asic-20-284mr",
+      "title": "ASIC 20-284MR: statement on ASX equity market outage",
+      "publisher": "Australian Securities and Investments Commission",
+      "location": "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2020-releases/20-284mr-asic-statement-on-asx-equity-market-outage/",
+      "retrieved": "2026-10-14",
+      "covers": "2020-11-16",
+      "notes": "ASX \"did not reopen for trading today Monday, 16 November 2020, after an outage occurred during the opening auction\".",
+      "local_files": [
+        {
+          "path": "AU-ASX/asic-20-284mr.html",
+          "sha256": "559304bb4ebce129e4f9ceac0ae7bccceda399c1873d0ae809360ab739747dae"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2020-11-16",
+          "to": "2020-11-16"
+        }
+      ]
+    },
+    {
+      "id": "asx-media-release-2011-10-27",
+      "title": "ASX Trade outage, 27 October 2011 (media release)",
+      "publisher": "ASX Limited",
+      "location": "https://asx.com.au/content/dam/asx/about/media-releases/2011/111027mrASX_Trade_Outage_Final.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2011-10-27",
+      "notes": "\"ASX Trade ... resumed trading at 2.00pm today after being halted just after 10.05am\" over a network connectivity issue; \"ASX Trade markets closed today as normal\". A halt with a normal close, so no calendar event.",
+      "local_files": [
+        {
+          "path": "AU-ASX/asx-media-release-2011-10-27.pdf",
+          "sha256": "6b686a36e26b3ca263152e80a9f27aefebd058a3bb652906f81509265d7099a3"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2011-10-27",
+          "to": "2011-10-27"
+        }
+      ]
+    },
+    {
+      "id": "asx-notice-0812-18-07",
+      "title": "ASX notice 0812.18.07 (24 July 2018) on the 2021 ANZAC Day weekend",
+      "publisher": "ASX Limited",
+      "location": "https://www.asxonline.com/content/asxonline/public/notices/2018/jul/0812.18.07.html",
+      "retrieved": "2026-10-14",
+      "covers": "2021-04-26",
+      "notes": "\"State legislation has since confirmed Monday 26 April 2021 will not be gazetted in NSW for ANZAC Day.\"",
+      "local_files": [
+        {
+          "path": "AU-ASX/asx-notice-0812-18-07.html",
+          "sha256": "3e9e426f620c956c4ef266e83776bb1da559d8c626fc7ba2540db4eb310fef0e"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2021-04-26",
+          "to": "2021-04-26"
+        }
+      ]
+    },
+    {
+      "id": "asx-notice-0217-26-02",
+      "title": "ASX Austraclear notice 0217.26.02 (24 February 2026) on NSW's additional Anzac Day holidays",
+      "publisher": "ASX Limited",
+      "location": "https://asxonline.com/public/notices/2026/february/0217.26.02.html",
+      "retrieved": "2026-10-14",
+      "covers": "2026-04-27 and 2027-04-26",
+      "notes": "\"The New South Wales Government has announced an additional public holiday on the Monday following Anzac day 2026 and 2027\"; the cash-market calendars keep both Mondays as trading days (asx-trade-calendar-2026-2027).",
+      "local_files": [
+        {
+          "path": "AU-ASX/asx-notice-0217-26-02.html",
+          "sha256": "1cf9755f6cb89584a3aedd2c59817901ff6da056f8d61ba32c8a938059e96b32"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "fnarena-2010-12-24",
+      "title": "FNArena market report, 24 December 2010",
+      "publisher": "FNArena (press)",
+      "location": "https://fnarena.com/?p=57598",
+      "retrieved": "2026-10-14",
+      "covers": "2010-12-24 and 2010-12-31",
+      "notes": "\"The ASX will close at 2.10pm this afternoon ahead of the Christmas break\" and \"before the ASX again closes at 2.10pm ahead of New Year's Eve celebrations\": the earliest dated evidence of the 14:10 close found; no ASX document before 2016 is served online.",
+      "local_files": [
+        {
+          "path": "AU-ASX/fnarena-2010-12-24.html",
+          "sha256": "5c1b8e73bdf6abddfb53b11163d76f4da94de154eb9555022c3541fb7c58204e"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "asx-activity-report-2011-04",
+      "title": "ASX Group Monthly Activity Report, April 2011 (cash market \"Total trading days\")",
+      "publisher": "ASX Limited",
+      "location": "https://asx.com.au/content/dam/asx/about/media-releases/2011/110505asx_ma_april2011final.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2011-04 and 2010-04",
+      "notes": "The exchange's own trading-day counts (current month, same month a year earlier). April 2011: 18 trading days (21 weekdays less Good Friday 22 April, Easter Monday 25 April and Tuesday 26 April); April 2010: 19 (22 weekdays less Good Friday, Easter Monday and Monday 26 April 2010).",
+      "local_files": [
+        {
+          "path": "AU-ASX/asx-activity-report-2011-04.pdf",
+          "sha256": "2d6b76ecfd27f9b33d385d212ab03aa2cc5fd2e527b6f890bbd52e969ad4970e"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2011-04-01",
+          "to": "2011-04-30"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2011-04-01",
+          "to": "2011-04-30"
+        },
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2010-04-01",
+          "to": "2010-04-30"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2010-04-01",
+          "to": "2010-04-30"
+        }
+      ]
+    },
+    {
+      "id": "asx-activity-report-2012-01",
+      "title": "ASX Group Monthly Activity Report, January 2012 (cash market \"Total trading days\")",
+      "publisher": "ASX Limited",
+      "location": "https://asx.com.au/content/dam/asx/about/media-releases/2012/ASX-Group-Monthly-Activity-Report---Jan-2012---Final.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2012-01 and 2011-01",
+      "notes": "The exchange's own trading-day counts (current month, same month a year earlier). January 2012: 20 trading days (22 weekdays less Monday 2 January and Thursday 26 January); January 2011: 19 (21 weekdays less Monday 3 January and Wednesday 26 January).",
+      "local_files": [
+        {
+          "path": "AU-ASX/asx-activity-report-2012-01.pdf",
+          "sha256": "433a29fa3fa0ed10208e3672018d32e6ef21ad8c8c6fcac1444435466d9aaf1e"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2012-01-01",
+          "to": "2012-01-31"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2012-01-01",
+          "to": "2012-01-31"
+        },
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2011-01-01",
+          "to": "2011-01-31"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2011-01-01",
+          "to": "2011-01-31"
+        }
+      ]
+    },
+    {
+      "id": "asx-activity-report-2015-04",
+      "title": "ASX Group Monthly Activity Report, April 2015 (cash market \"Total trading days\")",
+      "publisher": "ASX Limited",
+      "location": "https://asx.com.au/content/dam/asx/about/media-releases/2015/ASXGroupMonthlyActivityReportApril.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2015-04 and 2014-04",
+      "notes": "The exchange's own trading-day counts (current month, same month a year earlier). April 2015: 20 trading days (22 weekdays less Good Friday and Easter Monday; Saturday ANZAC Day had no substitute); April 2014: 19 (22 weekdays less 18, 21 and 25 April).",
+      "local_files": [
+        {
+          "path": "AU-ASX/asx-activity-report-2015-04.pdf",
+          "sha256": "4c7cbf22367f04aa6b645a1010488b5a72a1624516407264ada913da73b1e137"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2015-04-01",
+          "to": "2015-04-30"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2015-04-01",
+          "to": "2015-04-30"
+        },
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2014-04-01",
+          "to": "2014-04-30"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2014-04-01",
+          "to": "2014-04-30"
+        }
+      ]
+    },
+    {
+      "id": "asx-activity-report-2020-04",
+      "title": "ASX Group Monthly Activity Report, April 2020 (cash market \"Total trading days\")",
+      "publisher": "ASX Limited",
+      "location": "https://www.asx.com.au/content/dam/asx/about/media-releases/2020/asx-group-monthly-activity-report-april-2020.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2020-04 and 2019-04",
+      "notes": "The exchange's own trading-day counts (current month, same month a year earlier). April 2020: 20 trading days (22 weekdays less Good Friday and Easter Monday; Saturday ANZAC Day had no substitute); April 2019: 19.",
+      "local_files": [
+        {
+          "path": "AU-ASX/asx-activity-report-2020-04.pdf",
+          "sha256": "c7ab2fa008188b65499b9d562b5d49ec57488356099e552e75e580af473db6bd"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2020-04-01",
+          "to": "2020-04-30"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2020-04-01",
+          "to": "2020-04-30"
+        },
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2019-04-01",
+          "to": "2019-04-30"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2019-04-01",
+          "to": "2019-04-30"
+        }
+      ]
+    },
+    {
+      "id": "asx-activity-report-2020-11",
+      "title": "ASX Group Monthly Activity Report, November 2020 (cash market \"Total trading days\")",
+      "publisher": "ASX Limited",
+      "location": "https://www.asx.com.au/content/dam/asx/about/media-releases/2020/asx-group-monthly-activity-report-november-2020.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2020-11 and 2019-11",
+      "notes": "The exchange's own trading-day counts (current month, same month a year earlier). November 2020: 21 trading days = every weekday, so the exchange counts 16 November 2020 (closed from 10:24:05) as a trading day; a count cannot reveal an early termination.",
+      "local_files": [
+        {
+          "path": "AU-ASX/asx-activity-report-2020-11.pdf",
+          "sha256": "3d75356b604a7a8cc238abd9c626d5c51e90edef1efeae16763f296b7584df2e"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2020-11-01",
+          "to": "2020-11-30"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2020-11-01",
+          "to": "2020-11-30"
+        },
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2019-11-01",
+          "to": "2019-11-30"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2019-11-01",
+          "to": "2019-11-30"
+        }
+      ]
+    },
+    {
+      "id": "asx-activity-report-2021-04",
+      "title": "ASX Group Monthly Activity Report, April 2021 (cash market \"Total trading days\")",
+      "publisher": "ASX Limited",
+      "location": "https://asx.com.au/content/dam/asx/about/media-releases/2021/19-6-may-asx-group-monthly-activity-report-april-2021.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2021-04 and 2020-04",
+      "notes": "The exchange's own trading-day counts (current month, same month a year earlier). April 2021: 20 trading days (22 weekdays less Good Friday and Easter Monday): the exchange traded on Monday 26 April 2021.",
+      "local_files": [
+        {
+          "path": "AU-ASX/asx-activity-report-2021-04.pdf",
+          "sha256": "6bbaabe53d788b31f3188de835a5a96bcec568507e272d292981813aabb8e082"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2021-04-01",
+          "to": "2021-04-30"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2021-04-01",
+          "to": "2021-04-30"
+        },
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2020-04-01",
+          "to": "2020-04-30"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2020-04-01",
+          "to": "2020-04-30"
+        }
+      ]
+    },
+    {
+      "id": "asx-activity-report-2022-09",
+      "title": "ASX Group Monthly Activity Report, September 2022 (cash market \"Total trading days\")",
+      "publisher": "ASX Limited",
+      "location": "https://www.asx.com.au/content/dam/asx/about/media-releases/2022/56-07-october-2022-asx-group-monthly-activity-report-september-2022.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2022-09 and 2021-09",
+      "notes": "The exchange's own trading-day counts (current month, same month a year earlier). September 2022: 21 trading days (22 weekdays less the 22 September National Day of Mourning); September 2021: 22.",
+      "local_files": [
+        {
+          "path": "AU-ASX/asx-activity-report-2022-09.pdf",
+          "sha256": "ea7f46a57dbbb41d7c8b620988224a84ad6b12a1e6baf87d5730f880e750546f"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2022-09-01",
+          "to": "2022-09-30"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2022-09-01",
+          "to": "2022-09-30"
+        },
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2021-09-01",
+          "to": "2021-09-30"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2021-09-01",
+          "to": "2021-09-30"
+        }
+      ]
+    },
+    {
+      "id": "asx-activity-report-2026-04",
+      "title": "ASX Group Monthly Activity Report, April 2026 (cash market \"Total trading days\")",
+      "publisher": "ASX Limited",
+      "location": "https://announcements.asx.com.au/asxpdf/20260505/pdf/06z7m4v574mt73.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2026-04 and 2025-04",
+      "notes": "The exchange's own trading-day counts (current month, same month a year earlier). April 2026: 20 trading days (22 weekdays less Good Friday and Easter Monday): the exchange traded on Monday 27 April 2026 despite the NSW additional public holiday; April 2025: 19.",
+      "local_files": [
+        {
+          "path": "AU-ASX/asx-activity-report-2026-04.pdf",
+          "sha256": "a4196f4491ab2e2a1a61a5aaec803d43a99b9b0aaf17a67e1e868f1f4dc38d85"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2026-04-01",
+          "to": "2026-04-30"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2026-04-01",
+          "to": "2026-04-30"
+        },
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2025-04-01",
+          "to": "2025-04-30"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2025-04-01",
+          "to": "2025-04-30"
+        }
+      ]
+    },
+    {
+      "id": "asx-activity-report-2009-12",
+      "title": "ASX Group Monthly Activity Report, December 2009 (cash market \"Total trading days\")",
+      "publisher": "ASX Limited",
+      "location": "https://www.asx.com.au/content/dam/asx/about/media-releases/2010/ma_060110_monthly_activity_report_dec09.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2009-07-01 to 2009-12-31 (financial year to date)",
+      "notes": "Prints FYTD 130 trading days for July-December 2009. With the June 2010 report's FYTD of 253 this brackets January-June 2010 at 123 trading days, equal to the modelled count (19+20+23+19+21+21).",
+      "local_files": [
+        {
+          "path": "AU-ASX/asx-activity-report-2009-12.pdf",
+          "sha256": "8b3fa3f3d13bdfe2f16bc737b63e4aa59b2507ad8fae7086ebd88d7f2208909c"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "asx-activity-report-2010-06",
+      "title": "ASX Group Monthly Activity Report, June 2010 (cash market \"Total trading days\")",
+      "publisher": "ASX Limited",
+      "location": "https://www.asx.com.au/content/dam/asx/about/media-releases/2010/20100705_asx_group_monthly_activity_report_june2010.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2010-01-01 to 2010-06-30 (with asx-activity-report-2009-12)",
+      "notes": "Prints June 2010 = 21 and FYTD 253 for July 2009-June 2010; less the December 2009 report's FYTD of 130, January-June 2010 had 123 trading days, equal to the modelled schedule (including the additional ANZAC Day closure of Monday 26 April 2010). Each month's own figure is in asx-cash-market-trading-days-by-month.",
+      "local_files": [
+        {
+          "path": "AU-ASX/asx-activity-report-2010-06.pdf",
+          "sha256": "11649e24392bdb80f31ce2e6756412a0ed6d1cca533c6789cb76652722389b8a"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2010-01-01",
+          "to": "2010-06-30"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2010-01-01",
+          "to": "2010-06-30"
+        }
+      ]
+    },
+    {
+      "id": "asx-activity-report-2011-06",
+      "title": "ASX Group Monthly Activity Report, June 2011 (cash market \"Total trading days\")",
+      "publisher": "ASX Limited",
+      "location": "https://www.asx.com.au/content/dam/asx/about/media-releases/2011/ma110706ASX_Group_Monthly_Activity_Report_-_June_2011_-_final.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2010-07-01 to 2011-06-30",
+      "notes": "Prints FYTD 253 trading days for July 2010-June 2011, equal to the modelled count of weekdays less closures for those twelve months; every month's own figure (asx-cash-market-trading-days-by-month) also equals the model. Early terminations count as trading days in these statistics.",
+      "local_files": [
+        {
+          "path": "AU-ASX/asx-activity-report-2011-06.pdf",
+          "sha256": "2a43243f62fff4ccaa08d663e705c4beb5aa6e2d6bea27253577f56bfebf5191"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2010-07-01",
+          "to": "2011-06-30"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2010-07-01",
+          "to": "2011-06-30"
+        }
+      ]
+    },
+    {
+      "id": "asx-activity-report-2012-06",
+      "title": "ASX Group Monthly Activity Report, June 2012 (cash market \"Total trading days\")",
+      "publisher": "ASX Limited",
+      "location": "https://www.asx.com.au/content/dam/asx/about/media-releases/2012/ASX-Group-Monthly-Activity-Report---June-2012.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2011-07-01 to 2012-06-30",
+      "notes": "Prints FYTD 253 trading days for July 2011-June 2012, equal to the modelled count of weekdays less closures for those twelve months; every month's own figure (asx-cash-market-trading-days-by-month) also equals the model. Early terminations count as trading days in these statistics.",
+      "local_files": [
+        {
+          "path": "AU-ASX/asx-activity-report-2012-06.pdf",
+          "sha256": "de00e2d03cfbf0ce3f22949bc3fc15289740c10db844b1045a03a2d5aa6d1eeb"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2011-07-01",
+          "to": "2012-06-30"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2011-07-01",
+          "to": "2012-06-30"
+        }
+      ]
+    },
+    {
+      "id": "asx-activity-report-2013-06",
+      "title": "ASX Group Monthly Activity Report, June 2013 (cash market \"Total trading days\")",
+      "publisher": "ASX Limited",
+      "location": "https://www.asx.com.au/content/dam/asx/about/media-releases/2013/asx-group-monthly-activity-report-june-2013.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2012-07-01 to 2013-06-30",
+      "notes": "Prints FYTD 252 trading days for July 2012-June 2013, equal to the modelled count of weekdays less closures for those twelve months; every month's own figure (asx-cash-market-trading-days-by-month) also equals the model. Early terminations count as trading days in these statistics.",
+      "local_files": [
+        {
+          "path": "AU-ASX/asx-activity-report-2013-06.pdf",
+          "sha256": "d05bb7906f4befe486ba66e3f391af55470dd9c718d343a7791220b3acd6133c"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2012-07-01",
+          "to": "2013-06-30"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2012-07-01",
+          "to": "2013-06-30"
+        }
+      ]
+    },
+    {
+      "id": "asx-activity-report-2014-06",
+      "title": "ASX Group Monthly Activity Report, June 2014 (cash market \"Total trading days\")",
+      "publisher": "ASX Limited",
+      "location": "https://www.asx.com.au/content/dam/asx/about/media-releases/2014/ASX-Group-Monthly-Activity-Report---June-14.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2013-07-01 to 2014-06-30",
+      "notes": "Prints FYTD 253 trading days for July 2013-June 2014, equal to the modelled count of weekdays less closures for those twelve months; every month's own figure (asx-cash-market-trading-days-by-month) also equals the model. Early terminations count as trading days in these statistics.",
+      "local_files": [
+        {
+          "path": "AU-ASX/asx-activity-report-2014-06.pdf",
+          "sha256": "c0784c3c21bfefb8f9405fa64e8ec19eae1551bfe90f60ab524b35a100f8785c"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2013-07-01",
+          "to": "2014-06-30"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2013-07-01",
+          "to": "2014-06-30"
+        }
+      ]
+    },
+    {
+      "id": "asx-activity-report-2015-06",
+      "title": "ASX Group Monthly Activity Report, June 2015 (cash market \"Total trading days\")",
+      "publisher": "ASX Limited",
+      "location": "https://www.asx.com.au/content/dam/asx/about/media-releases/2015/ASXGroupMonthlyActivityReportJune15.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2014-07-01 to 2015-06-30",
+      "notes": "Prints FYTD 254 trading days for July 2014-June 2015, equal to the modelled count of weekdays less closures for those twelve months; every month's own figure (asx-cash-market-trading-days-by-month) also equals the model. Early terminations count as trading days in these statistics.",
+      "local_files": [
+        {
+          "path": "AU-ASX/asx-activity-report-2015-06.pdf",
+          "sha256": "682918f97e820f9ec831501d988dede27b550f12565a4d535ea1b69adfe15618"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2014-07-01",
+          "to": "2015-06-30"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2014-07-01",
+          "to": "2015-06-30"
+        }
+      ]
+    },
+    {
+      "id": "asx-activity-report-2016-06",
+      "title": "ASX Group Monthly Activity Report, June 2016 (cash market \"Total trading days\")",
+      "publisher": "ASX Limited",
+      "location": "https://www.asx.com.au/content/dam/asx/about/media-releases/2016/ASX-Group-Monthly-Activity-Report-June-2016.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2015-07-01 to 2016-06-30",
+      "notes": "Prints FYTD 254 trading days for July 2015-June 2016, equal to the modelled count of weekdays less closures for those twelve months; every month's own figure (asx-cash-market-trading-days-by-month) also equals the model. Early terminations count as trading days in these statistics.",
+      "local_files": [
+        {
+          "path": "AU-ASX/asx-activity-report-2016-06.pdf",
+          "sha256": "3bdf364aca542214b24433995a4322838a9ef8c2e31e380dcb0d6b95559ccf6b"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2015-07-01",
+          "to": "2016-06-30"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2015-07-01",
+          "to": "2016-06-30"
+        }
+      ]
+    },
+    {
+      "id": "asx-activity-report-2017-06",
+      "title": "ASX Group Monthly Activity Report, June 2017 (cash market \"Total trading days\")",
+      "publisher": "ASX Limited",
+      "location": "https://www.asx.com.au/content/dam/asx/about/media-releases/2017/ASX-Group-Monthly-Activity-Report-Jun-2017.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2016-07-01 to 2017-06-30",
+      "notes": "Prints FYTD 253 trading days for July 2016-June 2017, equal to the modelled count of weekdays less closures for those twelve months; every month's own figure (asx-cash-market-trading-days-by-month) also equals the model. Early terminations count as trading days in these statistics.",
+      "local_files": [
+        {
+          "path": "AU-ASX/asx-activity-report-2017-06.pdf",
+          "sha256": "bc767b4cc6db971200d3b9cfa7b11590bc334f05ea0051b9d3082b55ce0c8aca"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2016-07-01",
+          "to": "2017-06-30"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2016-07-01",
+          "to": "2017-06-30"
+        }
+      ]
+    },
+    {
+      "id": "asx-activity-report-2018-06",
+      "title": "ASX Group Monthly Activity Report, June 2018 (cash market \"Total trading days\")",
+      "publisher": "ASX Limited",
+      "location": "https://www.asx.com.au/content/dam/asx/about/media-releases/2018/ASXMonthlyActivityReportJune2018.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2017-07-01 to 2018-06-30",
+      "notes": "Prints FYTD 252 trading days for July 2017-June 2018, equal to the modelled count of weekdays less closures for those twelve months; every month's own figure (asx-cash-market-trading-days-by-month) also equals the model. Early terminations count as trading days in these statistics.",
+      "local_files": [
+        {
+          "path": "AU-ASX/asx-activity-report-2018-06.pdf",
+          "sha256": "79863f301d0a8e96bf2826594fb790ddeddc7eb4228fd6095792f3b267b2aabc"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2017-07-01",
+          "to": "2018-06-30"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2017-07-01",
+          "to": "2018-06-30"
+        }
+      ]
+    },
+    {
+      "id": "asx-activity-report-2019-06",
+      "title": "ASX Group Monthly Activity Report, June 2019 (cash market \"Total trading days\")",
+      "publisher": "ASX Limited",
+      "location": "https://www.asx.com.au/content/dam/asx/about/media-releases/2019/234JulyASXGroupMonthlyActivityReportJune2019.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2018-07-01 to 2019-06-30",
+      "notes": "Prints FYTD 252 trading days for July 2018-June 2019, equal to the modelled count of weekdays less closures for those twelve months; every month's own figure (asx-cash-market-trading-days-by-month) also equals the model. Early terminations count as trading days in these statistics.",
+      "local_files": [
+        {
+          "path": "AU-ASX/asx-activity-report-2019-06.pdf",
+          "sha256": "c247801e3540867fc26872c577c28af12ee61f75f9965989dd5ca032b1cc1be4"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2018-07-01",
+          "to": "2019-06-30"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2018-07-01",
+          "to": "2019-06-30"
+        }
+      ]
+    },
+    {
+      "id": "asx-activity-report-2020-06",
+      "title": "ASX Group Monthly Activity Report, June 2020 (cash market \"Total trading days\")",
+      "publisher": "ASX Limited",
+      "location": "https://www.asx.com.au/content/dam/asx/about/media-releases/2020/asx-group-monthly-activity-report-june-2020.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2019-07-01 to 2020-06-30",
+      "notes": "Prints FYTD 255 trading days for July 2019-June 2020, equal to the modelled count of weekdays less closures for those twelve months; every month's own figure (asx-cash-market-trading-days-by-month) also equals the model. Early terminations count as trading days in these statistics.",
+      "local_files": [
+        {
+          "path": "AU-ASX/asx-activity-report-2020-06.pdf",
+          "sha256": "041aa25e8f01e084be7ba19cbef5c3eee8c82d92a1571f22765b00ee1d3949ce"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2019-07-01",
+          "to": "2020-06-30"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2019-07-01",
+          "to": "2020-06-30"
+        }
+      ]
+    },
+    {
+      "id": "asx-activity-report-2021-06",
+      "title": "ASX Group Monthly Activity Report, June 2021 (cash market \"Total trading days\")",
+      "publisher": "ASX Limited",
+      "location": "https://www.asx.com.au/content/dam/asx/about/media-releases/2021/22-6-july-asx-group-monthly-activity-report-june-2021.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2020-07-01 to 2021-06-30",
+      "notes": "Prints FYTD 254 trading days for July 2020-June 2021, equal to the modelled count of weekdays less closures for those twelve months; every month's own figure (asx-cash-market-trading-days-by-month) also equals the model. Early terminations count as trading days in these statistics.",
+      "local_files": [
+        {
+          "path": "AU-ASX/asx-activity-report-2021-06.pdf",
+          "sha256": "6992735a0d7bc9318f43cfb665c30f8b4ae1fd17fe7d418137f02dd7f6ba929b"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2020-07-01",
+          "to": "2021-06-30"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2020-07-01",
+          "to": "2021-06-30"
+        }
+      ]
+    },
+    {
+      "id": "asx-activity-report-2022-06",
+      "title": "ASX Group Monthly Activity Report, June 2022 (cash market \"Total trading days\")",
+      "publisher": "ASX Limited",
+      "location": "https://www.asx.com.au/content/dam/asx/about/media-releases/2022/24-6-July-2022-asx-group-monthly-activity-report-june-2022.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2021-07-01 to 2022-06-30",
+      "notes": "Prints FYTD 253 trading days for July 2021-June 2022, equal to the modelled count of weekdays less closures for those twelve months; every month's own figure (asx-cash-market-trading-days-by-month) also equals the model. Early terminations count as trading days in these statistics.",
+      "local_files": [
+        {
+          "path": "AU-ASX/asx-activity-report-2022-06.pdf",
+          "sha256": "bc46f5b99045c304a53d3a7e32b33e9ff5b17fd71c54c5997c91fb1e9be446ca"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2021-07-01",
+          "to": "2022-06-30"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2021-07-01",
+          "to": "2022-06-30"
+        }
+      ]
+    },
+    {
+      "id": "asx-activity-report-2023-06",
+      "title": "ASX Group Monthly Activity Report, June 2023 (cash market \"Total trading days\")",
+      "publisher": "ASX Limited",
+      "location": "https://www.asx.com.au/content/dam/asx/about/media-releases/2023/34-06-jul-2023-asx-group-monthly-activity-report-june-2023.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2022-07-01 to 2023-06-30",
+      "notes": "Prints FYTD 252 trading days for July 2022-June 2023, equal to the modelled count of weekdays less closures for those twelve months; every month's own figure (asx-cash-market-trading-days-by-month) also equals the model. Early terminations count as trading days in these statistics.",
+      "local_files": [
+        {
+          "path": "AU-ASX/asx-activity-report-2023-06.pdf",
+          "sha256": "58150860cf730a00b3edff312baad6b33253a612a60b32483f8c9b0223f21a7b"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2022-07-01",
+          "to": "2023-06-30"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2022-07-01",
+          "to": "2023-06-30"
+        }
+      ]
+    },
+    {
+      "id": "asx-activity-report-2024-06",
+      "title": "ASX Group Monthly Activity Report, June 2024 (cash market \"Total trading days\")",
+      "publisher": "ASX Limited",
+      "location": "https://www.asx.com.au/content/dam/asx/about/media-releases/2024/30-04-july-2024-asx-group-monthly-activity-report-june-2024.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2023-07-01 to 2024-06-30",
+      "notes": "Prints FYTD 252 trading days for July 2023-June 2024, equal to the modelled count of weekdays less closures for those twelve months; every month's own figure (asx-cash-market-trading-days-by-month) also equals the model. Early terminations count as trading days in these statistics.",
+      "local_files": [
+        {
+          "path": "AU-ASX/asx-activity-report-2024-06.pdf",
+          "sha256": "d9c09376c5cbd3a2fb4d6d127097e5a5ef14a4add1066d33e046cc3ef455a7cf"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2023-07-01",
+          "to": "2024-06-30"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2023-07-01",
+          "to": "2024-06-30"
+        }
+      ]
+    },
+    {
+      "id": "asx-activity-report-2025-06",
+      "title": "ASX Group Monthly Activity Report, June 2025 (cash market \"Total trading days\")",
+      "publisher": "ASX Limited",
+      "location": "https://www.asx.com.au/content/dam/asx/about/media-releases/2025/37-04-july-2025-asx-group-monthly-activity-report-june-2025.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2024-07-01 to 2025-06-30",
+      "notes": "Prints FYTD 253 trading days for July 2024-June 2025, equal to the modelled count of weekdays less closures for those twelve months; every month's own figure (asx-cash-market-trading-days-by-month) also equals the model. Early terminations count as trading days in these statistics.",
+      "local_files": [
+        {
+          "path": "AU-ASX/asx-activity-report-2025-06.pdf",
+          "sha256": "521c5135e15475f1460046e902eab2b0c20d0ddd8a36aada7bd9b61ead263aef"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2024-07-01",
+          "to": "2025-06-30"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2024-07-01",
+          "to": "2025-06-30"
+        }
+      ]
+    },
+    {
+      "id": "asx-activity-report-2026-06",
+      "title": "ASX Group Monthly Activity Report, June 2026 (cash market \"Total trading days\")",
+      "publisher": "ASX Limited",
+      "location": "https://www.asx.com.au/content/dam/asx/about/media-releases/2026/40-06-july-2026-asx-group-monthly-activity-report-june-2026.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2025-07-01 to 2026-06-30",
+      "notes": "Prints FYTD 254 trading days for July 2025-June 2026, equal to the modelled count of weekdays less closures for those twelve months; every month's own figure (asx-cash-market-trading-days-by-month) also equals the model. Early terminations count as trading days in these statistics.",
+      "local_files": [
+        {
+          "path": "AU-ASX/asx-activity-report-2026-06.pdf",
+          "sha256": "924accaef3a4f74b5a6dfa99eac02985a7449a3ce4587704a2babed02e7f4032"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2025-07-01",
+          "to": "2026-06-30"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2025-07-01",
+          "to": "2026-06-30"
+        }
+      ]
+    },
+    {
+      "id": "asx-activity-report-2026-09",
+      "title": "ASX Group Monthly Activity Report, September 2026 (cash market \"Total trading days\")",
+      "publisher": "ASX Limited",
+      "location": "https://www.asx.com.au/content/dam/asx/about/media-releases/2026/80-07-october-2026%20-asx-group-monthly-activity-report-september-2026.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "2026-07-01 to 2026-09-30",
+      "notes": "Prints September 2026 = 22 and FYTD 66 for July-September 2026, equal to the modelled count (23+21+22): no unrecorded closure through the last published month.",
+      "local_files": [
+        {
+          "path": "AU-ASX/asx-activity-report-2026-09.pdf",
+          "sha256": "d7833babea110153f47e0cc41ba080e42c5b6db7e3a005b1fbc7c6d23aede35c"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2026-07-01",
+          "to": "2026-09-30"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2026-07-01",
+          "to": "2026-09-30"
+        }
+      ]
+    },
+    {
+      "id": "asx-cash-market-trading-days-by-month",
+      "title": "ASX cash market trading days by month, January 2010 - September 2026 (table compiled from the ASX Group Monthly Activity Reports)",
+      "publisher": "ASX Limited (figures); this repository (compilation)",
+      "location": "https://www.asx.com.au/about/media-releases-archive.htm",
+      "retrieved": "2026-10-14",
+      "covers": "2010-01-01 to 2026-09-30",
+      "notes": "One row per month: the exchange's printed \"Total trading days\" for the cash market, the financial-year-to-date figure and the URL of the report it was read from (201 reports; three served from the Internet Archive's captures of the ASX originals). Every month equals the modelled weekdays less closures, every FYTD equals the running sum, and the same-month-prior-year column matches the earlier report in every case. The June reports (FY totals) and the December 2009 and September 2026 brackets are preserved in this directory; the remaining monthly reports are public at the listed URLs.",
+      "local_files": [
+        {
+          "path": "AU-ASX/asx-cash-market-trading-days-by-month.csv",
+          "sha256": "4ff324931f25ffa64a564a1c8a082b46137bd1381324382ec5b77fe639ce9214"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2010-01-01",
+          "to": "2026-09-30"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2010-01-01",
+          "to": "2026-09-30"
+        }
+      ]
+    }
+  ]
+}

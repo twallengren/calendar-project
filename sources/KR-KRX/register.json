@@ -1,0 +1,392 @@
+{
+  "schema_version": "1.0",
+  "entries": [
+    {
+      "id": "krx-holidays",
+      "title": "KRX non-trading days (휴장일) data service, responses for 2010-2027",
+      "publisher": "Korea Exchange (KRX)",
+      "location": "https://open.krx.co.kr/contents/MKD/01/0110/01100305/MKD01100305.jsp",
+      "retrieved": "2026-10-14",
+      "covers": "2010-01-01 to 2027-12-31",
+      "notes": "The exchange's own non-trading-day list for each year, retrieved from the page's data endpoint (POST OPN99000001.jspx, bld MKD/01/0110/01100305/mkd01100305_01, search_bas_yy=<year>) and preserved verbatim. 268 weekday rows across 2010-2027 with the exchange's names (설날, 추석, 연말휴장일, 근로자의날, 임시공휴일, election names, 대체휴일 markers; the 2010-2013 rows carry dates only). The generated calendar reproduces every row and nothing else. The 2027 list is served but not yet offered in the page's year selector.",
+      "local_files": [
+        {
+          "path": "KR-KRX/krx-holidays-2010.json",
+          "sha256": "d90cb8c73639bc81d1d24d2bc11c7ec44f28d256dee759f4f4f09f565418f392"
+        },
+        {
+          "path": "KR-KRX/krx-holidays-2011.json",
+          "sha256": "db3e2c6fe0b8cd44785a6ade10ba7e2e7a463ef8e0bd08f050be152f6734748c"
+        },
+        {
+          "path": "KR-KRX/krx-holidays-2012.json",
+          "sha256": "11be2d02bcdac123dfbb452cd936f6414c745ee84e8a76893e6aa7427f262470"
+        },
+        {
+          "path": "KR-KRX/krx-holidays-2013.json",
+          "sha256": "f9d1884d25f1597aaf2ef64a6a9bf52be57d0c65e4be27355c163d3d1dee83d0"
+        },
+        {
+          "path": "KR-KRX/krx-holidays-2014.json",
+          "sha256": "128ef24ac742ed45e3f7d841702fe2d1525fb22d32c9a385ddf8281e09f17061"
+        },
+        {
+          "path": "KR-KRX/krx-holidays-2015.json",
+          "sha256": "4de8828cb20011b17c52d53944f15c3389038a920638b88e1f1ade4e061a87a0"
+        },
+        {
+          "path": "KR-KRX/krx-holidays-2016.json",
+          "sha256": "7d56306ee656a890264dd64e3a8ceab9aeac8b21fcbbc7151b3cc327b81a238a"
+        },
+        {
+          "path": "KR-KRX/krx-holidays-2017.json",
+          "sha256": "156b006a45a8704f21141a4b66ce4216d5691c2d9415b7c9387250ff0fe749b7"
+        },
+        {
+          "path": "KR-KRX/krx-holidays-2018.json",
+          "sha256": "32a42d2ba4629d469919fbcfe3fb433b740df1f1dc65ae55f1533291acbba160"
+        },
+        {
+          "path": "KR-KRX/krx-holidays-2019.json",
+          "sha256": "1f236aacdc73eab0d7cd6120e190492e76434f0d73815be9ce4862c252ded24f"
+        },
+        {
+          "path": "KR-KRX/krx-holidays-2020.json",
+          "sha256": "8e9e2a618804ee41c7585ff8a3221c724bad7402f0e8ed2dbb08d572a751eb6b"
+        },
+        {
+          "path": "KR-KRX/krx-holidays-2021.json",
+          "sha256": "c616686118021a7cfdfec194fcef2c7c141ccf1eaf3cf81249f62921cd405e94"
+        },
+        {
+          "path": "KR-KRX/krx-holidays-2022.json",
+          "sha256": "04f80316e207cd1e1f0d1be7e054594643c9e33433d0a2ffd54a302deb9ce66b"
+        },
+        {
+          "path": "KR-KRX/krx-holidays-2023.json",
+          "sha256": "3cb70ddbe626ab148ccdb5555b5212198471a07726ebf8e1c5ece4e826107bf2"
+        },
+        {
+          "path": "KR-KRX/krx-holidays-2024.json",
+          "sha256": "d5961ae5998036cc1710fe28e22d324db0233b570dd5c417b088fba1408f857f"
+        },
+        {
+          "path": "KR-KRX/krx-holidays-2025.json",
+          "sha256": "c90dcd0f9fd59498f239bbed32f63a300d64f25f9e03020f26a15c40cf017fa8"
+        },
+        {
+          "path": "KR-KRX/krx-holidays-2026.json",
+          "sha256": "89ccce131de8d0c4baa6a30d62b7d2e8e3bdc872c71a21d7d81d4b667330d384"
+        },
+        {
+          "path": "KR-KRX/krx-holidays-2027.json",
+          "sha256": "2f66d968b9063f5827da0f361159d1c87d9e281c810e8c321ebad2039e111e1b"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2010-01-01",
+          "to": "2026-12-31"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2010-01-01",
+          "to": "2026-10-14"
+        }
+      ]
+    },
+    {
+      "id": "krx-guide-to-trading",
+      "title": "Guide to Trading in the Korean Stock Market",
+      "publisher": "Korea Exchange (KRX)",
+      "location": "https://global.krx.co.kr/contents/GLB/01/0109/0109000000/guide_to_trading_in_the_korean_stock_market.pdf",
+      "retrieved": "2026-10-14",
+      "covers": "current rules",
+      "notes": "The exchange's English guide: markets open Monday to Friday and are closed on Labor Day (1 May) and the last trading day of the year; regular session 09:00-15:30 with pre-hours and after-hours sessions; no shortened sessions.",
+      "local_files": [
+        {
+          "path": "KR-KRX/krx-guide-to-trading.pdf",
+          "sha256": "6e87f105c32b7f1244568f982e8f6fab018acca804219eceb9ba0a946fcf3734"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2010-01-01",
+          "to": "2026-12-31"
+        }
+      ]
+    },
+    {
+      "id": "krx-kind-notice-99340",
+      "title": "유가증권시장 휴장안내 (KIND notice 99340, 27 March 2024)",
+      "publisher": "Korea Exchange (KRX)",
+      "location": "https://kind.krx.co.kr/external/2024/03/27/000084/20240326002215/99340.htm",
+      "retrieved": "2026-10-14",
+      "covers": "2024-04-10 and 2024-05-01",
+      "notes": "\"1. 휴장일자 2024년 4월 10일(수), 2024년 5월 1일(수) 2. 휴장사유 국회의원 선거일, 근로자의 날 ... 4. 근거규정 유가증권시장 업무규정 제5조\": the exchange's own closure notice citing its rule for the election day and Labour Day.",
+      "local_files": [
+        {
+          "path": "KR-KRX/krx-kind-notice-99340.html",
+          "sha256": "5b1413c4b1a2a801918e96e5876cace8729e4f817fe09b16f242ef60eae6608f"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2024-04-10",
+          "to": "2024-05-01"
+        }
+      ]
+    },
+    {
+      "id": "easylaw-trading-days",
+      "title": "매매거래일·거래시간 및 거래 원칙 등 (찾기쉬운 생활법령정보)",
+      "publisher": "Ministry of Government Legislation, Korea",
+      "location": "https://easylaw.go.kr/CSP/CnpClsMain.laf?popMenu=ov&csmSeq=1701&ccfNo=2&cciNo=1&cnpClsNo=2",
+      "retrieved": "2026-10-14",
+      "covers": "current rules",
+      "notes": "The ministry's statement of 유가증권시장 업무규정 제5조: the market opens Monday-Friday except public holidays under the Regulations on Public Holidays of Government Offices, Labour Day, Saturdays, \"12월 31일(공휴일 또는 토요일인 경우에는 직전의 매매거래일로 함)\" and days the exchange designates for market management.",
+      "local_files": [
+        {
+          "path": "KR-KRX/easylaw-trading-days.html",
+          "sha256": "1c0dacf454b47daa78f9e1d89177292e10022943dc3261aa8151324ad5534c45"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "krx-notice-2011-holidays",
+      "title": "Trading Holidays of KRX Markets in Year 2011 (KRX notice of 14 January 2011, republished by Mondo Visione)",
+      "publisher": "Korea Exchange (KRX)",
+      "location": "https://mondovisione.com/media-and-resources/news/trading-holidays-of-krx-markets-in-year-2011-2011124/",
+      "retrieved": "2026-10-14",
+      "covers": "2011-01-01 to 2011-12-31",
+      "notes": "The exchange's 2011 holiday notice: every Saturday and Sunday, the public holidays, and \"Dec. 30(Fri) : market closed for the last day of the year\"; warns that the exchange may close markets at short notice during sudden economic changes.",
+      "local_files": [
+        {
+          "path": "KR-KRX/krx-notice-2011-holidays.html",
+          "sha256": "fe683c67696be0f619d4854f558e9cc9cdc16da5ad1a324a6873e0495db64b6f"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2011-01-01",
+          "to": "2011-12-31"
+        }
+      ]
+    },
+    {
+      "id": "moi-public-holidays-decree",
+      "title": "관공서의 공휴일에 관한 규정 (Regulations on Public Holidays of Government Offices), 대통령령 제36290호 as amended 30 April 2026, with addenda",
+      "publisher": "Ministry of the Interior and Safety, Korea (text mirrored from law.go.kr by nepla.ai)",
+      "location": "https://www.law.go.kr/법령/관공서의공휴일에관한규정",
+      "retrieved": "2026-10-14",
+      "covers": "2010-01-01 onward",
+      "notes": "Art. 2 (the public holidays, including 노동절 from 1 May 2026 and the restored 제헌절 from 11 May 2026) and art. 3 (substitute holidays: a Saturday or Sunday overlap for the national days, Buddha's Birthday, Labour Day, Children's Day and Christmas; a Sunday overlap only for the Seollal and Chuseok blocks; \"대체공휴일이 토요일인 경우에는 그 다음의 첫 번째 비공휴일을 대체공휴일로 한다\") with the amendment history (2012-12-28 Hangul Day, 2013-11-05 substitute system, 2021-08-04 national days, 2023-05-04 Buddha's Birthday and Christmas, 2026-04-30).",
+      "local_files": [
+        {
+          "path": "KR-KRX/moi-public-holidays-decree.html",
+          "sha256": "b1bd3df1fccb267efa220784834f507db54ab318f1fe3993654dc3d56a4c94b2"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "klri-public-holidays-act",
+      "title": "공휴일에 관한 법률 (Public Holidays Act, Act No. 18291), bilingual text",
+      "publisher": "Korea Legislation Research Institute",
+      "location": "https://elaw.klri.re.kr/kor_service/lawViewMultiContent.do?hseq=59949",
+      "retrieved": "2026-10-14",
+      "covers": "2022-01-01 onward",
+      "notes": "The statute listing the public holidays and authorising substitute holidays by Presidential Decree.",
+      "local_files": [
+        {
+          "path": "KR-KRX/klri-public-holidays-act.html",
+          "sha256": "428f25bb26692a7315ab41d267c087ded15565a19b57678d8cf37e0a7818d0eb"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "mpm-substitute-holiday-history",
+      "title": "대체공휴일 제도 연혁 (Ministry of Personnel Management document)",
+      "publisher": "Ministry of Personnel Management, Korea",
+      "location": "https://www.mpm.go.kr/board/file/bbs_0000000000000029/3625/FILE_000000100025506/08BD3B30C3E3446a99A2D4D6BE1D09D6",
+      "retrieved": "2026-10-14",
+      "covers": "2013-11-05 and 2021-08-04 amendments",
+      "notes": "History of the substitute-holiday system: introduced on 5 November 2013 for the Seollal and Chuseok blocks and Children's Day; extended on 4 August 2021 to the four national days.",
+      "local_files": [
+        {
+          "path": "KR-KRX/mpm-substitute-holiday-history.pdf",
+          "sha256": "9bf03598c4b02c17417bb2075f2cae350a4d7050c9be412e23e15e1df826c791"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "mt-2026-04-28-holidays",
+      "title": "노동절·제헌절 올해부터 공휴일 (Money Today, 28 April 2026)",
+      "publisher": "Money Today (press)",
+      "location": "https://www.mt.co.kr/policy/2026/04/28/2026042808250174216",
+      "retrieved": "2026-10-14",
+      "covers": "2026-05-01 and 2026-05-11",
+      "notes": "Reports the Ministry of Personnel Management's announcement that Labour Day and Constitution Day become public holidays, effective 1 May and 11 May 2026.",
+      "local_files": [
+        {
+          "path": "KR-KRX/mt-2026-04-28-holidays.html",
+          "sha256": "a5ffe058f8bcd1101b4fe96cc70bc0b7e63fd680a7ede54f8ccb0ce59a0684d6"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "bizwatch-2026-05-20-krx-closures",
+      "title": "KRX closures on 3 June and 17 July 2026 (Business Watch, 20 May 2026)",
+      "publisher": "Business Watch (press)",
+      "location": "https://news.bizwatch.co.kr/article/market/2026/05/20/0023",
+      "retrieved": "2026-10-14",
+      "covers": "2026-06-03 and 2026-07-17",
+      "notes": "\"한국거래소는 오는 6월 3일 지방선거일과 7월 17일 제헌절에 각각 증권·파생·일반상품시장을 휴장한다고 20일 밝혔다\": the exchange's announcement of the two 2026 closures.",
+      "local_files": [
+        {
+          "path": "KR-KRX/bizwatch-2026-05-20-krx-closures.html",
+          "sha256": "c6d87cc7d525ff8b433891e45220debe82ec8ec13948b754163c41391d379a0b"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2026-06-03",
+          "to": "2026-07-17"
+        }
+      ]
+    },
+    {
+      "id": "eurex-circular-4443920",
+      "title": "Eurex circular: no trading on 3 June 2025 (Korean additional public holiday)",
+      "publisher": "Eurex Frankfurt AG",
+      "location": "https://www.eurex.com/ex-en/find/circulars/circular-4443920",
+      "retrieved": "2026-10-14",
+      "covers": "2025-06-03",
+      "notes": "\"No trading at Eurex on 3 June 2025 due to an additional public holiday in the Republic of Korea\": corroborates the early presidential election day as a temporary public holiday.",
+      "local_files": [
+        {
+          "path": "KR-KRX/eurex-circular-4443920.html",
+          "sha256": "a1b45d97a6d8959cd29a16ebccbfa672dfac47aac051a3c666548865408a8ee9"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "samsungpop-notice-23456",
+      "title": "KRX year-end 2025 and 2 January 2026 opening arrangements (Samsung Securities customer notice relaying the exchange)",
+      "publisher": "Samsung Securities (relaying KRX)",
+      "location": "https://www.samsungpop.com/ux/kor/customer/notice/notice/noticeViewContent.do?MenuSeqNo=23456",
+      "retrieved": "2026-10-14",
+      "covers": "2025-12-30 to 2026-01-02",
+      "notes": "\"연말 폐장일(최종 매매거래일) : 2025. 12. 30(화)\" with no hour change, and for 2 January 2026 \"개장시각만 1시간 연기(종료시각은 현행과 동일)\": the first trading day opens at 10:00 with the normal close (업무규정 제4조·제5조).",
+      "local_files": [
+        {
+          "path": "KR-KRX/samsungpop-notice-23456.html",
+          "sha256": "75c268daa8f67d209d340556d3ceba6f12cb98097948c3a79136893ab55901f6"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "sedaily-2025-12-18-year-end",
+      "title": "Korean stock market closes Dec 30, reopens Jan 2 at 10 am (Seoul Economic Daily, 18 December 2025)",
+      "publisher": "Seoul Economic Daily (press)",
+      "location": "https://en.sedaily.com/finance/2025/12/18/korean-stock-market-closes-dec-30-reopens-jan-2-at-10-am",
+      "retrieved": "2026-10-14",
+      "covers": "2025-12-31 and 2026-01-02",
+      "notes": "Press confirmation of the 31 December 2025 closure and the 10:00 opening on 2 January 2026.",
+      "local_files": [
+        {
+          "path": "KR-KRX/sedaily-2025-12-18-year-end.html",
+          "sha256": "07d823131bcab9a35831c6323c206db900c4be8e34ae636125545157f175a6e3"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "seoul-2016-07-31-hours",
+      "title": "증시 거래시간 30분 연장 (Seoul Shinmun, 31 July 2016)",
+      "publisher": "Seoul Shinmun (press)",
+      "location": "https://m.seoul.co.kr/news/2016/07/31/20160731800018",
+      "retrieved": "2026-10-14",
+      "covers": "2016-08-01 onward",
+      "notes": "The regular session extended by 30 minutes from 1 August 2016 to close at 15:30 (\"오후 3시30분 폐장\").",
+      "local_files": [
+        {
+          "path": "KR-KRX/seoul-2016-07-31-hours.html",
+          "sha256": "256964f1f8a460a71a10c609a4816d033cd07da2ac6ef76db72ceb481cb06565"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "newsis-2025-03-18-halt",
+      "title": "KOSPI-wide matching halt of 18 March 2025 (Newsis)",
+      "publisher": "Newsis (press)",
+      "location": "https://www.newsis.com/view/NISX20250318_0003103709",
+      "retrieved": "2026-10-14",
+      "covers": "2025-03-18",
+      "notes": "A seven-minute halt of all KOSPI matching, resumed within the session; \"2005년 한국거래소가 통합 출범한 이후 처음\": the first such halt since the exchange's 2005 integration, so no earlier whole-market stoppage occurred in coverage.",
+      "local_files": [
+        {
+          "path": "KR-KRX/newsis-2025-03-18-halt.html",
+          "sha256": "8afd329af60f5db17d94d657991dad110a82a761ad7969973f1b16fdee590fa6"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2025-03-18",
+          "to": "2025-03-18"
+        }
+      ]
+    },
+    {
+      "id": "sbsbiz-2024-12-04-open",
+      "title": "Markets open normally on 4 December 2024 after the martial-law declaration (SBS Biz)",
+      "publisher": "SBS Biz (press)",
+      "location": "https://biz.sbs.co.kr/amp/article/20000205106",
+      "retrieved": "2026-10-14",
+      "covers": "2024-12-04",
+      "notes": "The exchange decided to operate the securities and derivatives markets normally (\"정상 운영하기로 결정했습니다\").",
+      "local_files": [
+        {
+          "path": "KR-KRX/sbsbiz-2024-12-04-open.html",
+          "sha256": "395d18301b4d79df0dc9abf4fb65d94e13e259ac4ead8cb9e2d613c34bd2b0cc"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2024-12-04",
+          "to": "2024-12-04"
+        }
+      ]
+    },
+    {
+      "id": "wikitree-2026-09-28-not-designated",
+      "title": "28 September 2026 not designated a temporary public holiday (Wikitree)",
+      "publisher": "Wikitree (press)",
+      "location": "https://www.wikitree.co.kr/articles/1161815",
+      "retrieved": "2026-10-14",
+      "covers": "2026-09-28",
+      "notes": "Press confirmation that the government did not designate the Chuseok bridge day of 28 September 2026 as a temporary holiday; the exchange's 2026 list has no such date.",
+      "local_files": [
+        {
+          "path": "KR-KRX/wikitree-2026-09-28-not-designated.html",
+          "sha256": "3b89cc0bc790e6a72755206ce78833397f7f38195c72c83fc7e757f436a42162"
+        }
+      ],
+      "support_intervals": []
+    }
+  ]
+}

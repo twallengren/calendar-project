@@ -1,0 +1,23 @@
+source,side,date,type,close_time,reason
+# Known differences between our AU-ASX data and the reference datasets.
+#
+# exchange_calendars' XASX calendar reproduces every scheduled closure 2010-2030, including the
+# NSW additional days for ANZAC Day in 2010 and 2011, but (1) carries no unscheduled early
+# terminations and (2) still moves the Christmas Eve and New Year's Eve early closes to the
+# preceding Friday when 24/31 December fall on a weekend, which the exchange stopped doing in
+# 2017 (asx-notice-1357-16-11: "ASX will only close early when the last trading day before
+# Christmas and New Year's Holidays are the respective Eve of these holidays"). Its 2022 rows
+# agree with the exchange (no early close), so only 2017, 2023 and 2028 differ.
+#
+# QuantLib's Australia(ASX) calendar models full closures only and lacks the two ANZAC Day
+# additional public holidays.
+exchange_calendars-XASX,ours,2016-09-19,EARLY_CLOSE,14:05,Unscheduled early termination: ASX Trade hardware failure; staggered open from 11:30 and the whole market returned to Enquire at 14:05 with no closing auction (asx-notice-1111-16-09); exchange_calendars keeps a full session
+exchange_calendars-XASX,ours,2020-11-16,EARLY_CLOSE,10:24,Unscheduled early termination: all ASX Trade markets placed in ENQUIRE at 10:24:05 for the rest of the day; trades before the halt stood (asx-market-outage-report-2020-12-04); exchange_calendars keeps a full session
+exchange_calendars-XASX,theirs,2017-12-22,EARLY_CLOSE,14:10,Normal trading hours applied on Friday 22 December 2017 (asx-notice-1305-17-11): from 2017 the exchange closes early only on 24 and 31 December themselves (asx-notice-1357-16-11)
+exchange_calendars-XASX,theirs,2017-12-29,EARLY_CLOSE,14:10,Normal trading hours applied on Friday 29 December 2017 (asx-notice-1305-17-11)
+exchange_calendars-XASX,theirs,2023-12-22,EARLY_CLOSE,14:10,"Friday 22 December 2023 is printed OPEN in the exchange's 2023 calendar (asx-trade-calendar-2023)"
+exchange_calendars-XASX,theirs,2023-12-29,EARLY_CLOSE,14:10,"Friday 29 December 2023 is printed OPEN in the exchange's 2023 calendar (asx-trade-calendar-2023)"
+exchange_calendars-XASX,theirs,2028-12-22,EARLY_CLOSE,14:10,24 December 2028 is a Sunday; under the 2017 policy there is no early close on the preceding Friday (asx-notice-1357-16-11)
+exchange_calendars-XASX,theirs,2028-12-29,EARLY_CLOSE,14:10,31 December 2028 is a Sunday; under the 2017 policy there is no early close on the preceding Friday (asx-notice-1357-16-11)
+quantlib-australia-asx,ours,2010-04-26,CLOSED,,NSW additional public holiday for ANZAC Day falling on Sunday 25 April 2010; April 2010 had 19 trading days (asx-activity-report-2011-04); QuantLib has no substitute-day rule
+quantlib-australia-asx,ours,2011-04-26,CLOSED,,NSW additional public holiday because ANZAC Day fell on Easter Monday 2011; April 2011 had 18 trading days (asx-activity-report-2011-04); QuantLib has no substitute-day rule

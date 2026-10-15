@@ -1,0 +1,58 @@
+kind: module
+id: tw_twse_typhoon_closures
+
+# Full-day closures of the centralised market for typhoons. The exchange's rule (天然災害停止上班之
+# 處理): when the Taipei City Government announces that all public offices in the city stop work
+# for the day or the morning, the market closes for the whole day; an afternoon-only suspension
+# keeps the market open and cancels post-close trading; settlement due that day is postponed.
+# Each date is a full-day Taipei suspension in the city's register (taipei-suspension-register),
+# is absent from the exchange's daily market summary (twse-trading-days), and was announced by the
+# exchange (press quoting it, cited in the register). Afternoon-only suspensions on 12 June 2012,
+# 12 July 2013 and 10 July 2018 left the session intact.
+# Source: taipei-suspension-register.
+
+source:
+  - id: taipei-suspension-register
+
+event_sources:
+  - key: tw_twse_typhoon_closures
+    name: Typhoon Closure
+    default_classification: CLOSED
+    shiftable: false
+    rule:
+      type: explicit_dates
+      dates:
+        - date: 2012-08-02
+          comment: Typhoon Saola
+        - date: 2013-08-21
+          comment: Typhoon Trami
+        - date: 2014-07-23
+          comment: Typhoon Matmo
+        - date: 2015-07-10
+          comment: Typhoon Chan-hom
+        - date: 2015-09-29
+          comment: Typhoon Dujuan
+        - date: 2016-07-08
+          comment: Typhoon Nepartak
+        - date: 2016-09-27
+          comment: Typhoon Megi
+        - date: 2016-09-28
+          comment: Typhoon Megi
+        - date: 2019-08-09
+          comment: Typhoon Lekima
+        - date: 2019-09-30
+          comment: Typhoon Mitag
+        - date: 2023-08-03
+          comment: Typhoon Khanun
+        - date: 2024-07-24
+          comment: Typhoon Gaemi
+        - date: 2024-07-25
+          comment: Typhoon Gaemi
+        - date: 2024-10-02
+          comment: Typhoon Krathon
+        - date: 2024-10-03
+          comment: Typhoon Krathon
+        - date: 2024-10-31
+          comment: Typhoon Kong-rey
+        - date: 2026-07-10
+          comment: Typhoon Bavi

@@ -1,0 +1,22 @@
+kind: module
+id: za_jse_holidays
+
+# JSE equity-market non-trading days: every South African public holiday (Public Holidays Act 36
+# of 1994, Schedule 1, with the Sunday-to-Monday rule), the holidays declared by proclamation
+# (election days, the Tuesday after a Sunday Christmas, 15 December 2023), and the 12:00 early
+# closes on the two year-end days plus the 2019 go-live early close.
+
+uses:
+  - za_new_years_day
+  - za_human_rights_day
+  - za_good_friday_family_day
+  - za_freedom_day
+  - za_workers_day
+  - za_youth_day
+  - za_national_womens_day
+  - za_heritage_day
+  - za_day_of_reconciliation
+  - za_christmas_day
+  - za_day_of_goodwill
+  - za_one_off_public_holidays
+  - za_jse_early_closes

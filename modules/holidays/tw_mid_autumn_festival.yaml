@@ -1,0 +1,48 @@
+kind: module
+id: tw_mid_autumn_festival
+
+# Mid-Autumn Festival (中秋節, lunar 8/15) as the exchange's tables list it: Sunday 30 September
+# 2012 not made up; Monday 28 September 2015 and Friday 9 September 2022 for weekend occurrences;
+# bridge days Friday 20 September 2013, Friday 16 September 2016, Friday 2 October 2020 and Monday
+# 20 September 2021.
+# Source: twse-holiday-schedules.
+
+source:
+  - id: twse-holiday-schedules
+
+event_sources:
+  - key: tw_mid_autumn_festival
+    name: Mid-Autumn Festival
+    default_classification: CLOSED
+    shiftable: false
+    rule:
+      type: explicit_dates
+      dates:
+        - 2010-09-22
+        - 2011-09-12
+        - 2013-09-19
+        - date: 2013-09-20
+          comment: bridge day
+        - 2014-09-08
+        - date: 2015-09-28
+          comment: substitute for Sunday 27 September
+        - 2016-09-15
+        - date: 2016-09-16
+          comment: bridge day
+        - 2017-10-04
+        - 2018-09-24
+        - 2019-09-13
+        - 2020-10-01
+        - date: 2020-10-02
+          comment: bridge day
+        - date: 2021-09-20
+          comment: bridge day
+        - 2021-09-21
+        - date: 2022-09-09
+          comment: substitute for Saturday 10 September
+        - 2023-09-29
+        - 2024-09-17
+        - 2025-10-06
+        - 2026-09-25
+        - date: 2027-09-15
+          comment: government calendar

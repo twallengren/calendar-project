@@ -1,0 +1,1750 @@
+{
+  "schema_version": "1.0",
+  "entries": [
+    {
+      "id": "twse-holiday-schedules",
+      "title": "TWSE 有價證券集中交易市場開（休）市日期表 / Holiday Schedule, 2010-2026",
+      "publisher": "Taiwan Stock Exchange Corporation",
+      "location": "https://www.twse.com.tw/zh/trading/holiday.html",
+      "retrieved": "2026-10-14",
+      "covers": "2010-01-01 to 2026-12-31",
+      "notes": "The exchange's annual table of non-trading days: 2010-2020 from archived captures of its trading_days / holidaySchedule pages (zh; the 2017 English table listing the 'Additional Trading Days on Saturday'), 2021-2026 from its live schedule endpoint (rwd/zh/holidaySchedule/holidaySchedule?date=<year>0101). Lists every holiday, substitute and bridge day, the settlement-only days before Lunar New Year, Labour Day, and the make-up Saturdays with whether the market trades (補行交易 through 2018; 補行上班，但不交易亦不交割 from 2019). The 2027 table was not yet published (the endpoint returned no rows). Retrieved via the Internet Archive captures recorded in sources/TW-TWSE/manifest.csv.",
+      "local_files": [
+        {
+          "path": "TW-TWSE/twse-holiday-schedule-2017-en.html",
+          "sha256": "9a31638415170f75760dba9182a68bc4e219c1e867c8b4697d0188e3c9c99e8b"
+        },
+        {
+          "path": "TW-TWSE/twse-holiday-schedule-2021.json",
+          "sha256": "cc048d412679032846398c796975bbbb14339e1ad657efbb4c97c252495cc876"
+        },
+        {
+          "path": "TW-TWSE/twse-holiday-schedule-2022.json",
+          "sha256": "c49edf8212319a24ce1a964e4997b86409971c79cc300bb3e614749ccf7bce8d"
+        },
+        {
+          "path": "TW-TWSE/twse-holiday-schedule-2023.json",
+          "sha256": "57ac0ea5fdb48cc8dccdc2c691cc3e331f62909d2f63424778aa7a391ca26740"
+        },
+        {
+          "path": "TW-TWSE/twse-holiday-schedule-2024.json",
+          "sha256": "af465bb1c10da0e4acfe99f9a6cc0edfdb96fa3f0d89835bed1316670a4de26d"
+        },
+        {
+          "path": "TW-TWSE/twse-holiday-schedule-2025.json",
+          "sha256": "5c85396aa2c0bf45add08a257aa6343aac2d48f9d6bb54da17c7f88fefcb71f8"
+        },
+        {
+          "path": "TW-TWSE/twse-holiday-schedule-2026.json",
+          "sha256": "7fefe785ea7155a5004a2eb74486ad865ea5c4b5f02ee0cffbbdacb1ca2ea390"
+        },
+        {
+          "path": "TW-TWSE/twse-trading-days-2010.html",
+          "sha256": "2d3b8d9091378455d145a1c89bc3bcc826871dff3c2d0671309a86b3b48b2d3b"
+        },
+        {
+          "path": "TW-TWSE/twse-trading-days-2011.html",
+          "sha256": "68f9feda4124f4c72b19a04c885006cfb5eef65e45cbc8f896bf65dcb1340ea4"
+        },
+        {
+          "path": "TW-TWSE/twse-trading-days-2012.html",
+          "sha256": "ceb62c21ed476223c999da1f09a4bc77923745ef156389923d4ba2ca25c2ebd5"
+        },
+        {
+          "path": "TW-TWSE/twse-trading-days-2013.html",
+          "sha256": "e063a007b630d40c6930238d177a77559d88d3b82422f2dbe9c97a2d6876b80a"
+        },
+        {
+          "path": "TW-TWSE/twse-trading-days-2014.html",
+          "sha256": "79ffa82df17e32746ba12df1038b85090021f82dfa5458c67dee9016873f1a75"
+        },
+        {
+          "path": "TW-TWSE/twse-trading-days-2015.html",
+          "sha256": "1cb7015aef9a51806a85647ad49da43f852788f35b08c2e931d0590d51c5cf3f"
+        },
+        {
+          "path": "TW-TWSE/twse-trading-days-2016.html",
+          "sha256": "bbe3bae978ef9598ed9b6dacddacbfc56d4fc59585f2da99915189dddadc7772"
+        },
+        {
+          "path": "TW-TWSE/twse-trading-days-2017.html",
+          "sha256": "693258742928f39d17c99045239f39ed00d6de4f5fc1cd0e4cae1e4230869fcb"
+        },
+        {
+          "path": "TW-TWSE/twse-trading-days-2018.html",
+          "sha256": "7fe4649bda6c1f6b99c49a0b0076f3461d180409e0131f9576c03816536467aa"
+        },
+        {
+          "path": "TW-TWSE/twse-trading-days-2019.html",
+          "sha256": "8a00b83844e0845babb4fccbf301bbeea8eef4e207c8aa00b7e8564e00cad446"
+        },
+        {
+          "path": "TW-TWSE/twse-trading-days-2020.html",
+          "sha256": "3e129edcbd24e3fbe7bd71e25565e668f45d9b692d2678d8e2adfc51603f2668"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2010-01-01",
+          "to": "2026-12-31"
+        },
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2010-01-01",
+          "to": "2026-12-31"
+        }
+      ]
+    },
+    {
+      "id": "twse-trading-days",
+      "title": "TWSE 每日市場成交資訊 (daily market summary), every month January 2010 to October 2026, and the trading-day table compiled from it",
+      "publisher": "Taiwan Stock Exchange Corporation",
+      "location": "https://www.twse.com.tw/zh/trading/historical/fmtqik.html",
+      "retrieved": "2026-10-14",
+      "covers": "2010-01-04 to 2026-10-14",
+      "notes": "The exchange's daily market summary (rwd/zh/afterTrading/FMTQIK?date=<year><month>01) lists every day the centralised market traded; the 202 monthly responses are preserved and twse-trading-days.csv compiles their 4,112 dates. The generated calendar's business days equal this record exactly, day by day, including the fifteen Saturday sessions and excluding every typhoon closure and settlement-only day. Retrieved via the Internet Archive captures recorded in sources/TW-TWSE/manifest.csv.",
+      "local_files": [
+        {
+          "path": "TW-TWSE/twse-trading-days.csv",
+          "sha256": "b74a28c0ea09365fa275a6bb8eb0c143751a48a65b1651d3958de3ae6badae61"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2010-01.json",
+          "sha256": "b01ece5343dc15c81dfca7b0cdb50b8df3e57794cf245552656588266a4ec2a5"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2010-02.json",
+          "sha256": "f3ce8b724cd5e6f26bbc7c019204fa7ce2b485e94b69f711a8402a5231cf2b7f"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2010-03.json",
+          "sha256": "f4a5b3ca0ec6a3cc1e2e9a555477c87ad9eed6c0883cdc1615629220fa74c094"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2010-04.json",
+          "sha256": "0c6694727fe48cd40dc8f576abe27fdc0c83a3945e956a71b937ca1c510a1a95"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2010-05.json",
+          "sha256": "642b4e804f01cd3d53d3adc1d404f87ccba826f0bfe98270acfcf27ae6c55f33"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2010-06.json",
+          "sha256": "4523872cdc3ae658bc06663c02c99d74d768d0d6968e8f76b9a1ad946714a9e5"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2010-07.json",
+          "sha256": "d3fe92aacfc58b6c519e6997aff8c2008d36d863d8a1ede417ee105fcf0e9abc"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2010-08.json",
+          "sha256": "e11a87b36701dd46838841f4a7b4fd4c03bde1216352d73f4cef0b285d461dfb"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2010-09.json",
+          "sha256": "eebaa3d190606ef5b3b948c7c05b64e9e96bbf4ba534525971f055ee999d51ae"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2010-10.json",
+          "sha256": "81d4ec397afd60c7df533a7d56b987c0e33407052f07a7a9382d2a6bcfdb4bae"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2010-11.json",
+          "sha256": "9493b291931ae71bafa11071b990490aaaf263ffcd22d85f6decd6321d493f6a"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2010-12.json",
+          "sha256": "7e3394b5612efac2ca040944ab0de4fc425cc5f80e2896d3f8354aaaca025407"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2011-01.json",
+          "sha256": "ea6143d14a7256308da49b4e2175f448c904057c1e6999ae99ca44f189d3ace1"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2011-02.json",
+          "sha256": "fdc71e80da6d66f7f7f3f445f1068ec98e596ecee8854c578de8573405455d79"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2011-03.json",
+          "sha256": "d75d0fb33c3e9ce7228d6e0acb9b4e4f2c4b0bc04462daace8d82700ed78daf1"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2011-04.json",
+          "sha256": "f7992225e8d79f72f890feab180320c5c913a13776c9ff3798633dcea5ebe709"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2011-05.json",
+          "sha256": "b4b73346218b4bc4aba699f55aeaa2d2e374e5bd66531cd16ee19ce311530ee8"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2011-06.json",
+          "sha256": "7cf83e2367ac304fe7f4107aedf82adc3a8def9b894d54f34eed4e9b834d2245"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2011-07.json",
+          "sha256": "d98d5ec67335cc49df9f3bf3a0a5eb6e986fb670be0bb15cd8ab69f0ded7595b"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2011-08.json",
+          "sha256": "e58662fe43166b06909a02eec02cbb7845806600c26e7c23019d6b350ac53992"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2011-09.json",
+          "sha256": "c388312e664364919db0bcc7284828546feae0d281f3f0a1838803507bd301c2"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2011-10.json",
+          "sha256": "cdadb1cda323be631af364761170df2af77ebb7509dd2cca368915c219a15e2f"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2011-11.json",
+          "sha256": "ebecf8efb6a1afd145e53905242e5eef61b67b77edea84147241962a21daad0d"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2011-12.json",
+          "sha256": "917a5f27aec83da6aefd732e32701f4f79986eb3b390f6d0fabb2450ecaa5568"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2012-01.json",
+          "sha256": "31ab8fcdfd5602b40e8f93e5e6b697350cf9b1a8d9d8a9921c210161c0af3b1c"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2012-02.json",
+          "sha256": "6f4a6433e42850c9d8cd8b4be5a1b27c9539c5c39b9796fc89065ec48701c724"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2012-03.json",
+          "sha256": "99e5193f3f6d7d8c2552cffc82d1c295e8d751e098ab7c0b686d00250f70596b"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2012-04.json",
+          "sha256": "01f0e41150bc5e55dff9492cbd29d60f8e3bee6bb8a3d54b9858f02997eec54c"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2012-05.json",
+          "sha256": "6f35c8204bef6b7b78a79a43137506845f72a08fffb1738faf408078ad9da0ca"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2012-06.json",
+          "sha256": "a29f445be565f431ec7971e8e3ce5c07faf94c0c43a96bc9a978f325eb38a294"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2012-07.json",
+          "sha256": "38f1fcd62dec1102d3bfbd09989edc82ca399a6cfe48bec9ba05681c79911230"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2012-08.json",
+          "sha256": "62e82a1efe2608c006d0cdf2c63d1a14d67e7c5dfa6102a006b1806497169e19"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2012-09.json",
+          "sha256": "aa1fadc5945ae4c13b9d036c17642d38b7f2de6080f088d3ede5c223e33461b6"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2012-10.json",
+          "sha256": "02f88601c88a846df5523a06e1e3cd1060a7b36dd259b2fd9f622aa4d4f30db9"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2012-11.json",
+          "sha256": "7c17c750a7e632fc2c40f7a56f767566dc7ade431eb49c596d4d43c926bae0f9"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2012-12.json",
+          "sha256": "caec12811e30a78cec5f0d63932c75c2beb6e79039557fedce11976671b6aa8c"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2013-01.json",
+          "sha256": "c157bd9d1eaeaea29431c9f1d8c771116b4e421c7aac60b1ab6f9da632c3ac36"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2013-02.json",
+          "sha256": "6fd0236c549d21f9f0e962fe1e696d86ba1e4b7d3b06497516dae666d7992293"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2013-03.json",
+          "sha256": "6bc0ccd45e2cc47d93d3211a5758cecc68adfa66164a17e2ac3a6c8023e9b1bb"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2013-04.json",
+          "sha256": "8e9f99f99e6bf38040fd864f6c32b7bec29e51d71033dda00cc95389fbedce04"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2013-05.json",
+          "sha256": "4f2fbf7b3efa0dfef446cad10bca3bcb06d1079489f6684995ce6805ada9a1b0"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2013-06.json",
+          "sha256": "662033238378a75595c9c0fb6524c0689c0dddec2dec663b2169f3ba16cfe7dc"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2013-07.json",
+          "sha256": "f96092d02d5712973845bb08c7c2600d716d3100f2ed32881be08062d8a31bc4"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2013-08.json",
+          "sha256": "b025fa66b22c521503bfc3bf0fd41d487f183e6ca294871c6ffb52cbdec691f0"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2013-09.json",
+          "sha256": "38ca7f7b3a399d01497acb2235d488dbf2e5676aa7485df1d42ae68db2ce3e92"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2013-10.json",
+          "sha256": "b3ca66da091e39c5163003dc6ebaaf4877eb5f8235145fab295e37e9af2a0e06"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2013-11.json",
+          "sha256": "f48e17ede8116b904545951e953b1eb69894722d66780fbe1a00f515e76295ef"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2013-12.json",
+          "sha256": "dae310c7418becbb19a75863ed91066c07b1533a4aaedfd4a1263dae8be69239"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2014-01.json",
+          "sha256": "8bc216602c96f4d65dbfbbdd319a665f1ddcdbdc39d44928b25900a4e70c7ba7"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2014-02.json",
+          "sha256": "cd3839c5bd6fe4b4faef69c267c4869e5db264977de22b041c219d563ca08dd8"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2014-03.json",
+          "sha256": "ec6503daaed409f28704aff5b1c78b66e95afd9b3db59477e2cd04d7006be03e"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2014-04.json",
+          "sha256": "bf2e16c95b82c6d6efbb353bd709e890611a2515ad010b671653ecf231209c2c"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2014-05.json",
+          "sha256": "d7f1aa0f968eba1cb8ba9778c42ac56916ea833804ac5645421262cdbbbb0b4e"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2014-06.json",
+          "sha256": "6c56fbf375262df615830547cdfa4f768b735be405c7dbb06b36e91c1ca7abb4"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2014-07.json",
+          "sha256": "6e65e2f0fea1e49121e2fe211b0de9c9ffb469941fd47958e3d0108c6ae53f4a"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2014-08.json",
+          "sha256": "9bf63870ece425b6ef441d095547f1d0b0a59e11bf9bc546273b8d9da9bcd08a"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2014-09.json",
+          "sha256": "d9bdcfca6415d23a5f99060d5a4edca9bcdccacae1c802f03fcfeed71869b825"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2014-10.json",
+          "sha256": "8c7bed5dace8658e90b051d84707716c145037d383793d732ea13a00386d65f5"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2014-11.json",
+          "sha256": "bdee68afdb996b822146de0202509fae4d7b9d0deb1eaf59dfc7920d2ec5dbc5"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2014-12.json",
+          "sha256": "acc302a91d5f4bfa2bc99ecb9a0491cbcfd17eb01e49592bb117a07c1cc95301"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2015-01.json",
+          "sha256": "56153fb968f487b5883e9345e04019d8fb011b2d53c082fb7a45bb6c724d5e0b"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2015-02.json",
+          "sha256": "cd433a384f24b68e4156af4c74df513cf2886126d11805fae07f23221fbd30cb"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2015-03.json",
+          "sha256": "3ba50883861a8ff6df558c8a673998a5d8cda5caf52f77aac2198670c71c0098"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2015-04.json",
+          "sha256": "fdfad8000ea9e3154e3747d7110f59af8b6bd7a588483ffeb98828b4db305a07"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2015-05.json",
+          "sha256": "d87d02d78be3869a4a4af74785372cac56046321dcb2b419b6c0f3851ebd97c5"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2015-06.json",
+          "sha256": "cea8f44d34ce829fc1abd6efd77770ba0bac5f5035119e3504db7612162f4902"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2015-07.json",
+          "sha256": "7777ea2b290942e3b0e66424b982f4d331a7f83ed4921b6eeb786abf1facf97f"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2015-08.json",
+          "sha256": "34110dbaed9057fdbfd9a483e484d81bd32a270d40b38ae3d764dfe39d960d0e"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2015-09.json",
+          "sha256": "11f65671b0c0a7ac1d8f3541b23678783eb047f4c5a54cef4c1c814b76dc6edc"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2015-10.json",
+          "sha256": "c1ab783759ce7fafb3cbb02193bc08c10759b2aa794b3059c553168d6d39e4c4"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2015-11.json",
+          "sha256": "a4236ea848b80bcda6eb3d4eaa30c7a52e8b258e904ebae1fa05c452fc8f65f9"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2015-12.json",
+          "sha256": "4dff0ff512e4ad2af33ce8233ff6f05fe3efc2f523215207f0d925860e6a8b93"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2016-01.json",
+          "sha256": "ac84803a19d92df5956d194f3238c1dfe359eed1b2dc4cd6a467a23983cd3298"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2016-02.json",
+          "sha256": "eb5fd232dcdd86e16800d092050e24c0c8889ccdf242e61218067894f28bf8a8"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2016-03.json",
+          "sha256": "abf64623cc523f622d9eec76f15f4b8384a95e2166334571aa7b8c6ac641aee2"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2016-04.json",
+          "sha256": "2cc078569a151167cc5eda29263e4fcbea2e8de6e83a194bbf123957aad8643d"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2016-05.json",
+          "sha256": "2788460bb243226650ae2d85af2cd719cb87ce01b4f99dbeb7e4d5a2b60e8a9b"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2016-06.json",
+          "sha256": "d69860c25d0b1b18596d7915cded5700cc46afafc30c5a75538ca90fb8340ff7"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2016-07.json",
+          "sha256": "2e94cc8e87601793f6d58c1cbe9994f66e3c35daf940b8c61a8d5b1fed066981"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2016-08.json",
+          "sha256": "d94cd45c4f27ebfcf07f0fbba6fe612e63b27665ce892dcdabcc178a38d67ff3"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2016-09.json",
+          "sha256": "22342dceeda45e23ea27902b4d62784aaea37b58baafc51102dd1b0fce482bfc"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2016-10.json",
+          "sha256": "f3142b422aa0df277b172dcc29feb87d8a354b4eabbb39b9242582d9fc195a2a"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2016-11.json",
+          "sha256": "351f4dcb4408d3fe7d46fcb012832d41b0cf8f130a5335ca015b0e0cfc3fb71f"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2016-12.json",
+          "sha256": "b4a0e778a4cd2d614116492588310724e06b762e84163fe2ea70382e85365b37"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2017-01.json",
+          "sha256": "6411ec0b8348baf4b9b4261a896447b0a9cd432ad3e4b0c93c02a81a3bb57e13"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2017-02.json",
+          "sha256": "bbe8c0bd9c12ef018b404fb533a61106c28f1a9738d3f84d63b3fecb54df9e98"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2017-03.json",
+          "sha256": "5e8da7c5163af1118f510b54ae8857d95c729138586e15050b93c4a4cc5d108a"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2017-04.json",
+          "sha256": "6ceb0ba5f1823022b093efb533236c05585e1864075fb971cb3e080e6d0c81b9"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2017-05.json",
+          "sha256": "1894aacc63c09ea2b81f0ba83644f8d639571678120355e819ee201e36dd3902"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2017-06.json",
+          "sha256": "7e52f34aa7b8bdbbb89437c39b4c17210c077f179eb246ff58405f49b22f51e0"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2017-07.json",
+          "sha256": "5992fd62d50d60a35717bd7b48ea7581543643744355964b3390c0ec179972cd"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2017-08.json",
+          "sha256": "7f917b438a7c18323981d03d3eedaa15073cc39f44fae9faa8cc0635689ceb3f"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2017-09.json",
+          "sha256": "dc5097b46534b552074ee4adb1dea5268a666bc78064eb14036eb634615a3d76"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2017-10.json",
+          "sha256": "ab962029c092660e642bd1e3e642de926a1b5229d3ba0aebbe6122892ab7dd86"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2017-11.json",
+          "sha256": "e8e03cf1ef1fb8069532b39ba41ffed76ac61c259286fca941fcce04be99a262"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2017-12.json",
+          "sha256": "3fbfd10b9e127ecdd6dcf18a890d7cd2d0542ae459fe8d27732f23ddeea098be"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2018-01.json",
+          "sha256": "57e726606943cc722f3aa74d5b2c55b9419be9ab34b0c6814df7026290c43309"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2018-02.json",
+          "sha256": "ec54cea24fb3d5fa7bf1edcef8a9748fbb8708ffbe379049b54a19b373cefde3"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2018-03.json",
+          "sha256": "6650bc2ab2aaed163c3a992881343eec78245b9436934d5f46b9e84b5511ce4c"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2018-04.json",
+          "sha256": "9a1e39993768553a53b64d9bc839f74b5208743603cc0fe19a2adf1e8f48a25f"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2018-05.json",
+          "sha256": "f61cd1a55c62af73841171b01e39dad285c1343e997ab32b2e6c799db6385ac6"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2018-06.json",
+          "sha256": "08d143afc4c15062499925f2a40e4835c12d69666d97b0ce68c64012c5406804"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2018-07.json",
+          "sha256": "012fb3ce2c670016cfd91d3e4786cdadb035c0df3cc736c61a1fadf6195b01d9"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2018-08.json",
+          "sha256": "95ffad64fa9cb616805ade336a4df12ebf23368016d07fde2e23ed1aa0965a66"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2018-09.json",
+          "sha256": "563f4175475abb8875f1eb836ee2959af658bbb3d0084c869b73c81d98e75c5d"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2018-10.json",
+          "sha256": "ae3ef84506966d7814d7ebdc2f2c7f1256457f43945499aaa718a994024e245f"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2018-11.json",
+          "sha256": "2d3e03e8b42d8ed0779f53d1b9d60c1c4006aeecec247ee1ec4de990f26b07aa"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2018-12.json",
+          "sha256": "a59259c16653b81597533cc88ed6a8e78b123c218b59f133e96f40ee21f72d9f"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2019-01.json",
+          "sha256": "b213e08c46f9232ca00d4bce6940e437c8bce714254960c2049c353a8cbf8d0f"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2019-02.json",
+          "sha256": "b2d747277fc4fd06b27497814448993dcea323e387ab6d9b33a8bf751bf8383d"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2019-03.json",
+          "sha256": "366ac6172c3610bf660eab8f803ec1687d6f12b566255e64ac222e236dc57e37"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2019-04.json",
+          "sha256": "455e66148949615ba63872ef4b1db876799a09fe110728ce7501480cd33d2f9a"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2019-05.json",
+          "sha256": "0d54434a5c1cbf2f8a0d1157cdb1d7980afcd3b5a2c3613f269981c881811045"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2019-06.json",
+          "sha256": "ccb5c4cdec5a231cd8a0bff05667c8033418607d9ad6a142ad7914bc367038cb"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2019-07.json",
+          "sha256": "e89fa7cba031c89af26434c82caa9a68e0844415902485df2a2bb76a3d879ae2"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2019-08.json",
+          "sha256": "284ecae77a5a782a940667e679aa54281e9c45f96e9052d3a9a95a4452a59daf"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2019-09.json",
+          "sha256": "3d5d250b7f43f58697e0a79dfb0bae2bcb7d64ff4fca8240c309b496c11de50c"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2019-10.json",
+          "sha256": "a43736ed275d115dbca9ad233eaf37ce7a443d6ff763376801c7eec43d956cc8"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2019-11.json",
+          "sha256": "64ecff4308b4c10aca48eb70138e49fd89714e40417685ed18ea1f1fb19a43bf"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2019-12.json",
+          "sha256": "6f31c56ae2bf448753ad0feb7f2b3b51d50ad1f317f088ea55f72e3286fb3f59"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2020-01.json",
+          "sha256": "97e77a980d41f69cd02918fcf99936c2de0a6b424ecfaa5913b0a43a68391bb9"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2020-02.json",
+          "sha256": "91d792a33ebd725be02b078c19f1ac1fb11b9fa11bea93649c308fd5f3d7ac71"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2020-03.json",
+          "sha256": "3cd224e5573e05c094697ff4e3a5d4f564e37fd01556d955f2859ee5903ab759"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2020-04.json",
+          "sha256": "e99f54fb22e39a5e4516f49b17d2f65b05e16ec7a437f5e06dbf1e6de7d80661"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2020-05.json",
+          "sha256": "9cbdda45bb0d222d6cf695b4fbe975790079e617f01dfe7be591d9b05f385348"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2020-06.json",
+          "sha256": "a8db0f93a9d17417bb19433f941a3e215370168825cbbe59ae43841aba0908ba"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2020-07.json",
+          "sha256": "cdb988f2e535684cecd0a33139305bb757aec186baad5f65afbd0485dfb96f43"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2020-08.json",
+          "sha256": "47948318f8c4aa8b87bc1b0a31ece603d62515fc946f47607d6e1840f70834fd"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2020-09.json",
+          "sha256": "565722789f59c1ecd8a943d32a40ada41822117666907e59374906f086735c3f"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2020-10.json",
+          "sha256": "f2b60017d88e86cdb97e5c1c7a0586c29ff024eb5a452ddf69ae82103be38635"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2020-11.json",
+          "sha256": "78b922041cd53b767c0e086b4cb3b95809b7573f8f8e9698949788016d92fb9a"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2020-12.json",
+          "sha256": "ebe3d0fb217163420c5abb1c3c791f41b302dc76ae1842dd8d60cb20c9704a0f"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2021-01.json",
+          "sha256": "23fa7968416d70cdf486cfadc2a5fd822c49b28085bbd613df668d5512b91366"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2021-02.json",
+          "sha256": "f3bdf43f7a7caf31fe46d79d3438fc0254fd1c73f8c197032173f392b5611266"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2021-03.json",
+          "sha256": "c53e96a5fa3309be0d108d02e2c529c761cdc3ced3d145ef9f2613d4f65d22b5"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2021-04.json",
+          "sha256": "814b0df3ee5d7ab824ab4136307630d33633fabe21aaf5082bc70d454788ee0a"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2021-05.json",
+          "sha256": "fccab0c929c145f258a3b159c03ac16b93b1e5205671ee16de494f6481942a26"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2021-06.json",
+          "sha256": "999fce1fabdcb439b58f03401436af628a84e71ed430c0b5aa6951bbf62db4d7"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2021-07.json",
+          "sha256": "8ab1c64d5ad33b919d992df20cc801008f2a6be506cc27ca2898a09ad1520973"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2021-08.json",
+          "sha256": "88757ef87441f59593d313c81b935b277dfd91fd6b6f1dfe81dacf49eea86cae"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2021-09.json",
+          "sha256": "a93a9e7e937d885f54b5f4bce7421af1f045a45317e008ba03c776000210bdf6"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2021-10.json",
+          "sha256": "852842a12593877777a4c1d3e86a0ebd1aac8692e0c259ef66962751ce0a9f9c"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2021-11.json",
+          "sha256": "ed9eb25c4bd0ed635de36fd22824347921e36c52389a06650b6d79158d6fa233"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2021-12.json",
+          "sha256": "736a749efdcc178a87a355be93e52a8353e18e8d9bc8ab534083dc08b0185869"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2022-01.json",
+          "sha256": "c2f178edd63b92c36b8e44d88d9024efbc02f1a6a058dff8d7bfc4de86a19ffd"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2022-02.json",
+          "sha256": "b2d9cc28cc9c01f2b6a3fbcccf99451127a92c69b8971fca3a080094ad1d62e2"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2022-03.json",
+          "sha256": "3e46a04a0851713c9bf099fd0fcc8c0e557dd4f38692a74f09c3256d8dbc9997"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2022-04.json",
+          "sha256": "d3f8ce3229421495e7db98087bab21558c2a31dc24dfebec6d121b7384692971"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2022-05.json",
+          "sha256": "bb08fc06b6aa54b56a5190a4f7cf2cc15a494a303cc18700186951c7f77c7a46"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2022-06.json",
+          "sha256": "027eaa5a689627c4e9b0eb46d623074ec0a37b8f8c546ad6bd931ee361eaab78"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2022-07.json",
+          "sha256": "a081d9510cf47a70d90447e3faeb0a4ca255857f5df90870dfea9d718918a522"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2022-08.json",
+          "sha256": "467560c4fa535f87869b2fe6f67b4e0e02c5dca69d82f88da3f181689fb230a6"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2022-09.json",
+          "sha256": "c620e9b25dd2ed8ac0d59ee2db79ac2355d7b41e708ee88b428757cae53fd210"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2022-10.json",
+          "sha256": "75a4836769dfe21b5f15df06c3db289571e92376eec70774f9c7c6e0fcaacc56"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2022-11.json",
+          "sha256": "f1539366d232d88dc8eb2a8dedff4d0fe9dceb0c54531fa2b9f26475921979b4"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2022-12.json",
+          "sha256": "466af83773cce58274e2467eef4020e88e68a2a4fc260e94a62a400a8502f7b6"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2023-01.json",
+          "sha256": "3e216c6b959e4d1c0952f1684ba25485f24636272ad6dcf066249508c2962ad3"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2023-02.json",
+          "sha256": "13c6a5d1cd8fb292831ced3ff5392364debae6ee982fb10f699ed8c3f5621c28"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2023-03.json",
+          "sha256": "7cd6fc1acf90bb8d0a4c434fca9fc58d1e2a3bfb57a436ab8db67050776d0ca8"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2023-04.json",
+          "sha256": "c92271316549214921593dbe920f0141c72987ccfef74577a1f710b1f2a6537d"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2023-05.json",
+          "sha256": "68ad3e93bc061b22d0baf7911ac1677944208840661e609b00b878df7ab9175e"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2023-06.json",
+          "sha256": "9c429a36696551ca6bfd3cf1d27076cc320d48c27aa5e3b226d3050dcc36453e"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2023-07.json",
+          "sha256": "8f0d0820313201006183eb5d82fe1ac194ab79ccec6de6ae5b1494968cdb3ec0"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2023-08.json",
+          "sha256": "897b53bca06e36041245029862bb49b1e042226bef1b8c690c2e363ee676c0a0"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2023-09.json",
+          "sha256": "3f91be78b54bfeb3d5a2c0424c68abb9ad8ca2c291c82af810107e3d39ac2654"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2023-10.json",
+          "sha256": "679a1c049bca9100949ae5b6ee1182c37007b67a9e54f7b179d5226bf3fa615e"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2023-11.json",
+          "sha256": "a0298e141ff2a9ccf2528330d5936e71cbd3147a39d5f244d91145a8828a51f3"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2023-12.json",
+          "sha256": "4257e5d0d837c299b79c083410421a6c690b2c482c14f604417eca3e13ccc774"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2024-01.json",
+          "sha256": "457483d91fc98ba2e4a65a3fa6ae360cf698999231a02e95a8215bc24ed363a0"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2024-02.json",
+          "sha256": "53e7251786dbed22568879613f932c653e42fb587820a1c170282a4991b6ca6a"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2024-03.json",
+          "sha256": "05a3c537d038ab4990310484b695c6b6498ddfb8bdcb0a76199ea29cc5a99520"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2024-04.json",
+          "sha256": "265202eaf09cb7731cca7bd7d0719ecdaf130d25694f7d62b1943e7d9aed0216"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2024-05.json",
+          "sha256": "8514eb8c1843cf1850068efa622119d441928ee3e349ad91053a56c213e8c7d2"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2024-06.json",
+          "sha256": "ea93275ac63ab242433bb8f2fe08ea16fab4064f708663656100212d6886a216"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2024-07.json",
+          "sha256": "dc1a367c680cafd2e091a426b59b28e13cbfb436442875c2d5b12288fb5b83b2"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2024-08.json",
+          "sha256": "01e76e0e02536431fc0186dc34520aad53a474bd875b9fff40e1966c1565cf98"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2024-09.json",
+          "sha256": "a95945a33f010fa24402efb9d1d753300ab4f537c5215da8876846770a53c389"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2024-10.json",
+          "sha256": "dcde54608c679f6a9f331528eb806e86cd2998483624a52048a21f9c2edf7d9e"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2024-11.json",
+          "sha256": "f59ce0bbe5983e71d85292f210382bcfc3f68acbd2ab1e57d1a398e77f71bfc6"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2024-12.json",
+          "sha256": "751dc47deffe8c7b1b103d158df1c043115b2429a2130d0449c0ae391a93b527"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2025-01.json",
+          "sha256": "3a1d2607ec86cf684e9f302660f4679084aca50587d6f34c936cfcd4268bf7f9"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2025-02.json",
+          "sha256": "f021fab23c2911a056f07dafa999bbeed5e31166e34a1cb1f031eb1974040d36"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2025-03.json",
+          "sha256": "ac5977b105e93aab3628bbaf7f26ac8eaaf625840cde60d27f8b8277a84d1bf8"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2025-04.json",
+          "sha256": "c70878c091765a9311f62cb80bc879babdb9ec6438618b67f1fd4acf2336518a"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2025-05.json",
+          "sha256": "15f5cc370c219ddd1fc00cfcd7d3c31f6a679bb441fa2ed184f92d6c06d6b974"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2025-06.json",
+          "sha256": "c7d8f9c078bfb127e251554824bfc698ef2fc3e74d590c78dff47245489146b5"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2025-07.json",
+          "sha256": "cdd1077207f9ccb66cdcd7936e15febf5debe2342b571c8f65a3003a00771259"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2025-08.json",
+          "sha256": "db9a3812d7f33e5826a4837a880116b78b0489785275596dda264a9610b68a61"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2025-09.json",
+          "sha256": "5f1601af698c9ceeb9b89f8183963e366a81274bbed3d35117dd4d20f19cf70c"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2025-10.json",
+          "sha256": "ea54ed486f1667925057cc4788ec389755ec595c7e979e826bd2a6760c273644"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2025-11.json",
+          "sha256": "480173e3b0068a3c9070bbd7762bdfa2951a1a4a88b8443af90b46ec940f4565"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2025-12.json",
+          "sha256": "a1053aa44eeb0a3d17c9d2b0ad8aedb508c6f96a57e5fea0dcedc4515f114d85"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2026-01.json",
+          "sha256": "96b5b6fbb0786d26d9ddf441fe20e81e51a6e0f3ea63d29fa52eda1395a064ce"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2026-02.json",
+          "sha256": "85c2b0ef57ffd8fb34b602843573b194981f20c05d359a2be507a27ac125f5bb"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2026-03.json",
+          "sha256": "2d6538e4695495541557e270c4108446af9e365f4c756bcdcd099c64a2cd5199"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2026-04.json",
+          "sha256": "cf0ce4e9bc7230e8ac61c529ad0b93411280cab5cb93a7ab892effe46b9ac8b6"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2026-05.json",
+          "sha256": "c804629521b509e2889a83bfe6a1d420e8f46573b3a8d7b5f98ab17b6eafdd29"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2026-06.json",
+          "sha256": "c83c935b5b46be4a67ed16209780b4645068938b7920ed8a5226c7deb0c7a2e6"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2026-07.json",
+          "sha256": "988f05a25e28f70d0b048ee1114d4b787813dc6ef2a132b36505bdc792c7ae10"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2026-08.json",
+          "sha256": "824c3225784653e2d10a1e979064a0baf8f2a61c45fa4eddc10e7fd607d24b55"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2026-09.json",
+          "sha256": "dc712c7f16a9d732d9d4e21606e8927cd4d78039505c3256d697a005b17394d5"
+        },
+        {
+          "path": "TW-TWSE/twse-fmtqik-2026-10.json",
+          "sha256": "4e179ced4324942a94817f909110646c91cf898980d48b42bd02ecc1fe1e7412"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2010-01-01",
+          "to": "2026-10-14"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2010-01-01",
+          "to": "2026-10-14"
+        }
+      ]
+    },
+    {
+      "id": "twse-factbook",
+      "title": "TWSE Fact Book, 'Stock Trading Volume and Value: No. of Trading Days' (2015, 2020 and 2025 editions)",
+      "publisher": "Taiwan Stock Exchange Corporation",
+      "location": "https://www.twse.com.tw/zh/about/company/factbooks.html",
+      "retrieved": "2026-10-14",
+      "covers": "2010-01-01 to 2024-12-31",
+      "notes": "Annual trading-day counts 2010-2024 (251, 247, 250, 246, 248, 244, 244, 246, 247, 242, 245, 244, 246, 239, 242) and monthly counts for 2014, 2019 and 2024, all equal to the daily record and to the modelled calendar.",
+      "local_files": [
+        {
+          "path": "TW-TWSE/twse-factbook-2015-3.01.html",
+          "sha256": "313306641ec654cd3f8ca654c05fefa49a8c44b20abc6152376a40b2bc98ede9"
+        },
+        {
+          "path": "TW-TWSE/twse-factbook-2020-3.01.html",
+          "sha256": "8cd74bc0ded6a935947f3fa6c3e38d800c51da78e96cff016b2016a1f4ba9253"
+        },
+        {
+          "path": "TW-TWSE/twse-factbook-2025-3.01.html",
+          "sha256": "813cc5278c1f530c975ae928062d6342409b5df908ed46305dad17aaef63fd27"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2010-01-01",
+          "to": "2024-12-31"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2010-01-01",
+          "to": "2024-12-31"
+        }
+      ]
+    },
+    {
+      "id": "twse-suspended",
+      "title": "TWSE 天然災害停止上班之處理 / Market closure for natural disasters (rule page, zh and en) and the related FAQ",
+      "publisher": "Taiwan Stock Exchange Corporation",
+      "location": "https://www.twse.com.tw/zh/clearing/suspended.html",
+      "retrieved": "2026-10-14",
+      "covers": "current rule",
+      "notes": "\"台北市市長宣布當日或當日上午台北市全體公教機關停止上班時，本公司集中交易市場全日休市\": a full-day or morning suspension in Taipei closes the market for the whole day; an afternoon-only suspension keeps it open and cancels post-close trading; settlement due that day is postponed.",
+      "local_files": [
+        {
+          "path": "TW-TWSE/twse-suspended-en.html",
+          "sha256": "d27a545db3297b611d1a9c5678925af5c2c9dabaa012a7eba73c89f3ae37a95c"
+        },
+        {
+          "path": "TW-TWSE/twse-suspended-zh.html",
+          "sha256": "ca0181d641532dcd160f4b3ff5592af594c9aaff695cf149d96e00b248f71bde"
+        },
+        {
+          "path": "TW-TWSE/twse-suspended_faq.html",
+          "sha256": "4a8e7d65078862260a18e8c673a8289c22b7b17e4e854b511ca5f0b5812cf0f1"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "twse-history",
+      "title": "TWSE corporate history and timeline (history.html; 60-year history, section 225)",
+      "publisher": "Taiwan Stock Exchange Corporation",
+      "location": "https://www.twse.com.tw/en/about/company/history.html",
+      "retrieved": "2026-10-14",
+      "covers": "1993-2026",
+      "notes": "Session 09:00-13:30 since 2 January 2001; \"2019, Jan 1: The TWSE forgoes Saturday trading and settlement, even with the presence of work\"; the 1993 typhoon-closure rule and the 1995 election-day closure rule; continuous matching from 23 March 2020.",
+      "local_files": [
+        {
+          "path": "TW-TWSE/twse-history.html",
+          "sha256": "93d627aecfdbe6ac6a69bac562afc68702fa5487cb3a01d141f690aff3f841d4"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "twse-trading-system",
+      "title": "TWSE 集中市場交易制度介紹 (trading system and session times)",
+      "publisher": "Taiwan Stock Exchange Corporation",
+      "location": "https://www.twse.com.tw/zh/products/system/trading.html",
+      "retrieved": "2026-10-14",
+      "covers": "current sessions",
+      "notes": "Regular session 09:00-13:30, after-hours fixed-price 14:00-14:30, odd-lot sessions; no shortened sessions.",
+      "local_files": [
+        {
+          "path": "TW-TWSE/twse-trading-system-zh.html",
+          "sha256": "d34b0501c32c69983f9081ba6d2d5378b5b2a4ec6a8d486706ee0d2dba917bb6"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "twse-eshop-lny-2026",
+      "title": "Market Closure for the 2026 Lunar New Year Holiday (TWSE eshop notice, 12 February 2026)",
+      "publisher": "Taiwan Stock Exchange Corporation",
+      "location": "https://eshop.twse.com.tw/en/news/detail/8a82e9e69c3aecea019c51422d670027",
+      "retrieved": "2026-10-14",
+      "covers": "2026-02-12 to 2026-02-20",
+      "notes": "The exchange's English notice that the market is closed from 12 to 20 February 2026 and resumes on 23 February.",
+      "local_files": [
+        {
+          "path": "TW-TWSE/twse-eshop-2026-lny-closure.html",
+          "sha256": "9e67c07e012fe90a124628fb199b4acec09e7e52ca7af999a712698055094ae3"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2026-02-12",
+          "to": "2026-02-20"
+        }
+      ]
+    },
+    {
+      "id": "law-moj-D0020033",
+      "title": "紀念日及節日實施辦法 (Regulations on Commemorative Days and Festivals; abolished 6 June 2025)",
+      "publisher": "Ministry of the Interior, Taiwan (law.moj.gov.tw)",
+      "location": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0020033",
+      "retrieved": "2026-10-14",
+      "covers": "2010-01-01 to 2025-06-05",
+      "notes": "The holidays and, from 1 January 2015 (第5條之1), the substitute rule: a Saturday holiday is made up on the preceding working day and a Sunday one on the next, the Lunar New Year block always on the next.",
+      "local_files": [
+        {
+          "path": "TW-TWSE/law-moj-D0020033.html",
+          "sha256": "1e1824b4e568bffdabdc21663b0ae038b0af1dd48a0efe98ad844b2682eae167"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "law-moj-D0020095",
+      "title": "紀念日及節日實施條例 (Act on Commemorative Days and Festivals, promulgated 28 May 2025)",
+      "publisher": "Ministry of the Interior, Taiwan (law.moj.gov.tw)",
+      "location": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0020095",
+      "retrieved": "2026-10-14",
+      "covers": "2025-05-28 onward",
+      "notes": "The five-day Lunar New Year block from the day before the Eve, and the new days off: Labour Day for all, Teachers' Day, Retrocession Day, Constitution Day; weekend occurrences made up.",
+      "local_files": [
+        {
+          "path": "TW-TWSE/law-moj-D0020095.html",
+          "sha256": "49779fff9fdb21d918df52cd041750335f7a922993f6033c8b74bd04085ba322"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "dgpa-calendars",
+      "title": "政府行政機關辦公日曆表 (government office calendars) 2017-2027, Directorate-General of Personnel Administration",
+      "publisher": "Directorate-General of Personnel Administration, Executive Yuan, Taiwan",
+      "location": "https://data.gov.tw/dataset/14718",
+      "retrieved": "2026-10-14",
+      "covers": "2017-01-01 to 2027-12-31",
+      "notes": "Daily flags for holidays, substitute days, bridge days and make-up working Saturdays. The 2027 calendar supplies the projected 2027 closures; 2026 and 2027 contain no make-up Saturdays.",
+      "local_files": [
+        {
+          "path": "TW-TWSE/dgpa-calendar-2017.csv",
+          "sha256": "3ae4986782e2a78798b20d9406d005f532174750ea85b1b1a397b419cf0494d4"
+        },
+        {
+          "path": "TW-TWSE/dgpa-calendar-2018.csv",
+          "sha256": "9a75b3d0cc02bdff25734319bb7988b0d812e6b6d0692a7db125cfc700d3cf36"
+        },
+        {
+          "path": "TW-TWSE/dgpa-calendar-2019.csv",
+          "sha256": "370d67f60dac03608c1539b6faddf675f639f0ae61cea4da5129fdbdf897b4d4"
+        },
+        {
+          "path": "TW-TWSE/dgpa-calendar-2020.csv",
+          "sha256": "3f87acd7bffd5288deb5fcdcae9c412d83f22244504744972d2a354cbef6ba13"
+        },
+        {
+          "path": "TW-TWSE/dgpa-calendar-2021.csv",
+          "sha256": "946631b85f9093977c120b8a53eea8d0146f02bf3a9c4d0c435be0d584879fae"
+        },
+        {
+          "path": "TW-TWSE/dgpa-calendar-2022.csv",
+          "sha256": "8dc31b7e0ceb9ab90856be82bab7be8947606eec2c8f01728d0e165e079ed5df"
+        },
+        {
+          "path": "TW-TWSE/dgpa-calendar-2023.csv",
+          "sha256": "6cdc13b2e33a38abeabf3ae1e31555f828f2f0f7f9263e531fb36bba531dacea"
+        },
+        {
+          "path": "TW-TWSE/dgpa-calendar-2024.csv",
+          "sha256": "365de663017f123a9f8100fec47706bdbae67ed7810a995659fa4743d89bbee8"
+        },
+        {
+          "path": "TW-TWSE/dgpa-calendar-2025-updated-1141020.csv",
+          "sha256": "b4bd40d4d1f4ffc20cb724a07bf3b7c5c1b32a9100e55dcf216f329af3513ca6"
+        },
+        {
+          "path": "TW-TWSE/dgpa-calendar-2025.csv",
+          "sha256": "688c5fc10272df2757b028171ef7e6539ccfee04c9695bd8cb9e121041e24e06"
+        },
+        {
+          "path": "TW-TWSE/dgpa-calendar-2026.csv",
+          "sha256": "0edd80d368626eb73caa05b6c33400ec9d87691b46834d03936efb91e6a0f00d"
+        },
+        {
+          "path": "TW-TWSE/dgpa-calendar-2027.csv",
+          "sha256": "e30df188649bf5347db3ec43fa989af2cc8d93d793fbe5c9891601e6cce4acf3"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "taipei-suspension-register",
+      "title": "臺北市歷次天然災害停止上班上課訊息 (Taipei City Government register of natural-disaster work and school suspensions)",
+      "publisher": "Taipei City Government (data.taipei)",
+      "location": "https://data.gov.tw/dataset/132177",
+      "retrieved": "2026-10-14",
+      "covers": "2010-01-01 to 2026-10-14",
+      "notes": "Every suspension decision since 2010 with its scope (full day, morning, afternoon, work and/or school). Each typhoon closure in this calendar is a full-day suspension here; the afternoon-only suspensions of 12 June 2012, 12 July 2013 and 10 July 2018 did not close the market.",
+      "local_files": [
+        {
+          "path": "TW-TWSE/taipei-suspension-register.csv",
+          "sha256": "07402b9b10cf3bc8bf3def4f88361010364f6f47f191de017dcd8213060534d8"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2010-01-01",
+          "to": "2026-10-14"
+        }
+      ]
+    },
+    {
+      "id": "cbc-2019-09-30",
+      "title": "Central Bank of the Republic of China release 108新聞發布第163號 (30 September 2019): foreign-exchange market closed for Typhoon Mitag",
+      "publisher": "Central Bank of the Republic of China (Taiwan)",
+      "location": "https://www.cbc.gov.tw/tw/cp-302-104498-02adc-1.html",
+      "retrieved": "2026-10-14",
+      "covers": "2019-09-30",
+      "notes": "Corroborates the 30 September 2019 closure.",
+      "local_files": [
+        {
+          "path": "TW-TWSE/cbc-2019-09-30-mitag.html",
+          "sha256": "da14474d795b5f9230d9088f3f1d72bb06e8a6acaf01020789e5c6331f648507"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2019-09-30",
+          "to": "2019-09-30"
+        }
+      ]
+    },
+    {
+      "id": "press-amcham-2019-10",
+      "title": "AmCham Taiwan Business TOPICS: Goodbye Saturday Securities Trading",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://topics.amcham.com.tw/2019/10/securities-trading/",
+      "retrieved": "2026-10-14",
+      "covers": "2019",
+      "notes": "AmCham Taiwan Business TOPICS, October 2019: \"Goodbye Saturday Securities Trading\".",
+      "local_files": [
+        {
+          "path": "TW-TWSE/press-amcham-2019-10.html",
+          "sha256": "c6973b0109822cc8b1860cfcbce842c44b968f318e7c6856473dbdecc8284873"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "press-businesstoday-2024-07-23",
+      "title": "今周刊 颱風假放了台股是否開盤？證交所透露休市關鍵",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://www.businesstoday.com.tw/article/category/183027/post/202407230027/",
+      "retrieved": "2026-10-14",
+      "covers": "2024-07-24",
+      "notes": "今周刊 23 July 2024: the exchange's typhoon rule and the 24 July closure.",
+      "local_files": [
+        {
+          "path": "TW-TWSE/press-businesstoday-2024-07-23.html",
+          "sha256": "157ca90bc420fe3c8210f650e4a824b4fca5e913fcc3fd6ca36239f119127693"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2024-07-24",
+          "to": "2024-07-24"
+        }
+      ]
+    },
+    {
+      "id": "press-bloomberg-2015-09-28",
+      "title": "Carrier Management/Bloomberg: Typhoon Dujuan closures",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://carriermanagement.com/news/2015/09/28/145757.htm",
+      "retrieved": "2026-10-14",
+      "covers": "2015-09-29",
+      "notes": "Bloomberg 28 September 2015: \"The stock markets will be closed for all of Tuesday\" (Typhoon Dujuan).",
+      "local_files": [
+        {
+          "path": "TW-TWSE/press-carriermanagement-2015-09-28.html",
+          "sha256": "27d4eb166b7f7f53ce4298b6fff97a36f95c2d3f1c2d5978fa3ddc12056f592d"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2015-09-29",
+          "to": "2015-09-29"
+        }
+      ]
+    },
+    {
+      "id": "press-cmoney-2016-07-08",
+      "title": "CMoney note: 尼伯特 8日 股匯市休市",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://www.cmoney.tw/notes/note-detail.aspx?nid=93837",
+      "retrieved": "2026-10-14",
+      "covers": "2016-07-08",
+      "notes": "CMoney 8 July 2016: \"股匯市也休市\" (Typhoon Nepartak); the exchange's own statement was not located, the closure is in its daily record.",
+      "local_files": [
+        {
+          "path": "TW-TWSE/press-cmoney-2016-07-08.html",
+          "sha256": "7ae3631495c19453a8637da288c5157e07e6f7fc4ca1ba1b3f5a0e36b70c3b21"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2016-07-08",
+          "to": "2016-07-08"
+        }
+      ]
+    },
+    {
+      "id": "press-cnyes-2024-07-23",
+      "title": "鉅亨網 北北基明停班停課 台北股匯期休市一天 (凱米)",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://news.cnyes.com/news/id/5648420",
+      "retrieved": "2026-10-14",
+      "covers": "2024-07-24",
+      "notes": "鉅亨網 23 July 2024: \"證券交易所今 (23) 日晚間表示…明 (24) 日集中交易市場全日休市\" (Typhoon Gaemi).",
+      "local_files": [
+        {
+          "path": "TW-TWSE/press-cnyes-2024-07-23.html",
+          "sha256": "3870ce30aa6e035a2796d3c3d5cd20dedd2f65d29025b0a616575a52edcddc52"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2024-07-24",
+          "to": "2024-07-24"
+        }
+      ]
+    },
+    {
+      "id": "press-cnyes-2024-10-01",
+      "title": "鉅亨網 強颱山陀兒來襲！台北股匯10/2休市一天",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://news.cnyes.com/news/id/5729077",
+      "retrieved": "2026-10-14",
+      "covers": "2024-10-02",
+      "notes": "鉅亨網: 台北股匯 2 October 2024 closed (Typhoon Krathon).",
+      "local_files": [
+        {
+          "path": "TW-TWSE/press-cnyes-2024-10-01.html",
+          "sha256": "a3ca9fe309ea9f6c6525c82661bfd8d44b39f804e6f9fcfc50259a2d41ad939d"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2024-10-02",
+          "to": "2024-10-02"
+        }
+      ]
+    },
+    {
+      "id": "press-ctee-2012-08-02",
+      "title": "工商時報 休市 除權息、款券交割順延 (蘇拉)",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://www.ctee.com.tw/news/20120802700042-439901",
+      "retrieved": "2026-10-14",
+      "covers": "2012-08-02",
+      "notes": "工商時報 2 August 2012: \"台北市政府宣布今（2）日停止上班，股市也配合休市，應屆交割款、券…順延\" (Typhoon Saola).",
+      "local_files": [
+        {
+          "path": "TW-TWSE/press-ctee-2012-08-02.html",
+          "sha256": "9c6349f7b5debe5bddaaf27f2d441017712fbf4db3f11f7fe5297b37eceb10d3"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2012-08-02",
+          "to": "2012-08-02"
+        }
+      ]
+    },
+    {
+      "id": "press-ctee-2013-08-21",
+      "title": "工商時報 潭美來襲 股匯今休市",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://www.ctee.com.tw/news/20130821700183-439901",
+      "retrieved": "2026-10-14",
+      "covers": "2013-08-21",
+      "notes": "工商時報 21 August 2013: \"證交所表示，因股市休市，原應辦交割事宜則順延至次一營業日\" (Typhoon Trami).",
+      "local_files": [
+        {
+          "path": "TW-TWSE/press-ctee-2013-08-21.html",
+          "sha256": "f191ba541db7e5121cecfd7e1d9d7fbb9bc95cdee801b96485ebfc323a303388"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2013-08-21",
+          "to": "2013-08-21"
+        }
+      ]
+    },
+    {
+      "id": "press-ctee-2019-08-08",
+      "title": "工商時報 颱風來襲 台股明日休市一天 (利奇馬)",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://www.ctee.com.tw/news/20190808700734-439803",
+      "retrieved": "2026-10-14",
+      "covers": "2019-08-09",
+      "notes": "工商時報 8 August 2019: \"台灣證券交易所表示…8月9日集中交易市場全日休市\" (Typhoon Lekima).",
+      "local_files": [
+        {
+          "path": "TW-TWSE/press-ctee-2019-08-08.html",
+          "sha256": "c35cfce114316dabbdf4e07a77bb8bae8271a8917ae8fc0c83ae31571393264f"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2019-08-09",
+          "to": "2019-08-09"
+        }
+      ]
+    },
+    {
+      "id": "press-epochtimes-2012-06-12",
+      "title": "大紀元 台北市政府宣布今天下午停班停課",
+      "publisher": "Press",
+      "location": "https://www.epochtimes.com/gb/news391_29920.htm",
+      "retrieved": "2026-10-14",
+      "covers": "",
+      "notes": "大紀元 台北市政府宣布今天下午停班停課",
+      "local_files": [
+        {
+          "path": "TW-TWSE/press-epochtimes-2012-06-12.html",
+          "sha256": "b110f31cb5760f0dd8c2fd607c2e977b7c25ec1995443205878d37e84b698628"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "press-ettoday-2014-07-22",
+      "title": "ETtoday 麥德姆颱風來襲 台股明日休市",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://finance.ettoday.net/news/381304",
+      "retrieved": "2026-10-14",
+      "covers": "2014-07-23",
+      "notes": "ETtoday 22 July 2014: \"證交所及櫃買中心宣布，明(23)日台股全日休市\" (Typhoon Matmo).",
+      "local_files": [
+        {
+          "path": "TW-TWSE/press-ettoday-2014-07-22.html",
+          "sha256": "a29ddaef5badbb1d30b9ecbca020407961e76062b146e2e07c04abb7c78b6ab1"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2014-07-23",
+          "to": "2014-07-23"
+        }
+      ]
+    },
+    {
+      "id": "press-ettoday-2016-09-28",
+      "title": "ETtoday 梅姬掃台停電 (9/28 股匯市休市)",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://finance.ettoday.net/news/783539",
+      "retrieved": "2026-10-14",
+      "covers": "2016-09-28",
+      "notes": "ETtoday 28 September 2016: \"全國22個縣市28日全數停班停課…台北股匯市因此休市一天\" (Typhoon Megi, second day).",
+      "local_files": [
+        {
+          "path": "TW-TWSE/press-ettoday-2016-09-28.html",
+          "sha256": "07756633480438740bcaecaa25b9f568683c0cd93763f22463c7bc8e07a178f5"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2016-09-28",
+          "to": "2016-09-28"
+        }
+      ]
+    },
+    {
+      "id": "press-ettoday-2019-02-15",
+      "title": "ETtoday 證交所：228連假證券市場休市 23日補班不交易也不交割",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://finance.ettoday.net/news/1378428",
+      "retrieved": "2026-10-14",
+      "covers": "2019-02-23 to 2019-03-01",
+      "notes": "ETtoday 15 February 2019 quoting the exchange: closed 28 February-1 March 2019; 23 February a make-up working day \"但不交易也不交割\".",
+      "local_files": [
+        {
+          "path": "TW-TWSE/press-ettoday-2019-02-15.html",
+          "sha256": "864e64910e37b792c0cdab83ea9cecc2de0e535a85652de634434450ed17f5ed"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "press-ettoday-2019-09-29",
+      "title": "ETtoday 米塔颱風來襲北市停班停課 股匯市30日休市一天",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://finance.ettoday.net/news/1546086",
+      "retrieved": "2026-10-14",
+      "covers": "2019-09-30",
+      "notes": "ETtoday 29 September 2019: the exchange's rule and the 30 September closure (Typhoon Mitag).",
+      "local_files": [
+        {
+          "path": "TW-TWSE/press-ettoday-2019-09-29.html",
+          "sha256": "94dea5a206345c7f4418c1cca5357849525bdf294a6957398eb39f73438ca186"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2019-09-30",
+          "to": "2019-09-30"
+        }
+      ]
+    },
+    {
+      "id": "press-ettoday-2023-08-02",
+      "title": "ETtoday 颱風影響股匯市！明休市1天 (卡努)",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://finance.ettoday.net/news/2553010",
+      "retrieved": "2026-10-14",
+      "covers": "2023-08-03",
+      "notes": "ETtoday 2 August 2023: \"台灣證券交易所晚間表示…明（8月3日）集中交易市場全日休市\" (Typhoon Khanun).",
+      "local_files": [
+        {
+          "path": "TW-TWSE/press-ettoday-2023-08-02.html",
+          "sha256": "0d7de30f13ab724fe934d2b9cb058e9d8d7bad8d52d8c18af4f6e716364f7091"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2023-08-03",
+          "to": "2023-08-03"
+        }
+      ]
+    },
+    {
+      "id": "press-ettoday-2025-10-29",
+      "title": "ETtoday 明年農曆年台股休市11天 (2026 calendar)",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://finance.ettoday.net/news/3058648",
+      "retrieved": "2026-10-14",
+      "covers": "2026",
+      "notes": "ETtoday 29 October 2025: the exchange announces its 2026 calendar.",
+      "local_files": [
+        {
+          "path": "TW-TWSE/press-ettoday-2025-10-29.html",
+          "sha256": "2e762882673f2481099767d97c0eb8bf512c2871ee482fd318aad34728dff569"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "press-ettoday-2026-07-09",
+      "title": "ETtoday 巴威颱風來襲 台北股匯市明日休市",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://finance.ettoday.net/news/3198381",
+      "retrieved": "2026-10-14",
+      "covers": "2026-07-10",
+      "notes": "ETtoday 9 July 2026 quoting the exchange: \"7月10日集中交易市場全日休市…當日應屆交割款券順延辦理\" (Typhoon Bavi).",
+      "local_files": [
+        {
+          "path": "TW-TWSE/press-ettoday-2026-07-09.html",
+          "sha256": "e121f72b3cbeaaf0ffe901219b612d862ae5a29c68b3e8a52087c3c0c6fdfebd"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2026-07-10",
+          "to": "2026-07-10"
+        }
+      ]
+    },
+    {
+      "id": "press-mondovisione-2008-12",
+      "title": "Mondo Visione: TWSE announces three working Saturdays in 2009",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://mondovisione.com/media-and-resources/news/taiwan-stock-exchange-corporation-announces-three-working-saturdays-in-2009-2011124/",
+      "retrieved": "2026-10-14",
+      "covers": "2009",
+      "notes": "Mondo Visione, December 2008: the exchange's notice of three Saturday trading sessions in 2009 (context for the pre-2019 practice).",
+      "local_files": [
+        {
+          "path": "TW-TWSE/press-mondovisione-2008-12.html",
+          "sha256": "f61e22f24adfc0de36c6b6a89bb95074d027a4f82b8662b76bd7449c87a8300e"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "press-newtalk-2024-10-03",
+      "title": "Newtalk 山陀兒 10/3 續休市 (證交所公告)",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://newtalk.tw/news/view/2024-10-03/938679",
+      "retrieved": "2026-10-14",
+      "covers": "2024-10-03",
+      "notes": "Newtalk 3 October 2024 quoting the exchange: \"113年10月3日集中交易市場全日休市，當日應屆交割款券順延辦理\" (Typhoon Krathon, second day).",
+      "local_files": [
+        {
+          "path": "TW-TWSE/press-newtalk-2024-10-03.html",
+          "sha256": "c292fc7c91894a1f4cd7e2e3ede28d10f4f361e17e8ba7701b6385087c6bbc79"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2024-10-03",
+          "to": "2024-10-03"
+        }
+      ]
+    },
+    {
+      "id": "press-nownews-undated-2012-06-12-event",
+      "title": "NOWnews 回顧 2012-06-12 台北市停班停課宣布時間",
+      "publisher": "Press",
+      "location": "https://www.nownews.com/news/6744726",
+      "retrieved": "2026-10-14",
+      "covers": "",
+      "notes": "NOWnews 回顧 2012-06-12 台北市停班停課宣布時間",
+      "local_files": [
+        {
+          "path": "TW-TWSE/press-nownews-undated-2012-06-12-event.html",
+          "sha256": "3227327cac5d3e982b2844eef8409183b9027aed0eee965b1899d438acab711f"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "press-pts-2018-06-08",
+      "title": "公視 週六補班台股交易 (2017 volumes)",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://news.pts.org.tw/article/396371",
+      "retrieved": "2026-10-14",
+      "covers": "2018",
+      "notes": "PTS 8 June 2018: consultation on ending Saturday trading; 2017 Saturday turnover 44-59% of the daily average.",
+      "local_files": [
+        {
+          "path": "TW-TWSE/press-pts-2018-06-08.html",
+          "sha256": "910242347a900ead5dbdaf84e9c22c4062b298bfd2aebf911aca1845345f1a91"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "press-taiwannews-2022-01-07",
+      "title": "Taiwan News (zh) 證交所: 1/31-2/4 休市, 1/22 補班不交易不交割",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://www.taiwannews.com.tw/zh/news/4402107",
+      "retrieved": "2026-10-14",
+      "covers": "2022-01-22 to 2022-02-04",
+      "notes": "Taiwan News 7 January 2022: the exchange closed 27 January-4 February 2022; 22 January make-up day without trading.",
+      "local_files": [
+        {
+          "path": "TW-TWSE/press-taiwannews-2022-01-07.html",
+          "sha256": "f571317e691a4c3557eea1fb4b09fc8f205d0f20241ce3aa157b07495b8ad0b5"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "press-taiwannews-2024-10-31",
+      "title": "Taiwan News: Taiwan stock market closed Oct. 31 (Kong-rey)",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://www.taiwannews.com.tw/en/news/5962323",
+      "retrieved": "2026-10-14",
+      "covers": "2024-10-31",
+      "notes": "Taiwan News / CNA 31 October 2024: market closed, settlements postponed (Typhoon Kong-rey).",
+      "local_files": [
+        {
+          "path": "TW-TWSE/press-taiwannews-2024-10-31.html",
+          "sha256": "719ec589ecfd86a20f12bfca59d8afd8bf027cfd6c10908ee662886626079a31"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2024-10-31",
+          "to": "2024-10-31"
+        }
+      ]
+    },
+    {
+      "id": "press-technews-2018-07-03",
+      "title": "TechNews/中央社 明年週六補班台股將不交易",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://finance.technews.tw/2018/07/03/working-sat-stop-stock-market-in-2019/",
+      "retrieved": "2026-10-14",
+      "covers": "2019-01-01 onward",
+      "notes": "CNA/TechNews 3 July 2018: the FSC chairman announces no trading on the 2019 make-up Saturdays (\"明年週六補班台股將不交易\").",
+      "local_files": [
+        {
+          "path": "TW-TWSE/press-technews-2018-07-03.html",
+          "sha256": "c5ff74f1de96b951112553d2141e2765659bdb01f81d2def278c58d536c6435a"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "press-tvbs-2012-06-12",
+      "title": "TVBS 豪雨狂降 12日停班停課一覽表",
+      "publisher": "Press",
+      "location": "https://news.tvbs.com.tw/life/20878",
+      "retrieved": "2026-10-14",
+      "covers": "",
+      "notes": "TVBS 豪雨狂降 12日停班停課一覽表",
+      "local_files": [
+        {
+          "path": "TW-TWSE/press-tvbs-2012-06-12.html",
+          "sha256": "c78dadc17382ad2a76e4befdc0391fadb052625d75aa75563f76b3286e02a428"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "press-udn-2025-10-29",
+      "title": "經濟日報 證交所行事曆出爐 明年春節股市連休11天",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://money.udn.com/money/story/5607/9105340",
+      "retrieved": "2026-10-14",
+      "covers": "2026",
+      "notes": "經濟日報 29 October 2025: the exchange's 2026 calendar.",
+      "local_files": [
+        {
+          "path": "TW-TWSE/press-udn-2025-10-29.html",
+          "sha256": "d891a2ff3d62de84adc083b3f19c8ae4afc79e068faee07944d47443154a052c"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "press-yahoo-2024-07-24",
+      "title": "Yahoo股市 台股再休市1天！中鋼除息順延 (凱米 7/25)",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://tw.stock.yahoo.com/news/%E5%8F%B0%E8%82%A1%E5%86%8D%E4%BC%91%E5%B8%821%E5%A4%A9%EF%BC%81%E4%B8%AD%E9%8B%BC%E9%99%A4%E6%81%AF%E9%A0%86%E5%BB%B6-%E4%B8%80%E8%A1%A8%E7%9C%8B%E5%87%B1%E7%B1%B3%E5%BD%B1%E9%9F%BF80%E6%AA%94%E6%A8%99%E7%9A%84-120155629.html",
+      "retrieved": "2026-10-14",
+      "covers": "2024-07-25",
+      "notes": "Yahoo/鉅亨 24 July 2024: \"明天集中交易市場再休市1天\" (Typhoon Gaemi, second day).",
+      "local_files": [
+        {
+          "path": "TW-TWSE/press-yahoo-2024-07-24.html",
+          "sha256": "5d9f86c4ac9a181c4be3ebff158977b5633b8afd5f053ee14adb3e47a82bd55e"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2024-07-25",
+          "to": "2024-07-25"
+        }
+      ]
+    },
+    {
+      "id": "press-cna-2012-12-25",
+      "title": "中央商情網 via yam 國際金融市場日誌 (2013 TWSE calendar)",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://n.yam.com/Article/20121225085975",
+      "retrieved": "2026-10-14",
+      "covers": "2013",
+      "notes": "中央商情網 25 December 2012: the exchange's 2013 calendar.",
+      "local_files": [
+        {
+          "path": "TW-TWSE/press-yam-2012-12-25.html",
+          "sha256": "e5e5854cb71eff22d978b524f292d2b0beb6ca4c70f2c8c8fc2e0567fbde38ef"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "press-cna-2015-07-09",
+      "title": "中央社 via yam 10日股匯市休市一天 (昌鴻)",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://n.yam.com/Article/20150709145457",
+      "retrieved": "2026-10-14",
+      "covers": "2015-07-10",
+      "notes": "CNA 9 July 2015 (yam): \"104年7月10日股票交易市場全日休市，當日應屆交割款券順延辦理\" (Typhoon Chan-hom).",
+      "local_files": [
+        {
+          "path": "TW-TWSE/press-yam-cna-2015-07-09.html",
+          "sha256": "4f0244c71975ceea0c2b3c3d57a21143e21c1b07450ae6baa8528b3e21bf8bbb"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2015-07-10",
+          "to": "2015-07-10"
+        }
+      ]
+    }
+  ]
+}

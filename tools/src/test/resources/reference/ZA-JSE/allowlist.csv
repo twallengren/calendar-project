@@ -1,0 +1,62 @@
+source,side,date,type,close_time,reason
+# Known differences between our ZA-JSE data and the reference datasets. Both references
+# reproduce the statutory public holidays with the Sunday-to-Monday rule; neither models the
+# exchange's 12:00 early closes on the two year-end days (jse-hotline-130-2025 and the December
+# schedules back to 2010), the 15:00 early close of 26 April 2019 (jse-notice-104b-2019), or the
+# later proclaimed holidays. QuantLib's SouthAfrica() is a national calendar with a few
+# hard-coded one-off days (it has 3 August 2016 and the 2021-2024 proclamations but not the
+# 2011, 2014 and 2019 election days nor 27 December 2011 and 2016).
+exchange_calendars-XJSE,ours,2010-12-24,EARLY_CLOSE,12:00,Christmas Eve early close at 12:00 per the exchange's December schedule (jse-notice-y555-2010); exchange_calendars models no JSE early closes
+exchange_calendars-XJSE,ours,2010-12-31,EARLY_CLOSE,12:00,New Year's Eve early close at 12:00 per the exchange's December schedule (jse-notice-y555-2010); exchange_calendars models no JSE early closes
+exchange_calendars-XJSE,ours,2011-12-23,EARLY_CLOSE,12:00,Christmas Eve early close at 12:00 moved to the preceding Friday per the exchange's December schedule (jse-notice-f4993-2011); exchange_calendars models no JSE early closes
+exchange_calendars-XJSE,ours,2011-12-30,EARLY_CLOSE,12:00,New Year's Eve early close at 12:00 moved to the preceding Friday per the exchange's December schedule (jse-notice-f4993-2011); exchange_calendars models no JSE early closes
+exchange_calendars-XJSE,ours,2012-12-24,EARLY_CLOSE,12:00,Christmas Eve early close at 12:00 per the exchange's standing year-end practice (schedule for this year not located) (jse-hotline-130-2025); exchange_calendars models no JSE early closes
+exchange_calendars-XJSE,ours,2012-12-31,EARLY_CLOSE,12:00,New Year's Eve early close at 12:00 per the exchange's standing year-end practice (schedule for this year not located) (jse-hotline-130-2025); exchange_calendars models no JSE early closes
+exchange_calendars-XJSE,ours,2013-12-24,EARLY_CLOSE,12:00,Christmas Eve early close at 12:00 per the exchange's standing year-end practice (schedule for this year not located) (jse-hotline-130-2025); exchange_calendars models no JSE early closes
+exchange_calendars-XJSE,ours,2013-12-31,EARLY_CLOSE,12:00,New Year's Eve early close at 12:00 per the exchange's standing year-end practice (schedule for this year not located) (jse-hotline-130-2025); exchange_calendars models no JSE early closes
+exchange_calendars-XJSE,ours,2014-12-24,EARLY_CLOSE,12:00,Christmas Eve early close at 12:00 per the exchange's December schedule (jse-hotline-170-2014); exchange_calendars models no JSE early closes
+exchange_calendars-XJSE,ours,2014-12-31,EARLY_CLOSE,12:00,New Year's Eve early close at 12:00 per the exchange's December schedule (jse-hotline-170-2014); exchange_calendars models no JSE early closes
+exchange_calendars-XJSE,ours,2015-12-24,EARLY_CLOSE,12:00,Christmas Eve early close at 12:00 per the exchange's December schedule (jse-hotline-157-2015); exchange_calendars models no JSE early closes
+exchange_calendars-XJSE,ours,2015-12-31,EARLY_CLOSE,12:00,New Year's Eve early close at 12:00 per the exchange's December schedule (jse-hotline-157-2015); exchange_calendars models no JSE early closes
+exchange_calendars-XJSE,ours,2016-12-23,EARLY_CLOSE,12:00,Christmas Eve early close at 12:00 moved to the preceding Friday per the exchange's December schedule (jse-hotline-200-2016); exchange_calendars models no JSE early closes
+exchange_calendars-XJSE,ours,2016-12-30,EARLY_CLOSE,12:00,New Year's Eve early close at 12:00 moved to the preceding Friday per the exchange's December schedule (jse-hotline-200-2016); exchange_calendars models no JSE early closes
+exchange_calendars-XJSE,ours,2017-12-22,EARLY_CLOSE,12:00,Christmas Eve early close at 12:00 moved to the preceding Friday per the exchange's December schedule (jse-hotline-147-2017); exchange_calendars models no JSE early closes
+exchange_calendars-XJSE,ours,2017-12-29,EARLY_CLOSE,12:00,New Year's Eve early close at 12:00 moved to the preceding Friday per the exchange's December schedule (jse-hotline-147-2017); exchange_calendars models no JSE early closes
+exchange_calendars-XJSE,ours,2018-12-24,EARLY_CLOSE,12:00,Christmas Eve early close at 12:00 per the exchange's December schedule (jse-hotline-193-2018); exchange_calendars models no JSE early closes
+exchange_calendars-XJSE,ours,2018-12-31,EARLY_CLOSE,12:00,New Year's Eve early close at 12:00 per the exchange's December schedule (jse-hotline-193-2018); exchange_calendars models no JSE early closes
+exchange_calendars-XJSE,ours,2019-04-26,EARLY_CLOSE,15:00,Scheduled 15:00 early close of all JSE markets before the Integrated Trading and Clearing go-live (jse-notice-104b-2019); not modelled by exchange_calendars
+exchange_calendars-XJSE,ours,2019-12-24,EARLY_CLOSE,12:00,Christmas Eve early close at 12:00 per the exchange's December schedule (jse-hotline-209-2019); exchange_calendars models no JSE early closes
+exchange_calendars-XJSE,ours,2019-12-31,EARLY_CLOSE,12:00,New Year's Eve early close at 12:00 per the exchange's December schedule (jse-hotline-209-2019); exchange_calendars models no JSE early closes
+exchange_calendars-XJSE,ours,2020-12-24,EARLY_CLOSE,12:00,Christmas Eve early close at 12:00 per the exchange's December schedule (jse-hotline-230-2020); exchange_calendars models no JSE early closes
+exchange_calendars-XJSE,ours,2020-12-31,EARLY_CLOSE,12:00,New Year's Eve early close at 12:00 per the exchange's December schedule (jse-hotline-230-2020); exchange_calendars models no JSE early closes
+exchange_calendars-XJSE,ours,2021-12-24,EARLY_CLOSE,12:00,Christmas Eve early close at 12:00 per the exchange's December schedule (jse-hotline-206-2021); exchange_calendars models no JSE early closes
+exchange_calendars-XJSE,ours,2021-12-31,EARLY_CLOSE,12:00,New Year's Eve early close at 12:00 per the exchange's December schedule (jse-hotline-206-2021); exchange_calendars models no JSE early closes
+exchange_calendars-XJSE,ours,2022-12-23,EARLY_CLOSE,12:00,Christmas Eve early close at 12:00 moved to the preceding Friday per the exchange's December schedule (jse-hotline-143-2022); exchange_calendars models no JSE early closes
+exchange_calendars-XJSE,ours,2022-12-30,EARLY_CLOSE,12:00,New Year's Eve early close at 12:00 moved to the preceding Friday per the exchange's December schedule (jse-hotline-143-2022); exchange_calendars models no JSE early closes
+exchange_calendars-XJSE,ours,2023-12-22,EARLY_CLOSE,12:00,Christmas Eve early close at 12:00 moved to the preceding Friday per the exchange's December schedule (jse-hotline-159-2023); exchange_calendars models no JSE early closes
+exchange_calendars-XJSE,ours,2023-12-29,EARLY_CLOSE,12:00,New Year's Eve early close at 12:00 moved to the preceding Friday per the exchange's December schedule (jse-hotline-159-2023); exchange_calendars models no JSE early closes
+exchange_calendars-XJSE,ours,2024-12-24,EARLY_CLOSE,12:00,Christmas Eve early close at 12:00 per the exchange's December schedule (jse-hotline-150-2024); exchange_calendars models no JSE early closes
+exchange_calendars-XJSE,ours,2024-12-31,EARLY_CLOSE,12:00,New Year's Eve early close at 12:00 per the exchange's December schedule (jse-hotline-150-2024); exchange_calendars models no JSE early closes
+exchange_calendars-XJSE,ours,2025-12-24,EARLY_CLOSE,12:00,Christmas Eve early close at 12:00 per the exchange's December schedule (jse-hotline-130-2025); exchange_calendars models no JSE early closes
+exchange_calendars-XJSE,ours,2025-12-31,EARLY_CLOSE,12:00,New Year's Eve early close at 12:00 per the exchange's December schedule (jse-hotline-130-2025); exchange_calendars models no JSE early closes
+exchange_calendars-XJSE,ours,2026-12-24,EARLY_CLOSE,12:00,Christmas Eve early close at 12:00 projected from the exchange's standing year-end practice (jse-hotline-130-2025); exchange_calendars models no JSE early closes
+exchange_calendars-XJSE,ours,2026-12-31,EARLY_CLOSE,12:00,New Year's Eve early close at 12:00 projected from the exchange's standing year-end practice (jse-hotline-130-2025); exchange_calendars models no JSE early closes
+exchange_calendars-XJSE,ours,2027-12-24,EARLY_CLOSE,12:00,Christmas Eve early close at 12:00 projected from the exchange's standing year-end practice (jse-hotline-130-2025); exchange_calendars models no JSE early closes
+exchange_calendars-XJSE,ours,2027-12-31,EARLY_CLOSE,12:00,New Year's Eve early close at 12:00 projected from the exchange's standing year-end practice (jse-hotline-130-2025); exchange_calendars models no JSE early closes
+exchange_calendars-XJSE,ours,2028-12-22,EARLY_CLOSE,12:00,Christmas Eve early close at 12:00 moved to the preceding Friday projected from the exchange's standing year-end practice (jse-hotline-130-2025); exchange_calendars models no JSE early closes
+exchange_calendars-XJSE,ours,2028-12-29,EARLY_CLOSE,12:00,New Year's Eve early close at 12:00 moved to the preceding Friday projected from the exchange's standing year-end practice (jse-hotline-130-2025); exchange_calendars models no JSE early closes
+exchange_calendars-XJSE,ours,2029-12-24,EARLY_CLOSE,12:00,Christmas Eve early close at 12:00 projected from the exchange's standing year-end practice (jse-hotline-130-2025); exchange_calendars models no JSE early closes
+exchange_calendars-XJSE,ours,2029-12-31,EARLY_CLOSE,12:00,New Year's Eve early close at 12:00 projected from the exchange's standing year-end practice (jse-hotline-130-2025); exchange_calendars models no JSE early closes
+exchange_calendars-XJSE,ours,2030-12-24,EARLY_CLOSE,12:00,Christmas Eve early close at 12:00 projected from the exchange's standing year-end practice (jse-hotline-130-2025); exchange_calendars models no JSE early closes
+exchange_calendars-XJSE,ours,2030-12-31,EARLY_CLOSE,12:00,New Year's Eve early close at 12:00 projected from the exchange's standing year-end practice (jse-hotline-130-2025); exchange_calendars models no JSE early closes
+exchange_calendars-XJSE,ours,2021-11-01,CLOSED,,Local government election day, proclaimed under s 2A (jse-notice-481a-2021); absent from exchange_calendars
+exchange_calendars-XJSE,ours,2022-12-27,CLOSED,,Tuesday after a Sunday Christmas, proclaimed under s 2A (jse-notice-600-2022); absent from exchange_calendars
+exchange_calendars-XJSE,ours,2023-12-15,CLOSED,,Public holiday declared after the Rugby World Cup win (jse-hotline-169-2023); absent from exchange_calendars
+exchange_calendars-XJSE,ours,2024-05-29,CLOSED,,National election day, proclaimed under s 2A (jse-hotline-057-2024); absent from exchange_calendars
+exchange_calendars-XJSE,ours,2026-11-04,CLOSED,,Local government election day, proclaimed under s 2A on 15 September 2026 (sanews-2026-09-15); absent from exchange_calendars
+quantlib-south-africa,ours,2011-05-18,CLOSED,,Local government election day, proclaimed under s 2A (sanews-2011-03-16); absent from QuantLib SouthAfrica()
+quantlib-south-africa,ours,2011-12-27,CLOSED,,Tuesday after a Sunday Christmas, proclaimed under s 2A (jse-notice-a1537-2011); absent from QuantLib SouthAfrica()
+quantlib-south-africa,ours,2014-05-07,CLOSED,,National election day (jse-notice-y1346a-2014); absent from QuantLib SouthAfrica()
+quantlib-south-africa,ours,2016-12-27,CLOSED,,Tuesday after a Sunday Christmas, proclaimed under s 2A (jse-hotline-200-2016); absent from QuantLib SouthAfrica()
+quantlib-south-africa,ours,2019-05-08,CLOSED,,National election day (jse-notice-72-2019); absent from QuantLib SouthAfrica()
+quantlib-south-africa,ours,2026-11-04,CLOSED,,Local government election day, proclaimed on 15 September 2026 (sanews-2026-09-15); absent from QuantLib SouthAfrica()

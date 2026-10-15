@@ -1,0 +1,19 @@
+kind: module
+id: sg_labour_day
+
+# Labour Day (1 May). Sunday occurrences move to Monday (2011, 2016, 2022: Monday 2 May 2022 was
+# Labour Day in lieu, with Hari Raya Puasa on Tuesday 3 May); Saturday occurrences (2021, 2027)
+# bring no substitute.
+# Source: mom-public-holidays.
+
+source:
+  - id: mom-public-holidays
+
+event_sources:
+  - key: sg_labour_day
+    name: Labour Day
+    default_classification: CLOSED
+    rule:
+      type: fixed_month_day
+      month: 5
+      day: 1

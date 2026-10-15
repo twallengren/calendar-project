@@ -1,0 +1,21 @@
+kind: module
+id: tw_twse_holidays
+
+# TWSE centralised market non-trading days as the exchange's annual 開（休）市日期表 list them:
+# the national holidays with their substitute and bridge days, Labour Day, the two settlement-only
+# days before each Lunar New Year closure, and the typhoon closures. Trading on the fifteen make-up
+# Saturdays of 2010-2018 is expressed by tw_twse_weekends.
+
+uses:
+  - tw_twse_weekends
+  - tw_new_years_day
+  - tw_lunar_new_year
+  - tw_peace_memorial_day
+  - tw_childrens_day_tomb_sweeping_day
+  - tw_labour_day
+  - tw_dragon_boat_festival
+  - tw_mid_autumn_festival
+  - tw_national_day
+  - tw_national_holidays_2025
+  - tw_twse_bridge_days_year_end
+  - tw_twse_typhoon_closures

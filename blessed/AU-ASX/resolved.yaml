@@ -1,0 +1,505 @@
+kind: resolved_calendar
+id: AU-ASX
+metadata:
+  name: Australian Securities Exchange
+  description: ASX Trade cash equities market trading calendar (MIC XASX)
+  chronology: ISO
+  timezone: Australia/Sydney
+  mic: XASX
+  coverage:
+    from: 2010-01-01
+    to: 2030-12-31
+    verified_through: 2027-12-31
+    quality:
+    - scope: SCHEDULED_CLOSURES
+      from: 2010-01-01
+      to: 2019-12-31
+      quality: VERIFIED
+      evidence_ids:
+      - asx-cash-market-trading-days-by-month
+      - asx-activity-report-2010-06
+      - asx-activity-report-2011-06
+      - asx-activity-report-2012-06
+      - asx-activity-report-2013-06
+      - asx-activity-report-2014-06
+      - asx-activity-report-2015-06
+      - asx-activity-report-2016-06
+      - asx-activity-report-2017-06
+      - asx-activity-report-2018-06
+      - asx-activity-report-2019-06
+      - asx-activity-report-2020-06
+      - asx-activity-report-2011-04
+      - asx-activity-report-2012-01
+      - asx-activity-report-2015-04
+      - asx-events-2016-04
+      - asx-events-2018-12
+      - asx24-trading-calendar-2019
+    - scope: SCHEDULED_CLOSURES
+      from: 2020-01-01
+      to: 2020-12-31
+      quality: VERIFIED
+      evidence_ids:
+      - asx-trade-calendar-2020
+      - asx-activity-report-2020-06
+      - asx-activity-report-2021-06
+    - scope: SCHEDULED_CLOSURES
+      from: 2021-01-01
+      to: 2021-12-31
+      quality: VERIFIED
+      evidence_ids:
+      - asx-cash-market-trading-days-by-month
+      - asx-activity-report-2021-06
+      - asx-activity-report-2022-06
+      - asx-notice-1320-20-10
+      - asx-notice-0812-18-07
+      - asx-activity-report-2021-04
+      - asx-notice-1639-21-11
+    - scope: SCHEDULED_CLOSURES
+      from: 2022-01-01
+      to: 2027-12-31
+      quality: VERIFIED
+      evidence_ids:
+      - asx-trade-calendar-2022
+      - asx-trade-calendar-2023
+      - asx-trade-calendar-2024
+      - asx-notice-0840-23-08
+      - asx-trade-calendar-2025
+      - asx-trade-calendar-2026
+      - asx-trade-calendar-2026-2027
+      - asx-activity-report-2022-06
+      - asx-activity-report-2023-06
+      - asx-activity-report-2024-06
+      - asx-activity-report-2025-06
+      - asx-activity-report-2026-06
+      - asx-activity-report-2026-09
+    - scope: SCHEDULED_CLOSURES
+      from: 2028-01-01
+      to: 2030-12-31
+      quality: PROJECTED
+      evidence_ids:
+      - nsw-public-holidays-act
+    - scope: EARLY_CLOSES
+      from: 2010-01-01
+      to: 2016-11-30
+      quality: PROJECTED
+      evidence_ids:
+      - fnarena-2010-12-24
+      - asx-notice-1514-16-12
+    - scope: EARLY_CLOSES
+      from: 2016-12-01
+      to: 2016-12-31
+      quality: VERIFIED
+      evidence_ids:
+      - asx-notice-1514-16-12
+      - asx-events-2016-12
+      - asx-event-2016-12-23
+    - scope: EARLY_CLOSES
+      from: 2017-01-01
+      to: 2017-11-30
+      quality: PROJECTED
+      evidence_ids:
+      - asx-notice-1357-16-11
+    - scope: EARLY_CLOSES
+      from: 2017-12-01
+      to: 2017-12-31
+      quality: VERIFIED
+      evidence_ids:
+      - asx-notice-1357-16-11
+      - asx-notice-1305-17-11
+    - scope: EARLY_CLOSES
+      from: 2018-01-01
+      to: 2018-11-30
+      quality: PROJECTED
+      evidence_ids:
+      - asx-notice-1357-16-11
+    - scope: EARLY_CLOSES
+      from: 2018-12-01
+      to: 2018-12-31
+      quality: VERIFIED
+      evidence_ids:
+      - asx-notice-1396-18-12
+    - scope: EARLY_CLOSES
+      from: 2019-01-01
+      to: 2019-12-31
+      quality: PROJECTED
+      evidence_ids:
+      - asx-notice-1357-16-11
+    - scope: EARLY_CLOSES
+      from: 2020-01-01
+      to: 2020-12-31
+      quality: VERIFIED
+      evidence_ids:
+      - asx-trade-calendar-2020
+      - asx-notice-1541-20-11
+    - scope: EARLY_CLOSES
+      from: 2021-01-01
+      to: 2021-11-30
+      quality: PROJECTED
+      evidence_ids:
+      - asx-notice-1357-16-11
+    - scope: EARLY_CLOSES
+      from: 2021-12-01
+      to: 2021-12-31
+      quality: VERIFIED
+      evidence_ids:
+      - asx-notice-1639-21-11
+    - scope: EARLY_CLOSES
+      from: 2022-01-01
+      to: 2027-12-31
+      quality: VERIFIED
+      evidence_ids:
+      - asx-trade-calendar-2022
+      - asx-notice-1253-22-11
+      - asx-trade-calendar-2023
+      - asx-trade-calendar-2024
+      - asx-trade-calendar-2025
+      - asx-trade-calendar-2026
+      - asx-trade-calendar-2026-2027
+    - scope: EARLY_CLOSES
+      from: 2028-01-01
+      to: 2030-12-31
+      quality: PROJECTED
+      evidence_ids:
+      - asx-notice-1357-16-11
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2010-01-01
+      to: 2026-09-30
+      quality: VERIFIED
+      evidence_ids:
+      - asx-cash-market-trading-days-by-month
+      - asx-activity-report-2010-06
+      - asx-activity-report-2011-06
+      - asx-activity-report-2012-06
+      - asx-activity-report-2013-06
+      - asx-activity-report-2014-06
+      - asx-activity-report-2015-06
+      - asx-activity-report-2016-06
+      - asx-activity-report-2017-06
+      - asx-activity-report-2018-06
+      - asx-activity-report-2019-06
+      - asx-activity-report-2020-06
+      - asx-activity-report-2021-06
+      - asx-activity-report-2022-06
+      - asx-activity-report-2023-06
+      - asx-activity-report-2024-06
+      - asx-activity-report-2025-06
+      - asx-activity-report-2026-06
+      - asx-activity-report-2026-09
+      - asx-notice-1111-16-09
+      - asx-media-alert-2016-09-19
+      - asic-16-352mr
+      - asx-market-outage-report-2020-12-04
+      - asx-media-alert-2020-11-16
+      - asx-notice-1469-20-11
+      - asic-20-284mr
+      - asx-notice-0984-22-09
+      - asx-media-release-2011-10-27
+      - asx-activity-report-2020-11
+      - asx-activity-report-2022-09
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2026-10-01
+      to: 2030-12-31
+      quality: PROJECTED
+      evidence_ids:
+      - asx-notice-1111-16-09
+      - asx-market-outage-report-2020-12-04
+weekend_policy:
+  days:
+  - SATURDAY
+  - SUNDAY
+weekend_shift_policy: NEXT_AVAILABLE_WEEKDAY
+resolution_chain:
+- module:weekend_sat_sun
+- module:au_new_years_day
+- module:au_australia_day
+- module:au_good_friday
+- module:au_easter_monday
+- module:au_anzac_day
+- module:au_sovereigns_birthday
+- module:au_christmas_day
+- module:au_boxing_day
+- module:au_one_off_public_holidays
+- module:au_asx_early_closes
+- module:au_asx_unscheduled_exceptions
+- module:au_asx_holidays
+- calendar:AU-ASX
+references:
+- key: easter
+  formula: EASTER_WESTERN
+event_sources:
+- key: au_new_years_day
+  name: New Year's Day
+  origin: module:au_new_years_day
+  classification: CLOSED
+  shiftable: true
+  status: CONFIRMED
+  source:
+  - id: nsw-public-holidays-act
+  rule:
+    type: fixed_month_day
+    month: 1
+    day: 1
+- key: au_australia_day
+  name: Australia Day
+  origin: module:au_australia_day
+  classification: CLOSED
+  shiftable: true
+  status: CONFIRMED
+  source:
+  - id: nsw-public-holidays-act
+  rule:
+    type: fixed_month_day
+    month: 1
+    day: 26
+- key: au_good_friday
+  name: Good Friday
+  origin: module:au_good_friday
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: nsw-public-holidays-act
+  rule:
+    type: relative_to_reference
+    reference: easter
+    offset_days: -2
+- key: au_easter_monday
+  name: Easter Monday
+  origin: module:au_easter_monday
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: nsw-public-holidays-act
+  rule:
+    type: relative_to_reference
+    reference: easter
+    offset_days: 1
+- key: au_anzac_day
+  name: ANZAC Day
+  origin: module:au_anzac_day
+  classification: CLOSED
+  shift_policy: NONE
+  status: CONFIRMED
+  active_years:
+  - 2010
+  - - 2012
+    - null
+  source:
+  - id: asx-trade-calendar-2020
+    ref: ANZAC Day Saturday 25 April CLOSED (no Monday entry)
+  - id: asx-trade-calendar-2026-2027
+    ref: ANZAC Day Monday 26 April OPEN - Substitute for Sunday 25 April (2027)
+  rule:
+    type: fixed_month_day
+    month: 4
+    day: 25
+- key: au_anzac_day_substitute
+  name: ANZAC Day (additional public holiday)
+  origin: module:au_anzac_day
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: asx-activity-report-2011-04
+    ref: "Total trading days: April 2011 18, April 2010 19"
+  rule:
+    type: explicit_dates
+    dates:
+    - date: 2010-04-26
+      comment: ANZAC Day fell on Sunday 25 April 2010
+    - date: 2011-04-26
+      comment: ANZAC Day fell on Easter Monday 25 April 2011
+- key: au_queens_birthday
+  name: Queen's Birthday
+  origin: module:au_sovereigns_birthday
+  classification: CLOSED
+  status: CONFIRMED
+  active_years:
+  - - 2010
+    - 2022
+  source:
+  - id: nsw-public-holidays-act
+  rule:
+    type: nth_weekday_of_month
+    month: 6
+    weekday: MONDAY
+    nth: 2
+- key: au_kings_birthday
+  name: King's Birthday
+  origin: module:au_sovereigns_birthday
+  classification: CLOSED
+  status: CONFIRMED
+  active_years:
+  - - 2023
+    - null
+  source:
+  - id: nsw-public-holidays-act
+  rule:
+    type: nth_weekday_of_month
+    month: 6
+    weekday: MONDAY
+    nth: 2
+- key: au_christmas_day
+  name: Christmas Day
+  origin: module:au_christmas_day
+  classification: CLOSED
+  shiftable: true
+  status: CONFIRMED
+  source:
+  - id: nsw-public-holidays-act
+  rule:
+    type: fixed_month_day
+    month: 12
+    day: 25
+- key: au_boxing_day
+  name: Boxing Day
+  origin: module:au_boxing_day
+  classification: CLOSED
+  shiftable: true
+  status: CONFIRMED
+  source:
+  - id: nsw-public-holidays-act
+  rule:
+    type: fixed_month_day
+    month: 12
+    day: 26
+- key: au_national_day_of_mourning_2022
+  name: National Day of Mourning for Queen Elizabeth II
+  origin: module:au_one_off_public_holidays
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: asx-notice-0984-22-09
+    ref: ASX has declared that the ASX Trade Market will be closed on that day
+  - id: federation-national-day-of-mourning-2022
+    ref: The National Day of Mourning will be a one-off national public holiday
+  - id: asx-activity-report-2022-09
+    ref: "Total trading days: September 2022 21, September 2021 22"
+  rule:
+    type: explicit_dates
+    dates:
+    - 2022-09-22
+- key: au_asx_christmas_eve_early_close_pre2017
+  name: Last Trading Day Before Christmas (Early Close)
+  origin: module:au_asx_early_closes
+  classification: EARLY_CLOSE
+  shift_policy: PREVIOUS_AVAILABLE_BUSINESS_DAY
+  close_time: 14:10
+  status: CONFIRMED
+  active_years:
+  - - 2010
+    - 2016
+  source:
+  - id: asx-notice-1514-16-12
+    ref: trading hours on Friday 23 December 2016 and Friday 30 December will be shortened
+      in accordance with usual practice
+  - id: asx-event-2016-12-23
+    ref: Normal trading ceases at 14:10 (Sydney time)
+  - id: fnarena-2010-12-24
+    ref: The ASX will close at 2.10pm this afternoon ahead of the Christmas break
+  rule:
+    type: fixed_month_day
+    month: 12
+    day: 24
+- key: au_asx_new_years_eve_early_close_pre2017
+  name: Last Trading Day of the Year (Early Close)
+  origin: module:au_asx_early_closes
+  classification: EARLY_CLOSE
+  shift_policy: PREVIOUS_AVAILABLE_BUSINESS_DAY
+  close_time: 14:10
+  status: CONFIRMED
+  active_years:
+  - - 2010
+    - 2016
+  source:
+  - id: asx-notice-1514-16-12
+    ref: trading hours on Friday 23 December 2016 and Friday 30 December will be shortened
+      in accordance with usual practice
+  - id: fnarena-2010-12-24
+    ref: before the ASX again closes at 2.10pm ahead of New Year's Eve celebrations
+  rule:
+    type: fixed_month_day
+    month: 12
+    day: 31
+- key: au_asx_christmas_eve_early_close
+  name: Christmas Eve (Early Close)
+  origin: module:au_asx_early_closes
+  classification: EARLY_CLOSE
+  shift_policy: DROP
+  close_time: 14:10
+  status: CONFIRMED
+  active_years:
+  - - 2017
+    - null
+  source:
+  - id: asx-notice-1357-16-11
+    ref: From 2017 ASX will only close early when the last trading day before Christmas
+      and New Year's Holidays are the respective Eve of these holidays
+  - id: asx-trade-calendar-2024
+    ref: Tuesday 24 December CLOSE EARLY
+  - id: asx-trade-calendar-2022
+    ref: Last Business day before Christmas Day Friday 23 December OPEN
+  rule:
+    type: fixed_month_day
+    month: 12
+    day: 24
+- key: au_asx_new_years_eve_early_close
+  name: New Year's Eve (Early Close)
+  origin: module:au_asx_early_closes
+  classification: EARLY_CLOSE
+  shift_policy: DROP
+  close_time: 14:10
+  status: CONFIRMED
+  active_years:
+  - - 2017
+    - null
+  source:
+  - id: asx-notice-1357-16-11
+    ref: ASX trade will not observe an early close on the 22nd or 29th December 2017
+  - id: asx-trade-calendar-2024
+    ref: Tuesday 31 December CLOSE EARLY
+  - id: asx-trade-calendar-2022
+    ref: Last Business day of the Year Friday 30 December OPEN
+  rule:
+    type: fixed_month_day
+    month: 12
+    day: 31
+- key: au_asx_unscheduled_early_termination_2016
+  name: Unscheduled Early Termination (ASX Trade outage)
+  origin: module:au_asx_unscheduled_exceptions
+  classification: EARLY_CLOSE
+  close_time: 14:05
+  status: CONFIRMED
+  source:
+  - id: asx-notice-1111-16-09
+    ref: At 2.05pm ASX placed the entire market back into Enquire. ... At 3.35pm ASX
+      announced that the market would not re-open and that there would be no CSPA.
+  - id: asx-media-alert-2016-09-19
+    ref: a delay to the market open and the decision to close the market early
+  - id: asic-16-352mr
+    ref: This caused a delay to the market opening and an early market close
+  rule:
+    type: explicit_dates
+    dates:
+    - date: 2016-09-19
+      comment: "hardware failure in the main ASX Trade database; staggered open from\
+        \ 11:30, closed 14:05 without a closing auction"
+- key: au_asx_unscheduled_early_termination_2020
+  name: Unscheduled Early Termination (ASX Trade outage)
+  origin: module:au_asx_unscheduled_exceptions
+  classification: EARLY_CLOSE
+  close_time: 10:24
+  status: CONFIRMED
+  source:
+  - id: asx-market-outage-report-2020-12-04
+    ref: All markets on ASX Trade were placed in an ENQUIRE Session State at 10:24:05.
+      They remained in ENQUIRE for the rest of the trading day until 18:50
+  - id: asx-media-alert-2020-11-16
+    ref: "The market will remain closed today, Monday 16 November. It will reopen\
+      \ at the normal time (10am) tomorrow, Tuesday 17 November."
+  - id: asx-notice-1469-20-11
+    ref: All trades executed and reported today are valid
+  rule:
+    type: explicit_dates
+    dates:
+    - date: 2020-11-16
+      comment: ASX Trade software fault in the opening auction; trading ceased at
+        10:24:05 for the rest of the day

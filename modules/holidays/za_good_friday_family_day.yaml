@@ -1,0 +1,34 @@
+kind: module
+id: za_good_friday_family_day
+
+# Good Friday (the Friday before Easter Sunday) and Family Day (the Monday after), both in
+# Schedule 1 of the Public Holidays Act 36 of 1994. Never on a weekend, so no substitution.
+# Source: za-public-holidays-act, jse-markets-calendars.
+
+source:
+  - id: za-public-holidays-act
+
+references:
+  - key: easter
+    formula: EASTER_WESTERN
+
+event_sources:
+  - key: za_good_friday
+    name: Good Friday
+    default_classification: CLOSED
+    rule:
+      type: relative_to_reference
+      key: za_good_friday
+      name: Good Friday
+      reference: easter
+      offset_days: -2
+
+  - key: za_family_day
+    name: Family Day
+    default_classification: CLOSED
+    rule:
+      type: relative_to_reference
+      key: za_family_day
+      name: Family Day
+      reference: easter
+      offset_days: 1

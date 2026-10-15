@@ -1,0 +1,154 @@
+kind: module
+id: tw_lunar_new_year
+
+# Lunar New Year as the exchange's annual tables list it. The public holidays run from the Eve
+# (除夕; from 2025 the day before it, 小年夜, under the 紀念日及節日實施條例) through the third day,
+# with weekend days made up on the following working days and bridge days (調整放假) attached in
+# several years; and the exchange stops trading two business days earlier, keeping those two
+# days for clearing and settlement only ("市場無交易，僅辦理結算交割作業"), so they are
+# non-trading days too. Each year's dates are read from the exchange's table and confirmed by its
+# daily market summary. 2027 follows the government's 116年 calendar with the two settlement-only
+# days projected from the unbroken 2010-2026 pattern.
+# Source: twse-holiday-schedules, twse-trading-days.
+
+source:
+  - id: twse-holiday-schedules
+
+event_sources:
+  - key: tw_lunar_new_year
+    name: Lunar New Year
+    default_classification: CLOSED
+    shiftable: false
+    rule:
+      type: explicit_dates
+      dates:
+        - 2010-02-15
+        - 2010-02-16
+        - 2010-02-17
+        - 2010-02-18
+        - 2010-02-19
+        - 2011-02-02
+        - 2011-02-03
+        - 2011-02-04
+        - 2011-02-07
+        - 2012-01-23
+        - 2012-01-24
+        - 2012-01-25
+        - 2012-01-26
+        - 2012-01-27
+        - 2013-02-11
+        - 2013-02-12
+        - 2013-02-13
+        - 2013-02-14
+        - 2013-02-15
+        - 2014-01-30
+        - 2014-01-31
+        - 2014-02-03
+        - 2014-02-04
+        - 2015-02-18
+        - 2015-02-19
+        - 2015-02-20
+        - 2015-02-23
+        - 2016-02-08
+        - 2016-02-09
+        - 2016-02-10
+        - 2016-02-11
+        - 2016-02-12
+        - 2017-01-27
+        - 2017-01-30
+        - 2017-01-31
+        - 2017-02-01
+        - 2018-02-15
+        - 2018-02-16
+        - 2018-02-19
+        - 2018-02-20
+        - 2019-02-04
+        - 2019-02-05
+        - 2019-02-06
+        - 2019-02-07
+        - 2019-02-08
+        - 2020-01-23
+        - 2020-01-24
+        - 2020-01-27
+        - 2020-01-28
+        - 2020-01-29
+        - 2021-02-10
+        - 2021-02-11
+        - 2021-02-12
+        - 2021-02-15
+        - 2021-02-16
+        - 2022-01-31
+        - 2022-02-01
+        - 2022-02-02
+        - 2022-02-03
+        - 2022-02-04
+        - 2023-01-20
+        - 2023-01-23
+        - 2023-01-24
+        - 2023-01-25
+        - 2023-01-26
+        - 2023-01-27
+        - 2024-02-08
+        - 2024-02-09
+        - 2024-02-12
+        - 2024-02-13
+        - 2024-02-14
+        - 2025-01-27
+        - 2025-01-28
+        - 2025-01-29
+        - 2025-01-30
+        - 2025-01-31
+        - 2026-02-16
+        - 2026-02-17
+        - 2026-02-18
+        - 2026-02-19
+        - 2026-02-20
+        - 2027-02-04
+        - 2027-02-05
+        - 2027-02-08
+        - 2027-02-09
+        - 2027-02-10
+
+  - key: tw_twse_lunar_new_year_settlement_days
+    name: Lunar New Year (settlement only, no trading)
+    default_classification: CLOSED
+    shiftable: false
+    rule:
+      type: explicit_dates
+      dates:
+        - 2010-02-11
+        - 2010-02-12
+        - 2011-01-31
+        - 2011-02-01
+        - 2012-01-19
+        - 2012-01-20
+        - 2013-02-07
+        - 2013-02-08
+        - 2014-01-28
+        - 2014-01-29
+        - 2015-02-16
+        - 2015-02-17
+        - 2016-02-04
+        - 2016-02-05
+        - 2017-01-25
+        - 2017-01-26
+        - 2018-02-13
+        - 2018-02-14
+        - 2019-01-31
+        - 2019-02-01
+        - 2020-01-21
+        - 2020-01-22
+        - 2021-02-08
+        - 2021-02-09
+        - 2022-01-27
+        - 2022-01-28
+        - 2023-01-18
+        - 2023-01-19
+        - 2024-02-06
+        - 2024-02-07
+        - 2025-01-23
+        - 2025-01-24
+        - 2026-02-12
+        - 2026-02-13
+        - 2027-02-02
+        - 2027-02-03

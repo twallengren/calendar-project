@@ -1,0 +1,23 @@
+kind: module
+id: za_human_rights_day
+
+# South Africa's Public Holidays Act 36 of 1994, s 2(1): "whenever any public holiday falls on a
+# Sunday, the following Monday shall be a public holiday"; a Saturday holiday is not substituted.
+# The calendar's FORWARD_ONLY policy expresses that. The JSE closes all markets on every public
+# holiday ("As with all other public holidays in South Africa, the JSE will be closed for business
+# on this day", jse-notice-y1346a-2014).
+# Human Rights Day (21 March): Monday 22 March 2010, 2021 and 2027; Saturday 21 March 2015, 2020
+# and 2026 brought no substitute.
+# Source: za-public-holidays-act (the statute), jse-markets-calendars (the exchange's calendars).
+
+source:
+  - id: za-public-holidays-act
+
+event_sources:
+  - key: za_human_rights_day
+    name: Human Rights Day
+    default_classification: CLOSED
+    rule:
+      type: fixed_month_day
+      month: 3
+      day: 21

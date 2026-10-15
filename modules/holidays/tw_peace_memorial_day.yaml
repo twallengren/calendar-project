@@ -1,0 +1,50 @@
+kind: module
+id: tw_peace_memorial_day
+
+# Peace Memorial Day (和平紀念日, 28 February) as the exchange's tables list it: not made up on a
+# weekend before 2015 (Sunday 2010), made up from 2015 (Friday 27 February 2015 and 2026, Monday
+# 29 February 2016, Monday 1 March 2021 and 2027), with bridge days (調整放假) on Monday 27
+# February 2012, 2017 and 2023 and Friday 1 March 2019.
+# Source: twse-holiday-schedules.
+
+source:
+  - id: twse-holiday-schedules
+
+event_sources:
+  - key: tw_peace_memorial_day
+    name: Peace Memorial Day
+    default_classification: CLOSED
+    shiftable: false
+    rule:
+      type: explicit_dates
+      dates:
+        - 2011-02-28
+        - date: 2012-02-27
+          comment: bridge day
+        - 2012-02-28
+        - 2013-02-28
+        - 2014-02-28
+        - date: 2015-02-27
+          comment: substitute for Saturday 28 February
+        - date: 2016-02-29
+          comment: substitute for Sunday 28 February
+        - date: 2017-02-27
+          comment: bridge day
+        - 2017-02-28
+        - 2018-02-28
+        - 2019-02-28
+        - date: 2019-03-01
+          comment: bridge day
+        - 2020-02-28
+        - date: 2021-03-01
+          comment: substitute for Sunday 28 February
+        - 2022-02-28
+        - date: 2023-02-27
+          comment: bridge day
+        - 2023-02-28
+        - 2024-02-28
+        - 2025-02-28
+        - date: 2026-02-27
+          comment: substitute for Saturday 28 February
+        - date: 2027-03-01
+          comment: substitute for Sunday 28 February (government calendar)

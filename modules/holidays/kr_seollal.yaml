@@ -1,0 +1,66 @@
+kind: module
+id: kr_seollal
+
+# Seollal: the day before, the day of and the day after Lunar New Year (lunar 12/30-1/2), as dated
+# in the exchange's lists. From 2014 a Sunday overlap (not a Saturday one) is substituted on the next
+# non-holiday: 10 February 2016, 30 January 2017, 27 January 2020, 24 January 2023, 12 February
+# 2024, 9 February 2027. Only the weekday dates are listed (the weekend days are not trading
+# days); the 2010-2013 rows carry no names in the exchange's service and are identified by date.
+# Source: krx-holidays.
+
+source:
+  - id: krx-holidays
+
+event_sources:
+  - key: kr_seollal
+    name: Seollal (Lunar New Year)
+    default_classification: CLOSED
+    rule:
+      type: explicit_dates
+      dates:
+        - 2010-02-15
+        - 2011-02-02
+        - 2011-02-03
+        - 2011-02-04
+        - 2012-01-23
+        - 2012-01-24
+        - 2013-02-11
+        - 2014-01-30
+        - 2014-01-31
+        - 2015-02-18
+        - 2015-02-19
+        - 2015-02-20
+        - 2016-02-08
+        - 2016-02-09
+        - 2016-02-10
+        - 2017-01-27
+        - date: 2017-01-30
+          comment: substitute holiday
+        - 2018-02-15
+        - 2018-02-16
+        - 2019-02-04
+        - 2019-02-05
+        - 2019-02-06
+        - 2020-01-24
+        - date: 2020-01-27
+          comment: substitute holiday
+        - 2021-02-11
+        - 2021-02-12
+        - 2022-01-31
+        - 2022-02-01
+        - 2022-02-02
+        - 2023-01-23
+        - date: 2023-01-24
+          comment: substitute holiday
+        - 2024-02-09
+        - date: 2024-02-12
+          comment: substitute holiday
+        - 2025-01-28
+        - 2025-01-29
+        - 2025-01-30
+        - 2026-02-16
+        - 2026-02-17
+        - 2026-02-18
+        - 2027-02-08
+        - date: 2027-02-09
+          comment: substitute holiday

@@ -1,0 +1,29 @@
+kind: module
+id: kr_independence_movement_day
+
+# Independence Movement Day (삼일절, 1 March), a national day. Substitute holidays for a Saturday
+# or Sunday overlap apply from the decree amendment of 4 August 2021 (제31930호): Monday 3 March
+# 2025 and Monday 2 March 2026; Sunday 1 March 2020 brought none.
+# Source: krx-holidays (the exchange's own non-trading-day lists), moi-public-holidays-decree.
+
+source:
+  - id: krx-holidays
+
+event_sources:
+  - key: kr_independence_movement_day
+    name: Independence Movement Day
+    default_classification: CLOSED
+    shift_policy: NONE
+    rule:
+      type: fixed_month_day
+      month: 3
+      day: 1
+
+  - key: kr_independence_movement_day_substitute
+    name: Independence Movement Day (substitute holiday)
+    default_classification: CLOSED
+    rule:
+      type: explicit_dates
+      dates:
+        - 2025-03-03
+        - 2026-03-02

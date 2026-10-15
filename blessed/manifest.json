@@ -3,6 +3,13 @@
   "blessed_at": "2026-10-14T14:07:08Z",
   "blessed_by": "github-actions",
   "calendars": {
+    "AU-ASX": {
+      "range_start": "2010-01-01",
+      "range_end": "2030-12-31",
+      "kind": "market",
+      "checksum": "sha256:9eff0198124333b4f9d02aec38404d7167a14ce842ebc399763ff335a4668852",
+      "event_count": 2392
+    },
     "BE-EURONEXT-BRUSSELS": {
       "kind": "market",
       "range_start": "2010-01-01",
@@ -80,6 +87,13 @@
       "checksum": "sha256:ee9a4d5d130a9576191305125565b68ea8fc85e8aa51153b31d1705b1a18c8ad",
       "kind": "market"
     },
+    "KR-KRX": {
+      "range_start": "2010-01-01",
+      "range_end": "2027-12-31",
+      "kind": "market",
+      "checksum": "sha256:bf10463f761183bb9963ebfd6f526fe4e833ef48e8b2353616623147d5a111cc",
+      "event_count": 2146
+    },
     "NL-EURONEXT-AMSTERDAM": {
       "kind": "market",
       "range_start": "2010-01-01",
@@ -100,6 +114,20 @@
       "range_end": "2030-12-31",
       "event_count": 1277,
       "checksum": "sha256:4f4ab3f4bab7908c22be6d0c57c396198c61774aae165451f3b609d624ffce4e"
+    },
+    "SG-SGX": {
+      "range_start": "2010-01-01",
+      "range_end": "2027-12-31",
+      "kind": "market",
+      "checksum": "sha256:dcf7ce04af56044b84b639e1009d8ef6cfd7af5d9d4022aba68744d21459306f",
+      "event_count": 2095
+    },
+    "TW-TWSE": {
+      "range_start": "2010-01-01",
+      "range_end": "2027-12-31",
+      "kind": "market",
+      "checksum": "sha256:1c1eb63a49aa2bbc1c6b05c3f57e0e790e2db3c3208023b294a70ca68b9b7d59",
+      "event_count": 2166
     },
     "US-CORP-IN-VISIBILITY": {
       "kind": "base",
@@ -128,6 +156,13 @@
       "range_end": "2030-12-31",
       "event_count": 12837,
       "checksum": "sha256:2e256009884c6adf7876f375336f547b8bb88bd54174522382c152de791de2cc"
+    },
+    "ZA-JSE": {
+      "range_start": "2010-01-01",
+      "range_end": "2030-12-31",
+      "kind": "market",
+      "checksum": "sha256:40c252b7240ba41859874ca26dc6591aa7aa274d178aa1a5f52071a24bda64ea",
+      "event_count": 2465
     }
   },
   "release_version": {
@@ -137,15 +172,20 @@
   },
   "aliases": {
     "XAMS": "NL-EURONEXT-AMSTERDAM",
+    "XASX": "AU-ASX",
     "XBRU": "BE-EURONEXT-BRUSSELS",
     "XETR": "DE-XETRA",
     "XHKG": "HK-HKEX",
+    "XJSE": "ZA-JSE",
+    "XKRX": "KR-KRX",
     "XLIS": "PT-EURONEXT-LISBON",
     "XLON": "GB-LSE",
     "XNYS": "US-NYSE",
     "XPAR": "FR-EURONEXT-PARIS",
     "XSAU": "SA-TADAWUL",
+    "XSES": "SG-SGX",
     "XTAE": "IL-TASE",
+    "XTAI": "TW-TWSE",
     "XTKS": "JP-JPX",
     "XTSE": "CA-TSX",
     "NYSE": "US-NYSE",

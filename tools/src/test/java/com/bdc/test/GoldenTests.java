@@ -237,6 +237,67 @@ class GoldenTests {
   // Dec 24 early close.
 
   @Test
+  void twTwse2026() throws IOException {
+    productionCalendarRunner.assertCsvGoldenMatch("TW-TWSE", 2026);
+  }
+
+  @Test
+  void twTwse2017() throws IOException {
+    // three make-up Saturday sessions, the Lunar New Year settlement-only days, bridge days
+    // and the Mid-Autumn Festival in October
+    productionCalendarRunner.assertCsvGoldenMatch("TW-TWSE", 2017);
+  }
+
+  @Test
+  void zaJse2026() throws IOException {
+    productionCalendarRunner.assertCsvGoldenMatch("ZA-JSE", 2026);
+  }
+
+  @Test
+  void zaJse2011() throws IOException {
+    // the election day, Workers' Day moved to Monday, the proclaimed 27 December after a Sunday
+    // Christmas, and the Friday early closes before a Saturday Christmas Eve and New Year's Eve
+    productionCalendarRunner.assertCsvGoldenMatch("ZA-JSE", 2011);
+  }
+
+  @Test
+  void krKrx2026() throws IOException {
+    productionCalendarRunner.assertCsvGoldenMatch("KR-KRX", 2026);
+  }
+
+  @Test
+  void krKrx2017() throws IOException {
+    // Seollal Sunday substitute, the early presidential election, the Chuseok bridge day, the
+    // Chuseok block overlapping National Foundation Day with its Friday substitute, and the
+    // year-end closure on Friday 29 December
+    productionCalendarRunner.assertCsvGoldenMatch("KR-KRX", 2017);
+  }
+
+  @Test
+  void sgSgx2026() throws IOException {
+    productionCalendarRunner.assertCsvGoldenMatch("SG-SGX", 2026);
+  }
+
+  @Test
+  void sgSgx2017() throws IOException {
+    // Saturday-Sunday Chinese New Year cascading to Monday, the Friday eve half day, Sunday New
+    // Year's Day and Hari Raya Puasa moved to Monday
+    productionCalendarRunner.assertCsvGoldenMatch("SG-SGX", 2017);
+  }
+
+  @Test
+  void auAsx2026() throws IOException {
+    productionCalendarRunner.assertCsvGoldenMatch("AU-ASX", 2026);
+  }
+
+  @Test
+  void auAsx2011() throws IOException {
+    // ANZAC Day on Easter Monday with the Tuesday substitute; Christmas Sunday cascade; the
+    // Friday early closes before a Saturday Christmas Eve and New Year's Eve
+    productionCalendarRunner.assertCsvGoldenMatch("AU-ASX", 2011);
+  }
+
+  @Test
   void caTsx2026() throws IOException {
     productionCalendarRunner.assertCsvGoldenMatch("CA-TSX", 2026);
   }
