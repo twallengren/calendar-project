@@ -53,7 +53,7 @@ def verify(site, chrome):
             v2_url = base + 'v2/index.json'
             with urllib.request.urlopen(v2_url) as response:
                 v2 = json.load(response)
-            assert v2['schema_version'] == '2.0'
+            assert v2['schema_version'] == '2.1'
             for entry in v2['calendars']:
                 manifest_url = urljoin(v2_url, entry['href'])
                 assert manifest_url.startswith(base + 'v2/'), manifest_url

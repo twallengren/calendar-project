@@ -266,15 +266,15 @@ public final class YearPageRenderer {
           .append(LONG_DATE.format(event.date()))
           .append("</time></a></th>");
       html.append("<td><span class=\"badge ")
-          .append(event.isClosed() ? "closed" : "early-close")
+          .append(event.badgeClass())
           .append("\">")
-          .append(event.isClosed() ? "Closed" : "Early close")
+          .append(event.badgeLabel())
           .append("</span>")
           .append(projected ? " <span class=\"badge projected\">Projected</span>" : "")
           .append("</td>");
       html.append("<td>").append(HtmlTemplate.escape(event.description())).append("</td>");
       html.append("<td>")
-          .append(event.closeTime() != null ? HtmlTemplate.escape(event.closeTime()) : "&mdash;")
+          .append(event.timeLabel() != null ? HtmlTemplate.escape(event.timeLabel()) : "&mdash;")
           .append("</td>");
       html.append("<td>");
       if (event.observedFrom() != null) {

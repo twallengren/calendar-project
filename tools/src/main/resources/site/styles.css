@@ -320,6 +320,12 @@ td.links a {
   color: var(--early);
 }
 
+.badge.special-session {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+}
+
 .badge.projected {
   background: transparent;
   color: var(--ink-muted);
@@ -532,6 +538,10 @@ td.early-close {
   color: var(--early);
 }
 
+td.day.session {
+  box-shadow: inset 0 -3px 0 var(--accent);
+}
+
 td.day.projected {
   border-color: var(--rule-strong);
   border-style: dashed;
@@ -638,6 +648,10 @@ td.day:target {
 
 .verdict.early-close {
   border-color: var(--early);
+}
+
+.verdict.special-session {
+  border-color: var(--accent);
 }
 
 .around {

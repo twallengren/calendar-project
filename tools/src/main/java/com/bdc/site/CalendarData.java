@@ -174,7 +174,21 @@ public record CalendarData(
       String sourceModule,
       LocalDate observedFrom,
       String closeTime,
-      String status) {
+      String status,
+      String openTime) {
+
+    /** A row without an open time (every type except SPECIAL_SESSION). */
+    public DayEvent(
+        LocalDate date,
+        String type,
+        String description,
+        String key,
+        String sourceModule,
+        LocalDate observedFrom,
+        String closeTime,
+        String status) {
+      this(date, type, description, key, sourceModule, observedFrom, closeTime, status, null);
+    }
 
     public boolean isWeekend() {
       return "WEEKEND".equals(type);
@@ -186,6 +200,28 @@ public record CalendarData(
 
     public boolean isEarlyClose() {
       return "EARLY_CLOSE".equals(type);
+    }
+
+    public boolean isSpecialSession() {
+      return "SPECIAL_SESSION".equals(type);
+    }
+
+    /** {@code 18:15–19:15} for a special session, else the close time (or null). */
+    public String timeLabel() {
+      if (isSpecialSession() && openTime != null && closeTime != null) {
+        return openTime + "\u2013" + closeTime;
+      }
+      return closeTime;
+    }
+
+    /** The CSS class of this row's badge. */
+    public String badgeClass() {
+      return isClosed() ? "closed" : isSpecialSession() ? "special-session" : "early-close";
+    }
+
+    /** The text of this row's badge. */
+    public String badgeLabel() {
+      return isClosed() ? "Closed" : isSpecialSession() ? "Special session" : "Early close";
     }
   }
 
@@ -323,7 +359,8 @@ public record CalendarData(
                 row.path("source_module").asText(""),
                 dateOrNull(row, "observed_from"),
                 textOrNull(row, "close_time"),
-                row.path("status").asText("PROJECTED")));
+                row.path("status").asText("PROJECTED"),
+                textOrNull(row, "open_time")));
       }
       eventsByYear.put(year, List.copyOf(events));
     }

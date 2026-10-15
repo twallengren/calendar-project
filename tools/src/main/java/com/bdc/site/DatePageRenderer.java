@@ -81,13 +81,39 @@ public final class DatePageRenderer {
     String longDate = YearPageRenderer.LONG_DATE.format(date);
     boolean closed = events.stream().anyMatch(DayEvent::isClosed);
     boolean earlyClose = events.stream().anyMatch(DayEvent::isEarlyClose);
-    String headline = events.get(0).description();
+    List<DayEvent> sessions = events.stream().filter(DayEvent::isSpecialSession).toList();
+    String headline =
+        events.stream()
+            .filter(e -> !e.isSpecialSession())
+            .findFirst()
+            .orElse(events.get(0))
+            .description();
 
     String verdict;
     String verdictClass;
-    if (closed) {
+    if (closed && !sessions.isEmpty()) {
+      verdict =
+          calendar.name()
+              + " is closed on "
+              + longDate
+              + " for "
+              + headline
+              + ", but holds a special session: "
+              + sessionList(sessions)
+              + ".";
+      verdictClass = "closed";
+    } else if (closed) {
       verdict = calendar.name() + " is closed on " + longDate + " for " + headline + ".";
       verdictClass = "closed";
+    } else if (!sessions.isEmpty()) {
+      verdict =
+          calendar.name()
+              + " is not open for regular trading on "
+              + longDate
+              + ", but holds a special session: "
+              + sessionList(sessions)
+              + ".";
+      verdictClass = "special-session";
     } else if (earlyClose) {
       String closeTime =
           events.stream()
@@ -195,14 +221,14 @@ public final class DatePageRenderer {
           .append(HtmlTemplate.escape(event.description()))
           .append("</th>");
       html.append("<td><span class=\"badge ")
-          .append(event.isClosed() ? "closed" : "early-close")
+          .append(event.badgeClass())
           .append("\">")
-          .append(event.isClosed() ? "Closed" : "Early close")
+          .append(event.badgeLabel())
           .append("</span>")
           .append(projected ? " <span class=\"badge projected\">Projected</span>" : "")
           .append("</td>");
       html.append("<td>")
-          .append(event.closeTime() != null ? HtmlTemplate.escape(event.closeTime()) : "&mdash;")
+          .append(event.timeLabel() != null ? HtmlTemplate.escape(event.timeLabel()) : "&mdash;")
           .append("</td>");
       html.append("<td>");
       if (event.observedFrom() != null) {
@@ -382,5 +408,11 @@ public final class DatePageRenderer {
         + "\">"
         + YearPageRenderer.LONG_DATE.format(date)
         + "</time></a>\n";
+  }
+
+  /** {@code Muhurat Trading 18:15–19:15} for each session, joined. */
+  private static String sessionList(List<DayEvent> sessions) {
+    return String.join(
+        "; ", sessions.stream().map(e -> e.description() + " " + e.timeLabel()).toList());
   }
 }

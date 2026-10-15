@@ -103,10 +103,11 @@ Keeps only occurrences that fall on the listed weekdays (evaluated on the nomina
 shifting). Used for rules such as "the NYSE closes early on July 3 when it is a Monday, Tuesday
 or Thursday".
 
-### close_time and status
+### close_time, open_time and status
 
-`close_time` is the local wall-clock close for `EARLY_CLOSE` events and is emitted in the
-output; the calendar's `metadata.timezone` says which wall clock. `status` marks whether the
+`close_time` is the local wall-clock close for `EARLY_CLOSE` and `SPECIAL_SESSION` events and is
+emitted in the output; `open_time` is the local wall-clock open of a `SPECIAL_SESSION` and is
+defined for no other type. The calendar's `metadata.timezone` says which wall clock. `status` marks whether the
 dates come from an authoritative announcement (`CONFIRMED`) or are computed from a rule and may
 change once announced (`PROJECTED`, typical for observation-based lunar calendars).
 
@@ -298,6 +299,42 @@ a closed Friday needs no exclusion in the rule.
 - `NOTABLE` - Notable event (not closure)
 - `PERIOD_MARKER` - Period boundary marker
 - `WEEKEND` - Weekend day (generated automatically based on weekend policy)
+- `SPECIAL_SESSION` - A trading session on a date that is otherwise not a business day
+
+### Special sessions
+
+A `SPECIAL_SESSION` is a session held on a holiday or a weekend day: Diwali Muhurat trading on an
+exchange holiday, or a disaster-recovery drill session on a Saturday. It sits beside that date's
+`CLOSED` or `WEEKEND` row rather than replacing it, so the date stays a non-business day and date
+arithmetic (navigation, counts, settlement walks, the financial operations) never lands on it.
+`is_trading_day` and `special_sessions` (see *Query API*) are the only questions that see it.
+
+```yaml
+- key: muhurat_trading
+  name: Muhurat Trading
+  default_classification: SPECIAL_SESSION
+  open_time: "18:15"
+  close_time: "19:15"
+  rule:
+    type: explicit_dates
+    dates: [2024-11-01]
+```
+
+Validation (always errors, not only under `--strict`):
+
+- `open_time` and `close_time` are required and `open_time` must precede `close_time`
+  (`SPECIAL_SESSION_WITHOUT_TIMES`); `open_time` on any other type is `OPEN_TIME_IGNORED`.
+- A special session is held on the date it is announced for: a `shift_policy` other than `NONE`
+  is `INVALID_SHIFT_POLICY`, and the generator never shifts one.
+- A delta cannot add or reclassify to `SPECIAL_SESSION`, because a delta has no session times
+  (`SPECIAL_SESSION_DELTA`).
+- After generation, a special session on a date with neither a `CLOSED` nor a `WEEKEND` row is
+  `SPECIAL_SESSION_ON_BUSINESS_DAY`: on a business day it is a change to the regular session
+  (an extended or shortened day), not a special one.
+
+A whole weekend day of normal trading (a budget-day Saturday, say) is not a special session; a
+one-day weekend policy period makes that date a business day. Instrument-limited sessions (for
+example a gold-ETF-only session) are out of scope and recorded only in the market's sources.
 
 ## Weekend Policy
 
@@ -541,7 +578,10 @@ sources. `validate --strict` fails on an event source without a resolvable citat
 
 ## Output
 
-`events.csv` columns: `date[,<chronology>_date],type,description,key,source_module,observed_from,close_time,status`.
+`events.csv` columns: `date[,<chronology>_date],type,description,key,source_module,observed_from,close_time,status,open_time`.
+`open_time` (wire schema 2.1) is appended last so a reader that addresses the earlier columns by
+position is unaffected; it is empty on every row except a `SPECIAL_SESSION`. Readers address
+columns by header name and treat a missing `open_time` column as empty.
 `events.json` carries the same rows with the calendar id, timezone, range and coverage.
 `metadata.json` adds `timezone`, `coverage` and `counts_by_status`.
 
@@ -678,6 +718,9 @@ published artifact's `events.csv` (used by `--as-of`). A stream exposes:
   calendar's (effective-dated) weekend policy and carries no `CLOSED` event. An `EARLY_CLOSE` day
   **is** a business day. In an artifact-backed stream the same test reads as: the date carries
   neither a `WEEKEND` nor a `CLOSED` row.
+- A date is a **trading day** when it is a business day or carries a `SPECIAL_SESSION` event.
+  Every business day is a trading day; a holiday or weekend day with a special session is a
+  trading day but not a business day.
 - An **early close** is a date carrying an `EARLY_CLOSE` event with a `close_time`. `CLOSED` beats
   `EARLY_CLOSE` on the same date (see *Same-date precedence*), so a date is never both.
 - All dates are ISO (Gregorian) civil dates in the market's own timezone; `close_time` is a local
@@ -699,6 +742,8 @@ published artifact's `events.csv` (used by `--as-of`). A stream exposes:
 | `is_early_close(date)` | whether `close_time(date)` has a value |
 | `close_time(date)` | the local close time of a shortened session; where several apply, the earliest |
 | `status(date)` | `CONFIRMED`, `PROJECTED` or `UNKNOWN` (see below) |
+| `is_trading_day(date)` | as defined above. A joint calendar trades on a date when every member does |
+| `special_sessions(date)` | the date's `SPECIAL_SESSION` events as `(calendar_id, timezone, open_time, close_time, key, description, status)`, ordered by open time and then close time; empty on most dates. A joint calendar lists each member's sessions under that member's own calendar id and timezone. `close_time(date)` is unaffected: it reports early closes only |
 
 Searches are bounded so a mis-specified calendar cannot loop forever: `next_business_day` and
 `prev_business_day` scan at most **366** days and then fail; `nth_business_day` walks at most
@@ -810,12 +855,17 @@ refuse to answer when a scope *it depends on* is incomplete:
 | Question | Operations | Scopes that must be resolved |
 |----------|------------|------------------------------|
 | `BUSINESS_DAY` | `is_business_day`, `next_/prev_/nth_business_day`, `business_days_in_range`, `adjust`, `business_day_offset`, `advance_months`, `last_business_day_of_month`, joint and browser business-date walks | `SCHEDULED_CLOSURES`, `UNSCHEDULED_EXCEPTIONS` |
-| `SESSION` | `close_time`, `is_early_close`, `member_closes`, `event_count_in_range`, `status`, the assessment's `state` | all three |
+| `BUSINESS_DAY` | `is_trading_day` | the same two scopes |
+| `SESSION` | `close_time`, `is_early_close`, `member_closes`, `special_sessions`, `event_count_in_range`, `status`, the assessment's `state` | all three |
 
 The rationale: an `EARLY_CLOSE` day **is** a business day, so no amount of missing early-close
 evidence can change whether a market trades on a date. A calendar whose only gap is its shortened
 sessions (Xetra 2010 onward, for example) therefore still answers "open" or "closed" for every
-weekday, while `close_time` on those dates raises. Conversely, an incomplete
+weekday, while `close_time` on those dates raises. Special sessions have no scope of their own. They are part of the schedule an exchange
+announces (Muhurat trading appears in the same circulars as the holiday list), so the evidence
+that verifies `SCHEDULED_CLOSURES` and `UNSCHEDULED_EXCEPTIONS` verifies them too, and a calendar
+whose sources would have revealed a special session asserts that there was none. Their times are
+session detail, so `special_sessions` needs all three scopes. Conversely, an incomplete
 `UNSCHEDULED_EXCEPTIONS` scope (a period in which same-day closures are known to be missing) blocks
 the business-day question, because a date the schedule calls open may in fact have been closed.
 
@@ -1270,7 +1320,7 @@ v1/calendars/<ID>/manifest.json                      metadata.json content + wee
 v1/calendars/<ID>/<year>.json                        all rows for that year, one file per year in the calendar's full coverage range
 v1/calendars/<ID>/holidays.json                      non-WEEKEND rows, full coverage range
 v1/calendars/<ID>/all.json                           all rows, full coverage range
-v1/calendars/<ID>/holidays.ics                       one VEVENT per CLOSED/EARLY_CLOSE row, all years
+v1/calendars/<ID>/holidays.ics                       one VEVENT per CLOSED/EARLY_CLOSE row (all-day) and per SPECIAL_SESSION row (timed, UTC), all years
 v1/calendars/<ID>/holidays-recent.ics                same, 2020 onward only
 v1/releases/<semver>/calendars/<ID>/<year>.json      pinned copy of <year>.json as published in that release, 2020 onward only (see below)
 ```
@@ -1288,8 +1338,9 @@ produced it), `range` (`{from, to}` covered by that document), `coverage` (the c
 published coverage, from `metadata.json` — the same for every document of a calendar, including
 pinned historical ones, since older `metadata.json` formats predate the `coverage` field), and
 `event_count`. Rows use the same fields as `JsonEventsEmitter`: `date`, `type`, `description`,
-`key`, `source_module`, `observed_from`, `close_time`, `status`; `observed_from` and `close_time`
-are omitted (rather than written as `null`) when not applicable, to keep the minified files a
+`key`, `source_module`, `observed_from`, `close_time`, `status` and (wire schema 2.1)
+`open_time`; `observed_from`, `close_time` and `open_time` are omitted (rather than written as
+`null`) when not applicable, to keep the minified files a
 reasonable size — a missing key means the same thing as an explicit `null`.
 
 A calendar's `kind` (`metadata.json`'s `kind` field, falling back to `manifest.json`'s per-calendar
@@ -1323,7 +1374,9 @@ releases in practice, since holiday data that far back is already settled.
 ### Compatibility contract
 
 - Fields are never removed or retyped within `v1`; new optional fields may be added.
-- An unknown `type` means "not a business day"; an unknown `status` means `PROJECTED`.
+- An unknown `type` means "not a business day"; an unknown `status` means `PROJECTED`. A
+  `SPECIAL_SESSION` row (added in wire schema 2.1) always shares its date with a `CLOSED` or
+  `WEEKEND` row, so a consumer that predates it still reaches the right business-day answer.
 - A date after `coverage.verified_through` is projected regardless of the row's own `status`.
 - `/v1/releases/<semver>/` files are immutable but exist only for versions still retained in
   `release-history/`.
@@ -1336,7 +1389,7 @@ releases in practice, since holiday data that far back is already settled.
 range. Every occurrence takes part: events are grouped by identity - `(date, key)` when both sides
 carry event keys, by date alone for a legacy baseline written before the key column existed - and
 within one identity the occurrences are compared as a multiset of the complete published value:
-`(type, description, source_module, observed_from, close_time, status)`. Only the reader's synthetic
+`(type, description, source_module, observed_from, close_time, status, open_time)`. Only the reader's synthetic
 in-memory provenance label is excluded. A source-module, observation, close-time or status change
 is therefore visible even when the date and description stay the same. Missing legacy columns use
 the CSV reader's documented defaults; newly supplied enrichment is a publishable change.
@@ -1406,7 +1459,7 @@ the NYSE Good Friday removals cite its published holiday history.
 
 ### JSON API v2 and enriched assessments
 
-`v2/index.json` advertises relative links to `calendars/<ID>/manifest.json`; each manifest advertises relative year links. The wire schema is `2.0`, independently of `data_version`. Each year contains an inclusive `days` array bounded by the artifact range. Every day reports `state`, `scheduled_state`, `effective_confidence`, `business_day_state`, `business_day_confidence`, scope-keyed `completeness`, `evidence_ids` and enriched `events`. `UNKNOWN` preserves the scheduled answer separately; it must never be interpreted as `OPEN`. `business_day_state`/`business_day_confidence` (additive) answer the business-day question alone, per *Questions and the scopes they need*: a day can be `state: UNKNOWN` (its close time is unresolved) and still `business_day_state: OPEN`.
+`v2/index.json` advertises relative links to `calendars/<ID>/manifest.json`; each manifest advertises relative year links. The wire schema is `2.1`, independently of `data_version`; 2.1 added `SPECIAL_SESSION` events and their `open_time`, which a 2.0 reader can ignore because the day's `business_day_state` already accounts for them. Each year contains an inclusive `days` array bounded by the artifact range. Every day reports `state`, `scheduled_state`, `effective_confidence`, `business_day_state`, `business_day_confidence`, scope-keyed `completeness`, `evidence_ids` and enriched `events`. `UNKNOWN` preserves the scheduled answer separately; it must never be interpreted as `OPEN`. `business_day_state`/`business_day_confidence` (additive) answer the business-day question alone, per *Questions and the scopes they need*: a day can be `state: UNKNOWN` (its close time is unresolved) and still `business_day_state: OPEN`.
 
 Event details retain complete published fields, `raw_status`, effective day status, evidence IDs, nominal native date (`chronology_id`, `year`, `month_code`, `day`), chronology profile/provider and observation lineage. These fields are also available through Java `DateStream.assessment` / `eventDetailsOn`, Python `assessment` / `event_details_on`, MCP `assess_day`, and CLI `query <ID> --assess-day <ISO-date>`. Existing Event constructors and Python event tuples remain unchanged. Compiler metadata's additive `event_details` contains one occurrence for every non-weekend CSV record; loaders reject missing or surplus occurrences instead of attaching evidence ambiguously. Legacy artifacts have no native provenance; it is not reconstructed from an observed ISO date.
 

@@ -115,11 +115,14 @@ public final class YearGridRenderer {
       String datePathPrefix) {
     List<DayEvent> events = byDate.getOrDefault(date, List.of());
     String state = "open";
+    boolean session = false;
     boolean projected = false;
     boolean linkable = false;
     List<String> titles = new ArrayList<>();
     for (DayEvent event : events) {
-      if (event.isClosed()) {
+      if (event.isSpecialSession()) {
+        session = true;
+      } else if (event.isClosed()) {
         state = "closed";
       } else if (event.isEarlyClose() && !"closed".equals(state)) {
         state = "early-close";
@@ -130,7 +133,9 @@ public final class YearGridRenderer {
         linkable = true;
         titles.add(
             event.description()
-                + (event.closeTime() != null ? " (closes " + event.closeTime() + ")" : ""));
+                + (event.isSpecialSession()
+                    ? " (special session " + event.timeLabel() + ")"
+                    : event.closeTime() != null ? " (closes " + event.closeTime() + ")" : ""));
         projected |= calendar.isProjected(event);
       }
     }
@@ -145,6 +150,7 @@ public final class YearGridRenderer {
     StringBuilder html = new StringBuilder(160);
     html.append("<td class=\"day ")
         .append(state)
+        .append(session ? " session" : "")
         .append(projected ? " projected" : "")
         .append("\" id=\"d")
         .append(date)

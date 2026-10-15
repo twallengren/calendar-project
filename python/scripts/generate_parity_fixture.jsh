@@ -66,7 +66,23 @@ String eventJson(Event e) {
         + "," + opt(e.sourceModule())
         + "," + opt(e.observedFrom())
         + "," + opt(e.closeTime())
-        + "," + esc(e.status().toString()) + "]";
+        + "," + esc(e.status().toString())
+        // open_time is appended only for SPECIAL_SESSION rows, so other rows keep 8 fields
+        + (e.openTime() == null ? "" : "," + opt(e.openTime())) + "]";
+}
+
+Object sessionsJson(DateStream s, LocalDate d) {
+    return s.specialSessions(d).stream().map(x -> {
+        var row = new LinkedHashMap<String, Object>();
+        row.put("calendar_id", x.calendarId());
+        row.put("timezone", x.timezone() == null ? null : x.timezone().getId());
+        row.put("open_time", x.openTime().toString());
+        row.put("close_time", x.closeTime().toString());
+        row.put("key", x.key());
+        row.put("description", x.description());
+        row.put("status", x.status().name());
+        return row;
+    }).toList();
 }
 
 String nav(DateStream s, String op, LocalDate d, int n) {
@@ -153,7 +169,7 @@ LocalDate end = stream.range().end();
 Files.createDirectories(OUT.getParent());
 PrintWriter out = new PrintWriter(Files.newBufferedWriter(OUT, StandardCharsets.UTF_8));
 out.print("{\"calendar_id\":" + esc(stream.calendarId()));
-out.print(",\"fixture_schema\":2");
+out.print(",\"fixture_schema\":3");
 out.print(",\"version\":" + esc(snapshot.version()));
 out.print(",\"range\":[" + esc(start.toString()) + "," + esc(end.toString()) + "]");
 out.print(",\"verified_through\":" + opt(stream.verifiedThrough().orElse(null)));
@@ -202,6 +218,8 @@ for (LocalDate d : sampledDates) {
     out.print(",\"s\":" + esc(stream.status(d).toString()));
     out.print(",\"c\":" + query(() -> stream.closeTime(d).map(Object::toString).orElse(null)));
     out.print(",\"ec\":" + query(() -> stream.isEarlyClose(d)));
+    out.print(",\"td\":" + query(() -> stream.isTradingDay(d)));
+    out.print(",\"ss\":" + query(() -> sessionsJson(stream, d)));
     LocalDate windowEnd = d.plusDays(30).isAfter(end) ? end : d.plusDays(30);
     out.print(",\"cnt\":" + query(() -> stream.businessDaysInRange(d, windowEnd)));
     out.print(",\"we\":" + esc(windowEnd.toString()));

@@ -57,7 +57,7 @@ class ApiV2EmitterTest {
     Path out = temp.resolve("site");
     new ApiV2Emitter().emit(blessed, temp.resolve("history"), out, false, Instant.EPOCH);
     var index = json.readTree(out.resolve("v2/index.json").toFile());
-    assertEquals("2.0", index.path("schema_version").asText());
+    assertEquals("2.1", index.path("schema_version").asText());
     for (String prefix : List.of("/", "/calendar-project/")) {
       var indexUri = java.net.URI.create("https://example.test" + prefix + "v2/index.json");
       var manifestUri = indexUri.resolve(index.path("calendars").get(0).path("href").asText());

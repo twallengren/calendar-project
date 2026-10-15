@@ -44,7 +44,7 @@ for CAL in "${CALENDARS[@]}"; do
   BDC_OUT="$FIXTURE_DIR/parity_${CAL}.json" \
   BDC_SAMPLES="${BDC_SAMPLES:-1000}" \
     jshell --class-path "$LIB_DIR/*" --feedback concise "$SCRIPT_DIR/generate_parity_fixture.jsh"
-  python3 -c 'import json,sys; d=json.load(open(sys.argv[1])); assert d["fixture_schema"] == 2 and d["queries"]' "$FIXTURE_DIR/parity_${CAL}.json"
+  python3 -c 'import json,sys; d=json.load(open(sys.argv[1])); assert d["fixture_schema"] == 3 and d["queries"]' "$FIXTURE_DIR/parity_${CAL}.json"
 done
 
 echo

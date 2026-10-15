@@ -36,7 +36,7 @@ All commands run from the repository root.
 ```
 
 This produces:
-- `events.csv` - All events in the date range (`date,type,description,key,source_module,observed_from,close_time,status`)
+- `events.csv` - All events in the date range (`date,type,description,key,source_module,observed_from,close_time,status,open_time`)
 - `events.json` - The same events with calendar id, timezone, range and coverage
 - `metadata.json` - Calendar metadata and statistics
 
@@ -104,10 +104,10 @@ event_sources:
 ### events.csv
 
 ```csv
-date,type,description,key,source_module,observed_from,close_time,status
-2024-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED
-2024-07-03,EARLY_CLOSE,Independence Day Eve (Early Close),independence_day_eve,module:independence_day_eve,,13:00,CONFIRMED
-2024-07-04,CLOSED,Independence Day,independence_day,module:independence_day,,,CONFIRMED
+date,type,description,key,source_module,observed_from,close_time,status,open_time
+2024-01-01,CLOSED,New Year's Day,new_years_day,module:new_years_day,,,CONFIRMED,
+2024-07-03,EARLY_CLOSE,Independence Day Eve (Early Close),independence_day_eve,module:independence_day_eve,,13:00,CONFIRMED,
+2024-07-04,CLOSED,Independence Day,independence_day,module:independence_day,,,CONFIRMED,
 ```
 
 ### metadata.json
