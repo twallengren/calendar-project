@@ -1,0 +1,32 @@
+kind: module
+id: in_ganesh_chaturthi
+
+# Ganesh Chaturthi: as dated in the exchange's annual trading-holiday circulars (Capital Market
+# Segment), weekday occurrences only; the exchange never substitutes a weekday for a holiday that
+# falls on a Saturday or Sunday. The circulars spell it: Ganesh Chaturthi.
+# Source: nse-holiday-lists.
+
+source:
+  - id: nse-holiday-lists
+
+event_sources:
+  - key: in_ganesh_chaturthi
+    name: "Ganesh Chaturthi"
+    default_classification: CLOSED
+    rule:
+      type: explicit_dates
+      dates:
+        - 2011-09-01  # NSE/CMTR/16348
+        - 2012-09-19  # NSE/CMTR/19539
+        - 2013-09-09  # NSE/CMTR/22317
+        - 2014-08-29  # NSE/CMTR/25326
+        - 2015-09-17  # NSE/CMTR/28337
+        - 2016-09-05  # NSE/CMTR/31297
+        - 2017-08-25  # NSE/CMTR/33746
+        - 2018-09-13  # NSE/CMTR/36475
+        - 2019-09-02  # NSE/CMTR/39612
+        - 2021-09-10  # NSE/CMTR/46623
+        - 2022-08-31  # NSE/CMTR/50560
+        - 2023-09-19  # NSE/CMTR/54757
+        - 2025-08-27  # NSE/CMTR/65587
+        - 2026-09-14  # NSE/CMTR/71775

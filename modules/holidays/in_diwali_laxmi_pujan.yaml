@@ -1,0 +1,30 @@
+kind: module
+id: in_diwali_laxmi_pujan
+
+# Diwali Laxmi Pujan: as dated in the exchange's annual trading-holiday circulars (Capital Market
+# Segment), weekday occurrences only; the exchange never substitutes a weekday for a holiday that
+# falls on a Saturday or Sunday. The circulars spell it: Diwali Laxmi Pujan; Diwali – Laxmi Puja;
+# Diwali-Laxmi Pujan; Laxmi Puja.
+# Source: nse-holiday-lists.
+
+source:
+  - id: nse-holiday-lists
+
+event_sources:
+  - key: in_diwali_laxmi_pujan
+    name: "Diwali Laxmi Pujan"
+    default_classification: CLOSED
+    rule:
+      type: explicit_dates
+      dates:
+        - 2010-11-05  # NSE/CMTR/13713
+        - 2011-10-26  # NSE/CMTR/16348
+        - 2012-11-13  # NSE/CMTR/19539
+        - 2014-10-23  # NSE/CMTR/25326
+        - 2015-11-11  # NSE/CMTR/28337
+        - 2017-10-19  # NSE/CMTR/33746
+        - 2018-11-07  # NSE/CMTR/36475
+        - 2021-11-04  # NSE/CMTR/46623
+        - 2022-10-24  # NSE/CMTR/50560
+        - 2024-11-01  # NSE/CMTR/59722
+        - 2025-10-21  # NSE/CMTR/65587

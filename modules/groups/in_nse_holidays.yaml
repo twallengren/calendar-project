@@ -1,0 +1,37 @@
+kind: module
+id: in_nse_holidays
+
+# National Stock Exchange of India, Capital Market Segment: the trading holidays the exchange
+# notifies each December for the following year under clause 2 of Chapter IX of its Bye-Laws, the
+# holidays it adds during the year, the Diwali Muhurat sessions and the weekend sessions. Every
+# holiday is dated from the circulars rather than computed, because most follow the Hindu, Islamic
+# or Jain lunar calendars as Maharashtra gazettes them. Weekend sessions are expressed by
+# in_nse_weekends (full regular days) and in_nse_special_live_sessions (shortened settled sessions).
+
+uses:
+  - in_nse_weekends
+  - in_new_years_day
+  - in_republic_day
+  - in_mahashivratri
+  - in_holi
+  - in_good_friday
+  - in_ram_navami
+  - in_mahavir_jayanti
+  - in_ambedkar_jayanti
+  - in_combined_ambedkar_mahavir
+  - in_maharashtra_day
+  - in_id_ul_fitr
+  - in_bakri_id
+  - in_muharram
+  - in_independence_day
+  - in_ganesh_chaturthi
+  - in_gandhi_jayanti
+  - in_combined_gandhi_dussehra
+  - in_dussehra
+  - in_diwali_laxmi_pujan
+  - in_diwali_balipratipada
+  - in_gurunanak_jayanti
+  - in_christmas
+  - in_nse_additional_holidays
+  - in_nse_muhurat_trading
+  - in_nse_special_live_sessions

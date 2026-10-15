@@ -1,0 +1,173 @@
+kind: module
+id: in_nse_muhurat_trading
+
+# Muhurat trading: the one-hour session the exchange holds on Diwali (Laxmi Pujan) every year, a
+# day its own annual list calls a trading holiday (or a weekend day). "All trades executed in this
+# Diwali Muhurat trading session shall result in settlement obligations" (every circular from
+# 2013), and a bhavcopy is published for the day (nse-bhavcopy-availability). Times are the
+# normal-market window of each year's timing circular; the block-deal, pre-open and closing
+# sessions around it are session structure. Each year is its own event source because the times
+# differ. 2026 (Sunday 8 November): the annual list (NSE/CMTR/71775) announces the session with
+# "timings shall be notified subsequently"; until they are, the row is PROJECTED with the window
+# used 2019-2023, and the calendar marks session detail incomplete on that date.
+
+source:
+  - id: nse-muhurat-circulars
+
+event_sources:
+  - key: in_muhurat_trading_2010
+    name: "Muhurat Trading"
+    default_classification: SPECIAL_SESSION
+    open_time: "18:15"
+    close_time: "19:00"
+    rule:
+      type: explicit_dates
+      dates:
+        - 2010-11-05  # NSE/CMTR/16062
+  - key: in_muhurat_trading_2011
+    name: "Muhurat Trading"
+    default_classification: SPECIAL_SESSION
+    open_time: "16:45"
+    close_time: "18:00"
+    rule:
+      type: explicit_dates
+      dates:
+        - 2011-10-26  # NSE/CMTR/19187
+  - key: in_muhurat_trading_2012
+    name: "Muhurat Trading"
+    default_classification: SPECIAL_SESSION
+    open_time: "15:45"
+    close_time: "17:00"
+    rule:
+      type: explicit_dates
+      dates:
+        - 2012-11-13  # NSE/CMTR/22083 (revised from NSE/CMTR/22027)
+  - key: in_muhurat_trading_2013
+    name: "Muhurat Trading"
+    default_classification: SPECIAL_SESSION
+    open_time: "18:15"
+    close_time: "19:30"
+    rule:
+      type: explicit_dates
+      dates:
+        - 2013-11-03  # NSE/CMTR/24773; a Sunday
+  - key: in_muhurat_trading_2014
+    name: "Muhurat Trading"
+    default_classification: SPECIAL_SESSION
+    open_time: "18:30"
+    close_time: "19:30"
+    rule:
+      type: explicit_dates
+      dates:
+        - 2014-10-23  # NSE/CMTR/27779
+  - key: in_muhurat_trading_2015
+    name: "Muhurat Trading"
+    default_classification: SPECIAL_SESSION
+    open_time: "17:45"
+    close_time: "18:45"
+    rule:
+      type: explicit_dates
+      dates:
+        - 2015-11-11  # NSE/CMTR/31047
+  - key: in_muhurat_trading_2016
+    name: "Muhurat Trading"
+    default_classification: SPECIAL_SESSION
+    open_time: "18:30"
+    close_time: "19:30"
+    rule:
+      type: explicit_dates
+      dates:
+        - 2016-10-30  # NSE/CMTR/33424; a Sunday
+  - key: in_muhurat_trading_2017
+    name: "Muhurat Trading"
+    default_classification: SPECIAL_SESSION
+    open_time: "18:30"
+    close_time: "19:30"
+    rule:
+      type: explicit_dates
+      dates:
+        - 2017-10-19  # NSE/CMTR/35993
+  - key: in_muhurat_trading_2018
+    name: "Muhurat Trading"
+    default_classification: SPECIAL_SESSION
+    open_time: "17:30"
+    close_time: "18:30"
+    rule:
+      type: explicit_dates
+      dates:
+        - 2018-11-07  # NSE/CMTR/39216
+  - key: in_muhurat_trading_2019
+    name: "Muhurat Trading"
+    default_classification: SPECIAL_SESSION
+    open_time: "18:15"
+    close_time: "19:15"
+    rule:
+      type: explicit_dates
+      dates:
+        - 2019-10-27  # NSE/CMTR/42483 (revised); a Sunday
+  - key: in_muhurat_trading_2020
+    name: "Muhurat Trading"
+    default_classification: SPECIAL_SESSION
+    open_time: "18:15"
+    close_time: "19:15"
+    rule:
+      type: explicit_dates
+      dates:
+        - 2020-11-14  # NSE/CMTR/46230; a Saturday
+  - key: in_muhurat_trading_2021
+    name: "Muhurat Trading"
+    default_classification: SPECIAL_SESSION
+    open_time: "18:15"
+    close_time: "19:15"
+    rule:
+      type: explicit_dates
+      dates:
+        - 2021-11-04  # NSE/CMTR/50050
+  - key: in_muhurat_trading_2022
+    name: "Muhurat Trading"
+    default_classification: SPECIAL_SESSION
+    open_time: "18:15"
+    close_time: "19:15"
+    rule:
+      type: explicit_dates
+      dates:
+        - 2022-10-24  # NSE/CMTR/54023
+  - key: in_muhurat_trading_2023
+    name: "Muhurat Trading"
+    default_classification: SPECIAL_SESSION
+    open_time: "18:15"
+    close_time: "19:15"
+    rule:
+      type: explicit_dates
+      dates:
+        - 2023-11-12  # NSE/CMTR/59124; a Sunday
+  - key: in_muhurat_trading_2024
+    name: "Muhurat Trading"
+    default_classification: SPECIAL_SESSION
+    open_time: "18:00"
+    close_time: "19:00"
+    rule:
+      type: explicit_dates
+      dates:
+        - 2024-11-01  # NSE/CMTR/64628
+  - key: in_muhurat_trading_2025
+    name: "Muhurat Trading"
+    default_classification: SPECIAL_SESSION
+    open_time: "13:45"
+    close_time: "14:45"
+    rule:
+      type: explicit_dates
+      dates:
+        - 2025-10-21  # NSE/CMTR/70319; the first afternoon session
+  - key: in_muhurat_trading_2026
+    name: "Muhurat Trading"
+    default_classification: SPECIAL_SESSION
+    open_time: "18:15"
+    close_time: "19:15"
+    status: PROJECTED
+    source:
+      - id: nse-holiday-lists
+    rule:
+      type: explicit_dates
+      dates:
+        - 2026-11-08  # NSE/CMTR/71775; timings not yet notified

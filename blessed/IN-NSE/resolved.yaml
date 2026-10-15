@@ -1,0 +1,893 @@
+kind: resolved_calendar
+id: IN-NSE
+metadata:
+  name: National Stock Exchange of India
+  description: NSE Capital Market (equity cash) segment trading calendar (MIC XNSE)
+  chronology: ISO
+  timezone: Asia/Kolkata
+  mic: XNSE
+  coverage:
+    from: 2010-01-01
+    to: 2026-12-31
+    verified_through: 2026-10-14
+    quality:
+    - scope: SCHEDULED_CLOSURES
+      from: 2010-01-01
+      to: 2026-12-31
+      quality: VERIFIED
+      evidence_ids:
+      - nse-holiday-lists
+      - nse-additional-holidays
+      - nse-muhurat-circulars
+      - nse-weekend-sessions
+    - scope: EARLY_CLOSES
+      from: 2010-01-01
+      to: 2026-11-07
+      quality: PROJECTED
+      evidence_ids:
+      - nse-market-timings
+      - nse-outage-2021-02-24
+    - scope: EARLY_CLOSES
+      from: 2026-11-08
+      to: 2026-11-08
+      quality: INCOMPLETE
+      evidence_ids:
+      - nse-holiday-lists
+    - scope: EARLY_CLOSES
+      from: 2026-11-09
+      to: 2026-12-31
+      quality: PROJECTED
+      evidence_ids:
+      - nse-market-timings
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2010-01-01
+      to: 2026-10-14
+      quality: VERIFIED
+      evidence_ids:
+      - nse-bhavcopy-availability
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2026-10-15
+      to: 2026-12-31
+      quality: PROJECTED
+      evidence_ids:
+      - nse-holiday-lists
+weekend_policy:
+  days:
+  - SATURDAY
+  - SUNDAY
+  periods:
+  - days:
+    - SATURDAY
+    - SUNDAY
+  - days:
+    - SUNDAY
+    from: 2015-02-28
+    to: 2015-02-28
+  - days:
+    - SUNDAY
+    from: 2020-02-01
+    to: 2020-02-01
+  - days:
+    - SUNDAY
+    from: 2024-01-20
+    to: 2024-01-20
+  - days:
+    - SUNDAY
+    from: 2025-02-01
+    to: 2025-02-01
+  - days:
+    - SATURDAY
+    from: 2026-02-01
+    to: 2026-02-01
+weekend_shift_policy: NONE
+resolution_chain:
+- module:in_nse_weekends
+- module:in_new_years_day
+- module:in_republic_day
+- module:in_mahashivratri
+- module:in_holi
+- module:in_good_friday
+- module:in_ram_navami
+- module:in_mahavir_jayanti
+- module:in_ambedkar_jayanti
+- module:in_combined_ambedkar_mahavir
+- module:in_maharashtra_day
+- module:in_id_ul_fitr
+- module:in_bakri_id
+- module:in_muharram
+- module:in_independence_day
+- module:in_ganesh_chaturthi
+- module:in_gandhi_jayanti
+- module:in_combined_gandhi_dussehra
+- module:in_dussehra
+- module:in_diwali_laxmi_pujan
+- module:in_diwali_balipratipada
+- module:in_gurunanak_jayanti
+- module:in_christmas
+- module:in_nse_additional_holidays
+- module:in_nse_muhurat_trading
+- module:in_nse_special_live_sessions
+- module:in_nse_holidays
+- calendar:IN-NSE
+event_sources:
+- key: in_new_years_day
+  name: New Year's Day
+  origin: module:in_new_years_day
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: nse-holiday-lists
+  rule:
+    type: explicit_dates
+    dates:
+    - 2010-01-01
+- key: in_republic_day
+  name: Republic Day
+  origin: module:in_republic_day
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: nse-holiday-lists
+  rule:
+    type: explicit_dates
+    dates:
+    - 2010-01-26
+    - 2011-01-26
+    - 2012-01-26
+    - 2015-01-26
+    - 2016-01-26
+    - 2017-01-26
+    - 2018-01-26
+    - 2021-01-26
+    - 2022-01-26
+    - 2023-01-26
+    - 2024-01-26
+    - 2026-01-26
+- key: in_mahashivratri
+  name: Mahashivratri
+  origin: module:in_mahashivratri
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: nse-holiday-lists
+  rule:
+    type: explicit_dates
+    dates:
+    - 2010-02-12
+    - 2011-03-02
+    - 2012-02-20
+    - 2014-02-27
+    - 2015-02-17
+    - 2016-03-07
+    - 2017-02-24
+    - 2018-02-13
+    - 2019-03-04
+    - 2020-02-21
+    - 2021-03-11
+    - 2022-03-01
+    - 2024-03-08
+    - 2025-02-26
+- key: in_holi
+  name: Holi
+  origin: module:in_holi
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: nse-holiday-lists
+  rule:
+    type: explicit_dates
+    dates:
+    - 2010-03-01
+    - 2012-03-08
+    - 2013-03-27
+    - 2014-03-17
+    - 2015-03-06
+    - 2016-03-24
+    - 2017-03-13
+    - 2018-03-02
+    - 2019-03-21
+    - 2020-03-10
+    - 2021-03-29
+    - 2022-03-18
+    - 2023-03-07
+    - 2024-03-25
+    - 2025-03-14
+    - 2026-03-03
+- key: in_good_friday
+  name: Good Friday
+  origin: module:in_good_friday
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: nse-holiday-lists
+  rule:
+    type: explicit_dates
+    dates:
+    - 2010-04-02
+    - 2011-04-22
+    - 2012-04-06
+    - 2013-03-29
+    - 2014-04-18
+    - 2015-04-03
+    - 2016-03-25
+    - 2017-04-14
+    - 2018-03-30
+    - 2019-04-19
+    - 2020-04-10
+    - 2021-04-02
+    - 2022-04-15
+    - 2023-04-07
+    - 2024-03-29
+    - 2025-04-18
+    - 2026-04-03
+- key: in_ram_navami
+  name: Shri Ram Navami
+  origin: module:in_ram_navami
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: nse-holiday-lists
+  rule:
+    type: explicit_dates
+    dates:
+    - 2010-03-24
+    - 2011-04-12
+    - 2013-04-19
+    - 2014-04-08
+    - 2016-04-15
+    - 2017-04-04
+    - 2020-04-02
+    - 2021-04-21
+    - 2023-03-30
+    - 2024-04-17
+    - 2026-03-26
+- key: in_mahavir_jayanti
+  name: Shri Mahavir Jayanti
+  origin: module:in_mahavir_jayanti
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: nse-holiday-lists
+  rule:
+    type: explicit_dates
+    dates:
+    - 2012-04-05
+    - 2013-04-24
+    - 2015-04-02
+    - 2016-04-19
+    - 2018-03-29
+    - 2019-04-17
+    - 2020-04-06
+    - 2023-04-04
+    - 2025-04-10
+    - 2026-03-31
+- key: in_ambedkar_jayanti
+  name: Dr. Baba Saheb Ambedkar Jayanti
+  origin: module:in_ambedkar_jayanti
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: nse-holiday-lists
+  rule:
+    type: explicit_dates
+    dates:
+    - 2010-04-14
+    - 2011-04-14
+    - 2014-04-14
+    - 2015-04-14
+    - 2016-04-14
+    - 2020-04-14
+    - 2021-04-14
+    - 2023-04-14
+    - 2025-04-14
+    - 2026-04-14
+- key: in_combined_ambedkar_mahavir
+  name: Dr. Baba Saheb Ambedkar Jayanti / Mahavir Jayanti
+  origin: module:in_combined_ambedkar_mahavir
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: nse-holiday-lists
+  rule:
+    type: explicit_dates
+    dates:
+    - 2022-04-14
+- key: in_maharashtra_day
+  name: Maharashtra Day
+  origin: module:in_maharashtra_day
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: nse-holiday-lists
+  rule:
+    type: explicit_dates
+    dates:
+    - 2012-05-01
+    - 2013-05-01
+    - 2014-05-01
+    - 2015-05-01
+    - 2017-05-01
+    - 2018-05-01
+    - 2019-05-01
+    - 2020-05-01
+    - 2023-05-01
+    - 2024-05-01
+    - 2025-05-01
+    - 2026-05-01
+- key: in_id_ul_fitr
+  name: Id-Ul-Fitr (Ramadan Eid)
+  origin: module:in_id_ul_fitr
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: nse-holiday-lists
+  rule:
+    type: explicit_dates
+    dates:
+    - 2010-09-10
+    - 2011-08-31
+    - 2012-08-20
+    - 2013-08-09
+    - 2014-07-29
+    - 2016-07-06
+    - 2017-06-26
+    - 2019-06-05
+    - 2020-05-25
+    - 2021-05-13
+    - 2022-05-03
+    - 2024-04-11
+    - 2025-03-31
+- key: in_bakri_id
+  name: Bakri Id
+  origin: module:in_bakri_id
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: nse-holiday-lists
+  - id: nse-additional-holidays
+  rule:
+    type: explicit_dates
+    dates:
+    - 2010-11-17
+    - 2011-11-07
+    - 2013-10-16
+    - 2014-10-06
+    - 2015-09-25
+    - 2016-09-13
+    - 2018-08-22
+    - 2019-08-12
+    - 2021-07-21
+    - 2023-06-29
+    - 2024-06-17
+    - 2026-05-28
+- key: in_muharram
+  name: Muharram
+  origin: module:in_muharram
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: nse-holiday-lists
+  - id: nse-additional-holidays
+  rule:
+    type: explicit_dates
+    dates:
+    - 2010-12-17
+    - 2011-12-06
+    - 2013-11-15
+    - 2014-11-04
+    - 2016-10-12
+    - 2018-09-20
+    - 2019-09-10
+    - 2021-08-19
+    - 2022-08-09
+    - 2024-07-17
+    - 2026-06-26
+- key: in_independence_day
+  name: Independence Day
+  origin: module:in_independence_day
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: nse-holiday-lists
+  rule:
+    type: explicit_dates
+    dates:
+    - 2011-08-15
+    - 2012-08-15
+    - 2013-08-15
+    - 2014-08-15
+    - 2016-08-15
+    - 2017-08-15
+    - 2018-08-15
+    - 2019-08-15
+    - 2022-08-15
+    - 2023-08-15
+    - 2024-08-15
+    - 2025-08-15
+- key: in_ganesh_chaturthi
+  name: Ganesh Chaturthi
+  origin: module:in_ganesh_chaturthi
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: nse-holiday-lists
+  rule:
+    type: explicit_dates
+    dates:
+    - 2011-09-01
+    - 2012-09-19
+    - 2013-09-09
+    - 2014-08-29
+    - 2015-09-17
+    - 2016-09-05
+    - 2017-08-25
+    - 2018-09-13
+    - 2019-09-02
+    - 2021-09-10
+    - 2022-08-31
+    - 2023-09-19
+    - 2025-08-27
+    - 2026-09-14
+- key: in_gandhi_jayanti
+  name: Mahatma Gandhi Jayanti
+  origin: module:in_gandhi_jayanti
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: nse-holiday-lists
+  rule:
+    type: explicit_dates
+    dates:
+    - 2012-10-02
+    - 2013-10-02
+    - 2014-10-02
+    - 2015-10-02
+    - 2017-10-02
+    - 2018-10-02
+    - 2019-10-02
+    - 2020-10-02
+    - 2023-10-02
+    - 2024-10-02
+    - 2026-10-02
+- key: in_combined_gandhi_dussehra
+  name: Mahatma Gandhi Jayanti / Dussehra
+  origin: module:in_combined_gandhi_dussehra
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: nse-holiday-lists
+  rule:
+    type: explicit_dates
+    dates:
+    - 2025-10-02
+- key: in_dussehra
+  name: Dussehra
+  origin: module:in_dussehra
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: nse-holiday-lists
+  rule:
+    type: explicit_dates
+    dates:
+    - 2011-10-06
+    - 2012-10-24
+    - 2014-10-03
+    - 2015-10-22
+    - 2016-10-11
+    - 2018-10-18
+    - 2019-10-08
+    - 2021-10-15
+    - 2022-10-05
+    - 2023-10-24
+    - 2026-10-20
+- key: in_diwali_laxmi_pujan
+  name: Diwali Laxmi Pujan
+  origin: module:in_diwali_laxmi_pujan
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: nse-holiday-lists
+  rule:
+    type: explicit_dates
+    dates:
+    - 2010-11-05
+    - 2011-10-26
+    - 2012-11-13
+    - 2014-10-23
+    - 2015-11-11
+    - 2017-10-19
+    - 2018-11-07
+    - 2021-11-04
+    - 2022-10-24
+    - 2024-11-01
+    - 2025-10-21
+- key: in_diwali_balipratipada
+  name: Diwali Balipratipada
+  origin: module:in_diwali_balipratipada
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: nse-holiday-lists
+  rule:
+    type: explicit_dates
+    dates:
+    - 2011-10-27
+    - 2012-11-14
+    - 2013-11-04
+    - 2014-10-24
+    - 2015-11-12
+    - 2016-10-31
+    - 2017-10-20
+    - 2018-11-08
+    - 2019-10-28
+    - 2020-11-16
+    - 2021-11-05
+    - 2022-10-26
+    - 2023-11-14
+    - 2025-10-22
+    - 2026-11-10
+- key: in_gurunanak_jayanti
+  name: Gurunanak Jayanti
+  origin: module:in_gurunanak_jayanti
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: nse-holiday-lists
+  rule:
+    type: explicit_dates
+    dates:
+    - 2011-11-10
+    - 2012-11-28
+    - 2014-11-06
+    - 2015-11-25
+    - 2016-11-14
+    - 2018-11-23
+    - 2019-11-12
+    - 2020-11-30
+    - 2021-11-19
+    - 2022-11-08
+    - 2023-11-27
+    - 2024-11-15
+    - 2025-11-05
+    - 2026-11-24
+- key: in_christmas
+  name: Christmas
+  origin: module:in_christmas
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: nse-holiday-lists
+  rule:
+    type: explicit_dates
+    dates:
+    - 2012-12-25
+    - 2013-12-25
+    - 2014-12-25
+    - 2015-12-25
+    - 2017-12-25
+    - 2018-12-25
+    - 2019-12-25
+    - 2020-12-25
+    - 2023-12-25
+    - 2024-12-25
+    - 2025-12-25
+    - 2026-12-25
+- key: in_parliamentary_elections
+  name: Parliamentary Elections
+  origin: module:in_nse_additional_holidays
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: nse-additional-holidays
+  rule:
+    type: explicit_dates
+    dates:
+    - 2014-04-24
+    - 2019-04-29
+    - 2024-05-20
+- key: in_maharashtra_elections
+  name: Elections in Maharashtra
+  origin: module:in_nse_additional_holidays
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: nse-additional-holidays
+  rule:
+    type: explicit_dates
+    dates:
+    - 2014-10-15
+    - 2019-10-21
+    - 2024-11-20
+    - 2026-01-15
+- key: in_negotiable_instruments_holiday_2024
+  name: Public Holiday (Negotiable Instruments Act)
+  origin: module:in_nse_additional_holidays
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: nse-additional-holidays
+  rule:
+    type: explicit_dates
+    dates:
+    - 2024-01-22
+- key: in_muhurat_trading_2010
+  name: Muhurat Trading
+  origin: module:in_nse_muhurat_trading
+  classification: SPECIAL_SESSION
+  open_time: 18:15
+  close_time: 19:00
+  status: CONFIRMED
+  source:
+  - id: nse-muhurat-circulars
+  rule:
+    type: explicit_dates
+    dates:
+    - 2010-11-05
+- key: in_muhurat_trading_2011
+  name: Muhurat Trading
+  origin: module:in_nse_muhurat_trading
+  classification: SPECIAL_SESSION
+  open_time: 16:45
+  close_time: 18:00
+  status: CONFIRMED
+  source:
+  - id: nse-muhurat-circulars
+  rule:
+    type: explicit_dates
+    dates:
+    - 2011-10-26
+- key: in_muhurat_trading_2012
+  name: Muhurat Trading
+  origin: module:in_nse_muhurat_trading
+  classification: SPECIAL_SESSION
+  open_time: 15:45
+  close_time: 17:00
+  status: CONFIRMED
+  source:
+  - id: nse-muhurat-circulars
+  rule:
+    type: explicit_dates
+    dates:
+    - 2012-11-13
+- key: in_muhurat_trading_2013
+  name: Muhurat Trading
+  origin: module:in_nse_muhurat_trading
+  classification: SPECIAL_SESSION
+  open_time: 18:15
+  close_time: 19:30
+  status: CONFIRMED
+  source:
+  - id: nse-muhurat-circulars
+  rule:
+    type: explicit_dates
+    dates:
+    - 2013-11-03
+- key: in_muhurat_trading_2014
+  name: Muhurat Trading
+  origin: module:in_nse_muhurat_trading
+  classification: SPECIAL_SESSION
+  open_time: 18:30
+  close_time: 19:30
+  status: CONFIRMED
+  source:
+  - id: nse-muhurat-circulars
+  rule:
+    type: explicit_dates
+    dates:
+    - 2014-10-23
+- key: in_muhurat_trading_2015
+  name: Muhurat Trading
+  origin: module:in_nse_muhurat_trading
+  classification: SPECIAL_SESSION
+  open_time: 17:45
+  close_time: 18:45
+  status: CONFIRMED
+  source:
+  - id: nse-muhurat-circulars
+  rule:
+    type: explicit_dates
+    dates:
+    - 2015-11-11
+- key: in_muhurat_trading_2016
+  name: Muhurat Trading
+  origin: module:in_nse_muhurat_trading
+  classification: SPECIAL_SESSION
+  open_time: 18:30
+  close_time: 19:30
+  status: CONFIRMED
+  source:
+  - id: nse-muhurat-circulars
+  rule:
+    type: explicit_dates
+    dates:
+    - 2016-10-30
+- key: in_muhurat_trading_2017
+  name: Muhurat Trading
+  origin: module:in_nse_muhurat_trading
+  classification: SPECIAL_SESSION
+  open_time: 18:30
+  close_time: 19:30
+  status: CONFIRMED
+  source:
+  - id: nse-muhurat-circulars
+  rule:
+    type: explicit_dates
+    dates:
+    - 2017-10-19
+- key: in_muhurat_trading_2018
+  name: Muhurat Trading
+  origin: module:in_nse_muhurat_trading
+  classification: SPECIAL_SESSION
+  open_time: 17:30
+  close_time: 18:30
+  status: CONFIRMED
+  source:
+  - id: nse-muhurat-circulars
+  rule:
+    type: explicit_dates
+    dates:
+    - 2018-11-07
+- key: in_muhurat_trading_2019
+  name: Muhurat Trading
+  origin: module:in_nse_muhurat_trading
+  classification: SPECIAL_SESSION
+  open_time: 18:15
+  close_time: 19:15
+  status: CONFIRMED
+  source:
+  - id: nse-muhurat-circulars
+  rule:
+    type: explicit_dates
+    dates:
+    - 2019-10-27
+- key: in_muhurat_trading_2020
+  name: Muhurat Trading
+  origin: module:in_nse_muhurat_trading
+  classification: SPECIAL_SESSION
+  open_time: 18:15
+  close_time: 19:15
+  status: CONFIRMED
+  source:
+  - id: nse-muhurat-circulars
+  rule:
+    type: explicit_dates
+    dates:
+    - 2020-11-14
+- key: in_muhurat_trading_2021
+  name: Muhurat Trading
+  origin: module:in_nse_muhurat_trading
+  classification: SPECIAL_SESSION
+  open_time: 18:15
+  close_time: 19:15
+  status: CONFIRMED
+  source:
+  - id: nse-muhurat-circulars
+  rule:
+    type: explicit_dates
+    dates:
+    - 2021-11-04
+- key: in_muhurat_trading_2022
+  name: Muhurat Trading
+  origin: module:in_nse_muhurat_trading
+  classification: SPECIAL_SESSION
+  open_time: 18:15
+  close_time: 19:15
+  status: CONFIRMED
+  source:
+  - id: nse-muhurat-circulars
+  rule:
+    type: explicit_dates
+    dates:
+    - 2022-10-24
+- key: in_muhurat_trading_2023
+  name: Muhurat Trading
+  origin: module:in_nse_muhurat_trading
+  classification: SPECIAL_SESSION
+  open_time: 18:15
+  close_time: 19:15
+  status: CONFIRMED
+  source:
+  - id: nse-muhurat-circulars
+  rule:
+    type: explicit_dates
+    dates:
+    - 2023-11-12
+- key: in_muhurat_trading_2024
+  name: Muhurat Trading
+  origin: module:in_nse_muhurat_trading
+  classification: SPECIAL_SESSION
+  open_time: 18:00
+  close_time: 19:00
+  status: CONFIRMED
+  source:
+  - id: nse-muhurat-circulars
+  rule:
+    type: explicit_dates
+    dates:
+    - 2024-11-01
+- key: in_muhurat_trading_2025
+  name: Muhurat Trading
+  origin: module:in_nse_muhurat_trading
+  classification: SPECIAL_SESSION
+  open_time: 13:45
+  close_time: 14:45
+  status: CONFIRMED
+  source:
+  - id: nse-muhurat-circulars
+  rule:
+    type: explicit_dates
+    dates:
+    - 2025-10-21
+- key: in_muhurat_trading_2026
+  name: Muhurat Trading
+  origin: module:in_nse_muhurat_trading
+  classification: SPECIAL_SESSION
+  open_time: 18:15
+  close_time: 19:15
+  status: PROJECTED
+  source:
+  - id: nse-holiday-lists
+  rule:
+    type: explicit_dates
+    dates:
+    - 2026-11-08
+- key: in_special_live_session_2010
+  name: Special Live Trading Session
+  origin: module:in_nse_special_live_sessions
+  classification: SPECIAL_SESSION
+  open_time: 11:00
+  close_time: 12:30
+  status: CONFIRMED
+  source:
+  - id: nse-weekend-sessions
+  rule:
+    type: explicit_dates
+    dates:
+    - 2010-02-06
+- key: in_special_live_session
+  name: Special Live Trading Session
+  origin: module:in_nse_special_live_sessions
+  classification: SPECIAL_SESSION
+  open_time: 11:15
+  close_time: 12:45
+  status: CONFIRMED
+  source:
+  - id: nse-weekend-sessions
+  rule:
+    type: explicit_dates
+    dates:
+    - 2012-01-07
+    - 2012-03-03
+    - 2012-04-28
+    - 2012-09-08
+    - 2013-05-11
+    - 2014-03-22
+- key: in_dr_switch_primary_site
+  name: Special Live Trading Session (primary site)
+  origin: module:in_nse_special_live_sessions
+  classification: SPECIAL_SESSION
+  open_time: 09:15
+  close_time: 10:00
+  status: CONFIRMED
+  source:
+  - id: nse-weekend-sessions
+  rule:
+    type: explicit_dates
+    dates:
+    - 2024-03-02
+    - 2024-05-18
+- key: in_dr_switch_dr_site
+  name: Special Live Trading Session (disaster-recovery site)
+  origin: module:in_nse_special_live_sessions
+  classification: SPECIAL_SESSION
+  open_time: 11:30
+  close_time: 12:30
+  status: CONFIRMED
+  source:
+  - id: nse-weekend-sessions
+  rule:
+    type: explicit_dates
+    dates:
+    - 2024-03-02
+    - 2024-05-18

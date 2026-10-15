@@ -1,0 +1,32 @@
+kind: module
+id: in_muharram
+
+# Muharram: as dated in the exchange's annual trading-holiday circulars (Capital Market Segment),
+# weekday occurrences only; the exchange never substitutes a weekday for a holiday that falls on a
+# Saturday or Sunday. The circulars spell it: Moharram; Moharum; Muharram.
+# The 2013 holiday moved from 14 to 15 November after the RBI moved its holiday (NSE/CMTR/24977,
+# 13 November 2013).
+# Source: nse-holiday-lists, nse-additional-holidays.
+
+source:
+  - id: nse-holiday-lists
+  - id: nse-additional-holidays
+
+event_sources:
+  - key: in_muharram
+    name: "Muharram"
+    default_classification: CLOSED
+    rule:
+      type: explicit_dates
+      dates:
+        - 2010-12-17  # NSE/CMTR/13713
+        - 2011-12-06  # NSE/CMTR/16348
+        - 2013-11-15  # NSE/CMTR/22317 listed 14 November; moved to 15 November by NSE/CMTR/24977
+        - 2014-11-04  # NSE/CMTR/25326
+        - 2016-10-12  # NSE/CMTR/31297
+        - 2018-09-20  # NSE/CMTR/36475
+        - 2019-09-10  # NSE/CMTR/39612
+        - 2021-08-19  # NSE/CMTR/46623
+        - 2022-08-09  # NSE/CMTR/50560
+        - 2024-07-17  # NSE/CMTR/59722
+        - 2026-06-26  # NSE/CMTR/71775

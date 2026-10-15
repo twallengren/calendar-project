@@ -310,31 +310,32 @@ actual-day completeness. Use the [coverage assessment summary](docs/delivery/COV
 
 | ID | Name | Kind | Timezone | Coverage | Verified Through | Closures | Early Closes | Projected | Sources | Cross-validation | Release |
 |----|------|------|----------|----------|-------------------|----------|---------------|-----------|---------|-------------------|---------|
-| AU-ASX | Australian Securities Exchange | market | Australia/Sydney | 2010-01-01 to 2030-12-31 | 2027-12-31 | 170 | 36 | 0 | 65 | exchange_calendars-XASX: ok (allowlisted=8); quantlib-australia-asx: ok (allowlisted=2) | 13.0.0 |
-| BE-EURONEXT-BRUSSELS | Euronext Brussels Trading Calendar | market | Europe/Brussels | 2010-01-01 to 2030-12-31 | 2026-12-31 | 126 | 30 | 0 | 14 | exchange_calendars-XBRU: ok (allowlisted=12) | 13.0.0 |
-| BR-B3 | B3 - Brasil Bolsa Balcão | market | America/Sao_Paulo | 2010-01-01 to 2027-12-31 | 2026-12-31 | 290 | 0 | 0 | 35 | exchange_calendars-BVMF: ok (allowlisted=0); quantlib-brazil-exchange: ok (allowlisted=3) | 13.0.0 |
-| CA-TSX | Toronto Stock Exchange | market | America/Toronto | 2000-01-01 to 2030-12-31 | 2026-12-31 | 304 | 16 | 4 | 33 | exchange_calendars-XTSE: ok (allowlisted=9); quantlib-tsx: ok (allowlisted=2) | 13.0.0 |
-| DE-XETRA | Deutsche Börse Xetra | market | Europe/Berlin | 2003-01-01 to 2030-12-31 | 2026-12-31 | 238 | 0 | 0 | 29 | exchange_calendars-XETR: ok (allowlisted=21); quantlib-germany-xetra: ok (allowlisted=33) | 13.0.0 |
-| FR-EURONEXT-PARIS | Euronext Paris Trading Calendar | market | Europe/Paris | 2010-01-01 to 2030-12-31 | 2026-12-31 | 126 | 30 | 0 | 14 | exchange_calendars-XPAR: ok (allowlisted=12) | 13.0.0 |
-| GB-LSE | London Stock Exchange | market | Europe/London | 2000-01-01 to 2030-12-31 | 2028-12-31 | 254 | 62 | 0 | 33 | exchange_calendars-XLON: ok (allowlisted=0); quantlib-uk-exchange: ok (allowlisted=0) | 13.0.0 |
-| HK-HKEX | Hong Kong Exchanges and Clearing | market | Asia/Hong_Kong | 2018-01-01 to 2027-12-31 | 2027-12-31 | 147 | 27 | 0 | 26 | exchange_calendars-XHKG: ok (allowlisted=4); quantlib-hong-kong: ok (allowlisted=23) | 13.0.0 |
-| IL-TASE | Tel Aviv Stock Exchange | market | Asia/Jerusalem | 2025-01-01 to 2028-12-31 | 2028-12-31 | 78 | 157 | 0 | 9 | none | 13.0.0 |
-| JP-JPX | Japan Exchange Group (Tokyo Stock Exchange) | market | Asia/Tokyo | 2010-01-01 to 2030-12-31 | 2027-12-31 | 343 | 0 | 6 | 12 | exchange_calendars-XTKS: ok (allowlisted=11); quantlib-japan: ok (allowlisted=1) | 13.0.0 |
-| KR-KRX | Korea Exchange | market | Asia/Seoul | 2010-01-01 to 2027-12-31 | 2026-12-31 | 318 | 0 | 0 | 17 | exchange_calendars-XKRX: ok (allowlisted=6); quantlib-south-korea-krx: ok (allowlisted=5) | 13.0.0 |
-| MX-BMV | Bolsa Mexicana de Valores | market | America/Mexico_City | 2010-01-01 to 2027-12-31 | 2026-12-31 | 200 | 10 | 0 | 49 | exchange_calendars-XMEX: ok (allowlisted=11); quantlib-mexico: ok (allowlisted=1) | 13.0.0 |
-| NL-EURONEXT-AMSTERDAM | Euronext Amsterdam Trading Calendar | market | Europe/Amsterdam | 2010-01-01 to 2030-12-31 | 2026-12-31 | 126 | 30 | 0 | 14 | exchange_calendars-XAMS: ok (allowlisted=12) | 13.0.0 |
-| PT-EURONEXT-LISBON | Euronext Lisbon Trading Calendar | market | Europe/Lisbon | 2010-01-01 to 2030-12-31 | 2026-12-31 | 126 | 30 | 0 | 14 | exchange_calendars-XLIS: ok (allowlisted=12) | 13.0.0 |
-| SA-TADAWUL | Tadawul (Saudi Exchange) Trading Calendar | market | Asia/Riyadh | 2020-01-01 to 2030-12-31 | 2029-12-31 | 195 | 0 | 16 | 13 | exchange_calendars-XSAU: ok (allowlisted=24) | 13.0.0 |
-| SG-SGX | Singapore Exchange | market | Asia/Singapore | 2010-01-01 to 2027-12-31 | 2027-12-31 | 180 | 40 | 0 | 46 | exchange_calendars-XSES: ok (allowlisted=34) | 13.0.0 |
-| TW-TWSE | Taiwan Stock Exchange | market | Asia/Taipei | 2010-01-01 to 2027-12-31 | 2026-12-31 | 303 | 0 | 0 | 41 | exchange_calendars-XTAI: ok (allowlisted=21) | 13.0.0 |
-| US-NYSE | NYSE Trading Calendar | market | America/New_York | 1900-01-01 to 2030-12-31 | 2026-12-31 | 1649 | 127 | 0 | 11 | exchange_calendars-XNYS: ok (allowlisted=8); quantlib-nyse: ok (allowlisted=0) | 13.0.0 |
-| ZA-JSE | Johannesburg Stock Exchange | market | Africa/Johannesburg | 2010-01-01 to 2030-12-31 | 2026-12-31 | 236 | 43 | 0 | 78 | exchange_calendars-XJSE: ok (allowlisted=48); quantlib-south-africa: ok (allowlisted=6) | 13.0.0 |
-| EU-EURONEXT | Euronext Cash Markets Base Calendar | base | Europe/Paris | 2010-01-01 to 2030-12-31 | 2026-12-31 | 126 | 0 | 0 | 14 | none | 13.0.0 |
-| EU-TARGET | T2 euro RTGS | payment | Europe/Berlin | 2026-01-01 to 2027-12-31 | 2027-12-31 | 8 | 0 | 0 | 3 | none | 13.0.0 |
-| GB-CHAPS | CHAPS | payment | Europe/London | 2026-01-01 to 2027-12-31 | 2027-12-31 | 16 | 0 | 0 | 3 | none | 13.0.0 |
-| US-CORP-IN-VISIBILITY | US Corporate Calendar with India Visibility | base | America/New_York | 1900-01-01 to 2030-12-31 | 2026-12-31 | 938 | 0 | 0 | 3 | none | 13.0.0 |
-| US-FEDWIRE | Fedwire Funds Service | payment | America/New_York | 2026-01-01 to 2027-12-31 | 2027-12-31 | 19 | 0 | 0 | 3 | none | 13.0.0 |
-| US-MARKET-BASE | US Market Base Calendar | base | America/New_York | 1900-01-01 to 2030-12-31 | 2026-12-31 | 938 | 0 | 0 | 2 | none | 13.0.0 |
+| AU-ASX | Australian Securities Exchange | market | Australia/Sydney | 2010-01-01 to 2030-12-31 | 2027-12-31 | 170 | 36 | 0 | 65 | exchange_calendars-XASX: ok (allowlisted=8); quantlib-australia-asx: ok (allowlisted=2) | 13.1.0 |
+| BE-EURONEXT-BRUSSELS | Euronext Brussels Trading Calendar | market | Europe/Brussels | 2010-01-01 to 2030-12-31 | 2026-12-31 | 126 | 30 | 0 | 14 | exchange_calendars-XBRU: ok (allowlisted=12) | 13.1.0 |
+| BR-B3 | B3 - Brasil Bolsa Balcão | market | America/Sao_Paulo | 2010-01-01 to 2027-12-31 | 2026-12-31 | 290 | 0 | 0 | 35 | exchange_calendars-BVMF: ok (allowlisted=0); quantlib-brazil-exchange: ok (allowlisted=3) | 13.1.0 |
+| CA-TSX | Toronto Stock Exchange | market | America/Toronto | 2000-01-01 to 2030-12-31 | 2026-12-31 | 304 | 16 | 4 | 33 | exchange_calendars-XTSE: ok (allowlisted=9); quantlib-tsx: ok (allowlisted=2) | 13.1.0 |
+| DE-XETRA | Deutsche Börse Xetra | market | Europe/Berlin | 2003-01-01 to 2030-12-31 | 2026-12-31 | 238 | 0 | 0 | 29 | exchange_calendars-XETR: ok (allowlisted=21); quantlib-germany-xetra: ok (allowlisted=33) | 13.1.0 |
+| FR-EURONEXT-PARIS | Euronext Paris Trading Calendar | market | Europe/Paris | 2010-01-01 to 2030-12-31 | 2026-12-31 | 126 | 30 | 0 | 14 | exchange_calendars-XPAR: ok (allowlisted=12) | 13.1.0 |
+| GB-LSE | London Stock Exchange | market | Europe/London | 2000-01-01 to 2030-12-31 | 2028-12-31 | 254 | 62 | 0 | 33 | exchange_calendars-XLON: ok (allowlisted=0); quantlib-uk-exchange: ok (allowlisted=0) | 13.1.0 |
+| HK-HKEX | Hong Kong Exchanges and Clearing | market | Asia/Hong_Kong | 2018-01-01 to 2027-12-31 | 2027-12-31 | 147 | 27 | 0 | 26 | exchange_calendars-XHKG: ok (allowlisted=4); quantlib-hong-kong: ok (allowlisted=23) | 13.1.0 |
+| IL-TASE | Tel Aviv Stock Exchange | market | Asia/Jerusalem | 2025-01-01 to 2028-12-31 | 2028-12-31 | 78 | 157 | 0 | 9 | none | 13.1.0 |
+| IN-NSE | National Stock Exchange of India | market | Asia/Kolkata | 2010-01-01 to 2026-12-31 | 2026-10-14 | 249 | 0 | 1 | 10 | exchange_calendars-XBOM: ok (allowlisted=5) | 13.1.0 |
+| JP-JPX | Japan Exchange Group (Tokyo Stock Exchange) | market | Asia/Tokyo | 2010-01-01 to 2030-12-31 | 2027-12-31 | 343 | 0 | 6 | 12 | exchange_calendars-XTKS: ok (allowlisted=11); quantlib-japan: ok (allowlisted=1) | 13.1.0 |
+| KR-KRX | Korea Exchange | market | Asia/Seoul | 2010-01-01 to 2027-12-31 | 2026-12-31 | 318 | 0 | 0 | 17 | exchange_calendars-XKRX: ok (allowlisted=6); quantlib-south-korea-krx: ok (allowlisted=5) | 13.1.0 |
+| MX-BMV | Bolsa Mexicana de Valores | market | America/Mexico_City | 2010-01-01 to 2027-12-31 | 2026-12-31 | 200 | 10 | 0 | 49 | exchange_calendars-XMEX: ok (allowlisted=11); quantlib-mexico: ok (allowlisted=1) | 13.1.0 |
+| NL-EURONEXT-AMSTERDAM | Euronext Amsterdam Trading Calendar | market | Europe/Amsterdam | 2010-01-01 to 2030-12-31 | 2026-12-31 | 126 | 30 | 0 | 14 | exchange_calendars-XAMS: ok (allowlisted=12) | 13.1.0 |
+| PT-EURONEXT-LISBON | Euronext Lisbon Trading Calendar | market | Europe/Lisbon | 2010-01-01 to 2030-12-31 | 2026-12-31 | 126 | 30 | 0 | 14 | exchange_calendars-XLIS: ok (allowlisted=12) | 13.1.0 |
+| SA-TADAWUL | Tadawul (Saudi Exchange) Trading Calendar | market | Asia/Riyadh | 2020-01-01 to 2030-12-31 | 2029-12-31 | 195 | 0 | 16 | 13 | exchange_calendars-XSAU: ok (allowlisted=24) | 13.1.0 |
+| SG-SGX | Singapore Exchange | market | Asia/Singapore | 2010-01-01 to 2027-12-31 | 2027-12-31 | 180 | 40 | 0 | 46 | exchange_calendars-XSES: ok (allowlisted=34) | 13.1.0 |
+| TW-TWSE | Taiwan Stock Exchange | market | Asia/Taipei | 2010-01-01 to 2027-12-31 | 2026-12-31 | 303 | 0 | 0 | 41 | exchange_calendars-XTAI: ok (allowlisted=21) | 13.1.0 |
+| US-NYSE | NYSE Trading Calendar | market | America/New_York | 1900-01-01 to 2030-12-31 | 2026-12-31 | 1649 | 127 | 0 | 11 | exchange_calendars-XNYS: ok (allowlisted=8); quantlib-nyse: ok (allowlisted=0) | 13.1.0 |
+| ZA-JSE | Johannesburg Stock Exchange | market | Africa/Johannesburg | 2010-01-01 to 2030-12-31 | 2026-12-31 | 236 | 43 | 0 | 78 | exchange_calendars-XJSE: ok (allowlisted=48); quantlib-south-africa: ok (allowlisted=6) | 13.1.0 |
+| EU-EURONEXT | Euronext Cash Markets Base Calendar | base | Europe/Paris | 2010-01-01 to 2030-12-31 | 2026-12-31 | 126 | 0 | 0 | 14 | none | 13.1.0 |
+| EU-TARGET | T2 euro RTGS | payment | Europe/Berlin | 2026-01-01 to 2027-12-31 | 2027-12-31 | 8 | 0 | 0 | 3 | none | 13.1.0 |
+| GB-CHAPS | CHAPS | payment | Europe/London | 2026-01-01 to 2027-12-31 | 2027-12-31 | 16 | 0 | 0 | 3 | none | 13.1.0 |
+| US-CORP-IN-VISIBILITY | US Corporate Calendar with India Visibility | base | America/New_York | 1900-01-01 to 2030-12-31 | 2026-12-31 | 938 | 0 | 0 | 3 | none | 13.1.0 |
+| US-FEDWIRE | Fedwire Funds Service | payment | America/New_York | 2026-01-01 to 2027-12-31 | 2027-12-31 | 19 | 0 | 0 | 3 | none | 13.1.0 |
+| US-MARKET-BASE | US Market Base Calendar | base | America/New_York | 1900-01-01 to 2030-12-31 | 2026-12-31 | 938 | 0 | 0 | 2 | none | 13.1.0 |
 
 Corrections to previously published answers are logged in [`docs/ERRATA.md`](docs/ERRATA.md).
 

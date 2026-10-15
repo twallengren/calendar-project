@@ -1,0 +1,19 @@
+{
+  "calendar_id" : "IN-NSE",
+  "status" : "ok",
+  "results" : [ {
+    "source" : "exchange_calendars-XBOM",
+    "library_version" : "exchange_calendars 4.11, python 3.13.12, 2026-10-16",
+    "from" : "2010-01-04",
+    "to" : "2025-12-31",
+    "compared_types" : [ "CLOSED", "EARLY_CLOSE" ],
+    "counts" : {
+      "matched" : 228,
+      "allowlisted" : 5,
+      "unexplained" : 0
+    },
+    "unexplained_rows" : [ ],
+    "stale_allowlist_rows" : [ ],
+    "status" : "ok"
+  } ]
+}

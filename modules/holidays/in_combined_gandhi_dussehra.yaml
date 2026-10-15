@@ -1,0 +1,20 @@
+kind: module
+id: in_combined_gandhi_dussehra
+
+# Mahatma Gandhi Jayanti / Dussehra: as dated in the exchange's annual trading-holiday circulars
+# (Capital Market Segment), weekday occurrences only; the exchange never substitutes a weekday for
+# a holiday that falls on a Saturday or Sunday. The circulars spell it: Mahatma Gandhi
+# Jayanti/Dussehra.
+# Source: nse-holiday-lists.
+
+source:
+  - id: nse-holiday-lists
+
+event_sources:
+  - key: in_combined_gandhi_dussehra
+    name: "Mahatma Gandhi Jayanti / Dussehra"
+    default_classification: CLOSED
+    rule:
+      type: explicit_dates
+      dates:
+        - 2025-10-02  # NSE/CMTR/65587

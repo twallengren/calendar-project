@@ -1,0 +1,68 @@
+kind: module
+id: in_nse_special_live_sessions
+
+# Saturday "special live trading sessions": shortened sessions with settlement ("Trades done on
+# Saturday ... shall be settled on Tuesday ... as a separate settlement") that the exchange held to
+# bring a new trading system or its backup site into live use. All securities traded, and the
+# exchange published a bhavcopy for each day (nse-bhavcopy-availability). Times are the normal
+# market window; the pre-open, block-deal and closing sessions are session structure.
+#
+# - 2010-2014, system upgrades and the BCP site: 6 February 2010 (NSE/CMTR/14051), 7 January,
+#   3 March, 28 April and 8 September 2012 (NSE/CMTR/19734, 20063, 20561, 21547), 11 May 2013
+#   (NSE/CMTR/23302) and 22 March 2014 from the BCP site (NSE/CMTR/26045).
+# - 2024, an intra-day switch to the disaster-recovery site: a window from the primary site, then
+#   one from the DR site, with 5% price bands (NSE/MSD/60677, 60942, 61893). The closing session
+#   (12:40-12:50) is session structure. The session planned for 20 January 2024 in the same format
+#   became a full regular day from the primary site (NSE/MSD/60340; see in_nse_weekends).
+#
+# Not modelled: the gold-ETF-only sessions on Sunday 16 May 2010 (Akshaya Tritiya,
+# NSE/CMTR/14775) and Sunday 11 November 2012 (NSE/CMTR/22063), and the Dhanteras extended hours,
+# all limited to a handful of instruments; mock trading sessions, which carry no obligations.
+
+source:
+  - id: nse-weekend-sessions
+
+event_sources:
+  - key: in_special_live_session_2010
+    name: "Special Live Trading Session"
+    default_classification: SPECIAL_SESSION
+    open_time: "11:00"
+    close_time: "12:30"
+    rule:
+      type: explicit_dates
+      dates:
+        - 2010-02-06  # NSE/CMTR/14051
+  - key: in_special_live_session
+    name: "Special Live Trading Session"
+    default_classification: SPECIAL_SESSION
+    open_time: "11:15"
+    close_time: "12:45"
+    rule:
+      type: explicit_dates
+      dates:
+        - 2012-01-07  # NSE/CMTR/19734
+        - 2012-03-03  # NSE/CMTR/20063
+        - 2012-04-28  # NSE/CMTR/20561
+        - 2012-09-08  # NSE/CMTR/21547
+        - 2013-05-11  # NSE/CMTR/23302
+        - 2014-03-22  # NSE/CMTR/26045, from the BCP site
+  - key: in_dr_switch_primary_site
+    name: "Special Live Trading Session (primary site)"
+    default_classification: SPECIAL_SESSION
+    open_time: "09:15"
+    close_time: "10:00"
+    rule:
+      type: explicit_dates
+      dates:
+        - 2024-03-02  # NSE/MSD/60677
+        - 2024-05-18  # NSE/MSD/61893
+  - key: in_dr_switch_dr_site
+    name: "Special Live Trading Session (disaster-recovery site)"
+    default_classification: SPECIAL_SESSION
+    open_time: "11:30"
+    close_time: "12:30"
+    rule:
+      type: explicit_dates
+      dates:
+        - 2024-03-02  # NSE/MSD/60677
+        - 2024-05-18  # NSE/MSD/61893

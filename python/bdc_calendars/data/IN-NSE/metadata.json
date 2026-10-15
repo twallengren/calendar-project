@@ -1,0 +1,4101 @@
+{
+  "calendar_id": "IN-NSE",
+  "calendar_name": "National Stock Exchange of India",
+  "counts_by_status": {
+    "CONFIRMED": 2045,
+    "PROJECTED": 1
+  },
+  "counts_by_type": {
+    "CLOSED": 249,
+    "SPECIAL_SESSION": 28,
+    "WEEKEND": 1769
+  },
+  "coverage": {
+    "from": "2010-01-01",
+    "quality": [
+      {
+        "evidence_ids": [
+          "nse-holiday-lists",
+          "nse-additional-holidays",
+          "nse-muhurat-circulars",
+          "nse-weekend-sessions"
+        ],
+        "from": "2010-01-01",
+        "quality": "VERIFIED",
+        "scope": "SCHEDULED_CLOSURES",
+        "to": "2026-12-31"
+      },
+      {
+        "evidence_ids": [
+          "nse-market-timings",
+          "nse-outage-2021-02-24"
+        ],
+        "from": "2010-01-01",
+        "quality": "PROJECTED",
+        "scope": "EARLY_CLOSES",
+        "to": "2026-11-07"
+      },
+      {
+        "evidence_ids": [
+          "nse-holiday-lists"
+        ],
+        "from": "2026-11-08",
+        "quality": "INCOMPLETE",
+        "scope": "EARLY_CLOSES",
+        "to": "2026-11-08"
+      },
+      {
+        "evidence_ids": [
+          "nse-market-timings"
+        ],
+        "from": "2026-11-09",
+        "quality": "PROJECTED",
+        "scope": "EARLY_CLOSES",
+        "to": "2026-12-31"
+      },
+      {
+        "evidence_ids": [
+          "nse-bhavcopy-availability"
+        ],
+        "from": "2010-01-01",
+        "quality": "VERIFIED",
+        "scope": "UNSCHEDULED_EXCEPTIONS",
+        "to": "2026-10-14"
+      },
+      {
+        "evidence_ids": [
+          "nse-holiday-lists"
+        ],
+        "from": "2026-10-15",
+        "quality": "PROJECTED",
+        "scope": "UNSCHEDULED_EXCEPTIONS",
+        "to": "2026-12-31"
+      }
+    ],
+    "to": "2026-12-31",
+    "verified_through": "2026-10-14"
+  },
+  "event_count": 2046,
+  "event_details": [
+    {
+      "close_time": null,
+      "date": "2010-01-01",
+      "description": "New Year's Day",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-01-26",
+      "description": "Republic Day",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_republic_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_republic_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2010-02-06",
+      "description": "Special Live Trading Session",
+      "evidence_ids": [
+        "nse-weekend-sessions"
+      ],
+      "key": "in_special_live_session_2010",
+      "observation_lineage": [],
+      "observed_from": null,
+      "open_time": "11:00",
+      "source_module": "module:in_nse_special_live_sessions",
+      "status": "CONFIRMED",
+      "type": "SPECIAL_SESSION"
+    },
+    {
+      "close_time": null,
+      "date": "2010-02-12",
+      "description": "Mahashivratri",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_mahashivratri",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_mahashivratri",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-03-01",
+      "description": "Holi",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_holi",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_holi",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-03-24",
+      "description": "Shri Ram Navami",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_ram_navami",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_ram_navami",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-04-02",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-04-14",
+      "description": "Dr. Baba Saheb Ambedkar Jayanti",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_ambedkar_jayanti",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_ambedkar_jayanti",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-09-10",
+      "description": "Id-Ul-Fitr (Ramadan Eid)",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_id_ul_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_id_ul_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-11-05",
+      "description": "Diwali Laxmi Pujan",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_diwali_laxmi_pujan",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_diwali_laxmi_pujan",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "19:00",
+      "date": "2010-11-05",
+      "description": "Muhurat Trading",
+      "evidence_ids": [
+        "nse-muhurat-circulars"
+      ],
+      "key": "in_muhurat_trading_2010",
+      "observation_lineage": [],
+      "observed_from": null,
+      "open_time": "18:15",
+      "source_module": "module:in_nse_muhurat_trading",
+      "status": "CONFIRMED",
+      "type": "SPECIAL_SESSION"
+    },
+    {
+      "close_time": null,
+      "date": "2010-11-17",
+      "description": "Bakri Id",
+      "evidence_ids": [
+        "nse-additional-holidays",
+        "nse-holiday-lists"
+      ],
+      "key": "in_bakri_id",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_bakri_id",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-12-17",
+      "description": "Muharram",
+      "evidence_ids": [
+        "nse-additional-holidays",
+        "nse-holiday-lists"
+      ],
+      "key": "in_muharram",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_muharram",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-01-26",
+      "description": "Republic Day",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_republic_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_republic_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-03-02",
+      "description": "Mahashivratri",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_mahashivratri",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_mahashivratri",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-04-12",
+      "description": "Shri Ram Navami",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_ram_navami",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_ram_navami",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-04-14",
+      "description": "Dr. Baba Saheb Ambedkar Jayanti",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_ambedkar_jayanti",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_ambedkar_jayanti",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-04-22",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-08-15",
+      "description": "Independence Day",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_independence_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_independence_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-08-31",
+      "description": "Id-Ul-Fitr (Ramadan Eid)",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_id_ul_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_id_ul_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-09-01",
+      "description": "Ganesh Chaturthi",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_ganesh_chaturthi",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_ganesh_chaturthi",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-10-06",
+      "description": "Dussehra",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_dussehra",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_dussehra",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-10-26",
+      "description": "Diwali Laxmi Pujan",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_diwali_laxmi_pujan",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_diwali_laxmi_pujan",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "18:00",
+      "date": "2011-10-26",
+      "description": "Muhurat Trading",
+      "evidence_ids": [
+        "nse-muhurat-circulars"
+      ],
+      "key": "in_muhurat_trading_2011",
+      "observation_lineage": [],
+      "observed_from": null,
+      "open_time": "16:45",
+      "source_module": "module:in_nse_muhurat_trading",
+      "status": "CONFIRMED",
+      "type": "SPECIAL_SESSION"
+    },
+    {
+      "close_time": null,
+      "date": "2011-10-27",
+      "description": "Diwali Balipratipada",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_diwali_balipratipada",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_diwali_balipratipada",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-11-07",
+      "description": "Bakri Id",
+      "evidence_ids": [
+        "nse-additional-holidays",
+        "nse-holiday-lists"
+      ],
+      "key": "in_bakri_id",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_bakri_id",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-11-10",
+      "description": "Gurunanak Jayanti",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_gurunanak_jayanti",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_gurunanak_jayanti",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-12-06",
+      "description": "Muharram",
+      "evidence_ids": [
+        "nse-additional-holidays",
+        "nse-holiday-lists"
+      ],
+      "key": "in_muharram",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_muharram",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:45",
+      "date": "2012-01-07",
+      "description": "Special Live Trading Session",
+      "evidence_ids": [
+        "nse-weekend-sessions"
+      ],
+      "key": "in_special_live_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "open_time": "11:15",
+      "source_module": "module:in_nse_special_live_sessions",
+      "status": "CONFIRMED",
+      "type": "SPECIAL_SESSION"
+    },
+    {
+      "close_time": null,
+      "date": "2012-01-26",
+      "description": "Republic Day",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_republic_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_republic_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-02-20",
+      "description": "Mahashivratri",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_mahashivratri",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_mahashivratri",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:45",
+      "date": "2012-03-03",
+      "description": "Special Live Trading Session",
+      "evidence_ids": [
+        "nse-weekend-sessions"
+      ],
+      "key": "in_special_live_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "open_time": "11:15",
+      "source_module": "module:in_nse_special_live_sessions",
+      "status": "CONFIRMED",
+      "type": "SPECIAL_SESSION"
+    },
+    {
+      "close_time": null,
+      "date": "2012-03-08",
+      "description": "Holi",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_holi",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_holi",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-04-05",
+      "description": "Shri Mahavir Jayanti",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_mahavir_jayanti",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_mahavir_jayanti",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-04-06",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:45",
+      "date": "2012-04-28",
+      "description": "Special Live Trading Session",
+      "evidence_ids": [
+        "nse-weekend-sessions"
+      ],
+      "key": "in_special_live_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "open_time": "11:15",
+      "source_module": "module:in_nse_special_live_sessions",
+      "status": "CONFIRMED",
+      "type": "SPECIAL_SESSION"
+    },
+    {
+      "close_time": null,
+      "date": "2012-05-01",
+      "description": "Maharashtra Day",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_maharashtra_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_maharashtra_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-08-15",
+      "description": "Independence Day",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_independence_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_independence_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-08-20",
+      "description": "Id-Ul-Fitr (Ramadan Eid)",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_id_ul_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_id_ul_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:45",
+      "date": "2012-09-08",
+      "description": "Special Live Trading Session",
+      "evidence_ids": [
+        "nse-weekend-sessions"
+      ],
+      "key": "in_special_live_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "open_time": "11:15",
+      "source_module": "module:in_nse_special_live_sessions",
+      "status": "CONFIRMED",
+      "type": "SPECIAL_SESSION"
+    },
+    {
+      "close_time": null,
+      "date": "2012-09-19",
+      "description": "Ganesh Chaturthi",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_ganesh_chaturthi",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_ganesh_chaturthi",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-10-02",
+      "description": "Mahatma Gandhi Jayanti",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_gandhi_jayanti",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_gandhi_jayanti",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-10-24",
+      "description": "Dussehra",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_dussehra",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_dussehra",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-11-13",
+      "description": "Diwali Laxmi Pujan",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_diwali_laxmi_pujan",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_diwali_laxmi_pujan",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "17:00",
+      "date": "2012-11-13",
+      "description": "Muhurat Trading",
+      "evidence_ids": [
+        "nse-muhurat-circulars"
+      ],
+      "key": "in_muhurat_trading_2012",
+      "observation_lineage": [],
+      "observed_from": null,
+      "open_time": "15:45",
+      "source_module": "module:in_nse_muhurat_trading",
+      "status": "CONFIRMED",
+      "type": "SPECIAL_SESSION"
+    },
+    {
+      "close_time": null,
+      "date": "2012-11-14",
+      "description": "Diwali Balipratipada",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_diwali_balipratipada",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_diwali_balipratipada",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-11-28",
+      "description": "Gurunanak Jayanti",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_gurunanak_jayanti",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_gurunanak_jayanti",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-12-25",
+      "description": "Christmas",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_christmas",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_christmas",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-03-27",
+      "description": "Holi",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_holi",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_holi",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-03-29",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-04-19",
+      "description": "Shri Ram Navami",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_ram_navami",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_ram_navami",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-04-24",
+      "description": "Shri Mahavir Jayanti",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_mahavir_jayanti",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_mahavir_jayanti",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-05-01",
+      "description": "Maharashtra Day",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_maharashtra_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_maharashtra_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:45",
+      "date": "2013-05-11",
+      "description": "Special Live Trading Session",
+      "evidence_ids": [
+        "nse-weekend-sessions"
+      ],
+      "key": "in_special_live_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "open_time": "11:15",
+      "source_module": "module:in_nse_special_live_sessions",
+      "status": "CONFIRMED",
+      "type": "SPECIAL_SESSION"
+    },
+    {
+      "close_time": null,
+      "date": "2013-08-09",
+      "description": "Id-Ul-Fitr (Ramadan Eid)",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_id_ul_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_id_ul_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-08-15",
+      "description": "Independence Day",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_independence_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_independence_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-09-09",
+      "description": "Ganesh Chaturthi",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_ganesh_chaturthi",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_ganesh_chaturthi",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-10-02",
+      "description": "Mahatma Gandhi Jayanti",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_gandhi_jayanti",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_gandhi_jayanti",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-10-16",
+      "description": "Bakri Id",
+      "evidence_ids": [
+        "nse-additional-holidays",
+        "nse-holiday-lists"
+      ],
+      "key": "in_bakri_id",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_bakri_id",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "19:30",
+      "date": "2013-11-03",
+      "description": "Muhurat Trading",
+      "evidence_ids": [
+        "nse-muhurat-circulars"
+      ],
+      "key": "in_muhurat_trading_2013",
+      "observation_lineage": [],
+      "observed_from": null,
+      "open_time": "18:15",
+      "source_module": "module:in_nse_muhurat_trading",
+      "status": "CONFIRMED",
+      "type": "SPECIAL_SESSION"
+    },
+    {
+      "close_time": null,
+      "date": "2013-11-04",
+      "description": "Diwali Balipratipada",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_diwali_balipratipada",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_diwali_balipratipada",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-11-15",
+      "description": "Muharram",
+      "evidence_ids": [
+        "nse-additional-holidays",
+        "nse-holiday-lists"
+      ],
+      "key": "in_muharram",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_muharram",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-12-25",
+      "description": "Christmas",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_christmas",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_christmas",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-02-27",
+      "description": "Mahashivratri",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_mahashivratri",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_mahashivratri",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-03-17",
+      "description": "Holi",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_holi",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_holi",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:45",
+      "date": "2014-03-22",
+      "description": "Special Live Trading Session",
+      "evidence_ids": [
+        "nse-weekend-sessions"
+      ],
+      "key": "in_special_live_session",
+      "observation_lineage": [],
+      "observed_from": null,
+      "open_time": "11:15",
+      "source_module": "module:in_nse_special_live_sessions",
+      "status": "CONFIRMED",
+      "type": "SPECIAL_SESSION"
+    },
+    {
+      "close_time": null,
+      "date": "2014-04-08",
+      "description": "Shri Ram Navami",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_ram_navami",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_ram_navami",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-04-14",
+      "description": "Dr. Baba Saheb Ambedkar Jayanti",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_ambedkar_jayanti",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_ambedkar_jayanti",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-04-18",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-04-24",
+      "description": "Parliamentary Elections",
+      "evidence_ids": [
+        "nse-additional-holidays"
+      ],
+      "key": "in_parliamentary_elections",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_nse_additional_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-05-01",
+      "description": "Maharashtra Day",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_maharashtra_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_maharashtra_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-07-29",
+      "description": "Id-Ul-Fitr (Ramadan Eid)",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_id_ul_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_id_ul_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-08-15",
+      "description": "Independence Day",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_independence_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_independence_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-08-29",
+      "description": "Ganesh Chaturthi",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_ganesh_chaturthi",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_ganesh_chaturthi",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-10-02",
+      "description": "Mahatma Gandhi Jayanti",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_gandhi_jayanti",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_gandhi_jayanti",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-10-03",
+      "description": "Dussehra",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_dussehra",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_dussehra",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-10-06",
+      "description": "Bakri Id",
+      "evidence_ids": [
+        "nse-additional-holidays",
+        "nse-holiday-lists"
+      ],
+      "key": "in_bakri_id",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_bakri_id",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-10-15",
+      "description": "Elections in Maharashtra",
+      "evidence_ids": [
+        "nse-additional-holidays"
+      ],
+      "key": "in_maharashtra_elections",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_nse_additional_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-10-23",
+      "description": "Diwali Laxmi Pujan",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_diwali_laxmi_pujan",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_diwali_laxmi_pujan",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "19:30",
+      "date": "2014-10-23",
+      "description": "Muhurat Trading",
+      "evidence_ids": [
+        "nse-muhurat-circulars"
+      ],
+      "key": "in_muhurat_trading_2014",
+      "observation_lineage": [],
+      "observed_from": null,
+      "open_time": "18:30",
+      "source_module": "module:in_nse_muhurat_trading",
+      "status": "CONFIRMED",
+      "type": "SPECIAL_SESSION"
+    },
+    {
+      "close_time": null,
+      "date": "2014-10-24",
+      "description": "Diwali Balipratipada",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_diwali_balipratipada",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_diwali_balipratipada",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-11-04",
+      "description": "Muharram",
+      "evidence_ids": [
+        "nse-additional-holidays",
+        "nse-holiday-lists"
+      ],
+      "key": "in_muharram",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_muharram",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-11-06",
+      "description": "Gurunanak Jayanti",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_gurunanak_jayanti",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_gurunanak_jayanti",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-12-25",
+      "description": "Christmas",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_christmas",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_christmas",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-01-26",
+      "description": "Republic Day",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_republic_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_republic_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-02-17",
+      "description": "Mahashivratri",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_mahashivratri",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_mahashivratri",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-03-06",
+      "description": "Holi",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_holi",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_holi",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-04-02",
+      "description": "Shri Mahavir Jayanti",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_mahavir_jayanti",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_mahavir_jayanti",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-04-03",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-04-14",
+      "description": "Dr. Baba Saheb Ambedkar Jayanti",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_ambedkar_jayanti",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_ambedkar_jayanti",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-05-01",
+      "description": "Maharashtra Day",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_maharashtra_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_maharashtra_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-09-17",
+      "description": "Ganesh Chaturthi",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_ganesh_chaturthi",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_ganesh_chaturthi",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-09-25",
+      "description": "Bakri Id",
+      "evidence_ids": [
+        "nse-additional-holidays",
+        "nse-holiday-lists"
+      ],
+      "key": "in_bakri_id",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_bakri_id",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-10-02",
+      "description": "Mahatma Gandhi Jayanti",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_gandhi_jayanti",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_gandhi_jayanti",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-10-22",
+      "description": "Dussehra",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_dussehra",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_dussehra",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-11-11",
+      "description": "Diwali Laxmi Pujan",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_diwali_laxmi_pujan",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_diwali_laxmi_pujan",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "18:45",
+      "date": "2015-11-11",
+      "description": "Muhurat Trading",
+      "evidence_ids": [
+        "nse-muhurat-circulars"
+      ],
+      "key": "in_muhurat_trading_2015",
+      "observation_lineage": [],
+      "observed_from": null,
+      "open_time": "17:45",
+      "source_module": "module:in_nse_muhurat_trading",
+      "status": "CONFIRMED",
+      "type": "SPECIAL_SESSION"
+    },
+    {
+      "close_time": null,
+      "date": "2015-11-12",
+      "description": "Diwali Balipratipada",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_diwali_balipratipada",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_diwali_balipratipada",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-11-25",
+      "description": "Gurunanak Jayanti",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_gurunanak_jayanti",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_gurunanak_jayanti",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-12-25",
+      "description": "Christmas",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_christmas",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_christmas",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-01-26",
+      "description": "Republic Day",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_republic_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_republic_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-03-07",
+      "description": "Mahashivratri",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_mahashivratri",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_mahashivratri",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-03-24",
+      "description": "Holi",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_holi",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_holi",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-03-25",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-04-14",
+      "description": "Dr. Baba Saheb Ambedkar Jayanti",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_ambedkar_jayanti",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_ambedkar_jayanti",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-04-15",
+      "description": "Shri Ram Navami",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_ram_navami",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_ram_navami",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-04-19",
+      "description": "Shri Mahavir Jayanti",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_mahavir_jayanti",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_mahavir_jayanti",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-07-06",
+      "description": "Id-Ul-Fitr (Ramadan Eid)",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_id_ul_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_id_ul_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-08-15",
+      "description": "Independence Day",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_independence_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_independence_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-09-05",
+      "description": "Ganesh Chaturthi",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_ganesh_chaturthi",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_ganesh_chaturthi",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-09-13",
+      "description": "Bakri Id",
+      "evidence_ids": [
+        "nse-additional-holidays",
+        "nse-holiday-lists"
+      ],
+      "key": "in_bakri_id",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_bakri_id",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-10-11",
+      "description": "Dussehra",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_dussehra",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_dussehra",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-10-12",
+      "description": "Muharram",
+      "evidence_ids": [
+        "nse-additional-holidays",
+        "nse-holiday-lists"
+      ],
+      "key": "in_muharram",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_muharram",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "19:30",
+      "date": "2016-10-30",
+      "description": "Muhurat Trading",
+      "evidence_ids": [
+        "nse-muhurat-circulars"
+      ],
+      "key": "in_muhurat_trading_2016",
+      "observation_lineage": [],
+      "observed_from": null,
+      "open_time": "18:30",
+      "source_module": "module:in_nse_muhurat_trading",
+      "status": "CONFIRMED",
+      "type": "SPECIAL_SESSION"
+    },
+    {
+      "close_time": null,
+      "date": "2016-10-31",
+      "description": "Diwali Balipratipada",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_diwali_balipratipada",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_diwali_balipratipada",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-11-14",
+      "description": "Gurunanak Jayanti",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_gurunanak_jayanti",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_gurunanak_jayanti",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-01-26",
+      "description": "Republic Day",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_republic_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_republic_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-02-24",
+      "description": "Mahashivratri",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_mahashivratri",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_mahashivratri",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-03-13",
+      "description": "Holi",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_holi",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_holi",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-04-04",
+      "description": "Shri Ram Navami",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_ram_navami",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_ram_navami",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-04-14",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-05-01",
+      "description": "Maharashtra Day",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_maharashtra_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_maharashtra_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-06-26",
+      "description": "Id-Ul-Fitr (Ramadan Eid)",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_id_ul_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_id_ul_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-08-15",
+      "description": "Independence Day",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_independence_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_independence_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-08-25",
+      "description": "Ganesh Chaturthi",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_ganesh_chaturthi",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_ganesh_chaturthi",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-10-02",
+      "description": "Mahatma Gandhi Jayanti",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_gandhi_jayanti",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_gandhi_jayanti",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-10-19",
+      "description": "Diwali Laxmi Pujan",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_diwali_laxmi_pujan",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_diwali_laxmi_pujan",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "19:30",
+      "date": "2017-10-19",
+      "description": "Muhurat Trading",
+      "evidence_ids": [
+        "nse-muhurat-circulars"
+      ],
+      "key": "in_muhurat_trading_2017",
+      "observation_lineage": [],
+      "observed_from": null,
+      "open_time": "18:30",
+      "source_module": "module:in_nse_muhurat_trading",
+      "status": "CONFIRMED",
+      "type": "SPECIAL_SESSION"
+    },
+    {
+      "close_time": null,
+      "date": "2017-10-20",
+      "description": "Diwali Balipratipada",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_diwali_balipratipada",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_diwali_balipratipada",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-12-25",
+      "description": "Christmas",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_christmas",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_christmas",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-01-26",
+      "description": "Republic Day",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_republic_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_republic_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-02-13",
+      "description": "Mahashivratri",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_mahashivratri",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_mahashivratri",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-03-02",
+      "description": "Holi",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_holi",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_holi",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-03-29",
+      "description": "Shri Mahavir Jayanti",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_mahavir_jayanti",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_mahavir_jayanti",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-03-30",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-05-01",
+      "description": "Maharashtra Day",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_maharashtra_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_maharashtra_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-08-15",
+      "description": "Independence Day",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_independence_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_independence_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-08-22",
+      "description": "Bakri Id",
+      "evidence_ids": [
+        "nse-additional-holidays",
+        "nse-holiday-lists"
+      ],
+      "key": "in_bakri_id",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_bakri_id",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-09-13",
+      "description": "Ganesh Chaturthi",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_ganesh_chaturthi",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_ganesh_chaturthi",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-09-20",
+      "description": "Muharram",
+      "evidence_ids": [
+        "nse-additional-holidays",
+        "nse-holiday-lists"
+      ],
+      "key": "in_muharram",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_muharram",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-10-02",
+      "description": "Mahatma Gandhi Jayanti",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_gandhi_jayanti",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_gandhi_jayanti",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-10-18",
+      "description": "Dussehra",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_dussehra",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_dussehra",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-11-07",
+      "description": "Diwali Laxmi Pujan",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_diwali_laxmi_pujan",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_diwali_laxmi_pujan",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "18:30",
+      "date": "2018-11-07",
+      "description": "Muhurat Trading",
+      "evidence_ids": [
+        "nse-muhurat-circulars"
+      ],
+      "key": "in_muhurat_trading_2018",
+      "observation_lineage": [],
+      "observed_from": null,
+      "open_time": "17:30",
+      "source_module": "module:in_nse_muhurat_trading",
+      "status": "CONFIRMED",
+      "type": "SPECIAL_SESSION"
+    },
+    {
+      "close_time": null,
+      "date": "2018-11-08",
+      "description": "Diwali Balipratipada",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_diwali_balipratipada",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_diwali_balipratipada",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-11-23",
+      "description": "Gurunanak Jayanti",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_gurunanak_jayanti",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_gurunanak_jayanti",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-12-25",
+      "description": "Christmas",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_christmas",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_christmas",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-03-04",
+      "description": "Mahashivratri",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_mahashivratri",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_mahashivratri",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-03-21",
+      "description": "Holi",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_holi",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_holi",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-04-17",
+      "description": "Shri Mahavir Jayanti",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_mahavir_jayanti",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_mahavir_jayanti",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-04-19",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-04-29",
+      "description": "Parliamentary Elections",
+      "evidence_ids": [
+        "nse-additional-holidays"
+      ],
+      "key": "in_parliamentary_elections",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_nse_additional_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-05-01",
+      "description": "Maharashtra Day",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_maharashtra_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_maharashtra_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-06-05",
+      "description": "Id-Ul-Fitr (Ramadan Eid)",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_id_ul_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_id_ul_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-08-12",
+      "description": "Bakri Id",
+      "evidence_ids": [
+        "nse-additional-holidays",
+        "nse-holiday-lists"
+      ],
+      "key": "in_bakri_id",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_bakri_id",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-08-15",
+      "description": "Independence Day",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_independence_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_independence_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-09-02",
+      "description": "Ganesh Chaturthi",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_ganesh_chaturthi",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_ganesh_chaturthi",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-09-10",
+      "description": "Muharram",
+      "evidence_ids": [
+        "nse-additional-holidays",
+        "nse-holiday-lists"
+      ],
+      "key": "in_muharram",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_muharram",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-10-02",
+      "description": "Mahatma Gandhi Jayanti",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_gandhi_jayanti",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_gandhi_jayanti",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-10-08",
+      "description": "Dussehra",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_dussehra",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_dussehra",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-10-21",
+      "description": "Elections in Maharashtra",
+      "evidence_ids": [
+        "nse-additional-holidays"
+      ],
+      "key": "in_maharashtra_elections",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_nse_additional_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "19:15",
+      "date": "2019-10-27",
+      "description": "Muhurat Trading",
+      "evidence_ids": [
+        "nse-muhurat-circulars"
+      ],
+      "key": "in_muhurat_trading_2019",
+      "observation_lineage": [],
+      "observed_from": null,
+      "open_time": "18:15",
+      "source_module": "module:in_nse_muhurat_trading",
+      "status": "CONFIRMED",
+      "type": "SPECIAL_SESSION"
+    },
+    {
+      "close_time": null,
+      "date": "2019-10-28",
+      "description": "Diwali Balipratipada",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_diwali_balipratipada",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_diwali_balipratipada",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-11-12",
+      "description": "Gurunanak Jayanti",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_gurunanak_jayanti",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_gurunanak_jayanti",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-12-25",
+      "description": "Christmas",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_christmas",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_christmas",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-02-21",
+      "description": "Mahashivratri",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_mahashivratri",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_mahashivratri",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-03-10",
+      "description": "Holi",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_holi",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_holi",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-04-02",
+      "description": "Shri Ram Navami",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_ram_navami",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_ram_navami",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-04-06",
+      "description": "Shri Mahavir Jayanti",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_mahavir_jayanti",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_mahavir_jayanti",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-04-10",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-04-14",
+      "description": "Dr. Baba Saheb Ambedkar Jayanti",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_ambedkar_jayanti",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_ambedkar_jayanti",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-05-01",
+      "description": "Maharashtra Day",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_maharashtra_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_maharashtra_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-05-25",
+      "description": "Id-Ul-Fitr (Ramadan Eid)",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_id_ul_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_id_ul_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-10-02",
+      "description": "Mahatma Gandhi Jayanti",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_gandhi_jayanti",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_gandhi_jayanti",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "19:15",
+      "date": "2020-11-14",
+      "description": "Muhurat Trading",
+      "evidence_ids": [
+        "nse-muhurat-circulars"
+      ],
+      "key": "in_muhurat_trading_2020",
+      "observation_lineage": [],
+      "observed_from": null,
+      "open_time": "18:15",
+      "source_module": "module:in_nse_muhurat_trading",
+      "status": "CONFIRMED",
+      "type": "SPECIAL_SESSION"
+    },
+    {
+      "close_time": null,
+      "date": "2020-11-16",
+      "description": "Diwali Balipratipada",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_diwali_balipratipada",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_diwali_balipratipada",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-11-30",
+      "description": "Gurunanak Jayanti",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_gurunanak_jayanti",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_gurunanak_jayanti",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-12-25",
+      "description": "Christmas",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_christmas",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_christmas",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-01-26",
+      "description": "Republic Day",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_republic_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_republic_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-03-11",
+      "description": "Mahashivratri",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_mahashivratri",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_mahashivratri",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-03-29",
+      "description": "Holi",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_holi",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_holi",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-04-02",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-04-14",
+      "description": "Dr. Baba Saheb Ambedkar Jayanti",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_ambedkar_jayanti",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_ambedkar_jayanti",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-04-21",
+      "description": "Shri Ram Navami",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_ram_navami",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_ram_navami",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-05-13",
+      "description": "Id-Ul-Fitr (Ramadan Eid)",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_id_ul_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_id_ul_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-07-21",
+      "description": "Bakri Id",
+      "evidence_ids": [
+        "nse-additional-holidays",
+        "nse-holiday-lists"
+      ],
+      "key": "in_bakri_id",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_bakri_id",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-08-19",
+      "description": "Muharram",
+      "evidence_ids": [
+        "nse-additional-holidays",
+        "nse-holiday-lists"
+      ],
+      "key": "in_muharram",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_muharram",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-09-10",
+      "description": "Ganesh Chaturthi",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_ganesh_chaturthi",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_ganesh_chaturthi",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-10-15",
+      "description": "Dussehra",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_dussehra",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_dussehra",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-11-04",
+      "description": "Diwali Laxmi Pujan",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_diwali_laxmi_pujan",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_diwali_laxmi_pujan",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "19:15",
+      "date": "2021-11-04",
+      "description": "Muhurat Trading",
+      "evidence_ids": [
+        "nse-muhurat-circulars"
+      ],
+      "key": "in_muhurat_trading_2021",
+      "observation_lineage": [],
+      "observed_from": null,
+      "open_time": "18:15",
+      "source_module": "module:in_nse_muhurat_trading",
+      "status": "CONFIRMED",
+      "type": "SPECIAL_SESSION"
+    },
+    {
+      "close_time": null,
+      "date": "2021-11-05",
+      "description": "Diwali Balipratipada",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_diwali_balipratipada",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_diwali_balipratipada",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-11-19",
+      "description": "Gurunanak Jayanti",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_gurunanak_jayanti",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_gurunanak_jayanti",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-01-26",
+      "description": "Republic Day",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_republic_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_republic_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-03-01",
+      "description": "Mahashivratri",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_mahashivratri",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_mahashivratri",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-03-18",
+      "description": "Holi",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_holi",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_holi",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-04-14",
+      "description": "Dr. Baba Saheb Ambedkar Jayanti / Mahavir Jayanti",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_combined_ambedkar_mahavir",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_combined_ambedkar_mahavir",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-04-15",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-05-03",
+      "description": "Id-Ul-Fitr (Ramadan Eid)",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_id_ul_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_id_ul_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-08-09",
+      "description": "Muharram",
+      "evidence_ids": [
+        "nse-additional-holidays",
+        "nse-holiday-lists"
+      ],
+      "key": "in_muharram",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_muharram",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-08-15",
+      "description": "Independence Day",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_independence_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_independence_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-08-31",
+      "description": "Ganesh Chaturthi",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_ganesh_chaturthi",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_ganesh_chaturthi",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-10-05",
+      "description": "Dussehra",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_dussehra",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_dussehra",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-10-24",
+      "description": "Diwali Laxmi Pujan",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_diwali_laxmi_pujan",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_diwali_laxmi_pujan",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "19:15",
+      "date": "2022-10-24",
+      "description": "Muhurat Trading",
+      "evidence_ids": [
+        "nse-muhurat-circulars"
+      ],
+      "key": "in_muhurat_trading_2022",
+      "observation_lineage": [],
+      "observed_from": null,
+      "open_time": "18:15",
+      "source_module": "module:in_nse_muhurat_trading",
+      "status": "CONFIRMED",
+      "type": "SPECIAL_SESSION"
+    },
+    {
+      "close_time": null,
+      "date": "2022-10-26",
+      "description": "Diwali Balipratipada",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_diwali_balipratipada",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_diwali_balipratipada",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-11-08",
+      "description": "Gurunanak Jayanti",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_gurunanak_jayanti",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_gurunanak_jayanti",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-01-26",
+      "description": "Republic Day",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_republic_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_republic_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-03-07",
+      "description": "Holi",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_holi",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_holi",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-03-30",
+      "description": "Shri Ram Navami",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_ram_navami",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_ram_navami",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-04-04",
+      "description": "Shri Mahavir Jayanti",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_mahavir_jayanti",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_mahavir_jayanti",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-04-07",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-04-14",
+      "description": "Dr. Baba Saheb Ambedkar Jayanti",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_ambedkar_jayanti",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_ambedkar_jayanti",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-05-01",
+      "description": "Maharashtra Day",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_maharashtra_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_maharashtra_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-06-29",
+      "description": "Bakri Id",
+      "evidence_ids": [
+        "nse-additional-holidays",
+        "nse-holiday-lists"
+      ],
+      "key": "in_bakri_id",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_bakri_id",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-08-15",
+      "description": "Independence Day",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_independence_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_independence_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-09-19",
+      "description": "Ganesh Chaturthi",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_ganesh_chaturthi",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_ganesh_chaturthi",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-10-02",
+      "description": "Mahatma Gandhi Jayanti",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_gandhi_jayanti",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_gandhi_jayanti",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-10-24",
+      "description": "Dussehra",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_dussehra",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_dussehra",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "19:15",
+      "date": "2023-11-12",
+      "description": "Muhurat Trading",
+      "evidence_ids": [
+        "nse-muhurat-circulars"
+      ],
+      "key": "in_muhurat_trading_2023",
+      "observation_lineage": [],
+      "observed_from": null,
+      "open_time": "18:15",
+      "source_module": "module:in_nse_muhurat_trading",
+      "status": "CONFIRMED",
+      "type": "SPECIAL_SESSION"
+    },
+    {
+      "close_time": null,
+      "date": "2023-11-14",
+      "description": "Diwali Balipratipada",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_diwali_balipratipada",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_diwali_balipratipada",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-11-27",
+      "description": "Gurunanak Jayanti",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_gurunanak_jayanti",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_gurunanak_jayanti",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-12-25",
+      "description": "Christmas",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_christmas",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_christmas",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-01-22",
+      "description": "Public Holiday (Negotiable Instruments Act)",
+      "evidence_ids": [
+        "nse-additional-holidays"
+      ],
+      "key": "in_negotiable_instruments_holiday_2024",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_nse_additional_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-01-26",
+      "description": "Republic Day",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_republic_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_republic_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2024-03-02",
+      "description": "Special Live Trading Session (disaster-recovery site)",
+      "evidence_ids": [
+        "nse-weekend-sessions"
+      ],
+      "key": "in_dr_switch_dr_site",
+      "observation_lineage": [],
+      "observed_from": null,
+      "open_time": "11:30",
+      "source_module": "module:in_nse_special_live_sessions",
+      "status": "CONFIRMED",
+      "type": "SPECIAL_SESSION"
+    },
+    {
+      "close_time": "10:00",
+      "date": "2024-03-02",
+      "description": "Special Live Trading Session (primary site)",
+      "evidence_ids": [
+        "nse-weekend-sessions"
+      ],
+      "key": "in_dr_switch_primary_site",
+      "observation_lineage": [],
+      "observed_from": null,
+      "open_time": "09:15",
+      "source_module": "module:in_nse_special_live_sessions",
+      "status": "CONFIRMED",
+      "type": "SPECIAL_SESSION"
+    },
+    {
+      "close_time": null,
+      "date": "2024-03-08",
+      "description": "Mahashivratri",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_mahashivratri",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_mahashivratri",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-03-25",
+      "description": "Holi",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_holi",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_holi",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-03-29",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-04-11",
+      "description": "Id-Ul-Fitr (Ramadan Eid)",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_id_ul_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_id_ul_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-04-17",
+      "description": "Shri Ram Navami",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_ram_navami",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_ram_navami",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-05-01",
+      "description": "Maharashtra Day",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_maharashtra_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_maharashtra_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:30",
+      "date": "2024-05-18",
+      "description": "Special Live Trading Session (disaster-recovery site)",
+      "evidence_ids": [
+        "nse-weekend-sessions"
+      ],
+      "key": "in_dr_switch_dr_site",
+      "observation_lineage": [],
+      "observed_from": null,
+      "open_time": "11:30",
+      "source_module": "module:in_nse_special_live_sessions",
+      "status": "CONFIRMED",
+      "type": "SPECIAL_SESSION"
+    },
+    {
+      "close_time": "10:00",
+      "date": "2024-05-18",
+      "description": "Special Live Trading Session (primary site)",
+      "evidence_ids": [
+        "nse-weekend-sessions"
+      ],
+      "key": "in_dr_switch_primary_site",
+      "observation_lineage": [],
+      "observed_from": null,
+      "open_time": "09:15",
+      "source_module": "module:in_nse_special_live_sessions",
+      "status": "CONFIRMED",
+      "type": "SPECIAL_SESSION"
+    },
+    {
+      "close_time": null,
+      "date": "2024-05-20",
+      "description": "Parliamentary Elections",
+      "evidence_ids": [
+        "nse-additional-holidays"
+      ],
+      "key": "in_parliamentary_elections",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_nse_additional_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-06-17",
+      "description": "Bakri Id",
+      "evidence_ids": [
+        "nse-additional-holidays",
+        "nse-holiday-lists"
+      ],
+      "key": "in_bakri_id",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_bakri_id",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-07-17",
+      "description": "Muharram",
+      "evidence_ids": [
+        "nse-additional-holidays",
+        "nse-holiday-lists"
+      ],
+      "key": "in_muharram",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_muharram",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-08-15",
+      "description": "Independence Day",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_independence_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_independence_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-10-02",
+      "description": "Mahatma Gandhi Jayanti",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_gandhi_jayanti",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_gandhi_jayanti",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-11-01",
+      "description": "Diwali Laxmi Pujan",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_diwali_laxmi_pujan",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_diwali_laxmi_pujan",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "19:00",
+      "date": "2024-11-01",
+      "description": "Muhurat Trading",
+      "evidence_ids": [
+        "nse-muhurat-circulars"
+      ],
+      "key": "in_muhurat_trading_2024",
+      "observation_lineage": [],
+      "observed_from": null,
+      "open_time": "18:00",
+      "source_module": "module:in_nse_muhurat_trading",
+      "status": "CONFIRMED",
+      "type": "SPECIAL_SESSION"
+    },
+    {
+      "close_time": null,
+      "date": "2024-11-15",
+      "description": "Gurunanak Jayanti",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_gurunanak_jayanti",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_gurunanak_jayanti",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-11-20",
+      "description": "Elections in Maharashtra",
+      "evidence_ids": [
+        "nse-additional-holidays"
+      ],
+      "key": "in_maharashtra_elections",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_nse_additional_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-12-25",
+      "description": "Christmas",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_christmas",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_christmas",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-02-26",
+      "description": "Mahashivratri",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_mahashivratri",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_mahashivratri",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-03-14",
+      "description": "Holi",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_holi",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_holi",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-03-31",
+      "description": "Id-Ul-Fitr (Ramadan Eid)",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_id_ul_fitr",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_id_ul_fitr",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-04-10",
+      "description": "Shri Mahavir Jayanti",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_mahavir_jayanti",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_mahavir_jayanti",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-04-14",
+      "description": "Dr. Baba Saheb Ambedkar Jayanti",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_ambedkar_jayanti",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_ambedkar_jayanti",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-04-18",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-05-01",
+      "description": "Maharashtra Day",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_maharashtra_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_maharashtra_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-08-15",
+      "description": "Independence Day",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_independence_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_independence_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-08-27",
+      "description": "Ganesh Chaturthi",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_ganesh_chaturthi",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_ganesh_chaturthi",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-10-02",
+      "description": "Mahatma Gandhi Jayanti / Dussehra",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_combined_gandhi_dussehra",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_combined_gandhi_dussehra",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-10-21",
+      "description": "Diwali Laxmi Pujan",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_diwali_laxmi_pujan",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_diwali_laxmi_pujan",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "14:45",
+      "date": "2025-10-21",
+      "description": "Muhurat Trading",
+      "evidence_ids": [
+        "nse-muhurat-circulars"
+      ],
+      "key": "in_muhurat_trading_2025",
+      "observation_lineage": [],
+      "observed_from": null,
+      "open_time": "13:45",
+      "source_module": "module:in_nse_muhurat_trading",
+      "status": "CONFIRMED",
+      "type": "SPECIAL_SESSION"
+    },
+    {
+      "close_time": null,
+      "date": "2025-10-22",
+      "description": "Diwali Balipratipada",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_diwali_balipratipada",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_diwali_balipratipada",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-11-05",
+      "description": "Gurunanak Jayanti",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_gurunanak_jayanti",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_gurunanak_jayanti",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-12-25",
+      "description": "Christmas",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_christmas",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_christmas",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-01-15",
+      "description": "Elections in Maharashtra",
+      "evidence_ids": [
+        "nse-additional-holidays"
+      ],
+      "key": "in_maharashtra_elections",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_nse_additional_holidays",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-01-26",
+      "description": "Republic Day",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_republic_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_republic_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-03-03",
+      "description": "Holi",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_holi",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_holi",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-03-26",
+      "description": "Shri Ram Navami",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_ram_navami",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_ram_navami",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-03-31",
+      "description": "Shri Mahavir Jayanti",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_mahavir_jayanti",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_mahavir_jayanti",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-04-03",
+      "description": "Good Friday",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_good_friday",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-04-14",
+      "description": "Dr. Baba Saheb Ambedkar Jayanti",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_ambedkar_jayanti",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_ambedkar_jayanti",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-05-01",
+      "description": "Maharashtra Day",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_maharashtra_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_maharashtra_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-05-28",
+      "description": "Bakri Id",
+      "evidence_ids": [
+        "nse-additional-holidays",
+        "nse-holiday-lists"
+      ],
+      "key": "in_bakri_id",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_bakri_id",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-06-26",
+      "description": "Muharram",
+      "evidence_ids": [
+        "nse-additional-holidays",
+        "nse-holiday-lists"
+      ],
+      "key": "in_muharram",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_muharram",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-09-14",
+      "description": "Ganesh Chaturthi",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_ganesh_chaturthi",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_ganesh_chaturthi",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-10-02",
+      "description": "Mahatma Gandhi Jayanti",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_gandhi_jayanti",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_gandhi_jayanti",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-10-20",
+      "description": "Dussehra",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_dussehra",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_dussehra",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "19:15",
+      "date": "2026-11-08",
+      "description": "Muhurat Trading",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_muhurat_trading_2026",
+      "observation_lineage": [],
+      "observed_from": null,
+      "open_time": "18:15",
+      "source_module": "module:in_nse_muhurat_trading",
+      "status": "PROJECTED",
+      "type": "SPECIAL_SESSION"
+    },
+    {
+      "close_time": null,
+      "date": "2026-11-10",
+      "description": "Diwali Balipratipada",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_diwali_balipratipada",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_diwali_balipratipada",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-11-24",
+      "description": "Gurunanak Jayanti",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_gurunanak_jayanti",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_gurunanak_jayanti",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-12-25",
+      "description": "Christmas",
+      "evidence_ids": [
+        "nse-holiday-lists"
+      ],
+      "key": "in_christmas",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:in_christmas",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    }
+  ],
+  "generated_at": "2026-10-15T10:24:04Z",
+  "kind": "market",
+  "mic": "XNSE",
+  "range_end": "2026-12-31",
+  "range_start": "2010-01-01",
+  "resolution_chain": [
+    "module:in_nse_weekends",
+    "module:in_new_years_day",
+    "module:in_republic_day",
+    "module:in_mahashivratri",
+    "module:in_holi",
+    "module:in_good_friday",
+    "module:in_ram_navami",
+    "module:in_mahavir_jayanti",
+    "module:in_ambedkar_jayanti",
+    "module:in_combined_ambedkar_mahavir",
+    "module:in_maharashtra_day",
+    "module:in_id_ul_fitr",
+    "module:in_bakri_id",
+    "module:in_muharram",
+    "module:in_independence_day",
+    "module:in_ganesh_chaturthi",
+    "module:in_gandhi_jayanti",
+    "module:in_combined_gandhi_dussehra",
+    "module:in_dussehra",
+    "module:in_diwali_laxmi_pujan",
+    "module:in_diwali_balipratipada",
+    "module:in_gurunanak_jayanti",
+    "module:in_christmas",
+    "module:in_nse_additional_holidays",
+    "module:in_nse_muhurat_trading",
+    "module:in_nse_special_live_sessions",
+    "module:in_nse_holidays",
+    "calendar:IN-NSE"
+  ],
+  "source_version": {
+    "git_sha": "883e900e59f9b17c57970680eaee0e253cbbcd2d",
+    "semantic": "13.1.0"
+  },
+  "timezone": "Asia/Kolkata",
+  "weekend_policy": {
+    "days": [
+      "SATURDAY",
+      "SUNDAY"
+    ],
+    "periods": [
+      {
+        "days": [
+          "SATURDAY",
+          "SUNDAY"
+        ],
+        "from": null,
+        "to": null
+      },
+      {
+        "days": [
+          "SUNDAY"
+        ],
+        "from": "2015-02-28",
+        "to": "2015-02-28"
+      },
+      {
+        "days": [
+          "SUNDAY"
+        ],
+        "from": "2020-02-01",
+        "to": "2020-02-01"
+      },
+      {
+        "days": [
+          "SUNDAY"
+        ],
+        "from": "2024-01-20",
+        "to": "2024-01-20"
+      },
+      {
+        "days": [
+          "SUNDAY"
+        ],
+        "from": "2025-02-01",
+        "to": "2025-02-01"
+      },
+      {
+        "days": [
+          "SATURDAY"
+        ],
+        "from": "2026-02-01",
+        "to": "2026-02-01"
+      }
+    ]
+  }
+}

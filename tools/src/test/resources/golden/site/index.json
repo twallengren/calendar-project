@@ -239,6 +239,29 @@
     "years" : [ 2025, 2028 ],
     "href" : "calendars/IL-TASE/manifest.json"
   }, {
+    "id" : "IN-NSE",
+    "name" : "National Stock Exchange of India",
+    "timezone" : "Asia/Kolkata",
+    "mic" : "XNSE",
+    "aliases" : [ ],
+    "coverage" : {
+      "from" : "2010-01-01",
+      "to" : "2026-12-31",
+      "verified_through" : "2026-10-14"
+    },
+    "counts_by_type" : {
+      "CLOSED" : 249,
+      "WEEKEND" : 1769,
+      "SPECIAL_SESSION" : 28
+    },
+    "counts_by_status" : {
+      "CONFIRMED" : 2045,
+      "PROJECTED" : 1
+    },
+    "checksum" : "sha256:de051b01cfe67a0248a8c6a4fa4facf657371d18f38b5167a4e1a2b4f398b2db",
+    "years" : [ 2010, 2026 ],
+    "href" : "calendars/IN-NSE/manifest.json"
+  }, {
     "id" : "JP-JPX",
     "name" : "Japan Exchange Group (Tokyo Stock Exchange)",
     "timezone" : "Asia/Tokyo",

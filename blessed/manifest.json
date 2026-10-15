@@ -87,6 +87,13 @@
       "checksum": "sha256:b640028affb7496bc68bb7f9898e94d2db49c2f14ac4307a606c87f3a9246aca",
       "event_count": 639
     },
+    "IN-NSE": {
+      "range_start": "2010-01-01",
+      "range_end": "2026-12-31",
+      "kind": "market",
+      "checksum": "sha256:de051b01cfe67a0248a8c6a4fa4facf657371d18f38b5167a4e1a2b4f398b2db",
+      "event_count": 2046
+    },
     "JP-JPX": {
       "range_start": "2010-01-01",
       "range_end": "2030-12-31",
@@ -196,6 +203,7 @@
     "XLIS": "PT-EURONEXT-LISBON",
     "XLON": "GB-LSE",
     "XMEX": "MX-BMV",
+    "XNSE": "IN-NSE",
     "XNYS": "US-NYSE",
     "XPAR": "FR-EURONEXT-PARIS",
     "XSAU": "SA-TADAWUL",

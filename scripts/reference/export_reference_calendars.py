@@ -52,6 +52,8 @@ EXPORTS = [
     ("TW-TWSE", "XTAI", "2010-01-01", "2030-12-31"),
     ("BR-B3", "BVMF", "2010-01-01", "2030-12-31"),
     ("MX-BMV", "XMEX", "2010-01-01", "2030-12-31"),
+    # exchange_calendars has no NSE calendar; XBOM (BSE) follows the same exchange holiday list.
+    ("IN-NSE", "XBOM", "2010-01-01", "2026-12-31"),
 ]
 
 
@@ -178,6 +180,8 @@ def main() -> int:
         export_exchange_calendars(cal_id, code, start, end)
     # QuantLib's NYSE calendar is documented from 1980 onward
     export_quantlib_nyse("1980-01-01", "2030-12-31")
+    # QuantLib's India() is not exported: it disagrees with the NSE's own circulars on about eighty
+    # dates 2010-2026 (it carries Mumbai bank holidays and lacks most exchange-specific ones).
     # QuantLib's Japan() is the Japanese national-holiday calendar, not the exchange's: it does
     # not know about JPX's Jan 2 / Jan 3 / Dec 31 market holidays (it closes Dec 31 - Jan 3, which
     # happens to agree) nor about unscheduled closures.

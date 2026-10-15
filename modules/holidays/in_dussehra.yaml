@@ -1,0 +1,29 @@
+kind: module
+id: in_dussehra
+
+# Dussehra: as dated in the exchange's annual trading-holiday circulars (Capital Market Segment),
+# weekday occurrences only; the exchange never substitutes a weekday for a holiday that falls on a
+# Saturday or Sunday. The circulars spell it: Dasara; Dasera; Dussehra.
+# Source: nse-holiday-lists.
+
+source:
+  - id: nse-holiday-lists
+
+event_sources:
+  - key: in_dussehra
+    name: "Dussehra"
+    default_classification: CLOSED
+    rule:
+      type: explicit_dates
+      dates:
+        - 2011-10-06  # NSE/CMTR/16348
+        - 2012-10-24  # NSE/CMTR/19539
+        - 2014-10-03  # NSE/CMTR/25326
+        - 2015-10-22  # NSE/CMTR/28337
+        - 2016-10-11  # NSE/CMTR/31297
+        - 2018-10-18  # NSE/CMTR/36475
+        - 2019-10-08  # NSE/CMTR/39612
+        - 2021-10-15  # NSE/CMTR/46623
+        - 2022-10-05  # NSE/CMTR/50560
+        - 2023-10-24  # NSE/CMTR/54757
+        - 2026-10-20  # NSE/CMTR/71775

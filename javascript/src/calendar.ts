@@ -441,7 +441,8 @@ export class SingleCalendar extends BusinessCalendar {
       const name = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"][
         (((Date.UTC(Number(day.slice(0, 4)), Number(day.slice(5, 7)) - 1, Number(day.slice(8, 10))) / 86_400_000 + 3) % 7) + 7) % 7
       ]!;
-      rows.push({ date: day, type: "WEEKEND", description: name, key: "weekend", sourceModule: "weekend_policy", observedFrom: null, closeTime: null, status: "CONFIRMED", openTime: null });
+      // WEEKEND sorts after every other type except SPECIAL_SESSION (the Java enum order).
+      rows.splice(beforeSpecialSessions(rows), 0, { date: day, type: "WEEKEND", description: name, key: "weekend", sourceModule: "weekend_policy", observedFrom: null, closeTime: null, status: "CONFIRMED", openTime: null });
     }
     return rows;
   }
@@ -480,11 +481,17 @@ export class SingleCalendar extends BusinessCalendar {
     const result: EventDetails[] = [...details];
     for (const event of this.eventsOnUnchecked(day)) {
       if (event.type === "WEEKEND") {
-        result.push({ event, rawStatus: event.status, effectiveStatus: event.status, evidenceIds: [], nominalNativeDate: null, chronologyProfile: null, chronologyProvider: null, observationLineage: [] });
+        result.splice(beforeSpecialSessions(result.map((d) => d.event)), 0, { event, rawStatus: event.status, effectiveStatus: event.status, evidenceIds: [], nominalNativeDate: null, chronologyProfile: null, chronologyProvider: null, observationLineage: [] });
       }
     }
     return result;
   }
+}
+
+/** The index of a date's first SPECIAL_SESSION row (or its length): where a WEEKEND row goes. */
+function beforeSpecialSessions(rows: readonly Event[]): number {
+  const index = rows.findIndex((e) => e.type === "SPECIAL_SESSION");
+  return index < 0 ? rows.length : index;
 }
 
 function qualify(member: BusinessCalendar, event: Event): Event {

@@ -15,6 +15,7 @@
     "XLIS": "PT-EURONEXT-LISBON",
     "XLON": "GB-LSE",
     "XMEX": "MX-BMV",
+    "XNSE": "IN-NSE",
     "XNYS": "US-NYSE",
     "XPAR": "FR-EURONEXT-PARIS",
     "XSAU": "SA-TADAWUL",
@@ -85,6 +86,11 @@
       "kind": "market",
       "range_end": "2028-12-31",
       "range_start": "2025-01-01"
+    },
+    "IN-NSE": {
+      "kind": "market",
+      "range_end": "2026-12-31",
+      "range_start": "2010-01-01"
     },
     "JP-JPX": {
       "kind": "market",

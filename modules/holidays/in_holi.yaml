@@ -1,0 +1,34 @@
+kind: module
+id: in_holi
+
+# Holi: as dated in the exchange's annual trading-holiday circulars (Capital Market Segment),
+# weekday occurrences only; the exchange never substitutes a weekday for a holiday that falls on a
+# Saturday or Sunday. The circulars spell it: Holi.
+# Source: nse-holiday-lists.
+
+source:
+  - id: nse-holiday-lists
+
+event_sources:
+  - key: in_holi
+    name: "Holi"
+    default_classification: CLOSED
+    rule:
+      type: explicit_dates
+      dates:
+        - 2010-03-01  # NSE/CMTR/13713
+        - 2012-03-08  # NSE/CMTR/19539
+        - 2013-03-27  # NSE/CMTR/22317
+        - 2014-03-17  # NSE/CMTR/25326
+        - 2015-03-06  # NSE/CMTR/28337
+        - 2016-03-24  # NSE/CMTR/31297
+        - 2017-03-13  # NSE/CMTR/33746
+        - 2018-03-02  # NSE/CMTR/36475
+        - 2019-03-21  # NSE/CMTR/39612
+        - 2020-03-10  # NSE/CMTR/42877
+        - 2021-03-29  # NSE/CMTR/46623
+        - 2022-03-18  # NSE/CMTR/50560
+        - 2023-03-07  # NSE/CMTR/54757
+        - 2024-03-25  # NSE/CMTR/59722
+        - 2025-03-14  # NSE/CMTR/65587
+        - 2026-03-03  # NSE/CMTR/71775
