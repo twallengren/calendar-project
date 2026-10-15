@@ -68,6 +68,7 @@ CSV_HEADER = [
     "observed_from",
     "close_time",
     "status",
+    "open_time",
 ]
 
 

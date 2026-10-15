@@ -1,236 +1,236 @@
-date,type,description,key,source_module,observed_from,close_time,status
-2025-03-14,CLOSED,Purim,tase_purim_2025,module:tase_scheduled_closures_2025,,,CONFIRMED
-2025-04-13,CLOSED,Passover,tase_passover_2025,module:tase_scheduled_closures_2025,,,CONFIRMED
-2025-04-18,CLOSED,Seventh Day of Passover Eve,tase_seventh_passover_eve_2025,module:tase_scheduled_closures_2025,,,CONFIRMED
-2025-04-30,CLOSED,Memorial Day,tase_memorial_day_2025,module:tase_scheduled_closures_2025,,,CONFIRMED
-2025-05-01,CLOSED,Independence Day,tase_independence_day_2025,module:tase_scheduled_closures_2025,,,CONFIRMED
-2025-06-01,CLOSED,Shavuot Eve,tase_shavuot_eve_2025,module:tase_scheduled_closures_2025,,,CONFIRMED
-2025-06-02,CLOSED,Shavuot,tase_shavuot_2025,module:tase_scheduled_closures_2025,,,CONFIRMED
-2025-08-03,CLOSED,Tisha B'Av,tase_tisha_bav_2025,module:tase_scheduled_closures_2025,,,CONFIRMED
-2025-09-22,CLOSED,Rosh Hashanah Eve,tase_rosh_hashanah_eve_2025,module:tase_scheduled_closures_2025,,,CONFIRMED
-2025-09-23,CLOSED,Rosh Hashanah,tase_rosh_hashanah_2025,module:tase_scheduled_closures_2025,,,CONFIRMED
-2025-09-24,CLOSED,Rosh Hashanah,tase_rosh_hashanah_2025,module:tase_scheduled_closures_2025,,,CONFIRMED
-2025-10-01,CLOSED,Yom Kippur Eve,tase_yom_kippur_eve_2025,module:tase_scheduled_closures_2025,,,CONFIRMED
-2025-10-02,CLOSED,Yom Kippur,tase_yom_kippur_2025,module:tase_scheduled_closures_2025,,,CONFIRMED
-2025-10-06,CLOSED,Sukkot Eve,tase_sukkot_eve_2025,module:tase_scheduled_closures_2025,,,CONFIRMED
-2025-10-07,CLOSED,Sukkot,tase_sukkot_2025,module:tase_scheduled_closures_2025,,,CONFIRMED
-2025-10-13,CLOSED,Simchat Torah Eve,tase_simchat_torah_eve_2025,module:tase_scheduled_closures_2025,,,CONFIRMED
-2025-10-14,CLOSED,Simchat Torah,tase_simchat_torah_2025,module:tase_scheduled_closures_2025,,,CONFIRMED
-2026-01-09,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2026-01-16,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2026-01-23,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2026-01-30,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2026-02-06,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2026-02-13,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2026-02-20,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2026-02-27,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2026-03-03,CLOSED,Purim,tase_purim,module:tase_scheduled_closures_2026_2028,,,CONFIRMED
-2026-03-06,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2026-03-13,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2026-03-20,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2026-03-27,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2026-04-01,CLOSED,Passover Eve,tase_passover_eve,module:tase_scheduled_closures_2026_2028,,,CONFIRMED
-2026-04-02,CLOSED,Passover,tase_passover,module:tase_scheduled_closures_2026_2028,,,CONFIRMED
-2026-04-03,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2026-04-06,EARLY_CLOSE,Passover Intermediate Day (Early Close),tase_passover_intermediate_session,module:tase_shortened_sessions,,14:30,CONFIRMED
-2026-04-07,CLOSED,Seventh Day of Passover Eve,tase_seventh_passover_eve,module:tase_scheduled_closures_2026_2028,,,CONFIRMED
-2026-04-08,CLOSED,Seventh Day of Passover,tase_seventh_passover,module:tase_scheduled_closures_2026_2028,,,CONFIRMED
-2026-04-10,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2026-04-17,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2026-04-21,CLOSED,Memorial Day,tase_memorial_day_2026,module:tase_verified_events_2026,,,CONFIRMED
-2026-04-22,CLOSED,Independence Day,tase_independence_day_2026,module:tase_verified_events_2026,,,CONFIRMED
-2026-04-24,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2026-05-01,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2026-05-08,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2026-05-15,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2026-05-21,CLOSED,Shavuot Eve,tase_shavuot_eve,module:tase_scheduled_closures_2026_2028,,,CONFIRMED
-2026-05-22,CLOSED,Shavuot,tase_shavuot,module:tase_scheduled_closures_2026_2028,,,CONFIRMED
-2026-05-29,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2026-06-05,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2026-06-12,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2026-06-19,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2026-06-26,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2026-07-03,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2026-07-10,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2026-07-17,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2026-07-23,CLOSED,Tisha B'Av,tase_tisha_bav,module:tase_scheduled_closures_2026_2028,,,CONFIRMED
-2026-07-24,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2026-07-31,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2026-08-07,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2026-08-14,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2026-08-21,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2026-08-28,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2026-09-04,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2026-09-11,CLOSED,Rosh Hashanah Eve,tase_rosh_hashanah_eve,module:tase_scheduled_closures_2026_2028,,,CONFIRMED
-2026-09-12,CLOSED,Rosh Hashanah,tase_rosh_hashanah,module:tase_scheduled_closures_2026_2028,,,CONFIRMED
-2026-09-13,CLOSED,Rosh Hashanah,tase_rosh_hashanah,module:tase_scheduled_closures_2026_2028,,,CONFIRMED
-2026-09-18,CLOSED,Friday Before a Sunday Holiday (No Trading),tase_friday_before_sunday_holiday,module:tase_scheduled_closures_2026_2028,,,CONFIRMED
-2026-09-20,CLOSED,Yom Kippur Eve,tase_yom_kippur_eve,module:tase_scheduled_closures_2026_2028,,,CONFIRMED
-2026-09-21,CLOSED,Yom Kippur,tase_yom_kippur,module:tase_scheduled_closures_2026_2028,,,CONFIRMED
-2026-09-25,CLOSED,Sukkot Eve,tase_sukkot_eve,module:tase_scheduled_closures_2026_2028,,,CONFIRMED
-2026-09-26,CLOSED,Sukkot,tase_sukkot,module:tase_scheduled_closures_2026_2028,,,CONFIRMED
-2026-09-28,EARLY_CLOSE,Sukkot Intermediate Day (Early Close),tase_sukkot_intermediate_session,module:tase_shortened_sessions,,14:30,CONFIRMED
-2026-09-29,EARLY_CLOSE,Sukkot Intermediate Day (Early Close),tase_sukkot_intermediate_session,module:tase_shortened_sessions,,14:30,CONFIRMED
-2026-09-30,EARLY_CLOSE,Sukkot Intermediate Day (Early Close),tase_sukkot_intermediate_session,module:tase_shortened_sessions,,14:30,CONFIRMED
-2026-10-01,EARLY_CLOSE,Sukkot Intermediate Day (Early Close),tase_sukkot_intermediate_session,module:tase_shortened_sessions,,14:30,CONFIRMED
-2026-10-02,CLOSED,Simchat Torah Eve,tase_simchat_torah_eve,module:tase_scheduled_closures_2026_2028,,,CONFIRMED
-2026-10-03,CLOSED,Simchat Torah,tase_simchat_torah,module:tase_scheduled_closures_2026_2028,,,CONFIRMED
-2026-10-09,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2026-10-16,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2026-10-23,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2026-10-27,CLOSED,Knesset Election Day (26th Knesset election),tase_knesset_election_day,module:tase_scheduled_closures_2026_2028,,,CONFIRMED
-2026-10-30,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2026-11-06,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2026-11-13,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2026-11-20,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2026-11-27,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2026-12-04,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2026-12-11,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2026-12-18,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2026-12-25,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2027-01-01,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2027-01-08,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2027-01-15,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2027-01-22,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2027-01-29,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2027-02-05,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2027-02-12,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2027-02-19,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2027-02-26,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2027-03-05,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2027-03-12,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2027-03-19,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2027-03-23,CLOSED,Purim,tase_purim,module:tase_scheduled_closures_2026_2028,,,CONFIRMED
-2027-03-26,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2027-04-02,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2027-04-09,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2027-04-16,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2027-04-21,CLOSED,Passover Eve,tase_passover_eve,module:tase_scheduled_closures_2026_2028,,,CONFIRMED
-2027-04-22,CLOSED,Passover,tase_passover,module:tase_scheduled_closures_2026_2028,,,CONFIRMED
-2027-04-23,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2027-04-26,EARLY_CLOSE,Passover Intermediate Day (Early Close),tase_passover_intermediate_session,module:tase_shortened_sessions,,14:30,CONFIRMED
-2027-04-27,CLOSED,Seventh Day of Passover Eve,tase_seventh_passover_eve,module:tase_scheduled_closures_2026_2028,,,CONFIRMED
-2027-04-28,CLOSED,Seventh Day of Passover,tase_seventh_passover,module:tase_scheduled_closures_2026_2028,,,CONFIRMED
-2027-04-30,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2027-05-07,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2027-05-11,CLOSED,Memorial Day,tase_memorial_day_2027,module:tase_scheduled_closures_2026_2028,,,CONFIRMED
-2027-05-12,CLOSED,Independence Day,tase_independence_day_2027,module:tase_scheduled_closures_2026_2028,,,CONFIRMED
-2027-05-14,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2027-05-21,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2027-05-28,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2027-06-04,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2027-06-10,CLOSED,Shavuot Eve,tase_shavuot_eve,module:tase_scheduled_closures_2026_2028,,,CONFIRMED
-2027-06-11,CLOSED,Shavuot,tase_shavuot,module:tase_scheduled_closures_2026_2028,,,CONFIRMED
-2027-06-18,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2027-06-25,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2027-07-02,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2027-07-09,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2027-07-16,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2027-07-23,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2027-07-30,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2027-08-06,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2027-08-12,CLOSED,Tisha B'Av,tase_tisha_bav,module:tase_scheduled_closures_2026_2028,,,CONFIRMED
-2027-08-13,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2027-08-20,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2027-08-27,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2027-09-03,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2027-09-10,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2027-09-17,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2027-09-24,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2027-10-01,CLOSED,Rosh Hashanah Eve,tase_rosh_hashanah_eve,module:tase_scheduled_closures_2026_2028,,,CONFIRMED
-2027-10-02,CLOSED,Rosh Hashanah,tase_rosh_hashanah,module:tase_scheduled_closures_2026_2028,,,CONFIRMED
-2027-10-03,CLOSED,Rosh Hashanah,tase_rosh_hashanah,module:tase_scheduled_closures_2026_2028,,,CONFIRMED
-2027-10-08,CLOSED,Friday Before a Sunday Holiday (No Trading),tase_friday_before_sunday_holiday,module:tase_scheduled_closures_2026_2028,,,CONFIRMED
-2027-10-10,CLOSED,Yom Kippur Eve,tase_yom_kippur_eve,module:tase_scheduled_closures_2026_2028,,,CONFIRMED
-2027-10-11,CLOSED,Yom Kippur,tase_yom_kippur,module:tase_scheduled_closures_2026_2028,,,CONFIRMED
-2027-10-15,CLOSED,Sukkot Eve,tase_sukkot_eve,module:tase_scheduled_closures_2026_2028,,,CONFIRMED
-2027-10-16,CLOSED,Sukkot,tase_sukkot,module:tase_scheduled_closures_2026_2028,,,CONFIRMED
-2027-10-18,EARLY_CLOSE,Sukkot Intermediate Day (Early Close),tase_sukkot_intermediate_session,module:tase_shortened_sessions,,14:30,CONFIRMED
-2027-10-19,EARLY_CLOSE,Sukkot Intermediate Day (Early Close),tase_sukkot_intermediate_session,module:tase_shortened_sessions,,14:30,CONFIRMED
-2027-10-20,EARLY_CLOSE,Sukkot Intermediate Day (Early Close),tase_sukkot_intermediate_session,module:tase_shortened_sessions,,14:30,CONFIRMED
-2027-10-21,EARLY_CLOSE,Sukkot Intermediate Day (Early Close),tase_sukkot_intermediate_session,module:tase_shortened_sessions,,14:30,CONFIRMED
-2027-10-22,CLOSED,Simchat Torah Eve,tase_simchat_torah_eve,module:tase_scheduled_closures_2026_2028,,,CONFIRMED
-2027-10-23,CLOSED,Simchat Torah,tase_simchat_torah,module:tase_scheduled_closures_2026_2028,,,CONFIRMED
-2027-10-29,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2027-11-05,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2027-11-12,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2027-11-19,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2027-11-26,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2027-12-03,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2027-12-10,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2027-12-17,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2027-12-24,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2027-12-31,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2028-01-07,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2028-01-14,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2028-01-21,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2028-01-28,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2028-02-04,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2028-02-11,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2028-02-18,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2028-02-25,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2028-03-03,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2028-03-10,CLOSED,Friday Before a Sunday Holiday (No Trading),tase_friday_before_sunday_holiday,module:tase_scheduled_closures_2026_2028,,,CONFIRMED
-2028-03-12,CLOSED,Purim,tase_purim,module:tase_scheduled_closures_2026_2028,,,CONFIRMED
-2028-03-17,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2028-03-24,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2028-03-31,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2028-04-07,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2028-04-10,CLOSED,Passover Eve,tase_passover_eve,module:tase_scheduled_closures_2026_2028,,,CONFIRMED
-2028-04-11,CLOSED,Passover,tase_passover,module:tase_scheduled_closures_2026_2028,,,CONFIRMED
-2028-04-12,EARLY_CLOSE,Passover Intermediate Day (Early Close),tase_passover_intermediate_session,module:tase_shortened_sessions,,14:30,CONFIRMED
-2028-04-13,EARLY_CLOSE,Passover Intermediate Day (Early Close),tase_passover_intermediate_session,module:tase_shortened_sessions,,14:30,CONFIRMED
-2028-04-14,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2028-04-16,CLOSED,Seventh Day of Passover Eve,tase_seventh_passover_eve,module:tase_scheduled_closures_2026_2028,,,CONFIRMED
-2028-04-17,CLOSED,Seventh Day of Passover,tase_seventh_passover,module:tase_scheduled_closures_2026_2028,,,CONFIRMED
-2028-04-21,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2028-04-28,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2028-05-01,CLOSED,Memorial Day,tase_memorial_day_2028,module:tase_scheduled_closures_2026_2028,,,CONFIRMED
-2028-05-02,CLOSED,Independence Day,tase_independence_day_2028,module:tase_scheduled_closures_2026_2028,,,CONFIRMED
-2028-05-05,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2028-05-12,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2028-05-19,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2028-05-26,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2028-05-30,CLOSED,Shavuot Eve,tase_shavuot_eve,module:tase_scheduled_closures_2026_2028,,,CONFIRMED
-2028-05-31,CLOSED,Shavuot,tase_shavuot,module:tase_scheduled_closures_2026_2028,,,CONFIRMED
-2028-06-02,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2028-06-09,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2028-06-16,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2028-06-23,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2028-06-30,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2028-07-07,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2028-07-14,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2028-07-21,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2028-07-28,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2028-08-01,CLOSED,Tisha B'Av,tase_tisha_bav,module:tase_scheduled_closures_2026_2028,,,CONFIRMED
-2028-08-04,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2028-08-11,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2028-08-18,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2028-08-25,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2028-09-01,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2028-09-08,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2028-09-15,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2028-09-20,CLOSED,Rosh Hashanah Eve,tase_rosh_hashanah_eve,module:tase_scheduled_closures_2026_2028,,,CONFIRMED
-2028-09-21,CLOSED,Rosh Hashanah,tase_rosh_hashanah,module:tase_scheduled_closures_2026_2028,,,CONFIRMED
-2028-09-22,CLOSED,Rosh Hashanah,tase_rosh_hashanah,module:tase_scheduled_closures_2026_2028,,,CONFIRMED
-2028-09-29,CLOSED,Yom Kippur Eve,tase_yom_kippur_eve,module:tase_scheduled_closures_2026_2028,,,CONFIRMED
-2028-09-30,CLOSED,Yom Kippur,tase_yom_kippur,module:tase_scheduled_closures_2026_2028,,,CONFIRMED
-2028-10-04,CLOSED,Sukkot Eve,tase_sukkot_eve,module:tase_scheduled_closures_2026_2028,,,CONFIRMED
-2028-10-05,CLOSED,Sukkot,tase_sukkot,module:tase_scheduled_closures_2026_2028,,,CONFIRMED
-2028-10-06,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2028-10-09,EARLY_CLOSE,Sukkot Intermediate Day (Early Close),tase_sukkot_intermediate_session,module:tase_shortened_sessions,,14:30,CONFIRMED
-2028-10-10,EARLY_CLOSE,Sukkot Intermediate Day (Early Close),tase_sukkot_intermediate_session,module:tase_shortened_sessions,,14:30,CONFIRMED
-2028-10-11,CLOSED,Simchat Torah Eve,tase_simchat_torah_eve,module:tase_scheduled_closures_2026_2028,,,CONFIRMED
-2028-10-12,CLOSED,Simchat Torah,tase_simchat_torah,module:tase_scheduled_closures_2026_2028,,,CONFIRMED
-2028-10-13,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2028-10-20,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2028-10-27,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2028-11-03,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2028-11-10,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2028-11-17,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2028-11-24,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2028-12-01,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2028-12-08,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2028-12-15,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2028-12-22,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
-2028-12-29,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED
+date,type,description,key,source_module,observed_from,close_time,status,open_time
+2025-03-14,CLOSED,Purim,tase_purim_2025,module:tase_scheduled_closures_2025,,,CONFIRMED,
+2025-04-13,CLOSED,Passover,tase_passover_2025,module:tase_scheduled_closures_2025,,,CONFIRMED,
+2025-04-18,CLOSED,Seventh Day of Passover Eve,tase_seventh_passover_eve_2025,module:tase_scheduled_closures_2025,,,CONFIRMED,
+2025-04-30,CLOSED,Memorial Day,tase_memorial_day_2025,module:tase_scheduled_closures_2025,,,CONFIRMED,
+2025-05-01,CLOSED,Independence Day,tase_independence_day_2025,module:tase_scheduled_closures_2025,,,CONFIRMED,
+2025-06-01,CLOSED,Shavuot Eve,tase_shavuot_eve_2025,module:tase_scheduled_closures_2025,,,CONFIRMED,
+2025-06-02,CLOSED,Shavuot,tase_shavuot_2025,module:tase_scheduled_closures_2025,,,CONFIRMED,
+2025-08-03,CLOSED,Tisha B'Av,tase_tisha_bav_2025,module:tase_scheduled_closures_2025,,,CONFIRMED,
+2025-09-22,CLOSED,Rosh Hashanah Eve,tase_rosh_hashanah_eve_2025,module:tase_scheduled_closures_2025,,,CONFIRMED,
+2025-09-23,CLOSED,Rosh Hashanah,tase_rosh_hashanah_2025,module:tase_scheduled_closures_2025,,,CONFIRMED,
+2025-09-24,CLOSED,Rosh Hashanah,tase_rosh_hashanah_2025,module:tase_scheduled_closures_2025,,,CONFIRMED,
+2025-10-01,CLOSED,Yom Kippur Eve,tase_yom_kippur_eve_2025,module:tase_scheduled_closures_2025,,,CONFIRMED,
+2025-10-02,CLOSED,Yom Kippur,tase_yom_kippur_2025,module:tase_scheduled_closures_2025,,,CONFIRMED,
+2025-10-06,CLOSED,Sukkot Eve,tase_sukkot_eve_2025,module:tase_scheduled_closures_2025,,,CONFIRMED,
+2025-10-07,CLOSED,Sukkot,tase_sukkot_2025,module:tase_scheduled_closures_2025,,,CONFIRMED,
+2025-10-13,CLOSED,Simchat Torah Eve,tase_simchat_torah_eve_2025,module:tase_scheduled_closures_2025,,,CONFIRMED,
+2025-10-14,CLOSED,Simchat Torah,tase_simchat_torah_2025,module:tase_scheduled_closures_2025,,,CONFIRMED,
+2026-01-09,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2026-01-16,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2026-01-23,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2026-01-30,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2026-02-06,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2026-02-13,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2026-02-20,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2026-02-27,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2026-03-03,CLOSED,Purim,tase_purim,module:tase_scheduled_closures_2026_2028,,,CONFIRMED,
+2026-03-06,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2026-03-13,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2026-03-20,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2026-03-27,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2026-04-01,CLOSED,Passover Eve,tase_passover_eve,module:tase_scheduled_closures_2026_2028,,,CONFIRMED,
+2026-04-02,CLOSED,Passover,tase_passover,module:tase_scheduled_closures_2026_2028,,,CONFIRMED,
+2026-04-03,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2026-04-06,EARLY_CLOSE,Passover Intermediate Day (Early Close),tase_passover_intermediate_session,module:tase_shortened_sessions,,14:30,CONFIRMED,
+2026-04-07,CLOSED,Seventh Day of Passover Eve,tase_seventh_passover_eve,module:tase_scheduled_closures_2026_2028,,,CONFIRMED,
+2026-04-08,CLOSED,Seventh Day of Passover,tase_seventh_passover,module:tase_scheduled_closures_2026_2028,,,CONFIRMED,
+2026-04-10,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2026-04-17,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2026-04-21,CLOSED,Memorial Day,tase_memorial_day_2026,module:tase_verified_events_2026,,,CONFIRMED,
+2026-04-22,CLOSED,Independence Day,tase_independence_day_2026,module:tase_verified_events_2026,,,CONFIRMED,
+2026-04-24,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2026-05-01,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2026-05-08,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2026-05-15,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2026-05-21,CLOSED,Shavuot Eve,tase_shavuot_eve,module:tase_scheduled_closures_2026_2028,,,CONFIRMED,
+2026-05-22,CLOSED,Shavuot,tase_shavuot,module:tase_scheduled_closures_2026_2028,,,CONFIRMED,
+2026-05-29,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2026-06-05,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2026-06-12,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2026-06-19,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2026-06-26,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2026-07-03,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2026-07-10,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2026-07-17,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2026-07-23,CLOSED,Tisha B'Av,tase_tisha_bav,module:tase_scheduled_closures_2026_2028,,,CONFIRMED,
+2026-07-24,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2026-07-31,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2026-08-07,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2026-08-14,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2026-08-21,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2026-08-28,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2026-09-04,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2026-09-11,CLOSED,Rosh Hashanah Eve,tase_rosh_hashanah_eve,module:tase_scheduled_closures_2026_2028,,,CONFIRMED,
+2026-09-12,CLOSED,Rosh Hashanah,tase_rosh_hashanah,module:tase_scheduled_closures_2026_2028,,,CONFIRMED,
+2026-09-13,CLOSED,Rosh Hashanah,tase_rosh_hashanah,module:tase_scheduled_closures_2026_2028,,,CONFIRMED,
+2026-09-18,CLOSED,Friday Before a Sunday Holiday (No Trading),tase_friday_before_sunday_holiday,module:tase_scheduled_closures_2026_2028,,,CONFIRMED,
+2026-09-20,CLOSED,Yom Kippur Eve,tase_yom_kippur_eve,module:tase_scheduled_closures_2026_2028,,,CONFIRMED,
+2026-09-21,CLOSED,Yom Kippur,tase_yom_kippur,module:tase_scheduled_closures_2026_2028,,,CONFIRMED,
+2026-09-25,CLOSED,Sukkot Eve,tase_sukkot_eve,module:tase_scheduled_closures_2026_2028,,,CONFIRMED,
+2026-09-26,CLOSED,Sukkot,tase_sukkot,module:tase_scheduled_closures_2026_2028,,,CONFIRMED,
+2026-09-28,EARLY_CLOSE,Sukkot Intermediate Day (Early Close),tase_sukkot_intermediate_session,module:tase_shortened_sessions,,14:30,CONFIRMED,
+2026-09-29,EARLY_CLOSE,Sukkot Intermediate Day (Early Close),tase_sukkot_intermediate_session,module:tase_shortened_sessions,,14:30,CONFIRMED,
+2026-09-30,EARLY_CLOSE,Sukkot Intermediate Day (Early Close),tase_sukkot_intermediate_session,module:tase_shortened_sessions,,14:30,CONFIRMED,
+2026-10-01,EARLY_CLOSE,Sukkot Intermediate Day (Early Close),tase_sukkot_intermediate_session,module:tase_shortened_sessions,,14:30,CONFIRMED,
+2026-10-02,CLOSED,Simchat Torah Eve,tase_simchat_torah_eve,module:tase_scheduled_closures_2026_2028,,,CONFIRMED,
+2026-10-03,CLOSED,Simchat Torah,tase_simchat_torah,module:tase_scheduled_closures_2026_2028,,,CONFIRMED,
+2026-10-09,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2026-10-16,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2026-10-23,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2026-10-27,CLOSED,Knesset Election Day (26th Knesset election),tase_knesset_election_day,module:tase_scheduled_closures_2026_2028,,,CONFIRMED,
+2026-10-30,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2026-11-06,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2026-11-13,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2026-11-20,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2026-11-27,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2026-12-04,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2026-12-11,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2026-12-18,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2026-12-25,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2027-01-01,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2027-01-08,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2027-01-15,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2027-01-22,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2027-01-29,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2027-02-05,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2027-02-12,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2027-02-19,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2027-02-26,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2027-03-05,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2027-03-12,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2027-03-19,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2027-03-23,CLOSED,Purim,tase_purim,module:tase_scheduled_closures_2026_2028,,,CONFIRMED,
+2027-03-26,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2027-04-02,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2027-04-09,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2027-04-16,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2027-04-21,CLOSED,Passover Eve,tase_passover_eve,module:tase_scheduled_closures_2026_2028,,,CONFIRMED,
+2027-04-22,CLOSED,Passover,tase_passover,module:tase_scheduled_closures_2026_2028,,,CONFIRMED,
+2027-04-23,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2027-04-26,EARLY_CLOSE,Passover Intermediate Day (Early Close),tase_passover_intermediate_session,module:tase_shortened_sessions,,14:30,CONFIRMED,
+2027-04-27,CLOSED,Seventh Day of Passover Eve,tase_seventh_passover_eve,module:tase_scheduled_closures_2026_2028,,,CONFIRMED,
+2027-04-28,CLOSED,Seventh Day of Passover,tase_seventh_passover,module:tase_scheduled_closures_2026_2028,,,CONFIRMED,
+2027-04-30,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2027-05-07,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2027-05-11,CLOSED,Memorial Day,tase_memorial_day_2027,module:tase_scheduled_closures_2026_2028,,,CONFIRMED,
+2027-05-12,CLOSED,Independence Day,tase_independence_day_2027,module:tase_scheduled_closures_2026_2028,,,CONFIRMED,
+2027-05-14,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2027-05-21,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2027-05-28,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2027-06-04,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2027-06-10,CLOSED,Shavuot Eve,tase_shavuot_eve,module:tase_scheduled_closures_2026_2028,,,CONFIRMED,
+2027-06-11,CLOSED,Shavuot,tase_shavuot,module:tase_scheduled_closures_2026_2028,,,CONFIRMED,
+2027-06-18,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2027-06-25,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2027-07-02,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2027-07-09,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2027-07-16,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2027-07-23,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2027-07-30,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2027-08-06,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2027-08-12,CLOSED,Tisha B'Av,tase_tisha_bav,module:tase_scheduled_closures_2026_2028,,,CONFIRMED,
+2027-08-13,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2027-08-20,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2027-08-27,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2027-09-03,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2027-09-10,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2027-09-17,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2027-09-24,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2027-10-01,CLOSED,Rosh Hashanah Eve,tase_rosh_hashanah_eve,module:tase_scheduled_closures_2026_2028,,,CONFIRMED,
+2027-10-02,CLOSED,Rosh Hashanah,tase_rosh_hashanah,module:tase_scheduled_closures_2026_2028,,,CONFIRMED,
+2027-10-03,CLOSED,Rosh Hashanah,tase_rosh_hashanah,module:tase_scheduled_closures_2026_2028,,,CONFIRMED,
+2027-10-08,CLOSED,Friday Before a Sunday Holiday (No Trading),tase_friday_before_sunday_holiday,module:tase_scheduled_closures_2026_2028,,,CONFIRMED,
+2027-10-10,CLOSED,Yom Kippur Eve,tase_yom_kippur_eve,module:tase_scheduled_closures_2026_2028,,,CONFIRMED,
+2027-10-11,CLOSED,Yom Kippur,tase_yom_kippur,module:tase_scheduled_closures_2026_2028,,,CONFIRMED,
+2027-10-15,CLOSED,Sukkot Eve,tase_sukkot_eve,module:tase_scheduled_closures_2026_2028,,,CONFIRMED,
+2027-10-16,CLOSED,Sukkot,tase_sukkot,module:tase_scheduled_closures_2026_2028,,,CONFIRMED,
+2027-10-18,EARLY_CLOSE,Sukkot Intermediate Day (Early Close),tase_sukkot_intermediate_session,module:tase_shortened_sessions,,14:30,CONFIRMED,
+2027-10-19,EARLY_CLOSE,Sukkot Intermediate Day (Early Close),tase_sukkot_intermediate_session,module:tase_shortened_sessions,,14:30,CONFIRMED,
+2027-10-20,EARLY_CLOSE,Sukkot Intermediate Day (Early Close),tase_sukkot_intermediate_session,module:tase_shortened_sessions,,14:30,CONFIRMED,
+2027-10-21,EARLY_CLOSE,Sukkot Intermediate Day (Early Close),tase_sukkot_intermediate_session,module:tase_shortened_sessions,,14:30,CONFIRMED,
+2027-10-22,CLOSED,Simchat Torah Eve,tase_simchat_torah_eve,module:tase_scheduled_closures_2026_2028,,,CONFIRMED,
+2027-10-23,CLOSED,Simchat Torah,tase_simchat_torah,module:tase_scheduled_closures_2026_2028,,,CONFIRMED,
+2027-10-29,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2027-11-05,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2027-11-12,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2027-11-19,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2027-11-26,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2027-12-03,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2027-12-10,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2027-12-17,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2027-12-24,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2027-12-31,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2028-01-07,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2028-01-14,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2028-01-21,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2028-01-28,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2028-02-04,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2028-02-11,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2028-02-18,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2028-02-25,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2028-03-03,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2028-03-10,CLOSED,Friday Before a Sunday Holiday (No Trading),tase_friday_before_sunday_holiday,module:tase_scheduled_closures_2026_2028,,,CONFIRMED,
+2028-03-12,CLOSED,Purim,tase_purim,module:tase_scheduled_closures_2026_2028,,,CONFIRMED,
+2028-03-17,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2028-03-24,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2028-03-31,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2028-04-07,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2028-04-10,CLOSED,Passover Eve,tase_passover_eve,module:tase_scheduled_closures_2026_2028,,,CONFIRMED,
+2028-04-11,CLOSED,Passover,tase_passover,module:tase_scheduled_closures_2026_2028,,,CONFIRMED,
+2028-04-12,EARLY_CLOSE,Passover Intermediate Day (Early Close),tase_passover_intermediate_session,module:tase_shortened_sessions,,14:30,CONFIRMED,
+2028-04-13,EARLY_CLOSE,Passover Intermediate Day (Early Close),tase_passover_intermediate_session,module:tase_shortened_sessions,,14:30,CONFIRMED,
+2028-04-14,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2028-04-16,CLOSED,Seventh Day of Passover Eve,tase_seventh_passover_eve,module:tase_scheduled_closures_2026_2028,,,CONFIRMED,
+2028-04-17,CLOSED,Seventh Day of Passover,tase_seventh_passover,module:tase_scheduled_closures_2026_2028,,,CONFIRMED,
+2028-04-21,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2028-04-28,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2028-05-01,CLOSED,Memorial Day,tase_memorial_day_2028,module:tase_scheduled_closures_2026_2028,,,CONFIRMED,
+2028-05-02,CLOSED,Independence Day,tase_independence_day_2028,module:tase_scheduled_closures_2026_2028,,,CONFIRMED,
+2028-05-05,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2028-05-12,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2028-05-19,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2028-05-26,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2028-05-30,CLOSED,Shavuot Eve,tase_shavuot_eve,module:tase_scheduled_closures_2026_2028,,,CONFIRMED,
+2028-05-31,CLOSED,Shavuot,tase_shavuot,module:tase_scheduled_closures_2026_2028,,,CONFIRMED,
+2028-06-02,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2028-06-09,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2028-06-16,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2028-06-23,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2028-06-30,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2028-07-07,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2028-07-14,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2028-07-21,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2028-07-28,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2028-08-01,CLOSED,Tisha B'Av,tase_tisha_bav,module:tase_scheduled_closures_2026_2028,,,CONFIRMED,
+2028-08-04,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2028-08-11,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2028-08-18,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2028-08-25,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2028-09-01,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2028-09-08,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2028-09-15,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2028-09-20,CLOSED,Rosh Hashanah Eve,tase_rosh_hashanah_eve,module:tase_scheduled_closures_2026_2028,,,CONFIRMED,
+2028-09-21,CLOSED,Rosh Hashanah,tase_rosh_hashanah,module:tase_scheduled_closures_2026_2028,,,CONFIRMED,
+2028-09-22,CLOSED,Rosh Hashanah,tase_rosh_hashanah,module:tase_scheduled_closures_2026_2028,,,CONFIRMED,
+2028-09-29,CLOSED,Yom Kippur Eve,tase_yom_kippur_eve,module:tase_scheduled_closures_2026_2028,,,CONFIRMED,
+2028-09-30,CLOSED,Yom Kippur,tase_yom_kippur,module:tase_scheduled_closures_2026_2028,,,CONFIRMED,
+2028-10-04,CLOSED,Sukkot Eve,tase_sukkot_eve,module:tase_scheduled_closures_2026_2028,,,CONFIRMED,
+2028-10-05,CLOSED,Sukkot,tase_sukkot,module:tase_scheduled_closures_2026_2028,,,CONFIRMED,
+2028-10-06,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2028-10-09,EARLY_CLOSE,Sukkot Intermediate Day (Early Close),tase_sukkot_intermediate_session,module:tase_shortened_sessions,,14:30,CONFIRMED,
+2028-10-10,EARLY_CLOSE,Sukkot Intermediate Day (Early Close),tase_sukkot_intermediate_session,module:tase_shortened_sessions,,14:30,CONFIRMED,
+2028-10-11,CLOSED,Simchat Torah Eve,tase_simchat_torah_eve,module:tase_scheduled_closures_2026_2028,,,CONFIRMED,
+2028-10-12,CLOSED,Simchat Torah,tase_simchat_torah,module:tase_scheduled_closures_2026_2028,,,CONFIRMED,
+2028-10-13,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2028-10-20,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2028-10-27,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2028-11-03,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2028-11-10,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2028-11-17,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2028-11-24,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2028-12-01,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2028-12-08,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2028-12-15,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2028-12-22,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,
+2028-12-29,EARLY_CLOSE,Friday Session (Early Close),tase_friday_session,module:tase_shortened_sessions,,13:50,CONFIRMED,

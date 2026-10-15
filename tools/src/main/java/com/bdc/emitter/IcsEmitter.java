@@ -23,6 +23,8 @@ public class IcsEmitter {
   private static final DateTimeFormatter STAMP =
       DateTimeFormatter.ofPattern("yyyyMMdd'T'HHmmss'Z'", Locale.ROOT);
   private static final DateTimeFormatter TIME = DateTimeFormatter.ofPattern("HH:mm", Locale.ROOT);
+  private static final DateTimeFormatter LOCAL_DATE_TIME =
+      DateTimeFormatter.ofPattern("yyyyMMdd'T'HHmmss", Locale.ROOT);
   private static final int MAX_OCTETS = 75;
 
   /**
@@ -40,6 +42,21 @@ public class IcsEmitter {
       String releaseSemantic,
       LocalDate generationDate,
       List<Event> events) {
+    return emit(calendarId, calendarName, releaseSemantic, generationDate, events, null);
+  }
+
+  /**
+   * As {@link #emit(String, String, String, LocalDate, List)}, with the calendar's timezone so that
+   * SPECIAL_SESSION rows become timed events in UTC; without a timezone they are floating local
+   * times (RFC 5545 3.3.5 form #1).
+   */
+  public String emit(
+      String calendarId,
+      String calendarName,
+      String releaseSemantic,
+      LocalDate generationDate,
+      List<Event> events,
+      java.time.ZoneId zone) {
     String stamp = generationDate.atStartOfDay(ZoneOffset.UTC).format(STAMP);
     String idLower = calendarId.toLowerCase(Locale.ROOT);
 
@@ -51,7 +68,9 @@ public class IcsEmitter {
     line(out, "X-WR-CALNAME:" + escapeText(calendarName + " holidays"));
 
     for (Event event : events) {
-      if (event.type() != EventType.CLOSED && event.type() != EventType.EARLY_CLOSE) {
+      if (event.type() != EventType.CLOSED
+          && event.type() != EventType.EARLY_CLOSE
+          && event.type() != EventType.SPECIAL_SESSION) {
         continue;
       }
       String key = event.key() != null ? event.key() : "event";
@@ -60,8 +79,13 @@ public class IcsEmitter {
       line(out, "BEGIN:VEVENT");
       line(out, "UID:" + uid);
       line(out, "DTSTAMP:" + stamp);
-      line(out, "DTSTART;VALUE=DATE:" + event.date().format(DATE));
-      line(out, "DTEND;VALUE=DATE:" + event.date().plusDays(1).format(DATE));
+      if (event.type() == EventType.SPECIAL_SESSION) {
+        line(out, "DTSTART:" + dateTime(event.date().atTime(event.openTime()), zone));
+        line(out, "DTEND:" + dateTime(event.date().atTime(event.closeTime()), zone));
+      } else {
+        line(out, "DTSTART;VALUE=DATE:" + event.date().format(DATE));
+        line(out, "DTEND;VALUE=DATE:" + event.date().plusDays(1).format(DATE));
+      }
       line(out, "SUMMARY:" + escapeText(summaryOf(calendarName, event)));
       line(out, "DESCRIPTION:" + escapeText(descriptionOf(event)));
       line(out, "END:VEVENT");
@@ -71,7 +95,23 @@ public class IcsEmitter {
     return out.toString();
   }
 
+  private static String dateTime(java.time.LocalDateTime local, java.time.ZoneId zone) {
+    if (zone == null) {
+      return local.format(LOCAL_DATE_TIME);
+    }
+    return local.atZone(zone).withZoneSameInstant(ZoneOffset.UTC).format(STAMP);
+  }
+
   private static String summaryOf(String calendarName, Event event) {
+    if (event.type() == EventType.SPECIAL_SESSION) {
+      return calendarName
+          + " special session "
+          + TIME.format(event.openTime())
+          + "-"
+          + TIME.format(event.closeTime())
+          + ": "
+          + event.description();
+    }
     if (event.type() == EventType.EARLY_CLOSE) {
       String closeTime = event.closeTime() != null ? TIME.format(event.closeTime()) : "";
       return calendarName + " early close " + closeTime + ": " + event.description();

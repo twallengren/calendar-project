@@ -1,319 +1,319 @@
-date,type,description,key,source_module,observed_from,close_time,status
-2010-01-01,CLOSED,New Year's Day,kr_new_years_day,module:kr_new_years_day,,,CONFIRMED
-2010-02-15,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED
-2010-03-01,CLOSED,Independence Movement Day,kr_independence_movement_day,module:kr_independence_movement_day,,,CONFIRMED
-2010-05-01,CLOSED,Labour Day,kr_labour_day,module:kr_labour_day,,,CONFIRMED
-2010-05-05,CLOSED,Children's Day,kr_childrens_day,module:kr_childrens_day,,,CONFIRMED
-2010-05-21,CLOSED,Buddha's Birthday,kr_buddhas_birthday,module:kr_buddhas_birthday,,,CONFIRMED
-2010-06-02,CLOSED,Election Day (5th nationwide local elections),kr_election_days,module:kr_election_days,,,CONFIRMED
-2010-06-06,CLOSED,Memorial Day,kr_memorial_day,module:kr_memorial_day,,,CONFIRMED
-2010-08-15,CLOSED,Liberation Day,kr_liberation_day,module:kr_liberation_day,,,CONFIRMED
-2010-09-21,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED
-2010-09-22,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED
-2010-09-23,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED
-2010-10-03,CLOSED,National Foundation Day,kr_national_foundation_day,module:kr_national_foundation_day,,,CONFIRMED
-2010-12-25,CLOSED,Christmas Day,kr_christmas_day,module:kr_christmas_day,,,CONFIRMED
-2010-12-31,CLOSED,Year-End Closure,kr_krx_year_end_closure,module:kr_krx_year_end_closure,,,CONFIRMED
-2011-01-01,CLOSED,New Year's Day,kr_new_years_day,module:kr_new_years_day,,,CONFIRMED
-2011-02-02,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED
-2011-02-03,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED
-2011-02-04,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED
-2011-03-01,CLOSED,Independence Movement Day,kr_independence_movement_day,module:kr_independence_movement_day,,,CONFIRMED
-2011-05-01,CLOSED,Labour Day,kr_labour_day,module:kr_labour_day,,,CONFIRMED
-2011-05-05,CLOSED,Children's Day,kr_childrens_day,module:kr_childrens_day,,,CONFIRMED
-2011-05-10,CLOSED,Buddha's Birthday,kr_buddhas_birthday,module:kr_buddhas_birthday,,,CONFIRMED
-2011-06-06,CLOSED,Memorial Day,kr_memorial_day,module:kr_memorial_day,,,CONFIRMED
-2011-08-15,CLOSED,Liberation Day,kr_liberation_day,module:kr_liberation_day,,,CONFIRMED
-2011-09-12,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED
-2011-09-13,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED
-2011-10-03,CLOSED,National Foundation Day,kr_national_foundation_day,module:kr_national_foundation_day,,,CONFIRMED
-2011-12-25,CLOSED,Christmas Day,kr_christmas_day,module:kr_christmas_day,,,CONFIRMED
-2011-12-30,CLOSED,Year-End Closure,kr_krx_year_end_closure,module:kr_krx_year_end_closure,,,CONFIRMED
-2012-01-01,CLOSED,New Year's Day,kr_new_years_day,module:kr_new_years_day,,,CONFIRMED
-2012-01-23,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED
-2012-01-24,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED
-2012-03-01,CLOSED,Independence Movement Day,kr_independence_movement_day,module:kr_independence_movement_day,,,CONFIRMED
-2012-04-11,CLOSED,Election Day (19th National Assembly election),kr_election_days,module:kr_election_days,,,CONFIRMED
-2012-05-01,CLOSED,Labour Day,kr_labour_day,module:kr_labour_day,,,CONFIRMED
-2012-05-05,CLOSED,Children's Day,kr_childrens_day,module:kr_childrens_day,,,CONFIRMED
-2012-05-28,CLOSED,Buddha's Birthday,kr_buddhas_birthday,module:kr_buddhas_birthday,,,CONFIRMED
-2012-06-06,CLOSED,Memorial Day,kr_memorial_day,module:kr_memorial_day,,,CONFIRMED
-2012-08-15,CLOSED,Liberation Day,kr_liberation_day,module:kr_liberation_day,,,CONFIRMED
-2012-10-01,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED
-2012-10-03,CLOSED,National Foundation Day,kr_national_foundation_day,module:kr_national_foundation_day,,,CONFIRMED
-2012-12-19,CLOSED,Election Day (18th presidential election),kr_election_days,module:kr_election_days,,,CONFIRMED
-2012-12-25,CLOSED,Christmas Day,kr_christmas_day,module:kr_christmas_day,,,CONFIRMED
-2012-12-31,CLOSED,Year-End Closure,kr_krx_year_end_closure,module:kr_krx_year_end_closure,,,CONFIRMED
-2013-01-01,CLOSED,New Year's Day,kr_new_years_day,module:kr_new_years_day,,,CONFIRMED
-2013-02-11,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED
-2013-03-01,CLOSED,Independence Movement Day,kr_independence_movement_day,module:kr_independence_movement_day,,,CONFIRMED
-2013-05-01,CLOSED,Labour Day,kr_labour_day,module:kr_labour_day,,,CONFIRMED
-2013-05-05,CLOSED,Children's Day,kr_childrens_day,module:kr_childrens_day,,,CONFIRMED
-2013-05-17,CLOSED,Buddha's Birthday,kr_buddhas_birthday,module:kr_buddhas_birthday,,,CONFIRMED
-2013-06-06,CLOSED,Memorial Day,kr_memorial_day,module:kr_memorial_day,,,CONFIRMED
-2013-08-15,CLOSED,Liberation Day,kr_liberation_day,module:kr_liberation_day,,,CONFIRMED
-2013-09-18,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED
-2013-09-19,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED
-2013-09-20,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED
-2013-10-03,CLOSED,National Foundation Day,kr_national_foundation_day,module:kr_national_foundation_day,,,CONFIRMED
-2013-10-09,CLOSED,Hangul Day,kr_hangul_day,module:kr_hangul_day,,,CONFIRMED
-2013-12-25,CLOSED,Christmas Day,kr_christmas_day,module:kr_christmas_day,,,CONFIRMED
-2013-12-31,CLOSED,Year-End Closure,kr_krx_year_end_closure,module:kr_krx_year_end_closure,,,CONFIRMED
-2014-01-01,CLOSED,New Year's Day,kr_new_years_day,module:kr_new_years_day,,,CONFIRMED
-2014-01-30,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED
-2014-01-31,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED
-2014-03-01,CLOSED,Independence Movement Day,kr_independence_movement_day,module:kr_independence_movement_day,,,CONFIRMED
-2014-05-01,CLOSED,Labour Day,kr_labour_day,module:kr_labour_day,,,CONFIRMED
-2014-05-05,CLOSED,Children's Day,kr_childrens_day,module:kr_childrens_day,,,CONFIRMED
-2014-05-06,CLOSED,Buddha's Birthday,kr_buddhas_birthday,module:kr_buddhas_birthday,,,CONFIRMED
-2014-06-04,CLOSED,Election Day (6th nationwide local elections),kr_election_days,module:kr_election_days,,,CONFIRMED
-2014-06-06,CLOSED,Memorial Day,kr_memorial_day,module:kr_memorial_day,,,CONFIRMED
-2014-08-15,CLOSED,Liberation Day,kr_liberation_day,module:kr_liberation_day,,,CONFIRMED
-2014-09-08,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED
-2014-09-09,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED
-2014-09-10,CLOSED,Chuseok (substitute holiday),kr_chuseok,module:kr_chuseok,,,CONFIRMED
-2014-10-03,CLOSED,National Foundation Day,kr_national_foundation_day,module:kr_national_foundation_day,,,CONFIRMED
-2014-10-09,CLOSED,Hangul Day,kr_hangul_day,module:kr_hangul_day,,,CONFIRMED
-2014-12-25,CLOSED,Christmas Day,kr_christmas_day,module:kr_christmas_day,,,CONFIRMED
-2014-12-31,CLOSED,Year-End Closure,kr_krx_year_end_closure,module:kr_krx_year_end_closure,,,CONFIRMED
-2015-01-01,CLOSED,New Year's Day,kr_new_years_day,module:kr_new_years_day,,,CONFIRMED
-2015-02-18,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED
-2015-02-19,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED
-2015-02-20,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED
-2015-03-01,CLOSED,Independence Movement Day,kr_independence_movement_day,module:kr_independence_movement_day,,,CONFIRMED
-2015-05-01,CLOSED,Labour Day,kr_labour_day,module:kr_labour_day,,,CONFIRMED
-2015-05-05,CLOSED,Children's Day,kr_childrens_day,module:kr_childrens_day,,,CONFIRMED
-2015-05-25,CLOSED,Buddha's Birthday,kr_buddhas_birthday,module:kr_buddhas_birthday,,,CONFIRMED
-2015-06-06,CLOSED,Memorial Day,kr_memorial_day,module:kr_memorial_day,,,CONFIRMED
-2015-08-14,CLOSED,Temporary Public Holiday (70th anniversary of Liberation (광복70주년 임시공휴일)),kr_temporary_public_holidays,module:kr_temporary_public_holidays,,,CONFIRMED
-2015-08-15,CLOSED,Liberation Day,kr_liberation_day,module:kr_liberation_day,,,CONFIRMED
-2015-09-28,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED
-2015-09-29,CLOSED,Chuseok (substitute holiday),kr_chuseok,module:kr_chuseok,,,CONFIRMED
-2015-10-03,CLOSED,National Foundation Day,kr_national_foundation_day,module:kr_national_foundation_day,,,CONFIRMED
-2015-10-09,CLOSED,Hangul Day,kr_hangul_day,module:kr_hangul_day,,,CONFIRMED
-2015-12-25,CLOSED,Christmas Day,kr_christmas_day,module:kr_christmas_day,,,CONFIRMED
-2015-12-31,CLOSED,Year-End Closure,kr_krx_year_end_closure,module:kr_krx_year_end_closure,,,CONFIRMED
-2016-01-01,CLOSED,New Year's Day,kr_new_years_day,module:kr_new_years_day,,,CONFIRMED
-2016-02-08,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED
-2016-02-09,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED
-2016-02-10,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED
-2016-03-01,CLOSED,Independence Movement Day,kr_independence_movement_day,module:kr_independence_movement_day,,,CONFIRMED
-2016-04-13,CLOSED,Election Day (20th National Assembly election),kr_election_days,module:kr_election_days,,,CONFIRMED
-2016-05-01,CLOSED,Labour Day,kr_labour_day,module:kr_labour_day,,,CONFIRMED
-2016-05-05,CLOSED,Children's Day,kr_childrens_day,module:kr_childrens_day,,,CONFIRMED
-2016-05-06,CLOSED,Temporary Public Holiday (temporary public holiday (bridge day)),kr_temporary_public_holidays,module:kr_temporary_public_holidays,,,CONFIRMED
-2016-06-06,CLOSED,Memorial Day,kr_memorial_day,module:kr_memorial_day,,,CONFIRMED
-2016-08-15,CLOSED,Liberation Day,kr_liberation_day,module:kr_liberation_day,,,CONFIRMED
-2016-09-14,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED
-2016-09-15,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED
-2016-09-16,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED
-2016-10-03,CLOSED,National Foundation Day,kr_national_foundation_day,module:kr_national_foundation_day,,,CONFIRMED
-2016-10-09,CLOSED,Hangul Day,kr_hangul_day,module:kr_hangul_day,,,CONFIRMED
-2016-12-25,CLOSED,Christmas Day,kr_christmas_day,module:kr_christmas_day,,,CONFIRMED
-2016-12-30,CLOSED,Year-End Closure,kr_krx_year_end_closure,module:kr_krx_year_end_closure,,,CONFIRMED
-2017-01-01,CLOSED,New Year's Day,kr_new_years_day,module:kr_new_years_day,,,CONFIRMED
-2017-01-27,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED
-2017-01-30,CLOSED,Seollal (Lunar New Year) (substitute holiday),kr_seollal,module:kr_seollal,,,CONFIRMED
-2017-03-01,CLOSED,Independence Movement Day,kr_independence_movement_day,module:kr_independence_movement_day,,,CONFIRMED
-2017-05-01,CLOSED,Labour Day,kr_labour_day,module:kr_labour_day,,,CONFIRMED
-2017-05-03,CLOSED,Buddha's Birthday,kr_buddhas_birthday,module:kr_buddhas_birthday,,,CONFIRMED
-2017-05-05,CLOSED,Children's Day,kr_childrens_day,module:kr_childrens_day,,,CONFIRMED
-2017-05-09,CLOSED,Election Day (19th presidential election (early election; temporary public holiday)),kr_election_days,module:kr_election_days,,,CONFIRMED
-2017-06-06,CLOSED,Memorial Day,kr_memorial_day,module:kr_memorial_day,,,CONFIRMED
-2017-08-15,CLOSED,Liberation Day,kr_liberation_day,module:kr_liberation_day,,,CONFIRMED
-2017-10-02,CLOSED,Temporary Public Holiday (temporary public holiday (Chuseok bridge day)),kr_temporary_public_holidays,module:kr_temporary_public_holidays,,,CONFIRMED
-2017-10-03,CLOSED,National Foundation Day,kr_national_foundation_day,module:kr_national_foundation_day,,,CONFIRMED
-2017-10-04,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED
-2017-10-05,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED
-2017-10-06,CLOSED,Chuseok (substitute holiday),kr_chuseok,module:kr_chuseok,,,CONFIRMED
-2017-10-09,CLOSED,Hangul Day,kr_hangul_day,module:kr_hangul_day,,,CONFIRMED
-2017-12-25,CLOSED,Christmas Day,kr_christmas_day,module:kr_christmas_day,,,CONFIRMED
-2017-12-29,CLOSED,Year-End Closure,kr_krx_year_end_closure,module:kr_krx_year_end_closure,,,CONFIRMED
-2018-01-01,CLOSED,New Year's Day,kr_new_years_day,module:kr_new_years_day,,,CONFIRMED
-2018-02-15,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED
-2018-02-16,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED
-2018-03-01,CLOSED,Independence Movement Day,kr_independence_movement_day,module:kr_independence_movement_day,,,CONFIRMED
-2018-05-01,CLOSED,Labour Day,kr_labour_day,module:kr_labour_day,,,CONFIRMED
-2018-05-05,CLOSED,Children's Day,kr_childrens_day,module:kr_childrens_day,,,CONFIRMED
-2018-05-07,CLOSED,Children's Day (substitute holiday),kr_childrens_day_substitute,module:kr_childrens_day,,,CONFIRMED
-2018-05-22,CLOSED,Buddha's Birthday,kr_buddhas_birthday,module:kr_buddhas_birthday,,,CONFIRMED
-2018-06-06,CLOSED,Memorial Day,kr_memorial_day,module:kr_memorial_day,,,CONFIRMED
-2018-06-13,CLOSED,Election Day (7th nationwide local elections),kr_election_days,module:kr_election_days,,,CONFIRMED
-2018-08-15,CLOSED,Liberation Day,kr_liberation_day,module:kr_liberation_day,,,CONFIRMED
-2018-09-24,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED
-2018-09-25,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED
-2018-09-26,CLOSED,Chuseok (substitute holiday),kr_chuseok,module:kr_chuseok,,,CONFIRMED
-2018-10-03,CLOSED,National Foundation Day,kr_national_foundation_day,module:kr_national_foundation_day,,,CONFIRMED
-2018-10-09,CLOSED,Hangul Day,kr_hangul_day,module:kr_hangul_day,,,CONFIRMED
-2018-12-25,CLOSED,Christmas Day,kr_christmas_day,module:kr_christmas_day,,,CONFIRMED
-2018-12-31,CLOSED,Year-End Closure,kr_krx_year_end_closure,module:kr_krx_year_end_closure,,,CONFIRMED
-2019-01-01,CLOSED,New Year's Day,kr_new_years_day,module:kr_new_years_day,,,CONFIRMED
-2019-02-04,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED
-2019-02-05,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED
-2019-02-06,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED
-2019-03-01,CLOSED,Independence Movement Day,kr_independence_movement_day,module:kr_independence_movement_day,,,CONFIRMED
-2019-05-01,CLOSED,Labour Day,kr_labour_day,module:kr_labour_day,,,CONFIRMED
-2019-05-05,CLOSED,Children's Day,kr_childrens_day,module:kr_childrens_day,,,CONFIRMED
-2019-05-06,CLOSED,Children's Day (substitute holiday),kr_childrens_day_substitute,module:kr_childrens_day,,,CONFIRMED
-2019-06-06,CLOSED,Memorial Day,kr_memorial_day,module:kr_memorial_day,,,CONFIRMED
-2019-08-15,CLOSED,Liberation Day,kr_liberation_day,module:kr_liberation_day,,,CONFIRMED
-2019-09-12,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED
-2019-09-13,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED
-2019-10-03,CLOSED,National Foundation Day,kr_national_foundation_day,module:kr_national_foundation_day,,,CONFIRMED
-2019-10-09,CLOSED,Hangul Day,kr_hangul_day,module:kr_hangul_day,,,CONFIRMED
-2019-12-25,CLOSED,Christmas Day,kr_christmas_day,module:kr_christmas_day,,,CONFIRMED
-2019-12-31,CLOSED,Year-End Closure,kr_krx_year_end_closure,module:kr_krx_year_end_closure,,,CONFIRMED
-2020-01-01,CLOSED,New Year's Day,kr_new_years_day,module:kr_new_years_day,,,CONFIRMED
-2020-01-24,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED
-2020-01-27,CLOSED,Seollal (Lunar New Year) (substitute holiday),kr_seollal,module:kr_seollal,,,CONFIRMED
-2020-03-01,CLOSED,Independence Movement Day,kr_independence_movement_day,module:kr_independence_movement_day,,,CONFIRMED
-2020-04-15,CLOSED,Election Day (21st National Assembly election),kr_election_days,module:kr_election_days,,,CONFIRMED
-2020-04-30,CLOSED,Buddha's Birthday,kr_buddhas_birthday,module:kr_buddhas_birthday,,,CONFIRMED
-2020-05-01,CLOSED,Labour Day,kr_labour_day,module:kr_labour_day,,,CONFIRMED
-2020-05-05,CLOSED,Children's Day,kr_childrens_day,module:kr_childrens_day,,,CONFIRMED
-2020-06-06,CLOSED,Memorial Day,kr_memorial_day,module:kr_memorial_day,,,CONFIRMED
-2020-08-15,CLOSED,Liberation Day,kr_liberation_day,module:kr_liberation_day,,,CONFIRMED
-2020-08-17,CLOSED,Temporary Public Holiday (temporary public holiday),kr_temporary_public_holidays,module:kr_temporary_public_holidays,,,CONFIRMED
-2020-09-30,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED
-2020-10-01,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED
-2020-10-02,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED
-2020-10-03,CLOSED,National Foundation Day,kr_national_foundation_day,module:kr_national_foundation_day,,,CONFIRMED
-2020-10-09,CLOSED,Hangul Day,kr_hangul_day,module:kr_hangul_day,,,CONFIRMED
-2020-12-25,CLOSED,Christmas Day,kr_christmas_day,module:kr_christmas_day,,,CONFIRMED
-2020-12-31,CLOSED,Year-End Closure,kr_krx_year_end_closure,module:kr_krx_year_end_closure,,,CONFIRMED
-2021-01-01,CLOSED,New Year's Day,kr_new_years_day,module:kr_new_years_day,,,CONFIRMED
-2021-02-11,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED
-2021-02-12,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED
-2021-03-01,CLOSED,Independence Movement Day,kr_independence_movement_day,module:kr_independence_movement_day,,,CONFIRMED
-2021-05-01,CLOSED,Labour Day,kr_labour_day,module:kr_labour_day,,,CONFIRMED
-2021-05-05,CLOSED,Children's Day,kr_childrens_day,module:kr_childrens_day,,,CONFIRMED
-2021-05-19,CLOSED,Buddha's Birthday,kr_buddhas_birthday,module:kr_buddhas_birthday,,,CONFIRMED
-2021-06-06,CLOSED,Memorial Day,kr_memorial_day,module:kr_memorial_day,,,CONFIRMED
-2021-08-15,CLOSED,Liberation Day,kr_liberation_day,module:kr_liberation_day,,,CONFIRMED
-2021-08-16,CLOSED,Liberation Day (substitute holiday),kr_liberation_day_substitute,module:kr_liberation_day,,,CONFIRMED
-2021-09-20,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED
-2021-09-21,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED
-2021-09-22,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED
-2021-10-03,CLOSED,National Foundation Day,kr_national_foundation_day,module:kr_national_foundation_day,,,CONFIRMED
-2021-10-04,CLOSED,National Foundation Day (substitute holiday),kr_national_foundation_day_substitute,module:kr_national_foundation_day,,,CONFIRMED
-2021-10-09,CLOSED,Hangul Day,kr_hangul_day,module:kr_hangul_day,,,CONFIRMED
-2021-10-11,CLOSED,Hangul Day (substitute holiday),kr_hangul_day_substitute,module:kr_hangul_day,,,CONFIRMED
-2021-12-25,CLOSED,Christmas Day,kr_christmas_day,module:kr_christmas_day,,,CONFIRMED
-2021-12-31,CLOSED,Year-End Closure,kr_krx_year_end_closure,module:kr_krx_year_end_closure,,,CONFIRMED
-2022-01-01,CLOSED,New Year's Day,kr_new_years_day,module:kr_new_years_day,,,CONFIRMED
-2022-01-31,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED
-2022-02-01,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED
-2022-02-02,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED
-2022-03-01,CLOSED,Independence Movement Day,kr_independence_movement_day,module:kr_independence_movement_day,,,CONFIRMED
-2022-03-09,CLOSED,Election Day (20th presidential election),kr_election_days,module:kr_election_days,,,CONFIRMED
-2022-05-01,CLOSED,Labour Day,kr_labour_day,module:kr_labour_day,,,CONFIRMED
-2022-05-05,CLOSED,Children's Day,kr_childrens_day,module:kr_childrens_day,,,CONFIRMED
-2022-06-01,CLOSED,Election Day (8th nationwide local elections),kr_election_days,module:kr_election_days,,,CONFIRMED
-2022-06-06,CLOSED,Memorial Day,kr_memorial_day,module:kr_memorial_day,,,CONFIRMED
-2022-08-15,CLOSED,Liberation Day,kr_liberation_day,module:kr_liberation_day,,,CONFIRMED
-2022-09-09,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED
-2022-09-12,CLOSED,Chuseok (substitute holiday),kr_chuseok,module:kr_chuseok,,,CONFIRMED
-2022-10-03,CLOSED,National Foundation Day,kr_national_foundation_day,module:kr_national_foundation_day,,,CONFIRMED
-2022-10-09,CLOSED,Hangul Day,kr_hangul_day,module:kr_hangul_day,,,CONFIRMED
-2022-10-10,CLOSED,Hangul Day (substitute holiday),kr_hangul_day_substitute,module:kr_hangul_day,,,CONFIRMED
-2022-12-25,CLOSED,Christmas Day,kr_christmas_day,module:kr_christmas_day,,,CONFIRMED
-2022-12-30,CLOSED,Year-End Closure,kr_krx_year_end_closure,module:kr_krx_year_end_closure,,,CONFIRMED
-2023-01-01,CLOSED,New Year's Day,kr_new_years_day,module:kr_new_years_day,,,CONFIRMED
-2023-01-23,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED
-2023-01-24,CLOSED,Seollal (Lunar New Year) (substitute holiday),kr_seollal,module:kr_seollal,,,CONFIRMED
-2023-03-01,CLOSED,Independence Movement Day,kr_independence_movement_day,module:kr_independence_movement_day,,,CONFIRMED
-2023-05-01,CLOSED,Labour Day,kr_labour_day,module:kr_labour_day,,,CONFIRMED
-2023-05-05,CLOSED,Children's Day,kr_childrens_day,module:kr_childrens_day,,,CONFIRMED
-2023-05-29,CLOSED,Buddha's Birthday (substitute holiday),kr_buddhas_birthday,module:kr_buddhas_birthday,,,CONFIRMED
-2023-06-06,CLOSED,Memorial Day,kr_memorial_day,module:kr_memorial_day,,,CONFIRMED
-2023-08-15,CLOSED,Liberation Day,kr_liberation_day,module:kr_liberation_day,,,CONFIRMED
-2023-09-28,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED
-2023-09-29,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED
-2023-10-02,CLOSED,Temporary Public Holiday (temporary public holiday (Chuseok bridge day)),kr_temporary_public_holidays,module:kr_temporary_public_holidays,,,CONFIRMED
-2023-10-03,CLOSED,National Foundation Day,kr_national_foundation_day,module:kr_national_foundation_day,,,CONFIRMED
-2023-10-09,CLOSED,Hangul Day,kr_hangul_day,module:kr_hangul_day,,,CONFIRMED
-2023-12-25,CLOSED,Christmas Day,kr_christmas_day,module:kr_christmas_day,,,CONFIRMED
-2023-12-29,CLOSED,Year-End Closure,kr_krx_year_end_closure,module:kr_krx_year_end_closure,,,CONFIRMED
-2024-01-01,CLOSED,New Year's Day,kr_new_years_day,module:kr_new_years_day,,,CONFIRMED
-2024-02-09,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED
-2024-02-12,CLOSED,Seollal (Lunar New Year) (substitute holiday),kr_seollal,module:kr_seollal,,,CONFIRMED
-2024-03-01,CLOSED,Independence Movement Day,kr_independence_movement_day,module:kr_independence_movement_day,,,CONFIRMED
-2024-04-10,CLOSED,Election Day (22nd National Assembly election),kr_election_days,module:kr_election_days,,,CONFIRMED
-2024-05-01,CLOSED,Labour Day,kr_labour_day,module:kr_labour_day,,,CONFIRMED
-2024-05-05,CLOSED,Children's Day,kr_childrens_day,module:kr_childrens_day,,,CONFIRMED
-2024-05-06,CLOSED,Children's Day (substitute holiday),kr_childrens_day_substitute,module:kr_childrens_day,,,CONFIRMED
-2024-05-15,CLOSED,Buddha's Birthday,kr_buddhas_birthday,module:kr_buddhas_birthday,,,CONFIRMED
-2024-06-06,CLOSED,Memorial Day,kr_memorial_day,module:kr_memorial_day,,,CONFIRMED
-2024-08-15,CLOSED,Liberation Day,kr_liberation_day,module:kr_liberation_day,,,CONFIRMED
-2024-09-16,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED
-2024-09-17,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED
-2024-09-18,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED
-2024-10-01,CLOSED,"Temporary Public Holiday (Armed Forces Day, temporary public holiday)",kr_temporary_public_holidays,module:kr_temporary_public_holidays,,,CONFIRMED
-2024-10-03,CLOSED,National Foundation Day,kr_national_foundation_day,module:kr_national_foundation_day,,,CONFIRMED
-2024-10-09,CLOSED,Hangul Day,kr_hangul_day,module:kr_hangul_day,,,CONFIRMED
-2024-12-25,CLOSED,Christmas Day,kr_christmas_day,module:kr_christmas_day,,,CONFIRMED
-2024-12-31,CLOSED,Year-End Closure,kr_krx_year_end_closure,module:kr_krx_year_end_closure,,,CONFIRMED
-2025-01-01,CLOSED,New Year's Day,kr_new_years_day,module:kr_new_years_day,,,CONFIRMED
-2025-01-27,CLOSED,Temporary Public Holiday (temporary public holiday (Seollal bridge day)),kr_temporary_public_holidays,module:kr_temporary_public_holidays,,,CONFIRMED
-2025-01-28,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED
-2025-01-29,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED
-2025-01-30,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED
-2025-03-01,CLOSED,Independence Movement Day,kr_independence_movement_day,module:kr_independence_movement_day,,,CONFIRMED
-2025-03-03,CLOSED,Independence Movement Day (substitute holiday),kr_independence_movement_day_substitute,module:kr_independence_movement_day,,,CONFIRMED
-2025-05-01,CLOSED,Labour Day,kr_labour_day,module:kr_labour_day,,,CONFIRMED
-2025-05-05,CLOSED,Buddha's Birthday,kr_buddhas_birthday,module:kr_buddhas_birthday,,,CONFIRMED
-2025-05-06,CLOSED,Children's Day (substitute holiday),kr_childrens_day_substitute,module:kr_childrens_day,,,CONFIRMED
-2025-06-03,CLOSED,Election Day (21st presidential election (early election; temporary public holiday)),kr_election_days,module:kr_election_days,,,CONFIRMED
-2025-06-06,CLOSED,Memorial Day,kr_memorial_day,module:kr_memorial_day,,,CONFIRMED
-2025-08-15,CLOSED,Liberation Day,kr_liberation_day,module:kr_liberation_day,,,CONFIRMED
-2025-10-03,CLOSED,National Foundation Day,kr_national_foundation_day,module:kr_national_foundation_day,,,CONFIRMED
-2025-10-06,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED
-2025-10-07,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED
-2025-10-08,CLOSED,Chuseok (substitute holiday),kr_chuseok,module:kr_chuseok,,,CONFIRMED
-2025-10-09,CLOSED,Hangul Day,kr_hangul_day,module:kr_hangul_day,,,CONFIRMED
-2025-12-25,CLOSED,Christmas Day,kr_christmas_day,module:kr_christmas_day,,,CONFIRMED
-2025-12-31,CLOSED,Year-End Closure,kr_krx_year_end_closure,module:kr_krx_year_end_closure,,,CONFIRMED
-2026-01-01,CLOSED,New Year's Day,kr_new_years_day,module:kr_new_years_day,,,CONFIRMED
-2026-02-16,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED
-2026-02-17,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED
-2026-02-18,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED
-2026-03-01,CLOSED,Independence Movement Day,kr_independence_movement_day,module:kr_independence_movement_day,,,CONFIRMED
-2026-03-02,CLOSED,Independence Movement Day (substitute holiday),kr_independence_movement_day_substitute,module:kr_independence_movement_day,,,CONFIRMED
-2026-05-01,CLOSED,Labour Day,kr_labour_day,module:kr_labour_day,,,CONFIRMED
-2026-05-05,CLOSED,Children's Day,kr_childrens_day,module:kr_childrens_day,,,CONFIRMED
-2026-05-25,CLOSED,Buddha's Birthday (substitute holiday),kr_buddhas_birthday,module:kr_buddhas_birthday,,,CONFIRMED
-2026-06-03,CLOSED,Election Day (9th nationwide local elections),kr_election_days,module:kr_election_days,,,CONFIRMED
-2026-06-06,CLOSED,Memorial Day,kr_memorial_day,module:kr_memorial_day,,,CONFIRMED
-2026-07-17,CLOSED,Constitution Day,kr_constitution_day,module:kr_constitution_day,,,CONFIRMED
-2026-08-15,CLOSED,Liberation Day,kr_liberation_day,module:kr_liberation_day,,,CONFIRMED
-2026-08-17,CLOSED,Liberation Day (substitute holiday),kr_liberation_day_substitute,module:kr_liberation_day,,,CONFIRMED
-2026-09-24,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED
-2026-09-25,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED
-2026-10-03,CLOSED,National Foundation Day,kr_national_foundation_day,module:kr_national_foundation_day,,,CONFIRMED
-2026-10-05,CLOSED,National Foundation Day (substitute holiday),kr_national_foundation_day_substitute,module:kr_national_foundation_day,,,CONFIRMED
-2026-10-09,CLOSED,Hangul Day,kr_hangul_day,module:kr_hangul_day,,,CONFIRMED
-2026-12-25,CLOSED,Christmas Day,kr_christmas_day,module:kr_christmas_day,,,CONFIRMED
-2026-12-31,CLOSED,Year-End Closure,kr_krx_year_end_closure,module:kr_krx_year_end_closure,,,CONFIRMED
-2027-01-01,CLOSED,New Year's Day,kr_new_years_day,module:kr_new_years_day,,,CONFIRMED
-2027-02-08,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED
-2027-02-09,CLOSED,Seollal (Lunar New Year) (substitute holiday),kr_seollal,module:kr_seollal,,,CONFIRMED
-2027-03-01,CLOSED,Independence Movement Day,kr_independence_movement_day,module:kr_independence_movement_day,,,CONFIRMED
-2027-05-01,CLOSED,Labour Day,kr_labour_day,module:kr_labour_day,,,CONFIRMED
-2027-05-03,CLOSED,Labour Day (substitute holiday),kr_labour_day_substitute,module:kr_labour_day,,,CONFIRMED
-2027-05-05,CLOSED,Children's Day,kr_childrens_day,module:kr_childrens_day,,,CONFIRMED
-2027-05-13,CLOSED,Buddha's Birthday,kr_buddhas_birthday,module:kr_buddhas_birthday,,,CONFIRMED
-2027-06-06,CLOSED,Memorial Day,kr_memorial_day,module:kr_memorial_day,,,CONFIRMED
-2027-07-17,CLOSED,Constitution Day,kr_constitution_day,module:kr_constitution_day,,,CONFIRMED
-2027-07-19,CLOSED,Constitution Day (substitute holiday),kr_constitution_day_substitute,module:kr_constitution_day,,,CONFIRMED
-2027-08-15,CLOSED,Liberation Day,kr_liberation_day,module:kr_liberation_day,,,CONFIRMED
-2027-08-16,CLOSED,Liberation Day (substitute holiday),kr_liberation_day_substitute,module:kr_liberation_day,,,CONFIRMED
-2027-09-14,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED
-2027-09-15,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED
-2027-09-16,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED
-2027-10-03,CLOSED,National Foundation Day,kr_national_foundation_day,module:kr_national_foundation_day,,,CONFIRMED
-2027-10-04,CLOSED,National Foundation Day (substitute holiday),kr_national_foundation_day_substitute,module:kr_national_foundation_day,,,CONFIRMED
-2027-10-09,CLOSED,Hangul Day,kr_hangul_day,module:kr_hangul_day,,,CONFIRMED
-2027-10-11,CLOSED,Hangul Day (substitute holiday),kr_hangul_day_substitute,module:kr_hangul_day,,,CONFIRMED
-2027-12-25,CLOSED,Christmas Day,kr_christmas_day,module:kr_christmas_day,,,CONFIRMED
-2027-12-27,CLOSED,Christmas Day (substitute holiday),kr_christmas_day_substitute,module:kr_christmas_day,,,CONFIRMED
-2027-12-31,CLOSED,Year-End Closure,kr_krx_year_end_closure,module:kr_krx_year_end_closure,,,CONFIRMED
+date,type,description,key,source_module,observed_from,close_time,status,open_time
+2010-01-01,CLOSED,New Year's Day,kr_new_years_day,module:kr_new_years_day,,,CONFIRMED,
+2010-02-15,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED,
+2010-03-01,CLOSED,Independence Movement Day,kr_independence_movement_day,module:kr_independence_movement_day,,,CONFIRMED,
+2010-05-01,CLOSED,Labour Day,kr_labour_day,module:kr_labour_day,,,CONFIRMED,
+2010-05-05,CLOSED,Children's Day,kr_childrens_day,module:kr_childrens_day,,,CONFIRMED,
+2010-05-21,CLOSED,Buddha's Birthday,kr_buddhas_birthday,module:kr_buddhas_birthday,,,CONFIRMED,
+2010-06-02,CLOSED,Election Day (5th nationwide local elections),kr_election_days,module:kr_election_days,,,CONFIRMED,
+2010-06-06,CLOSED,Memorial Day,kr_memorial_day,module:kr_memorial_day,,,CONFIRMED,
+2010-08-15,CLOSED,Liberation Day,kr_liberation_day,module:kr_liberation_day,,,CONFIRMED,
+2010-09-21,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED,
+2010-09-22,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED,
+2010-09-23,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED,
+2010-10-03,CLOSED,National Foundation Day,kr_national_foundation_day,module:kr_national_foundation_day,,,CONFIRMED,
+2010-12-25,CLOSED,Christmas Day,kr_christmas_day,module:kr_christmas_day,,,CONFIRMED,
+2010-12-31,CLOSED,Year-End Closure,kr_krx_year_end_closure,module:kr_krx_year_end_closure,,,CONFIRMED,
+2011-01-01,CLOSED,New Year's Day,kr_new_years_day,module:kr_new_years_day,,,CONFIRMED,
+2011-02-02,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED,
+2011-02-03,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED,
+2011-02-04,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED,
+2011-03-01,CLOSED,Independence Movement Day,kr_independence_movement_day,module:kr_independence_movement_day,,,CONFIRMED,
+2011-05-01,CLOSED,Labour Day,kr_labour_day,module:kr_labour_day,,,CONFIRMED,
+2011-05-05,CLOSED,Children's Day,kr_childrens_day,module:kr_childrens_day,,,CONFIRMED,
+2011-05-10,CLOSED,Buddha's Birthday,kr_buddhas_birthday,module:kr_buddhas_birthday,,,CONFIRMED,
+2011-06-06,CLOSED,Memorial Day,kr_memorial_day,module:kr_memorial_day,,,CONFIRMED,
+2011-08-15,CLOSED,Liberation Day,kr_liberation_day,module:kr_liberation_day,,,CONFIRMED,
+2011-09-12,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED,
+2011-09-13,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED,
+2011-10-03,CLOSED,National Foundation Day,kr_national_foundation_day,module:kr_national_foundation_day,,,CONFIRMED,
+2011-12-25,CLOSED,Christmas Day,kr_christmas_day,module:kr_christmas_day,,,CONFIRMED,
+2011-12-30,CLOSED,Year-End Closure,kr_krx_year_end_closure,module:kr_krx_year_end_closure,,,CONFIRMED,
+2012-01-01,CLOSED,New Year's Day,kr_new_years_day,module:kr_new_years_day,,,CONFIRMED,
+2012-01-23,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED,
+2012-01-24,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED,
+2012-03-01,CLOSED,Independence Movement Day,kr_independence_movement_day,module:kr_independence_movement_day,,,CONFIRMED,
+2012-04-11,CLOSED,Election Day (19th National Assembly election),kr_election_days,module:kr_election_days,,,CONFIRMED,
+2012-05-01,CLOSED,Labour Day,kr_labour_day,module:kr_labour_day,,,CONFIRMED,
+2012-05-05,CLOSED,Children's Day,kr_childrens_day,module:kr_childrens_day,,,CONFIRMED,
+2012-05-28,CLOSED,Buddha's Birthday,kr_buddhas_birthday,module:kr_buddhas_birthday,,,CONFIRMED,
+2012-06-06,CLOSED,Memorial Day,kr_memorial_day,module:kr_memorial_day,,,CONFIRMED,
+2012-08-15,CLOSED,Liberation Day,kr_liberation_day,module:kr_liberation_day,,,CONFIRMED,
+2012-10-01,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED,
+2012-10-03,CLOSED,National Foundation Day,kr_national_foundation_day,module:kr_national_foundation_day,,,CONFIRMED,
+2012-12-19,CLOSED,Election Day (18th presidential election),kr_election_days,module:kr_election_days,,,CONFIRMED,
+2012-12-25,CLOSED,Christmas Day,kr_christmas_day,module:kr_christmas_day,,,CONFIRMED,
+2012-12-31,CLOSED,Year-End Closure,kr_krx_year_end_closure,module:kr_krx_year_end_closure,,,CONFIRMED,
+2013-01-01,CLOSED,New Year's Day,kr_new_years_day,module:kr_new_years_day,,,CONFIRMED,
+2013-02-11,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED,
+2013-03-01,CLOSED,Independence Movement Day,kr_independence_movement_day,module:kr_independence_movement_day,,,CONFIRMED,
+2013-05-01,CLOSED,Labour Day,kr_labour_day,module:kr_labour_day,,,CONFIRMED,
+2013-05-05,CLOSED,Children's Day,kr_childrens_day,module:kr_childrens_day,,,CONFIRMED,
+2013-05-17,CLOSED,Buddha's Birthday,kr_buddhas_birthday,module:kr_buddhas_birthday,,,CONFIRMED,
+2013-06-06,CLOSED,Memorial Day,kr_memorial_day,module:kr_memorial_day,,,CONFIRMED,
+2013-08-15,CLOSED,Liberation Day,kr_liberation_day,module:kr_liberation_day,,,CONFIRMED,
+2013-09-18,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED,
+2013-09-19,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED,
+2013-09-20,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED,
+2013-10-03,CLOSED,National Foundation Day,kr_national_foundation_day,module:kr_national_foundation_day,,,CONFIRMED,
+2013-10-09,CLOSED,Hangul Day,kr_hangul_day,module:kr_hangul_day,,,CONFIRMED,
+2013-12-25,CLOSED,Christmas Day,kr_christmas_day,module:kr_christmas_day,,,CONFIRMED,
+2013-12-31,CLOSED,Year-End Closure,kr_krx_year_end_closure,module:kr_krx_year_end_closure,,,CONFIRMED,
+2014-01-01,CLOSED,New Year's Day,kr_new_years_day,module:kr_new_years_day,,,CONFIRMED,
+2014-01-30,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED,
+2014-01-31,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED,
+2014-03-01,CLOSED,Independence Movement Day,kr_independence_movement_day,module:kr_independence_movement_day,,,CONFIRMED,
+2014-05-01,CLOSED,Labour Day,kr_labour_day,module:kr_labour_day,,,CONFIRMED,
+2014-05-05,CLOSED,Children's Day,kr_childrens_day,module:kr_childrens_day,,,CONFIRMED,
+2014-05-06,CLOSED,Buddha's Birthday,kr_buddhas_birthday,module:kr_buddhas_birthday,,,CONFIRMED,
+2014-06-04,CLOSED,Election Day (6th nationwide local elections),kr_election_days,module:kr_election_days,,,CONFIRMED,
+2014-06-06,CLOSED,Memorial Day,kr_memorial_day,module:kr_memorial_day,,,CONFIRMED,
+2014-08-15,CLOSED,Liberation Day,kr_liberation_day,module:kr_liberation_day,,,CONFIRMED,
+2014-09-08,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED,
+2014-09-09,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED,
+2014-09-10,CLOSED,Chuseok (substitute holiday),kr_chuseok,module:kr_chuseok,,,CONFIRMED,
+2014-10-03,CLOSED,National Foundation Day,kr_national_foundation_day,module:kr_national_foundation_day,,,CONFIRMED,
+2014-10-09,CLOSED,Hangul Day,kr_hangul_day,module:kr_hangul_day,,,CONFIRMED,
+2014-12-25,CLOSED,Christmas Day,kr_christmas_day,module:kr_christmas_day,,,CONFIRMED,
+2014-12-31,CLOSED,Year-End Closure,kr_krx_year_end_closure,module:kr_krx_year_end_closure,,,CONFIRMED,
+2015-01-01,CLOSED,New Year's Day,kr_new_years_day,module:kr_new_years_day,,,CONFIRMED,
+2015-02-18,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED,
+2015-02-19,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED,
+2015-02-20,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED,
+2015-03-01,CLOSED,Independence Movement Day,kr_independence_movement_day,module:kr_independence_movement_day,,,CONFIRMED,
+2015-05-01,CLOSED,Labour Day,kr_labour_day,module:kr_labour_day,,,CONFIRMED,
+2015-05-05,CLOSED,Children's Day,kr_childrens_day,module:kr_childrens_day,,,CONFIRMED,
+2015-05-25,CLOSED,Buddha's Birthday,kr_buddhas_birthday,module:kr_buddhas_birthday,,,CONFIRMED,
+2015-06-06,CLOSED,Memorial Day,kr_memorial_day,module:kr_memorial_day,,,CONFIRMED,
+2015-08-14,CLOSED,Temporary Public Holiday (70th anniversary of Liberation (광복70주년 임시공휴일)),kr_temporary_public_holidays,module:kr_temporary_public_holidays,,,CONFIRMED,
+2015-08-15,CLOSED,Liberation Day,kr_liberation_day,module:kr_liberation_day,,,CONFIRMED,
+2015-09-28,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED,
+2015-09-29,CLOSED,Chuseok (substitute holiday),kr_chuseok,module:kr_chuseok,,,CONFIRMED,
+2015-10-03,CLOSED,National Foundation Day,kr_national_foundation_day,module:kr_national_foundation_day,,,CONFIRMED,
+2015-10-09,CLOSED,Hangul Day,kr_hangul_day,module:kr_hangul_day,,,CONFIRMED,
+2015-12-25,CLOSED,Christmas Day,kr_christmas_day,module:kr_christmas_day,,,CONFIRMED,
+2015-12-31,CLOSED,Year-End Closure,kr_krx_year_end_closure,module:kr_krx_year_end_closure,,,CONFIRMED,
+2016-01-01,CLOSED,New Year's Day,kr_new_years_day,module:kr_new_years_day,,,CONFIRMED,
+2016-02-08,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED,
+2016-02-09,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED,
+2016-02-10,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED,
+2016-03-01,CLOSED,Independence Movement Day,kr_independence_movement_day,module:kr_independence_movement_day,,,CONFIRMED,
+2016-04-13,CLOSED,Election Day (20th National Assembly election),kr_election_days,module:kr_election_days,,,CONFIRMED,
+2016-05-01,CLOSED,Labour Day,kr_labour_day,module:kr_labour_day,,,CONFIRMED,
+2016-05-05,CLOSED,Children's Day,kr_childrens_day,module:kr_childrens_day,,,CONFIRMED,
+2016-05-06,CLOSED,Temporary Public Holiday (temporary public holiday (bridge day)),kr_temporary_public_holidays,module:kr_temporary_public_holidays,,,CONFIRMED,
+2016-06-06,CLOSED,Memorial Day,kr_memorial_day,module:kr_memorial_day,,,CONFIRMED,
+2016-08-15,CLOSED,Liberation Day,kr_liberation_day,module:kr_liberation_day,,,CONFIRMED,
+2016-09-14,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED,
+2016-09-15,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED,
+2016-09-16,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED,
+2016-10-03,CLOSED,National Foundation Day,kr_national_foundation_day,module:kr_national_foundation_day,,,CONFIRMED,
+2016-10-09,CLOSED,Hangul Day,kr_hangul_day,module:kr_hangul_day,,,CONFIRMED,
+2016-12-25,CLOSED,Christmas Day,kr_christmas_day,module:kr_christmas_day,,,CONFIRMED,
+2016-12-30,CLOSED,Year-End Closure,kr_krx_year_end_closure,module:kr_krx_year_end_closure,,,CONFIRMED,
+2017-01-01,CLOSED,New Year's Day,kr_new_years_day,module:kr_new_years_day,,,CONFIRMED,
+2017-01-27,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED,
+2017-01-30,CLOSED,Seollal (Lunar New Year) (substitute holiday),kr_seollal,module:kr_seollal,,,CONFIRMED,
+2017-03-01,CLOSED,Independence Movement Day,kr_independence_movement_day,module:kr_independence_movement_day,,,CONFIRMED,
+2017-05-01,CLOSED,Labour Day,kr_labour_day,module:kr_labour_day,,,CONFIRMED,
+2017-05-03,CLOSED,Buddha's Birthday,kr_buddhas_birthday,module:kr_buddhas_birthday,,,CONFIRMED,
+2017-05-05,CLOSED,Children's Day,kr_childrens_day,module:kr_childrens_day,,,CONFIRMED,
+2017-05-09,CLOSED,Election Day (19th presidential election (early election; temporary public holiday)),kr_election_days,module:kr_election_days,,,CONFIRMED,
+2017-06-06,CLOSED,Memorial Day,kr_memorial_day,module:kr_memorial_day,,,CONFIRMED,
+2017-08-15,CLOSED,Liberation Day,kr_liberation_day,module:kr_liberation_day,,,CONFIRMED,
+2017-10-02,CLOSED,Temporary Public Holiday (temporary public holiday (Chuseok bridge day)),kr_temporary_public_holidays,module:kr_temporary_public_holidays,,,CONFIRMED,
+2017-10-03,CLOSED,National Foundation Day,kr_national_foundation_day,module:kr_national_foundation_day,,,CONFIRMED,
+2017-10-04,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED,
+2017-10-05,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED,
+2017-10-06,CLOSED,Chuseok (substitute holiday),kr_chuseok,module:kr_chuseok,,,CONFIRMED,
+2017-10-09,CLOSED,Hangul Day,kr_hangul_day,module:kr_hangul_day,,,CONFIRMED,
+2017-12-25,CLOSED,Christmas Day,kr_christmas_day,module:kr_christmas_day,,,CONFIRMED,
+2017-12-29,CLOSED,Year-End Closure,kr_krx_year_end_closure,module:kr_krx_year_end_closure,,,CONFIRMED,
+2018-01-01,CLOSED,New Year's Day,kr_new_years_day,module:kr_new_years_day,,,CONFIRMED,
+2018-02-15,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED,
+2018-02-16,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED,
+2018-03-01,CLOSED,Independence Movement Day,kr_independence_movement_day,module:kr_independence_movement_day,,,CONFIRMED,
+2018-05-01,CLOSED,Labour Day,kr_labour_day,module:kr_labour_day,,,CONFIRMED,
+2018-05-05,CLOSED,Children's Day,kr_childrens_day,module:kr_childrens_day,,,CONFIRMED,
+2018-05-07,CLOSED,Children's Day (substitute holiday),kr_childrens_day_substitute,module:kr_childrens_day,,,CONFIRMED,
+2018-05-22,CLOSED,Buddha's Birthday,kr_buddhas_birthday,module:kr_buddhas_birthday,,,CONFIRMED,
+2018-06-06,CLOSED,Memorial Day,kr_memorial_day,module:kr_memorial_day,,,CONFIRMED,
+2018-06-13,CLOSED,Election Day (7th nationwide local elections),kr_election_days,module:kr_election_days,,,CONFIRMED,
+2018-08-15,CLOSED,Liberation Day,kr_liberation_day,module:kr_liberation_day,,,CONFIRMED,
+2018-09-24,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED,
+2018-09-25,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED,
+2018-09-26,CLOSED,Chuseok (substitute holiday),kr_chuseok,module:kr_chuseok,,,CONFIRMED,
+2018-10-03,CLOSED,National Foundation Day,kr_national_foundation_day,module:kr_national_foundation_day,,,CONFIRMED,
+2018-10-09,CLOSED,Hangul Day,kr_hangul_day,module:kr_hangul_day,,,CONFIRMED,
+2018-12-25,CLOSED,Christmas Day,kr_christmas_day,module:kr_christmas_day,,,CONFIRMED,
+2018-12-31,CLOSED,Year-End Closure,kr_krx_year_end_closure,module:kr_krx_year_end_closure,,,CONFIRMED,
+2019-01-01,CLOSED,New Year's Day,kr_new_years_day,module:kr_new_years_day,,,CONFIRMED,
+2019-02-04,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED,
+2019-02-05,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED,
+2019-02-06,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED,
+2019-03-01,CLOSED,Independence Movement Day,kr_independence_movement_day,module:kr_independence_movement_day,,,CONFIRMED,
+2019-05-01,CLOSED,Labour Day,kr_labour_day,module:kr_labour_day,,,CONFIRMED,
+2019-05-05,CLOSED,Children's Day,kr_childrens_day,module:kr_childrens_day,,,CONFIRMED,
+2019-05-06,CLOSED,Children's Day (substitute holiday),kr_childrens_day_substitute,module:kr_childrens_day,,,CONFIRMED,
+2019-06-06,CLOSED,Memorial Day,kr_memorial_day,module:kr_memorial_day,,,CONFIRMED,
+2019-08-15,CLOSED,Liberation Day,kr_liberation_day,module:kr_liberation_day,,,CONFIRMED,
+2019-09-12,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED,
+2019-09-13,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED,
+2019-10-03,CLOSED,National Foundation Day,kr_national_foundation_day,module:kr_national_foundation_day,,,CONFIRMED,
+2019-10-09,CLOSED,Hangul Day,kr_hangul_day,module:kr_hangul_day,,,CONFIRMED,
+2019-12-25,CLOSED,Christmas Day,kr_christmas_day,module:kr_christmas_day,,,CONFIRMED,
+2019-12-31,CLOSED,Year-End Closure,kr_krx_year_end_closure,module:kr_krx_year_end_closure,,,CONFIRMED,
+2020-01-01,CLOSED,New Year's Day,kr_new_years_day,module:kr_new_years_day,,,CONFIRMED,
+2020-01-24,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED,
+2020-01-27,CLOSED,Seollal (Lunar New Year) (substitute holiday),kr_seollal,module:kr_seollal,,,CONFIRMED,
+2020-03-01,CLOSED,Independence Movement Day,kr_independence_movement_day,module:kr_independence_movement_day,,,CONFIRMED,
+2020-04-15,CLOSED,Election Day (21st National Assembly election),kr_election_days,module:kr_election_days,,,CONFIRMED,
+2020-04-30,CLOSED,Buddha's Birthday,kr_buddhas_birthday,module:kr_buddhas_birthday,,,CONFIRMED,
+2020-05-01,CLOSED,Labour Day,kr_labour_day,module:kr_labour_day,,,CONFIRMED,
+2020-05-05,CLOSED,Children's Day,kr_childrens_day,module:kr_childrens_day,,,CONFIRMED,
+2020-06-06,CLOSED,Memorial Day,kr_memorial_day,module:kr_memorial_day,,,CONFIRMED,
+2020-08-15,CLOSED,Liberation Day,kr_liberation_day,module:kr_liberation_day,,,CONFIRMED,
+2020-08-17,CLOSED,Temporary Public Holiday (temporary public holiday),kr_temporary_public_holidays,module:kr_temporary_public_holidays,,,CONFIRMED,
+2020-09-30,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED,
+2020-10-01,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED,
+2020-10-02,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED,
+2020-10-03,CLOSED,National Foundation Day,kr_national_foundation_day,module:kr_national_foundation_day,,,CONFIRMED,
+2020-10-09,CLOSED,Hangul Day,kr_hangul_day,module:kr_hangul_day,,,CONFIRMED,
+2020-12-25,CLOSED,Christmas Day,kr_christmas_day,module:kr_christmas_day,,,CONFIRMED,
+2020-12-31,CLOSED,Year-End Closure,kr_krx_year_end_closure,module:kr_krx_year_end_closure,,,CONFIRMED,
+2021-01-01,CLOSED,New Year's Day,kr_new_years_day,module:kr_new_years_day,,,CONFIRMED,
+2021-02-11,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED,
+2021-02-12,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED,
+2021-03-01,CLOSED,Independence Movement Day,kr_independence_movement_day,module:kr_independence_movement_day,,,CONFIRMED,
+2021-05-01,CLOSED,Labour Day,kr_labour_day,module:kr_labour_day,,,CONFIRMED,
+2021-05-05,CLOSED,Children's Day,kr_childrens_day,module:kr_childrens_day,,,CONFIRMED,
+2021-05-19,CLOSED,Buddha's Birthday,kr_buddhas_birthday,module:kr_buddhas_birthday,,,CONFIRMED,
+2021-06-06,CLOSED,Memorial Day,kr_memorial_day,module:kr_memorial_day,,,CONFIRMED,
+2021-08-15,CLOSED,Liberation Day,kr_liberation_day,module:kr_liberation_day,,,CONFIRMED,
+2021-08-16,CLOSED,Liberation Day (substitute holiday),kr_liberation_day_substitute,module:kr_liberation_day,,,CONFIRMED,
+2021-09-20,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED,
+2021-09-21,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED,
+2021-09-22,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED,
+2021-10-03,CLOSED,National Foundation Day,kr_national_foundation_day,module:kr_national_foundation_day,,,CONFIRMED,
+2021-10-04,CLOSED,National Foundation Day (substitute holiday),kr_national_foundation_day_substitute,module:kr_national_foundation_day,,,CONFIRMED,
+2021-10-09,CLOSED,Hangul Day,kr_hangul_day,module:kr_hangul_day,,,CONFIRMED,
+2021-10-11,CLOSED,Hangul Day (substitute holiday),kr_hangul_day_substitute,module:kr_hangul_day,,,CONFIRMED,
+2021-12-25,CLOSED,Christmas Day,kr_christmas_day,module:kr_christmas_day,,,CONFIRMED,
+2021-12-31,CLOSED,Year-End Closure,kr_krx_year_end_closure,module:kr_krx_year_end_closure,,,CONFIRMED,
+2022-01-01,CLOSED,New Year's Day,kr_new_years_day,module:kr_new_years_day,,,CONFIRMED,
+2022-01-31,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED,
+2022-02-01,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED,
+2022-02-02,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED,
+2022-03-01,CLOSED,Independence Movement Day,kr_independence_movement_day,module:kr_independence_movement_day,,,CONFIRMED,
+2022-03-09,CLOSED,Election Day (20th presidential election),kr_election_days,module:kr_election_days,,,CONFIRMED,
+2022-05-01,CLOSED,Labour Day,kr_labour_day,module:kr_labour_day,,,CONFIRMED,
+2022-05-05,CLOSED,Children's Day,kr_childrens_day,module:kr_childrens_day,,,CONFIRMED,
+2022-06-01,CLOSED,Election Day (8th nationwide local elections),kr_election_days,module:kr_election_days,,,CONFIRMED,
+2022-06-06,CLOSED,Memorial Day,kr_memorial_day,module:kr_memorial_day,,,CONFIRMED,
+2022-08-15,CLOSED,Liberation Day,kr_liberation_day,module:kr_liberation_day,,,CONFIRMED,
+2022-09-09,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED,
+2022-09-12,CLOSED,Chuseok (substitute holiday),kr_chuseok,module:kr_chuseok,,,CONFIRMED,
+2022-10-03,CLOSED,National Foundation Day,kr_national_foundation_day,module:kr_national_foundation_day,,,CONFIRMED,
+2022-10-09,CLOSED,Hangul Day,kr_hangul_day,module:kr_hangul_day,,,CONFIRMED,
+2022-10-10,CLOSED,Hangul Day (substitute holiday),kr_hangul_day_substitute,module:kr_hangul_day,,,CONFIRMED,
+2022-12-25,CLOSED,Christmas Day,kr_christmas_day,module:kr_christmas_day,,,CONFIRMED,
+2022-12-30,CLOSED,Year-End Closure,kr_krx_year_end_closure,module:kr_krx_year_end_closure,,,CONFIRMED,
+2023-01-01,CLOSED,New Year's Day,kr_new_years_day,module:kr_new_years_day,,,CONFIRMED,
+2023-01-23,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED,
+2023-01-24,CLOSED,Seollal (Lunar New Year) (substitute holiday),kr_seollal,module:kr_seollal,,,CONFIRMED,
+2023-03-01,CLOSED,Independence Movement Day,kr_independence_movement_day,module:kr_independence_movement_day,,,CONFIRMED,
+2023-05-01,CLOSED,Labour Day,kr_labour_day,module:kr_labour_day,,,CONFIRMED,
+2023-05-05,CLOSED,Children's Day,kr_childrens_day,module:kr_childrens_day,,,CONFIRMED,
+2023-05-29,CLOSED,Buddha's Birthday (substitute holiday),kr_buddhas_birthday,module:kr_buddhas_birthday,,,CONFIRMED,
+2023-06-06,CLOSED,Memorial Day,kr_memorial_day,module:kr_memorial_day,,,CONFIRMED,
+2023-08-15,CLOSED,Liberation Day,kr_liberation_day,module:kr_liberation_day,,,CONFIRMED,
+2023-09-28,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED,
+2023-09-29,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED,
+2023-10-02,CLOSED,Temporary Public Holiday (temporary public holiday (Chuseok bridge day)),kr_temporary_public_holidays,module:kr_temporary_public_holidays,,,CONFIRMED,
+2023-10-03,CLOSED,National Foundation Day,kr_national_foundation_day,module:kr_national_foundation_day,,,CONFIRMED,
+2023-10-09,CLOSED,Hangul Day,kr_hangul_day,module:kr_hangul_day,,,CONFIRMED,
+2023-12-25,CLOSED,Christmas Day,kr_christmas_day,module:kr_christmas_day,,,CONFIRMED,
+2023-12-29,CLOSED,Year-End Closure,kr_krx_year_end_closure,module:kr_krx_year_end_closure,,,CONFIRMED,
+2024-01-01,CLOSED,New Year's Day,kr_new_years_day,module:kr_new_years_day,,,CONFIRMED,
+2024-02-09,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED,
+2024-02-12,CLOSED,Seollal (Lunar New Year) (substitute holiday),kr_seollal,module:kr_seollal,,,CONFIRMED,
+2024-03-01,CLOSED,Independence Movement Day,kr_independence_movement_day,module:kr_independence_movement_day,,,CONFIRMED,
+2024-04-10,CLOSED,Election Day (22nd National Assembly election),kr_election_days,module:kr_election_days,,,CONFIRMED,
+2024-05-01,CLOSED,Labour Day,kr_labour_day,module:kr_labour_day,,,CONFIRMED,
+2024-05-05,CLOSED,Children's Day,kr_childrens_day,module:kr_childrens_day,,,CONFIRMED,
+2024-05-06,CLOSED,Children's Day (substitute holiday),kr_childrens_day_substitute,module:kr_childrens_day,,,CONFIRMED,
+2024-05-15,CLOSED,Buddha's Birthday,kr_buddhas_birthday,module:kr_buddhas_birthday,,,CONFIRMED,
+2024-06-06,CLOSED,Memorial Day,kr_memorial_day,module:kr_memorial_day,,,CONFIRMED,
+2024-08-15,CLOSED,Liberation Day,kr_liberation_day,module:kr_liberation_day,,,CONFIRMED,
+2024-09-16,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED,
+2024-09-17,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED,
+2024-09-18,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED,
+2024-10-01,CLOSED,"Temporary Public Holiday (Armed Forces Day, temporary public holiday)",kr_temporary_public_holidays,module:kr_temporary_public_holidays,,,CONFIRMED,
+2024-10-03,CLOSED,National Foundation Day,kr_national_foundation_day,module:kr_national_foundation_day,,,CONFIRMED,
+2024-10-09,CLOSED,Hangul Day,kr_hangul_day,module:kr_hangul_day,,,CONFIRMED,
+2024-12-25,CLOSED,Christmas Day,kr_christmas_day,module:kr_christmas_day,,,CONFIRMED,
+2024-12-31,CLOSED,Year-End Closure,kr_krx_year_end_closure,module:kr_krx_year_end_closure,,,CONFIRMED,
+2025-01-01,CLOSED,New Year's Day,kr_new_years_day,module:kr_new_years_day,,,CONFIRMED,
+2025-01-27,CLOSED,Temporary Public Holiday (temporary public holiday (Seollal bridge day)),kr_temporary_public_holidays,module:kr_temporary_public_holidays,,,CONFIRMED,
+2025-01-28,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED,
+2025-01-29,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED,
+2025-01-30,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED,
+2025-03-01,CLOSED,Independence Movement Day,kr_independence_movement_day,module:kr_independence_movement_day,,,CONFIRMED,
+2025-03-03,CLOSED,Independence Movement Day (substitute holiday),kr_independence_movement_day_substitute,module:kr_independence_movement_day,,,CONFIRMED,
+2025-05-01,CLOSED,Labour Day,kr_labour_day,module:kr_labour_day,,,CONFIRMED,
+2025-05-05,CLOSED,Buddha's Birthday,kr_buddhas_birthday,module:kr_buddhas_birthday,,,CONFIRMED,
+2025-05-06,CLOSED,Children's Day (substitute holiday),kr_childrens_day_substitute,module:kr_childrens_day,,,CONFIRMED,
+2025-06-03,CLOSED,Election Day (21st presidential election (early election; temporary public holiday)),kr_election_days,module:kr_election_days,,,CONFIRMED,
+2025-06-06,CLOSED,Memorial Day,kr_memorial_day,module:kr_memorial_day,,,CONFIRMED,
+2025-08-15,CLOSED,Liberation Day,kr_liberation_day,module:kr_liberation_day,,,CONFIRMED,
+2025-10-03,CLOSED,National Foundation Day,kr_national_foundation_day,module:kr_national_foundation_day,,,CONFIRMED,
+2025-10-06,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED,
+2025-10-07,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED,
+2025-10-08,CLOSED,Chuseok (substitute holiday),kr_chuseok,module:kr_chuseok,,,CONFIRMED,
+2025-10-09,CLOSED,Hangul Day,kr_hangul_day,module:kr_hangul_day,,,CONFIRMED,
+2025-12-25,CLOSED,Christmas Day,kr_christmas_day,module:kr_christmas_day,,,CONFIRMED,
+2025-12-31,CLOSED,Year-End Closure,kr_krx_year_end_closure,module:kr_krx_year_end_closure,,,CONFIRMED,
+2026-01-01,CLOSED,New Year's Day,kr_new_years_day,module:kr_new_years_day,,,CONFIRMED,
+2026-02-16,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED,
+2026-02-17,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED,
+2026-02-18,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED,
+2026-03-01,CLOSED,Independence Movement Day,kr_independence_movement_day,module:kr_independence_movement_day,,,CONFIRMED,
+2026-03-02,CLOSED,Independence Movement Day (substitute holiday),kr_independence_movement_day_substitute,module:kr_independence_movement_day,,,CONFIRMED,
+2026-05-01,CLOSED,Labour Day,kr_labour_day,module:kr_labour_day,,,CONFIRMED,
+2026-05-05,CLOSED,Children's Day,kr_childrens_day,module:kr_childrens_day,,,CONFIRMED,
+2026-05-25,CLOSED,Buddha's Birthday (substitute holiday),kr_buddhas_birthday,module:kr_buddhas_birthday,,,CONFIRMED,
+2026-06-03,CLOSED,Election Day (9th nationwide local elections),kr_election_days,module:kr_election_days,,,CONFIRMED,
+2026-06-06,CLOSED,Memorial Day,kr_memorial_day,module:kr_memorial_day,,,CONFIRMED,
+2026-07-17,CLOSED,Constitution Day,kr_constitution_day,module:kr_constitution_day,,,CONFIRMED,
+2026-08-15,CLOSED,Liberation Day,kr_liberation_day,module:kr_liberation_day,,,CONFIRMED,
+2026-08-17,CLOSED,Liberation Day (substitute holiday),kr_liberation_day_substitute,module:kr_liberation_day,,,CONFIRMED,
+2026-09-24,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED,
+2026-09-25,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED,
+2026-10-03,CLOSED,National Foundation Day,kr_national_foundation_day,module:kr_national_foundation_day,,,CONFIRMED,
+2026-10-05,CLOSED,National Foundation Day (substitute holiday),kr_national_foundation_day_substitute,module:kr_national_foundation_day,,,CONFIRMED,
+2026-10-09,CLOSED,Hangul Day,kr_hangul_day,module:kr_hangul_day,,,CONFIRMED,
+2026-12-25,CLOSED,Christmas Day,kr_christmas_day,module:kr_christmas_day,,,CONFIRMED,
+2026-12-31,CLOSED,Year-End Closure,kr_krx_year_end_closure,module:kr_krx_year_end_closure,,,CONFIRMED,
+2027-01-01,CLOSED,New Year's Day,kr_new_years_day,module:kr_new_years_day,,,CONFIRMED,
+2027-02-08,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED,
+2027-02-09,CLOSED,Seollal (Lunar New Year) (substitute holiday),kr_seollal,module:kr_seollal,,,CONFIRMED,
+2027-03-01,CLOSED,Independence Movement Day,kr_independence_movement_day,module:kr_independence_movement_day,,,CONFIRMED,
+2027-05-01,CLOSED,Labour Day,kr_labour_day,module:kr_labour_day,,,CONFIRMED,
+2027-05-03,CLOSED,Labour Day (substitute holiday),kr_labour_day_substitute,module:kr_labour_day,,,CONFIRMED,
+2027-05-05,CLOSED,Children's Day,kr_childrens_day,module:kr_childrens_day,,,CONFIRMED,
+2027-05-13,CLOSED,Buddha's Birthday,kr_buddhas_birthday,module:kr_buddhas_birthday,,,CONFIRMED,
+2027-06-06,CLOSED,Memorial Day,kr_memorial_day,module:kr_memorial_day,,,CONFIRMED,
+2027-07-17,CLOSED,Constitution Day,kr_constitution_day,module:kr_constitution_day,,,CONFIRMED,
+2027-07-19,CLOSED,Constitution Day (substitute holiday),kr_constitution_day_substitute,module:kr_constitution_day,,,CONFIRMED,
+2027-08-15,CLOSED,Liberation Day,kr_liberation_day,module:kr_liberation_day,,,CONFIRMED,
+2027-08-16,CLOSED,Liberation Day (substitute holiday),kr_liberation_day_substitute,module:kr_liberation_day,,,CONFIRMED,
+2027-09-14,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED,
+2027-09-15,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED,
+2027-09-16,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED,
+2027-10-03,CLOSED,National Foundation Day,kr_national_foundation_day,module:kr_national_foundation_day,,,CONFIRMED,
+2027-10-04,CLOSED,National Foundation Day (substitute holiday),kr_national_foundation_day_substitute,module:kr_national_foundation_day,,,CONFIRMED,
+2027-10-09,CLOSED,Hangul Day,kr_hangul_day,module:kr_hangul_day,,,CONFIRMED,
+2027-10-11,CLOSED,Hangul Day (substitute holiday),kr_hangul_day_substitute,module:kr_hangul_day,,,CONFIRMED,
+2027-12-25,CLOSED,Christmas Day,kr_christmas_day,module:kr_christmas_day,,,CONFIRMED,
+2027-12-27,CLOSED,Christmas Day (substitute holiday),kr_christmas_day_substitute,module:kr_christmas_day,,,CONFIRMED,
+2027-12-31,CLOSED,Year-End Closure,kr_krx_year_end_closure,module:kr_krx_year_end_closure,,,CONFIRMED,

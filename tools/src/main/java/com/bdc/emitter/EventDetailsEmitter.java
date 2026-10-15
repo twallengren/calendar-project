@@ -26,6 +26,7 @@ public final class EventDetailsEmitter {
       row.put(
           "observed_from", event.observedFrom() == null ? null : event.observedFrom().toString());
       row.put("close_time", event.closeTime() == null ? null : event.closeTime().toString());
+      if (event.openTime() != null) row.put("open_time", event.openTime().toString());
       row.put("status", event.status().name());
       row.put("evidence_ids", provenance.evidenceIds());
       row.put(

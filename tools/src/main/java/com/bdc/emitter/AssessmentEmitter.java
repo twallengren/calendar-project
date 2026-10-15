@@ -37,6 +37,7 @@ public final class AssessmentEmitter {
     row.put("source_module", event.sourceModule());
     row.put("observed_from", event.observedFrom() == null ? null : event.observedFrom().toString());
     row.put("close_time", event.closeTime() == null ? null : event.closeTime().toString());
+    if (event.openTime() != null) row.put("open_time", event.openTime().toString());
     row.put("raw_status", detail.rawStatus().name());
     row.put("effective_status", detail.effectiveStatus().name());
     row.put("evidence_ids", detail.evidenceIds());

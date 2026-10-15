@@ -119,6 +119,49 @@ public interface DateStream {
   boolean isBusinessDay(LocalDate date);
 
   /**
+   * Whether trades are struck on this date: a business day, or a non-business day that carries a
+   * {@link EventType#SPECIAL_SESSION} (Diwali Muhurat trading on an exchange holiday, say). Date
+   * arithmetic never uses this; it answers "did the market trade?", not "is this a business day?".
+   * It needs the same scopes as {@link #isBusinessDay}, because special sessions are part of the
+   * schedule that evidence verifies.
+   *
+   * @throws OutsideCoverageException if the date lies outside {@link #range()}
+   * @throws UnresolvedDateException if a business-day scope is incomplete on the date
+   */
+  default boolean isTradingDay(LocalDate date) {
+    if (isBusinessDay(date)) {
+      return true;
+    }
+    return eventsOn(date).stream().anyMatch(e -> e.type() == EventType.SPECIAL_SESSION);
+  }
+
+  /**
+   * The special sessions held on a date, ordered by open time; empty on most dates. A session's
+   * times are local to the calendar's timezone. Session detail needs the full {@link
+   * DateQuestion#SESSION} scopes, like {@link #closeTime}.
+   *
+   * @throws OutsideCoverageException if the date lies outside {@link #range()}
+   * @throws UnresolvedDateException if any scope is incomplete on the date
+   */
+  default List<SpecialSession> specialSessions(LocalDate date) {
+    requireResolved(date);
+    return eventsOn(date).stream()
+        .filter(e -> e.type() == EventType.SPECIAL_SESSION)
+        .sorted(Comparator.comparing(Event::openTime).thenComparing(Event::closeTime))
+        .map(
+            e ->
+                new SpecialSession(
+                    calendarId(),
+                    timezone().orElse(null),
+                    e.openTime(),
+                    e.closeTime(),
+                    e.key(),
+                    e.description(),
+                    e.status()))
+        .toList();
+  }
+
+  /**
    * The first event on a date, if any. Where several events share a date the order is the order of
    * {@link #eventsOn}.
    *

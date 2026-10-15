@@ -170,6 +170,18 @@ public class QueryCommand implements Callable<Integer> {
   private LocalDate closeTimeDate;
 
   @Option(
+      names = {"--is-trading-day"},
+      description =
+          "Check whether the market trades on a date: a business day, or a holiday or weekend day"
+              + " with a special session")
+  private LocalDate isTradingDayDate;
+
+  @Option(
+      names = {"--special-sessions"},
+      description = "List the special sessions held on a date (sessions on non-business days)")
+  private LocalDate specialSessionsDate;
+
+  @Option(
       names = {"--status"},
       description = "Print the confidence status for a date (CONFIRMED, PROJECTED, UNKNOWN)")
   private LocalDate statusDate;
@@ -454,6 +466,42 @@ public class QueryCommand implements Callable<Integer> {
           System.out.println("Close time on " + closeTimeDate + ": regular session");
         } else {
           System.out.println("Close time on " + closeTimeDate + ": closed");
+        }
+      }
+
+      if (isTradingDayDate != null) {
+        anyQuery = true;
+        DateStream stream = stream();
+        boolean trading = stream.isTradingDay(isTradingDayDate);
+        System.out.println(
+            isTradingDayDate + " is " + (trading ? "a trading day" : "NOT a trading day"));
+        if (trading && !stream.isBusinessDay(isTradingDayDate)) {
+          System.out.println("  Not a business day: special session only");
+        }
+      }
+
+      if (specialSessionsDate != null) {
+        anyQuery = true;
+        DateStream stream = stream();
+        var sessions = stream.specialSessions(specialSessionsDate);
+        if (sessions.isEmpty()) {
+          System.out.println("No special sessions on " + specialSessionsDate);
+        }
+        for (var session : sessions) {
+          System.out.println(
+              specialSessionsDate
+                  + " "
+                  + session.openTime()
+                  + "-"
+                  + session.closeTime()
+                  + (session.timezone() != null ? " " + session.timezone() : "")
+                  + " "
+                  + session.description()
+                  + " ["
+                  + session.calendarId()
+                  + "/"
+                  + session.key()
+                  + "]");
         }
       }
 
@@ -756,6 +804,8 @@ public class QueryCommand implements Callable<Integer> {
         "  --settlement T+N --from <date>  Compatibility business-date offset trace");
     System.out.println("  --is-early-close <date>      Check for a shortened session");
     System.out.println("  --close-time <date>          Early close time, if any");
+    System.out.println("  --is-trading-day <date>      Business day or special session");
+    System.out.println("  --special-sessions <date>    Sessions held on a non-business day");
     System.out.println(
         "  --assess-day <date>          JSON state, confidence, evidence and native provenance");
     System.out.println("  --status <date>              CONFIRMED, PROJECTED or UNKNOWN");

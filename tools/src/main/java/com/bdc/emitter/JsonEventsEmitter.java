@@ -71,6 +71,7 @@ public class JsonEventsEmitter {
       row.put("source_module", event.sourceModule());
       row.put("observed_from", str(event.observedFrom()));
       row.put("close_time", event.closeTime() != null ? TIME.format(event.closeTime()) : null);
+      if (event.openTime() != null) row.put("open_time", TIME.format(event.openTime()));
       row.put("status", event.status() != null ? event.status().name() : null);
       rows.add(row);
     }

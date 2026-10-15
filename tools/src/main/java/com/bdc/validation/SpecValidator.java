@@ -174,20 +174,7 @@ public class SpecValidator {
     for (EventSource es : module.eventSources()) {
       // apply module-level source as default, as the resolver does
       if (es.source().isEmpty() && !module.source().isEmpty()) {
-        sources.add(
-            new EventSource(
-                es.key(),
-                es.name(),
-                es.rule(),
-                es.defaultClassification(),
-                es.shiftable(),
-                es.activeYears(),
-                es.shiftPolicy(),
-                es.onlyIfWeekday(),
-                es.closeTime(),
-                es.status(),
-                module.source(),
-                es.displaces()));
+        sources.add(es.withSource(module.source()));
       } else {
         sources.add(es);
       }
@@ -228,9 +215,32 @@ public class SpecValidator {
     if (es.defaultClassification() == EventType.EARLY_CLOSE && es.closeTime() == null) {
       result.warning("EARLY_CLOSE_WITHOUT_TIME", loc, "EARLY_CLOSE event has no close_time");
     }
-    if (es.closeTime() != null && es.defaultClassification() != EventType.EARLY_CLOSE) {
+    boolean special = es.defaultClassification() == EventType.SPECIAL_SESSION;
+    if (es.closeTime() != null && es.defaultClassification() != EventType.EARLY_CLOSE && !special) {
       result.warning(
-          "CLOSE_TIME_IGNORED", loc, "close_time is only emitted for EARLY_CLOSE events");
+          "CLOSE_TIME_IGNORED",
+          loc,
+          "close_time is only emitted for EARLY_CLOSE and SPECIAL_SESSION events");
+    }
+    if (special) {
+      if (es.openTime() == null || es.closeTime() == null) {
+        result.error(
+            "SPECIAL_SESSION_WITHOUT_TIMES", loc, "SPECIAL_SESSION needs open_time and close_time");
+      } else if (!es.openTime().isBefore(es.closeTime())) {
+        result.error(
+            "SPECIAL_SESSION_WITHOUT_TIMES",
+            loc,
+            "SPECIAL_SESSION open_time must precede close_time");
+      }
+      if (es.shiftPolicy() != null && es.shiftPolicy() != WeekendShiftPolicy.NONE) {
+        result.error(
+            "INVALID_SHIFT_POLICY",
+            loc,
+            "A SPECIAL_SESSION is held on the date it is announced for; it never shifts");
+      }
+    } else if (es.openTime() != null) {
+      result.error(
+          "OPEN_TIME_IGNORED", loc, "open_time is only defined for SPECIAL_SESSION events");
     }
     if (es.shiftPolicy() == WeekendShiftPolicy.DROP
         && es.defaultClassification() != EventType.EARLY_CLOSE) {
@@ -584,6 +594,19 @@ public class SpecValidator {
           };
       if (key != null && !sourceKeys.contains(key)) {
         result.warning("DEAD_DELTA", calLoc, "delta on key '" + key + "' matches no event source");
+      }
+      EventType deltaType =
+          switch (delta) {
+            case Delta.Add a -> a.classification();
+            case Delta.Remove r -> null;
+            case Delta.Reclassify r -> r.newClassification();
+          };
+      if (deltaType == EventType.SPECIAL_SESSION) {
+        result.error(
+            "SPECIAL_SESSION_DELTA",
+            calLoc,
+            "a delta cannot create a SPECIAL_SESSION (it has no session times); declare an event "
+                + "source with open_time and close_time instead");
       }
       if (delta instanceof Delta.Add a && a.classification() == null) {
         result.warning(

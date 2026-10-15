@@ -177,6 +177,70 @@ class SpecValidatorTest {
   }
 
   @Test
+  void specialSessionsNeedOrderedTimesNeverShiftAndCannotComeFromDeltas() throws Exception {
+    ValidationResult r =
+        validate(
+            """
+            kind: calendar
+            id: CAL
+            uses: [m]
+            deltas:
+              - action: add
+                key: added
+                name: Added
+                date: 2024-03-02
+                classification: SPECIAL_SESSION
+            """,
+            """
+            kind: module
+            id: m
+            source: doc
+            event_sources:
+              - key: ok
+                name: OK
+                default_classification: SPECIAL_SESSION
+                open_time: "18:00"
+                close_time: "19:00"
+                rule: {type: explicit_dates, dates: [2024-11-01]}
+              - key: no_open
+                name: No open
+                default_classification: SPECIAL_SESSION
+                close_time: "19:00"
+                rule: {type: explicit_dates, dates: [2024-11-02]}
+              - key: backwards
+                name: Backwards
+                default_classification: SPECIAL_SESSION
+                open_time: "19:00"
+                close_time: "18:00"
+                rule: {type: explicit_dates, dates: [2024-11-03]}
+              - key: shifting
+                name: Shifting
+                default_classification: SPECIAL_SESSION
+                open_time: "09:00"
+                close_time: "10:00"
+                shift_policy: NEXT_AVAILABLE_WEEKDAY
+                rule: {type: explicit_dates, dates: [2024-11-09]}
+              - key: stray_open
+                name: Stray open
+                default_classification: EARLY_CLOSE
+                open_time: "09:00"
+                close_time: "12:00"
+                rule: {type: explicit_dates, dates: [2024-12-24]}
+            """);
+    List<String> errors = r.errors().stream().map(i -> i.code() + ":" + i.location()).toList();
+    assertEquals(
+        2,
+        r.errors().stream().filter(i -> i.code().equals("SPECIAL_SESSION_WITHOUT_TIMES")).count(),
+        errors.toString());
+    assertTrue(codes(r).contains("INVALID_SHIFT_POLICY"), errors.toString());
+    assertTrue(codes(r).contains("OPEN_TIME_IGNORED"), errors.toString());
+    assertTrue(codes(r).contains("SPECIAL_SESSION_DELTA"), errors.toString());
+    assertTrue(
+        r.issues().stream().noneMatch(i -> i.location().endsWith("/ok")),
+        "a well-formed special session is clean: " + r.issues());
+  }
+
+  @Test
   void dropShiftPolicyOnAClosedSourceIsAnError() throws Exception {
     ValidationResult r =
         validate(

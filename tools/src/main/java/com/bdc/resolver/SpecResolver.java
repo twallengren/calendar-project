@@ -207,20 +207,7 @@ public class SpecResolver {
     List<EventSource> result = new ArrayList<>();
     for (EventSource es : module.eventSources()) {
       if (es.source().isEmpty()) {
-        result.add(
-            new EventSource(
-                es.key(),
-                es.name(),
-                es.rule(),
-                es.defaultClassification(),
-                es.shiftable(),
-                es.activeYears(),
-                es.shiftPolicy(),
-                es.onlyIfWeekday(),
-                es.closeTime(),
-                es.status(),
-                module.source(),
-                es.displaces()));
+        result.add(es.withSource(module.source()));
       } else {
         result.add(es);
       }

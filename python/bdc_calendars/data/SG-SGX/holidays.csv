@@ -1,221 +1,221 @@
-date,type,description,key,source_module,observed_from,close_time,status
-2010-01-01,CLOSED,New Year's Day,sg_new_years_day,module:sg_new_years_day,,,CONFIRMED
-2010-02-15,CLOSED,Chinese New Year,sg_chinese_new_year,module:sg_chinese_new_year,,,CONFIRMED
-2010-02-16,CLOSED,Chinese New Year,sg_chinese_new_year,module:sg_chinese_new_year,2010-02-14,,CONFIRMED
-2010-04-02,CLOSED,Good Friday,sg_good_friday,module:sg_good_friday,,,CONFIRMED
-2010-05-28,CLOSED,Vesak Day,sg_vesak_day,module:sg_vesak_day,,,CONFIRMED
-2010-08-09,CLOSED,National Day,sg_national_day,module:sg_national_day,,,CONFIRMED
-2010-09-10,CLOSED,Hari Raya Puasa,sg_hari_raya_puasa,module:sg_hari_raya_puasa,,,CONFIRMED
-2010-11-05,CLOSED,Deepavali,sg_deepavali,module:sg_deepavali,,,CONFIRMED
-2010-11-17,CLOSED,Hari Raya Haji,sg_hari_raya_haji,module:sg_hari_raya_haji,,,CONFIRMED
-2010-12-24,EARLY_CLOSE,Christmas Eve (Half Day),sg_sgx_christmas_eve_half_day_1230,module:sg_sgx_half_days,,12:30,CONFIRMED
-2010-12-31,EARLY_CLOSE,New Year's Eve (Half Day),sg_sgx_new_years_eve_half_day_1230,module:sg_sgx_half_days,,12:30,CONFIRMED
-2011-02-02,EARLY_CLOSE,Chinese New Year Eve (Half Day),sg_sgx_chinese_new_year_eve_half_day_1230,module:sg_sgx_half_days,,12:30,CONFIRMED
-2011-02-03,CLOSED,Chinese New Year,sg_chinese_new_year,module:sg_chinese_new_year,,,CONFIRMED
-2011-02-04,CLOSED,Chinese New Year,sg_chinese_new_year,module:sg_chinese_new_year,,,CONFIRMED
-2011-04-22,CLOSED,Good Friday,sg_good_friday,module:sg_good_friday,,,CONFIRMED
-2011-05-02,CLOSED,Labour Day,sg_labour_day,module:sg_labour_day,2011-05-01,,CONFIRMED
-2011-05-07,CLOSED,Polling Day (general election (Saturday)),sg_polling_day,module:sg_one_off_public_holidays,,,CONFIRMED
-2011-05-17,CLOSED,Vesak Day,sg_vesak_day,module:sg_vesak_day,,,CONFIRMED
-2011-08-09,CLOSED,National Day,sg_national_day,module:sg_national_day,,,CONFIRMED
-2011-08-27,CLOSED,Polling Day (presidential election (Saturday)),sg_polling_day,module:sg_one_off_public_holidays,,,CONFIRMED
-2011-08-30,CLOSED,Hari Raya Puasa,sg_hari_raya_puasa,module:sg_hari_raya_puasa,,,CONFIRMED
-2011-10-26,CLOSED,Deepavali,sg_deepavali,module:sg_deepavali,,,CONFIRMED
-2011-11-07,CLOSED,Hari Raya Haji,sg_hari_raya_haji,module:sg_hari_raya_haji,2011-11-06,,CONFIRMED
-2011-12-26,CLOSED,Christmas Day,sg_christmas_day,module:sg_christmas_day,2011-12-25,,CONFIRMED
-2012-01-02,CLOSED,New Year's Day,sg_new_years_day,module:sg_new_years_day,2012-01-01,,CONFIRMED
-2012-01-23,CLOSED,Chinese New Year,sg_chinese_new_year,module:sg_chinese_new_year,,,CONFIRMED
-2012-01-24,CLOSED,Chinese New Year,sg_chinese_new_year,module:sg_chinese_new_year,,,CONFIRMED
-2012-04-06,CLOSED,Good Friday,sg_good_friday,module:sg_good_friday,,,CONFIRMED
-2012-05-01,CLOSED,Labour Day,sg_labour_day,module:sg_labour_day,,,CONFIRMED
-2012-08-09,CLOSED,National Day,sg_national_day,module:sg_national_day,,,CONFIRMED
-2012-08-20,CLOSED,Hari Raya Puasa,sg_hari_raya_puasa,module:sg_hari_raya_puasa,2012-08-19,,CONFIRMED
-2012-10-26,CLOSED,Hari Raya Haji,sg_hari_raya_haji,module:sg_hari_raya_haji,,,CONFIRMED
-2012-11-13,CLOSED,Deepavali,sg_deepavali,module:sg_deepavali,,,CONFIRMED
-2012-12-24,EARLY_CLOSE,Christmas Eve (Half Day),sg_sgx_christmas_eve_half_day_1230,module:sg_sgx_half_days,,12:30,CONFIRMED
-2012-12-25,CLOSED,Christmas Day,sg_christmas_day,module:sg_christmas_day,,,CONFIRMED
-2012-12-31,EARLY_CLOSE,New Year's Eve (Half Day),sg_sgx_new_years_eve_half_day_1230,module:sg_sgx_half_days,,12:30,CONFIRMED
-2013-01-01,CLOSED,New Year's Day,sg_new_years_day,module:sg_new_years_day,,,CONFIRMED
-2013-02-11,CLOSED,Chinese New Year,sg_chinese_new_year,module:sg_chinese_new_year,,,CONFIRMED
-2013-02-12,CLOSED,Chinese New Year,sg_chinese_new_year,module:sg_chinese_new_year,2013-02-10,,CONFIRMED
-2013-03-29,CLOSED,Good Friday,sg_good_friday,module:sg_good_friday,,,CONFIRMED
-2013-05-01,CLOSED,Labour Day,sg_labour_day,module:sg_labour_day,,,CONFIRMED
-2013-05-24,CLOSED,Vesak Day,sg_vesak_day,module:sg_vesak_day,,,CONFIRMED
-2013-08-08,CLOSED,Hari Raya Puasa,sg_hari_raya_puasa,module:sg_hari_raya_puasa,,,CONFIRMED
-2013-08-09,CLOSED,National Day,sg_national_day,module:sg_national_day,,,CONFIRMED
-2013-10-15,CLOSED,Hari Raya Haji,sg_hari_raya_haji,module:sg_hari_raya_haji,,,CONFIRMED
-2013-12-24,EARLY_CLOSE,Christmas Eve (Half Day),sg_sgx_christmas_eve_half_day_1230,module:sg_sgx_half_days,,12:30,CONFIRMED
-2013-12-25,CLOSED,Christmas Day,sg_christmas_day,module:sg_christmas_day,,,CONFIRMED
-2013-12-31,EARLY_CLOSE,New Year's Eve (Half Day),sg_sgx_new_years_eve_half_day_1230,module:sg_sgx_half_days,,12:30,CONFIRMED
-2014-01-01,CLOSED,New Year's Day,sg_new_years_day,module:sg_new_years_day,,,CONFIRMED
-2014-01-30,EARLY_CLOSE,Chinese New Year Eve (Half Day),sg_sgx_chinese_new_year_eve_half_day_1230,module:sg_sgx_half_days,,12:30,CONFIRMED
-2014-01-31,CLOSED,Chinese New Year,sg_chinese_new_year,module:sg_chinese_new_year,,,CONFIRMED
-2014-04-18,CLOSED,Good Friday,sg_good_friday,module:sg_good_friday,,,CONFIRMED
-2014-05-01,CLOSED,Labour Day,sg_labour_day,module:sg_labour_day,,,CONFIRMED
-2014-05-13,CLOSED,Vesak Day,sg_vesak_day,module:sg_vesak_day,,,CONFIRMED
-2014-07-28,CLOSED,Hari Raya Puasa,sg_hari_raya_puasa,module:sg_hari_raya_puasa,,,CONFIRMED
-2014-10-06,CLOSED,Hari Raya Haji,sg_hari_raya_haji,module:sg_hari_raya_haji,2014-10-05,,CONFIRMED
-2014-10-22,CLOSED,Deepavali,sg_deepavali,module:sg_deepavali,,,CONFIRMED
-2014-12-24,EARLY_CLOSE,Christmas Eve (Half Day),sg_sgx_christmas_eve_half_day_1230,module:sg_sgx_half_days,,12:30,CONFIRMED
-2014-12-25,CLOSED,Christmas Day,sg_christmas_day,module:sg_christmas_day,,,CONFIRMED
-2014-12-31,EARLY_CLOSE,New Year's Eve (Half Day),sg_sgx_new_years_eve_half_day_1230,module:sg_sgx_half_days,,12:30,CONFIRMED
-2015-01-01,CLOSED,New Year's Day,sg_new_years_day,module:sg_new_years_day,,,CONFIRMED
-2015-02-18,EARLY_CLOSE,Chinese New Year Eve (Half Day),sg_sgx_chinese_new_year_eve_half_day_1230,module:sg_sgx_half_days,,12:30,CONFIRMED
-2015-02-19,CLOSED,Chinese New Year,sg_chinese_new_year,module:sg_chinese_new_year,,,CONFIRMED
-2015-02-20,CLOSED,Chinese New Year,sg_chinese_new_year,module:sg_chinese_new_year,,,CONFIRMED
-2015-04-03,CLOSED,Good Friday,sg_good_friday,module:sg_good_friday,,,CONFIRMED
-2015-05-01,CLOSED,Labour Day,sg_labour_day,module:sg_labour_day,,,CONFIRMED
-2015-06-01,CLOSED,Vesak Day,sg_vesak_day,module:sg_vesak_day,,,CONFIRMED
-2015-07-17,CLOSED,Hari Raya Puasa,sg_hari_raya_puasa,module:sg_hari_raya_puasa,,,CONFIRMED
-2015-08-07,CLOSED,SG50 Public Holiday,sg_sg50_public_holiday_2015,module:sg_one_off_public_holidays,,,CONFIRMED
-2015-08-10,CLOSED,National Day,sg_national_day,module:sg_national_day,2015-08-09,,CONFIRMED
-2015-09-11,CLOSED,Polling Day (general election),sg_polling_day,module:sg_one_off_public_holidays,,,CONFIRMED
-2015-09-24,CLOSED,Hari Raya Haji,sg_hari_raya_haji,module:sg_hari_raya_haji,,,CONFIRMED
-2015-11-10,CLOSED,Deepavali,sg_deepavali,module:sg_deepavali,,,CONFIRMED
-2015-12-24,EARLY_CLOSE,Christmas Eve (Half Day),sg_sgx_christmas_eve_half_day_1230,module:sg_sgx_half_days,,12:30,CONFIRMED
-2015-12-25,CLOSED,Christmas Day,sg_christmas_day,module:sg_christmas_day,,,CONFIRMED
-2015-12-31,EARLY_CLOSE,New Year's Eve (Half Day),sg_sgx_new_years_eve_half_day_1230,module:sg_sgx_half_days,,12:30,CONFIRMED
-2016-01-01,CLOSED,New Year's Day,sg_new_years_day,module:sg_new_years_day,,,CONFIRMED
-2016-02-08,CLOSED,Chinese New Year,sg_chinese_new_year,module:sg_chinese_new_year,,,CONFIRMED
-2016-02-09,CLOSED,Chinese New Year,sg_chinese_new_year,module:sg_chinese_new_year,,,CONFIRMED
-2016-03-25,CLOSED,Good Friday,sg_good_friday,module:sg_good_friday,,,CONFIRMED
-2016-05-02,CLOSED,Labour Day,sg_labour_day,module:sg_labour_day,2016-05-01,,CONFIRMED
-2016-07-06,CLOSED,Hari Raya Puasa,sg_hari_raya_puasa,module:sg_hari_raya_puasa,,,CONFIRMED
-2016-07-14,EARLY_CLOSE,Unscheduled Early Termination (SGX market disruption) (disk failure produced duplicate trade confirmations; trading ceased at 11:38 and did not resume),sg_sgx_unscheduled_early_termination_2016,module:sg_sgx_unscheduled_exceptions,,11:38,CONFIRMED
-2016-08-09,CLOSED,National Day,sg_national_day,module:sg_national_day,,,CONFIRMED
-2016-09-12,CLOSED,Hari Raya Haji,sg_hari_raya_haji,module:sg_hari_raya_haji,,,CONFIRMED
-2016-12-26,CLOSED,Christmas Day,sg_christmas_day,module:sg_christmas_day,2016-12-25,,CONFIRMED
-2017-01-02,CLOSED,New Year's Day,sg_new_years_day,module:sg_new_years_day,2017-01-01,,CONFIRMED
-2017-01-27,EARLY_CLOSE,Chinese New Year Eve (Half Day),sg_sgx_chinese_new_year_eve_half_day_1230,module:sg_sgx_half_days,,12:30,CONFIRMED
-2017-01-30,CLOSED,Chinese New Year,sg_chinese_new_year,module:sg_chinese_new_year,2017-01-29,,CONFIRMED
-2017-04-14,CLOSED,Good Friday,sg_good_friday,module:sg_good_friday,,,CONFIRMED
-2017-05-01,CLOSED,Labour Day,sg_labour_day,module:sg_labour_day,,,CONFIRMED
-2017-05-10,CLOSED,Vesak Day,sg_vesak_day,module:sg_vesak_day,,,CONFIRMED
-2017-06-26,CLOSED,Hari Raya Puasa,sg_hari_raya_puasa,module:sg_hari_raya_puasa,2017-06-25,,CONFIRMED
-2017-08-09,CLOSED,National Day,sg_national_day,module:sg_national_day,,,CONFIRMED
-2017-09-01,CLOSED,Hari Raya Haji,sg_hari_raya_haji,module:sg_hari_raya_haji,,,CONFIRMED
-2017-10-18,CLOSED,Deepavali,sg_deepavali,module:sg_deepavali,,,CONFIRMED
-2017-12-25,CLOSED,Christmas Day,sg_christmas_day,module:sg_christmas_day,,,CONFIRMED
-2018-01-01,CLOSED,New Year's Day,sg_new_years_day,module:sg_new_years_day,,,CONFIRMED
-2018-02-15,EARLY_CLOSE,Chinese New Year Eve (Half Day),sg_sgx_chinese_new_year_eve_half_day,module:sg_sgx_half_days,,12:00,CONFIRMED
-2018-02-16,CLOSED,Chinese New Year,sg_chinese_new_year,module:sg_chinese_new_year,,,CONFIRMED
-2018-03-30,CLOSED,Good Friday,sg_good_friday,module:sg_good_friday,,,CONFIRMED
-2018-05-01,CLOSED,Labour Day,sg_labour_day,module:sg_labour_day,,,CONFIRMED
-2018-05-29,CLOSED,Vesak Day,sg_vesak_day,module:sg_vesak_day,,,CONFIRMED
-2018-06-15,CLOSED,Hari Raya Puasa,sg_hari_raya_puasa,module:sg_hari_raya_puasa,,,CONFIRMED
-2018-08-09,CLOSED,National Day,sg_national_day,module:sg_national_day,,,CONFIRMED
-2018-08-22,CLOSED,Hari Raya Haji,sg_hari_raya_haji,module:sg_hari_raya_haji,,,CONFIRMED
-2018-11-06,CLOSED,Deepavali,sg_deepavali,module:sg_deepavali,,,CONFIRMED
-2018-12-24,EARLY_CLOSE,Christmas Eve (Half Day),sg_sgx_christmas_eve_half_day,module:sg_sgx_half_days,,12:00,CONFIRMED
-2018-12-25,CLOSED,Christmas Day,sg_christmas_day,module:sg_christmas_day,,,CONFIRMED
-2018-12-31,EARLY_CLOSE,New Year's Eve (Half Day),sg_sgx_new_years_eve_half_day,module:sg_sgx_half_days,,12:00,CONFIRMED
-2019-01-01,CLOSED,New Year's Day,sg_new_years_day,module:sg_new_years_day,,,CONFIRMED
-2019-02-04,EARLY_CLOSE,Chinese New Year Eve (Half Day),sg_sgx_chinese_new_year_eve_half_day,module:sg_sgx_half_days,,12:00,CONFIRMED
-2019-02-05,CLOSED,Chinese New Year,sg_chinese_new_year,module:sg_chinese_new_year,,,CONFIRMED
-2019-02-06,CLOSED,Chinese New Year,sg_chinese_new_year,module:sg_chinese_new_year,,,CONFIRMED
-2019-04-19,CLOSED,Good Friday,sg_good_friday,module:sg_good_friday,,,CONFIRMED
-2019-05-01,CLOSED,Labour Day,sg_labour_day,module:sg_labour_day,,,CONFIRMED
-2019-05-20,CLOSED,Vesak Day,sg_vesak_day,module:sg_vesak_day,2019-05-19,,CONFIRMED
-2019-06-05,CLOSED,Hari Raya Puasa,sg_hari_raya_puasa,module:sg_hari_raya_puasa,,,CONFIRMED
-2019-08-09,CLOSED,National Day,sg_national_day,module:sg_national_day,,,CONFIRMED
-2019-08-12,CLOSED,Hari Raya Haji,sg_hari_raya_haji,module:sg_hari_raya_haji,2019-08-11,,CONFIRMED
-2019-10-28,CLOSED,Deepavali,sg_deepavali,module:sg_deepavali,2019-10-27,,CONFIRMED
-2019-12-24,EARLY_CLOSE,Christmas Eve (Half Day),sg_sgx_christmas_eve_half_day,module:sg_sgx_half_days,,12:00,CONFIRMED
-2019-12-25,CLOSED,Christmas Day,sg_christmas_day,module:sg_christmas_day,,,CONFIRMED
-2019-12-31,EARLY_CLOSE,New Year's Eve (Half Day),sg_sgx_new_years_eve_half_day,module:sg_sgx_half_days,,12:00,CONFIRMED
-2020-01-01,CLOSED,New Year's Day,sg_new_years_day,module:sg_new_years_day,,,CONFIRMED
-2020-01-24,EARLY_CLOSE,Chinese New Year Eve (Half Day),sg_sgx_chinese_new_year_eve_half_day,module:sg_sgx_half_days,,12:00,CONFIRMED
-2020-01-27,CLOSED,Chinese New Year,sg_chinese_new_year,module:sg_chinese_new_year,2020-01-26,,CONFIRMED
-2020-04-10,CLOSED,Good Friday,sg_good_friday,module:sg_good_friday,,,CONFIRMED
-2020-05-01,CLOSED,Labour Day,sg_labour_day,module:sg_labour_day,,,CONFIRMED
-2020-05-07,CLOSED,Vesak Day,sg_vesak_day,module:sg_vesak_day,,,CONFIRMED
-2020-05-25,CLOSED,Hari Raya Puasa,sg_hari_raya_puasa,module:sg_hari_raya_puasa,2020-05-24,,CONFIRMED
-2020-07-10,CLOSED,Polling Day (general election),sg_polling_day,module:sg_one_off_public_holidays,,,CONFIRMED
-2020-07-31,CLOSED,Hari Raya Haji,sg_hari_raya_haji,module:sg_hari_raya_haji,,,CONFIRMED
-2020-08-10,CLOSED,National Day,sg_national_day,module:sg_national_day,2020-08-09,,CONFIRMED
-2020-12-24,EARLY_CLOSE,Christmas Eve (Half Day),sg_sgx_christmas_eve_half_day,module:sg_sgx_half_days,,12:00,CONFIRMED
-2020-12-25,CLOSED,Christmas Day,sg_christmas_day,module:sg_christmas_day,,,CONFIRMED
-2020-12-31,EARLY_CLOSE,New Year's Eve (Half Day),sg_sgx_new_years_eve_half_day,module:sg_sgx_half_days,,12:00,CONFIRMED
-2021-01-01,CLOSED,New Year's Day,sg_new_years_day,module:sg_new_years_day,,,CONFIRMED
-2021-02-11,EARLY_CLOSE,Chinese New Year Eve (Half Day),sg_sgx_chinese_new_year_eve_half_day,module:sg_sgx_half_days,,12:00,CONFIRMED
-2021-02-12,CLOSED,Chinese New Year,sg_chinese_new_year,module:sg_chinese_new_year,,,CONFIRMED
-2021-04-02,CLOSED,Good Friday,sg_good_friday,module:sg_good_friday,,,CONFIRMED
-2021-05-13,CLOSED,Hari Raya Puasa,sg_hari_raya_puasa,module:sg_hari_raya_puasa,,,CONFIRMED
-2021-05-26,CLOSED,Vesak Day,sg_vesak_day,module:sg_vesak_day,,,CONFIRMED
-2021-07-20,CLOSED,Hari Raya Haji,sg_hari_raya_haji,module:sg_hari_raya_haji,,,CONFIRMED
-2021-08-09,CLOSED,National Day,sg_national_day,module:sg_national_day,,,CONFIRMED
-2021-11-04,CLOSED,Deepavali,sg_deepavali,module:sg_deepavali,,,CONFIRMED
-2021-12-24,EARLY_CLOSE,Christmas Eve (Half Day),sg_sgx_christmas_eve_half_day,module:sg_sgx_half_days,,12:00,CONFIRMED
-2021-12-31,EARLY_CLOSE,New Year's Eve (Half Day),sg_sgx_new_years_eve_half_day,module:sg_sgx_half_days,,12:00,CONFIRMED
-2022-01-31,EARLY_CLOSE,Chinese New Year Eve (Half Day),sg_sgx_chinese_new_year_eve_half_day,module:sg_sgx_half_days,,12:00,CONFIRMED
-2022-02-01,CLOSED,Chinese New Year,sg_chinese_new_year,module:sg_chinese_new_year,,,CONFIRMED
-2022-02-02,CLOSED,Chinese New Year,sg_chinese_new_year,module:sg_chinese_new_year,,,CONFIRMED
-2022-04-15,CLOSED,Good Friday,sg_good_friday,module:sg_good_friday,,,CONFIRMED
-2022-05-02,CLOSED,Labour Day,sg_labour_day,module:sg_labour_day,2022-05-01,,CONFIRMED
-2022-05-03,CLOSED,Hari Raya Puasa,sg_hari_raya_puasa,module:sg_hari_raya_puasa,,,CONFIRMED
-2022-05-16,CLOSED,Vesak Day,sg_vesak_day,module:sg_vesak_day,2022-05-15,,CONFIRMED
-2022-07-11,CLOSED,Hari Raya Haji,sg_hari_raya_haji,module:sg_hari_raya_haji,2022-07-10,,CONFIRMED
-2022-08-09,CLOSED,National Day,sg_national_day,module:sg_national_day,,,CONFIRMED
-2022-10-24,CLOSED,Deepavali,sg_deepavali,module:sg_deepavali,,,CONFIRMED
-2022-12-26,CLOSED,Christmas Day,sg_christmas_day,module:sg_christmas_day,2022-12-25,,CONFIRMED
-2023-01-02,CLOSED,New Year's Day,sg_new_years_day,module:sg_new_years_day,2023-01-01,,CONFIRMED
-2023-01-23,CLOSED,Chinese New Year,sg_chinese_new_year,module:sg_chinese_new_year,,,CONFIRMED
-2023-01-24,CLOSED,Chinese New Year,sg_chinese_new_year,module:sg_chinese_new_year,2023-01-22,,CONFIRMED
-2023-04-07,CLOSED,Good Friday,sg_good_friday,module:sg_good_friday,,,CONFIRMED
-2023-05-01,CLOSED,Labour Day,sg_labour_day,module:sg_labour_day,,,CONFIRMED
-2023-06-02,CLOSED,Vesak Day,sg_vesak_day,module:sg_vesak_day,,,CONFIRMED
-2023-06-29,CLOSED,Hari Raya Haji,sg_hari_raya_haji,module:sg_hari_raya_haji,,,CONFIRMED
-2023-08-09,CLOSED,National Day,sg_national_day,module:sg_national_day,,,CONFIRMED
-2023-09-01,CLOSED,Polling Day (presidential election),sg_polling_day,module:sg_one_off_public_holidays,,,CONFIRMED
-2023-11-13,CLOSED,Deepavali,sg_deepavali,module:sg_deepavali,2023-11-12,,CONFIRMED
-2023-12-25,CLOSED,Christmas Day,sg_christmas_day,module:sg_christmas_day,,,CONFIRMED
-2024-01-01,CLOSED,New Year's Day,sg_new_years_day,module:sg_new_years_day,,,CONFIRMED
-2024-02-09,EARLY_CLOSE,Chinese New Year Eve (Half Day),sg_sgx_chinese_new_year_eve_half_day,module:sg_sgx_half_days,,12:00,CONFIRMED
-2024-02-12,CLOSED,Chinese New Year,sg_chinese_new_year,module:sg_chinese_new_year,2024-02-11,,CONFIRMED
-2024-03-29,CLOSED,Good Friday,sg_good_friday,module:sg_good_friday,,,CONFIRMED
-2024-04-10,CLOSED,Hari Raya Puasa,sg_hari_raya_puasa,module:sg_hari_raya_puasa,,,CONFIRMED
-2024-05-01,CLOSED,Labour Day,sg_labour_day,module:sg_labour_day,,,CONFIRMED
-2024-05-22,CLOSED,Vesak Day,sg_vesak_day,module:sg_vesak_day,,,CONFIRMED
-2024-06-17,CLOSED,Hari Raya Haji,sg_hari_raya_haji,module:sg_hari_raya_haji,,,CONFIRMED
-2024-08-09,CLOSED,National Day,sg_national_day,module:sg_national_day,,,CONFIRMED
-2024-10-31,CLOSED,Deepavali,sg_deepavali,module:sg_deepavali,,,CONFIRMED
-2024-12-24,EARLY_CLOSE,Christmas Eve (Half Day),sg_sgx_christmas_eve_half_day,module:sg_sgx_half_days,,12:00,CONFIRMED
-2024-12-25,CLOSED,Christmas Day,sg_christmas_day,module:sg_christmas_day,,,CONFIRMED
-2024-12-31,EARLY_CLOSE,New Year's Eve (Half Day),sg_sgx_new_years_eve_half_day,module:sg_sgx_half_days,,12:00,CONFIRMED
-2025-01-01,CLOSED,New Year's Day,sg_new_years_day,module:sg_new_years_day,,,CONFIRMED
-2025-01-28,EARLY_CLOSE,Chinese New Year Eve (Half Day),sg_sgx_chinese_new_year_eve_half_day,module:sg_sgx_half_days,,12:00,CONFIRMED
-2025-01-29,CLOSED,Chinese New Year,sg_chinese_new_year,module:sg_chinese_new_year,,,CONFIRMED
-2025-01-30,CLOSED,Chinese New Year,sg_chinese_new_year,module:sg_chinese_new_year,,,CONFIRMED
-2025-03-31,CLOSED,Hari Raya Puasa,sg_hari_raya_puasa,module:sg_hari_raya_puasa,,,CONFIRMED
-2025-04-18,CLOSED,Good Friday,sg_good_friday,module:sg_good_friday,,,CONFIRMED
-2025-05-01,CLOSED,Labour Day,sg_labour_day,module:sg_labour_day,,,CONFIRMED
-2025-05-03,CLOSED,Polling Day (general election (Saturday)),sg_polling_day,module:sg_one_off_public_holidays,,,CONFIRMED
-2025-05-12,CLOSED,Vesak Day,sg_vesak_day,module:sg_vesak_day,,,CONFIRMED
-2025-10-20,CLOSED,Deepavali,sg_deepavali,module:sg_deepavali,,,CONFIRMED
-2025-12-24,EARLY_CLOSE,Christmas Eve (Half Day),sg_sgx_christmas_eve_half_day,module:sg_sgx_half_days,,12:00,CONFIRMED
-2025-12-25,CLOSED,Christmas Day,sg_christmas_day,module:sg_christmas_day,,,CONFIRMED
-2025-12-31,EARLY_CLOSE,New Year's Eve (Half Day),sg_sgx_new_years_eve_half_day,module:sg_sgx_half_days,,12:00,CONFIRMED
-2026-01-01,CLOSED,New Year's Day,sg_new_years_day,module:sg_new_years_day,,,CONFIRMED
-2026-02-16,EARLY_CLOSE,Chinese New Year Eve (Half Day),sg_sgx_chinese_new_year_eve_half_day,module:sg_sgx_half_days,,12:00,CONFIRMED
-2026-02-17,CLOSED,Chinese New Year,sg_chinese_new_year,module:sg_chinese_new_year,,,CONFIRMED
-2026-02-18,CLOSED,Chinese New Year,sg_chinese_new_year,module:sg_chinese_new_year,,,CONFIRMED
-2026-04-03,CLOSED,Good Friday,sg_good_friday,module:sg_good_friday,,,CONFIRMED
-2026-05-01,CLOSED,Labour Day,sg_labour_day,module:sg_labour_day,,,CONFIRMED
-2026-05-27,CLOSED,Hari Raya Haji,sg_hari_raya_haji,module:sg_hari_raya_haji,,,CONFIRMED
-2026-06-01,CLOSED,Vesak Day,sg_vesak_day,module:sg_vesak_day,2026-05-31,,CONFIRMED
-2026-08-10,CLOSED,National Day,sg_national_day,module:sg_national_day,2026-08-09,,CONFIRMED
-2026-11-09,CLOSED,Deepavali,sg_deepavali,module:sg_deepavali,2026-11-08,,CONFIRMED
-2026-12-24,EARLY_CLOSE,Christmas Eve (Half Day),sg_sgx_christmas_eve_half_day,module:sg_sgx_half_days,,12:00,CONFIRMED
-2026-12-25,CLOSED,Christmas Day,sg_christmas_day,module:sg_christmas_day,,,CONFIRMED
-2026-12-31,EARLY_CLOSE,New Year's Eve (Half Day),sg_sgx_new_years_eve_half_day,module:sg_sgx_half_days,,12:00,CONFIRMED
-2027-01-01,CLOSED,New Year's Day,sg_new_years_day,module:sg_new_years_day,,,CONFIRMED
-2027-02-05,EARLY_CLOSE,Chinese New Year Eve (Half Day),sg_sgx_chinese_new_year_eve_half_day,module:sg_sgx_half_days,,12:00,CONFIRMED
-2027-02-08,CLOSED,Chinese New Year,sg_chinese_new_year,module:sg_chinese_new_year,2027-02-07,,CONFIRMED
-2027-03-10,CLOSED,Hari Raya Puasa,sg_hari_raya_puasa,module:sg_hari_raya_puasa,,,CONFIRMED
-2027-03-26,CLOSED,Good Friday,sg_good_friday,module:sg_good_friday,,,CONFIRMED
-2027-05-17,CLOSED,Hari Raya Haji,sg_hari_raya_haji,module:sg_hari_raya_haji,,,CONFIRMED
-2027-05-20,CLOSED,Vesak Day,sg_vesak_day,module:sg_vesak_day,,,CONFIRMED
-2027-08-09,CLOSED,National Day,sg_national_day,module:sg_national_day,,,CONFIRMED
-2027-10-28,CLOSED,Deepavali,sg_deepavali,module:sg_deepavali,,,CONFIRMED
-2027-12-24,EARLY_CLOSE,Christmas Eve (Half Day),sg_sgx_christmas_eve_half_day,module:sg_sgx_half_days,,12:00,CONFIRMED
-2027-12-31,EARLY_CLOSE,New Year's Eve (Half Day),sg_sgx_new_years_eve_half_day,module:sg_sgx_half_days,,12:00,CONFIRMED
+date,type,description,key,source_module,observed_from,close_time,status,open_time
+2010-01-01,CLOSED,New Year's Day,sg_new_years_day,module:sg_new_years_day,,,CONFIRMED,
+2010-02-15,CLOSED,Chinese New Year,sg_chinese_new_year,module:sg_chinese_new_year,,,CONFIRMED,
+2010-02-16,CLOSED,Chinese New Year,sg_chinese_new_year,module:sg_chinese_new_year,2010-02-14,,CONFIRMED,
+2010-04-02,CLOSED,Good Friday,sg_good_friday,module:sg_good_friday,,,CONFIRMED,
+2010-05-28,CLOSED,Vesak Day,sg_vesak_day,module:sg_vesak_day,,,CONFIRMED,
+2010-08-09,CLOSED,National Day,sg_national_day,module:sg_national_day,,,CONFIRMED,
+2010-09-10,CLOSED,Hari Raya Puasa,sg_hari_raya_puasa,module:sg_hari_raya_puasa,,,CONFIRMED,
+2010-11-05,CLOSED,Deepavali,sg_deepavali,module:sg_deepavali,,,CONFIRMED,
+2010-11-17,CLOSED,Hari Raya Haji,sg_hari_raya_haji,module:sg_hari_raya_haji,,,CONFIRMED,
+2010-12-24,EARLY_CLOSE,Christmas Eve (Half Day),sg_sgx_christmas_eve_half_day_1230,module:sg_sgx_half_days,,12:30,CONFIRMED,
+2010-12-31,EARLY_CLOSE,New Year's Eve (Half Day),sg_sgx_new_years_eve_half_day_1230,module:sg_sgx_half_days,,12:30,CONFIRMED,
+2011-02-02,EARLY_CLOSE,Chinese New Year Eve (Half Day),sg_sgx_chinese_new_year_eve_half_day_1230,module:sg_sgx_half_days,,12:30,CONFIRMED,
+2011-02-03,CLOSED,Chinese New Year,sg_chinese_new_year,module:sg_chinese_new_year,,,CONFIRMED,
+2011-02-04,CLOSED,Chinese New Year,sg_chinese_new_year,module:sg_chinese_new_year,,,CONFIRMED,
+2011-04-22,CLOSED,Good Friday,sg_good_friday,module:sg_good_friday,,,CONFIRMED,
+2011-05-02,CLOSED,Labour Day,sg_labour_day,module:sg_labour_day,2011-05-01,,CONFIRMED,
+2011-05-07,CLOSED,Polling Day (general election (Saturday)),sg_polling_day,module:sg_one_off_public_holidays,,,CONFIRMED,
+2011-05-17,CLOSED,Vesak Day,sg_vesak_day,module:sg_vesak_day,,,CONFIRMED,
+2011-08-09,CLOSED,National Day,sg_national_day,module:sg_national_day,,,CONFIRMED,
+2011-08-27,CLOSED,Polling Day (presidential election (Saturday)),sg_polling_day,module:sg_one_off_public_holidays,,,CONFIRMED,
+2011-08-30,CLOSED,Hari Raya Puasa,sg_hari_raya_puasa,module:sg_hari_raya_puasa,,,CONFIRMED,
+2011-10-26,CLOSED,Deepavali,sg_deepavali,module:sg_deepavali,,,CONFIRMED,
+2011-11-07,CLOSED,Hari Raya Haji,sg_hari_raya_haji,module:sg_hari_raya_haji,2011-11-06,,CONFIRMED,
+2011-12-26,CLOSED,Christmas Day,sg_christmas_day,module:sg_christmas_day,2011-12-25,,CONFIRMED,
+2012-01-02,CLOSED,New Year's Day,sg_new_years_day,module:sg_new_years_day,2012-01-01,,CONFIRMED,
+2012-01-23,CLOSED,Chinese New Year,sg_chinese_new_year,module:sg_chinese_new_year,,,CONFIRMED,
+2012-01-24,CLOSED,Chinese New Year,sg_chinese_new_year,module:sg_chinese_new_year,,,CONFIRMED,
+2012-04-06,CLOSED,Good Friday,sg_good_friday,module:sg_good_friday,,,CONFIRMED,
+2012-05-01,CLOSED,Labour Day,sg_labour_day,module:sg_labour_day,,,CONFIRMED,
+2012-08-09,CLOSED,National Day,sg_national_day,module:sg_national_day,,,CONFIRMED,
+2012-08-20,CLOSED,Hari Raya Puasa,sg_hari_raya_puasa,module:sg_hari_raya_puasa,2012-08-19,,CONFIRMED,
+2012-10-26,CLOSED,Hari Raya Haji,sg_hari_raya_haji,module:sg_hari_raya_haji,,,CONFIRMED,
+2012-11-13,CLOSED,Deepavali,sg_deepavali,module:sg_deepavali,,,CONFIRMED,
+2012-12-24,EARLY_CLOSE,Christmas Eve (Half Day),sg_sgx_christmas_eve_half_day_1230,module:sg_sgx_half_days,,12:30,CONFIRMED,
+2012-12-25,CLOSED,Christmas Day,sg_christmas_day,module:sg_christmas_day,,,CONFIRMED,
+2012-12-31,EARLY_CLOSE,New Year's Eve (Half Day),sg_sgx_new_years_eve_half_day_1230,module:sg_sgx_half_days,,12:30,CONFIRMED,
+2013-01-01,CLOSED,New Year's Day,sg_new_years_day,module:sg_new_years_day,,,CONFIRMED,
+2013-02-11,CLOSED,Chinese New Year,sg_chinese_new_year,module:sg_chinese_new_year,,,CONFIRMED,
+2013-02-12,CLOSED,Chinese New Year,sg_chinese_new_year,module:sg_chinese_new_year,2013-02-10,,CONFIRMED,
+2013-03-29,CLOSED,Good Friday,sg_good_friday,module:sg_good_friday,,,CONFIRMED,
+2013-05-01,CLOSED,Labour Day,sg_labour_day,module:sg_labour_day,,,CONFIRMED,
+2013-05-24,CLOSED,Vesak Day,sg_vesak_day,module:sg_vesak_day,,,CONFIRMED,
+2013-08-08,CLOSED,Hari Raya Puasa,sg_hari_raya_puasa,module:sg_hari_raya_puasa,,,CONFIRMED,
+2013-08-09,CLOSED,National Day,sg_national_day,module:sg_national_day,,,CONFIRMED,
+2013-10-15,CLOSED,Hari Raya Haji,sg_hari_raya_haji,module:sg_hari_raya_haji,,,CONFIRMED,
+2013-12-24,EARLY_CLOSE,Christmas Eve (Half Day),sg_sgx_christmas_eve_half_day_1230,module:sg_sgx_half_days,,12:30,CONFIRMED,
+2013-12-25,CLOSED,Christmas Day,sg_christmas_day,module:sg_christmas_day,,,CONFIRMED,
+2013-12-31,EARLY_CLOSE,New Year's Eve (Half Day),sg_sgx_new_years_eve_half_day_1230,module:sg_sgx_half_days,,12:30,CONFIRMED,
+2014-01-01,CLOSED,New Year's Day,sg_new_years_day,module:sg_new_years_day,,,CONFIRMED,
+2014-01-30,EARLY_CLOSE,Chinese New Year Eve (Half Day),sg_sgx_chinese_new_year_eve_half_day_1230,module:sg_sgx_half_days,,12:30,CONFIRMED,
+2014-01-31,CLOSED,Chinese New Year,sg_chinese_new_year,module:sg_chinese_new_year,,,CONFIRMED,
+2014-04-18,CLOSED,Good Friday,sg_good_friday,module:sg_good_friday,,,CONFIRMED,
+2014-05-01,CLOSED,Labour Day,sg_labour_day,module:sg_labour_day,,,CONFIRMED,
+2014-05-13,CLOSED,Vesak Day,sg_vesak_day,module:sg_vesak_day,,,CONFIRMED,
+2014-07-28,CLOSED,Hari Raya Puasa,sg_hari_raya_puasa,module:sg_hari_raya_puasa,,,CONFIRMED,
+2014-10-06,CLOSED,Hari Raya Haji,sg_hari_raya_haji,module:sg_hari_raya_haji,2014-10-05,,CONFIRMED,
+2014-10-22,CLOSED,Deepavali,sg_deepavali,module:sg_deepavali,,,CONFIRMED,
+2014-12-24,EARLY_CLOSE,Christmas Eve (Half Day),sg_sgx_christmas_eve_half_day_1230,module:sg_sgx_half_days,,12:30,CONFIRMED,
+2014-12-25,CLOSED,Christmas Day,sg_christmas_day,module:sg_christmas_day,,,CONFIRMED,
+2014-12-31,EARLY_CLOSE,New Year's Eve (Half Day),sg_sgx_new_years_eve_half_day_1230,module:sg_sgx_half_days,,12:30,CONFIRMED,
+2015-01-01,CLOSED,New Year's Day,sg_new_years_day,module:sg_new_years_day,,,CONFIRMED,
+2015-02-18,EARLY_CLOSE,Chinese New Year Eve (Half Day),sg_sgx_chinese_new_year_eve_half_day_1230,module:sg_sgx_half_days,,12:30,CONFIRMED,
+2015-02-19,CLOSED,Chinese New Year,sg_chinese_new_year,module:sg_chinese_new_year,,,CONFIRMED,
+2015-02-20,CLOSED,Chinese New Year,sg_chinese_new_year,module:sg_chinese_new_year,,,CONFIRMED,
+2015-04-03,CLOSED,Good Friday,sg_good_friday,module:sg_good_friday,,,CONFIRMED,
+2015-05-01,CLOSED,Labour Day,sg_labour_day,module:sg_labour_day,,,CONFIRMED,
+2015-06-01,CLOSED,Vesak Day,sg_vesak_day,module:sg_vesak_day,,,CONFIRMED,
+2015-07-17,CLOSED,Hari Raya Puasa,sg_hari_raya_puasa,module:sg_hari_raya_puasa,,,CONFIRMED,
+2015-08-07,CLOSED,SG50 Public Holiday,sg_sg50_public_holiday_2015,module:sg_one_off_public_holidays,,,CONFIRMED,
+2015-08-10,CLOSED,National Day,sg_national_day,module:sg_national_day,2015-08-09,,CONFIRMED,
+2015-09-11,CLOSED,Polling Day (general election),sg_polling_day,module:sg_one_off_public_holidays,,,CONFIRMED,
+2015-09-24,CLOSED,Hari Raya Haji,sg_hari_raya_haji,module:sg_hari_raya_haji,,,CONFIRMED,
+2015-11-10,CLOSED,Deepavali,sg_deepavali,module:sg_deepavali,,,CONFIRMED,
+2015-12-24,EARLY_CLOSE,Christmas Eve (Half Day),sg_sgx_christmas_eve_half_day_1230,module:sg_sgx_half_days,,12:30,CONFIRMED,
+2015-12-25,CLOSED,Christmas Day,sg_christmas_day,module:sg_christmas_day,,,CONFIRMED,
+2015-12-31,EARLY_CLOSE,New Year's Eve (Half Day),sg_sgx_new_years_eve_half_day_1230,module:sg_sgx_half_days,,12:30,CONFIRMED,
+2016-01-01,CLOSED,New Year's Day,sg_new_years_day,module:sg_new_years_day,,,CONFIRMED,
+2016-02-08,CLOSED,Chinese New Year,sg_chinese_new_year,module:sg_chinese_new_year,,,CONFIRMED,
+2016-02-09,CLOSED,Chinese New Year,sg_chinese_new_year,module:sg_chinese_new_year,,,CONFIRMED,
+2016-03-25,CLOSED,Good Friday,sg_good_friday,module:sg_good_friday,,,CONFIRMED,
+2016-05-02,CLOSED,Labour Day,sg_labour_day,module:sg_labour_day,2016-05-01,,CONFIRMED,
+2016-07-06,CLOSED,Hari Raya Puasa,sg_hari_raya_puasa,module:sg_hari_raya_puasa,,,CONFIRMED,
+2016-07-14,EARLY_CLOSE,Unscheduled Early Termination (SGX market disruption) (disk failure produced duplicate trade confirmations; trading ceased at 11:38 and did not resume),sg_sgx_unscheduled_early_termination_2016,module:sg_sgx_unscheduled_exceptions,,11:38,CONFIRMED,
+2016-08-09,CLOSED,National Day,sg_national_day,module:sg_national_day,,,CONFIRMED,
+2016-09-12,CLOSED,Hari Raya Haji,sg_hari_raya_haji,module:sg_hari_raya_haji,,,CONFIRMED,
+2016-12-26,CLOSED,Christmas Day,sg_christmas_day,module:sg_christmas_day,2016-12-25,,CONFIRMED,
+2017-01-02,CLOSED,New Year's Day,sg_new_years_day,module:sg_new_years_day,2017-01-01,,CONFIRMED,
+2017-01-27,EARLY_CLOSE,Chinese New Year Eve (Half Day),sg_sgx_chinese_new_year_eve_half_day_1230,module:sg_sgx_half_days,,12:30,CONFIRMED,
+2017-01-30,CLOSED,Chinese New Year,sg_chinese_new_year,module:sg_chinese_new_year,2017-01-29,,CONFIRMED,
+2017-04-14,CLOSED,Good Friday,sg_good_friday,module:sg_good_friday,,,CONFIRMED,
+2017-05-01,CLOSED,Labour Day,sg_labour_day,module:sg_labour_day,,,CONFIRMED,
+2017-05-10,CLOSED,Vesak Day,sg_vesak_day,module:sg_vesak_day,,,CONFIRMED,
+2017-06-26,CLOSED,Hari Raya Puasa,sg_hari_raya_puasa,module:sg_hari_raya_puasa,2017-06-25,,CONFIRMED,
+2017-08-09,CLOSED,National Day,sg_national_day,module:sg_national_day,,,CONFIRMED,
+2017-09-01,CLOSED,Hari Raya Haji,sg_hari_raya_haji,module:sg_hari_raya_haji,,,CONFIRMED,
+2017-10-18,CLOSED,Deepavali,sg_deepavali,module:sg_deepavali,,,CONFIRMED,
+2017-12-25,CLOSED,Christmas Day,sg_christmas_day,module:sg_christmas_day,,,CONFIRMED,
+2018-01-01,CLOSED,New Year's Day,sg_new_years_day,module:sg_new_years_day,,,CONFIRMED,
+2018-02-15,EARLY_CLOSE,Chinese New Year Eve (Half Day),sg_sgx_chinese_new_year_eve_half_day,module:sg_sgx_half_days,,12:00,CONFIRMED,
+2018-02-16,CLOSED,Chinese New Year,sg_chinese_new_year,module:sg_chinese_new_year,,,CONFIRMED,
+2018-03-30,CLOSED,Good Friday,sg_good_friday,module:sg_good_friday,,,CONFIRMED,
+2018-05-01,CLOSED,Labour Day,sg_labour_day,module:sg_labour_day,,,CONFIRMED,
+2018-05-29,CLOSED,Vesak Day,sg_vesak_day,module:sg_vesak_day,,,CONFIRMED,
+2018-06-15,CLOSED,Hari Raya Puasa,sg_hari_raya_puasa,module:sg_hari_raya_puasa,,,CONFIRMED,
+2018-08-09,CLOSED,National Day,sg_national_day,module:sg_national_day,,,CONFIRMED,
+2018-08-22,CLOSED,Hari Raya Haji,sg_hari_raya_haji,module:sg_hari_raya_haji,,,CONFIRMED,
+2018-11-06,CLOSED,Deepavali,sg_deepavali,module:sg_deepavali,,,CONFIRMED,
+2018-12-24,EARLY_CLOSE,Christmas Eve (Half Day),sg_sgx_christmas_eve_half_day,module:sg_sgx_half_days,,12:00,CONFIRMED,
+2018-12-25,CLOSED,Christmas Day,sg_christmas_day,module:sg_christmas_day,,,CONFIRMED,
+2018-12-31,EARLY_CLOSE,New Year's Eve (Half Day),sg_sgx_new_years_eve_half_day,module:sg_sgx_half_days,,12:00,CONFIRMED,
+2019-01-01,CLOSED,New Year's Day,sg_new_years_day,module:sg_new_years_day,,,CONFIRMED,
+2019-02-04,EARLY_CLOSE,Chinese New Year Eve (Half Day),sg_sgx_chinese_new_year_eve_half_day,module:sg_sgx_half_days,,12:00,CONFIRMED,
+2019-02-05,CLOSED,Chinese New Year,sg_chinese_new_year,module:sg_chinese_new_year,,,CONFIRMED,
+2019-02-06,CLOSED,Chinese New Year,sg_chinese_new_year,module:sg_chinese_new_year,,,CONFIRMED,
+2019-04-19,CLOSED,Good Friday,sg_good_friday,module:sg_good_friday,,,CONFIRMED,
+2019-05-01,CLOSED,Labour Day,sg_labour_day,module:sg_labour_day,,,CONFIRMED,
+2019-05-20,CLOSED,Vesak Day,sg_vesak_day,module:sg_vesak_day,2019-05-19,,CONFIRMED,
+2019-06-05,CLOSED,Hari Raya Puasa,sg_hari_raya_puasa,module:sg_hari_raya_puasa,,,CONFIRMED,
+2019-08-09,CLOSED,National Day,sg_national_day,module:sg_national_day,,,CONFIRMED,
+2019-08-12,CLOSED,Hari Raya Haji,sg_hari_raya_haji,module:sg_hari_raya_haji,2019-08-11,,CONFIRMED,
+2019-10-28,CLOSED,Deepavali,sg_deepavali,module:sg_deepavali,2019-10-27,,CONFIRMED,
+2019-12-24,EARLY_CLOSE,Christmas Eve (Half Day),sg_sgx_christmas_eve_half_day,module:sg_sgx_half_days,,12:00,CONFIRMED,
+2019-12-25,CLOSED,Christmas Day,sg_christmas_day,module:sg_christmas_day,,,CONFIRMED,
+2019-12-31,EARLY_CLOSE,New Year's Eve (Half Day),sg_sgx_new_years_eve_half_day,module:sg_sgx_half_days,,12:00,CONFIRMED,
+2020-01-01,CLOSED,New Year's Day,sg_new_years_day,module:sg_new_years_day,,,CONFIRMED,
+2020-01-24,EARLY_CLOSE,Chinese New Year Eve (Half Day),sg_sgx_chinese_new_year_eve_half_day,module:sg_sgx_half_days,,12:00,CONFIRMED,
+2020-01-27,CLOSED,Chinese New Year,sg_chinese_new_year,module:sg_chinese_new_year,2020-01-26,,CONFIRMED,
+2020-04-10,CLOSED,Good Friday,sg_good_friday,module:sg_good_friday,,,CONFIRMED,
+2020-05-01,CLOSED,Labour Day,sg_labour_day,module:sg_labour_day,,,CONFIRMED,
+2020-05-07,CLOSED,Vesak Day,sg_vesak_day,module:sg_vesak_day,,,CONFIRMED,
+2020-05-25,CLOSED,Hari Raya Puasa,sg_hari_raya_puasa,module:sg_hari_raya_puasa,2020-05-24,,CONFIRMED,
+2020-07-10,CLOSED,Polling Day (general election),sg_polling_day,module:sg_one_off_public_holidays,,,CONFIRMED,
+2020-07-31,CLOSED,Hari Raya Haji,sg_hari_raya_haji,module:sg_hari_raya_haji,,,CONFIRMED,
+2020-08-10,CLOSED,National Day,sg_national_day,module:sg_national_day,2020-08-09,,CONFIRMED,
+2020-12-24,EARLY_CLOSE,Christmas Eve (Half Day),sg_sgx_christmas_eve_half_day,module:sg_sgx_half_days,,12:00,CONFIRMED,
+2020-12-25,CLOSED,Christmas Day,sg_christmas_day,module:sg_christmas_day,,,CONFIRMED,
+2020-12-31,EARLY_CLOSE,New Year's Eve (Half Day),sg_sgx_new_years_eve_half_day,module:sg_sgx_half_days,,12:00,CONFIRMED,
+2021-01-01,CLOSED,New Year's Day,sg_new_years_day,module:sg_new_years_day,,,CONFIRMED,
+2021-02-11,EARLY_CLOSE,Chinese New Year Eve (Half Day),sg_sgx_chinese_new_year_eve_half_day,module:sg_sgx_half_days,,12:00,CONFIRMED,
+2021-02-12,CLOSED,Chinese New Year,sg_chinese_new_year,module:sg_chinese_new_year,,,CONFIRMED,
+2021-04-02,CLOSED,Good Friday,sg_good_friday,module:sg_good_friday,,,CONFIRMED,
+2021-05-13,CLOSED,Hari Raya Puasa,sg_hari_raya_puasa,module:sg_hari_raya_puasa,,,CONFIRMED,
+2021-05-26,CLOSED,Vesak Day,sg_vesak_day,module:sg_vesak_day,,,CONFIRMED,
+2021-07-20,CLOSED,Hari Raya Haji,sg_hari_raya_haji,module:sg_hari_raya_haji,,,CONFIRMED,
+2021-08-09,CLOSED,National Day,sg_national_day,module:sg_national_day,,,CONFIRMED,
+2021-11-04,CLOSED,Deepavali,sg_deepavali,module:sg_deepavali,,,CONFIRMED,
+2021-12-24,EARLY_CLOSE,Christmas Eve (Half Day),sg_sgx_christmas_eve_half_day,module:sg_sgx_half_days,,12:00,CONFIRMED,
+2021-12-31,EARLY_CLOSE,New Year's Eve (Half Day),sg_sgx_new_years_eve_half_day,module:sg_sgx_half_days,,12:00,CONFIRMED,
+2022-01-31,EARLY_CLOSE,Chinese New Year Eve (Half Day),sg_sgx_chinese_new_year_eve_half_day,module:sg_sgx_half_days,,12:00,CONFIRMED,
+2022-02-01,CLOSED,Chinese New Year,sg_chinese_new_year,module:sg_chinese_new_year,,,CONFIRMED,
+2022-02-02,CLOSED,Chinese New Year,sg_chinese_new_year,module:sg_chinese_new_year,,,CONFIRMED,
+2022-04-15,CLOSED,Good Friday,sg_good_friday,module:sg_good_friday,,,CONFIRMED,
+2022-05-02,CLOSED,Labour Day,sg_labour_day,module:sg_labour_day,2022-05-01,,CONFIRMED,
+2022-05-03,CLOSED,Hari Raya Puasa,sg_hari_raya_puasa,module:sg_hari_raya_puasa,,,CONFIRMED,
+2022-05-16,CLOSED,Vesak Day,sg_vesak_day,module:sg_vesak_day,2022-05-15,,CONFIRMED,
+2022-07-11,CLOSED,Hari Raya Haji,sg_hari_raya_haji,module:sg_hari_raya_haji,2022-07-10,,CONFIRMED,
+2022-08-09,CLOSED,National Day,sg_national_day,module:sg_national_day,,,CONFIRMED,
+2022-10-24,CLOSED,Deepavali,sg_deepavali,module:sg_deepavali,,,CONFIRMED,
+2022-12-26,CLOSED,Christmas Day,sg_christmas_day,module:sg_christmas_day,2022-12-25,,CONFIRMED,
+2023-01-02,CLOSED,New Year's Day,sg_new_years_day,module:sg_new_years_day,2023-01-01,,CONFIRMED,
+2023-01-23,CLOSED,Chinese New Year,sg_chinese_new_year,module:sg_chinese_new_year,,,CONFIRMED,
+2023-01-24,CLOSED,Chinese New Year,sg_chinese_new_year,module:sg_chinese_new_year,2023-01-22,,CONFIRMED,
+2023-04-07,CLOSED,Good Friday,sg_good_friday,module:sg_good_friday,,,CONFIRMED,
+2023-05-01,CLOSED,Labour Day,sg_labour_day,module:sg_labour_day,,,CONFIRMED,
+2023-06-02,CLOSED,Vesak Day,sg_vesak_day,module:sg_vesak_day,,,CONFIRMED,
+2023-06-29,CLOSED,Hari Raya Haji,sg_hari_raya_haji,module:sg_hari_raya_haji,,,CONFIRMED,
+2023-08-09,CLOSED,National Day,sg_national_day,module:sg_national_day,,,CONFIRMED,
+2023-09-01,CLOSED,Polling Day (presidential election),sg_polling_day,module:sg_one_off_public_holidays,,,CONFIRMED,
+2023-11-13,CLOSED,Deepavali,sg_deepavali,module:sg_deepavali,2023-11-12,,CONFIRMED,
+2023-12-25,CLOSED,Christmas Day,sg_christmas_day,module:sg_christmas_day,,,CONFIRMED,
+2024-01-01,CLOSED,New Year's Day,sg_new_years_day,module:sg_new_years_day,,,CONFIRMED,
+2024-02-09,EARLY_CLOSE,Chinese New Year Eve (Half Day),sg_sgx_chinese_new_year_eve_half_day,module:sg_sgx_half_days,,12:00,CONFIRMED,
+2024-02-12,CLOSED,Chinese New Year,sg_chinese_new_year,module:sg_chinese_new_year,2024-02-11,,CONFIRMED,
+2024-03-29,CLOSED,Good Friday,sg_good_friday,module:sg_good_friday,,,CONFIRMED,
+2024-04-10,CLOSED,Hari Raya Puasa,sg_hari_raya_puasa,module:sg_hari_raya_puasa,,,CONFIRMED,
+2024-05-01,CLOSED,Labour Day,sg_labour_day,module:sg_labour_day,,,CONFIRMED,
+2024-05-22,CLOSED,Vesak Day,sg_vesak_day,module:sg_vesak_day,,,CONFIRMED,
+2024-06-17,CLOSED,Hari Raya Haji,sg_hari_raya_haji,module:sg_hari_raya_haji,,,CONFIRMED,
+2024-08-09,CLOSED,National Day,sg_national_day,module:sg_national_day,,,CONFIRMED,
+2024-10-31,CLOSED,Deepavali,sg_deepavali,module:sg_deepavali,,,CONFIRMED,
+2024-12-24,EARLY_CLOSE,Christmas Eve (Half Day),sg_sgx_christmas_eve_half_day,module:sg_sgx_half_days,,12:00,CONFIRMED,
+2024-12-25,CLOSED,Christmas Day,sg_christmas_day,module:sg_christmas_day,,,CONFIRMED,
+2024-12-31,EARLY_CLOSE,New Year's Eve (Half Day),sg_sgx_new_years_eve_half_day,module:sg_sgx_half_days,,12:00,CONFIRMED,
+2025-01-01,CLOSED,New Year's Day,sg_new_years_day,module:sg_new_years_day,,,CONFIRMED,
+2025-01-28,EARLY_CLOSE,Chinese New Year Eve (Half Day),sg_sgx_chinese_new_year_eve_half_day,module:sg_sgx_half_days,,12:00,CONFIRMED,
+2025-01-29,CLOSED,Chinese New Year,sg_chinese_new_year,module:sg_chinese_new_year,,,CONFIRMED,
+2025-01-30,CLOSED,Chinese New Year,sg_chinese_new_year,module:sg_chinese_new_year,,,CONFIRMED,
+2025-03-31,CLOSED,Hari Raya Puasa,sg_hari_raya_puasa,module:sg_hari_raya_puasa,,,CONFIRMED,
+2025-04-18,CLOSED,Good Friday,sg_good_friday,module:sg_good_friday,,,CONFIRMED,
+2025-05-01,CLOSED,Labour Day,sg_labour_day,module:sg_labour_day,,,CONFIRMED,
+2025-05-03,CLOSED,Polling Day (general election (Saturday)),sg_polling_day,module:sg_one_off_public_holidays,,,CONFIRMED,
+2025-05-12,CLOSED,Vesak Day,sg_vesak_day,module:sg_vesak_day,,,CONFIRMED,
+2025-10-20,CLOSED,Deepavali,sg_deepavali,module:sg_deepavali,,,CONFIRMED,
+2025-12-24,EARLY_CLOSE,Christmas Eve (Half Day),sg_sgx_christmas_eve_half_day,module:sg_sgx_half_days,,12:00,CONFIRMED,
+2025-12-25,CLOSED,Christmas Day,sg_christmas_day,module:sg_christmas_day,,,CONFIRMED,
+2025-12-31,EARLY_CLOSE,New Year's Eve (Half Day),sg_sgx_new_years_eve_half_day,module:sg_sgx_half_days,,12:00,CONFIRMED,
+2026-01-01,CLOSED,New Year's Day,sg_new_years_day,module:sg_new_years_day,,,CONFIRMED,
+2026-02-16,EARLY_CLOSE,Chinese New Year Eve (Half Day),sg_sgx_chinese_new_year_eve_half_day,module:sg_sgx_half_days,,12:00,CONFIRMED,
+2026-02-17,CLOSED,Chinese New Year,sg_chinese_new_year,module:sg_chinese_new_year,,,CONFIRMED,
+2026-02-18,CLOSED,Chinese New Year,sg_chinese_new_year,module:sg_chinese_new_year,,,CONFIRMED,
+2026-04-03,CLOSED,Good Friday,sg_good_friday,module:sg_good_friday,,,CONFIRMED,
+2026-05-01,CLOSED,Labour Day,sg_labour_day,module:sg_labour_day,,,CONFIRMED,
+2026-05-27,CLOSED,Hari Raya Haji,sg_hari_raya_haji,module:sg_hari_raya_haji,,,CONFIRMED,
+2026-06-01,CLOSED,Vesak Day,sg_vesak_day,module:sg_vesak_day,2026-05-31,,CONFIRMED,
+2026-08-10,CLOSED,National Day,sg_national_day,module:sg_national_day,2026-08-09,,CONFIRMED,
+2026-11-09,CLOSED,Deepavali,sg_deepavali,module:sg_deepavali,2026-11-08,,CONFIRMED,
+2026-12-24,EARLY_CLOSE,Christmas Eve (Half Day),sg_sgx_christmas_eve_half_day,module:sg_sgx_half_days,,12:00,CONFIRMED,
+2026-12-25,CLOSED,Christmas Day,sg_christmas_day,module:sg_christmas_day,,,CONFIRMED,
+2026-12-31,EARLY_CLOSE,New Year's Eve (Half Day),sg_sgx_new_years_eve_half_day,module:sg_sgx_half_days,,12:00,CONFIRMED,
+2027-01-01,CLOSED,New Year's Day,sg_new_years_day,module:sg_new_years_day,,,CONFIRMED,
+2027-02-05,EARLY_CLOSE,Chinese New Year Eve (Half Day),sg_sgx_chinese_new_year_eve_half_day,module:sg_sgx_half_days,,12:00,CONFIRMED,
+2027-02-08,CLOSED,Chinese New Year,sg_chinese_new_year,module:sg_chinese_new_year,2027-02-07,,CONFIRMED,
+2027-03-10,CLOSED,Hari Raya Puasa,sg_hari_raya_puasa,module:sg_hari_raya_puasa,,,CONFIRMED,
+2027-03-26,CLOSED,Good Friday,sg_good_friday,module:sg_good_friday,,,CONFIRMED,
+2027-05-17,CLOSED,Hari Raya Haji,sg_hari_raya_haji,module:sg_hari_raya_haji,,,CONFIRMED,
+2027-05-20,CLOSED,Vesak Day,sg_vesak_day,module:sg_vesak_day,,,CONFIRMED,
+2027-08-09,CLOSED,National Day,sg_national_day,module:sg_national_day,,,CONFIRMED,
+2027-10-28,CLOSED,Deepavali,sg_deepavali,module:sg_deepavali,,,CONFIRMED,
+2027-12-24,EARLY_CLOSE,Christmas Eve (Half Day),sg_sgx_christmas_eve_half_day,module:sg_sgx_half_days,,12:00,CONFIRMED,
+2027-12-31,EARLY_CLOSE,New Year's Eve (Half Day),sg_sgx_new_years_eve_half_day,module:sg_sgx_half_days,,12:00,CONFIRMED,

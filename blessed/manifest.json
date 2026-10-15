@@ -7,7 +7,7 @@
       "range_start": "2010-01-01",
       "range_end": "2030-12-31",
       "kind": "market",
-      "checksum": "sha256:9eff0198124333b4f9d02aec38404d7167a14ce842ebc399763ff335a4668852",
+      "checksum": "sha256:a25ace210eae8625af1c0bc8f06a3f033e9c98bb3cc22fd6300a056bdc716620",
       "event_count": 2392
     },
     "BE-EURONEXT-BRUSSELS": {
@@ -15,27 +15,27 @@
       "range_start": "2010-01-01",
       "range_end": "2030-12-31",
       "event_count": 2324,
-      "checksum": "sha256:f2651124e9777663f9d00fe0e822558038b99d9de7f4b2a8cc814716c93ed6d3"
+      "checksum": "sha256:942692f378e4ab9ffb6fec24eae2fcbc42d4af3b354c5f4bc4cd55fc99252203"
     },
     "BR-B3": {
       "range_start": "2010-01-01",
       "range_end": "2027-12-31",
       "kind": "market",
-      "checksum": "sha256:1bba40a8e27b87776247efaede972c24b6305a03c412108ebeaaa759d03aa428",
+      "checksum": "sha256:c0ca6717d54117aff38c7e03047ed1f0e0ef2b8ecfe72a23d29fe3e0eeb9d537",
       "event_count": 2111
     },
     "CA-TSX": {
       "range_start": "2000-01-01",
       "range_end": "2030-12-31",
       "event_count": 3556,
-      "checksum": "sha256:96981e7855dbd8e1ded3306c90c268451d8154f530f65cca342fe2da9d97e719",
+      "checksum": "sha256:9514eeac46a30a0dfc6083b16b2abe1acd2a1e67a490ba715e19431c0b5d797e",
       "kind": "market"
     },
     "DE-XETRA": {
       "range_start": "2003-01-01",
       "range_end": "2030-12-31",
       "event_count": 3112,
-      "checksum": "sha256:7cb017d87e960494675fdc1caaff4363a8f05c96301331781dc94ad38f777677",
+      "checksum": "sha256:2020a82a9f5ff37353603995fff00171e8991e61dd57893a02d882a3dee03029",
       "kind": "market"
     },
     "EU-EURONEXT": {
@@ -43,13 +43,13 @@
       "range_start": "2010-01-01",
       "range_end": "2030-12-31",
       "event_count": 2294,
-      "checksum": "sha256:3c84ff2cc46b27d5293057bd80cdee0b91ae1c9c6e29a1c5a3e25c09a7c03696"
+      "checksum": "sha256:5e70a7ef8dbd8c3641964aecb1be793c60c55d46d0e231d51c8393eb9022edd3"
     },
     "EU-TARGET": {
       "range_start": "2026-01-01",
       "range_end": "2027-12-31",
       "kind": "payment",
-      "checksum": "sha256:c8bd7a027e9ac3cdf3d031c717742d00b76f863d47d2ca933157572da2b3c56f",
+      "checksum": "sha256:f73732bd1d6c35ea89b37b4ccc41544218f7eb1e9a131bbd90c9ccd9ced45d94",
       "event_count": 216
     },
     "FR-EURONEXT-PARIS": {
@@ -57,55 +57,55 @@
       "range_start": "2010-01-01",
       "range_end": "2030-12-31",
       "event_count": 2324,
-      "checksum": "sha256:f2651124e9777663f9d00fe0e822558038b99d9de7f4b2a8cc814716c93ed6d3"
+      "checksum": "sha256:942692f378e4ab9ffb6fec24eae2fcbc42d4af3b354c5f4bc4cd55fc99252203"
     },
     "GB-CHAPS": {
       "range_start": "2026-01-01",
       "range_end": "2027-12-31",
       "kind": "payment",
-      "checksum": "sha256:adbd7b0ebe9ec21ee0b18029b89369680634f3beeea53ff6b25ca1d4caf4aab7",
+      "checksum": "sha256:8f148c1eb7036a2a482379af6cbdbb83568634c431ddf096dd55d200dfec454b",
       "event_count": 224
     },
     "GB-LSE": {
       "range_start": "2000-01-01",
       "range_end": "2030-12-31",
       "event_count": 3552,
-      "checksum": "sha256:307f5d8fa3df7d3028acb3d3138f2b8d65cf41fa692769914e1b350d3b70ec0e",
+      "checksum": "sha256:03b111dbc9b19d6fe8373864461bcb5b1d7f1fe8cc3444da9738d3d4573b8855",
       "kind": "market"
     },
     "HK-HKEX": {
       "range_start": "2018-01-01",
       "range_end": "2027-12-31",
       "event_count": 1216,
-      "checksum": "sha256:99f9600b49a1a84fc9028c1b542002e2f9637b4a06d68ab4f40c0e3fe1868554",
+      "checksum": "sha256:0a6bb31750f13653e963b1c5d1f60a996948824124687a94df7ae4f930fac2b3",
       "kind": "market"
     },
     "IL-TASE": {
       "range_start": "2025-01-01",
       "range_end": "2028-12-31",
       "kind": "market",
-      "checksum": "sha256:860847da74c6af4cdf03edec7e7abca09abac869d7401ad1ae49b158168fe946",
+      "checksum": "sha256:b640028affb7496bc68bb7f9898e94d2db49c2f14ac4307a606c87f3a9246aca",
       "event_count": 639
     },
     "JP-JPX": {
       "range_start": "2010-01-01",
       "range_end": "2030-12-31",
       "event_count": 2535,
-      "checksum": "sha256:ee9a4d5d130a9576191305125565b68ea8fc85e8aa51153b31d1705b1a18c8ad",
+      "checksum": "sha256:900dff81013282c94333a83fc4c95bee0187600809070ae7a2fb6b5ee24f3a8c",
       "kind": "market"
     },
     "KR-KRX": {
       "range_start": "2010-01-01",
       "range_end": "2027-12-31",
       "kind": "market",
-      "checksum": "sha256:bf10463f761183bb9963ebfd6f526fe4e833ef48e8b2353616623147d5a111cc",
+      "checksum": "sha256:f4f544d08238f836c2435720aed3fd994b5be4b0f082e9a2f0e1b3e5df9ede15",
       "event_count": 2146
     },
     "MX-BMV": {
       "range_start": "2010-01-01",
       "range_end": "2027-12-31",
       "kind": "market",
-      "checksum": "sha256:69c2f439e21d55681fd4b06d13532bd5df42cf4d9b042e59e1e89cecc3900af0",
+      "checksum": "sha256:9c8a38ba510fc4cd6119b780ed205635f19dd0ec6f5a4a55a7d1b821de3d02a4",
       "event_count": 2056
     },
     "NL-EURONEXT-AMSTERDAM": {
@@ -113,34 +113,34 @@
       "range_start": "2010-01-01",
       "range_end": "2030-12-31",
       "event_count": 2324,
-      "checksum": "sha256:f2651124e9777663f9d00fe0e822558038b99d9de7f4b2a8cc814716c93ed6d3"
+      "checksum": "sha256:942692f378e4ab9ffb6fec24eae2fcbc42d4af3b354c5f4bc4cd55fc99252203"
     },
     "PT-EURONEXT-LISBON": {
       "kind": "market",
       "range_start": "2010-01-01",
       "range_end": "2030-12-31",
       "event_count": 2324,
-      "checksum": "sha256:532ef13c3d8c7e2b81f1b54a25be114567d11f15219b6b30029c96a0b525f92c"
+      "checksum": "sha256:ab46944ba759c2cd943792eb03da963719cc8350031bd9612c24b938d97b9ed5"
     },
     "SA-TADAWUL": {
       "kind": "market",
       "range_start": "2020-01-01",
       "range_end": "2030-12-31",
       "event_count": 1277,
-      "checksum": "sha256:4f4ab3f4bab7908c22be6d0c57c396198c61774aae165451f3b609d624ffce4e"
+      "checksum": "sha256:9dba71c7f574abe3c89ee8979dcea885bf64d5ee356f437459c6b5837920be12"
     },
     "SG-SGX": {
       "range_start": "2010-01-01",
       "range_end": "2027-12-31",
       "kind": "market",
-      "checksum": "sha256:dcf7ce04af56044b84b639e1009d8ef6cfd7af5d9d4022aba68744d21459306f",
+      "checksum": "sha256:5bfb812f9bbec7d678225918c268ff0df01def883f466ade732676f8b98194f7",
       "event_count": 2095
     },
     "TW-TWSE": {
       "range_start": "2010-01-01",
       "range_end": "2027-12-31",
       "kind": "market",
-      "checksum": "sha256:1c1eb63a49aa2bbc1c6b05c3f57e0e790e2db3c3208023b294a70ca68b9b7d59",
+      "checksum": "sha256:7ecd4f47fa5762e86b5b5c6d8bb2adf140560a077dc41ab2e4df527079fd44c6",
       "event_count": 2166
     },
     "US-CORP-IN-VISIBILITY": {
@@ -148,13 +148,13 @@
       "range_start": "1900-01-01",
       "range_end": "2030-12-31",
       "event_count": 14615,
-      "checksum": "sha256:8aabf506cf8db5a01a72b37c72e08050c6bc9989454a26f8fec1fd272392c7e4"
+      "checksum": "sha256:17d0ba2d40f623186c7c749e821a10435fc529067ec4f383351cfcbf7d93a948"
     },
     "US-FEDWIRE": {
       "range_start": "2026-01-01",
       "range_end": "2027-12-31",
       "kind": "payment",
-      "checksum": "sha256:18913140ae886795a553c451759e5f7ef181380659fd308dc065365ffb9ec1e9",
+      "checksum": "sha256:21df54a337a06c9ab77f2af67046e4b81f4c59b490e320c8d2ca5f9a2dca5621",
       "event_count": 227
     },
     "US-MARKET-BASE": {
@@ -162,20 +162,20 @@
       "range_start": "1900-01-01",
       "range_end": "2030-12-31",
       "event_count": 14608,
-      "checksum": "sha256:65c615ae26d7226e020992eae8bcce81303e243f17a961bdf43188252f3ac285"
+      "checksum": "sha256:c75746c296d9fd9924bf5ff95aed63aa99621cbc6ada5b401022197bc2487001"
     },
     "US-NYSE": {
       "kind": "market",
       "range_start": "1900-01-01",
       "range_end": "2030-12-31",
       "event_count": 12837,
-      "checksum": "sha256:2e256009884c6adf7876f375336f547b8bb88bd54174522382c152de791de2cc"
+      "checksum": "sha256:9b47c883cade9c620acbfedd54d7ea8e21e0a60aa4638849f6db0e063a2d1e16"
     },
     "ZA-JSE": {
       "range_start": "2010-01-01",
       "range_end": "2030-12-31",
       "kind": "market",
-      "checksum": "sha256:40c252b7240ba41859874ca26dc6591aa7aa274d178aa1a5f52071a24bda64ea",
+      "checksum": "sha256:a09cb599afba7e4d9953b40ac52e047d7273c8fbec35df661d92a093a07c41f7",
       "event_count": 2465
     }
   },

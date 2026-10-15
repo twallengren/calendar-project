@@ -172,6 +172,9 @@ public class SpecEmitter {
     if (source.onlyIfWeekday() != null) {
       sourceMap.put("only_if_weekday", source.onlyIfWeekday().stream().map(Enum::name).toList());
     }
+    if (source.openTime() != null) {
+      sourceMap.put("open_time", TIME.format(source.openTime()));
+    }
     if (source.closeTime() != null) {
       sourceMap.put("close_time", TIME.format(source.closeTime()));
     }

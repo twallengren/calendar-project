@@ -1,207 +1,207 @@
-date,type,description,key,source_module,observed_from,close_time,status
-2010-01-01,CLOSED,New Year's Day,au_new_years_day,module:au_new_years_day,,,CONFIRMED
-2010-01-26,CLOSED,Australia Day,au_australia_day,module:au_australia_day,,,CONFIRMED
-2010-04-02,CLOSED,Good Friday,au_good_friday,module:au_good_friday,,,CONFIRMED
-2010-04-05,CLOSED,Easter Monday,au_easter_monday,module:au_easter_monday,,,CONFIRMED
-2010-04-25,CLOSED,ANZAC Day,au_anzac_day,module:au_anzac_day,,,CONFIRMED
-2010-04-26,CLOSED,ANZAC Day (additional public holiday) (ANZAC Day fell on Sunday 25 April 2010),au_anzac_day_substitute,module:au_anzac_day,,,CONFIRMED
-2010-06-14,CLOSED,Queen's Birthday,au_queens_birthday,module:au_sovereigns_birthday,,,CONFIRMED
-2010-12-24,EARLY_CLOSE,Last Trading Day Before Christmas (Early Close),au_asx_christmas_eve_early_close_pre2017,module:au_asx_early_closes,,14:10,CONFIRMED
-2010-12-27,CLOSED,Christmas Day,au_christmas_day,module:au_christmas_day,2010-12-25,,CONFIRMED
-2010-12-28,CLOSED,Boxing Day,au_boxing_day,module:au_boxing_day,2010-12-26,,CONFIRMED
-2010-12-31,EARLY_CLOSE,Last Trading Day of the Year (Early Close),au_asx_new_years_eve_early_close_pre2017,module:au_asx_early_closes,,14:10,CONFIRMED
-2011-01-03,CLOSED,New Year's Day,au_new_years_day,module:au_new_years_day,2011-01-01,,CONFIRMED
-2011-01-26,CLOSED,Australia Day,au_australia_day,module:au_australia_day,,,CONFIRMED
-2011-04-22,CLOSED,Good Friday,au_good_friday,module:au_good_friday,,,CONFIRMED
-2011-04-25,CLOSED,Easter Monday,au_easter_monday,module:au_easter_monday,,,CONFIRMED
-2011-04-26,CLOSED,ANZAC Day (additional public holiday) (ANZAC Day fell on Easter Monday 25 April 2011),au_anzac_day_substitute,module:au_anzac_day,,,CONFIRMED
-2011-06-13,CLOSED,Queen's Birthday,au_queens_birthday,module:au_sovereigns_birthday,,,CONFIRMED
-2011-12-23,EARLY_CLOSE,Last Trading Day Before Christmas (Early Close),au_asx_christmas_eve_early_close_pre2017,module:au_asx_early_closes,2011-12-24,14:10,CONFIRMED
-2011-12-26,CLOSED,Boxing Day,au_boxing_day,module:au_boxing_day,,,CONFIRMED
-2011-12-27,CLOSED,Christmas Day,au_christmas_day,module:au_christmas_day,2011-12-25,,CONFIRMED
-2011-12-30,EARLY_CLOSE,Last Trading Day of the Year (Early Close),au_asx_new_years_eve_early_close_pre2017,module:au_asx_early_closes,2011-12-31,14:10,CONFIRMED
-2012-01-02,CLOSED,New Year's Day,au_new_years_day,module:au_new_years_day,2012-01-01,,CONFIRMED
-2012-01-26,CLOSED,Australia Day,au_australia_day,module:au_australia_day,,,CONFIRMED
-2012-04-06,CLOSED,Good Friday,au_good_friday,module:au_good_friday,,,CONFIRMED
-2012-04-09,CLOSED,Easter Monday,au_easter_monday,module:au_easter_monday,,,CONFIRMED
-2012-04-25,CLOSED,ANZAC Day,au_anzac_day,module:au_anzac_day,,,CONFIRMED
-2012-06-11,CLOSED,Queen's Birthday,au_queens_birthday,module:au_sovereigns_birthday,,,CONFIRMED
-2012-12-24,EARLY_CLOSE,Last Trading Day Before Christmas (Early Close),au_asx_christmas_eve_early_close_pre2017,module:au_asx_early_closes,,14:10,CONFIRMED
-2012-12-25,CLOSED,Christmas Day,au_christmas_day,module:au_christmas_day,,,CONFIRMED
-2012-12-26,CLOSED,Boxing Day,au_boxing_day,module:au_boxing_day,,,CONFIRMED
-2012-12-31,EARLY_CLOSE,Last Trading Day of the Year (Early Close),au_asx_new_years_eve_early_close_pre2017,module:au_asx_early_closes,,14:10,CONFIRMED
-2013-01-01,CLOSED,New Year's Day,au_new_years_day,module:au_new_years_day,,,CONFIRMED
-2013-01-28,CLOSED,Australia Day,au_australia_day,module:au_australia_day,2013-01-26,,CONFIRMED
-2013-03-29,CLOSED,Good Friday,au_good_friday,module:au_good_friday,,,CONFIRMED
-2013-04-01,CLOSED,Easter Monday,au_easter_monday,module:au_easter_monday,,,CONFIRMED
-2013-04-25,CLOSED,ANZAC Day,au_anzac_day,module:au_anzac_day,,,CONFIRMED
-2013-06-10,CLOSED,Queen's Birthday,au_queens_birthday,module:au_sovereigns_birthday,,,CONFIRMED
-2013-12-24,EARLY_CLOSE,Last Trading Day Before Christmas (Early Close),au_asx_christmas_eve_early_close_pre2017,module:au_asx_early_closes,,14:10,CONFIRMED
-2013-12-25,CLOSED,Christmas Day,au_christmas_day,module:au_christmas_day,,,CONFIRMED
-2013-12-26,CLOSED,Boxing Day,au_boxing_day,module:au_boxing_day,,,CONFIRMED
-2013-12-31,EARLY_CLOSE,Last Trading Day of the Year (Early Close),au_asx_new_years_eve_early_close_pre2017,module:au_asx_early_closes,,14:10,CONFIRMED
-2014-01-01,CLOSED,New Year's Day,au_new_years_day,module:au_new_years_day,,,CONFIRMED
-2014-01-27,CLOSED,Australia Day,au_australia_day,module:au_australia_day,2014-01-26,,CONFIRMED
-2014-04-18,CLOSED,Good Friday,au_good_friday,module:au_good_friday,,,CONFIRMED
-2014-04-21,CLOSED,Easter Monday,au_easter_monday,module:au_easter_monday,,,CONFIRMED
-2014-04-25,CLOSED,ANZAC Day,au_anzac_day,module:au_anzac_day,,,CONFIRMED
-2014-06-09,CLOSED,Queen's Birthday,au_queens_birthday,module:au_sovereigns_birthday,,,CONFIRMED
-2014-12-24,EARLY_CLOSE,Last Trading Day Before Christmas (Early Close),au_asx_christmas_eve_early_close_pre2017,module:au_asx_early_closes,,14:10,CONFIRMED
-2014-12-25,CLOSED,Christmas Day,au_christmas_day,module:au_christmas_day,,,CONFIRMED
-2014-12-26,CLOSED,Boxing Day,au_boxing_day,module:au_boxing_day,,,CONFIRMED
-2014-12-31,EARLY_CLOSE,Last Trading Day of the Year (Early Close),au_asx_new_years_eve_early_close_pre2017,module:au_asx_early_closes,,14:10,CONFIRMED
-2015-01-01,CLOSED,New Year's Day,au_new_years_day,module:au_new_years_day,,,CONFIRMED
-2015-01-26,CLOSED,Australia Day,au_australia_day,module:au_australia_day,,,CONFIRMED
-2015-04-03,CLOSED,Good Friday,au_good_friday,module:au_good_friday,,,CONFIRMED
-2015-04-06,CLOSED,Easter Monday,au_easter_monday,module:au_easter_monday,,,CONFIRMED
-2015-04-25,CLOSED,ANZAC Day,au_anzac_day,module:au_anzac_day,,,CONFIRMED
-2015-06-08,CLOSED,Queen's Birthday,au_queens_birthday,module:au_sovereigns_birthday,,,CONFIRMED
-2015-12-24,EARLY_CLOSE,Last Trading Day Before Christmas (Early Close),au_asx_christmas_eve_early_close_pre2017,module:au_asx_early_closes,,14:10,CONFIRMED
-2015-12-25,CLOSED,Christmas Day,au_christmas_day,module:au_christmas_day,,,CONFIRMED
-2015-12-28,CLOSED,Boxing Day,au_boxing_day,module:au_boxing_day,2015-12-26,,CONFIRMED
-2015-12-31,EARLY_CLOSE,Last Trading Day of the Year (Early Close),au_asx_new_years_eve_early_close_pre2017,module:au_asx_early_closes,,14:10,CONFIRMED
-2016-01-01,CLOSED,New Year's Day,au_new_years_day,module:au_new_years_day,,,CONFIRMED
-2016-01-26,CLOSED,Australia Day,au_australia_day,module:au_australia_day,,,CONFIRMED
-2016-03-25,CLOSED,Good Friday,au_good_friday,module:au_good_friday,,,CONFIRMED
-2016-03-28,CLOSED,Easter Monday,au_easter_monday,module:au_easter_monday,,,CONFIRMED
-2016-04-25,CLOSED,ANZAC Day,au_anzac_day,module:au_anzac_day,,,CONFIRMED
-2016-06-13,CLOSED,Queen's Birthday,au_queens_birthday,module:au_sovereigns_birthday,,,CONFIRMED
-2016-09-19,EARLY_CLOSE,"Unscheduled Early Termination (ASX Trade outage) (hardware failure in the main ASX Trade database; staggered open from 11:30, closed 14:05 without a closing auction)",au_asx_unscheduled_early_termination_2016,module:au_asx_unscheduled_exceptions,,14:05,CONFIRMED
-2016-12-23,EARLY_CLOSE,Last Trading Day Before Christmas (Early Close),au_asx_christmas_eve_early_close_pre2017,module:au_asx_early_closes,2016-12-24,14:10,CONFIRMED
-2016-12-26,CLOSED,Boxing Day,au_boxing_day,module:au_boxing_day,,,CONFIRMED
-2016-12-27,CLOSED,Christmas Day,au_christmas_day,module:au_christmas_day,2016-12-25,,CONFIRMED
-2016-12-30,EARLY_CLOSE,Last Trading Day of the Year (Early Close),au_asx_new_years_eve_early_close_pre2017,module:au_asx_early_closes,2016-12-31,14:10,CONFIRMED
-2017-01-02,CLOSED,New Year's Day,au_new_years_day,module:au_new_years_day,2017-01-01,,CONFIRMED
-2017-01-26,CLOSED,Australia Day,au_australia_day,module:au_australia_day,,,CONFIRMED
-2017-04-14,CLOSED,Good Friday,au_good_friday,module:au_good_friday,,,CONFIRMED
-2017-04-17,CLOSED,Easter Monday,au_easter_monday,module:au_easter_monday,,,CONFIRMED
-2017-04-25,CLOSED,ANZAC Day,au_anzac_day,module:au_anzac_day,,,CONFIRMED
-2017-06-12,CLOSED,Queen's Birthday,au_queens_birthday,module:au_sovereigns_birthday,,,CONFIRMED
-2017-12-25,CLOSED,Christmas Day,au_christmas_day,module:au_christmas_day,,,CONFIRMED
-2017-12-26,CLOSED,Boxing Day,au_boxing_day,module:au_boxing_day,,,CONFIRMED
-2018-01-01,CLOSED,New Year's Day,au_new_years_day,module:au_new_years_day,,,CONFIRMED
-2018-01-26,CLOSED,Australia Day,au_australia_day,module:au_australia_day,,,CONFIRMED
-2018-03-30,CLOSED,Good Friday,au_good_friday,module:au_good_friday,,,CONFIRMED
-2018-04-02,CLOSED,Easter Monday,au_easter_monday,module:au_easter_monday,,,CONFIRMED
-2018-04-25,CLOSED,ANZAC Day,au_anzac_day,module:au_anzac_day,,,CONFIRMED
-2018-06-11,CLOSED,Queen's Birthday,au_queens_birthday,module:au_sovereigns_birthday,,,CONFIRMED
-2018-12-24,EARLY_CLOSE,Christmas Eve (Early Close),au_asx_christmas_eve_early_close,module:au_asx_early_closes,,14:10,CONFIRMED
-2018-12-25,CLOSED,Christmas Day,au_christmas_day,module:au_christmas_day,,,CONFIRMED
-2018-12-26,CLOSED,Boxing Day,au_boxing_day,module:au_boxing_day,,,CONFIRMED
-2018-12-31,EARLY_CLOSE,New Year's Eve (Early Close),au_asx_new_years_eve_early_close,module:au_asx_early_closes,,14:10,CONFIRMED
-2019-01-01,CLOSED,New Year's Day,au_new_years_day,module:au_new_years_day,,,CONFIRMED
-2019-01-28,CLOSED,Australia Day,au_australia_day,module:au_australia_day,2019-01-26,,CONFIRMED
-2019-04-19,CLOSED,Good Friday,au_good_friday,module:au_good_friday,,,CONFIRMED
-2019-04-22,CLOSED,Easter Monday,au_easter_monday,module:au_easter_monday,,,CONFIRMED
-2019-04-25,CLOSED,ANZAC Day,au_anzac_day,module:au_anzac_day,,,CONFIRMED
-2019-06-10,CLOSED,Queen's Birthday,au_queens_birthday,module:au_sovereigns_birthday,,,CONFIRMED
-2019-12-24,EARLY_CLOSE,Christmas Eve (Early Close),au_asx_christmas_eve_early_close,module:au_asx_early_closes,,14:10,CONFIRMED
-2019-12-25,CLOSED,Christmas Day,au_christmas_day,module:au_christmas_day,,,CONFIRMED
-2019-12-26,CLOSED,Boxing Day,au_boxing_day,module:au_boxing_day,,,CONFIRMED
-2019-12-31,EARLY_CLOSE,New Year's Eve (Early Close),au_asx_new_years_eve_early_close,module:au_asx_early_closes,,14:10,CONFIRMED
-2020-01-01,CLOSED,New Year's Day,au_new_years_day,module:au_new_years_day,,,CONFIRMED
-2020-01-27,CLOSED,Australia Day,au_australia_day,module:au_australia_day,2020-01-26,,CONFIRMED
-2020-04-10,CLOSED,Good Friday,au_good_friday,module:au_good_friday,,,CONFIRMED
-2020-04-13,CLOSED,Easter Monday,au_easter_monday,module:au_easter_monday,,,CONFIRMED
-2020-04-25,CLOSED,ANZAC Day,au_anzac_day,module:au_anzac_day,,,CONFIRMED
-2020-06-08,CLOSED,Queen's Birthday,au_queens_birthday,module:au_sovereigns_birthday,,,CONFIRMED
-2020-11-16,EARLY_CLOSE,Unscheduled Early Termination (ASX Trade outage) (ASX Trade software fault in the opening auction; trading ceased at 10:24:05 for the rest of the day),au_asx_unscheduled_early_termination_2020,module:au_asx_unscheduled_exceptions,,10:24,CONFIRMED
-2020-12-24,EARLY_CLOSE,Christmas Eve (Early Close),au_asx_christmas_eve_early_close,module:au_asx_early_closes,,14:10,CONFIRMED
-2020-12-25,CLOSED,Christmas Day,au_christmas_day,module:au_christmas_day,,,CONFIRMED
-2020-12-28,CLOSED,Boxing Day,au_boxing_day,module:au_boxing_day,2020-12-26,,CONFIRMED
-2020-12-31,EARLY_CLOSE,New Year's Eve (Early Close),au_asx_new_years_eve_early_close,module:au_asx_early_closes,,14:10,CONFIRMED
-2021-01-01,CLOSED,New Year's Day,au_new_years_day,module:au_new_years_day,,,CONFIRMED
-2021-01-26,CLOSED,Australia Day,au_australia_day,module:au_australia_day,,,CONFIRMED
-2021-04-02,CLOSED,Good Friday,au_good_friday,module:au_good_friday,,,CONFIRMED
-2021-04-05,CLOSED,Easter Monday,au_easter_monday,module:au_easter_monday,,,CONFIRMED
-2021-04-25,CLOSED,ANZAC Day,au_anzac_day,module:au_anzac_day,,,CONFIRMED
-2021-06-14,CLOSED,Queen's Birthday,au_queens_birthday,module:au_sovereigns_birthday,,,CONFIRMED
-2021-12-24,EARLY_CLOSE,Christmas Eve (Early Close),au_asx_christmas_eve_early_close,module:au_asx_early_closes,,14:10,CONFIRMED
-2021-12-27,CLOSED,Christmas Day,au_christmas_day,module:au_christmas_day,2021-12-25,,CONFIRMED
-2021-12-28,CLOSED,Boxing Day,au_boxing_day,module:au_boxing_day,2021-12-26,,CONFIRMED
-2021-12-31,EARLY_CLOSE,New Year's Eve (Early Close),au_asx_new_years_eve_early_close,module:au_asx_early_closes,,14:10,CONFIRMED
-2022-01-03,CLOSED,New Year's Day,au_new_years_day,module:au_new_years_day,2022-01-01,,CONFIRMED
-2022-01-26,CLOSED,Australia Day,au_australia_day,module:au_australia_day,,,CONFIRMED
-2022-04-15,CLOSED,Good Friday,au_good_friday,module:au_good_friday,,,CONFIRMED
-2022-04-18,CLOSED,Easter Monday,au_easter_monday,module:au_easter_monday,,,CONFIRMED
-2022-04-25,CLOSED,ANZAC Day,au_anzac_day,module:au_anzac_day,,,CONFIRMED
-2022-06-13,CLOSED,Queen's Birthday,au_queens_birthday,module:au_sovereigns_birthday,,,CONFIRMED
-2022-09-22,CLOSED,National Day of Mourning for Queen Elizabeth II,au_national_day_of_mourning_2022,module:au_one_off_public_holidays,,,CONFIRMED
-2022-12-26,CLOSED,Boxing Day,au_boxing_day,module:au_boxing_day,,,CONFIRMED
-2022-12-27,CLOSED,Christmas Day,au_christmas_day,module:au_christmas_day,2022-12-25,,CONFIRMED
-2023-01-02,CLOSED,New Year's Day,au_new_years_day,module:au_new_years_day,2023-01-01,,CONFIRMED
-2023-01-26,CLOSED,Australia Day,au_australia_day,module:au_australia_day,,,CONFIRMED
-2023-04-07,CLOSED,Good Friday,au_good_friday,module:au_good_friday,,,CONFIRMED
-2023-04-10,CLOSED,Easter Monday,au_easter_monday,module:au_easter_monday,,,CONFIRMED
-2023-04-25,CLOSED,ANZAC Day,au_anzac_day,module:au_anzac_day,,,CONFIRMED
-2023-06-12,CLOSED,King's Birthday,au_kings_birthday,module:au_sovereigns_birthday,,,CONFIRMED
-2023-12-25,CLOSED,Christmas Day,au_christmas_day,module:au_christmas_day,,,CONFIRMED
-2023-12-26,CLOSED,Boxing Day,au_boxing_day,module:au_boxing_day,,,CONFIRMED
-2024-01-01,CLOSED,New Year's Day,au_new_years_day,module:au_new_years_day,,,CONFIRMED
-2024-01-26,CLOSED,Australia Day,au_australia_day,module:au_australia_day,,,CONFIRMED
-2024-03-29,CLOSED,Good Friday,au_good_friday,module:au_good_friday,,,CONFIRMED
-2024-04-01,CLOSED,Easter Monday,au_easter_monday,module:au_easter_monday,,,CONFIRMED
-2024-04-25,CLOSED,ANZAC Day,au_anzac_day,module:au_anzac_day,,,CONFIRMED
-2024-06-10,CLOSED,King's Birthday,au_kings_birthday,module:au_sovereigns_birthday,,,CONFIRMED
-2024-12-24,EARLY_CLOSE,Christmas Eve (Early Close),au_asx_christmas_eve_early_close,module:au_asx_early_closes,,14:10,CONFIRMED
-2024-12-25,CLOSED,Christmas Day,au_christmas_day,module:au_christmas_day,,,CONFIRMED
-2024-12-26,CLOSED,Boxing Day,au_boxing_day,module:au_boxing_day,,,CONFIRMED
-2024-12-31,EARLY_CLOSE,New Year's Eve (Early Close),au_asx_new_years_eve_early_close,module:au_asx_early_closes,,14:10,CONFIRMED
-2025-01-01,CLOSED,New Year's Day,au_new_years_day,module:au_new_years_day,,,CONFIRMED
-2025-01-27,CLOSED,Australia Day,au_australia_day,module:au_australia_day,2025-01-26,,CONFIRMED
-2025-04-18,CLOSED,Good Friday,au_good_friday,module:au_good_friday,,,CONFIRMED
-2025-04-21,CLOSED,Easter Monday,au_easter_monday,module:au_easter_monday,,,CONFIRMED
-2025-04-25,CLOSED,ANZAC Day,au_anzac_day,module:au_anzac_day,,,CONFIRMED
-2025-06-09,CLOSED,King's Birthday,au_kings_birthday,module:au_sovereigns_birthday,,,CONFIRMED
-2025-12-24,EARLY_CLOSE,Christmas Eve (Early Close),au_asx_christmas_eve_early_close,module:au_asx_early_closes,,14:10,CONFIRMED
-2025-12-25,CLOSED,Christmas Day,au_christmas_day,module:au_christmas_day,,,CONFIRMED
-2025-12-26,CLOSED,Boxing Day,au_boxing_day,module:au_boxing_day,,,CONFIRMED
-2025-12-31,EARLY_CLOSE,New Year's Eve (Early Close),au_asx_new_years_eve_early_close,module:au_asx_early_closes,,14:10,CONFIRMED
-2026-01-01,CLOSED,New Year's Day,au_new_years_day,module:au_new_years_day,,,CONFIRMED
-2026-01-26,CLOSED,Australia Day,au_australia_day,module:au_australia_day,,,CONFIRMED
-2026-04-03,CLOSED,Good Friday,au_good_friday,module:au_good_friday,,,CONFIRMED
-2026-04-06,CLOSED,Easter Monday,au_easter_monday,module:au_easter_monday,,,CONFIRMED
-2026-04-25,CLOSED,ANZAC Day,au_anzac_day,module:au_anzac_day,,,CONFIRMED
-2026-06-08,CLOSED,King's Birthday,au_kings_birthday,module:au_sovereigns_birthday,,,CONFIRMED
-2026-12-24,EARLY_CLOSE,Christmas Eve (Early Close),au_asx_christmas_eve_early_close,module:au_asx_early_closes,,14:10,CONFIRMED
-2026-12-25,CLOSED,Christmas Day,au_christmas_day,module:au_christmas_day,,,CONFIRMED
-2026-12-28,CLOSED,Boxing Day,au_boxing_day,module:au_boxing_day,2026-12-26,,CONFIRMED
-2026-12-31,EARLY_CLOSE,New Year's Eve (Early Close),au_asx_new_years_eve_early_close,module:au_asx_early_closes,,14:10,CONFIRMED
-2027-01-01,CLOSED,New Year's Day,au_new_years_day,module:au_new_years_day,,,CONFIRMED
-2027-01-26,CLOSED,Australia Day,au_australia_day,module:au_australia_day,,,CONFIRMED
-2027-03-26,CLOSED,Good Friday,au_good_friday,module:au_good_friday,,,CONFIRMED
-2027-03-29,CLOSED,Easter Monday,au_easter_monday,module:au_easter_monday,,,CONFIRMED
-2027-04-25,CLOSED,ANZAC Day,au_anzac_day,module:au_anzac_day,,,CONFIRMED
-2027-06-14,CLOSED,King's Birthday,au_kings_birthday,module:au_sovereigns_birthday,,,CONFIRMED
-2027-12-24,EARLY_CLOSE,Christmas Eve (Early Close),au_asx_christmas_eve_early_close,module:au_asx_early_closes,,14:10,CONFIRMED
-2027-12-27,CLOSED,Christmas Day,au_christmas_day,module:au_christmas_day,2027-12-25,,CONFIRMED
-2027-12-28,CLOSED,Boxing Day,au_boxing_day,module:au_boxing_day,2027-12-26,,CONFIRMED
-2027-12-31,EARLY_CLOSE,New Year's Eve (Early Close),au_asx_new_years_eve_early_close,module:au_asx_early_closes,,14:10,CONFIRMED
-2028-01-03,CLOSED,New Year's Day,au_new_years_day,module:au_new_years_day,2028-01-01,,CONFIRMED
-2028-01-26,CLOSED,Australia Day,au_australia_day,module:au_australia_day,,,CONFIRMED
-2028-04-14,CLOSED,Good Friday,au_good_friday,module:au_good_friday,,,CONFIRMED
-2028-04-17,CLOSED,Easter Monday,au_easter_monday,module:au_easter_monday,,,CONFIRMED
-2028-04-25,CLOSED,ANZAC Day,au_anzac_day,module:au_anzac_day,,,CONFIRMED
-2028-06-12,CLOSED,King's Birthday,au_kings_birthday,module:au_sovereigns_birthday,,,CONFIRMED
-2028-12-25,CLOSED,Christmas Day,au_christmas_day,module:au_christmas_day,,,CONFIRMED
-2028-12-26,CLOSED,Boxing Day,au_boxing_day,module:au_boxing_day,,,CONFIRMED
-2029-01-01,CLOSED,New Year's Day,au_new_years_day,module:au_new_years_day,,,CONFIRMED
-2029-01-26,CLOSED,Australia Day,au_australia_day,module:au_australia_day,,,CONFIRMED
-2029-03-30,CLOSED,Good Friday,au_good_friday,module:au_good_friday,,,CONFIRMED
-2029-04-02,CLOSED,Easter Monday,au_easter_monday,module:au_easter_monday,,,CONFIRMED
-2029-04-25,CLOSED,ANZAC Day,au_anzac_day,module:au_anzac_day,,,CONFIRMED
-2029-06-11,CLOSED,King's Birthday,au_kings_birthday,module:au_sovereigns_birthday,,,CONFIRMED
-2029-12-24,EARLY_CLOSE,Christmas Eve (Early Close),au_asx_christmas_eve_early_close,module:au_asx_early_closes,,14:10,CONFIRMED
-2029-12-25,CLOSED,Christmas Day,au_christmas_day,module:au_christmas_day,,,CONFIRMED
-2029-12-26,CLOSED,Boxing Day,au_boxing_day,module:au_boxing_day,,,CONFIRMED
-2029-12-31,EARLY_CLOSE,New Year's Eve (Early Close),au_asx_new_years_eve_early_close,module:au_asx_early_closes,,14:10,CONFIRMED
-2030-01-01,CLOSED,New Year's Day,au_new_years_day,module:au_new_years_day,,,CONFIRMED
-2030-01-28,CLOSED,Australia Day,au_australia_day,module:au_australia_day,2030-01-26,,CONFIRMED
-2030-04-19,CLOSED,Good Friday,au_good_friday,module:au_good_friday,,,CONFIRMED
-2030-04-22,CLOSED,Easter Monday,au_easter_monday,module:au_easter_monday,,,CONFIRMED
-2030-04-25,CLOSED,ANZAC Day,au_anzac_day,module:au_anzac_day,,,CONFIRMED
-2030-06-10,CLOSED,King's Birthday,au_kings_birthday,module:au_sovereigns_birthday,,,CONFIRMED
-2030-12-24,EARLY_CLOSE,Christmas Eve (Early Close),au_asx_christmas_eve_early_close,module:au_asx_early_closes,,14:10,CONFIRMED
-2030-12-25,CLOSED,Christmas Day,au_christmas_day,module:au_christmas_day,,,CONFIRMED
-2030-12-26,CLOSED,Boxing Day,au_boxing_day,module:au_boxing_day,,,CONFIRMED
-2030-12-31,EARLY_CLOSE,New Year's Eve (Early Close),au_asx_new_years_eve_early_close,module:au_asx_early_closes,,14:10,CONFIRMED
+date,type,description,key,source_module,observed_from,close_time,status,open_time
+2010-01-01,CLOSED,New Year's Day,au_new_years_day,module:au_new_years_day,,,CONFIRMED,
+2010-01-26,CLOSED,Australia Day,au_australia_day,module:au_australia_day,,,CONFIRMED,
+2010-04-02,CLOSED,Good Friday,au_good_friday,module:au_good_friday,,,CONFIRMED,
+2010-04-05,CLOSED,Easter Monday,au_easter_monday,module:au_easter_monday,,,CONFIRMED,
+2010-04-25,CLOSED,ANZAC Day,au_anzac_day,module:au_anzac_day,,,CONFIRMED,
+2010-04-26,CLOSED,ANZAC Day (additional public holiday) (ANZAC Day fell on Sunday 25 April 2010),au_anzac_day_substitute,module:au_anzac_day,,,CONFIRMED,
+2010-06-14,CLOSED,Queen's Birthday,au_queens_birthday,module:au_sovereigns_birthday,,,CONFIRMED,
+2010-12-24,EARLY_CLOSE,Last Trading Day Before Christmas (Early Close),au_asx_christmas_eve_early_close_pre2017,module:au_asx_early_closes,,14:10,CONFIRMED,
+2010-12-27,CLOSED,Christmas Day,au_christmas_day,module:au_christmas_day,2010-12-25,,CONFIRMED,
+2010-12-28,CLOSED,Boxing Day,au_boxing_day,module:au_boxing_day,2010-12-26,,CONFIRMED,
+2010-12-31,EARLY_CLOSE,Last Trading Day of the Year (Early Close),au_asx_new_years_eve_early_close_pre2017,module:au_asx_early_closes,,14:10,CONFIRMED,
+2011-01-03,CLOSED,New Year's Day,au_new_years_day,module:au_new_years_day,2011-01-01,,CONFIRMED,
+2011-01-26,CLOSED,Australia Day,au_australia_day,module:au_australia_day,,,CONFIRMED,
+2011-04-22,CLOSED,Good Friday,au_good_friday,module:au_good_friday,,,CONFIRMED,
+2011-04-25,CLOSED,Easter Monday,au_easter_monday,module:au_easter_monday,,,CONFIRMED,
+2011-04-26,CLOSED,ANZAC Day (additional public holiday) (ANZAC Day fell on Easter Monday 25 April 2011),au_anzac_day_substitute,module:au_anzac_day,,,CONFIRMED,
+2011-06-13,CLOSED,Queen's Birthday,au_queens_birthday,module:au_sovereigns_birthday,,,CONFIRMED,
+2011-12-23,EARLY_CLOSE,Last Trading Day Before Christmas (Early Close),au_asx_christmas_eve_early_close_pre2017,module:au_asx_early_closes,2011-12-24,14:10,CONFIRMED,
+2011-12-26,CLOSED,Boxing Day,au_boxing_day,module:au_boxing_day,,,CONFIRMED,
+2011-12-27,CLOSED,Christmas Day,au_christmas_day,module:au_christmas_day,2011-12-25,,CONFIRMED,
+2011-12-30,EARLY_CLOSE,Last Trading Day of the Year (Early Close),au_asx_new_years_eve_early_close_pre2017,module:au_asx_early_closes,2011-12-31,14:10,CONFIRMED,
+2012-01-02,CLOSED,New Year's Day,au_new_years_day,module:au_new_years_day,2012-01-01,,CONFIRMED,
+2012-01-26,CLOSED,Australia Day,au_australia_day,module:au_australia_day,,,CONFIRMED,
+2012-04-06,CLOSED,Good Friday,au_good_friday,module:au_good_friday,,,CONFIRMED,
+2012-04-09,CLOSED,Easter Monday,au_easter_monday,module:au_easter_monday,,,CONFIRMED,
+2012-04-25,CLOSED,ANZAC Day,au_anzac_day,module:au_anzac_day,,,CONFIRMED,
+2012-06-11,CLOSED,Queen's Birthday,au_queens_birthday,module:au_sovereigns_birthday,,,CONFIRMED,
+2012-12-24,EARLY_CLOSE,Last Trading Day Before Christmas (Early Close),au_asx_christmas_eve_early_close_pre2017,module:au_asx_early_closes,,14:10,CONFIRMED,
+2012-12-25,CLOSED,Christmas Day,au_christmas_day,module:au_christmas_day,,,CONFIRMED,
+2012-12-26,CLOSED,Boxing Day,au_boxing_day,module:au_boxing_day,,,CONFIRMED,
+2012-12-31,EARLY_CLOSE,Last Trading Day of the Year (Early Close),au_asx_new_years_eve_early_close_pre2017,module:au_asx_early_closes,,14:10,CONFIRMED,
+2013-01-01,CLOSED,New Year's Day,au_new_years_day,module:au_new_years_day,,,CONFIRMED,
+2013-01-28,CLOSED,Australia Day,au_australia_day,module:au_australia_day,2013-01-26,,CONFIRMED,
+2013-03-29,CLOSED,Good Friday,au_good_friday,module:au_good_friday,,,CONFIRMED,
+2013-04-01,CLOSED,Easter Monday,au_easter_monday,module:au_easter_monday,,,CONFIRMED,
+2013-04-25,CLOSED,ANZAC Day,au_anzac_day,module:au_anzac_day,,,CONFIRMED,
+2013-06-10,CLOSED,Queen's Birthday,au_queens_birthday,module:au_sovereigns_birthday,,,CONFIRMED,
+2013-12-24,EARLY_CLOSE,Last Trading Day Before Christmas (Early Close),au_asx_christmas_eve_early_close_pre2017,module:au_asx_early_closes,,14:10,CONFIRMED,
+2013-12-25,CLOSED,Christmas Day,au_christmas_day,module:au_christmas_day,,,CONFIRMED,
+2013-12-26,CLOSED,Boxing Day,au_boxing_day,module:au_boxing_day,,,CONFIRMED,
+2013-12-31,EARLY_CLOSE,Last Trading Day of the Year (Early Close),au_asx_new_years_eve_early_close_pre2017,module:au_asx_early_closes,,14:10,CONFIRMED,
+2014-01-01,CLOSED,New Year's Day,au_new_years_day,module:au_new_years_day,,,CONFIRMED,
+2014-01-27,CLOSED,Australia Day,au_australia_day,module:au_australia_day,2014-01-26,,CONFIRMED,
+2014-04-18,CLOSED,Good Friday,au_good_friday,module:au_good_friday,,,CONFIRMED,
+2014-04-21,CLOSED,Easter Monday,au_easter_monday,module:au_easter_monday,,,CONFIRMED,
+2014-04-25,CLOSED,ANZAC Day,au_anzac_day,module:au_anzac_day,,,CONFIRMED,
+2014-06-09,CLOSED,Queen's Birthday,au_queens_birthday,module:au_sovereigns_birthday,,,CONFIRMED,
+2014-12-24,EARLY_CLOSE,Last Trading Day Before Christmas (Early Close),au_asx_christmas_eve_early_close_pre2017,module:au_asx_early_closes,,14:10,CONFIRMED,
+2014-12-25,CLOSED,Christmas Day,au_christmas_day,module:au_christmas_day,,,CONFIRMED,
+2014-12-26,CLOSED,Boxing Day,au_boxing_day,module:au_boxing_day,,,CONFIRMED,
+2014-12-31,EARLY_CLOSE,Last Trading Day of the Year (Early Close),au_asx_new_years_eve_early_close_pre2017,module:au_asx_early_closes,,14:10,CONFIRMED,
+2015-01-01,CLOSED,New Year's Day,au_new_years_day,module:au_new_years_day,,,CONFIRMED,
+2015-01-26,CLOSED,Australia Day,au_australia_day,module:au_australia_day,,,CONFIRMED,
+2015-04-03,CLOSED,Good Friday,au_good_friday,module:au_good_friday,,,CONFIRMED,
+2015-04-06,CLOSED,Easter Monday,au_easter_monday,module:au_easter_monday,,,CONFIRMED,
+2015-04-25,CLOSED,ANZAC Day,au_anzac_day,module:au_anzac_day,,,CONFIRMED,
+2015-06-08,CLOSED,Queen's Birthday,au_queens_birthday,module:au_sovereigns_birthday,,,CONFIRMED,
+2015-12-24,EARLY_CLOSE,Last Trading Day Before Christmas (Early Close),au_asx_christmas_eve_early_close_pre2017,module:au_asx_early_closes,,14:10,CONFIRMED,
+2015-12-25,CLOSED,Christmas Day,au_christmas_day,module:au_christmas_day,,,CONFIRMED,
+2015-12-28,CLOSED,Boxing Day,au_boxing_day,module:au_boxing_day,2015-12-26,,CONFIRMED,
+2015-12-31,EARLY_CLOSE,Last Trading Day of the Year (Early Close),au_asx_new_years_eve_early_close_pre2017,module:au_asx_early_closes,,14:10,CONFIRMED,
+2016-01-01,CLOSED,New Year's Day,au_new_years_day,module:au_new_years_day,,,CONFIRMED,
+2016-01-26,CLOSED,Australia Day,au_australia_day,module:au_australia_day,,,CONFIRMED,
+2016-03-25,CLOSED,Good Friday,au_good_friday,module:au_good_friday,,,CONFIRMED,
+2016-03-28,CLOSED,Easter Monday,au_easter_monday,module:au_easter_monday,,,CONFIRMED,
+2016-04-25,CLOSED,ANZAC Day,au_anzac_day,module:au_anzac_day,,,CONFIRMED,
+2016-06-13,CLOSED,Queen's Birthday,au_queens_birthday,module:au_sovereigns_birthday,,,CONFIRMED,
+2016-09-19,EARLY_CLOSE,"Unscheduled Early Termination (ASX Trade outage) (hardware failure in the main ASX Trade database; staggered open from 11:30, closed 14:05 without a closing auction)",au_asx_unscheduled_early_termination_2016,module:au_asx_unscheduled_exceptions,,14:05,CONFIRMED,
+2016-12-23,EARLY_CLOSE,Last Trading Day Before Christmas (Early Close),au_asx_christmas_eve_early_close_pre2017,module:au_asx_early_closes,2016-12-24,14:10,CONFIRMED,
+2016-12-26,CLOSED,Boxing Day,au_boxing_day,module:au_boxing_day,,,CONFIRMED,
+2016-12-27,CLOSED,Christmas Day,au_christmas_day,module:au_christmas_day,2016-12-25,,CONFIRMED,
+2016-12-30,EARLY_CLOSE,Last Trading Day of the Year (Early Close),au_asx_new_years_eve_early_close_pre2017,module:au_asx_early_closes,2016-12-31,14:10,CONFIRMED,
+2017-01-02,CLOSED,New Year's Day,au_new_years_day,module:au_new_years_day,2017-01-01,,CONFIRMED,
+2017-01-26,CLOSED,Australia Day,au_australia_day,module:au_australia_day,,,CONFIRMED,
+2017-04-14,CLOSED,Good Friday,au_good_friday,module:au_good_friday,,,CONFIRMED,
+2017-04-17,CLOSED,Easter Monday,au_easter_monday,module:au_easter_monday,,,CONFIRMED,
+2017-04-25,CLOSED,ANZAC Day,au_anzac_day,module:au_anzac_day,,,CONFIRMED,
+2017-06-12,CLOSED,Queen's Birthday,au_queens_birthday,module:au_sovereigns_birthday,,,CONFIRMED,
+2017-12-25,CLOSED,Christmas Day,au_christmas_day,module:au_christmas_day,,,CONFIRMED,
+2017-12-26,CLOSED,Boxing Day,au_boxing_day,module:au_boxing_day,,,CONFIRMED,
+2018-01-01,CLOSED,New Year's Day,au_new_years_day,module:au_new_years_day,,,CONFIRMED,
+2018-01-26,CLOSED,Australia Day,au_australia_day,module:au_australia_day,,,CONFIRMED,
+2018-03-30,CLOSED,Good Friday,au_good_friday,module:au_good_friday,,,CONFIRMED,
+2018-04-02,CLOSED,Easter Monday,au_easter_monday,module:au_easter_monday,,,CONFIRMED,
+2018-04-25,CLOSED,ANZAC Day,au_anzac_day,module:au_anzac_day,,,CONFIRMED,
+2018-06-11,CLOSED,Queen's Birthday,au_queens_birthday,module:au_sovereigns_birthday,,,CONFIRMED,
+2018-12-24,EARLY_CLOSE,Christmas Eve (Early Close),au_asx_christmas_eve_early_close,module:au_asx_early_closes,,14:10,CONFIRMED,
+2018-12-25,CLOSED,Christmas Day,au_christmas_day,module:au_christmas_day,,,CONFIRMED,
+2018-12-26,CLOSED,Boxing Day,au_boxing_day,module:au_boxing_day,,,CONFIRMED,
+2018-12-31,EARLY_CLOSE,New Year's Eve (Early Close),au_asx_new_years_eve_early_close,module:au_asx_early_closes,,14:10,CONFIRMED,
+2019-01-01,CLOSED,New Year's Day,au_new_years_day,module:au_new_years_day,,,CONFIRMED,
+2019-01-28,CLOSED,Australia Day,au_australia_day,module:au_australia_day,2019-01-26,,CONFIRMED,
+2019-04-19,CLOSED,Good Friday,au_good_friday,module:au_good_friday,,,CONFIRMED,
+2019-04-22,CLOSED,Easter Monday,au_easter_monday,module:au_easter_monday,,,CONFIRMED,
+2019-04-25,CLOSED,ANZAC Day,au_anzac_day,module:au_anzac_day,,,CONFIRMED,
+2019-06-10,CLOSED,Queen's Birthday,au_queens_birthday,module:au_sovereigns_birthday,,,CONFIRMED,
+2019-12-24,EARLY_CLOSE,Christmas Eve (Early Close),au_asx_christmas_eve_early_close,module:au_asx_early_closes,,14:10,CONFIRMED,
+2019-12-25,CLOSED,Christmas Day,au_christmas_day,module:au_christmas_day,,,CONFIRMED,
+2019-12-26,CLOSED,Boxing Day,au_boxing_day,module:au_boxing_day,,,CONFIRMED,
+2019-12-31,EARLY_CLOSE,New Year's Eve (Early Close),au_asx_new_years_eve_early_close,module:au_asx_early_closes,,14:10,CONFIRMED,
+2020-01-01,CLOSED,New Year's Day,au_new_years_day,module:au_new_years_day,,,CONFIRMED,
+2020-01-27,CLOSED,Australia Day,au_australia_day,module:au_australia_day,2020-01-26,,CONFIRMED,
+2020-04-10,CLOSED,Good Friday,au_good_friday,module:au_good_friday,,,CONFIRMED,
+2020-04-13,CLOSED,Easter Monday,au_easter_monday,module:au_easter_monday,,,CONFIRMED,
+2020-04-25,CLOSED,ANZAC Day,au_anzac_day,module:au_anzac_day,,,CONFIRMED,
+2020-06-08,CLOSED,Queen's Birthday,au_queens_birthday,module:au_sovereigns_birthday,,,CONFIRMED,
+2020-11-16,EARLY_CLOSE,Unscheduled Early Termination (ASX Trade outage) (ASX Trade software fault in the opening auction; trading ceased at 10:24:05 for the rest of the day),au_asx_unscheduled_early_termination_2020,module:au_asx_unscheduled_exceptions,,10:24,CONFIRMED,
+2020-12-24,EARLY_CLOSE,Christmas Eve (Early Close),au_asx_christmas_eve_early_close,module:au_asx_early_closes,,14:10,CONFIRMED,
+2020-12-25,CLOSED,Christmas Day,au_christmas_day,module:au_christmas_day,,,CONFIRMED,
+2020-12-28,CLOSED,Boxing Day,au_boxing_day,module:au_boxing_day,2020-12-26,,CONFIRMED,
+2020-12-31,EARLY_CLOSE,New Year's Eve (Early Close),au_asx_new_years_eve_early_close,module:au_asx_early_closes,,14:10,CONFIRMED,
+2021-01-01,CLOSED,New Year's Day,au_new_years_day,module:au_new_years_day,,,CONFIRMED,
+2021-01-26,CLOSED,Australia Day,au_australia_day,module:au_australia_day,,,CONFIRMED,
+2021-04-02,CLOSED,Good Friday,au_good_friday,module:au_good_friday,,,CONFIRMED,
+2021-04-05,CLOSED,Easter Monday,au_easter_monday,module:au_easter_monday,,,CONFIRMED,
+2021-04-25,CLOSED,ANZAC Day,au_anzac_day,module:au_anzac_day,,,CONFIRMED,
+2021-06-14,CLOSED,Queen's Birthday,au_queens_birthday,module:au_sovereigns_birthday,,,CONFIRMED,
+2021-12-24,EARLY_CLOSE,Christmas Eve (Early Close),au_asx_christmas_eve_early_close,module:au_asx_early_closes,,14:10,CONFIRMED,
+2021-12-27,CLOSED,Christmas Day,au_christmas_day,module:au_christmas_day,2021-12-25,,CONFIRMED,
+2021-12-28,CLOSED,Boxing Day,au_boxing_day,module:au_boxing_day,2021-12-26,,CONFIRMED,
+2021-12-31,EARLY_CLOSE,New Year's Eve (Early Close),au_asx_new_years_eve_early_close,module:au_asx_early_closes,,14:10,CONFIRMED,
+2022-01-03,CLOSED,New Year's Day,au_new_years_day,module:au_new_years_day,2022-01-01,,CONFIRMED,
+2022-01-26,CLOSED,Australia Day,au_australia_day,module:au_australia_day,,,CONFIRMED,
+2022-04-15,CLOSED,Good Friday,au_good_friday,module:au_good_friday,,,CONFIRMED,
+2022-04-18,CLOSED,Easter Monday,au_easter_monday,module:au_easter_monday,,,CONFIRMED,
+2022-04-25,CLOSED,ANZAC Day,au_anzac_day,module:au_anzac_day,,,CONFIRMED,
+2022-06-13,CLOSED,Queen's Birthday,au_queens_birthday,module:au_sovereigns_birthday,,,CONFIRMED,
+2022-09-22,CLOSED,National Day of Mourning for Queen Elizabeth II,au_national_day_of_mourning_2022,module:au_one_off_public_holidays,,,CONFIRMED,
+2022-12-26,CLOSED,Boxing Day,au_boxing_day,module:au_boxing_day,,,CONFIRMED,
+2022-12-27,CLOSED,Christmas Day,au_christmas_day,module:au_christmas_day,2022-12-25,,CONFIRMED,
+2023-01-02,CLOSED,New Year's Day,au_new_years_day,module:au_new_years_day,2023-01-01,,CONFIRMED,
+2023-01-26,CLOSED,Australia Day,au_australia_day,module:au_australia_day,,,CONFIRMED,
+2023-04-07,CLOSED,Good Friday,au_good_friday,module:au_good_friday,,,CONFIRMED,
+2023-04-10,CLOSED,Easter Monday,au_easter_monday,module:au_easter_monday,,,CONFIRMED,
+2023-04-25,CLOSED,ANZAC Day,au_anzac_day,module:au_anzac_day,,,CONFIRMED,
+2023-06-12,CLOSED,King's Birthday,au_kings_birthday,module:au_sovereigns_birthday,,,CONFIRMED,
+2023-12-25,CLOSED,Christmas Day,au_christmas_day,module:au_christmas_day,,,CONFIRMED,
+2023-12-26,CLOSED,Boxing Day,au_boxing_day,module:au_boxing_day,,,CONFIRMED,
+2024-01-01,CLOSED,New Year's Day,au_new_years_day,module:au_new_years_day,,,CONFIRMED,
+2024-01-26,CLOSED,Australia Day,au_australia_day,module:au_australia_day,,,CONFIRMED,
+2024-03-29,CLOSED,Good Friday,au_good_friday,module:au_good_friday,,,CONFIRMED,
+2024-04-01,CLOSED,Easter Monday,au_easter_monday,module:au_easter_monday,,,CONFIRMED,
+2024-04-25,CLOSED,ANZAC Day,au_anzac_day,module:au_anzac_day,,,CONFIRMED,
+2024-06-10,CLOSED,King's Birthday,au_kings_birthday,module:au_sovereigns_birthday,,,CONFIRMED,
+2024-12-24,EARLY_CLOSE,Christmas Eve (Early Close),au_asx_christmas_eve_early_close,module:au_asx_early_closes,,14:10,CONFIRMED,
+2024-12-25,CLOSED,Christmas Day,au_christmas_day,module:au_christmas_day,,,CONFIRMED,
+2024-12-26,CLOSED,Boxing Day,au_boxing_day,module:au_boxing_day,,,CONFIRMED,
+2024-12-31,EARLY_CLOSE,New Year's Eve (Early Close),au_asx_new_years_eve_early_close,module:au_asx_early_closes,,14:10,CONFIRMED,
+2025-01-01,CLOSED,New Year's Day,au_new_years_day,module:au_new_years_day,,,CONFIRMED,
+2025-01-27,CLOSED,Australia Day,au_australia_day,module:au_australia_day,2025-01-26,,CONFIRMED,
+2025-04-18,CLOSED,Good Friday,au_good_friday,module:au_good_friday,,,CONFIRMED,
+2025-04-21,CLOSED,Easter Monday,au_easter_monday,module:au_easter_monday,,,CONFIRMED,
+2025-04-25,CLOSED,ANZAC Day,au_anzac_day,module:au_anzac_day,,,CONFIRMED,
+2025-06-09,CLOSED,King's Birthday,au_kings_birthday,module:au_sovereigns_birthday,,,CONFIRMED,
+2025-12-24,EARLY_CLOSE,Christmas Eve (Early Close),au_asx_christmas_eve_early_close,module:au_asx_early_closes,,14:10,CONFIRMED,
+2025-12-25,CLOSED,Christmas Day,au_christmas_day,module:au_christmas_day,,,CONFIRMED,
+2025-12-26,CLOSED,Boxing Day,au_boxing_day,module:au_boxing_day,,,CONFIRMED,
+2025-12-31,EARLY_CLOSE,New Year's Eve (Early Close),au_asx_new_years_eve_early_close,module:au_asx_early_closes,,14:10,CONFIRMED,
+2026-01-01,CLOSED,New Year's Day,au_new_years_day,module:au_new_years_day,,,CONFIRMED,
+2026-01-26,CLOSED,Australia Day,au_australia_day,module:au_australia_day,,,CONFIRMED,
+2026-04-03,CLOSED,Good Friday,au_good_friday,module:au_good_friday,,,CONFIRMED,
+2026-04-06,CLOSED,Easter Monday,au_easter_monday,module:au_easter_monday,,,CONFIRMED,
+2026-04-25,CLOSED,ANZAC Day,au_anzac_day,module:au_anzac_day,,,CONFIRMED,
+2026-06-08,CLOSED,King's Birthday,au_kings_birthday,module:au_sovereigns_birthday,,,CONFIRMED,
+2026-12-24,EARLY_CLOSE,Christmas Eve (Early Close),au_asx_christmas_eve_early_close,module:au_asx_early_closes,,14:10,CONFIRMED,
+2026-12-25,CLOSED,Christmas Day,au_christmas_day,module:au_christmas_day,,,CONFIRMED,
+2026-12-28,CLOSED,Boxing Day,au_boxing_day,module:au_boxing_day,2026-12-26,,CONFIRMED,
+2026-12-31,EARLY_CLOSE,New Year's Eve (Early Close),au_asx_new_years_eve_early_close,module:au_asx_early_closes,,14:10,CONFIRMED,
+2027-01-01,CLOSED,New Year's Day,au_new_years_day,module:au_new_years_day,,,CONFIRMED,
+2027-01-26,CLOSED,Australia Day,au_australia_day,module:au_australia_day,,,CONFIRMED,
+2027-03-26,CLOSED,Good Friday,au_good_friday,module:au_good_friday,,,CONFIRMED,
+2027-03-29,CLOSED,Easter Monday,au_easter_monday,module:au_easter_monday,,,CONFIRMED,
+2027-04-25,CLOSED,ANZAC Day,au_anzac_day,module:au_anzac_day,,,CONFIRMED,
+2027-06-14,CLOSED,King's Birthday,au_kings_birthday,module:au_sovereigns_birthday,,,CONFIRMED,
+2027-12-24,EARLY_CLOSE,Christmas Eve (Early Close),au_asx_christmas_eve_early_close,module:au_asx_early_closes,,14:10,CONFIRMED,
+2027-12-27,CLOSED,Christmas Day,au_christmas_day,module:au_christmas_day,2027-12-25,,CONFIRMED,
+2027-12-28,CLOSED,Boxing Day,au_boxing_day,module:au_boxing_day,2027-12-26,,CONFIRMED,
+2027-12-31,EARLY_CLOSE,New Year's Eve (Early Close),au_asx_new_years_eve_early_close,module:au_asx_early_closes,,14:10,CONFIRMED,
+2028-01-03,CLOSED,New Year's Day,au_new_years_day,module:au_new_years_day,2028-01-01,,CONFIRMED,
+2028-01-26,CLOSED,Australia Day,au_australia_day,module:au_australia_day,,,CONFIRMED,
+2028-04-14,CLOSED,Good Friday,au_good_friday,module:au_good_friday,,,CONFIRMED,
+2028-04-17,CLOSED,Easter Monday,au_easter_monday,module:au_easter_monday,,,CONFIRMED,
+2028-04-25,CLOSED,ANZAC Day,au_anzac_day,module:au_anzac_day,,,CONFIRMED,
+2028-06-12,CLOSED,King's Birthday,au_kings_birthday,module:au_sovereigns_birthday,,,CONFIRMED,
+2028-12-25,CLOSED,Christmas Day,au_christmas_day,module:au_christmas_day,,,CONFIRMED,
+2028-12-26,CLOSED,Boxing Day,au_boxing_day,module:au_boxing_day,,,CONFIRMED,
+2029-01-01,CLOSED,New Year's Day,au_new_years_day,module:au_new_years_day,,,CONFIRMED,
+2029-01-26,CLOSED,Australia Day,au_australia_day,module:au_australia_day,,,CONFIRMED,
+2029-03-30,CLOSED,Good Friday,au_good_friday,module:au_good_friday,,,CONFIRMED,
+2029-04-02,CLOSED,Easter Monday,au_easter_monday,module:au_easter_monday,,,CONFIRMED,
+2029-04-25,CLOSED,ANZAC Day,au_anzac_day,module:au_anzac_day,,,CONFIRMED,
+2029-06-11,CLOSED,King's Birthday,au_kings_birthday,module:au_sovereigns_birthday,,,CONFIRMED,
+2029-12-24,EARLY_CLOSE,Christmas Eve (Early Close),au_asx_christmas_eve_early_close,module:au_asx_early_closes,,14:10,CONFIRMED,
+2029-12-25,CLOSED,Christmas Day,au_christmas_day,module:au_christmas_day,,,CONFIRMED,
+2029-12-26,CLOSED,Boxing Day,au_boxing_day,module:au_boxing_day,,,CONFIRMED,
+2029-12-31,EARLY_CLOSE,New Year's Eve (Early Close),au_asx_new_years_eve_early_close,module:au_asx_early_closes,,14:10,CONFIRMED,
+2030-01-01,CLOSED,New Year's Day,au_new_years_day,module:au_new_years_day,,,CONFIRMED,
+2030-01-28,CLOSED,Australia Day,au_australia_day,module:au_australia_day,2030-01-26,,CONFIRMED,
+2030-04-19,CLOSED,Good Friday,au_good_friday,module:au_good_friday,,,CONFIRMED,
+2030-04-22,CLOSED,Easter Monday,au_easter_monday,module:au_easter_monday,,,CONFIRMED,
+2030-04-25,CLOSED,ANZAC Day,au_anzac_day,module:au_anzac_day,,,CONFIRMED,
+2030-06-10,CLOSED,King's Birthday,au_kings_birthday,module:au_sovereigns_birthday,,,CONFIRMED,
+2030-12-24,EARLY_CLOSE,Christmas Eve (Early Close),au_asx_christmas_eve_early_close,module:au_asx_early_closes,,14:10,CONFIRMED,
+2030-12-25,CLOSED,Christmas Day,au_christmas_day,module:au_christmas_day,,,CONFIRMED,
+2030-12-26,CLOSED,Boxing Day,au_boxing_day,module:au_boxing_day,,,CONFIRMED,
+2030-12-31,EARLY_CLOSE,New Year's Eve (Early Close),au_asx_new_years_eve_early_close,module:au_asx_early_closes,,14:10,CONFIRMED,

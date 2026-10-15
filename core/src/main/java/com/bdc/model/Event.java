@@ -15,8 +15,9 @@ import java.util.Objects;
  * @param key the event source key ({@code weekend} for weekend rows)
  * @param sourceModule the module or calendar that declared the event source
  * @param observedFrom the nominal date when the event was shifted off a weekend, else null
- * @param closeTime local close time for EARLY_CLOSE events, else null
+ * @param closeTime local close time for EARLY_CLOSE and SPECIAL_SESSION events, else null
  * @param status CONFIRMED or PROJECTED
+ * @param openTime local open time for SPECIAL_SESSION events, else null
  */
 public record Event(
     LocalDate date,
@@ -27,7 +28,8 @@ public record Event(
     String sourceModule,
     LocalDate observedFrom,
     LocalTime closeTime,
-    EventStatus status)
+    EventStatus status,
+    LocalTime openTime)
     implements Comparable<Event> {
 
   private static final Comparator<String> NULLS_LAST =
@@ -41,11 +43,58 @@ public record Event(
     if (status == EventStatus.UNKNOWN) {
       throw new IllegalArgumentException("event status must be CONFIRMED or PROJECTED");
     }
+    if (type == EventType.SPECIAL_SESSION) {
+      if (openTime == null || closeTime == null || !openTime.isBefore(closeTime)) {
+        throw new IllegalArgumentException(
+            "a SPECIAL_SESSION needs an open_time before its close_time: " + date);
+      }
+    } else if (openTime != null) {
+      throw new IllegalArgumentException("open_time is only defined for SPECIAL_SESSION: " + date);
+    }
+  }
+
+  /** Constructor for every event type except SPECIAL_SESSION (no open time). */
+  public Event(
+      LocalDate date,
+      EventType type,
+      String description,
+      String provenance,
+      String key,
+      String sourceModule,
+      LocalDate observedFrom,
+      LocalTime closeTime,
+      EventStatus status) {
+    this(
+        date,
+        type,
+        description,
+        provenance,
+        key,
+        sourceModule,
+        observedFrom,
+        closeTime,
+        status,
+        null);
   }
 
   /** Legacy constructor without enrichment fields. */
   public Event(LocalDate date, EventType type, String description, String provenance) {
     this(date, type, description, provenance, null, null, null, null, null);
+  }
+
+  /** A copy of this event with a different source module label. */
+  public Event withSourceModule(String module) {
+    return new Event(
+        date,
+        type,
+        description,
+        provenance,
+        key,
+        module,
+        observedFrom,
+        closeTime,
+        status,
+        openTime);
   }
 
   /** True if this event is a full-day closure. */

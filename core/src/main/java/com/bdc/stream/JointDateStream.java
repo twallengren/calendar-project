@@ -210,6 +210,31 @@ public final class JointDateStream implements DateStream {
     return List.copyOf(closes);
   }
 
+  /** A joint trading day is a date on which every member trades. */
+  @Override
+  public boolean isTradingDay(LocalDate date) {
+    checkRange(date);
+    requireResolved(date, DateQuestion.BUSINESS_DAY);
+    for (DateStream member : members) {
+      if (!member.isTradingDay(date)) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  /** Every member's special sessions, each with its own calendar and timezone identity. */
+  @Override
+  public List<SpecialSession> specialSessions(LocalDate date) {
+    checkRange(date);
+    requireResolved(date);
+    List<SpecialSession> sessions = new ArrayList<>();
+    for (DateStream member : members) {
+      sessions.addAll(member.specialSessions(date));
+    }
+    return List.copyOf(sessions);
+  }
+
   /** A date is unresolved for the joint when it is unresolved for any member. */
   @Override
   public java.util.Set<CompletenessScope> incompleteScopes(LocalDate date, DateQuestion question) {
@@ -321,15 +346,6 @@ public final class JointDateStream implements DateStream {
         event.sourceModule() == null
             ? member.calendarId()
             : member.calendarId() + "/" + event.sourceModule();
-    return new Event(
-        event.date(),
-        event.type(),
-        event.description(),
-        event.provenance(),
-        event.key(),
-        sourceModule,
-        event.observedFrom(),
-        event.closeTime(),
-        event.status());
+    return event.withSourceModule(sourceModule);
   }
 }

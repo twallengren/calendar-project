@@ -40,6 +40,58 @@ class GeneratedOutputValidatorTest {
   }
 
   @Test
+  void aSpecialSessionMustFallOnANonBusinessDay() {
+    LocalDate friday = LocalDate.of(2024, 11, 1);
+    LocalDate saturday = LocalDate.of(2024, 11, 2);
+    LocalDate monday = LocalDate.of(2024, 11, 4);
+    java.time.LocalTime open = java.time.LocalTime.of(18, 0);
+    java.time.LocalTime close = java.time.LocalTime.of(19, 0);
+    List<Event> events =
+        List.of(
+            new Event(
+                friday, EventType.CLOSED, "Festival", "t", "festival", null, null, null, null),
+            new Event(
+                friday,
+                EventType.SPECIAL_SESSION,
+                "Evening",
+                "t",
+                "s",
+                null,
+                null,
+                close,
+                null,
+                open),
+            new Event(
+                saturday, EventType.WEEKEND, "Saturday", "t", "weekend", null, null, null, null),
+            new Event(
+                saturday,
+                EventType.SPECIAL_SESSION,
+                "Drill",
+                "t",
+                "s",
+                null,
+                null,
+                close,
+                null,
+                open),
+            new Event(
+                monday,
+                EventType.SPECIAL_SESSION,
+                "Ordinary",
+                "t",
+                "s",
+                null,
+                null,
+                close,
+                null,
+                open));
+    ValidationResult r = validator.validate(spec(null), events, new DateRange(friday, monday));
+    assertEquals(1, r.errors().size(), r.issues().toString());
+    assertEquals("SPECIAL_SESSION_ON_BUSINESS_DAY", r.errors().get(0).code());
+    assertEquals("date:" + monday, r.errors().get(0).location());
+  }
+
+  @Test
   void deadRuleAndProjectedBeforeVerifiedAreWarnings() {
     EventSource dead =
         new EventSource(
