@@ -166,7 +166,7 @@
       "type": "CLOSED"
     }
   ],
-  "generated_at": "2026-10-14T14:07:08Z",
+  "generated_at": "2026-10-15T10:24:04Z",
   "kind": "payment",
   "range_end": "2027-12-31",
   "range_start": "2026-01-01",
@@ -176,8 +176,8 @@
     "calendar:EU-TARGET"
   ],
   "source_version": {
-    "git_sha": "74d854cdbdfa9f622720d205ef9e999d23f008eb",
-    "semantic": "13.0.0"
+    "git_sha": "883e900e59f9b17c57970680eaee0e253cbbcd2d",
+    "semantic": "13.1.0"
   },
   "timezone": "Europe/Berlin",
   "weekend_policy": {

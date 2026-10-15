@@ -3,7 +3,7 @@
   "calendar_name" : "Taiwan Stock Exchange",
   "kind" : "market",
   "mic" : "XTAI",
-  "generated_at" : "2026-10-14T14:07:08Z",
+  "generated_at" : "2026-10-15T10:24:04Z",
   "range_start" : "2010-01-01",
   "range_end" : "2027-12-31",
   "timezone" : "Asia/Taipei",
@@ -59,8 +59,8 @@
     "CONFIRMED" : 2166
   },
   "source_version" : {
-    "semantic" : "13.0.0",
-    "git_sha" : "74d854cdbdfa9f622720d205ef9e999d23f008eb"
+    "semantic" : "13.1.0",
+    "git_sha" : "883e900e59f9b17c57970680eaee0e253cbbcd2d"
   },
   "event_details" : [ {
     "date" : "2010-01-01",
