@@ -39,3 +39,7 @@ python3 -m venv .venv
 | `ZA-JSE/exchange_calendars-XJSE.csv` | exchange_calendars 4.11 | Statutory holidays with the Sunday rule plus some proclaimed days (to 2019); no early closes, no 2021-2026 proclamations (see allowlist). |
 | `ZA-JSE/quantlib-south-africa.csv` | QuantLib 1.43 `SouthAfrica()` | National-holiday calendar with hard-coded one-off days; missing the 2011, 2014 and 2019 election days and the 2011/2016 27 December holidays. |
 | `TW-TWSE/exchange_calendars-XTAI.csv` | exchange_calendars 4.11 | Close to the exchange's tables, typhoon closures included through 2024; see allowlist for the 2011 Labour Day substitute, settlement/bridge days, 2024-2026 typhoons, the 2025 Act's holidays and a spurious 2 January 2026. QuantLib `Taiwan()` is not used (82 disagreements). |
+| `BR-B3/exchange_calendars-BVMF.csv` | exchange_calendars 4.11 | Exact match 2010-2027, including the Sao Paulo holidays through 2021 and the 2014 World Cup closure. |
+| `BR-B3/quantlib-brazil-exchange.csv` | QuantLib 1.43 `Brazil(Exchange)` | Full closures only; lacks the 2014 World Cup closure and closes on the two 2020 Sao Paulo holidays the exchange traded (see allowlist). |
+| `MX-BMV/exchange_calendars-XMEX.csv` | exchange_calendars 4.11 | Every CNBV-listed closure 2010-2027 except 1 October 2024; no shortened sessions (see allowlist). |
+| `MX-BMV/quantlib-mexico.csv` | QuantLib 1.43 `Mexico()` | Full closures only; has the inauguration days but not the 2010 bicentennial closure. |

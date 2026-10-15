@@ -1,0 +1,22 @@
+kind: module
+id: br_b3_one_off_closures
+
+# One-off closures. Thursday 12 June 2014: the FIFA World Cup opening match in São Paulo, declared a
+# municipal holiday; the exchange's calendar: "12 – Não haverá negociação nos mercados do segmento
+# BOVESPA e de derivativos do segmento BM&F, nem liquidação e outras atividades de pós-negociação".
+# The other 2014 match days (17 and 23 June, 4 and 8 July) had special hours, not closures. No day
+# of mourning or pandemic closure occurred 2010-2026.
+# Source: bmfbovespa-calendar-2014.
+
+source:
+  - id: bmfbovespa-calendar-2014
+
+event_sources:
+  - key: br_b3_world_cup_opening_2014
+    name: Abertura da Copa do Mundo (feriado municipal)
+    default_classification: CLOSED
+    shiftable: false
+    rule:
+      type: explicit_dates
+      dates:
+        - 2014-06-12

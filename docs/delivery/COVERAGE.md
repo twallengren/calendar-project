@@ -22,6 +22,7 @@ registers are under `sources/`.
 |---|---|---:|---:|---:|---:|---:|---:|---:|
 | [AU-ASX](../../blessed/AU-ASX/metadata.json) | 2010-01-01 – 2030-12-31 | 7670 | 6117 | 1553 | 0 | 2224 | 5446 | 0 |
 | [BE-EURONEXT-BRUSSELS](../../blessed/BE-EURONEXT-BRUSSELS/metadata.json) | 2010-01-01 – 2030-12-31 | 7670 | 6117 | 1553 | 0 | 6111 | 1553 | 6 |
+| [BR-B3](../../blessed/BR-B3/metadata.json) | 2010-01-01 – 2027-12-31 | 6574 | 2191 | 4383 | 0 | 2191 | 4383 | 0 |
 | [CA-TSX](../../blessed/CA-TSX/metadata.json) | 2000-01-01 – 2030-12-31 | 11323 | 6575 | 4748 | 0 | 6209 | 3653 | 1461 |
 | [DE-XETRA](../../blessed/DE-XETRA/metadata.json) | 2003-01-01 – 2030-12-31 | 10227 | 6117 | 4110 | 0 | 0 | 2557 | 7670 |
 | [EU-EURONEXT](../../blessed/EU-EURONEXT/metadata.json) | 2010-01-01 – 2030-12-31 | 7670 | 6117 | 1553 | 0 | 0 | 7670 | 0 |
@@ -33,6 +34,7 @@ registers are under `sources/`.
 | [IL-TASE](../../blessed/IL-TASE/metadata.json) | 2025-01-01 – 2028-12-31 | 1461 | 651 | 810 | 0 | 283 | 810 | 368 |
 | [JP-JPX](../../blessed/JP-JPX/metadata.json) | 2010-01-01 – 2030-12-31 | 7670 | 6087 | 1583 | 0 | 0 | 7670 | 0 |
 | [KR-KRX](../../blessed/KR-KRX/metadata.json) | 2010-01-01 – 2027-12-31 | 6574 | 6131 | 443 | 0 | 6131 | 443 | 0 |
+| [MX-BMV](../../blessed/MX-BMV/metadata.json) | 2010-01-01 – 2027-12-31 | 6574 | 2557 | 4017 | 0 | 0 | 6569 | 5 |
 | [NL-EURONEXT-AMSTERDAM](../../blessed/NL-EURONEXT-AMSTERDAM/metadata.json) | 2010-01-01 – 2030-12-31 | 7670 | 6117 | 1553 | 0 | 6111 | 1553 | 6 |
 | [PT-EURONEXT-LISBON](../../blessed/PT-EURONEXT-LISBON/metadata.json) | 2010-01-01 – 2030-12-31 | 7670 | 6117 | 1553 | 0 | 6111 | 1553 | 6 |
 | [SA-TADAWUL](../../blessed/SA-TADAWUL/metadata.json) | 2020-01-01 – 2030-12-31 | 4018 | 2478 | 1540 | 0 | 0 | 4018 | 0 |

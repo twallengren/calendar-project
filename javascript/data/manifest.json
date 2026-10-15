@@ -1,5 +1,6 @@
 {
   "aliases": {
+    "BVMF": "BR-B3",
     "NYSE": "US-NYSE",
     "TADAWUL": "SA-TADAWUL",
     "TASE": "IL-TASE",
@@ -13,6 +14,7 @@
     "XKRX": "KR-KRX",
     "XLIS": "PT-EURONEXT-LISBON",
     "XLON": "GB-LSE",
+    "XMEX": "MX-BMV",
     "XNYS": "US-NYSE",
     "XPAR": "FR-EURONEXT-PARIS",
     "XSAU": "SA-TADAWUL",
@@ -32,6 +34,11 @@
     "BE-EURONEXT-BRUSSELS": {
       "kind": "market",
       "range_end": "2030-12-31",
+      "range_start": "2010-01-01"
+    },
+    "BR-B3": {
+      "kind": "market",
+      "range_end": "2027-12-31",
       "range_start": "2010-01-01"
     },
     "CA-TSX": {
@@ -85,6 +92,11 @@
       "range_start": "2010-01-01"
     },
     "KR-KRX": {
+      "kind": "market",
+      "range_end": "2027-12-31",
+      "range_start": "2010-01-01"
+    },
+    "MX-BMV": {
       "kind": "market",
       "range_end": "2027-12-31",
       "range_start": "2010-01-01"

@@ -1,0 +1,23 @@
+kind: module
+id: br_b3_christmas_eve
+
+# Christmas Eve (24 December): a federal 'ponto facultativo' on which the exchange holds no trading
+# session ("Véspera de Natal (expediente interno nas instituições bancárias sem sessão de
+# negociação)"; OC 054/2025: "Dias 24/12/2026 (Véspera de Natal) e 31/12/2026 ... não haverá
+# sessão de negociação"), listed in every calendar 2010-2026 when a weekday. No substitute when it
+# falls on a weekend.
+
+# Source: b3-calendars, b3-calendars (the exchange's annual holiday circulars).
+
+source:
+  - id: b3-calendars
+
+event_sources:
+  - key: br_b3_christmas_eve
+    name: Véspera de Natal
+    default_classification: CLOSED
+    shift_policy: NONE
+    rule:
+      type: fixed_month_day
+      month: 12
+      day: 24

@@ -312,6 +312,7 @@ actual-day completeness. Use the [coverage assessment summary](docs/delivery/COV
 |----|------|------|----------|----------|-------------------|----------|---------------|-----------|---------|-------------------|---------|
 | AU-ASX | Australian Securities Exchange | market | Australia/Sydney | 2010-01-01 to 2030-12-31 | 2027-12-31 | 170 | 36 | 0 | 65 | exchange_calendars-XASX: ok (allowlisted=8); quantlib-australia-asx: ok (allowlisted=2) | 13.0.0 |
 | BE-EURONEXT-BRUSSELS | Euronext Brussels Trading Calendar | market | Europe/Brussels | 2010-01-01 to 2030-12-31 | 2026-12-31 | 126 | 30 | 0 | 14 | exchange_calendars-XBRU: ok (allowlisted=12) | 13.0.0 |
+| BR-B3 | B3 - Brasil Bolsa Balcão | market | America/Sao_Paulo | 2010-01-01 to 2027-12-31 | 2026-12-31 | 290 | 0 | 0 | 35 | exchange_calendars-BVMF: ok (allowlisted=0); quantlib-brazil-exchange: ok (allowlisted=3) | 13.0.0 |
 | CA-TSX | Toronto Stock Exchange | market | America/Toronto | 2000-01-01 to 2030-12-31 | 2026-12-31 | 304 | 16 | 4 | 33 | exchange_calendars-XTSE: ok (allowlisted=9); quantlib-tsx: ok (allowlisted=2) | 13.0.0 |
 | DE-XETRA | Deutsche Börse Xetra | market | Europe/Berlin | 2003-01-01 to 2030-12-31 | 2026-12-31 | 238 | 0 | 0 | 29 | exchange_calendars-XETR: ok (allowlisted=21); quantlib-germany-xetra: ok (allowlisted=33) | 13.0.0 |
 | FR-EURONEXT-PARIS | Euronext Paris Trading Calendar | market | Europe/Paris | 2010-01-01 to 2030-12-31 | 2026-12-31 | 126 | 30 | 0 | 14 | exchange_calendars-XPAR: ok (allowlisted=12) | 13.0.0 |
@@ -320,6 +321,7 @@ actual-day completeness. Use the [coverage assessment summary](docs/delivery/COV
 | IL-TASE | Tel Aviv Stock Exchange | market | Asia/Jerusalem | 2025-01-01 to 2028-12-31 | 2028-12-31 | 78 | 157 | 0 | 9 | none | 13.0.0 |
 | JP-JPX | Japan Exchange Group (Tokyo Stock Exchange) | market | Asia/Tokyo | 2010-01-01 to 2030-12-31 | 2027-12-31 | 343 | 0 | 6 | 12 | exchange_calendars-XTKS: ok (allowlisted=11); quantlib-japan: ok (allowlisted=1) | 13.0.0 |
 | KR-KRX | Korea Exchange | market | Asia/Seoul | 2010-01-01 to 2027-12-31 | 2026-12-31 | 318 | 0 | 0 | 17 | exchange_calendars-XKRX: ok (allowlisted=6); quantlib-south-korea-krx: ok (allowlisted=5) | 13.0.0 |
+| MX-BMV | Bolsa Mexicana de Valores | market | America/Mexico_City | 2010-01-01 to 2027-12-31 | 2026-12-31 | 200 | 10 | 0 | 49 | exchange_calendars-XMEX: ok (allowlisted=11); quantlib-mexico: ok (allowlisted=1) | 13.0.0 |
 | NL-EURONEXT-AMSTERDAM | Euronext Amsterdam Trading Calendar | market | Europe/Amsterdam | 2010-01-01 to 2030-12-31 | 2026-12-31 | 126 | 30 | 0 | 14 | exchange_calendars-XAMS: ok (allowlisted=12) | 13.0.0 |
 | PT-EURONEXT-LISBON | Euronext Lisbon Trading Calendar | market | Europe/Lisbon | 2010-01-01 to 2030-12-31 | 2026-12-31 | 126 | 30 | 0 | 14 | exchange_calendars-XLIS: ok (allowlisted=12) | 13.0.0 |
 | SA-TADAWUL | Tadawul (Saudi Exchange) Trading Calendar | market | Asia/Riyadh | 2020-01-01 to 2030-12-31 | 2029-12-31 | 195 | 0 | 16 | 13 | exchange_calendars-XSAU: ok (allowlisted=24) | 13.0.0 |

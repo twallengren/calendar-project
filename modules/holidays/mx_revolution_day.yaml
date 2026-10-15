@@ -1,0 +1,19 @@
+kind: module
+id: mx_revolution_day
+
+# Revolution Day, observed on the third Monday of November since the 2006 reform ("El tercer lunes
+# de noviembre en conmemoración del 20 de noviembre").
+# Source: mx-ley-federal-del-trabajo (art. 74, Monday rules since the 2006 reform), cnbv-dias-inhabiles.
+
+source:
+  - id: cnbv-dias-inhabiles
+
+event_sources:
+  - key: mx_revolution_day
+    name: Conmemoración del 20 de noviembre
+    default_classification: CLOSED
+    rule:
+      type: nth_weekday_of_month
+      month: 11
+      weekday: MONDAY
+      nth: 3

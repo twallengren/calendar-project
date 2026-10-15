@@ -1,0 +1,3223 @@
+{
+  "calendar_id": "MX-BMV",
+  "calendar_name": "Bolsa Mexicana de Valores",
+  "counts_by_status": {
+    "CONFIRMED": 2056
+  },
+  "counts_by_type": {
+    "CLOSED": 200,
+    "EARLY_CLOSE": 10,
+    "WEEKEND": 1846
+  },
+  "coverage": {
+    "from": "2010-01-01",
+    "quality": [
+      {
+        "evidence_ids": [
+          "dof-2009-12-16-dias-2010",
+          "fund-hsbc-2010-01-01",
+          "cnbv-resolucion-2010-09",
+          "press-elsiglodetorreon-2010-09-15",
+          "bmv-informes-anuales"
+        ],
+        "from": "2010-01-01",
+        "quality": "VERIFIED",
+        "scope": "SCHEDULED_CLOSURES",
+        "to": "2012-12-31"
+      },
+      {
+        "evidence_ids": [
+          "mx-ley-federal-del-trabajo",
+          "cnbv-dias-inhabiles"
+        ],
+        "from": "2013-01-01",
+        "quality": "PROJECTED",
+        "scope": "SCHEDULED_CLOSURES",
+        "to": "2013-12-31"
+      },
+      {
+        "evidence_ids": [
+          "bmv-informes-anuales",
+          "mx-ley-federal-del-trabajo"
+        ],
+        "from": "2014-01-01",
+        "quality": "VERIFIED",
+        "scope": "SCHEDULED_CLOSURES",
+        "to": "2016-12-31"
+      },
+      {
+        "evidence_ids": [
+          "cnbv-dias-inhabiles",
+          "dof-2023-12-12-dias-2024",
+          "bmv-calendario-2026",
+          "bmv-informes-anuales",
+          "fund-sura-2023-01-01",
+          "press-bloomberglinea-2022-11-01",
+          "press-bloomberglinea-2023-04-03",
+          "press-expansion-2024-10-01"
+        ],
+        "from": "2017-01-01",
+        "quality": "VERIFIED",
+        "scope": "SCHEDULED_CLOSURES",
+        "to": "2026-12-31"
+      },
+      {
+        "evidence_ids": [
+          "mx-ley-federal-del-trabajo",
+          "cnbv-dias-inhabiles"
+        ],
+        "from": "2027-01-01",
+        "quality": "PROJECTED",
+        "scope": "SCHEDULED_CLOSURES",
+        "to": "2027-12-31"
+      },
+      {
+        "evidence_ids": [
+          "bmv-manual-operativo"
+        ],
+        "from": "2010-01-01",
+        "quality": "PROJECTED",
+        "scope": "EARLY_CLOSES",
+        "to": "2010-12-23"
+      },
+      {
+        "evidence_ids": [],
+        "from": "2010-12-24",
+        "quality": "INCOMPLETE",
+        "scope": "EARLY_CLOSES",
+        "to": "2010-12-24"
+      },
+      {
+        "evidence_ids": [
+          "bmv-manual-operativo"
+        ],
+        "from": "2010-12-25",
+        "quality": "PROJECTED",
+        "scope": "EARLY_CLOSES",
+        "to": "2012-12-23"
+      },
+      {
+        "evidence_ids": [],
+        "from": "2012-12-24",
+        "quality": "INCOMPLETE",
+        "scope": "EARLY_CLOSES",
+        "to": "2012-12-24"
+      },
+      {
+        "evidence_ids": [
+          "bmv-manual-operativo"
+        ],
+        "from": "2012-12-25",
+        "quality": "PROJECTED",
+        "scope": "EARLY_CLOSES",
+        "to": "2013-12-23"
+      },
+      {
+        "evidence_ids": [],
+        "from": "2013-12-24",
+        "quality": "INCOMPLETE",
+        "scope": "EARLY_CLOSES",
+        "to": "2013-12-24"
+      },
+      {
+        "evidence_ids": [
+          "bmv-manual-operativo"
+        ],
+        "from": "2013-12-25",
+        "quality": "PROJECTED",
+        "scope": "EARLY_CLOSES",
+        "to": "2014-12-23"
+      },
+      {
+        "evidence_ids": [],
+        "from": "2014-12-24",
+        "quality": "INCOMPLETE",
+        "scope": "EARLY_CLOSES",
+        "to": "2014-12-24"
+      },
+      {
+        "evidence_ids": [
+          "bmv-manual-operativo"
+        ],
+        "from": "2014-12-25",
+        "quality": "PROJECTED",
+        "scope": "EARLY_CLOSES",
+        "to": "2015-12-23"
+      },
+      {
+        "evidence_ids": [],
+        "from": "2015-12-24",
+        "quality": "INCOMPLETE",
+        "scope": "EARLY_CLOSES",
+        "to": "2015-12-24"
+      },
+      {
+        "evidence_ids": [
+          "bmv-manual-operativo",
+          "bmv-avisos-horario"
+        ],
+        "from": "2015-12-25",
+        "quality": "PROJECTED",
+        "scope": "EARLY_CLOSES",
+        "to": "2018-12-23"
+      },
+      {
+        "evidence_ids": [
+          "fund-compass-2018-12-18"
+        ],
+        "from": "2018-12-24",
+        "quality": "VERIFIED",
+        "scope": "EARLY_CLOSES",
+        "to": "2018-12-24"
+      },
+      {
+        "evidence_ids": [
+          "bmv-manual-operativo",
+          "bmv-avisos-horario",
+          "fund-hours-notices",
+          "fund-compass-2021-12-03",
+          "fund-hsbc-2025-12-09",
+          "press-bloomberglinea-2025-12-30"
+        ],
+        "from": "2018-12-25",
+        "quality": "PROJECTED",
+        "scope": "EARLY_CLOSES",
+        "to": "2027-12-31"
+      },
+      {
+        "evidence_ids": [
+          "bmv-informes-anuales"
+        ],
+        "from": "2010-01-01",
+        "quality": "VERIFIED",
+        "scope": "UNSCHEDULED_EXCEPTIONS",
+        "to": "2012-12-31"
+      },
+      {
+        "evidence_ids": [
+          "bmv-informes-anuales"
+        ],
+        "from": "2013-01-01",
+        "quality": "PROJECTED",
+        "scope": "UNSCHEDULED_EXCEPTIONS",
+        "to": "2013-12-31"
+      },
+      {
+        "evidence_ids": [
+          "bmv-informes-anuales",
+          "press-zetatijuana-2016-02-26",
+          "bmv-press-2017-09-20",
+          "press-elfinanciero-2017-09-19"
+        ],
+        "from": "2014-01-01",
+        "quality": "VERIFIED",
+        "scope": "UNSCHEDULED_EXCEPTIONS",
+        "to": "2017-12-31"
+      },
+      {
+        "evidence_ids": [
+          "press-expansion-2019-09-24",
+          "press-adn40-2020-03-17",
+          "press-elceo-2020-10-09",
+          "press-razon-2020-10-09",
+          "bmv-nota-2023-04-10",
+          "press-expansion-2026-06-29",
+          "press-elceo-2026-03-19"
+        ],
+        "from": "2018-01-01",
+        "quality": "PROJECTED",
+        "scope": "UNSCHEDULED_EXCEPTIONS",
+        "to": "2027-12-31"
+      }
+    ],
+    "to": "2027-12-31",
+    "verified_through": "2026-12-31"
+  },
+  "event_count": 2056,
+  "event_details": [
+    {
+      "close_time": null,
+      "date": "2010-01-01",
+      "description": "A\u00f1o Nuevo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-02-01",
+      "description": "Conmemoraci\u00f3n del 5 de febrero",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_constitution_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_constitution_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-03-15",
+      "description": "Conmemoraci\u00f3n del 21 de marzo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_benito_juarez_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_benito_juarez_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-04-01",
+      "description": "Jueves Santo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_maundy_thursday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_holy_week",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-04-02",
+      "description": "Viernes Santo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_holy_week",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-05-01",
+      "description": "D\u00eda del Trabajo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_labour_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_labour_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-09-16",
+      "description": "D\u00eda de la Independencia",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_independence_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_independence_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-09-17",
+      "description": "Bicentenario de la Independencia",
+      "evidence_ids": [
+        "cnbv-resolucion-2010-09"
+      ],
+      "key": "mx_bicentennial_2010",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_bmv_one_off_closures",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-11-02",
+      "description": "D\u00eda de Muertos",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_day_of_the_dead",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_day_of_the_dead",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-11-15",
+      "description": "Conmemoraci\u00f3n del 20 de noviembre",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_revolution_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_revolution_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-12-12",
+      "description": "D\u00eda del Empleado Bancario",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_bank_employees_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_bank_employees_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2010-12-25",
+      "description": "Navidad",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-01-01",
+      "description": "A\u00f1o Nuevo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-02-07",
+      "description": "Conmemoraci\u00f3n del 5 de febrero",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_constitution_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_constitution_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-03-21",
+      "description": "Conmemoraci\u00f3n del 21 de marzo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_benito_juarez_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_benito_juarez_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-04-21",
+      "description": "Jueves Santo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_maundy_thursday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_holy_week",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-04-22",
+      "description": "Viernes Santo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_holy_week",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-05-01",
+      "description": "D\u00eda del Trabajo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_labour_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_labour_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-09-16",
+      "description": "D\u00eda de la Independencia",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_independence_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_independence_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-11-02",
+      "description": "D\u00eda de Muertos",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_day_of_the_dead",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_day_of_the_dead",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-11-21",
+      "description": "Conmemoraci\u00f3n del 20 de noviembre",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_revolution_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_revolution_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-12-12",
+      "description": "D\u00eda del Empleado Bancario",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_bank_employees_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_bank_employees_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2011-12-25",
+      "description": "Navidad",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-01-01",
+      "description": "A\u00f1o Nuevo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-02-06",
+      "description": "Conmemoraci\u00f3n del 5 de febrero",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_constitution_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_constitution_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-03-19",
+      "description": "Conmemoraci\u00f3n del 21 de marzo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_benito_juarez_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_benito_juarez_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-04-05",
+      "description": "Jueves Santo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_maundy_thursday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_holy_week",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-04-06",
+      "description": "Viernes Santo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_holy_week",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-05-01",
+      "description": "D\u00eda del Trabajo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_labour_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_labour_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-09-16",
+      "description": "D\u00eda de la Independencia",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_independence_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_independence_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-11-02",
+      "description": "D\u00eda de Muertos",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_day_of_the_dead",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_day_of_the_dead",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-11-19",
+      "description": "Conmemoraci\u00f3n del 20 de noviembre",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_revolution_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_revolution_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-12-12",
+      "description": "D\u00eda del Empleado Bancario",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_bank_employees_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_bank_employees_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2012-12-25",
+      "description": "Navidad",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-01-01",
+      "description": "A\u00f1o Nuevo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-02-04",
+      "description": "Conmemoraci\u00f3n del 5 de febrero",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_constitution_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_constitution_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-03-18",
+      "description": "Conmemoraci\u00f3n del 21 de marzo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_benito_juarez_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_benito_juarez_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-03-28",
+      "description": "Jueves Santo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_maundy_thursday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_holy_week",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-03-29",
+      "description": "Viernes Santo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_holy_week",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-05-01",
+      "description": "D\u00eda del Trabajo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_labour_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_labour_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-09-16",
+      "description": "D\u00eda de la Independencia",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_independence_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_independence_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-11-02",
+      "description": "D\u00eda de Muertos",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_day_of_the_dead",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_day_of_the_dead",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-11-18",
+      "description": "Conmemoraci\u00f3n del 20 de noviembre",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_revolution_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_revolution_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-12-12",
+      "description": "D\u00eda del Empleado Bancario",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_bank_employees_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_bank_employees_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2013-12-25",
+      "description": "Navidad",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-01-01",
+      "description": "A\u00f1o Nuevo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-02-03",
+      "description": "Conmemoraci\u00f3n del 5 de febrero",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_constitution_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_constitution_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-03-17",
+      "description": "Conmemoraci\u00f3n del 21 de marzo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_benito_juarez_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_benito_juarez_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-04-17",
+      "description": "Jueves Santo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_maundy_thursday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_holy_week",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-04-18",
+      "description": "Viernes Santo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_holy_week",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-05-01",
+      "description": "D\u00eda del Trabajo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_labour_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_labour_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-09-16",
+      "description": "D\u00eda de la Independencia",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_independence_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_independence_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-11-02",
+      "description": "D\u00eda de Muertos",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_day_of_the_dead",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_day_of_the_dead",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-11-17",
+      "description": "Conmemoraci\u00f3n del 20 de noviembre",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_revolution_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_revolution_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-12-12",
+      "description": "D\u00eda del Empleado Bancario",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_bank_employees_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_bank_employees_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2014-12-25",
+      "description": "Navidad",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-01-01",
+      "description": "A\u00f1o Nuevo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-02-02",
+      "description": "Conmemoraci\u00f3n del 5 de febrero",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_constitution_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_constitution_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-03-16",
+      "description": "Conmemoraci\u00f3n del 21 de marzo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_benito_juarez_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_benito_juarez_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-04-02",
+      "description": "Jueves Santo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_maundy_thursday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_holy_week",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-04-03",
+      "description": "Viernes Santo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_holy_week",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-05-01",
+      "description": "D\u00eda del Trabajo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_labour_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_labour_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-09-16",
+      "description": "D\u00eda de la Independencia",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_independence_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_independence_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-11-02",
+      "description": "D\u00eda de Muertos",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_day_of_the_dead",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_day_of_the_dead",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-11-16",
+      "description": "Conmemoraci\u00f3n del 20 de noviembre",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_revolution_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_revolution_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-12-12",
+      "description": "D\u00eda del Empleado Bancario",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_bank_employees_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_bank_employees_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2015-12-25",
+      "description": "Navidad",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-01-01",
+      "description": "A\u00f1o Nuevo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-02-01",
+      "description": "Conmemoraci\u00f3n del 5 de febrero",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_constitution_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_constitution_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-03-21",
+      "description": "Conmemoraci\u00f3n del 21 de marzo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_benito_juarez_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_benito_juarez_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-03-24",
+      "description": "Jueves Santo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_maundy_thursday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_holy_week",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-03-25",
+      "description": "Viernes Santo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_holy_week",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-05-01",
+      "description": "D\u00eda del Trabajo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_labour_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_labour_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-09-16",
+      "description": "D\u00eda de la Independencia",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_independence_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_independence_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-11-02",
+      "description": "D\u00eda de Muertos",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_day_of_the_dead",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_day_of_the_dead",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-11-21",
+      "description": "Conmemoraci\u00f3n del 20 de noviembre",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_revolution_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_revolution_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-12-12",
+      "description": "D\u00eda del Empleado Bancario",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_bank_employees_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_bank_employees_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2016-12-25",
+      "description": "Navidad",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-01-01",
+      "description": "A\u00f1o Nuevo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-02-06",
+      "description": "Conmemoraci\u00f3n del 5 de febrero",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_constitution_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_constitution_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-03-20",
+      "description": "Conmemoraci\u00f3n del 21 de marzo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_benito_juarez_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_benito_juarez_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-04-13",
+      "description": "Jueves Santo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_maundy_thursday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_holy_week",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-04-14",
+      "description": "Viernes Santo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_holy_week",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-05-01",
+      "description": "D\u00eda del Trabajo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_labour_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_labour_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-09-16",
+      "description": "D\u00eda de la Independencia",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_independence_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_independence_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "13:43",
+      "date": "2017-09-19",
+      "description": "Receso administrativo (sismo) (earthquake at 13:14; administrative recess from 13:43 to the close)",
+      "evidence_ids": [
+        "bmv-press-2017-09-20"
+      ],
+      "key": "mx_bmv_earthquake_recess_2017",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_bmv_unscheduled_exceptions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2017-11-02",
+      "description": "D\u00eda de Muertos",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_day_of_the_dead",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_day_of_the_dead",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-11-20",
+      "description": "Conmemoraci\u00f3n del 20 de noviembre",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_revolution_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_revolution_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-12-12",
+      "description": "D\u00eda del Empleado Bancario",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_bank_employees_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_bank_employees_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2017-12-25",
+      "description": "Navidad",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-01-01",
+      "description": "A\u00f1o Nuevo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-02-05",
+      "description": "Conmemoraci\u00f3n del 5 de febrero",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_constitution_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_constitution_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-03-19",
+      "description": "Conmemoraci\u00f3n del 21 de marzo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_benito_juarez_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_benito_juarez_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-03-29",
+      "description": "Jueves Santo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_maundy_thursday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_holy_week",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-03-30",
+      "description": "Viernes Santo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_holy_week",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-05-01",
+      "description": "D\u00eda del Trabajo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_labour_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_labour_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-09-16",
+      "description": "D\u00eda de la Independencia",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_independence_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_independence_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-11-02",
+      "description": "D\u00eda de Muertos",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_day_of_the_dead",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_day_of_the_dead",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-11-19",
+      "description": "Conmemoraci\u00f3n del 20 de noviembre",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_revolution_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_revolution_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2018-12-12",
+      "description": "D\u00eda del Empleado Bancario",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_bank_employees_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_bank_employees_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2018-12-24",
+      "description": "V\u00edspera de Navidad (sesi\u00f3n reducida)",
+      "evidence_ids": [
+        "fund-compass-2018-12-18",
+        "fund-hsbc-2025-12-09"
+      ],
+      "key": "mx_bmv_christmas_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_bmv_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2018-12-25",
+      "description": "Navidad",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-01-01",
+      "description": "A\u00f1o Nuevo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-02-04",
+      "description": "Conmemoraci\u00f3n del 5 de febrero",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_constitution_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_constitution_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-03-18",
+      "description": "Conmemoraci\u00f3n del 21 de marzo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_benito_juarez_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_benito_juarez_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-04-18",
+      "description": "Jueves Santo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_maundy_thursday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_holy_week",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-04-19",
+      "description": "Viernes Santo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_holy_week",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-05-01",
+      "description": "D\u00eda del Trabajo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_labour_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_labour_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-09-16",
+      "description": "D\u00eda de la Independencia",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_independence_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_independence_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-11-02",
+      "description": "D\u00eda de Muertos",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_day_of_the_dead",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_day_of_the_dead",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-11-18",
+      "description": "Conmemoraci\u00f3n del 20 de noviembre",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_revolution_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_revolution_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2019-12-12",
+      "description": "D\u00eda del Empleado Bancario",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_bank_employees_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_bank_employees_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2019-12-24",
+      "description": "V\u00edspera de Navidad (sesi\u00f3n reducida)",
+      "evidence_ids": [
+        "fund-compass-2018-12-18",
+        "fund-hsbc-2025-12-09"
+      ],
+      "key": "mx_bmv_christmas_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_bmv_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2019-12-25",
+      "description": "Navidad",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-01-01",
+      "description": "A\u00f1o Nuevo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-02-03",
+      "description": "Conmemoraci\u00f3n del 5 de febrero",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_constitution_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_constitution_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-03-16",
+      "description": "Conmemoraci\u00f3n del 21 de marzo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_benito_juarez_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_benito_juarez_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-04-09",
+      "description": "Jueves Santo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_maundy_thursday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_holy_week",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-04-10",
+      "description": "Viernes Santo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_holy_week",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-05-01",
+      "description": "D\u00eda del Trabajo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_labour_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_labour_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-09-16",
+      "description": "D\u00eda de la Independencia",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_independence_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_independence_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "11:56",
+      "date": "2020-10-09",
+      "description": "Suspensi\u00f3n de la Sesi\u00f3n de Remate (falla del motor de negociaci\u00f3n) (trading-engine disconnection at 11:56; the session was not resumed)",
+      "evidence_ids": [
+        "press-elceo-2020-10-09"
+      ],
+      "key": "mx_bmv_trading_engine_failure_2020",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_bmv_unscheduled_exceptions",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2020-11-02",
+      "description": "D\u00eda de Muertos",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_day_of_the_dead",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_day_of_the_dead",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-11-16",
+      "description": "Conmemoraci\u00f3n del 20 de noviembre",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_revolution_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_revolution_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2020-12-12",
+      "description": "D\u00eda del Empleado Bancario",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_bank_employees_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_bank_employees_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2020-12-24",
+      "description": "V\u00edspera de Navidad (sesi\u00f3n reducida)",
+      "evidence_ids": [
+        "fund-compass-2018-12-18",
+        "fund-hsbc-2025-12-09"
+      ],
+      "key": "mx_bmv_christmas_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_bmv_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2020-12-25",
+      "description": "Navidad",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-01-01",
+      "description": "A\u00f1o Nuevo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-02-01",
+      "description": "Conmemoraci\u00f3n del 5 de febrero",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_constitution_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_constitution_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-03-15",
+      "description": "Conmemoraci\u00f3n del 21 de marzo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_benito_juarez_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_benito_juarez_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-04-01",
+      "description": "Jueves Santo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_maundy_thursday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_holy_week",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-04-02",
+      "description": "Viernes Santo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_holy_week",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-05-01",
+      "description": "D\u00eda del Trabajo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_labour_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_labour_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-09-16",
+      "description": "D\u00eda de la Independencia",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_independence_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_independence_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-11-02",
+      "description": "D\u00eda de Muertos",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_day_of_the_dead",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_day_of_the_dead",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-11-15",
+      "description": "Conmemoraci\u00f3n del 20 de noviembre",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_revolution_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_revolution_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2021-12-12",
+      "description": "D\u00eda del Empleado Bancario",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_bank_employees_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_bank_employees_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2021-12-24",
+      "description": "V\u00edspera de Navidad (sesi\u00f3n reducida)",
+      "evidence_ids": [
+        "fund-compass-2018-12-18",
+        "fund-hsbc-2025-12-09"
+      ],
+      "key": "mx_bmv_christmas_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_bmv_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2021-12-25",
+      "description": "Navidad",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-01-01",
+      "description": "A\u00f1o Nuevo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-02-07",
+      "description": "Conmemoraci\u00f3n del 5 de febrero",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_constitution_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_constitution_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-03-21",
+      "description": "Conmemoraci\u00f3n del 21 de marzo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_benito_juarez_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_benito_juarez_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-04-14",
+      "description": "Jueves Santo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_maundy_thursday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_holy_week",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-04-15",
+      "description": "Viernes Santo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_holy_week",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-05-01",
+      "description": "D\u00eda del Trabajo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_labour_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_labour_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-09-16",
+      "description": "D\u00eda de la Independencia",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_independence_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_independence_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-11-02",
+      "description": "D\u00eda de Muertos",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_day_of_the_dead",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_day_of_the_dead",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-11-21",
+      "description": "Conmemoraci\u00f3n del 20 de noviembre",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_revolution_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_revolution_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-12-12",
+      "description": "D\u00eda del Empleado Bancario",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_bank_employees_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_bank_employees_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2022-12-25",
+      "description": "Navidad",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-01-01",
+      "description": "A\u00f1o Nuevo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-02-06",
+      "description": "Conmemoraci\u00f3n del 5 de febrero",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_constitution_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_constitution_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-03-20",
+      "description": "Conmemoraci\u00f3n del 21 de marzo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_benito_juarez_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_benito_juarez_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-04-06",
+      "description": "Jueves Santo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_maundy_thursday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_holy_week",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-04-07",
+      "description": "Viernes Santo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_holy_week",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-05-01",
+      "description": "D\u00eda del Trabajo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_labour_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_labour_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-09-16",
+      "description": "D\u00eda de la Independencia",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_independence_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_independence_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-11-02",
+      "description": "D\u00eda de Muertos",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_day_of_the_dead",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_day_of_the_dead",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-11-20",
+      "description": "Conmemoraci\u00f3n del 20 de noviembre",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_revolution_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_revolution_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-12-12",
+      "description": "D\u00eda del Empleado Bancario",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_bank_employees_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_bank_employees_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2023-12-25",
+      "description": "Navidad",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-01-01",
+      "description": "A\u00f1o Nuevo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-02-05",
+      "description": "Conmemoraci\u00f3n del 5 de febrero",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_constitution_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_constitution_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-03-18",
+      "description": "Conmemoraci\u00f3n del 21 de marzo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_benito_juarez_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_benito_juarez_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-03-28",
+      "description": "Jueves Santo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_maundy_thursday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_holy_week",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-03-29",
+      "description": "Viernes Santo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_holy_week",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-05-01",
+      "description": "D\u00eda del Trabajo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_labour_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_labour_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-09-16",
+      "description": "D\u00eda de la Independencia",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_independence_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_independence_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-10-01",
+      "description": "Transmisi\u00f3n del Poder Ejecutivo Federal",
+      "evidence_ids": [
+        "dof-2023-12-12-dias-2024",
+        "mx-ley-federal-del-trabajo"
+      ],
+      "key": "mx_presidential_inauguration",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_bmv_one_off_closures",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-11-02",
+      "description": "D\u00eda de Muertos",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_day_of_the_dead",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_day_of_the_dead",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-11-18",
+      "description": "Conmemoraci\u00f3n del 20 de noviembre",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_revolution_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_revolution_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2024-12-12",
+      "description": "D\u00eda del Empleado Bancario",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_bank_employees_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_bank_employees_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2024-12-24",
+      "description": "V\u00edspera de Navidad (sesi\u00f3n reducida)",
+      "evidence_ids": [
+        "fund-compass-2018-12-18",
+        "fund-hsbc-2025-12-09"
+      ],
+      "key": "mx_bmv_christmas_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_bmv_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2024-12-25",
+      "description": "Navidad",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-01-01",
+      "description": "A\u00f1o Nuevo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-02-03",
+      "description": "Conmemoraci\u00f3n del 5 de febrero",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_constitution_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_constitution_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-03-17",
+      "description": "Conmemoraci\u00f3n del 21 de marzo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_benito_juarez_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_benito_juarez_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-04-17",
+      "description": "Jueves Santo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_maundy_thursday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_holy_week",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-04-18",
+      "description": "Viernes Santo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_holy_week",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-05-01",
+      "description": "D\u00eda del Trabajo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_labour_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_labour_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-09-16",
+      "description": "D\u00eda de la Independencia",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_independence_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_independence_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-11-02",
+      "description": "D\u00eda de Muertos",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_day_of_the_dead",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_day_of_the_dead",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-11-17",
+      "description": "Conmemoraci\u00f3n del 20 de noviembre",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_revolution_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_revolution_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2025-12-12",
+      "description": "D\u00eda del Empleado Bancario",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_bank_employees_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_bank_employees_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2025-12-24",
+      "description": "V\u00edspera de Navidad (sesi\u00f3n reducida)",
+      "evidence_ids": [
+        "fund-compass-2018-12-18",
+        "fund-hsbc-2025-12-09"
+      ],
+      "key": "mx_bmv_christmas_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_bmv_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2025-12-25",
+      "description": "Navidad",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-01-01",
+      "description": "A\u00f1o Nuevo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-02-02",
+      "description": "Conmemoraci\u00f3n del 5 de febrero",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_constitution_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_constitution_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-03-16",
+      "description": "Conmemoraci\u00f3n del 21 de marzo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_benito_juarez_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_benito_juarez_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-04-02",
+      "description": "Jueves Santo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_maundy_thursday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_holy_week",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-04-03",
+      "description": "Viernes Santo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_holy_week",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-05-01",
+      "description": "D\u00eda del Trabajo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_labour_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_labour_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-09-16",
+      "description": "D\u00eda de la Independencia",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_independence_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_independence_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-11-02",
+      "description": "D\u00eda de Muertos",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_day_of_the_dead",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_day_of_the_dead",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-11-16",
+      "description": "Conmemoraci\u00f3n del 20 de noviembre",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_revolution_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_revolution_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2026-12-12",
+      "description": "D\u00eda del Empleado Bancario",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_bank_employees_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_bank_employees_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2026-12-24",
+      "description": "V\u00edspera de Navidad (sesi\u00f3n reducida)",
+      "evidence_ids": [
+        "fund-compass-2018-12-18",
+        "fund-hsbc-2025-12-09"
+      ],
+      "key": "mx_bmv_christmas_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_bmv_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2026-12-25",
+      "description": "Navidad",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-01-01",
+      "description": "A\u00f1o Nuevo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_new_years_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_new_years_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-02-01",
+      "description": "Conmemoraci\u00f3n del 5 de febrero",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_constitution_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_constitution_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-03-15",
+      "description": "Conmemoraci\u00f3n del 21 de marzo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_benito_juarez_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_benito_juarez_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-03-25",
+      "description": "Jueves Santo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_maundy_thursday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_holy_week",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-03-26",
+      "description": "Viernes Santo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_good_friday",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_holy_week",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-05-01",
+      "description": "D\u00eda del Trabajo",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_labour_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_labour_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-09-16",
+      "description": "D\u00eda de la Independencia",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_independence_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_independence_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-11-02",
+      "description": "D\u00eda de Muertos",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_day_of_the_dead",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_day_of_the_dead",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-11-15",
+      "description": "Conmemoraci\u00f3n del 20 de noviembre",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_revolution_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_revolution_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": null,
+      "date": "2027-12-12",
+      "description": "D\u00eda del Empleado Bancario",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_bank_employees_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_bank_employees_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    },
+    {
+      "close_time": "12:00",
+      "date": "2027-12-24",
+      "description": "V\u00edspera de Navidad (sesi\u00f3n reducida)",
+      "evidence_ids": [
+        "fund-compass-2018-12-18",
+        "fund-hsbc-2025-12-09"
+      ],
+      "key": "mx_bmv_christmas_eve_early_close",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_bmv_early_closes",
+      "status": "CONFIRMED",
+      "type": "EARLY_CLOSE"
+    },
+    {
+      "close_time": null,
+      "date": "2027-12-25",
+      "description": "Navidad",
+      "evidence_ids": [
+        "cnbv-dias-inhabiles"
+      ],
+      "key": "mx_christmas_day",
+      "observation_lineage": [],
+      "observed_from": null,
+      "source_module": "module:mx_christmas_day",
+      "status": "CONFIRMED",
+      "type": "CLOSED"
+    }
+  ],
+  "generated_at": "2026-10-14T14:07:08Z",
+  "kind": "market",
+  "mic": "XMEX",
+  "range_end": "2027-12-31",
+  "range_start": "2010-01-01",
+  "resolution_chain": [
+    "module:weekend_sat_sun",
+    "module:mx_new_years_day",
+    "module:mx_constitution_day",
+    "module:mx_benito_juarez_day",
+    "module:mx_holy_week",
+    "module:mx_labour_day",
+    "module:mx_independence_day",
+    "module:mx_day_of_the_dead",
+    "module:mx_revolution_day",
+    "module:mx_bank_employees_day",
+    "module:mx_christmas_day",
+    "module:mx_bmv_one_off_closures",
+    "module:mx_bmv_early_closes",
+    "module:mx_bmv_unscheduled_exceptions",
+    "module:mx_bmv_holidays",
+    "calendar:MX-BMV"
+  ],
+  "source_version": {
+    "git_sha": "74d854cdbdfa9f622720d205ef9e999d23f008eb",
+    "semantic": "13.0.0"
+  },
+  "timezone": "America/Mexico_City",
+  "weekend_policy": {
+    "days": [
+      "SATURDAY",
+      "SUNDAY"
+    ],
+    "periods": []
+  }
+}

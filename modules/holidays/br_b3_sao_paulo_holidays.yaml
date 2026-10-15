@@ -1,0 +1,44 @@
+kind: module
+id: br_b3_sao_paulo_holidays
+
+# São Paulo's municipal and state holidays, which closed the exchange through the 2021 calendar
+# and not since: the city's anniversary (25 January, Lei municipal 7.008/1967) and the state's
+# Constitutionalist Revolution Day (9 July, Lei estadual 9.497/1997). The exchange announced on
+# 18 November 2020 (OC 150/2020-PRE) that from the 2022 calendar "haverá (i) negociação nos
+# mercados de renda variável" on São Paulo holidays (b3-ce-109-2021, b3-oc-054-2025 §2). 9 July 2020
+# is excluded: the state moved the holiday to 25 May 2020 and the exchange traded on 9 July
+# (OC 072/2020-PRE). 20 November is in br_consciencia_negra.
+# Source: b3-calendars, br-lei-sp-9497-1997, br-lei-sp-13707-2004.
+
+source:
+  - id: b3-calendars
+
+event_sources:
+  - key: br_b3_sao_paulo_anniversary
+    name: Aniversário de São Paulo (municipal holiday)
+    default_classification: CLOSED
+    shift_policy: NONE
+    active_years:
+      - [2010, 2021]
+    source:
+      - id: br-lei-sp-13707-2004
+    rule:
+      type: fixed_month_day
+      month: 1
+      day: 25
+
+  - key: br_b3_revolucao_constitucionalista
+    name: Revolução Constitucionalista (São Paulo state holiday)
+    default_classification: CLOSED
+    shift_policy: NONE
+    active_years:
+      - [2010, 2019]
+      - [2021, 2021]
+    source:
+      - id: br-lei-sp-9497-1997
+      - id: b3-oc-072-2020
+        ref: "09/07/20: as atividades de negociação, liquidação, registro e depósito centralizado de ativos funcionarão normalmente."
+    rule:
+      type: fixed_month_day
+      month: 7
+      day: 9

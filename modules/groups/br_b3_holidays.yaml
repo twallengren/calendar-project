@@ -1,0 +1,23 @@
+kind: module
+id: br_b3_holidays
+
+# B3 (São Paulo) listed-market non-trading days: the national holidays, the Carnival and Corpus
+# Christi 'pontos facultativos', Christmas Eve and the last business day of the year, São Paulo's
+# municipal and state holidays through 2021, Black Consciousness Day (municipal through 2019,
+# national from 2024) and the 2014 World Cup opening day.
+
+uses:
+  - br_new_years_day
+  - br_b3_sao_paulo_holidays
+  - br_b3_easter_holidays
+  - br_tiradentes
+  - br_labour_day
+  - br_independence_day
+  - br_nossa_senhora_aparecida
+  - br_finados
+  - br_republic_day
+  - br_consciencia_negra
+  - br_b3_christmas_eve
+  - br_christmas_day
+  - br_b3_year_end_closure
+  - br_b3_one_off_closures

@@ -1,0 +1,57 @@
+kind: module
+id: br_b3_easter_holidays
+
+# The Easter-relative closures: Carnival Monday and Tuesday (federal 'pontos facultativos' the
+# exchange lists as "Carnaval (facultativos)" every year), Good Friday (Paixão de Cristo) and
+# Corpus Christi (listed every year 2010-2026, kept closed on 11 June 2020 even after the city moved
+# its holiday, OC 068/2020-PRE). Ash Wednesday is a 13:00 late open every year (session structure,
+# not a closure; see sources/BR-B3/README.md).
+# Source: b3-calendars, br-portaria-mgi-11460-2025.
+
+source:
+  - id: b3-calendars
+
+references:
+  - key: easter
+    formula: EASTER_WESTERN
+
+event_sources:
+  - key: br_carnival_monday
+    name: Carnaval
+    default_classification: CLOSED
+    rule:
+      type: relative_to_reference
+      key: br_carnival_monday
+      name: Carnaval
+      reference: easter
+      offset_days: -48
+
+  - key: br_carnival_tuesday
+    name: Carnaval
+    default_classification: CLOSED
+    rule:
+      type: relative_to_reference
+      key: br_carnival_tuesday
+      name: Carnaval
+      reference: easter
+      offset_days: -47
+
+  - key: br_good_friday
+    name: Paixão de Cristo
+    default_classification: CLOSED
+    rule:
+      type: relative_to_reference
+      key: br_good_friday
+      name: Paixão de Cristo
+      reference: easter
+      offset_days: -2
+
+  - key: br_corpus_christi
+    name: Corpus Christi
+    default_classification: CLOSED
+    rule:
+      type: relative_to_reference
+      key: br_corpus_christi
+      name: Corpus Christi
+      reference: easter
+      offset_days: 60
