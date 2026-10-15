@@ -8,8 +8,9 @@ They record, per calendar:
 * every non-weekend event in the published artifact, field for field;
 * a deterministic, evenly spaced sample of ~1000 dates across the covered range
   (for every bundled calendar), each with the business-day test,
-  next/previous/nth navigation, status, close time, a 31-day business-day count
-  and the full event list for that date — weekend rows included, which is what
+  next/previous/nth navigation, status, close time, the trading-day test and
+  special sessions (fixture schema 3), a 31-day business-day count and the
+  full event list for that date — weekend rows included, which is what
   makes the weekend reconstruction testable;
 * enriched assessments and typed coverage failures, including the exact date where traversal stopped.
 
@@ -28,6 +29,7 @@ import pytest
 import bdc_calendars as bdc
 
 FIXTURE_DIR = os.path.join(os.path.dirname(__file__), "fixtures")
+FIXTURE_SCHEMA = 3
 CALENDARS = sorted(name[7:-5] for name in os.listdir(FIXTURE_DIR) if name.startswith("parity_") and name.endswith(".json"))
 
 
@@ -44,7 +46,7 @@ def pair(request):
 
 
 def _event_tuple(event) -> list:
-    return [
+    row = [
         event.date.isoformat(),
         event.type,
         event.description,
@@ -54,6 +56,10 @@ def _event_tuple(event) -> list:
         _time(event.close_time),
         event.status,
     ]
+    # The fixture appends open_time only on SPECIAL_SESSION rows; others keep 8 fields.
+    if event.open_time is not None:
+        row.append(_time(event.open_time))
+    return row
 
 
 def _time(value):
@@ -68,7 +74,29 @@ def _fixture_event(row: list) -> list:
     row = list(row)
     if row[6]:
         row[6] = _time(row[6])
+    if len(row) > 8:
+        row[8] = _time(row[8])
     return row
+
+
+def _sessions(calendar, day):
+    return [
+        {
+            "calendar_id": session.calendar_id,
+            "timezone": session.timezone,
+            "open_time": _time(session.open_time),
+            "close_time": _time(session.close_time),
+            "key": session.key,
+            "description": session.description,
+            "status": session.status,
+        }
+        for session in calendar.special_sessions(day)
+    ]
+
+
+def test_fixture_schema(pair):
+    _calendar, fixture = pair
+    assert fixture["fixture_schema"] == FIXTURE_SCHEMA
 
 
 def test_identity_and_bounds(pair):
@@ -108,6 +136,8 @@ def test_sampled_queries_match(pair):
 
         expected_close = case["c"] if isinstance(case["c"], dict) else _time(case["c"])
         _assert_query(lambda: _time(calendar.close_time(day)), expected_close, day)
+        _assert_query(lambda: calendar.is_trading_day(day), case["td"], day)
+        _assert_query(lambda: _sessions(calendar, day), case["ss"], day)
         if "assessment" in case:
             from bdc_calendars.mcp.server import _assessment_dict
             actual = _assessment_dict(calendar.assessment(day))

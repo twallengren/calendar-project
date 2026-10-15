@@ -19,12 +19,13 @@ import java.util.List;
  * @param shiftPolicy per-event weekend shift policy; null inherits the calendar policy when {@code
  *     shiftable}, otherwise NONE
  * @param onlyIfWeekday if set, occurrences are dropped unless they fall on one of these weekdays
- * @param closeTime local close time for EARLY_CLOSE events (e.g. 13:00)
+ * @param closeTime local close time for EARLY_CLOSE and SPECIAL_SESSION events (e.g. 13:00)
  * @param status CONFIRMED (announced by an authority) or PROJECTED (computed, may change)
  * @param source structured citations for the authoritative source of this event
  * @param displaces keys of CLOSED event sources this event outranks: when this event shifts onto a
  *     weekday slot already held only by events with these keys, it takes the slot and they
  *     re-cascade forward. Empty means no displacement.
+ * @param openTime local open time for SPECIAL_SESSION events (e.g. 18:15)
  */
 public record EventSource(
     String key,
@@ -40,7 +41,9 @@ public record EventSource(
         LocalTime closeTime,
     EventStatus status,
     @JsonDeserialize(using = SourceListDeserializer.class) List<SourceCitation> source,
-    List<String> displaces) {
+    List<String> displaces,
+    @JsonProperty("open_time") @JsonDeserialize(using = LocalTimeDeserializer.class)
+        LocalTime openTime) {
 
   /** Represents a range of years. If start is null, it means "from inception". */
   public record YearRange(Integer start, Integer end) {
@@ -114,6 +117,37 @@ public record EventSource(
         null,
         null,
         null,
+        null,
+        null);
+  }
+
+  /** Constructor for every event type except SPECIAL_SESSION (no open time). */
+  public EventSource(
+      String key,
+      String name,
+      Rule rule,
+      EventType defaultClassification,
+      Boolean shiftable,
+      List<YearRange> activeYears,
+      WeekendShiftPolicy shiftPolicy,
+      List<DayOfWeek> onlyIfWeekday,
+      LocalTime closeTime,
+      EventStatus status,
+      List<SourceCitation> source,
+      List<String> displaces) {
+    this(
+        key,
+        name,
+        rule,
+        defaultClassification,
+        shiftable,
+        activeYears,
+        shiftPolicy,
+        onlyIfWeekday,
+        closeTime,
+        status,
+        source,
+        displaces,
         null);
   }
 
@@ -143,6 +177,24 @@ public record EventSource(
         status,
         source,
         null);
+  }
+
+  /** A copy of this event source citing {@code citations}. */
+  public EventSource withSource(List<SourceCitation> citations) {
+    return new EventSource(
+        key,
+        name,
+        rule,
+        defaultClassification,
+        shiftable,
+        activeYears,
+        shiftPolicy,
+        onlyIfWeekday,
+        closeTime,
+        status,
+        citations,
+        displaces,
+        openTime);
   }
 
   /** Check if this event source is active on a given date. */

@@ -1,304 +1,304 @@
-date,type,description,key,source_module,observed_from,close_time,status
-2010-01-01,CLOSED,New Year's Day,tw_new_years_day,module:tw_new_years_day,,,CONFIRMED
-2010-02-11,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED
-2010-02-12,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED
-2010-02-15,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2010-02-16,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2010-02-17,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2010-02-18,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2010-02-19,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2010-04-05,CLOSED,Children's Day and Tomb-Sweeping Day,tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED
-2010-06-16,CLOSED,Dragon Boat Festival,tw_dragon_boat_festival,module:tw_dragon_boat_festival,,,CONFIRMED
-2010-09-22,CLOSED,Mid-Autumn Festival,tw_mid_autumn_festival,module:tw_mid_autumn_festival,,,CONFIRMED
-2011-01-31,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED
-2011-02-01,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED
-2011-02-02,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2011-02-03,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2011-02-04,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2011-02-07,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2011-02-28,CLOSED,Peace Memorial Day,tw_peace_memorial_day,module:tw_peace_memorial_day,,,CONFIRMED
-2011-04-04,CLOSED,Children's Day and Tomb-Sweeping Day,tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED
-2011-04-05,CLOSED,Children's Day and Tomb-Sweeping Day,tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED
-2011-05-02,CLOSED,Labour Day (banking-industry substitute for Sunday 1 May),tw_labour_day,module:tw_labour_day,,,CONFIRMED
-2011-06-06,CLOSED,Dragon Boat Festival,tw_dragon_boat_festival,module:tw_dragon_boat_festival,,,CONFIRMED
-2011-09-12,CLOSED,Mid-Autumn Festival,tw_mid_autumn_festival,module:tw_mid_autumn_festival,,,CONFIRMED
-2011-10-10,CLOSED,National Day,tw_national_day,module:tw_national_day,,,CONFIRMED
-2012-01-19,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED
-2012-01-20,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED
-2012-01-23,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2012-01-24,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2012-01-25,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2012-01-26,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2012-01-27,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2012-02-27,CLOSED,Peace Memorial Day (bridge day),tw_peace_memorial_day,module:tw_peace_memorial_day,,,CONFIRMED
-2012-02-28,CLOSED,Peace Memorial Day,tw_peace_memorial_day,module:tw_peace_memorial_day,,,CONFIRMED
-2012-04-04,CLOSED,Children's Day and Tomb-Sweeping Day,tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED
-2012-05-01,CLOSED,Labour Day,tw_labour_day,module:tw_labour_day,,,CONFIRMED
-2012-08-02,CLOSED,Typhoon Closure (Typhoon Saola),tw_twse_typhoon_closures,module:tw_twse_typhoon_closures,,,CONFIRMED
-2012-10-10,CLOSED,National Day,tw_national_day,module:tw_national_day,,,CONFIRMED
-2012-12-31,CLOSED,"Bridge Day (year end) (bridge day, made up on Saturday 22 December 2012)",tw_twse_bridge_days_year_end,module:tw_twse_bridge_days_year_end,,,CONFIRMED
-2013-01-01,CLOSED,New Year's Day,tw_new_years_day,module:tw_new_years_day,,,CONFIRMED
-2013-02-07,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED
-2013-02-08,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED
-2013-02-11,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2013-02-12,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2013-02-13,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2013-02-14,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2013-02-15,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2013-02-28,CLOSED,Peace Memorial Day,tw_peace_memorial_day,module:tw_peace_memorial_day,,,CONFIRMED
-2013-04-04,CLOSED,Children's Day and Tomb-Sweeping Day,tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED
-2013-04-05,CLOSED,"Children's Day and Tomb-Sweeping Day (the two holidays coincided on a Thursday, so the following day was added)",tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED
-2013-05-01,CLOSED,Labour Day,tw_labour_day,module:tw_labour_day,,,CONFIRMED
-2013-06-12,CLOSED,Dragon Boat Festival,tw_dragon_boat_festival,module:tw_dragon_boat_festival,,,CONFIRMED
-2013-08-21,CLOSED,Typhoon Closure (Typhoon Trami),tw_twse_typhoon_closures,module:tw_twse_typhoon_closures,,,CONFIRMED
-2013-09-19,CLOSED,Mid-Autumn Festival,tw_mid_autumn_festival,module:tw_mid_autumn_festival,,,CONFIRMED
-2013-09-20,CLOSED,Mid-Autumn Festival (bridge day),tw_mid_autumn_festival,module:tw_mid_autumn_festival,,,CONFIRMED
-2013-10-10,CLOSED,National Day,tw_national_day,module:tw_national_day,,,CONFIRMED
-2014-01-01,CLOSED,New Year's Day,tw_new_years_day,module:tw_new_years_day,,,CONFIRMED
-2014-01-28,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED
-2014-01-29,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED
-2014-01-30,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2014-01-31,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2014-02-03,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2014-02-04,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2014-02-28,CLOSED,Peace Memorial Day,tw_peace_memorial_day,module:tw_peace_memorial_day,,,CONFIRMED
-2014-04-04,CLOSED,Children's Day and Tomb-Sweeping Day,tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED
-2014-05-01,CLOSED,Labour Day,tw_labour_day,module:tw_labour_day,,,CONFIRMED
-2014-06-02,CLOSED,Dragon Boat Festival,tw_dragon_boat_festival,module:tw_dragon_boat_festival,,,CONFIRMED
-2014-07-23,CLOSED,Typhoon Closure (Typhoon Matmo),tw_twse_typhoon_closures,module:tw_twse_typhoon_closures,,,CONFIRMED
-2014-09-08,CLOSED,Mid-Autumn Festival,tw_mid_autumn_festival,module:tw_mid_autumn_festival,,,CONFIRMED
-2014-10-10,CLOSED,National Day,tw_national_day,module:tw_national_day,,,CONFIRMED
-2015-01-01,CLOSED,New Year's Day,tw_new_years_day,module:tw_new_years_day,,,CONFIRMED
-2015-01-02,CLOSED,"New Year's Day (bridge day, made up on Saturday 27 December 2014)",tw_new_years_day,module:tw_new_years_day,,,CONFIRMED
-2015-02-16,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED
-2015-02-17,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED
-2015-02-18,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2015-02-19,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2015-02-20,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2015-02-23,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2015-02-27,CLOSED,Peace Memorial Day (substitute for Saturday 28 February),tw_peace_memorial_day,module:tw_peace_memorial_day,,,CONFIRMED
-2015-04-03,CLOSED,Children's Day and Tomb-Sweeping Day (substitute for Saturday 4 April),tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED
-2015-04-06,CLOSED,Children's Day and Tomb-Sweeping Day (substitute for Sunday 5 April),tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED
-2015-05-01,CLOSED,Labour Day,tw_labour_day,module:tw_labour_day,,,CONFIRMED
-2015-06-19,CLOSED,Dragon Boat Festival (substitute for Saturday 20 June),tw_dragon_boat_festival,module:tw_dragon_boat_festival,,,CONFIRMED
-2015-07-10,CLOSED,Typhoon Closure (Typhoon Chan-hom),tw_twse_typhoon_closures,module:tw_twse_typhoon_closures,,,CONFIRMED
-2015-09-28,CLOSED,Mid-Autumn Festival (substitute for Sunday 27 September),tw_mid_autumn_festival,module:tw_mid_autumn_festival,,,CONFIRMED
-2015-09-29,CLOSED,Typhoon Closure (Typhoon Dujuan),tw_twse_typhoon_closures,module:tw_twse_typhoon_closures,,,CONFIRMED
-2015-10-09,CLOSED,National Day (substitute for Saturday 10 October),tw_national_day,module:tw_national_day,,,CONFIRMED
-2016-01-01,CLOSED,New Year's Day,tw_new_years_day,module:tw_new_years_day,,,CONFIRMED
-2016-02-04,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED
-2016-02-05,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED
-2016-02-08,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2016-02-09,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2016-02-10,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2016-02-11,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2016-02-12,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2016-02-29,CLOSED,Peace Memorial Day (substitute for Sunday 28 February),tw_peace_memorial_day,module:tw_peace_memorial_day,,,CONFIRMED
-2016-04-04,CLOSED,Children's Day and Tomb-Sweeping Day,tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED
-2016-04-05,CLOSED,"Children's Day and Tomb-Sweeping Day (the two holidays coincided on a Monday, so the following day was added)",tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED
-2016-05-02,CLOSED,Labour Day (substitute for Sunday 1 May),tw_labour_day,module:tw_labour_day,,,CONFIRMED
-2016-06-09,CLOSED,Dragon Boat Festival,tw_dragon_boat_festival,module:tw_dragon_boat_festival,,,CONFIRMED
-2016-06-10,CLOSED,Dragon Boat Festival (bridge day),tw_dragon_boat_festival,module:tw_dragon_boat_festival,,,CONFIRMED
-2016-07-08,CLOSED,Typhoon Closure (Typhoon Nepartak),tw_twse_typhoon_closures,module:tw_twse_typhoon_closures,,,CONFIRMED
-2016-09-15,CLOSED,Mid-Autumn Festival,tw_mid_autumn_festival,module:tw_mid_autumn_festival,,,CONFIRMED
-2016-09-16,CLOSED,Mid-Autumn Festival (bridge day),tw_mid_autumn_festival,module:tw_mid_autumn_festival,,,CONFIRMED
-2016-09-27,CLOSED,Typhoon Closure (Typhoon Megi),tw_twse_typhoon_closures,module:tw_twse_typhoon_closures,,,CONFIRMED
-2016-09-28,CLOSED,Typhoon Closure (Typhoon Megi),tw_twse_typhoon_closures,module:tw_twse_typhoon_closures,,,CONFIRMED
-2016-10-10,CLOSED,National Day,tw_national_day,module:tw_national_day,,,CONFIRMED
-2017-01-02,CLOSED,New Year's Day (substitute for Sunday 1 January),tw_new_years_day,module:tw_new_years_day,,,CONFIRMED
-2017-01-25,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED
-2017-01-26,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED
-2017-01-27,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2017-01-30,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2017-01-31,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2017-02-01,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2017-02-27,CLOSED,Peace Memorial Day (bridge day),tw_peace_memorial_day,module:tw_peace_memorial_day,,,CONFIRMED
-2017-02-28,CLOSED,Peace Memorial Day,tw_peace_memorial_day,module:tw_peace_memorial_day,,,CONFIRMED
-2017-04-03,CLOSED,Children's Day and Tomb-Sweeping Day,tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED
-2017-04-04,CLOSED,Children's Day and Tomb-Sweeping Day,tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED
-2017-05-01,CLOSED,Labour Day,tw_labour_day,module:tw_labour_day,,,CONFIRMED
-2017-05-29,CLOSED,Dragon Boat Festival (bridge day),tw_dragon_boat_festival,module:tw_dragon_boat_festival,,,CONFIRMED
-2017-05-30,CLOSED,Dragon Boat Festival,tw_dragon_boat_festival,module:tw_dragon_boat_festival,,,CONFIRMED
-2017-10-04,CLOSED,Mid-Autumn Festival,tw_mid_autumn_festival,module:tw_mid_autumn_festival,,,CONFIRMED
-2017-10-09,CLOSED,National Day (bridge day),tw_national_day,module:tw_national_day,,,CONFIRMED
-2017-10-10,CLOSED,National Day,tw_national_day,module:tw_national_day,,,CONFIRMED
-2018-01-01,CLOSED,New Year's Day,tw_new_years_day,module:tw_new_years_day,,,CONFIRMED
-2018-02-13,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED
-2018-02-14,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED
-2018-02-15,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2018-02-16,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2018-02-19,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2018-02-20,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2018-02-28,CLOSED,Peace Memorial Day,tw_peace_memorial_day,module:tw_peace_memorial_day,,,CONFIRMED
-2018-04-04,CLOSED,Children's Day and Tomb-Sweeping Day,tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED
-2018-04-05,CLOSED,Children's Day and Tomb-Sweeping Day,tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED
-2018-04-06,CLOSED,Children's Day and Tomb-Sweeping Day (bridge day),tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED
-2018-05-01,CLOSED,Labour Day,tw_labour_day,module:tw_labour_day,,,CONFIRMED
-2018-06-18,CLOSED,Dragon Boat Festival,tw_dragon_boat_festival,module:tw_dragon_boat_festival,,,CONFIRMED
-2018-09-24,CLOSED,Mid-Autumn Festival,tw_mid_autumn_festival,module:tw_mid_autumn_festival,,,CONFIRMED
-2018-10-10,CLOSED,National Day,tw_national_day,module:tw_national_day,,,CONFIRMED
-2018-12-31,CLOSED,"Bridge Day (year end) (bridge day, made up on Saturday 22 December 2018)",tw_twse_bridge_days_year_end,module:tw_twse_bridge_days_year_end,,,CONFIRMED
-2019-01-01,CLOSED,New Year's Day,tw_new_years_day,module:tw_new_years_day,,,CONFIRMED
-2019-01-31,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED
-2019-02-01,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED
-2019-02-04,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2019-02-05,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2019-02-06,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2019-02-07,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2019-02-08,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2019-02-28,CLOSED,Peace Memorial Day,tw_peace_memorial_day,module:tw_peace_memorial_day,,,CONFIRMED
-2019-03-01,CLOSED,Peace Memorial Day (bridge day),tw_peace_memorial_day,module:tw_peace_memorial_day,,,CONFIRMED
-2019-04-04,CLOSED,Children's Day and Tomb-Sweeping Day,tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED
-2019-04-05,CLOSED,Children's Day and Tomb-Sweeping Day,tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED
-2019-05-01,CLOSED,Labour Day,tw_labour_day,module:tw_labour_day,,,CONFIRMED
-2019-06-07,CLOSED,Dragon Boat Festival,tw_dragon_boat_festival,module:tw_dragon_boat_festival,,,CONFIRMED
-2019-08-09,CLOSED,Typhoon Closure (Typhoon Lekima),tw_twse_typhoon_closures,module:tw_twse_typhoon_closures,,,CONFIRMED
-2019-09-13,CLOSED,Mid-Autumn Festival,tw_mid_autumn_festival,module:tw_mid_autumn_festival,,,CONFIRMED
-2019-09-30,CLOSED,Typhoon Closure (Typhoon Mitag),tw_twse_typhoon_closures,module:tw_twse_typhoon_closures,,,CONFIRMED
-2019-10-10,CLOSED,National Day,tw_national_day,module:tw_national_day,,,CONFIRMED
-2019-10-11,CLOSED,National Day (bridge day),tw_national_day,module:tw_national_day,,,CONFIRMED
-2020-01-01,CLOSED,New Year's Day,tw_new_years_day,module:tw_new_years_day,,,CONFIRMED
-2020-01-21,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED
-2020-01-22,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED
-2020-01-23,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2020-01-24,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2020-01-27,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2020-01-28,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2020-01-29,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2020-02-28,CLOSED,Peace Memorial Day,tw_peace_memorial_day,module:tw_peace_memorial_day,,,CONFIRMED
-2020-04-02,CLOSED,Children's Day and Tomb-Sweeping Day (substitute for Saturday 4 April (both holidays)),tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED
-2020-04-03,CLOSED,Children's Day and Tomb-Sweeping Day (substitute for Saturday 4 April (both holidays)),tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED
-2020-05-01,CLOSED,Labour Day,tw_labour_day,module:tw_labour_day,,,CONFIRMED
-2020-06-25,CLOSED,Dragon Boat Festival,tw_dragon_boat_festival,module:tw_dragon_boat_festival,,,CONFIRMED
-2020-06-26,CLOSED,Dragon Boat Festival (bridge day),tw_dragon_boat_festival,module:tw_dragon_boat_festival,,,CONFIRMED
-2020-10-01,CLOSED,Mid-Autumn Festival,tw_mid_autumn_festival,module:tw_mid_autumn_festival,,,CONFIRMED
-2020-10-02,CLOSED,Mid-Autumn Festival (bridge day),tw_mid_autumn_festival,module:tw_mid_autumn_festival,,,CONFIRMED
-2020-10-09,CLOSED,National Day (substitute for Saturday 10 October),tw_national_day,module:tw_national_day,,,CONFIRMED
-2021-01-01,CLOSED,New Year's Day,tw_new_years_day,module:tw_new_years_day,,,CONFIRMED
-2021-02-08,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED
-2021-02-09,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED
-2021-02-10,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2021-02-11,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2021-02-12,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2021-02-15,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2021-02-16,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2021-03-01,CLOSED,Peace Memorial Day (substitute for Sunday 28 February),tw_peace_memorial_day,module:tw_peace_memorial_day,,,CONFIRMED
-2021-04-02,CLOSED,Children's Day and Tomb-Sweeping Day (substitute for Sunday 4 April (both holidays)),tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED
-2021-04-05,CLOSED,Children's Day and Tomb-Sweeping Day (substitute for Sunday 4 April (both holidays)),tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED
-2021-04-30,CLOSED,Labour Day (substitute for Saturday 1 May),tw_labour_day,module:tw_labour_day,,,CONFIRMED
-2021-06-14,CLOSED,Dragon Boat Festival,tw_dragon_boat_festival,module:tw_dragon_boat_festival,,,CONFIRMED
-2021-09-20,CLOSED,Mid-Autumn Festival (bridge day),tw_mid_autumn_festival,module:tw_mid_autumn_festival,,,CONFIRMED
-2021-09-21,CLOSED,Mid-Autumn Festival,tw_mid_autumn_festival,module:tw_mid_autumn_festival,,,CONFIRMED
-2021-10-11,CLOSED,National Day (substitute for Sunday 10 October),tw_national_day,module:tw_national_day,,,CONFIRMED
-2021-12-31,CLOSED,New Year's Day (substitute for Saturday 1 January 2022),tw_new_years_day,module:tw_new_years_day,,,CONFIRMED
-2022-01-27,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED
-2022-01-28,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED
-2022-01-31,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2022-02-01,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2022-02-02,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2022-02-03,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2022-02-04,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2022-02-28,CLOSED,Peace Memorial Day,tw_peace_memorial_day,module:tw_peace_memorial_day,,,CONFIRMED
-2022-04-04,CLOSED,Children's Day and Tomb-Sweeping Day,tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED
-2022-04-05,CLOSED,Children's Day and Tomb-Sweeping Day,tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED
-2022-05-02,CLOSED,Labour Day (substitute for Sunday 1 May),tw_labour_day,module:tw_labour_day,,,CONFIRMED
-2022-06-03,CLOSED,Dragon Boat Festival,tw_dragon_boat_festival,module:tw_dragon_boat_festival,,,CONFIRMED
-2022-09-09,CLOSED,Mid-Autumn Festival (substitute for Saturday 10 September),tw_mid_autumn_festival,module:tw_mid_autumn_festival,,,CONFIRMED
-2022-10-10,CLOSED,National Day,tw_national_day,module:tw_national_day,,,CONFIRMED
-2023-01-02,CLOSED,New Year's Day (substitute for Sunday 1 January),tw_new_years_day,module:tw_new_years_day,,,CONFIRMED
-2023-01-18,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED
-2023-01-19,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED
-2023-01-20,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2023-01-23,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2023-01-24,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2023-01-25,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2023-01-26,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2023-01-27,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2023-02-27,CLOSED,Peace Memorial Day (bridge day),tw_peace_memorial_day,module:tw_peace_memorial_day,,,CONFIRMED
-2023-02-28,CLOSED,Peace Memorial Day,tw_peace_memorial_day,module:tw_peace_memorial_day,,,CONFIRMED
-2023-04-03,CLOSED,Children's Day and Tomb-Sweeping Day (bridge day),tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED
-2023-04-04,CLOSED,Children's Day and Tomb-Sweeping Day,tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED
-2023-04-05,CLOSED,Children's Day and Tomb-Sweeping Day,tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED
-2023-05-01,CLOSED,Labour Day,tw_labour_day,module:tw_labour_day,,,CONFIRMED
-2023-06-22,CLOSED,Dragon Boat Festival,tw_dragon_boat_festival,module:tw_dragon_boat_festival,,,CONFIRMED
-2023-06-23,CLOSED,Dragon Boat Festival (bridge day),tw_dragon_boat_festival,module:tw_dragon_boat_festival,,,CONFIRMED
-2023-08-03,CLOSED,Typhoon Closure (Typhoon Khanun),tw_twse_typhoon_closures,module:tw_twse_typhoon_closures,,,CONFIRMED
-2023-09-29,CLOSED,Mid-Autumn Festival,tw_mid_autumn_festival,module:tw_mid_autumn_festival,,,CONFIRMED
-2023-10-09,CLOSED,National Day (bridge day),tw_national_day,module:tw_national_day,,,CONFIRMED
-2023-10-10,CLOSED,National Day,tw_national_day,module:tw_national_day,,,CONFIRMED
-2024-01-01,CLOSED,New Year's Day,tw_new_years_day,module:tw_new_years_day,,,CONFIRMED
-2024-02-06,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED
-2024-02-07,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED
-2024-02-08,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2024-02-09,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2024-02-12,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2024-02-13,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2024-02-14,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2024-02-28,CLOSED,Peace Memorial Day,tw_peace_memorial_day,module:tw_peace_memorial_day,,,CONFIRMED
-2024-04-04,CLOSED,Children's Day and Tomb-Sweeping Day,tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED
-2024-04-05,CLOSED,Children's Day and Tomb-Sweeping Day,tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED
-2024-05-01,CLOSED,Labour Day,tw_labour_day,module:tw_labour_day,,,CONFIRMED
-2024-06-10,CLOSED,Dragon Boat Festival,tw_dragon_boat_festival,module:tw_dragon_boat_festival,,,CONFIRMED
-2024-07-24,CLOSED,Typhoon Closure (Typhoon Gaemi),tw_twse_typhoon_closures,module:tw_twse_typhoon_closures,,,CONFIRMED
-2024-07-25,CLOSED,Typhoon Closure (Typhoon Gaemi),tw_twse_typhoon_closures,module:tw_twse_typhoon_closures,,,CONFIRMED
-2024-09-17,CLOSED,Mid-Autumn Festival,tw_mid_autumn_festival,module:tw_mid_autumn_festival,,,CONFIRMED
-2024-10-02,CLOSED,Typhoon Closure (Typhoon Krathon),tw_twse_typhoon_closures,module:tw_twse_typhoon_closures,,,CONFIRMED
-2024-10-03,CLOSED,Typhoon Closure (Typhoon Krathon),tw_twse_typhoon_closures,module:tw_twse_typhoon_closures,,,CONFIRMED
-2024-10-10,CLOSED,National Day,tw_national_day,module:tw_national_day,,,CONFIRMED
-2024-10-31,CLOSED,Typhoon Closure (Typhoon Kong-rey),tw_twse_typhoon_closures,module:tw_twse_typhoon_closures,,,CONFIRMED
-2025-01-01,CLOSED,New Year's Day,tw_new_years_day,module:tw_new_years_day,,,CONFIRMED
-2025-01-23,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED
-2025-01-24,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED
-2025-01-27,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2025-01-28,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2025-01-29,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2025-01-30,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2025-01-31,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2025-02-28,CLOSED,Peace Memorial Day,tw_peace_memorial_day,module:tw_peace_memorial_day,,,CONFIRMED
-2025-04-03,CLOSED,Children's Day and Tomb-Sweeping Day,tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED
-2025-04-04,CLOSED,Children's Day and Tomb-Sweeping Day,tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED
-2025-05-01,CLOSED,Labour Day,tw_labour_day,module:tw_labour_day,,,CONFIRMED
-2025-05-30,CLOSED,Dragon Boat Festival (substitute for Saturday 31 May),tw_dragon_boat_festival,module:tw_dragon_boat_festival,,,CONFIRMED
-2025-09-29,CLOSED,"National Holidays (2025 Act) (Teachers' Day, substitute for Sunday 28 September)",tw_national_holidays_2025,module:tw_national_holidays_2025,,,CONFIRMED
-2025-10-06,CLOSED,Mid-Autumn Festival,tw_mid_autumn_festival,module:tw_mid_autumn_festival,,,CONFIRMED
-2025-10-10,CLOSED,National Day,tw_national_day,module:tw_national_day,,,CONFIRMED
-2025-10-24,CLOSED,"National Holidays (2025 Act) (Retrocession Day, substitute for Saturday 25 October)",tw_national_holidays_2025,module:tw_national_holidays_2025,,,CONFIRMED
-2025-12-25,CLOSED,National Holidays (2025 Act) (Constitution Day),tw_national_holidays_2025,module:tw_national_holidays_2025,,,CONFIRMED
-2026-01-01,CLOSED,New Year's Day,tw_new_years_day,module:tw_new_years_day,,,CONFIRMED
-2026-02-12,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED
-2026-02-13,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED
-2026-02-16,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2026-02-17,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2026-02-18,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2026-02-19,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2026-02-20,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2026-02-27,CLOSED,Peace Memorial Day (substitute for Saturday 28 February),tw_peace_memorial_day,module:tw_peace_memorial_day,,,CONFIRMED
-2026-04-03,CLOSED,Children's Day and Tomb-Sweeping Day (substitute for Saturday 4 April),tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED
-2026-04-06,CLOSED,Children's Day and Tomb-Sweeping Day (substitute for Sunday 5 April),tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED
-2026-05-01,CLOSED,Labour Day,tw_labour_day,module:tw_labour_day,,,CONFIRMED
-2026-06-19,CLOSED,Dragon Boat Festival,tw_dragon_boat_festival,module:tw_dragon_boat_festival,,,CONFIRMED
-2026-07-10,CLOSED,Typhoon Closure (Typhoon Bavi),tw_twse_typhoon_closures,module:tw_twse_typhoon_closures,,,CONFIRMED
-2026-09-25,CLOSED,Mid-Autumn Festival,tw_mid_autumn_festival,module:tw_mid_autumn_festival,,,CONFIRMED
-2026-09-28,CLOSED,National Holidays (2025 Act) (Teachers' Day),tw_national_holidays_2025,module:tw_national_holidays_2025,,,CONFIRMED
-2026-10-09,CLOSED,National Day (substitute for Saturday 10 October),tw_national_day,module:tw_national_day,,,CONFIRMED
-2026-10-26,CLOSED,"National Holidays (2025 Act) (Retrocession Day, substitute for Sunday 25 October)",tw_national_holidays_2025,module:tw_national_holidays_2025,,,CONFIRMED
-2026-12-25,CLOSED,National Holidays (2025 Act) (Constitution Day),tw_national_holidays_2025,module:tw_national_holidays_2025,,,CONFIRMED
-2027-01-01,CLOSED,New Year's Day,tw_new_years_day,module:tw_new_years_day,,,CONFIRMED
-2027-02-02,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED
-2027-02-03,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED
-2027-02-04,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2027-02-05,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2027-02-08,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2027-02-09,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2027-02-10,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED
-2027-03-01,CLOSED,Peace Memorial Day (substitute for Sunday 28 February (government calendar)),tw_peace_memorial_day,module:tw_peace_memorial_day,,,CONFIRMED
-2027-04-05,CLOSED,Children's Day and Tomb-Sweeping Day (government calendar),tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED
-2027-04-06,CLOSED,Children's Day and Tomb-Sweeping Day (government calendar),tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED
-2027-04-30,CLOSED,Labour Day (substitute for Saturday 1 May (government calendar)),tw_labour_day,module:tw_labour_day,,,CONFIRMED
-2027-06-09,CLOSED,Dragon Boat Festival (government calendar),tw_dragon_boat_festival,module:tw_dragon_boat_festival,,,CONFIRMED
-2027-09-15,CLOSED,Mid-Autumn Festival (government calendar),tw_mid_autumn_festival,module:tw_mid_autumn_festival,,,CONFIRMED
-2027-09-28,CLOSED,National Holidays (2025 Act) (Teachers' Day (government calendar)),tw_national_holidays_2025,module:tw_national_holidays_2025,,,CONFIRMED
-2027-10-11,CLOSED,National Day (substitute for Sunday 10 October (government calendar)),tw_national_day,module:tw_national_day,,,CONFIRMED
-2027-10-25,CLOSED,National Holidays (2025 Act) (Retrocession Day (government calendar)),tw_national_holidays_2025,module:tw_national_holidays_2025,,,CONFIRMED
-2027-12-24,CLOSED,"National Holidays (2025 Act) (Constitution Day, substitute for Saturday 25 December (government calendar))",tw_national_holidays_2025,module:tw_national_holidays_2025,,,CONFIRMED
-2027-12-31,CLOSED,New Year's Day (substitute for Saturday 1 January 2028 (government calendar)),tw_new_years_day,module:tw_new_years_day,,,CONFIRMED
+date,type,description,key,source_module,observed_from,close_time,status,open_time
+2010-01-01,CLOSED,New Year's Day,tw_new_years_day,module:tw_new_years_day,,,CONFIRMED,
+2010-02-11,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED,
+2010-02-12,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED,
+2010-02-15,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2010-02-16,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2010-02-17,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2010-02-18,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2010-02-19,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2010-04-05,CLOSED,Children's Day and Tomb-Sweeping Day,tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED,
+2010-06-16,CLOSED,Dragon Boat Festival,tw_dragon_boat_festival,module:tw_dragon_boat_festival,,,CONFIRMED,
+2010-09-22,CLOSED,Mid-Autumn Festival,tw_mid_autumn_festival,module:tw_mid_autumn_festival,,,CONFIRMED,
+2011-01-31,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED,
+2011-02-01,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED,
+2011-02-02,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2011-02-03,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2011-02-04,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2011-02-07,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2011-02-28,CLOSED,Peace Memorial Day,tw_peace_memorial_day,module:tw_peace_memorial_day,,,CONFIRMED,
+2011-04-04,CLOSED,Children's Day and Tomb-Sweeping Day,tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED,
+2011-04-05,CLOSED,Children's Day and Tomb-Sweeping Day,tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED,
+2011-05-02,CLOSED,Labour Day (banking-industry substitute for Sunday 1 May),tw_labour_day,module:tw_labour_day,,,CONFIRMED,
+2011-06-06,CLOSED,Dragon Boat Festival,tw_dragon_boat_festival,module:tw_dragon_boat_festival,,,CONFIRMED,
+2011-09-12,CLOSED,Mid-Autumn Festival,tw_mid_autumn_festival,module:tw_mid_autumn_festival,,,CONFIRMED,
+2011-10-10,CLOSED,National Day,tw_national_day,module:tw_national_day,,,CONFIRMED,
+2012-01-19,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED,
+2012-01-20,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED,
+2012-01-23,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2012-01-24,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2012-01-25,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2012-01-26,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2012-01-27,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2012-02-27,CLOSED,Peace Memorial Day (bridge day),tw_peace_memorial_day,module:tw_peace_memorial_day,,,CONFIRMED,
+2012-02-28,CLOSED,Peace Memorial Day,tw_peace_memorial_day,module:tw_peace_memorial_day,,,CONFIRMED,
+2012-04-04,CLOSED,Children's Day and Tomb-Sweeping Day,tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED,
+2012-05-01,CLOSED,Labour Day,tw_labour_day,module:tw_labour_day,,,CONFIRMED,
+2012-08-02,CLOSED,Typhoon Closure (Typhoon Saola),tw_twse_typhoon_closures,module:tw_twse_typhoon_closures,,,CONFIRMED,
+2012-10-10,CLOSED,National Day,tw_national_day,module:tw_national_day,,,CONFIRMED,
+2012-12-31,CLOSED,"Bridge Day (year end) (bridge day, made up on Saturday 22 December 2012)",tw_twse_bridge_days_year_end,module:tw_twse_bridge_days_year_end,,,CONFIRMED,
+2013-01-01,CLOSED,New Year's Day,tw_new_years_day,module:tw_new_years_day,,,CONFIRMED,
+2013-02-07,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED,
+2013-02-08,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED,
+2013-02-11,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2013-02-12,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2013-02-13,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2013-02-14,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2013-02-15,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2013-02-28,CLOSED,Peace Memorial Day,tw_peace_memorial_day,module:tw_peace_memorial_day,,,CONFIRMED,
+2013-04-04,CLOSED,Children's Day and Tomb-Sweeping Day,tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED,
+2013-04-05,CLOSED,"Children's Day and Tomb-Sweeping Day (the two holidays coincided on a Thursday, so the following day was added)",tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED,
+2013-05-01,CLOSED,Labour Day,tw_labour_day,module:tw_labour_day,,,CONFIRMED,
+2013-06-12,CLOSED,Dragon Boat Festival,tw_dragon_boat_festival,module:tw_dragon_boat_festival,,,CONFIRMED,
+2013-08-21,CLOSED,Typhoon Closure (Typhoon Trami),tw_twse_typhoon_closures,module:tw_twse_typhoon_closures,,,CONFIRMED,
+2013-09-19,CLOSED,Mid-Autumn Festival,tw_mid_autumn_festival,module:tw_mid_autumn_festival,,,CONFIRMED,
+2013-09-20,CLOSED,Mid-Autumn Festival (bridge day),tw_mid_autumn_festival,module:tw_mid_autumn_festival,,,CONFIRMED,
+2013-10-10,CLOSED,National Day,tw_national_day,module:tw_national_day,,,CONFIRMED,
+2014-01-01,CLOSED,New Year's Day,tw_new_years_day,module:tw_new_years_day,,,CONFIRMED,
+2014-01-28,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED,
+2014-01-29,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED,
+2014-01-30,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2014-01-31,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2014-02-03,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2014-02-04,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2014-02-28,CLOSED,Peace Memorial Day,tw_peace_memorial_day,module:tw_peace_memorial_day,,,CONFIRMED,
+2014-04-04,CLOSED,Children's Day and Tomb-Sweeping Day,tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED,
+2014-05-01,CLOSED,Labour Day,tw_labour_day,module:tw_labour_day,,,CONFIRMED,
+2014-06-02,CLOSED,Dragon Boat Festival,tw_dragon_boat_festival,module:tw_dragon_boat_festival,,,CONFIRMED,
+2014-07-23,CLOSED,Typhoon Closure (Typhoon Matmo),tw_twse_typhoon_closures,module:tw_twse_typhoon_closures,,,CONFIRMED,
+2014-09-08,CLOSED,Mid-Autumn Festival,tw_mid_autumn_festival,module:tw_mid_autumn_festival,,,CONFIRMED,
+2014-10-10,CLOSED,National Day,tw_national_day,module:tw_national_day,,,CONFIRMED,
+2015-01-01,CLOSED,New Year's Day,tw_new_years_day,module:tw_new_years_day,,,CONFIRMED,
+2015-01-02,CLOSED,"New Year's Day (bridge day, made up on Saturday 27 December 2014)",tw_new_years_day,module:tw_new_years_day,,,CONFIRMED,
+2015-02-16,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED,
+2015-02-17,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED,
+2015-02-18,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2015-02-19,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2015-02-20,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2015-02-23,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2015-02-27,CLOSED,Peace Memorial Day (substitute for Saturday 28 February),tw_peace_memorial_day,module:tw_peace_memorial_day,,,CONFIRMED,
+2015-04-03,CLOSED,Children's Day and Tomb-Sweeping Day (substitute for Saturday 4 April),tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED,
+2015-04-06,CLOSED,Children's Day and Tomb-Sweeping Day (substitute for Sunday 5 April),tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED,
+2015-05-01,CLOSED,Labour Day,tw_labour_day,module:tw_labour_day,,,CONFIRMED,
+2015-06-19,CLOSED,Dragon Boat Festival (substitute for Saturday 20 June),tw_dragon_boat_festival,module:tw_dragon_boat_festival,,,CONFIRMED,
+2015-07-10,CLOSED,Typhoon Closure (Typhoon Chan-hom),tw_twse_typhoon_closures,module:tw_twse_typhoon_closures,,,CONFIRMED,
+2015-09-28,CLOSED,Mid-Autumn Festival (substitute for Sunday 27 September),tw_mid_autumn_festival,module:tw_mid_autumn_festival,,,CONFIRMED,
+2015-09-29,CLOSED,Typhoon Closure (Typhoon Dujuan),tw_twse_typhoon_closures,module:tw_twse_typhoon_closures,,,CONFIRMED,
+2015-10-09,CLOSED,National Day (substitute for Saturday 10 October),tw_national_day,module:tw_national_day,,,CONFIRMED,
+2016-01-01,CLOSED,New Year's Day,tw_new_years_day,module:tw_new_years_day,,,CONFIRMED,
+2016-02-04,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED,
+2016-02-05,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED,
+2016-02-08,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2016-02-09,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2016-02-10,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2016-02-11,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2016-02-12,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2016-02-29,CLOSED,Peace Memorial Day (substitute for Sunday 28 February),tw_peace_memorial_day,module:tw_peace_memorial_day,,,CONFIRMED,
+2016-04-04,CLOSED,Children's Day and Tomb-Sweeping Day,tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED,
+2016-04-05,CLOSED,"Children's Day and Tomb-Sweeping Day (the two holidays coincided on a Monday, so the following day was added)",tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED,
+2016-05-02,CLOSED,Labour Day (substitute for Sunday 1 May),tw_labour_day,module:tw_labour_day,,,CONFIRMED,
+2016-06-09,CLOSED,Dragon Boat Festival,tw_dragon_boat_festival,module:tw_dragon_boat_festival,,,CONFIRMED,
+2016-06-10,CLOSED,Dragon Boat Festival (bridge day),tw_dragon_boat_festival,module:tw_dragon_boat_festival,,,CONFIRMED,
+2016-07-08,CLOSED,Typhoon Closure (Typhoon Nepartak),tw_twse_typhoon_closures,module:tw_twse_typhoon_closures,,,CONFIRMED,
+2016-09-15,CLOSED,Mid-Autumn Festival,tw_mid_autumn_festival,module:tw_mid_autumn_festival,,,CONFIRMED,
+2016-09-16,CLOSED,Mid-Autumn Festival (bridge day),tw_mid_autumn_festival,module:tw_mid_autumn_festival,,,CONFIRMED,
+2016-09-27,CLOSED,Typhoon Closure (Typhoon Megi),tw_twse_typhoon_closures,module:tw_twse_typhoon_closures,,,CONFIRMED,
+2016-09-28,CLOSED,Typhoon Closure (Typhoon Megi),tw_twse_typhoon_closures,module:tw_twse_typhoon_closures,,,CONFIRMED,
+2016-10-10,CLOSED,National Day,tw_national_day,module:tw_national_day,,,CONFIRMED,
+2017-01-02,CLOSED,New Year's Day (substitute for Sunday 1 January),tw_new_years_day,module:tw_new_years_day,,,CONFIRMED,
+2017-01-25,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED,
+2017-01-26,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED,
+2017-01-27,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2017-01-30,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2017-01-31,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2017-02-01,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2017-02-27,CLOSED,Peace Memorial Day (bridge day),tw_peace_memorial_day,module:tw_peace_memorial_day,,,CONFIRMED,
+2017-02-28,CLOSED,Peace Memorial Day,tw_peace_memorial_day,module:tw_peace_memorial_day,,,CONFIRMED,
+2017-04-03,CLOSED,Children's Day and Tomb-Sweeping Day,tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED,
+2017-04-04,CLOSED,Children's Day and Tomb-Sweeping Day,tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED,
+2017-05-01,CLOSED,Labour Day,tw_labour_day,module:tw_labour_day,,,CONFIRMED,
+2017-05-29,CLOSED,Dragon Boat Festival (bridge day),tw_dragon_boat_festival,module:tw_dragon_boat_festival,,,CONFIRMED,
+2017-05-30,CLOSED,Dragon Boat Festival,tw_dragon_boat_festival,module:tw_dragon_boat_festival,,,CONFIRMED,
+2017-10-04,CLOSED,Mid-Autumn Festival,tw_mid_autumn_festival,module:tw_mid_autumn_festival,,,CONFIRMED,
+2017-10-09,CLOSED,National Day (bridge day),tw_national_day,module:tw_national_day,,,CONFIRMED,
+2017-10-10,CLOSED,National Day,tw_national_day,module:tw_national_day,,,CONFIRMED,
+2018-01-01,CLOSED,New Year's Day,tw_new_years_day,module:tw_new_years_day,,,CONFIRMED,
+2018-02-13,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED,
+2018-02-14,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED,
+2018-02-15,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2018-02-16,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2018-02-19,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2018-02-20,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2018-02-28,CLOSED,Peace Memorial Day,tw_peace_memorial_day,module:tw_peace_memorial_day,,,CONFIRMED,
+2018-04-04,CLOSED,Children's Day and Tomb-Sweeping Day,tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED,
+2018-04-05,CLOSED,Children's Day and Tomb-Sweeping Day,tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED,
+2018-04-06,CLOSED,Children's Day and Tomb-Sweeping Day (bridge day),tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED,
+2018-05-01,CLOSED,Labour Day,tw_labour_day,module:tw_labour_day,,,CONFIRMED,
+2018-06-18,CLOSED,Dragon Boat Festival,tw_dragon_boat_festival,module:tw_dragon_boat_festival,,,CONFIRMED,
+2018-09-24,CLOSED,Mid-Autumn Festival,tw_mid_autumn_festival,module:tw_mid_autumn_festival,,,CONFIRMED,
+2018-10-10,CLOSED,National Day,tw_national_day,module:tw_national_day,,,CONFIRMED,
+2018-12-31,CLOSED,"Bridge Day (year end) (bridge day, made up on Saturday 22 December 2018)",tw_twse_bridge_days_year_end,module:tw_twse_bridge_days_year_end,,,CONFIRMED,
+2019-01-01,CLOSED,New Year's Day,tw_new_years_day,module:tw_new_years_day,,,CONFIRMED,
+2019-01-31,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED,
+2019-02-01,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED,
+2019-02-04,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2019-02-05,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2019-02-06,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2019-02-07,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2019-02-08,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2019-02-28,CLOSED,Peace Memorial Day,tw_peace_memorial_day,module:tw_peace_memorial_day,,,CONFIRMED,
+2019-03-01,CLOSED,Peace Memorial Day (bridge day),tw_peace_memorial_day,module:tw_peace_memorial_day,,,CONFIRMED,
+2019-04-04,CLOSED,Children's Day and Tomb-Sweeping Day,tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED,
+2019-04-05,CLOSED,Children's Day and Tomb-Sweeping Day,tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED,
+2019-05-01,CLOSED,Labour Day,tw_labour_day,module:tw_labour_day,,,CONFIRMED,
+2019-06-07,CLOSED,Dragon Boat Festival,tw_dragon_boat_festival,module:tw_dragon_boat_festival,,,CONFIRMED,
+2019-08-09,CLOSED,Typhoon Closure (Typhoon Lekima),tw_twse_typhoon_closures,module:tw_twse_typhoon_closures,,,CONFIRMED,
+2019-09-13,CLOSED,Mid-Autumn Festival,tw_mid_autumn_festival,module:tw_mid_autumn_festival,,,CONFIRMED,
+2019-09-30,CLOSED,Typhoon Closure (Typhoon Mitag),tw_twse_typhoon_closures,module:tw_twse_typhoon_closures,,,CONFIRMED,
+2019-10-10,CLOSED,National Day,tw_national_day,module:tw_national_day,,,CONFIRMED,
+2019-10-11,CLOSED,National Day (bridge day),tw_national_day,module:tw_national_day,,,CONFIRMED,
+2020-01-01,CLOSED,New Year's Day,tw_new_years_day,module:tw_new_years_day,,,CONFIRMED,
+2020-01-21,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED,
+2020-01-22,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED,
+2020-01-23,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2020-01-24,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2020-01-27,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2020-01-28,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2020-01-29,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2020-02-28,CLOSED,Peace Memorial Day,tw_peace_memorial_day,module:tw_peace_memorial_day,,,CONFIRMED,
+2020-04-02,CLOSED,Children's Day and Tomb-Sweeping Day (substitute for Saturday 4 April (both holidays)),tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED,
+2020-04-03,CLOSED,Children's Day and Tomb-Sweeping Day (substitute for Saturday 4 April (both holidays)),tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED,
+2020-05-01,CLOSED,Labour Day,tw_labour_day,module:tw_labour_day,,,CONFIRMED,
+2020-06-25,CLOSED,Dragon Boat Festival,tw_dragon_boat_festival,module:tw_dragon_boat_festival,,,CONFIRMED,
+2020-06-26,CLOSED,Dragon Boat Festival (bridge day),tw_dragon_boat_festival,module:tw_dragon_boat_festival,,,CONFIRMED,
+2020-10-01,CLOSED,Mid-Autumn Festival,tw_mid_autumn_festival,module:tw_mid_autumn_festival,,,CONFIRMED,
+2020-10-02,CLOSED,Mid-Autumn Festival (bridge day),tw_mid_autumn_festival,module:tw_mid_autumn_festival,,,CONFIRMED,
+2020-10-09,CLOSED,National Day (substitute for Saturday 10 October),tw_national_day,module:tw_national_day,,,CONFIRMED,
+2021-01-01,CLOSED,New Year's Day,tw_new_years_day,module:tw_new_years_day,,,CONFIRMED,
+2021-02-08,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED,
+2021-02-09,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED,
+2021-02-10,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2021-02-11,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2021-02-12,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2021-02-15,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2021-02-16,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2021-03-01,CLOSED,Peace Memorial Day (substitute for Sunday 28 February),tw_peace_memorial_day,module:tw_peace_memorial_day,,,CONFIRMED,
+2021-04-02,CLOSED,Children's Day and Tomb-Sweeping Day (substitute for Sunday 4 April (both holidays)),tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED,
+2021-04-05,CLOSED,Children's Day and Tomb-Sweeping Day (substitute for Sunday 4 April (both holidays)),tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED,
+2021-04-30,CLOSED,Labour Day (substitute for Saturday 1 May),tw_labour_day,module:tw_labour_day,,,CONFIRMED,
+2021-06-14,CLOSED,Dragon Boat Festival,tw_dragon_boat_festival,module:tw_dragon_boat_festival,,,CONFIRMED,
+2021-09-20,CLOSED,Mid-Autumn Festival (bridge day),tw_mid_autumn_festival,module:tw_mid_autumn_festival,,,CONFIRMED,
+2021-09-21,CLOSED,Mid-Autumn Festival,tw_mid_autumn_festival,module:tw_mid_autumn_festival,,,CONFIRMED,
+2021-10-11,CLOSED,National Day (substitute for Sunday 10 October),tw_national_day,module:tw_national_day,,,CONFIRMED,
+2021-12-31,CLOSED,New Year's Day (substitute for Saturday 1 January 2022),tw_new_years_day,module:tw_new_years_day,,,CONFIRMED,
+2022-01-27,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED,
+2022-01-28,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED,
+2022-01-31,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2022-02-01,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2022-02-02,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2022-02-03,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2022-02-04,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2022-02-28,CLOSED,Peace Memorial Day,tw_peace_memorial_day,module:tw_peace_memorial_day,,,CONFIRMED,
+2022-04-04,CLOSED,Children's Day and Tomb-Sweeping Day,tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED,
+2022-04-05,CLOSED,Children's Day and Tomb-Sweeping Day,tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED,
+2022-05-02,CLOSED,Labour Day (substitute for Sunday 1 May),tw_labour_day,module:tw_labour_day,,,CONFIRMED,
+2022-06-03,CLOSED,Dragon Boat Festival,tw_dragon_boat_festival,module:tw_dragon_boat_festival,,,CONFIRMED,
+2022-09-09,CLOSED,Mid-Autumn Festival (substitute for Saturday 10 September),tw_mid_autumn_festival,module:tw_mid_autumn_festival,,,CONFIRMED,
+2022-10-10,CLOSED,National Day,tw_national_day,module:tw_national_day,,,CONFIRMED,
+2023-01-02,CLOSED,New Year's Day (substitute for Sunday 1 January),tw_new_years_day,module:tw_new_years_day,,,CONFIRMED,
+2023-01-18,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED,
+2023-01-19,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED,
+2023-01-20,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2023-01-23,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2023-01-24,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2023-01-25,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2023-01-26,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2023-01-27,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2023-02-27,CLOSED,Peace Memorial Day (bridge day),tw_peace_memorial_day,module:tw_peace_memorial_day,,,CONFIRMED,
+2023-02-28,CLOSED,Peace Memorial Day,tw_peace_memorial_day,module:tw_peace_memorial_day,,,CONFIRMED,
+2023-04-03,CLOSED,Children's Day and Tomb-Sweeping Day (bridge day),tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED,
+2023-04-04,CLOSED,Children's Day and Tomb-Sweeping Day,tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED,
+2023-04-05,CLOSED,Children's Day and Tomb-Sweeping Day,tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED,
+2023-05-01,CLOSED,Labour Day,tw_labour_day,module:tw_labour_day,,,CONFIRMED,
+2023-06-22,CLOSED,Dragon Boat Festival,tw_dragon_boat_festival,module:tw_dragon_boat_festival,,,CONFIRMED,
+2023-06-23,CLOSED,Dragon Boat Festival (bridge day),tw_dragon_boat_festival,module:tw_dragon_boat_festival,,,CONFIRMED,
+2023-08-03,CLOSED,Typhoon Closure (Typhoon Khanun),tw_twse_typhoon_closures,module:tw_twse_typhoon_closures,,,CONFIRMED,
+2023-09-29,CLOSED,Mid-Autumn Festival,tw_mid_autumn_festival,module:tw_mid_autumn_festival,,,CONFIRMED,
+2023-10-09,CLOSED,National Day (bridge day),tw_national_day,module:tw_national_day,,,CONFIRMED,
+2023-10-10,CLOSED,National Day,tw_national_day,module:tw_national_day,,,CONFIRMED,
+2024-01-01,CLOSED,New Year's Day,tw_new_years_day,module:tw_new_years_day,,,CONFIRMED,
+2024-02-06,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED,
+2024-02-07,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED,
+2024-02-08,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2024-02-09,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2024-02-12,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2024-02-13,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2024-02-14,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2024-02-28,CLOSED,Peace Memorial Day,tw_peace_memorial_day,module:tw_peace_memorial_day,,,CONFIRMED,
+2024-04-04,CLOSED,Children's Day and Tomb-Sweeping Day,tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED,
+2024-04-05,CLOSED,Children's Day and Tomb-Sweeping Day,tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED,
+2024-05-01,CLOSED,Labour Day,tw_labour_day,module:tw_labour_day,,,CONFIRMED,
+2024-06-10,CLOSED,Dragon Boat Festival,tw_dragon_boat_festival,module:tw_dragon_boat_festival,,,CONFIRMED,
+2024-07-24,CLOSED,Typhoon Closure (Typhoon Gaemi),tw_twse_typhoon_closures,module:tw_twse_typhoon_closures,,,CONFIRMED,
+2024-07-25,CLOSED,Typhoon Closure (Typhoon Gaemi),tw_twse_typhoon_closures,module:tw_twse_typhoon_closures,,,CONFIRMED,
+2024-09-17,CLOSED,Mid-Autumn Festival,tw_mid_autumn_festival,module:tw_mid_autumn_festival,,,CONFIRMED,
+2024-10-02,CLOSED,Typhoon Closure (Typhoon Krathon),tw_twse_typhoon_closures,module:tw_twse_typhoon_closures,,,CONFIRMED,
+2024-10-03,CLOSED,Typhoon Closure (Typhoon Krathon),tw_twse_typhoon_closures,module:tw_twse_typhoon_closures,,,CONFIRMED,
+2024-10-10,CLOSED,National Day,tw_national_day,module:tw_national_day,,,CONFIRMED,
+2024-10-31,CLOSED,Typhoon Closure (Typhoon Kong-rey),tw_twse_typhoon_closures,module:tw_twse_typhoon_closures,,,CONFIRMED,
+2025-01-01,CLOSED,New Year's Day,tw_new_years_day,module:tw_new_years_day,,,CONFIRMED,
+2025-01-23,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED,
+2025-01-24,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED,
+2025-01-27,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2025-01-28,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2025-01-29,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2025-01-30,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2025-01-31,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2025-02-28,CLOSED,Peace Memorial Day,tw_peace_memorial_day,module:tw_peace_memorial_day,,,CONFIRMED,
+2025-04-03,CLOSED,Children's Day and Tomb-Sweeping Day,tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED,
+2025-04-04,CLOSED,Children's Day and Tomb-Sweeping Day,tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED,
+2025-05-01,CLOSED,Labour Day,tw_labour_day,module:tw_labour_day,,,CONFIRMED,
+2025-05-30,CLOSED,Dragon Boat Festival (substitute for Saturday 31 May),tw_dragon_boat_festival,module:tw_dragon_boat_festival,,,CONFIRMED,
+2025-09-29,CLOSED,"National Holidays (2025 Act) (Teachers' Day, substitute for Sunday 28 September)",tw_national_holidays_2025,module:tw_national_holidays_2025,,,CONFIRMED,
+2025-10-06,CLOSED,Mid-Autumn Festival,tw_mid_autumn_festival,module:tw_mid_autumn_festival,,,CONFIRMED,
+2025-10-10,CLOSED,National Day,tw_national_day,module:tw_national_day,,,CONFIRMED,
+2025-10-24,CLOSED,"National Holidays (2025 Act) (Retrocession Day, substitute for Saturday 25 October)",tw_national_holidays_2025,module:tw_national_holidays_2025,,,CONFIRMED,
+2025-12-25,CLOSED,National Holidays (2025 Act) (Constitution Day),tw_national_holidays_2025,module:tw_national_holidays_2025,,,CONFIRMED,
+2026-01-01,CLOSED,New Year's Day,tw_new_years_day,module:tw_new_years_day,,,CONFIRMED,
+2026-02-12,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED,
+2026-02-13,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED,
+2026-02-16,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2026-02-17,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2026-02-18,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2026-02-19,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2026-02-20,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2026-02-27,CLOSED,Peace Memorial Day (substitute for Saturday 28 February),tw_peace_memorial_day,module:tw_peace_memorial_day,,,CONFIRMED,
+2026-04-03,CLOSED,Children's Day and Tomb-Sweeping Day (substitute for Saturday 4 April),tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED,
+2026-04-06,CLOSED,Children's Day and Tomb-Sweeping Day (substitute for Sunday 5 April),tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED,
+2026-05-01,CLOSED,Labour Day,tw_labour_day,module:tw_labour_day,,,CONFIRMED,
+2026-06-19,CLOSED,Dragon Boat Festival,tw_dragon_boat_festival,module:tw_dragon_boat_festival,,,CONFIRMED,
+2026-07-10,CLOSED,Typhoon Closure (Typhoon Bavi),tw_twse_typhoon_closures,module:tw_twse_typhoon_closures,,,CONFIRMED,
+2026-09-25,CLOSED,Mid-Autumn Festival,tw_mid_autumn_festival,module:tw_mid_autumn_festival,,,CONFIRMED,
+2026-09-28,CLOSED,National Holidays (2025 Act) (Teachers' Day),tw_national_holidays_2025,module:tw_national_holidays_2025,,,CONFIRMED,
+2026-10-09,CLOSED,National Day (substitute for Saturday 10 October),tw_national_day,module:tw_national_day,,,CONFIRMED,
+2026-10-26,CLOSED,"National Holidays (2025 Act) (Retrocession Day, substitute for Sunday 25 October)",tw_national_holidays_2025,module:tw_national_holidays_2025,,,CONFIRMED,
+2026-12-25,CLOSED,National Holidays (2025 Act) (Constitution Day),tw_national_holidays_2025,module:tw_national_holidays_2025,,,CONFIRMED,
+2027-01-01,CLOSED,New Year's Day,tw_new_years_day,module:tw_new_years_day,,,CONFIRMED,
+2027-02-02,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED,
+2027-02-03,CLOSED,"Lunar New Year (settlement only, no trading)",tw_twse_lunar_new_year_settlement_days,module:tw_lunar_new_year,,,CONFIRMED,
+2027-02-04,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2027-02-05,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2027-02-08,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2027-02-09,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2027-02-10,CLOSED,Lunar New Year,tw_lunar_new_year,module:tw_lunar_new_year,,,CONFIRMED,
+2027-03-01,CLOSED,Peace Memorial Day (substitute for Sunday 28 February (government calendar)),tw_peace_memorial_day,module:tw_peace_memorial_day,,,CONFIRMED,
+2027-04-05,CLOSED,Children's Day and Tomb-Sweeping Day (government calendar),tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED,
+2027-04-06,CLOSED,Children's Day and Tomb-Sweeping Day (government calendar),tw_childrens_day_tomb_sweeping_day,module:tw_childrens_day_tomb_sweeping_day,,,CONFIRMED,
+2027-04-30,CLOSED,Labour Day (substitute for Saturday 1 May (government calendar)),tw_labour_day,module:tw_labour_day,,,CONFIRMED,
+2027-06-09,CLOSED,Dragon Boat Festival (government calendar),tw_dragon_boat_festival,module:tw_dragon_boat_festival,,,CONFIRMED,
+2027-09-15,CLOSED,Mid-Autumn Festival (government calendar),tw_mid_autumn_festival,module:tw_mid_autumn_festival,,,CONFIRMED,
+2027-09-28,CLOSED,National Holidays (2025 Act) (Teachers' Day (government calendar)),tw_national_holidays_2025,module:tw_national_holidays_2025,,,CONFIRMED,
+2027-10-11,CLOSED,National Day (substitute for Sunday 10 October (government calendar)),tw_national_day,module:tw_national_day,,,CONFIRMED,
+2027-10-25,CLOSED,National Holidays (2025 Act) (Retrocession Day (government calendar)),tw_national_holidays_2025,module:tw_national_holidays_2025,,,CONFIRMED,
+2027-12-24,CLOSED,"National Holidays (2025 Act) (Constitution Day, substitute for Saturday 25 December (government calendar))",tw_national_holidays_2025,module:tw_national_holidays_2025,,,CONFIRMED,
+2027-12-31,CLOSED,New Year's Day (substitute for Saturday 1 January 2028 (government calendar)),tw_new_years_day,module:tw_new_years_day,,,CONFIRMED,

@@ -31,6 +31,8 @@ EXPECTED_TOOLS = {
     "calendar_info",
     "assess_day",
     "is_business_day",
+    "is_trading_day",
+    "special_sessions",
     "next_business_day",
     "previous_business_day",
     "add_business_days",
@@ -189,6 +191,90 @@ async def test_is_early_close_thanksgiving_friday_2027():
             # the status contract in spec/SPEC.md this is PROJECTED, not CONFIRMED,
             # whatever the row itself says.
             assert payload["status"] == "PROJECTED"
+
+
+@pytest.mark.anyio
+async def test_trading_day_and_special_sessions_through_stdio():
+    async with stdio_client(SERVER_PARAMS) as (read, write):
+        async with ClientSession(read, write) as session:
+            await session.initialize()
+            christmas = await _call(
+                session, "is_trading_day", {"calendar": "XNYS", "date": "2025-12-25"}
+            )
+            assert christmas["calendar_id"] == "US-NYSE"
+            assert christmas["is_trading_day"] is False
+            assert christmas["is_business_day"] is False
+            joint = await _call(
+                session, "is_trading_day", {"calendar": "US-NYSE,GB-LSE", "date": "2025-12-24"}
+            )
+            assert joint["calendar_id"] == "US-NYSE+GB-LSE"
+            assert joint["is_trading_day"] is True
+            sessions = await _call(
+                session, "special_sessions", {"calendar": "US-NYSE", "date": "2025-12-25"}
+            )
+            assert sessions["special_sessions"] == []
+            assert sessions["status"] in {"CONFIRMED", "PROJECTED"}
+            outside = await _call(
+                session, "special_sessions", {"calendar": "US-NYSE", "date": "1700-01-01"}
+            )
+            assert outside["error"] == "OutsideCoverageError"
+
+
+@pytest.mark.anyio
+async def test_special_sessions_tool_serialises_member_sessions(monkeypatch):
+    """No bundled calendar has a special session yet, so drive the tool in-process."""
+    from bdc_calendars._loader import CalendarData, _parse_events
+    from bdc_calendars.mcp.server import create_server
+
+    def synthetic(calendar_id, timezone, rows):
+        header = "date,type,description,key,source_module,observed_from,close_time,status,open_time"
+        metadata = {
+            "range_start": "2024-01-01",
+            "range_end": "2024-12-31",
+            "timezone": timezone,
+            "weekend_policy": {"days": ["SATURDAY", "SUNDAY"]},
+        }
+        events = _parse_events("\n".join([header] + rows) + "\n")
+        return bdc.SingleCalendar(CalendarData(calendar_id, metadata, events))
+
+    calendars = {
+        "IN-TEST": synthetic("IN-TEST", "Asia/Kolkata", [
+            "2024-11-01,CLOSED,Diwali,diwali,m,,,CONFIRMED,",
+            "2024-11-01,SPECIAL_SESSION,Muhurat trading,muhurat,m,,19:00,PROJECTED,18:00",
+        ]),
+        "OPEN-TEST": synthetic("OPEN-TEST", "Europe/London", []),
+    }
+    import bdc_calendars.calendar as calendar_module
+
+    monkeypatch.setattr(bdc, "get_calendar", calendars.__getitem__)
+    monkeypatch.setattr(calendar_module, "get_calendar", calendars.__getitem__)
+    app = create_server()
+
+    async def call(name, arguments):
+        result = await app.call_tool(name, arguments)
+        content = result[0] if isinstance(result, tuple) else result
+        return json.loads(content[0].text)
+
+    sessions = await call("special_sessions", {"calendar": "OPEN-TEST,IN-TEST", "date": "2024-11-01"})
+    assert sessions["calendar_id"] == "OPEN-TEST+IN-TEST"
+    assert sessions["special_sessions"] == [
+        {
+            "calendar_id": "IN-TEST",
+            "timezone": "Asia/Kolkata",
+            "open_time": "18:00",
+            "close_time": "19:00",
+            "key": "muhurat",
+            "description": "Muhurat trading",
+            "status": "PROJECTED",
+        }
+    ]
+    trading = await call("is_trading_day", {"calendar": "IN-TEST", "date": "2024-11-01"})
+    assert trading["is_trading_day"] is True
+    assert trading["is_business_day"] is False
+    business = await call("is_business_day", {"calendar": "IN-TEST", "date": "2024-11-01"})
+    session_event = [e for e in business["events"] if e["type"] == "SPECIAL_SESSION"][0]
+    assert session_event["open_time"] == "18:00"
+    assert "open_time" not in [e for e in business["events"] if e["type"] == "CLOSED"][0]
 
 
 @pytest.mark.anyio

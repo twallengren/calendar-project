@@ -164,12 +164,14 @@ public class ApiEmitter {
 
       writeText(
           calOutDir.resolve("holidays.ics"),
-          icsEmitter.emit(id, name, releaseSemantic, releaseGenerationDate, events));
+          icsEmitter.emit(
+              id, name, releaseSemantic, releaseGenerationDate, events, zoneOf(timezone)));
       List<Event> recent =
           events.stream().filter(e -> !e.date().isBefore(ICS_RECENT_FROM)).toList();
       writeText(
           calOutDir.resolve("holidays-recent.ics"),
-          icsEmitter.emit(id, name, releaseSemantic, releaseGenerationDate, recent));
+          icsEmitter.emit(
+              id, name, releaseSemantic, releaseGenerationDate, recent, zoneOf(timezone)));
 
       writeJson(
           calOutDir.resolve("manifest.json"), calendarManifest(id, metadataNode, calDir, years));
@@ -345,10 +347,17 @@ public class ApiEmitter {
       if (closeTime != null) {
         row.put("close_time", closeTime);
       }
+      if (event.openTime() != null) {
+        row.put("open_time", TIME.format(event.openTime()));
+      }
       row.put("status", event.status() != null ? event.status().name() : null);
       rows.add(row);
     }
     return rows;
+  }
+
+  private static java.time.ZoneId zoneOf(String timezone) {
+    return timezone == null ? null : java.time.ZoneId.of(timezone);
   }
 
   private static String formatCloseTime(Event event) {

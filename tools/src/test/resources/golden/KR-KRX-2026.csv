@@ -1,122 +1,122 @@
-date,type,description,key,source_module,observed_from,close_time,status
-2026-01-01,CLOSED,New Year's Day,kr_new_years_day,module:kr_new_years_day,,,CONFIRMED
-2026-01-03,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
-2026-01-04,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
-2026-01-10,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
-2026-01-11,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
-2026-01-17,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
-2026-01-18,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
-2026-01-24,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
-2026-01-25,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
-2026-01-31,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
-2026-02-01,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
-2026-02-07,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
-2026-02-08,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
-2026-02-14,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
-2026-02-15,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
-2026-02-16,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED
-2026-02-17,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED
-2026-02-18,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED
-2026-02-21,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
-2026-02-22,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
-2026-02-28,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
-2026-03-01,CLOSED,Independence Movement Day,kr_independence_movement_day,module:kr_independence_movement_day,,,CONFIRMED
-2026-03-02,CLOSED,Independence Movement Day (substitute holiday),kr_independence_movement_day_substitute,module:kr_independence_movement_day,,,CONFIRMED
-2026-03-07,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
-2026-03-08,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
-2026-03-14,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
-2026-03-15,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
-2026-03-21,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
-2026-03-22,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
-2026-03-28,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
-2026-03-29,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
-2026-04-04,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
-2026-04-05,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
-2026-04-11,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
-2026-04-12,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
-2026-04-18,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
-2026-04-19,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
-2026-04-25,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
-2026-04-26,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
-2026-05-01,CLOSED,Labour Day,kr_labour_day,module:kr_labour_day,,,CONFIRMED
-2026-05-02,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
-2026-05-03,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
-2026-05-05,CLOSED,Children's Day,kr_childrens_day,module:kr_childrens_day,,,CONFIRMED
-2026-05-09,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
-2026-05-10,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
-2026-05-16,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
-2026-05-17,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
-2026-05-23,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
-2026-05-24,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
-2026-05-25,CLOSED,Buddha's Birthday (substitute holiday),kr_buddhas_birthday,module:kr_buddhas_birthday,,,CONFIRMED
-2026-05-30,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
-2026-05-31,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
-2026-06-03,CLOSED,Election Day (9th nationwide local elections),kr_election_days,module:kr_election_days,,,CONFIRMED
-2026-06-06,CLOSED,Memorial Day,kr_memorial_day,module:kr_memorial_day,,,CONFIRMED
-2026-06-07,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
-2026-06-13,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
-2026-06-14,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
-2026-06-20,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
-2026-06-21,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
-2026-06-27,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
-2026-06-28,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
-2026-07-04,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
-2026-07-05,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
-2026-07-11,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
-2026-07-12,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
-2026-07-17,CLOSED,Constitution Day,kr_constitution_day,module:kr_constitution_day,,,CONFIRMED
-2026-07-18,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
-2026-07-19,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
-2026-07-25,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
-2026-07-26,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
-2026-08-01,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
-2026-08-02,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
-2026-08-08,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
-2026-08-09,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
-2026-08-15,CLOSED,Liberation Day,kr_liberation_day,module:kr_liberation_day,,,CONFIRMED
-2026-08-16,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
-2026-08-17,CLOSED,Liberation Day (substitute holiday),kr_liberation_day_substitute,module:kr_liberation_day,,,CONFIRMED
-2026-08-22,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
-2026-08-23,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
-2026-08-29,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
-2026-08-30,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
-2026-09-05,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
-2026-09-06,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
-2026-09-12,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
-2026-09-13,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
-2026-09-19,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
-2026-09-20,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
-2026-09-24,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED
-2026-09-25,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED
-2026-09-26,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
-2026-09-27,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
-2026-10-03,CLOSED,National Foundation Day,kr_national_foundation_day,module:kr_national_foundation_day,,,CONFIRMED
-2026-10-04,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
-2026-10-05,CLOSED,National Foundation Day (substitute holiday),kr_national_foundation_day_substitute,module:kr_national_foundation_day,,,CONFIRMED
-2026-10-09,CLOSED,Hangul Day,kr_hangul_day,module:kr_hangul_day,,,CONFIRMED
-2026-10-10,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
-2026-10-11,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
-2026-10-17,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
-2026-10-18,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
-2026-10-24,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
-2026-10-25,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
-2026-10-31,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
-2026-11-01,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
-2026-11-07,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
-2026-11-08,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
-2026-11-14,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
-2026-11-15,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
-2026-11-21,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
-2026-11-22,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
-2026-11-28,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
-2026-11-29,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
-2026-12-05,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
-2026-12-06,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
-2026-12-12,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
-2026-12-13,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
-2026-12-19,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
-2026-12-20,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
-2026-12-25,CLOSED,Christmas Day,kr_christmas_day,module:kr_christmas_day,,,CONFIRMED
-2026-12-26,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED
-2026-12-27,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED
-2026-12-31,CLOSED,Year-End Closure,kr_krx_year_end_closure,module:kr_krx_year_end_closure,,,CONFIRMED
+date,type,description,key,source_module,observed_from,close_time,status,open_time
+2026-01-01,CLOSED,New Year's Day,kr_new_years_day,module:kr_new_years_day,,,CONFIRMED,
+2026-01-03,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED,
+2026-01-04,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED,
+2026-01-10,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED,
+2026-01-11,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED,
+2026-01-17,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED,
+2026-01-18,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED,
+2026-01-24,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED,
+2026-01-25,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED,
+2026-01-31,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED,
+2026-02-01,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED,
+2026-02-07,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED,
+2026-02-08,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED,
+2026-02-14,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED,
+2026-02-15,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED,
+2026-02-16,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED,
+2026-02-17,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED,
+2026-02-18,CLOSED,Seollal (Lunar New Year),kr_seollal,module:kr_seollal,,,CONFIRMED,
+2026-02-21,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED,
+2026-02-22,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED,
+2026-02-28,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED,
+2026-03-01,CLOSED,Independence Movement Day,kr_independence_movement_day,module:kr_independence_movement_day,,,CONFIRMED,
+2026-03-02,CLOSED,Independence Movement Day (substitute holiday),kr_independence_movement_day_substitute,module:kr_independence_movement_day,,,CONFIRMED,
+2026-03-07,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED,
+2026-03-08,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED,
+2026-03-14,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED,
+2026-03-15,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED,
+2026-03-21,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED,
+2026-03-22,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED,
+2026-03-28,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED,
+2026-03-29,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED,
+2026-04-04,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED,
+2026-04-05,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED,
+2026-04-11,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED,
+2026-04-12,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED,
+2026-04-18,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED,
+2026-04-19,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED,
+2026-04-25,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED,
+2026-04-26,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED,
+2026-05-01,CLOSED,Labour Day,kr_labour_day,module:kr_labour_day,,,CONFIRMED,
+2026-05-02,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED,
+2026-05-03,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED,
+2026-05-05,CLOSED,Children's Day,kr_childrens_day,module:kr_childrens_day,,,CONFIRMED,
+2026-05-09,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED,
+2026-05-10,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED,
+2026-05-16,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED,
+2026-05-17,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED,
+2026-05-23,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED,
+2026-05-24,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED,
+2026-05-25,CLOSED,Buddha's Birthday (substitute holiday),kr_buddhas_birthday,module:kr_buddhas_birthday,,,CONFIRMED,
+2026-05-30,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED,
+2026-05-31,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED,
+2026-06-03,CLOSED,Election Day (9th nationwide local elections),kr_election_days,module:kr_election_days,,,CONFIRMED,
+2026-06-06,CLOSED,Memorial Day,kr_memorial_day,module:kr_memorial_day,,,CONFIRMED,
+2026-06-07,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED,
+2026-06-13,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED,
+2026-06-14,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED,
+2026-06-20,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED,
+2026-06-21,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED,
+2026-06-27,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED,
+2026-06-28,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED,
+2026-07-04,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED,
+2026-07-05,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED,
+2026-07-11,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED,
+2026-07-12,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED,
+2026-07-17,CLOSED,Constitution Day,kr_constitution_day,module:kr_constitution_day,,,CONFIRMED,
+2026-07-18,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED,
+2026-07-19,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED,
+2026-07-25,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED,
+2026-07-26,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED,
+2026-08-01,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED,
+2026-08-02,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED,
+2026-08-08,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED,
+2026-08-09,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED,
+2026-08-15,CLOSED,Liberation Day,kr_liberation_day,module:kr_liberation_day,,,CONFIRMED,
+2026-08-16,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED,
+2026-08-17,CLOSED,Liberation Day (substitute holiday),kr_liberation_day_substitute,module:kr_liberation_day,,,CONFIRMED,
+2026-08-22,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED,
+2026-08-23,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED,
+2026-08-29,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED,
+2026-08-30,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED,
+2026-09-05,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED,
+2026-09-06,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED,
+2026-09-12,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED,
+2026-09-13,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED,
+2026-09-19,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED,
+2026-09-20,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED,
+2026-09-24,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED,
+2026-09-25,CLOSED,Chuseok,kr_chuseok,module:kr_chuseok,,,CONFIRMED,
+2026-09-26,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED,
+2026-09-27,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED,
+2026-10-03,CLOSED,National Foundation Day,kr_national_foundation_day,module:kr_national_foundation_day,,,CONFIRMED,
+2026-10-04,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED,
+2026-10-05,CLOSED,National Foundation Day (substitute holiday),kr_national_foundation_day_substitute,module:kr_national_foundation_day,,,CONFIRMED,
+2026-10-09,CLOSED,Hangul Day,kr_hangul_day,module:kr_hangul_day,,,CONFIRMED,
+2026-10-10,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED,
+2026-10-11,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED,
+2026-10-17,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED,
+2026-10-18,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED,
+2026-10-24,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED,
+2026-10-25,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED,
+2026-10-31,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED,
+2026-11-01,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED,
+2026-11-07,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED,
+2026-11-08,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED,
+2026-11-14,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED,
+2026-11-15,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED,
+2026-11-21,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED,
+2026-11-22,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED,
+2026-11-28,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED,
+2026-11-29,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED,
+2026-12-05,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED,
+2026-12-06,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED,
+2026-12-12,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED,
+2026-12-13,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED,
+2026-12-19,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED,
+2026-12-20,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED,
+2026-12-25,CLOSED,Christmas Day,kr_christmas_day,module:kr_christmas_day,,,CONFIRMED,
+2026-12-26,WEEKEND,Saturday,weekend,weekend_policy,,,CONFIRMED,
+2026-12-27,WEEKEND,Sunday,weekend,weekend_policy,,,CONFIRMED,
+2026-12-31,CLOSED,Year-End Closure,kr_krx_year_end_closure,module:kr_krx_year_end_closure,,,CONFIRMED,

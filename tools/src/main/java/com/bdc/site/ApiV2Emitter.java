@@ -61,11 +61,11 @@ public final class ApiV2Emitter {
         write(
             directory.resolve(year + ".json"),
             Map.of(
-                "schema_version", "2.0", "calendar_id", id, "data_version", version, "days", days));
+                "schema_version", "2.1", "calendar_id", id, "data_version", version, "days", days));
         years.add(Map.of("year", year, "href", year + ".json"));
       }
       Map<String, Object> calendar = new LinkedHashMap<>();
-      calendar.put("schema_version", "2.0");
+      calendar.put("schema_version", "2.1");
       calendar.put("calendar_id", id);
       calendar.put("data_version", version);
       calendar.put("kind", kind);
@@ -84,7 +84,7 @@ public final class ApiV2Emitter {
         out.resolve("v2/index.json"),
         Map.of(
             "schema_version",
-            "2.0",
+            "2.1",
             "data_version",
             version,
             "generated_at",

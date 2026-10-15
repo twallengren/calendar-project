@@ -74,8 +74,10 @@ public class OccurrenceClassifier {
     public Event toEvent(Occurrence occ) {
       EventType type = typeOf(occ);
       EventSource source = sourcesByKey.get(occ.key());
-      LocalTime closeTime =
-          type == EventType.EARLY_CLOSE && source != null ? source.closeTime() : null;
+      boolean timed = type == EventType.EARLY_CLOSE || type == EventType.SPECIAL_SESSION;
+      LocalTime closeTime = timed && source != null ? source.closeTime() : null;
+      LocalTime openTime =
+          type == EventType.SPECIAL_SESSION && source != null ? source.openTime() : null;
       EventStatus status = source != null ? source.status() : EventStatus.CONFIRMED;
       String sourceModule = spec.sourceOrigins().get(occ.key());
       if (sourceModule == null
@@ -92,7 +94,8 @@ public class OccurrenceClassifier {
           sourceModule,
           occ.observedFrom(),
           closeTime,
-          status);
+          status,
+          openTime);
     }
   }
 

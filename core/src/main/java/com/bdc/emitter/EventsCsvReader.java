@@ -19,9 +19,9 @@ import java.util.Map;
  *
  * <p>Columns are addressed by header name. A leading UTF-8 byte order mark is ignored. {@code date}
  * and {@code type} are required; {@code description} defaults to empty; {@code key}, {@code
- * source_module}, {@code observed_from}, {@code close_time} and {@code status} are optional. Lines
- * starting with {@code #} are ignored so that reference files can carry a provenance header. Quoted
- * fields with embedded commas and doubled quotes are supported.
+ * source_module}, {@code observed_from}, {@code close_time}, {@code status} and {@code open_time}
+ * are optional. Lines starting with {@code #} are ignored so that reference files can carry a
+ * provenance header. Quoted fields with embedded commas and doubled quotes are supported.
  */
 public class EventsCsvReader {
 
@@ -69,6 +69,7 @@ public class EventsCsvReader {
         String observedFrom = blankToNull(cell(cells, columns, "observed_from"));
         String closeTime = blankToNull(cell(cells, columns, "close_time"));
         String status = blankToNull(cell(cells, columns, "status"));
+        String openTime = blankToNull(cell(cells, columns, "open_time"));
         events.add(
             new Event(
                 date,
@@ -79,7 +80,8 @@ public class EventsCsvReader {
                 sourceModule,
                 observedFrom != null ? LocalDate.parse(observedFrom) : null,
                 closeTime != null ? LocalTime.parse(closeTime) : null,
-                status != null ? EventStatus.valueOf(status) : null));
+                status != null ? EventStatus.valueOf(status) : null,
+                openTime != null ? LocalTime.parse(openTime) : null));
       } catch (RuntimeException e) {
         throw new IllegalArgumentException(
             "Malformed events CSV at line " + lineNo + ": " + raw + " (" + e.getMessage() + ")", e);

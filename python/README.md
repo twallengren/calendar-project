@@ -60,7 +60,9 @@ installed version. Ids are matched case-insensitively, and `-` and `_` are inter
 | `generate_schedule(ScheduleDefinition(start, end, frequency, stub, roll, convention))` | coupon/payment/reset dates: `Frequency` (ANNUAL … WEEKLY), `StubConvention` (NONE, SHORT/LONG_FINAL, SHORT/LONG_INITIAL), `RollConvention` (DAY_OF_MONTH, EOM, IMM); every boundary adjusted, path confidence reported |
 | `imm_date(y, m)`, `next_imm(date)`, `next_quarterly_imm(date)` | third-Wednesday IMM dates (module functions) |
 | `business_days_between(a, b)` | count of business days, **both endpoints included** |
-| `is_early_close(date)` / `close_time(date)` | shortened-session test and its local close time (`datetime.time` or `None`) |
+| `is_early_close(date)` / `close_time(date)` | shortened-session test and its local close time (`datetime.time` or `None`); special sessions are not early closes |
+| `is_trading_day(date)` | a business day, or a holiday/weekend day carrying a `SPECIAL_SESSION` (Diwali Muhurat trading, say). Date arithmetic never uses it |
+| `special_sessions(date)` | the date's special sessions as `SpecialSession(calendar_id, timezone, open_time, close_time, key, description, status)`, ordered by open then close time; usually `[]` |
 | `status(date)` | `"CONFIRMED"`, `"PROJECTED"` or `"UNKNOWN"` — never raises |
 | `events_on(date)` / `events_in_range(a, b)` / `event_on(date)` | the underlying events |
 | `holidays(year)` | every `CLOSED` event in a calendar year |
@@ -73,9 +75,16 @@ Dates may be `datetime.date`, `datetime.datetime`, an ISO `str` or a `pandas.Tim
 
 ### Events
 
-`Event` is a `NamedTuple` of `date`, `type` (`CLOSED`, `EARLY_CLOSE`, `NOTABLE`, `WEEKEND`),
-`description`, `key`, `source_module`, `observed_from` (the unshifted date when an observance rule
-moved the closure), `close_time` and `status`.
+`Event` is a `NamedTuple` of `date`, `type` (`CLOSED`, `EARLY_CLOSE`, `NOTABLE`, `WEEKEND`,
+`SPECIAL_SESSION`), `description`, `key`, `source_module`, `observed_from` (the unshifted date when
+an observance rule moved the closure), `close_time` and `status`.
+
+A `SPECIAL_SESSION` is a trading session on a date that is otherwise not a business day; it sits
+alongside that date's `CLOSED` or `WEEKEND` row, so `is_business_day` and every business-date
+operation ignore it. Its local open time is the `open_time` attribute. Every event has that
+attribute (`None` except on special sessions), but it is **not** a tuple field: event tuples keep
+their eight fields, so unpacking, `len()` and `_asdict()` are unchanged. Special-session rows are
+`SpecialSessionEvent` instances (an `Event` subclass) whose equality and hash include `open_time`.
 
 ### Joint calendars
 
@@ -85,7 +94,9 @@ joint.add_business_days(dt.date(2026, 2, 25), 2)   # T+2 across both markets
 joint.closed_members(dt.date(2026, 2, 27))         # [<SingleCalendar SA-TADAWUL ...>]
 ```
 
-A date is a business day only when **every** member trades on it. "Intersection of trading days"
+A date is a business day only when **every** member trades on it, and a trading day
+(`is_trading_day`) only when every member trades on it, by regular or special session.
+`special_sessions(date)` lists each member's sessions under that member's own id and timezone. "Intersection of trading days"
 and "union of closures" are the same predicate, so there is exactly one constructor for it. The joint `range` is the
 intersection of the members' ranges, `verified_through` is the earliest declared, and `status` is
 the worst member's.
@@ -127,7 +138,10 @@ only needs the scopes its question depends on:
   `business_day_offset`, `advance_months`, `last_business_day_of_month`) need
   `SCHEDULED_CLOSURES` and `UNSCHEDULED_EXCEPTIONS`. An early close is still a business day, so an
   incomplete `EARLY_CLOSES` scope never blocks them;
-* **session questions** (`close_time`, `is_early_close`, `member_closes`) need all three scopes.
+* `is_trading_day` asks the business-day question too: a special session is part of the
+  announced schedule, so the same evidence verifies it;
+* **session questions** (`close_time`, `is_early_close`, `member_closes`, `special_sessions`) need
+  all three scopes.
 
 A scheduled closure list can be complete while actual business-day truth remains unknown if
 coverage of `UNSCHEDULED_EXCEPTIONS` is incomplete; such dates raise `UnresolvedDateError` from
@@ -237,6 +251,8 @@ recover — e.g. calling `list_calendars` for a valid id, or `status` to probe a
 | `list_calendars()` | "What calendars are available, and which ones cover Saudi Arabia?" |
 | `calendar_info(calendar)` | "What weekend policy does US-NYSE use, and has it ever changed?" |
 | `is_business_day(calendar, date)` | "Does the US-NYSE trade on 2021-12-31?" |
+| `is_trading_day(calendar, date)` | "Did the market trade on Diwali 2024, even though it was a holiday?" |
+| `special_sessions(calendar, date)` | "What time is Muhurat trading on the Indian market this Diwali?" |
 | `next_business_day(calendar, date)` | "What's the next US-NYSE trading day after 2025-12-25?" |
 | `previous_business_day(calendar, date)` | "What was the last US-NYSE trading day before 2026-01-01?" |
 | `add_business_days(calendar, date, n)` | "If a US-NYSE trade happens on 2025-11-26, what date is T+2 settlement?" |

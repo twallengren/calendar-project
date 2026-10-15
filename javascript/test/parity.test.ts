@@ -20,8 +20,11 @@ function load(id: string): any {
   return JSON.parse(readFileSync(join(FIXTURE_DIR, `parity_${id}.json`), "utf8"));
 }
 
+/** Eight fields, plus a ninth (open_time) only on rows that carry one (SPECIAL_SESSION). */
 function eventTuple(e: bdc.Event): unknown[] {
-  return [e.date, e.type, e.description, e.key, e.sourceModule, e.observedFrom, time(e.closeTime), e.status];
+  const tuple: unknown[] = [e.date, e.type, e.description, e.key, e.sourceModule, e.observedFrom, time(e.closeTime), e.status];
+  if (e.openTime) tuple.push(time(e.openTime));
+  return tuple;
 }
 
 function time(value: string | null): string | null {
@@ -32,7 +35,25 @@ function time(value: string | null): string | null {
 function fixtureEvent(row: unknown[]): unknown[] {
   const copy = [...row];
   if (copy[6]) copy[6] = time(copy[6] as string);
+  if (copy[8]) copy[8] = time(copy[8] as string);
   return copy;
+}
+
+function sessionDict(s: bdc.SpecialSession): unknown {
+  return {
+    calendar_id: s.calendarId,
+    timezone: s.timezone,
+    open_time: time(s.openTime),
+    close_time: time(s.closeTime),
+    key: s.key,
+    description: s.description,
+    status: s.status,
+  };
+}
+
+function normaliseExpectedSessions(expected: any): any {
+  if (!Array.isArray(expected)) return expected;
+  return expected.map((s) => ({ ...s, open_time: time(s.open_time), close_time: time(s.close_time) }));
 }
 
 /** Runs `call`; the fixture either holds a value or a typed error with the offending date. */
@@ -70,6 +91,8 @@ function assessmentDict(a: bdc.DayAssessment): unknown {
       source_module: d.event.sourceModule,
       observed_from: d.event.observedFrom,
       close_time: time(d.event.closeTime),
+      // the Java AssessmentEmitter writes open_time only when the event has one
+      ...(d.event.openTime ? { open_time: time(d.event.openTime) } : {}),
       raw_status: d.rawStatus,
       effective_status: d.effectiveStatus,
       evidence_ids: d.evidenceIds,
@@ -103,6 +126,7 @@ function normaliseExpectedEvents(events: any[]): any[] {
     const copy = { ...e };
     delete copy.status; // the Java emitter's extra key; Python strips it too
     copy.close_time = time(copy.close_time);
+    if (copy.open_time) copy.open_time = time(copy.open_time);
     return copy;
   });
 }
@@ -112,6 +136,7 @@ for (const id of CALENDARS) {
   const calendar = bdc.getCalendar(id);
 
   test(`${id}: identity, bounds and data version`, () => {
+    assert.equal(fixture.fixture_schema, 3, "fixture schema 3 records is_trading_day and special_sessions");
     assert.equal(calendar.calendarId, fixture.calendar_id);
     assert.deepEqual([calendar.range.start, calendar.range.end], fixture.range);
     assert.equal(calendar.verifiedThrough, fixture.verified_through);
@@ -133,6 +158,9 @@ for (const id of CALENDARS) {
       assert.equal(calendar.status(day), q.s, `${day} status`);
       assertQuery(() => calendar.isEarlyClose(day), q.ec, `${day} ec`);
       assertQuery(() => time(calendar.closeTime(day)), typeof q.c === "object" && q.c !== null ? q.c : time(q.c), `${day} c`);
+      assert.ok("td" in q && "ss" in q, `${day}: fixture lacks td/ss`);
+      assertQuery(() => calendar.isTradingDay(day), q.td, `${day} td`);
+      assertQuery(() => calendar.specialSessions(day).map(sessionDict), normaliseExpectedSessions(q.ss), `${day} ss`);
       if (q.assessment) {
         const expected = { ...q.assessment, events: normaliseExpectedEvents(q.assessment.events) };
         assert.deepEqual(assessmentDict(calendar.assessment(day)), expected, `${day} assessment`);

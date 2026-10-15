@@ -32,7 +32,8 @@ public final class PublishedEventDetails {
               text(row, "source_module"),
               date(row, "observed_from"),
               text(row, "close_time") == null ? null : LocalTime.parse(text(row, "close_time")),
-              EventStatus.valueOf(text(row, "status")));
+              EventStatus.valueOf(text(row, "status")),
+              text(row, "open_time") == null ? null : LocalTime.parse(text(row, "open_time")));
       NativeDate nativeDate = null;
       if (row.get("nominal_native_date") instanceof Map<?, ?> nativeRow) {
         nativeDate =
@@ -87,6 +88,7 @@ public final class PublishedEventDetails {
         event.sourceModule(),
         event.observedFrom(),
         event.closeTime(),
-        event.status());
+        event.status(),
+        event.openTime());
   }
 }

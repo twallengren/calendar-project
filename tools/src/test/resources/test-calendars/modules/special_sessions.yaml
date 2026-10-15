@@ -1,0 +1,32 @@
+kind: module
+id: special_sessions
+
+event_sources:
+  - key: festival
+    name: Festival Holiday
+    default_classification: CLOSED
+    rule:
+      type: explicit_dates
+      key: festival
+      name: Festival Holiday
+      dates: [2024-11-01]
+  - key: festival_evening_session
+    name: Festival Evening Session
+    default_classification: SPECIAL_SESSION
+    open_time: "18:00"
+    close_time: "19:00"
+    rule:
+      type: explicit_dates
+      key: festival_evening_session
+      name: Festival Evening Session
+      dates: [2024-11-01]
+  - key: saturday_drill
+    name: Saturday Disaster-Recovery Session
+    default_classification: SPECIAL_SESSION
+    open_time: "09:15"
+    close_time: "12:30"
+    rule:
+      type: explicit_dates
+      key: saturday_drill
+      name: Saturday Disaster-Recovery Session
+      dates: [2024-03-02]

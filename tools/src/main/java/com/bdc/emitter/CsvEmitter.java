@@ -15,14 +15,15 @@ import java.util.List;
  * Writes events as CSV.
  *
  * <p>Columns: {@code date[,<chronology>_date],type,description,key,source_module,observed_from,
- * close_time,status}. The first three columns are stable; consumers should address columns by
- * header name.
+ * close_time,status,open_time}. The first three columns are stable; consumers should address
+ * columns by header name. {@code open_time} (wire schema 2.1) is appended last so that readers
+ * addressing the older columns by position are unaffected.
  */
 public class CsvEmitter {
 
   public static final List<String> BASE_COLUMNS = List.of("date", "type", "description");
   public static final List<String> EXTRA_COLUMNS =
-      List.of("key", "source_module", "observed_from", "close_time", "status");
+      List.of("key", "source_module", "observed_from", "close_time", "status", "open_time");
 
   private static final DateTimeFormatter TIME = DateTimeFormatter.ofPattern("HH:mm");
 
@@ -101,6 +102,7 @@ public class CsvEmitter {
     cells.add(event.observedFrom() != null ? event.observedFrom().toString() : "");
     cells.add(event.closeTime() != null ? TIME.format(event.closeTime()) : "");
     cells.add(event.status() != null ? event.status().name() : "");
+    cells.add(event.openTime() != null ? TIME.format(event.openTime()) : "");
     return String.join(",", cells);
   }
 

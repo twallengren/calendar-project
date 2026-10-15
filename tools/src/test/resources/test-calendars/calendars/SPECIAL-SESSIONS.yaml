@@ -1,0 +1,12 @@
+kind: calendar
+id: SPECIAL-SESSIONS
+
+metadata:
+  name: Special Sessions Test Calendar
+  description: A session on a holiday evening and a session on a Saturday
+  chronology: ISO
+  timezone: Asia/Kolkata
+
+uses:
+  - weekend_test
+  - special_sessions

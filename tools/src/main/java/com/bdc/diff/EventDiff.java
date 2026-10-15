@@ -32,16 +32,26 @@ public record EventDiff(
         newDescription,
         kind,
         key,
-        oldType == null ? null : new PublishedFields(null, null, null, EventStatus.CONFIRMED),
-        newType == null ? null : new PublishedFields(null, null, null, EventStatus.CONFIRMED));
+        oldType == null ? null : new PublishedFields(null, null, null, EventStatus.CONFIRMED, null),
+        newType == null
+            ? null
+            : new PublishedFields(null, null, null, EventStatus.CONFIRMED, null));
   }
 
   /** Published enrichment, excluding the reader's synthetic in-memory provenance label. */
   public record PublishedFields(
-      String sourceModule, LocalDate observedFrom, LocalTime closeTime, EventStatus status) {
+      String sourceModule,
+      LocalDate observedFrom,
+      LocalTime closeTime,
+      EventStatus status,
+      LocalTime openTime) {
     public static PublishedFields of(Event event) {
       return new PublishedFields(
-          event.sourceModule(), event.observedFrom(), event.closeTime(), event.status());
+          event.sourceModule(),
+          event.observedFrom(),
+          event.closeTime(),
+          event.status(),
+          event.openTime());
     }
   }
 

@@ -70,7 +70,7 @@ def _parse_date(value: Any, argument: str = "date") -> _dt.date:
 
 
 def _event_dict(event: Event) -> Dict[str, Any]:
-    return {
+    result = {
         "date": _iso(event.date),
         "type": event.type,
         "description": event.description,
@@ -79,6 +79,22 @@ def _event_dict(event: Event) -> Dict[str, Any]:
         "key": event.key,
         "source_module": event.source_module,
         "observed_from": _iso(event.observed_from),
+    }
+    # Additive (wire schema 2.1): present only on SPECIAL_SESSION rows, as in Java.
+    if event.open_time is not None:
+        result["open_time"] = _local_time(event.open_time)
+    return result
+
+
+def _special_session_dict(session: bdc.SpecialSession) -> Dict[str, Any]:
+    return {
+        "calendar_id": session.calendar_id,
+        "timezone": session.timezone,
+        "open_time": _local_time(session.open_time),
+        "close_time": _local_time(session.close_time),
+        "key": session.key,
+        "description": session.description,
+        "status": session.status,
     }
 
 
@@ -341,6 +357,67 @@ def create_server() -> "Any":
         if not open_today:
             result["reason"] = events[0]["description"] if events else "weekend"
         return result
+
+    @app.tool()
+    def is_trading_day(calendar: str, date: str) -> Dict[str, Any]:
+        """
+        Whether trades are struck on ``calendar`` on ``date`` (ISO ``YYYY-MM-DD``).
+
+        True on every business day, and also on a holiday or weekend day that
+        carries a ``SPECIAL_SESSION`` (Diwali Muhurat trading, a Saturday
+        disaster-recovery session). Such a day is still *not* a business day,
+        so settlement and other date arithmetic skip it. ``calendar`` may be
+        one id or comma-separated ids: a joint calendar trades only when every
+        member does. Returns ``is_business_day`` alongside for contrast.
+
+        Example question: "Did the market trade on Diwali 2024, even though it
+        was a holiday?"
+        """
+        try:
+            cal = _operation_calendar(calendar)
+            day = _parse_date(date)
+            trading = cal.is_trading_day(day)
+            business = cal.is_business_day(day)
+        except _QUERY_ERRORS as exc:
+            return _error(exc)
+        return {
+            "calendar_id": cal.calendar_id,
+            "data_version": bdc.data_version,
+            "date": _iso(day),
+            "is_trading_day": trading,
+            "is_business_day": business,
+            "status": cal.status(day),
+            "verified_through": _iso(cal.verified_through),
+        }
+
+    @app.tool()
+    def special_sessions(calendar: str, date: str) -> Dict[str, Any]:
+        """
+        The special sessions held on ``date``: trading sessions on a day that is
+        otherwise a holiday or weekend, each with its local ``open_time`` and
+        ``close_time`` (``HH:MM``) and the ``timezone`` they are local to,
+        ordered by open time. Empty on most dates. ``calendar`` may be
+        comma-separated ids; a joint calendar lists each member's sessions under
+        that member's own id and timezone. Early closes are not special
+        sessions — see ``is_early_close``.
+
+        Example question: "What time is Muhurat trading on the Indian market
+        this Diwali?"
+        """
+        try:
+            cal = _operation_calendar(calendar)
+            day = _parse_date(date)
+            sessions = cal.special_sessions(day)
+        except _QUERY_ERRORS as exc:
+            return _error(exc)
+        return {
+            "calendar_id": cal.calendar_id,
+            "data_version": bdc.data_version,
+            "date": _iso(day),
+            "special_sessions": [_special_session_dict(s) for s in sessions],
+            "status": cal.status(day),
+            "verified_through": _iso(cal.verified_through),
+        }
 
     @app.tool()
     def next_business_day(calendar: str, date: str) -> Dict[str, Any]:

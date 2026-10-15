@@ -225,4 +225,37 @@ class IcsEmitterTest {
             "US-NYSE", "NYSE Trading Calendar", "11.0.0", LocalDate.of(2026, 2, 16), List.of());
     assertFalse(doc.contains("BEGIN:VEVENT"));
   }
+
+  @Test
+  void specialSessionsAreTimedEventsInUtcWhenTheTimezoneIsKnown() {
+    LocalDate diwali = LocalDate.of(2024, 11, 1);
+    Event session =
+        new Event(
+            diwali,
+            EventType.SPECIAL_SESSION,
+            "Muhurat Trading",
+            "test",
+            "muhurat",
+            "module:muhurat",
+            null,
+            LocalTime.of(19, 0),
+            EventStatus.CONFIRMED,
+            LocalTime.of(18, 0));
+    String zoned =
+        emitter.emit(
+            "IN-NSE",
+            "NSE",
+            "14.0.0",
+            LocalDate.of(2026, 1, 1),
+            List.of(closed(diwali, "diwali", "Diwali"), session),
+            java.time.ZoneId.of("Asia/Kolkata"));
+    assertTrue(zoned.contains("DTSTART:20241101T123000Z\r\n"), zoned);
+    assertTrue(zoned.contains("DTEND:20241101T133000Z\r\n"), zoned);
+    assertTrue(zoned.contains("SUMMARY:NSE special session 18:00-19:00: Muhurat Trading"), zoned);
+    assertTrue(zoned.contains("DTSTART;VALUE=DATE:20241101\r\n"), "the closure stays all-day");
+
+    String floating =
+        emitter.emit("IN-NSE", "NSE", "14.0.0", LocalDate.of(2026, 1, 1), List.of(session));
+    assertTrue(floating.contains("DTSTART:20241101T180000\r\n"), floating);
+  }
 }

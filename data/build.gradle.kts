@@ -36,7 +36,10 @@ java {
 }
 
 val csvHeader =
-    "date,type,description,key,source_module,observed_from,close_time,status"
+    "date,type,description,key,source_module,observed_from,close_time,status,open_time"
+
+// Artifacts blessed before wire schema 2.1 have no open_time column; their rows gain an empty one.
+val legacyCsvHeader = "date,type,description,key,source_module,observed_from,close_time,status"
 
 val blessedDir: File = rootProject.file("blessed")
 val generatedResourcesDir: Provider<Directory> = layout.buildDirectory.dir("generated-resources")
@@ -115,7 +118,13 @@ val generateCalendarData =
                     writer.writeValueAsString(metadata) + "\n"
                 )
 
-                val lines = source.resolve("events.csv").readLines().filter { it.isNotBlank() }
+                val raw = source.resolve("events.csv").readLines().filter { it.isNotBlank() }
+                val lines =
+                    if (raw.first() == legacyCsvHeader) {
+                        listOf(csvHeader) + raw.drop(1).map { "$it," }
+                    } else {
+                        raw
+                    }
                 if (lines.first() != csvHeader) {
                     throw GradleException(
                         "$calendarId: unexpected events.csv header ${lines.first()}"

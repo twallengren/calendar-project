@@ -1,7 +1,10 @@
 # Special sessions: design note (October 2026)
 
-Status: proposal, not implemented. Written after the research for the National Stock Exchange of
-India (`NSE-RESEARCH.md`), the first market whose calendar the current model cannot express.
+Status: implemented in October 2026 (wire schema 2.1); `spec/SPEC.md` ("Special sessions",
+*Query API*, *Questions and the scopes they need*) is now the normative description. Written after
+the research for the National Stock Exchange of India (`NSE-RESEARCH.md`), the first market whose
+calendar the current model could not express. The proposal below is kept as written; the section
+"What was built" at the end records where the implementation departs from it and why.
 
 ## What the model cannot say today
 
@@ -85,3 +88,30 @@ candidate prepared from a clean main, after the pending release (`v13.0.0`, PR #
 market additions (PRs #24 and #25) have merged. The NSE calendar itself (holidays, election
 closures, outages, budget-weekend trading days) can be built on the current model the moment the
 special-session rows can be attached; the research is complete.
+
+## What was built
+
+The event type, `open_time`, `is_trading_day`, `special_sessions` (named for what it returns: the
+regular session's hours are not modelled, so a `sessions(date)` that included it would have
+nothing to say), validation, CSV/JSON/v1/v2/ICS output, the site, the CLI and the Java, Python and
+TypeScript ports. Three departures from the proposal:
+
+1. **No `settles` and no `scope` field.** Every session the NSE research found settles, so a
+   `settles: false` default would only ever be overridden by mock-trading sessions, which are not
+   trading and are not modelled at all. The one instrument-limited session (the 2012 Dhanteras
+   gold-ETF session) joins the Dhanteras extended hours in the source README. Both fields can be
+   added later as optional columns without breaking anything; removing them later could not.
+2. **No fourth trust scope.** A `SPECIAL_SESSIONS` scope would have made `is_trading_day` UNKNOWN
+   on every existing calendar until each declared new intervals backed by evidence nobody has
+   gathered. Special sessions are part of the published schedule (the NSE announces Muhurat
+   trading in the same circulars as its holidays), so they fall under the scopes that schedule
+   evidence already verifies: `is_trading_day` needs the business-day scopes and
+   `special_sessions` the session scopes.
+3. **v1 carries the rows.** The v1 contract already says an unknown `type` means "not a business
+   day", and a special session always shares its date with a `CLOSED` or `WEEKEND` row, so an old
+   v1 consumer still gets the right business-day answer. Hiding the rows from v1 would also have
+   hidden them from the HTML site, which renders from v1. `open_time` is a new optional field.
+
+`events.csv` gains `open_time` as its last column, so positional readers of the earlier columns
+are unaffected. Every artifact was re-blessed for the column with no change to any event (ci-diff
+exit 0).

@@ -1,13 +1,14 @@
 /**
  * Loading of the bundled data: `manifest.json` (release version, calendar index, alias table),
  * `<ID>/metadata.json` (the published metadata plus the resolved weekend policy and event
- * provenance) and `<ID>/holidays.csv` (every non-weekend event row).
+ * provenance) and `<ID>/holidays.csv` (every non-weekend event row; columns are read by header
+ * name, and the trailing `open_time` column of wire schema 2.1 is treated as empty when absent).
  */
 import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { parseCsv } from "./csv.ts";
-import { asIso } from "./dates.ts";
+import { asIso, compareTime } from "./dates.ts";
 import { CalendarNotFoundError } from "./errors.ts";
 import type { CoverageInterval, Event, EventDetails, NativeDate } from "./trust.ts";
 import { WeekendPolicy } from "./weekend.ts";
@@ -75,25 +76,35 @@ export interface CalendarData {
   readonly kind: string;
 }
 
-function eventFromRow(row: Record<string, unknown>): Event {
+export function eventFromRow(row: Record<string, unknown>): Event {
   const status = (row.status as string) || "CONFIRMED";
   if (status !== "CONFIRMED" && status !== "PROJECTED") {
     throw new TypeError(`event status must be CONFIRMED or PROJECTED, got ${status}`);
   }
+  const type = row.type as string;
+  const closeTime = (row.close_time as string) || null;
+  const openTime = (row.open_time as string) || null;
+  if (type === "SPECIAL_SESSION") {
+    if (!openTime || !closeTime) throw new TypeError(`a SPECIAL_SESSION on ${row.date} needs open_time and close_time`);
+    if (compareTime(openTime, closeTime) >= 0) throw new TypeError(`a SPECIAL_SESSION on ${row.date} must open before it closes`);
+  } else if (openTime) {
+    throw new TypeError(`open_time is only valid on a SPECIAL_SESSION, got ${type} on ${row.date}`);
+  }
   return {
     date: asIso(row.date as string),
-    type: row.type as string,
+    type,
     description: (row.description as string) || "",
     key: (row.key as string) || null,
     sourceModule: (row.source_module as string) || null,
     observedFrom: row.observed_from ? asIso(row.observed_from as string) : null,
-    closeTime: (row.close_time as string) || null,
+    closeTime,
     status,
+    openTime,
   };
 }
 
 function identity(event: Event): string {
-  return JSON.stringify([event.date, event.type, event.description, event.key, event.sourceModule, event.observedFrom, event.closeTime, event.status]);
+  return JSON.stringify([event.date, event.type, event.description, event.key, event.sourceModule, event.observedFrom, event.closeTime, event.status, event.openTime ?? null]);
 }
 
 function coverageIntervals(rows: unknown): CoverageInterval[] {

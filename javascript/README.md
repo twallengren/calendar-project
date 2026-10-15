@@ -31,7 +31,8 @@ Every calendar declares, per scope (scheduled closures, early closes, unschedule
 how well its evidence covers each date. An operation only needs the scopes its question depends
 on: **business-day questions** (`isBusinessDay`, navigation, counts, every financial operation)
 need scheduled closures and unscheduled exceptions, because an early close is still a business
-day; **session questions** (`closeTime`, `isEarlyClose`, `memberCloses`) also need early closes.
+day (`isTradingDay` needs the same two); **session questions** (`closeTime`, `isEarlyClose`,
+`memberCloses`, `specialSessions`) also need early closes.
 
 ```ts
 const xetra = getCalendar("XETR");
@@ -56,6 +57,8 @@ confidence of every date they examined.
 | `isBusinessDay`, `nextBusinessDay`, `previousBusinessDay`, `addBusinessDays(date, n)` | the business-day question and navigation (the start date is never counted) |
 | `businessDaysBetween(a, b)`, `sessionsInRange(a, b)`, `holidays(year)` | counting and listing |
 | `closeTime`, `isEarlyClose`, `memberCloses` | shortened sessions (`HH:MM`, local to `timezone`) |
+| `isTradingDay(date)` | a business day, or a non-business day that holds a `SPECIAL_SESSION` (e.g. Muhurat trading on a holiday); needs only the business-day scopes; never used by date arithmetic. A joint calendar trades when every member does |
+| `specialSessions(date)` | the date's `SPECIAL_SESSION`s as `{ calendarId, timezone, openTime, closeTime, key, description, status }` (`HH:MM`, local to that calendar's `timezone`), ordered by open then close time; a session question, like `closeTime`. A joint calendar lists each member's sessions in member order. `closeTime` reports early closes only |
 | `status(date)`, `assessment(date)` | confidence probes; never throw |
 | `adjust`, `businessDayOffset`, `advanceMonths`, `lastBusinessDayOfMonth` | financial date conventions (`UNADJUSTED`, `FOLLOWING`, `MODIFIED_FOLLOWING`, `PRECEDING`, `MODIFIED_PRECEDING`) |
 | `addTenor(date, "3M" \| "2W" \| "1Y" \| "T+2", convention?)` | market tenors; business-day tenors ignore the convention |

@@ -36,6 +36,18 @@ public class GeneratedOutputValidator {
             "date:" + entry.getKey(),
             "Several EARLY_CLOSE events on the same date: " + describe(day));
       }
+      boolean special = day.stream().anyMatch(e -> e.type() == EventType.SPECIAL_SESSION);
+      boolean businessDay =
+          day.stream()
+              .noneMatch(e -> e.type() == EventType.CLOSED || e.type() == EventType.WEEKEND);
+      if (special && businessDay) {
+        result.error(
+            "SPECIAL_SESSION_ON_BUSINESS_DAY",
+            "date:" + entry.getKey(),
+            "A SPECIAL_SESSION must fall on a holiday or weekend day; on a business day it is a "
+                + "change to the regular session: "
+                + describe(day));
+      }
       if (closed > 1) {
         result.warning(
             "MULTIPLE_CLOSURES",

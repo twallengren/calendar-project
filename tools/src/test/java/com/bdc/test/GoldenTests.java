@@ -45,6 +45,11 @@ class GoldenTests {
   }
 
   @Test
+  void specialSessionsCalendar2024() throws IOException {
+    testCalendarRunner.assertCsvGoldenMatch("SPECIAL-SESSIONS", 2024);
+  }
+
+  @Test
   void yearBoundaryCalendar2024() throws IOException {
     testCalendarRunner.assertCsvGoldenMatch("YEAR-BOUNDARY", 2024);
   }

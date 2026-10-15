@@ -19,6 +19,7 @@ import {
   type DayState,
   type Event,
   type EventDetails,
+  type SpecialSession,
 } from "./trust.ts";
 import type { WeekendPolicy } from "./weekend.ts";
 import * as operations from "./operations.ts";
@@ -68,6 +69,39 @@ export abstract class BusinessCalendar {
   abstract eventsOn(date: DateLike): Event[];
   abstract eventsInRange(start: DateLike, end: DateLike): Event[];
   abstract isBusinessDay(date: DateLike): boolean;
+
+  /**
+   * Whether trades are struck on this date: a business day, or a non-business day carrying a
+   * `SPECIAL_SESSION` (Diwali Muhurat trading on an exchange holiday, say). Date arithmetic never
+   * uses it. It needs the same scopes as `isBusinessDay`.
+   */
+  isTradingDay(date: DateLike): boolean {
+    const day = asIso(date);
+    if (this.isBusinessDay(day)) return true;
+    return this.eventsOn(day).some((e) => e.type === "SPECIAL_SESSION");
+  }
+
+  /**
+   * The special sessions held on a date, ordered by open time then close time; empty on most
+   * dates. Times are local to the calendar's timezone. Session detail needs every scope, like
+   * `closeTime`.
+   */
+  specialSessions(date: DateLike): SpecialSession[] {
+    const day = asIso(date);
+    this.requireResolved(day);
+    return this.eventsOn(day)
+      .filter((e) => e.type === "SPECIAL_SESSION")
+      .sort((a, b) => compareTime(a.openTime!, b.openTime!) || compareTime(a.closeTime!, b.closeTime!))
+      .map((e) => ({
+        calendarId: this.calendarId,
+        timezone: this.timezone,
+        openTime: e.openTime!,
+        closeTime: e.closeTime!,
+        key: e.key,
+        description: e.description,
+        status: e.status,
+      }));
+  }
 
   /** The first of `eventsOn`, or null. */
   eventOn(date: DateLike): Event | null {
@@ -407,7 +441,7 @@ export class SingleCalendar extends BusinessCalendar {
       const name = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"][
         (((Date.UTC(Number(day.slice(0, 4)), Number(day.slice(5, 7)) - 1, Number(day.slice(8, 10))) / 86_400_000 + 3) % 7) + 7) % 7
       ]!;
-      rows.push({ date: day, type: "WEEKEND", description: name, key: "weekend", sourceModule: "weekend_policy", observedFrom: null, closeTime: null, status: "CONFIRMED" });
+      rows.push({ date: day, type: "WEEKEND", description: name, key: "weekend", sourceModule: "weekend_policy", observedFrom: null, closeTime: null, status: "CONFIRMED", openTime: null });
     }
     return rows;
   }
@@ -514,6 +548,22 @@ export class JointCalendar extends BusinessCalendar {
     this.checkRange(day);
     this.requireResolved(day, "BUSINESS_DAY");
     return this.members.every((m) => m.isBusinessDay(day));
+  }
+
+  /** A joint trading day is a date on which every member trades. */
+  override isTradingDay(date: DateLike): boolean {
+    const day = asIso(date);
+    this.checkRange(day);
+    this.requireResolved(day, "BUSINESS_DAY");
+    return this.members.every((m) => m.isTradingDay(day));
+  }
+
+  /** Every member's special sessions in member order, each with its own calendar and timezone. */
+  override specialSessions(date: DateLike): SpecialSession[] {
+    const day = asIso(date);
+    this.checkRange(day);
+    this.requireResolved(day);
+    return this.members.flatMap((m) => m.specialSessions(day));
   }
 
   /** The members that do not trade on the given date, in member order. */
