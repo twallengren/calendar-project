@@ -1,0 +1,405 @@
+kind: resolved_calendar
+id: MX-BMV
+metadata:
+  name: Bolsa Mexicana de Valores
+  description: Bolsa Mexicana de Valores equities trading calendar (MIC XMEX)
+  chronology: ISO
+  timezone: America/Mexico_City
+  mic: XMEX
+  coverage:
+    from: 2010-01-01
+    to: 2027-12-31
+    verified_through: 2026-12-31
+    quality:
+    - scope: SCHEDULED_CLOSURES
+      from: 2010-01-01
+      to: 2012-12-31
+      quality: VERIFIED
+      evidence_ids:
+      - dof-2009-12-16-dias-2010
+      - fund-hsbc-2010-01-01
+      - cnbv-resolucion-2010-09
+      - press-elsiglodetorreon-2010-09-15
+      - bmv-informes-anuales
+    - scope: SCHEDULED_CLOSURES
+      from: 2013-01-01
+      to: 2013-12-31
+      quality: PROJECTED
+      evidence_ids:
+      - mx-ley-federal-del-trabajo
+      - cnbv-dias-inhabiles
+    - scope: SCHEDULED_CLOSURES
+      from: 2014-01-01
+      to: 2016-12-31
+      quality: VERIFIED
+      evidence_ids:
+      - bmv-informes-anuales
+      - mx-ley-federal-del-trabajo
+    - scope: SCHEDULED_CLOSURES
+      from: 2017-01-01
+      to: 2026-12-31
+      quality: VERIFIED
+      evidence_ids:
+      - cnbv-dias-inhabiles
+      - dof-2023-12-12-dias-2024
+      - bmv-calendario-2026
+      - bmv-informes-anuales
+      - fund-sura-2023-01-01
+      - press-bloomberglinea-2022-11-01
+      - press-bloomberglinea-2023-04-03
+      - press-expansion-2024-10-01
+    - scope: SCHEDULED_CLOSURES
+      from: 2027-01-01
+      to: 2027-12-31
+      quality: PROJECTED
+      evidence_ids:
+      - mx-ley-federal-del-trabajo
+      - cnbv-dias-inhabiles
+    - scope: EARLY_CLOSES
+      from: 2010-01-01
+      to: 2010-12-23
+      quality: PROJECTED
+      evidence_ids:
+      - bmv-manual-operativo
+    - scope: EARLY_CLOSES
+      from: 2010-12-24
+      to: 2010-12-24
+      quality: INCOMPLETE
+      evidence_ids: []
+    - scope: EARLY_CLOSES
+      from: 2010-12-25
+      to: 2012-12-23
+      quality: PROJECTED
+      evidence_ids:
+      - bmv-manual-operativo
+    - scope: EARLY_CLOSES
+      from: 2012-12-24
+      to: 2012-12-24
+      quality: INCOMPLETE
+      evidence_ids: []
+    - scope: EARLY_CLOSES
+      from: 2012-12-25
+      to: 2013-12-23
+      quality: PROJECTED
+      evidence_ids:
+      - bmv-manual-operativo
+    - scope: EARLY_CLOSES
+      from: 2013-12-24
+      to: 2013-12-24
+      quality: INCOMPLETE
+      evidence_ids: []
+    - scope: EARLY_CLOSES
+      from: 2013-12-25
+      to: 2014-12-23
+      quality: PROJECTED
+      evidence_ids:
+      - bmv-manual-operativo
+    - scope: EARLY_CLOSES
+      from: 2014-12-24
+      to: 2014-12-24
+      quality: INCOMPLETE
+      evidence_ids: []
+    - scope: EARLY_CLOSES
+      from: 2014-12-25
+      to: 2015-12-23
+      quality: PROJECTED
+      evidence_ids:
+      - bmv-manual-operativo
+    - scope: EARLY_CLOSES
+      from: 2015-12-24
+      to: 2015-12-24
+      quality: INCOMPLETE
+      evidence_ids: []
+    - scope: EARLY_CLOSES
+      from: 2015-12-25
+      to: 2018-12-23
+      quality: PROJECTED
+      evidence_ids:
+      - bmv-manual-operativo
+      - bmv-avisos-horario
+    - scope: EARLY_CLOSES
+      from: 2018-12-24
+      to: 2018-12-24
+      quality: VERIFIED
+      evidence_ids:
+      - fund-compass-2018-12-18
+    - scope: EARLY_CLOSES
+      from: 2018-12-25
+      to: 2027-12-31
+      quality: PROJECTED
+      evidence_ids:
+      - bmv-manual-operativo
+      - bmv-avisos-horario
+      - fund-hours-notices
+      - fund-compass-2021-12-03
+      - fund-hsbc-2025-12-09
+      - press-bloomberglinea-2025-12-30
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2010-01-01
+      to: 2012-12-31
+      quality: VERIFIED
+      evidence_ids:
+      - bmv-informes-anuales
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2013-01-01
+      to: 2013-12-31
+      quality: PROJECTED
+      evidence_ids:
+      - bmv-informes-anuales
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2014-01-01
+      to: 2017-12-31
+      quality: VERIFIED
+      evidence_ids:
+      - bmv-informes-anuales
+      - press-zetatijuana-2016-02-26
+      - bmv-press-2017-09-20
+      - press-elfinanciero-2017-09-19
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2018-01-01
+      to: 2027-12-31
+      quality: PROJECTED
+      evidence_ids:
+      - press-expansion-2019-09-24
+      - press-adn40-2020-03-17
+      - press-elceo-2020-10-09
+      - press-razon-2020-10-09
+      - bmv-nota-2023-04-10
+      - press-expansion-2026-06-29
+      - press-elceo-2026-03-19
+weekend_policy:
+  days:
+  - SATURDAY
+  - SUNDAY
+weekend_shift_policy: NONE
+resolution_chain:
+- module:weekend_sat_sun
+- module:mx_new_years_day
+- module:mx_constitution_day
+- module:mx_benito_juarez_day
+- module:mx_holy_week
+- module:mx_labour_day
+- module:mx_independence_day
+- module:mx_day_of_the_dead
+- module:mx_revolution_day
+- module:mx_bank_employees_day
+- module:mx_christmas_day
+- module:mx_bmv_one_off_closures
+- module:mx_bmv_early_closes
+- module:mx_bmv_unscheduled_exceptions
+- module:mx_bmv_holidays
+- calendar:MX-BMV
+references:
+- key: easter
+  formula: EASTER_WESTERN
+event_sources:
+- key: mx_new_years_day
+  name: Año Nuevo
+  origin: module:mx_new_years_day
+  classification: CLOSED
+  shift_policy: NONE
+  status: CONFIRMED
+  source:
+  - id: cnbv-dias-inhabiles
+  rule:
+    type: fixed_month_day
+    month: 1
+    day: 1
+- key: mx_constitution_day
+  name: Conmemoración del 5 de febrero
+  origin: module:mx_constitution_day
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: cnbv-dias-inhabiles
+  rule:
+    type: nth_weekday_of_month
+    month: 2
+    weekday: MONDAY
+    nth: 1
+- key: mx_benito_juarez_day
+  name: Conmemoración del 21 de marzo
+  origin: module:mx_benito_juarez_day
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: cnbv-dias-inhabiles
+  rule:
+    type: nth_weekday_of_month
+    month: 3
+    weekday: MONDAY
+    nth: 3
+- key: mx_maundy_thursday
+  name: Jueves Santo
+  origin: module:mx_holy_week
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: cnbv-dias-inhabiles
+  rule:
+    type: relative_to_reference
+    reference: easter
+    offset_days: -3
+- key: mx_good_friday
+  name: Viernes Santo
+  origin: module:mx_holy_week
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: cnbv-dias-inhabiles
+  rule:
+    type: relative_to_reference
+    reference: easter
+    offset_days: -2
+- key: mx_labour_day
+  name: Día del Trabajo
+  origin: module:mx_labour_day
+  classification: CLOSED
+  shift_policy: NONE
+  status: CONFIRMED
+  source:
+  - id: cnbv-dias-inhabiles
+  rule:
+    type: fixed_month_day
+    month: 5
+    day: 1
+- key: mx_independence_day
+  name: Día de la Independencia
+  origin: module:mx_independence_day
+  classification: CLOSED
+  shift_policy: NONE
+  status: CONFIRMED
+  source:
+  - id: cnbv-dias-inhabiles
+  rule:
+    type: fixed_month_day
+    month: 9
+    day: 16
+- key: mx_day_of_the_dead
+  name: Día de Muertos
+  origin: module:mx_day_of_the_dead
+  classification: CLOSED
+  shift_policy: NONE
+  status: CONFIRMED
+  source:
+  - id: cnbv-dias-inhabiles
+  rule:
+    type: fixed_month_day
+    month: 11
+    day: 2
+- key: mx_revolution_day
+  name: Conmemoración del 20 de noviembre
+  origin: module:mx_revolution_day
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: cnbv-dias-inhabiles
+  rule:
+    type: nth_weekday_of_month
+    month: 11
+    weekday: MONDAY
+    nth: 3
+- key: mx_bank_employees_day
+  name: Día del Empleado Bancario
+  origin: module:mx_bank_employees_day
+  classification: CLOSED
+  shift_policy: NONE
+  status: CONFIRMED
+  source:
+  - id: cnbv-dias-inhabiles
+  rule:
+    type: fixed_month_day
+    month: 12
+    day: 12
+- key: mx_christmas_day
+  name: Navidad
+  origin: module:mx_christmas_day
+  classification: CLOSED
+  shift_policy: NONE
+  status: CONFIRMED
+  source:
+  - id: cnbv-dias-inhabiles
+  rule:
+    type: fixed_month_day
+    month: 12
+    day: 25
+- key: mx_bicentennial_2010
+  name: Bicentenario de la Independencia
+  origin: module:mx_bmv_one_off_closures
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: cnbv-resolucion-2010-09
+    ref: "Asimismo, el día 17 de septiembre, en conmemoración del Bicentenario del\
+      \ inicio de la Independencia Mexicana."
+  rule:
+    type: explicit_dates
+    dates:
+    - 2010-09-17
+- key: mx_presidential_inauguration
+  name: Transmisión del Poder Ejecutivo Federal
+  origin: module:mx_bmv_one_off_closures
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: dof-2023-12-12-dias-2024
+    ref: VII. El 1o. de octubre.
+  - id: mx-ley-federal-del-trabajo
+    ref: "VII. El 1o. de octubre de cada seis años, cuando corresponda a la transmisió\
+      n del Poder Ejecutivo Federal"
+  rule:
+    type: explicit_dates
+    dates:
+    - 2024-10-01
+- key: mx_bmv_christmas_eve_early_close
+  name: Víspera de Navidad (sesión reducida)
+  origin: module:mx_bmv_early_closes
+  classification: EARLY_CLOSE
+  shiftable: true
+  close_time: 12:00
+  status: CONFIRMED
+  active_years:
+  - - 2018
+    - null
+  source:
+  - id: fund-compass-2018-12-18
+    ref: el horario de la sesión de remate de la BMV y de BIVA del 24 de diciembre
+      será de las 8:00 a las 12:00 horas
+  - id: fund-hsbc-2025-12-09
+    ref: cerrarán 3 horas antes respecto al horario habitual ... debido a que habrá
+      un cambio en el horario de operaciones en la Bolsa Mexicana de Valores
+  rule:
+    type: fixed_month_day
+    month: 12
+    day: 24
+- key: mx_bmv_earthquake_recess_2017
+  name: Receso administrativo (sismo)
+  origin: module:mx_bmv_unscheduled_exceptions
+  classification: EARLY_CLOSE
+  close_time: 13:43
+  status: CONFIRMED
+  source:
+  - id: bmv-press-2017-09-20
+    ref: "procedió a suspender operaciones decretando un receso administrativo que\
+      \ inició a las 13:43 horas, manteniéndose hasta el cierre del Mercado"
+  rule:
+    type: explicit_dates
+    dates:
+    - date: 2017-09-19
+      comment: earthquake at 13:14; administrative recess from 13:43 to the close
+- key: mx_bmv_trading_engine_failure_2020
+  name: Suspensión de la Sesión de Remate (falla del motor de negociación)
+  origin: module:mx_bmv_unscheduled_exceptions
+  classification: EARLY_CLOSE
+  close_time: 11:56
+  status: CONFIRMED
+  source:
+  - id: press-elceo-2020-10-09
+    ref: "a las 11:56 hrs., se presentó una desconexión en el motor de negociació\
+      n ... decretó la suspensión de la Sesión de Remate que se mantuvo hasta el cierre\
+      \ de la jornada bursátil"
+  rule:
+    type: explicit_dates
+    dates:
+    - date: 2020-10-09
+      comment: trading-engine disconnection at 11:56; the session was not resumed

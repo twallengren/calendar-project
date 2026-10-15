@@ -101,6 +101,13 @@
       "checksum": "sha256:bf10463f761183bb9963ebfd6f526fe4e833ef48e8b2353616623147d5a111cc",
       "event_count": 2146
     },
+    "MX-BMV": {
+      "range_start": "2010-01-01",
+      "range_end": "2027-12-31",
+      "kind": "market",
+      "checksum": "sha256:69c2f439e21d55681fd4b06d13532bd5df42cf4d9b042e59e1e89cecc3900af0",
+      "event_count": 2056
+    },
     "NL-EURONEXT-AMSTERDAM": {
       "kind": "market",
       "range_start": "2010-01-01",
@@ -188,6 +195,7 @@
     "XKRX": "KR-KRX",
     "XLIS": "PT-EURONEXT-LISBON",
     "XLON": "GB-LSE",
+    "XMEX": "MX-BMV",
     "XNYS": "US-NYSE",
     "XPAR": "FR-EURONEXT-PARIS",
     "XSAU": "SA-TADAWUL",

@@ -1,0 +1,179 @@
+kind: calendar
+id: MX-BMV
+metadata:
+  name: Bolsa Mexicana de Valores
+  description: Bolsa Mexicana de Valores equities trading calendar (MIC XMEX)
+  chronology: ISO
+  timezone: America/Mexico_City
+  coverage:
+    from: 2010-01-01
+    to: 2027-12-31
+    quality:
+    - scope: SCHEDULED_CLOSURES
+      from: 2010-01-01
+      to: 2012-12-31
+      quality: VERIFIED
+      evidenceIds:
+      - dof-2009-12-16-dias-2010
+      - fund-hsbc-2010-01-01
+      - cnbv-resolucion-2010-09
+      - press-elsiglodetorreon-2010-09-15
+      - bmv-informes-anuales
+    - scope: SCHEDULED_CLOSURES
+      from: 2013-01-01
+      to: 2013-12-31
+      quality: PROJECTED
+      evidenceIds:
+      - mx-ley-federal-del-trabajo
+      - cnbv-dias-inhabiles
+    - scope: SCHEDULED_CLOSURES
+      from: 2014-01-01
+      to: 2016-12-31
+      quality: VERIFIED
+      evidenceIds:
+      - bmv-informes-anuales
+      - mx-ley-federal-del-trabajo
+    - scope: SCHEDULED_CLOSURES
+      from: 2017-01-01
+      to: 2026-12-31
+      quality: VERIFIED
+      evidenceIds:
+      - cnbv-dias-inhabiles
+      - dof-2023-12-12-dias-2024
+      - bmv-calendario-2026
+      - bmv-informes-anuales
+      - fund-sura-2023-01-01
+      - press-bloomberglinea-2022-11-01
+      - press-bloomberglinea-2023-04-03
+      - press-expansion-2024-10-01
+    - scope: SCHEDULED_CLOSURES
+      from: 2027-01-01
+      to: 2027-12-31
+      quality: PROJECTED
+      evidenceIds:
+      - mx-ley-federal-del-trabajo
+      - cnbv-dias-inhabiles
+    - scope: EARLY_CLOSES
+      from: 2010-01-01
+      to: 2010-12-23
+      quality: PROJECTED
+      evidenceIds:
+      - bmv-manual-operativo
+    - scope: EARLY_CLOSES
+      from: 2010-12-24
+      to: 2010-12-24
+      quality: INCOMPLETE
+      evidenceIds: []
+    - scope: EARLY_CLOSES
+      from: 2010-12-25
+      to: 2012-12-23
+      quality: PROJECTED
+      evidenceIds:
+      - bmv-manual-operativo
+    - scope: EARLY_CLOSES
+      from: 2012-12-24
+      to: 2012-12-24
+      quality: INCOMPLETE
+      evidenceIds: []
+    - scope: EARLY_CLOSES
+      from: 2012-12-25
+      to: 2013-12-23
+      quality: PROJECTED
+      evidenceIds:
+      - bmv-manual-operativo
+    - scope: EARLY_CLOSES
+      from: 2013-12-24
+      to: 2013-12-24
+      quality: INCOMPLETE
+      evidenceIds: []
+    - scope: EARLY_CLOSES
+      from: 2013-12-25
+      to: 2014-12-23
+      quality: PROJECTED
+      evidenceIds:
+      - bmv-manual-operativo
+    - scope: EARLY_CLOSES
+      from: 2014-12-24
+      to: 2014-12-24
+      quality: INCOMPLETE
+      evidenceIds: []
+    - scope: EARLY_CLOSES
+      from: 2014-12-25
+      to: 2015-12-23
+      quality: PROJECTED
+      evidenceIds:
+      - bmv-manual-operativo
+    - scope: EARLY_CLOSES
+      from: 2015-12-24
+      to: 2015-12-24
+      quality: INCOMPLETE
+      evidenceIds: []
+    - scope: EARLY_CLOSES
+      from: 2015-12-25
+      to: 2018-12-23
+      quality: PROJECTED
+      evidenceIds:
+      - bmv-manual-operativo
+      - bmv-avisos-horario
+    - scope: EARLY_CLOSES
+      from: 2018-12-24
+      to: 2018-12-24
+      quality: VERIFIED
+      evidenceIds:
+      - fund-compass-2018-12-18
+    - scope: EARLY_CLOSES
+      from: 2018-12-25
+      to: 2027-12-31
+      quality: PROJECTED
+      evidenceIds:
+      - bmv-manual-operativo
+      - bmv-avisos-horario
+      - fund-hours-notices
+      - fund-compass-2021-12-03
+      - fund-hsbc-2025-12-09
+      - press-bloomberglinea-2025-12-30
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2010-01-01
+      to: 2012-12-31
+      quality: VERIFIED
+      evidenceIds:
+      - bmv-informes-anuales
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2013-01-01
+      to: 2013-12-31
+      quality: PROJECTED
+      evidenceIds:
+      - bmv-informes-anuales
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2014-01-01
+      to: 2017-12-31
+      quality: VERIFIED
+      evidenceIds:
+      - bmv-informes-anuales
+      - press-zetatijuana-2016-02-26
+      - bmv-press-2017-09-20
+      - press-elfinanciero-2017-09-19
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2018-01-01
+      to: 2027-12-31
+      quality: PROJECTED
+      evidenceIds:
+      - press-expansion-2019-09-24
+      - press-adn40-2020-03-17
+      - press-elceo-2020-10-09
+      - press-razon-2020-10-09
+      - bmv-nota-2023-04-10
+      - press-expansion-2026-06-29
+      - press-elceo-2026-03-19
+    verified_through: 2026-12-31
+  kind: market
+  mic: XMEX
+  aliases: []
+uses:
+- weekend_sat_sun
+- mx_bmv_holidays
+classifications: {}
+deltas: []
+extends: []
+event_sources: []
+weekend_shift_policy: NONE

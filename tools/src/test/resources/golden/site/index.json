@@ -282,6 +282,28 @@
     "years" : [ 2010, 2027 ],
     "href" : "calendars/KR-KRX/manifest.json"
   }, {
+    "id" : "MX-BMV",
+    "name" : "Bolsa Mexicana de Valores",
+    "timezone" : "America/Mexico_City",
+    "mic" : "XMEX",
+    "aliases" : [ ],
+    "coverage" : {
+      "from" : "2010-01-01",
+      "to" : "2027-12-31",
+      "verified_through" : "2026-12-31"
+    },
+    "counts_by_type" : {
+      "CLOSED" : 200,
+      "WEEKEND" : 1846,
+      "EARLY_CLOSE" : 10
+    },
+    "counts_by_status" : {
+      "CONFIRMED" : 2056
+    },
+    "checksum" : "sha256:69c2f439e21d55681fd4b06d13532bd5df42cf4d9b042e59e1e89cecc3900af0",
+    "years" : [ 2010, 2027 ],
+    "href" : "calendars/MX-BMV/manifest.json"
+  }, {
     "id" : "NL-EURONEXT-AMSTERDAM",
     "name" : "Euronext Amsterdam Trading Calendar",
     "timezone" : "Europe/Amsterdam",

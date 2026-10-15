@@ -321,6 +321,7 @@ actual-day completeness. Use the [coverage assessment summary](docs/delivery/COV
 | IL-TASE | Tel Aviv Stock Exchange | market | Asia/Jerusalem | 2025-01-01 to 2028-12-31 | 2028-12-31 | 78 | 157 | 0 | 9 | none | 13.0.0 |
 | JP-JPX | Japan Exchange Group (Tokyo Stock Exchange) | market | Asia/Tokyo | 2010-01-01 to 2030-12-31 | 2027-12-31 | 343 | 0 | 6 | 12 | exchange_calendars-XTKS: ok (allowlisted=11); quantlib-japan: ok (allowlisted=1) | 13.0.0 |
 | KR-KRX | Korea Exchange | market | Asia/Seoul | 2010-01-01 to 2027-12-31 | 2026-12-31 | 318 | 0 | 0 | 17 | exchange_calendars-XKRX: ok (allowlisted=6); quantlib-south-korea-krx: ok (allowlisted=5) | 13.0.0 |
+| MX-BMV | Bolsa Mexicana de Valores | market | America/Mexico_City | 2010-01-01 to 2027-12-31 | 2026-12-31 | 200 | 10 | 0 | 49 | exchange_calendars-XMEX: ok (allowlisted=11); quantlib-mexico: ok (allowlisted=1) | 13.0.0 |
 | NL-EURONEXT-AMSTERDAM | Euronext Amsterdam Trading Calendar | market | Europe/Amsterdam | 2010-01-01 to 2030-12-31 | 2026-12-31 | 126 | 30 | 0 | 14 | exchange_calendars-XAMS: ok (allowlisted=12) | 13.0.0 |
 | PT-EURONEXT-LISBON | Euronext Lisbon Trading Calendar | market | Europe/Lisbon | 2010-01-01 to 2030-12-31 | 2026-12-31 | 126 | 30 | 0 | 14 | exchange_calendars-XLIS: ok (allowlisted=12) | 13.0.0 |
 | SA-TADAWUL | Tadawul (Saudi Exchange) Trading Calendar | market | Asia/Riyadh | 2020-01-01 to 2030-12-31 | 2029-12-31 | 195 | 0 | 16 | 13 | exchange_calendars-XSAU: ok (allowlisted=24) | 13.0.0 |

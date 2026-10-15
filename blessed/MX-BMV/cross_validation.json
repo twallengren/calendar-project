@@ -1,0 +1,33 @@
+{
+  "calendar_id" : "MX-BMV",
+  "status" : "ok",
+  "results" : [ {
+    "source" : "exchange_calendars-XMEX",
+    "library_version" : "exchange_calendars 4.11, python 3.13.12, 2026-10-15",
+    "from" : "2010-01-04",
+    "to" : "2027-12-31",
+    "compared_types" : [ "CLOSED", "EARLY_CLOSE" ],
+    "counts" : {
+      "matched" : 166,
+      "allowlisted" : 11,
+      "unexplained" : 0
+    },
+    "unexplained_rows" : [ ],
+    "stale_allowlist_rows" : [ ],
+    "status" : "ok"
+  }, {
+    "source" : "quantlib-mexico",
+    "library_version" : "QuantLib 1.43, python 3.13.12, 2026-10-15",
+    "from" : "2010-01-01",
+    "to" : "2027-12-31",
+    "compared_types" : [ "CLOSED" ],
+    "counts" : {
+      "matched" : 167,
+      "allowlisted" : 1,
+      "unexplained" : 0
+    },
+    "unexplained_rows" : [ ],
+    "stale_allowlist_rows" : [ ],
+    "status" : "ok"
+  } ]
+}
