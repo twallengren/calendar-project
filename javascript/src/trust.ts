@@ -39,13 +39,30 @@ export interface NativeDate {
 export interface Event {
   /** ISO civil date in the market's own timezone. */
   readonly date: string;
-  readonly type: "CLOSED" | "EARLY_CLOSE" | "NOTABLE" | "PERIOD_MARKER" | "WEEKEND" | string;
+  readonly type: "CLOSED" | "EARLY_CLOSE" | "NOTABLE" | "PERIOD_MARKER" | "WEEKEND" | "SPECIAL_SESSION" | string;
   readonly description: string;
   readonly key: string | null;
   readonly sourceModule: string | null;
   readonly observedFrom: string | null;
-  /** Local close time `HH:MM` of a shortened session (`EARLY_CLOSE` only). */
+  /** Local close time `HH:MM` of a shortened session (`EARLY_CLOSE`) or a `SPECIAL_SESSION`. */
   readonly closeTime: string | null;
+  readonly status: "CONFIRMED" | "PROJECTED";
+  /** Local open time `HH:MM` of a `SPECIAL_SESSION`; null (or absent) on every other type. */
+  readonly openTime?: string | null;
+}
+
+/**
+ * A trading session on a date that is not a business day (a `SPECIAL_SESSION` event), with the
+ * calendar and timezone its local `HH:MM` times belong to; `timezone` is null only for legacy
+ * metadata. Mirrors Java `com.bdc.stream.SpecialSession`.
+ */
+export interface SpecialSession {
+  readonly calendarId: string;
+  readonly timezone: string | null;
+  readonly openTime: string;
+  readonly closeTime: string;
+  readonly key: string | null;
+  readonly description: string;
   readonly status: "CONFIRMED" | "PROJECTED";
 }
 
