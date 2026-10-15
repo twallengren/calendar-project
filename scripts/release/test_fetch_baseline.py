@@ -30,3 +30,32 @@ class FetchBaselineTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class SelectDatasetAssetsTest(unittest.TestCase):
+    def test_dataset_archive_is_chosen_beside_the_python_sdist(self):
+        assets = [
+            {"name": "bdc_calendars-0.12.0.tar.gz"},
+            {"name": "bdc-calendars-12.0.0.zip"},
+            {"name": "bdc-calendars-12.0.0.tar.gz"},
+            {"name": "checksums.txt"},
+        ]
+        archive, checksums = fetch_baseline.select_dataset_assets(assets)
+        self.assertEqual(archive["name"], "bdc-calendars-12.0.0.tar.gz")
+        self.assertEqual(checksums["name"], "checksums.txt")
+
+    def test_missing_or_ambiguous_dataset_archive_is_rejected(self):
+        with self.assertRaises(SystemExit):
+            fetch_baseline.select_dataset_assets(
+                [{"name": "bdc_calendars-0.12.0.tar.gz"}, {"name": "checksums.txt"}]
+            )
+        with self.assertRaises(SystemExit):
+            fetch_baseline.select_dataset_assets(
+                [
+                    {"name": "bdc-calendars-12.0.0.tar.gz"},
+                    {"name": "bdc-calendars-11.0.0.tar.gz"},
+                    {"name": "checksums.txt"},
+                ]
+            )
+        with self.assertRaises(SystemExit):
+            fetch_baseline.select_dataset_assets([{"name": "bdc-calendars-12.0.0.tar.gz"}])

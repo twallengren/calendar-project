@@ -22,7 +22,7 @@
     "XTKS": "JP-JPX",
     "XTSE": "CA-TSX"
   },
-  "blessed_at": "2026-10-14T00:02:04Z",
+  "blessed_at": "2026-10-14T14:07:08Z",
   "calendars": {
     "AU-ASX": {
       "kind": "market",
@@ -140,7 +140,7 @@
       "range_start": "2010-01-01"
     }
   },
-  "data_git_sha": "1f63234a07eb72cc08a8c0d451983be39e88b2ae",
+  "data_git_sha": "74d854cdbdfa9f622720d205ef9e999d23f008eb",
   "data_version": "13.0.0",
   "generation_date": "2026-10-14",
   "schema_version": "1.0"

@@ -1,0 +1,556 @@
+kind: resolved_calendar
+id: IL-TASE
+metadata:
+  name: Tel Aviv Stock Exchange
+  description: "Tel Aviv Stock Exchange (TASE) equity trading calendar. Scheduled\
+    \ closures are complete for 2025. The 2026-2027 range deliberately contains only\
+    \ the verified trading-week change, verified Q1 Friday sessions, and two individually\
+    \ announced April 2026 closures. Exact 2025 shortened-session close times, other\
+    \ scheduled closures, and unscheduled exceptions remain incomplete."
+  chronology: ISO
+  timezone: Asia/Jerusalem
+  mic: XTAE
+  aliases:
+  - TASE
+  coverage:
+    from: 2025-01-01
+    to: 2027-12-31
+    verified_through: 2025-12-31
+    quality:
+    - scope: SCHEDULED_CLOSURES
+      from: 2025-01-01
+      to: 2025-12-31
+      quality: VERIFIED
+      evidence_ids:
+      - tase-vacation-schedule-2025
+    - scope: SCHEDULED_CLOSURES
+      from: 2026-01-01
+      to: 2026-04-20
+      quality: INCOMPLETE
+      evidence_ids:
+      - isa-trading-week-2026
+      - tase-q1-2026-report
+    - scope: SCHEDULED_CLOSURES
+      from: 2026-04-21
+      to: 2026-04-22
+      quality: VERIFIED
+      evidence_ids:
+      - tase-weekly-review-2026-04-20
+    - scope: SCHEDULED_CLOSURES
+      from: 2026-04-23
+      to: 2027-12-31
+      quality: INCOMPLETE
+      evidence_ids:
+      - isa-trading-week-2026
+    - scope: EARLY_CLOSES
+      from: 2025-01-01
+      to: 2026-01-08
+      quality: INCOMPLETE
+      evidence_ids:
+      - tase-vacation-schedule-2025
+      - tase-board-trading-hours-2024
+    - scope: EARLY_CLOSES
+      from: 2026-01-09
+      to: 2026-01-09
+      quality: VERIFIED
+      evidence_ids:
+      - isa-trading-week-2026
+    - scope: EARLY_CLOSES
+      from: 2026-01-10
+      to: 2026-01-15
+      quality: INCOMPLETE
+      evidence_ids:
+      - isa-trading-week-2026
+    - scope: EARLY_CLOSES
+      from: 2026-01-16
+      to: 2026-01-16
+      quality: VERIFIED
+      evidence_ids:
+      - isa-trading-week-2026
+    - scope: EARLY_CLOSES
+      from: 2026-01-17
+      to: 2026-01-22
+      quality: INCOMPLETE
+      evidence_ids:
+      - isa-trading-week-2026
+    - scope: EARLY_CLOSES
+      from: 2026-01-23
+      to: 2026-01-23
+      quality: VERIFIED
+      evidence_ids:
+      - isa-trading-week-2026
+    - scope: EARLY_CLOSES
+      from: 2026-01-24
+      to: 2026-01-29
+      quality: INCOMPLETE
+      evidence_ids:
+      - isa-trading-week-2026
+    - scope: EARLY_CLOSES
+      from: 2026-01-30
+      to: 2026-01-30
+      quality: VERIFIED
+      evidence_ids:
+      - isa-trading-week-2026
+    - scope: EARLY_CLOSES
+      from: 2026-01-31
+      to: 2026-02-05
+      quality: INCOMPLETE
+      evidence_ids:
+      - isa-trading-week-2026
+    - scope: EARLY_CLOSES
+      from: 2026-02-06
+      to: 2026-02-06
+      quality: VERIFIED
+      evidence_ids:
+      - isa-trading-week-2026
+    - scope: EARLY_CLOSES
+      from: 2026-02-07
+      to: 2026-02-12
+      quality: INCOMPLETE
+      evidence_ids:
+      - isa-trading-week-2026
+    - scope: EARLY_CLOSES
+      from: 2026-02-13
+      to: 2026-02-13
+      quality: VERIFIED
+      evidence_ids:
+      - isa-trading-week-2026
+    - scope: EARLY_CLOSES
+      from: 2026-02-14
+      to: 2026-02-19
+      quality: INCOMPLETE
+      evidence_ids:
+      - isa-trading-week-2026
+    - scope: EARLY_CLOSES
+      from: 2026-02-20
+      to: 2026-02-20
+      quality: VERIFIED
+      evidence_ids:
+      - isa-trading-week-2026
+    - scope: EARLY_CLOSES
+      from: 2026-02-21
+      to: 2026-02-26
+      quality: INCOMPLETE
+      evidence_ids:
+      - isa-trading-week-2026
+    - scope: EARLY_CLOSES
+      from: 2026-02-27
+      to: 2026-02-27
+      quality: VERIFIED
+      evidence_ids:
+      - isa-trading-week-2026
+    - scope: EARLY_CLOSES
+      from: 2026-02-28
+      to: 2026-03-05
+      quality: INCOMPLETE
+      evidence_ids:
+      - isa-trading-week-2026
+    - scope: EARLY_CLOSES
+      from: 2026-03-06
+      to: 2026-03-06
+      quality: VERIFIED
+      evidence_ids:
+      - isa-trading-week-2026
+    - scope: EARLY_CLOSES
+      from: 2026-03-07
+      to: 2026-03-12
+      quality: INCOMPLETE
+      evidence_ids:
+      - isa-trading-week-2026
+    - scope: EARLY_CLOSES
+      from: 2026-03-13
+      to: 2026-03-13
+      quality: VERIFIED
+      evidence_ids:
+      - isa-trading-week-2026
+    - scope: EARLY_CLOSES
+      from: 2026-03-14
+      to: 2026-03-19
+      quality: INCOMPLETE
+      evidence_ids:
+      - isa-trading-week-2026
+    - scope: EARLY_CLOSES
+      from: 2026-03-20
+      to: 2026-03-20
+      quality: VERIFIED
+      evidence_ids:
+      - isa-trading-week-2026
+    - scope: EARLY_CLOSES
+      from: 2026-03-21
+      to: 2026-03-26
+      quality: INCOMPLETE
+      evidence_ids:
+      - isa-trading-week-2026
+    - scope: EARLY_CLOSES
+      from: 2026-03-27
+      to: 2026-03-27
+      quality: VERIFIED
+      evidence_ids:
+      - isa-trading-week-2026
+    - scope: EARLY_CLOSES
+      from: 2026-03-28
+      to: 2027-12-31
+      quality: INCOMPLETE
+      evidence_ids:
+      - isa-trading-week-2026
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2025-01-01
+      to: 2027-12-31
+      quality: INCOMPLETE
+      evidence_ids:
+      - tase-vacation-schedule-2025
+      - tase-weekly-review-2026-04-20
+weekend_policy:
+  days:
+  - FRIDAY
+  - SATURDAY
+  - SUNDAY
+  periods:
+  - days:
+    - FRIDAY
+    - SATURDAY
+    to: 2026-01-04
+  - days:
+    - SATURDAY
+    - SUNDAY
+    from: 2026-01-05
+weekend_shift_policy: NONE
+resolution_chain:
+- module:tase_weekends
+- module:tase_scheduled_closures_2025
+- module:tase_verified_events_2026
+- module:tase_holidays
+- calendar:IL-TASE
+event_sources:
+- key: tase_purim_2025
+  name: Purim
+  origin: module:tase_scheduled_closures_2025
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: tase-vacation-schedule-2025
+    ref: "Complete 2025 vacation table, rows 14 March through 14 October"
+  rule:
+    chronology: HEBREW
+    month_codes:
+    - ADAR
+    - ADAR_II
+    native_years:
+    - start: 5785
+      end: 5785
+    type: native_fixed_month_day
+    day: 14
+- key: tase_passover_2025
+  name: Passover
+  origin: module:tase_scheduled_closures_2025
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: tase-vacation-schedule-2025
+    ref: "Complete 2025 vacation table, rows 14 March through 14 October"
+  rule:
+    chronology: HEBREW
+    month_codes:
+    - NISAN
+    native_years:
+    - start: 5785
+      end: 5785
+    type: native_fixed_month_day
+    day: 15
+- key: tase_seventh_passover_eve_2025
+  name: Seventh Day of Passover Eve
+  origin: module:tase_scheduled_closures_2025
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: tase-vacation-schedule-2025
+    ref: "Complete 2025 vacation table, rows 14 March through 14 October"
+  rule:
+    chronology: HEBREW
+    month_codes:
+    - NISAN
+    native_years:
+    - start: 5785
+      end: 5785
+    type: native_fixed_month_day
+    day: 20
+- key: tase_memorial_day_2025
+  name: Memorial Day
+  origin: module:tase_scheduled_closures_2025
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: tase-vacation-schedule-2025
+    ref: "Complete 2025 vacation table, rows 14 March through 14 October"
+  rule:
+    chronology: HEBREW
+    month_codes:
+    - IYAR
+    native_years:
+    - start: 5785
+      end: 5785
+    type: native_relative_to_reference
+    day: 4
+    offset_days: -2
+- key: tase_independence_day_2025
+  name: Independence Day
+  origin: module:tase_scheduled_closures_2025
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: tase-vacation-schedule-2025
+    ref: "Complete 2025 vacation table, rows 14 March through 14 October"
+  rule:
+    chronology: HEBREW
+    month_codes:
+    - IYAR
+    native_years:
+    - start: 5785
+      end: 5785
+    type: native_relative_to_reference
+    day: 5
+    offset_days: -2
+- key: tase_shavuot_eve_2025
+  name: Shavuot Eve
+  origin: module:tase_scheduled_closures_2025
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: tase-vacation-schedule-2025
+    ref: "Complete 2025 vacation table, rows 14 March through 14 October"
+  rule:
+    chronology: HEBREW
+    month_codes:
+    - SIVAN
+    native_years:
+    - start: 5785
+      end: 5785
+    type: native_fixed_month_day
+    day: 5
+- key: tase_shavuot_2025
+  name: Shavuot
+  origin: module:tase_scheduled_closures_2025
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: tase-vacation-schedule-2025
+    ref: "Complete 2025 vacation table, rows 14 March through 14 October"
+  rule:
+    chronology: HEBREW
+    month_codes:
+    - SIVAN
+    native_years:
+    - start: 5785
+      end: 5785
+    type: native_fixed_month_day
+    day: 6
+- key: tase_tisha_bav_2025
+  name: Tisha B'Av
+  origin: module:tase_scheduled_closures_2025
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: tase-vacation-schedule-2025
+    ref: "Complete 2025 vacation table, rows 14 March through 14 October"
+  rule:
+    chronology: HEBREW
+    month_codes:
+    - AV
+    native_years:
+    - start: 5785
+      end: 5785
+    type: native_fixed_month_day
+    day: 9
+- key: tase_rosh_hashanah_eve_2025
+  name: Rosh Hashanah Eve
+  origin: module:tase_scheduled_closures_2025
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: tase-vacation-schedule-2025
+    ref: "Complete 2025 vacation table, rows 14 March through 14 October"
+  rule:
+    chronology: HEBREW
+    month_codes:
+    - ELUL
+    native_years:
+    - start: 5785
+      end: 5785
+    type: native_fixed_month_day
+    day: 29
+- key: tase_rosh_hashanah_2025
+  name: Rosh Hashanah
+  origin: module:tase_scheduled_closures_2025
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: tase-vacation-schedule-2025
+    ref: "Complete 2025 vacation table, rows 14 March through 14 October"
+  rule:
+    chronology: HEBREW
+    month_codes:
+    - TISHRI
+    native_years:
+    - start: 5786
+      end: 5786
+    duration_days: 2
+    type: native_fixed_month_day
+    day: 1
+- key: tase_yom_kippur_eve_2025
+  name: Yom Kippur Eve
+  origin: module:tase_scheduled_closures_2025
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: tase-vacation-schedule-2025
+    ref: "Complete 2025 vacation table, rows 14 March through 14 October"
+  rule:
+    chronology: HEBREW
+    month_codes:
+    - TISHRI
+    native_years:
+    - start: 5786
+      end: 5786
+    type: native_fixed_month_day
+    day: 9
+- key: tase_yom_kippur_2025
+  name: Yom Kippur
+  origin: module:tase_scheduled_closures_2025
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: tase-vacation-schedule-2025
+    ref: "Complete 2025 vacation table, rows 14 March through 14 October"
+  rule:
+    chronology: HEBREW
+    month_codes:
+    - TISHRI
+    native_years:
+    - start: 5786
+      end: 5786
+    type: native_fixed_month_day
+    day: 10
+- key: tase_sukkot_eve_2025
+  name: Sukkot Eve
+  origin: module:tase_scheduled_closures_2025
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: tase-vacation-schedule-2025
+    ref: "Complete 2025 vacation table, rows 14 March through 14 October"
+  rule:
+    chronology: HEBREW
+    month_codes:
+    - TISHRI
+    native_years:
+    - start: 5786
+      end: 5786
+    type: native_fixed_month_day
+    day: 14
+- key: tase_sukkot_2025
+  name: Sukkot
+  origin: module:tase_scheduled_closures_2025
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: tase-vacation-schedule-2025
+    ref: "Complete 2025 vacation table, rows 14 March through 14 October"
+  rule:
+    chronology: HEBREW
+    month_codes:
+    - TISHRI
+    native_years:
+    - start: 5786
+      end: 5786
+    type: native_fixed_month_day
+    day: 15
+- key: tase_simchat_torah_eve_2025
+  name: Simchat Torah Eve
+  origin: module:tase_scheduled_closures_2025
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: tase-vacation-schedule-2025
+    ref: "Complete 2025 vacation table, rows 14 March through 14 October"
+  rule:
+    chronology: HEBREW
+    month_codes:
+    - TISHRI
+    native_years:
+    - start: 5786
+      end: 5786
+    type: native_fixed_month_day
+    day: 21
+- key: tase_simchat_torah_2025
+  name: Simchat Torah
+  origin: module:tase_scheduled_closures_2025
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: tase-vacation-schedule-2025
+    ref: "Complete 2025 vacation table, rows 14 March through 14 October"
+  rule:
+    chronology: HEBREW
+    month_codes:
+    - TISHRI
+    native_years:
+    - start: 5786
+      end: 5786
+    type: native_fixed_month_day
+    day: 22
+- key: tase_friday_short_session_q1_2026
+  name: Friday Session (Early Close)
+  origin: module:tase_verified_events_2026
+  classification: EARLY_CLOSE
+  close_time: 13:50
+  status: CONFIRMED
+  source:
+  - id: isa-trading-week-2026
+    ref: "pp. 17-19, 30: every Friday 10:00-13:50 from 2026-01-05"
+  - id: tase-q1-2026-report
+    ref: "p. 3: 62 actual trading days in Q1 2026"
+  rule:
+    type: explicit_dates
+    dates:
+    - 2026-01-09
+    - 2026-01-16
+    - 2026-01-23
+    - 2026-01-30
+    - 2026-02-06
+    - 2026-02-13
+    - 2026-02-20
+    - 2026-02-27
+    - 2026-03-06
+    - 2026-03-13
+    - 2026-03-20
+    - 2026-03-27
+- key: tase_memorial_day_2026
+  name: Memorial Day
+  origin: module:tase_verified_events_2026
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: tase-weekly-review-2026-04-20
+    ref: "p. 1: no Tuesday trading due to Memorial Day"
+  rule:
+    type: native_explicit_dates
+    dates:
+    - chronology_id: HEBREW
+      year: 5786
+      month_code: IYAR
+      day: 4
+- key: tase_independence_day_2026
+  name: Independence Day
+  origin: module:tase_verified_events_2026
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: tase-weekly-review-2026-04-20
+    ref: "p. 1: no Wednesday trading due to Independence Day; resumes Thursday"
+  rule:
+    type: native_explicit_dates
+    dates:
+    - chronology_id: HEBREW
+      year: 5786
+      month_code: IYAR
+      day: 5
