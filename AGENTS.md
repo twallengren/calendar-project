@@ -125,7 +125,9 @@ Rules define how holidays are computed. Defined in `spec/SPEC.md`:
 
 Rules can specify a `chronology` field (HIJRI, UMM_AL_QURA, JULIAN, PERSIAN) to use non-Gregorian dates, and `end_month`/`end_day` or `duration_days` for multi-day spans. All cross-chronology translation goes through Julian Day Number (JDN). Follow existing fixtures when creating rules: each rule has its own `key` and `name`; enclosing event-source fields are not automatically copied into it.
 
-Event sources also carry `shift_policy` (per-holiday weekend observance, e.g. `FORWARD_ONLY` for NYSE New Year's Day), `only_if_weekday`, `close_time` (EARLY_CLOSE), `status` (CONFIRMED/PROJECTED) and `source` (citation into `sources/<MARKET>/README.md`).
+Event sources also carry `shift_policy` (per-holiday weekend observance, e.g. `FORWARD_ONLY` for NYSE New Year's Day), `only_if_weekday`, `close_time` (EARLY_CLOSE and SPECIAL_SESSION), `open_time` (SPECIAL_SESSION only), `status` (CONFIRMED/PROJECTED) and `source` (citation into `sources/<MARKET>/README.md`).
+
+A `SPECIAL_SESSION` (Muhurat trading on a holiday, a Saturday drill session) is a session on a date that stays a non-business day: it sits beside the date's CLOSED or WEEKEND row, never shifts, and is seen only by `isTradingDay`/`specialSessions` (Python `is_trading_day`/`special_sessions`), never by business-day arithmetic. A whole weekend day of normal trading is a one-day weekend policy period instead.
 
 ### Calendar composition model
 
