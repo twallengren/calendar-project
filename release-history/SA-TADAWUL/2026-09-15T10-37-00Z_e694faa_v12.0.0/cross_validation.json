@@ -1,0 +1,19 @@
+{
+  "calendar_id" : "SA-TADAWUL",
+  "status" : "ok",
+  "results" : [ {
+    "source" : "exchange_calendars-XSAU",
+    "library_version" : "exchange_calendars 4.11, python 3.13.12, 2026-09-12",
+    "from" : "2021-01-03",
+    "to" : "2025-12-31",
+    "compared_types" : [ "CLOSED", "EARLY_CLOSE" ],
+    "counts" : {
+      "matched" : 45,
+      "allowlisted" : 19,
+      "unexplained" : 0
+    },
+    "unexplained_rows" : [ ],
+    "stale_allowlist_rows" : [ ],
+    "status" : "ok"
+  } ]
+}

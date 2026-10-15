@@ -3,7 +3,7 @@
   "calendar_name" : "Australian Securities Exchange",
   "kind" : "market",
   "mic" : "XASX",
-  "generated_at" : "2026-10-14T00:02:04Z",
+  "generated_at" : "2026-10-14T14:07:08Z",
   "range_start" : "2010-01-01",
   "range_end" : "2030-12-31",
   "timezone" : "Australia/Sydney",
@@ -139,7 +139,7 @@
   },
   "source_version" : {
     "semantic" : "13.0.0",
-    "git_sha" : "1f63234a07eb72cc08a8c0d451983be39e88b2ae"
+    "git_sha" : "74d854cdbdfa9f622720d205ef9e999d23f008eb"
   },
   "event_details" : [ {
     "date" : "2010-01-01",
