@@ -4,7 +4,7 @@
   "kind" : "market",
   "mic" : "XNYS",
   "aliases" : [ "NYSE" ],
-  "generated_at" : "2026-10-14T14:07:08Z",
+  "generated_at" : "2026-10-15T10:24:04Z",
   "range_start" : "1900-01-01",
   "range_end" : "2030-12-31",
   "timezone" : "America/New_York",
@@ -121,8 +121,8 @@
     "CONFIRMED" : 12837
   },
   "source_version" : {
-    "semantic" : "13.0.0",
-    "git_sha" : "74d854cdbdfa9f622720d205ef9e999d23f008eb"
+    "semantic" : "13.1.0",
+    "git_sha" : "883e900e59f9b17c57970680eaee0e253cbbcd2d"
   },
   "event_details" : [ {
     "date" : "1900-01-01",

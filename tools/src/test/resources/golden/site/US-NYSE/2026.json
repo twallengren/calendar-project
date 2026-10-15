@@ -1,8 +1,8 @@
 {
   "calendar_id" : "US-NYSE",
   "version" : {
-    "semantic" : "13.0.0",
-    "git_sha" : "74d854cdbdfa9f622720d205ef9e999d23f008eb"
+    "semantic" : "13.1.0",
+    "git_sha" : "883e900e59f9b17c57970680eaee0e253cbbcd2d"
   },
   "range" : {
     "from" : "2026-01-01",
