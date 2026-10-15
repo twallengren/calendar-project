@@ -1,0 +1,23 @@
+kind: module
+id: mx_day_of_the_dead
+
+# Day of the Dead (2 November): not a statutory rest day, but on the CNBV's list every year and a
+# closure of the exchange (its 2026 table: "Día de muertos 02 de noviembre"; press quoting the
+# exchange, 2022 and 2023).
+# Mexico's financial calendar has no weekend substitution: the CNBV's annual list gives fixed dates
+# plus Saturdays and Sundays, and a fixed-date holiday on a weekend is simply lost (shift_policy
+# NONE).
+# Source: cnbv-dias-inhabiles, bmv-calendario-2026.
+
+source:
+  - id: cnbv-dias-inhabiles
+
+event_sources:
+  - key: mx_day_of_the_dead
+    name: Día de Muertos
+    default_classification: CLOSED
+    shift_policy: NONE
+    rule:
+      type: fixed_month_day
+      month: 11
+      day: 2

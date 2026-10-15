@@ -1,0 +1,35 @@
+kind: module
+id: mx_holy_week
+
+# Maundy Thursday and Good Friday, both on the CNBV's list every year (e.g. 2026: "IV. El 2 y 3 de
+# abril") although neither is a statutory rest day; the exchange's 2026 table lists "Jueves Santo"
+# and "Viernes Santo". Always weekdays, so no substitution arises.
+# Source: cnbv-dias-inhabiles, bmv-calendario-2026.
+
+source:
+  - id: cnbv-dias-inhabiles
+
+references:
+  - key: easter
+    formula: EASTER_WESTERN
+
+event_sources:
+  - key: mx_maundy_thursday
+    name: Jueves Santo
+    default_classification: CLOSED
+    rule:
+      type: relative_to_reference
+      key: mx_maundy_thursday
+      name: Jueves Santo
+      reference: easter
+      offset_days: -3
+
+  - key: mx_good_friday
+    name: Viernes Santo
+    default_classification: CLOSED
+    rule:
+      type: relative_to_reference
+      key: mx_good_friday
+      name: Viernes Santo
+      reference: easter
+      offset_days: -2

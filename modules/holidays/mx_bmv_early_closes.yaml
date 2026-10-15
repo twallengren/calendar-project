@@ -1,0 +1,34 @@
+kind: module
+id: mx_bmv_early_closes
+
+# Christmas Eve (24 December) is a trading day with a shortened session, announced by the exchange
+# each year rather than fixed in its operating manual. The only year for which the exchange's own
+# hours are on record is 2018 ("el horario de la sesión de remate de la BMV y de BIVA del 24 de
+# diciembre será de las 8:00 a las 12:00 horas", fund-compass-2018-12-18); in 2020, 2024 and 2025
+# fund operators closed "3 horas antes respecto al horario habitual" because of "un cambio en el
+# horario de operaciones en la Bolsa Mexicana de Valores" (fund-hsbc-2025-12-09), consistent with a
+# 12:00 close. The session is therefore modelled as closing at 12:00 from 2018; the coverage
+# intervals mark the years without an exchange-stated time as PROJECTED and the earlier years, for
+# which no notice was found, as INCOMPLETE on the date. 31 December is a normal session
+# ("El horario de la sesión de remate se llevará a cabo de forma regular", press-bloomberglinea-2025-12-30).
+# Source: fund-compass-2018-12-18, fund-hsbc-2025-12-09.
+
+source:
+  - id: fund-compass-2018-12-18
+
+event_sources:
+  - key: mx_bmv_christmas_eve_early_close
+    name: Víspera de Navidad (sesión reducida)
+    default_classification: EARLY_CLOSE
+    close_time: "12:00"
+    active_years:
+      - [2018, null]
+    source:
+      - id: fund-compass-2018-12-18
+        ref: "el horario de la sesión de remate de la BMV y de BIVA del 24 de diciembre será de las 8:00 a las 12:00 horas"
+      - id: fund-hsbc-2025-12-09
+        ref: "cerrarán 3 horas antes respecto al horario habitual ... debido a que habrá un cambio en el horario de operaciones en la Bolsa Mexicana de Valores"
+    rule:
+      type: fixed_month_day
+      month: 12
+      day: 24

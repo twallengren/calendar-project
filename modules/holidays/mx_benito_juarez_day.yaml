@@ -1,0 +1,19 @@
+kind: module
+id: mx_benito_juarez_day
+
+# Benito Juarez's birthday, observed on the third Monday of March since the 2006 reform ("El tercer
+# lunes de marzo en conmemoración del 21 de marzo").
+# Source: mx-ley-federal-del-trabajo (art. 74, Monday rules since the 2006 reform), cnbv-dias-inhabiles.
+
+source:
+  - id: cnbv-dias-inhabiles
+
+event_sources:
+  - key: mx_benito_juarez_day
+    name: Conmemoración del 21 de marzo
+    default_classification: CLOSED
+    rule:
+      type: nth_weekday_of_month
+      month: 3
+      weekday: MONDAY
+      nth: 3

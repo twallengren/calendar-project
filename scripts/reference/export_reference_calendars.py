@@ -51,6 +51,7 @@ EXPORTS = [
     ("ZA-JSE", "XJSE", "2010-01-01", "2030-12-31"),
     ("TW-TWSE", "XTAI", "2010-01-01", "2030-12-31"),
     ("BR-B3", "BVMF", "2010-01-01", "2030-12-31"),
+    ("MX-BMV", "XMEX", "2010-01-01", "2030-12-31"),
 ]
 
 
@@ -252,6 +253,15 @@ def main() -> int:
             "2010-01-01",
             "2030-12-31",
             "QuantLib Brazil(Exchange)",
+        )
+    if ql is not None:
+        export_quantlib(
+            "MX-BMV",
+            "mexico",
+            ql.Mexico(),
+            "2010-01-01",
+            "2030-12-31",
+            "QuantLib Mexico()",
         )
     if ql is not None:
         export_quantlib(

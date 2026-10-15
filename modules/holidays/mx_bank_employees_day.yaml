@@ -1,0 +1,23 @@
+kind: module
+id: mx_bank_employees_day
+
+# 12 December (the exchange's table: "Día del empleado bancario"; popularly the Virgen de Guadalupe):
+# not a statutory rest day, but on the CNBV's list every year ("El 12 y 25 de diciembre") and a
+# closure of the exchange.
+# Mexico's financial calendar has no weekend substitution: the CNBV's annual list gives fixed dates
+# plus Saturdays and Sundays, and a fixed-date holiday on a weekend is simply lost (shift_policy
+# NONE).
+# Source: cnbv-dias-inhabiles, bmv-calendario-2026.
+
+source:
+  - id: cnbv-dias-inhabiles
+
+event_sources:
+  - key: mx_bank_employees_day
+    name: Día del Empleado Bancario
+    default_classification: CLOSED
+    shift_policy: NONE
+    rule:
+      type: fixed_month_day
+      month: 12
+      day: 12

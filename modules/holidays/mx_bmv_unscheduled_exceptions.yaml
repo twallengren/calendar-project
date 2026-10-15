@@ -1,0 +1,47 @@
+kind: module
+id: mx_bmv_unscheduled_exceptions
+
+# Unscheduled disruptions of the exchange's session that ended the trading day early. Halts that
+# resumed within the session (26 February 2016, the 2019 network incidents, the March 2020
+# circuit breakers, 10 April 2023, 29 June 2026) carry no row.
+#   - Tuesday 19 September 2017: after the 13:14 earthquake the exchange "procedió a suspender
+#     operaciones decretando un receso administrativo que inició a las 13:43 horas, manteniéndose
+#     hasta el cierre del Mercado" and reopened on 20 September (bmv-press-2017-09-20).
+#   - Friday 9 October 2020: "a las 11:56 hrs., se presentó una desconexión en el motor de
+#     negociación ... decretó la suspensión de la Sesión de Remate que se mantuvo hasta el cierre
+#     de la jornada bursátil"; trading resumed on Monday 12 October (press-elceo-2020-10-09,
+#     press-razon-2020-10-09).
+# Both days count as sessions in the exchange's statistics.
+# Source: bmv-press-2017-09-20, press-elceo-2020-10-09.
+
+source:
+  - id: bmv-press-2017-09-20
+
+event_sources:
+  - key: mx_bmv_earthquake_recess_2017
+    name: Receso administrativo (sismo)
+    default_classification: EARLY_CLOSE
+    close_time: "13:43"
+    shiftable: false
+    source:
+      - id: bmv-press-2017-09-20
+        ref: "procedió a suspender operaciones decretando un receso administrativo que inició a las 13:43 horas, manteniéndose hasta el cierre del Mercado"
+    rule:
+      type: explicit_dates
+      dates:
+        - date: 2017-09-19
+          comment: earthquake at 13:14; administrative recess from 13:43 to the close
+
+  - key: mx_bmv_trading_engine_failure_2020
+    name: Suspensión de la Sesión de Remate (falla del motor de negociación)
+    default_classification: EARLY_CLOSE
+    close_time: "11:56"
+    shiftable: false
+    source:
+      - id: press-elceo-2020-10-09
+        ref: "a las 11:56 hrs., se presentó una desconexión en el motor de negociación ... decretó la suspensión de la Sesión de Remate que se mantuvo hasta el cierre de la jornada bursátil"
+    rule:
+      type: explicit_dates
+      dates:
+        - date: 2020-10-09
+          comment: trading-engine disconnection at 11:56; the session was not resumed

@@ -1,0 +1,17 @@
+source,side,date,type,close_time,reason
+# Known differences between our MX-BMV data and the reference datasets. exchange_calendars'
+# XMEX calendar reproduces every CNBV-listed closure 2010-2027 except the 1 October 2024
+# inauguration day and models no shortened sessions; QuantLib's Mexico() calendar has the
+# inauguration day but not the 2010 bicentennial closure.
+exchange_calendars-XMEX,ours,2017-09-19,EARLY_CLOSE,13:43,Earthquake: the exchange decreed an administrative recess from 13:43 to the close (bmv-press-2017-09-20); exchange_calendars keeps a full session
+exchange_calendars-XMEX,ours,2018-12-24,EARLY_CLOSE,12:00,"Christmas Eve session 8:00-12:00 per the exchange's notice relayed by fund operators (fund-compass-2018-12-18)"
+exchange_calendars-XMEX,ours,2019-12-24,EARLY_CLOSE,12:00,Christmas Eve shortened session (fund cut-offs consistent with a 12:00 close; exchange time not on record, PROJECTED)
+exchange_calendars-XMEX,ours,2020-10-09,EARLY_CLOSE,11:56,Trading-engine disconnection at 11:56 with no resumption that day (press-elceo-2020-10-09); exchange_calendars keeps a full session
+exchange_calendars-XMEX,ours,2020-12-24,EARLY_CLOSE,12:00,"Christmas Eve shortened session (funds closed three hours early because of the exchange's hours change, fund-hsbc-2020-12-22)"
+exchange_calendars-XMEX,ours,2021-12-24,EARLY_CLOSE,12:00,Christmas Eve shortened session (fund cut-offs consistent with a 12:00 close; PROJECTED)
+exchange_calendars-XMEX,ours,2024-10-01,CLOSED,,Presidential inauguration day: a mandatory rest day under art. 74 VII of the Ley Federal del Trabajo as reformed and on the CNBV's 2024 list ("VII. El 1o. de octubre"; dof-2023-12-12-dias-2024); absent from exchange_calendars
+exchange_calendars-XMEX,ours,2024-12-24,EARLY_CLOSE,12:00,Christmas Eve shortened session (fund-banorte-2024-12-17)
+exchange_calendars-XMEX,ours,2025-12-24,EARLY_CLOSE,12:00,"Christmas Eve shortened session (fund-hsbc-2025-12-09: funds closed three hours early because of the exchange's hours change)"
+exchange_calendars-XMEX,ours,2026-12-24,EARLY_CLOSE,12:00,Christmas Eve shortened session projected from the exchange's annual practice (PROJECTED)
+exchange_calendars-XMEX,ours,2027-12-24,EARLY_CLOSE,12:00,Christmas Eve shortened session projected from the exchange's annual practice (PROJECTED)
+quantlib-mexico,ours,2010-09-17,CLOSED,,Bicentennial of independence: added to the CNBV's 2010 list by its amending resolution (cnbv-resolucion-2010-09); the exchange's 2010 session count (252) requires the closure; absent from QuantLib

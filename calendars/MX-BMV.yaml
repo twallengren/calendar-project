@@ -1,0 +1,52 @@
+kind: calendar
+id: MX-BMV
+
+metadata:
+  name: Bolsa Mexicana de Valores
+  description: Bolsa Mexicana de Valores equities trading calendar (MIC XMEX)
+  chronology: ISO
+  timezone: America/Mexico_City
+  mic: XMEX
+  coverage:
+    from: 2010-01-01
+    to: 2027-12-31
+    verified_through: 2026-12-31
+    quality:
+      # The CNBV's annual list binds the exchange (2017-2026 lists preserved; the exchange's 2026
+      # table is identical) and the exchange's annual-report session counts equal the modelled
+      # calendar for 2010-2012 and 2014-2017. 2013 has neither a list on file nor a count.
+      - {scope: SCHEDULED_CLOSURES, from: 2010-01-01, to: 2012-12-31, quality: VERIFIED, evidence_ids: [dof-2009-12-16-dias-2010, fund-hsbc-2010-01-01, cnbv-resolucion-2010-09, press-elsiglodetorreon-2010-09-15, bmv-informes-anuales]}
+      - {scope: SCHEDULED_CLOSURES, from: 2013-01-01, to: 2013-12-31, quality: PROJECTED, evidence_ids: [mx-ley-federal-del-trabajo, cnbv-dias-inhabiles]}
+      - {scope: SCHEDULED_CLOSURES, from: 2014-01-01, to: 2016-12-31, quality: VERIFIED, evidence_ids: [bmv-informes-anuales, mx-ley-federal-del-trabajo]}
+      - {scope: SCHEDULED_CLOSURES, from: 2017-01-01, to: 2026-12-31, quality: VERIFIED, evidence_ids: [cnbv-dias-inhabiles, dof-2023-12-12-dias-2024, bmv-calendario-2026, bmv-informes-anuales, fund-sura-2023-01-01, press-bloomberglinea-2022-11-01, press-bloomberglinea-2023-04-03, press-expansion-2024-10-01]}
+      - {scope: SCHEDULED_CLOSURES, from: 2027-01-01, to: 2027-12-31, quality: PROJECTED, evidence_ids: [mx-ley-federal-del-trabajo, cnbv-dias-inhabiles]}
+      # Christmas Eve is a shortened session announced each year; the exchange's own hours are on
+      # record only for 2018. The weekday Christmas Eves of 2010-2015 have no notice on file.
+      - {scope: EARLY_CLOSES, from: 2010-01-01, to: 2010-12-23, quality: PROJECTED, evidence_ids: [bmv-manual-operativo]}
+      - {scope: EARLY_CLOSES, from: 2010-12-24, to: 2010-12-24, quality: INCOMPLETE, evidence_ids: []}
+      - {scope: EARLY_CLOSES, from: 2010-12-25, to: 2012-12-23, quality: PROJECTED, evidence_ids: [bmv-manual-operativo]}
+      - {scope: EARLY_CLOSES, from: 2012-12-24, to: 2012-12-24, quality: INCOMPLETE, evidence_ids: []}
+      - {scope: EARLY_CLOSES, from: 2012-12-25, to: 2013-12-23, quality: PROJECTED, evidence_ids: [bmv-manual-operativo]}
+      - {scope: EARLY_CLOSES, from: 2013-12-24, to: 2013-12-24, quality: INCOMPLETE, evidence_ids: []}
+      - {scope: EARLY_CLOSES, from: 2013-12-25, to: 2014-12-23, quality: PROJECTED, evidence_ids: [bmv-manual-operativo]}
+      - {scope: EARLY_CLOSES, from: 2014-12-24, to: 2014-12-24, quality: INCOMPLETE, evidence_ids: []}
+      - {scope: EARLY_CLOSES, from: 2014-12-25, to: 2015-12-23, quality: PROJECTED, evidence_ids: [bmv-manual-operativo]}
+      - {scope: EARLY_CLOSES, from: 2015-12-24, to: 2015-12-24, quality: INCOMPLETE, evidence_ids: []}
+      - {scope: EARLY_CLOSES, from: 2015-12-25, to: 2018-12-23, quality: PROJECTED, evidence_ids: [bmv-manual-operativo, bmv-avisos-horario]}
+      - {scope: EARLY_CLOSES, from: 2018-12-24, to: 2018-12-24, quality: VERIFIED, evidence_ids: [fund-compass-2018-12-18]}
+      - {scope: EARLY_CLOSES, from: 2018-12-25, to: 2027-12-31, quality: PROJECTED, evidence_ids: [bmv-manual-operativo, bmv-avisos-horario, fund-hours-notices, fund-compass-2021-12-03, fund-hsbc-2025-12-09, press-bloomberglinea-2025-12-30]}
+      # The exchange's session counts (2010-2012, 2014-2017) leave no room for an unrecorded
+      # closure, and the two early terminations rest on the exchange's and the press's record;
+      # no count is published for 2013 or 2018 onward.
+      - {scope: UNSCHEDULED_EXCEPTIONS, from: 2010-01-01, to: 2012-12-31, quality: VERIFIED, evidence_ids: [bmv-informes-anuales]}
+      - {scope: UNSCHEDULED_EXCEPTIONS, from: 2013-01-01, to: 2013-12-31, quality: PROJECTED, evidence_ids: [bmv-informes-anuales]}
+      - {scope: UNSCHEDULED_EXCEPTIONS, from: 2014-01-01, to: 2017-12-31, quality: VERIFIED, evidence_ids: [bmv-informes-anuales, press-zetatijuana-2016-02-26, bmv-press-2017-09-20, press-elfinanciero-2017-09-19]}
+      - {scope: UNSCHEDULED_EXCEPTIONS, from: 2018-01-01, to: 2027-12-31, quality: PROJECTED, evidence_ids: [press-expansion-2019-09-24, press-adn40-2020-03-17, press-elceo-2020-10-09, press-razon-2020-10-09, bmv-nota-2023-04-10, press-expansion-2026-06-29, press-elceo-2026-03-19]}
+
+# No weekend substitution exists; the Monday-rule holidays never fall on a weekend and every
+# fixed-date holiday carries shift_policy NONE.
+weekend_shift_policy: NONE
+
+uses:
+  - weekend_sat_sun
+  - mx_bmv_holidays

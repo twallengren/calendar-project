@@ -237,6 +237,19 @@ class GoldenTests {
   // Dec 24 early close.
 
   @Test
+  void mxBmv2024() throws IOException {
+    // the 1 October inauguration-day closure, the Monday-rule holidays, Holy Week and the
+    // Christmas Eve shortened session
+    productionCalendarRunner.assertCsvGoldenMatch("MX-BMV", 2024);
+  }
+
+  @Test
+  void mxBmv2010() throws IOException {
+    // the bicentennial closure of 17 September 2010 and holidays lost to the weekend
+    productionCalendarRunner.assertCsvGoldenMatch("MX-BMV", 2010);
+  }
+
+  @Test
   void brB32026() throws IOException {
     productionCalendarRunner.assertCsvGoldenMatch("BR-B3", 2026);
   }

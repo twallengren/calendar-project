@@ -1,0 +1,23 @@
+kind: module
+id: mx_bmv_holidays
+
+# Bolsa Mexicana de Valores non-trading days: the days on which the CNBV orders the stock
+# exchanges to "cerrar sus puertas, suspender operaciones" each year (the statutory rest days with
+# their Monday rules, Maundy Thursday and Good Friday, 2 November and 12 December), the one-off
+# closures of 17 September 2010 and 1 October 2024, the Christmas Eve shortened session, and the
+# two outages that ended a session early.
+
+uses:
+  - mx_new_years_day
+  - mx_constitution_day
+  - mx_benito_juarez_day
+  - mx_holy_week
+  - mx_labour_day
+  - mx_independence_day
+  - mx_day_of_the_dead
+  - mx_revolution_day
+  - mx_bank_employees_day
+  - mx_christmas_day
+  - mx_bmv_one_off_closures
+  - mx_bmv_early_closes
+  - mx_bmv_unscheduled_exceptions

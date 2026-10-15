@@ -1,0 +1,44 @@
+kind: module
+id: mx_bmv_one_off_closures
+
+# One-off closures on the CNBV's list.
+#   - Friday 17 September 2010: the bicentennial of the start of Mexican independence, added by the
+#     CNBV's amending resolution ("Asimismo, el día 17 de septiembre, en conmemoración del
+#     Bicentenario del inicio de la Independencia Mexicana"); banks and the exchange closed on
+#     16 and 17 September (press), and the exchange's 2010 session count (252) requires it.
+#   - Tuesday 1 October 2024: the new presidential inauguration day, a mandatory rest day under
+#     art. 74 fraction VII of the Ley Federal del Trabajo as reformed (DOF 30 September 2024) and
+#     on the CNBV's 2024 list ("VII. El 1o. de octubre"); the next occurrence is 1 October 2030.
+# Election days (art. 74 fraction IX) and the former 1 December inauguration day all fell on
+# weekends within coverage.
+# Source: cnbv-resolucion-2010-09, dof-2023-12-12-dias-2024, mx-ley-federal-del-trabajo.
+
+source:
+  - id: cnbv-dias-inhabiles
+
+event_sources:
+  - key: mx_bicentennial_2010
+    name: Bicentenario de la Independencia
+    default_classification: CLOSED
+    shiftable: false
+    source:
+      - id: cnbv-resolucion-2010-09
+        ref: "Asimismo, el día 17 de septiembre, en conmemoración del Bicentenario del inicio de la Independencia Mexicana."
+    rule:
+      type: explicit_dates
+      dates:
+        - 2010-09-17
+
+  - key: mx_presidential_inauguration
+    name: Transmisión del Poder Ejecutivo Federal
+    default_classification: CLOSED
+    shiftable: false
+    source:
+      - id: dof-2023-12-12-dias-2024
+        ref: "VII. El 1o. de octubre."
+      - id: mx-ley-federal-del-trabajo
+        ref: "VII. El 1o. de octubre de cada seis años, cuando corresponda a la transmisión del Poder Ejecutivo Federal"
+    rule:
+      type: explicit_dates
+      dates:
+        - 2024-10-01

@@ -1,0 +1,1013 @@
+{
+  "schema_version": "1.0",
+  "entries": [
+    {
+      "id": "cnbv-dias-inhabiles",
+      "title": "CNBV 'Disposiciones de carácter general que señalan los días del año ... en que las entidades financieras ... deberán cerrar sus puertas y suspender operaciones', for 2017-2026",
+      "publisher": "Comisión Nacional Bancaria y de Valores (Diario Oficial de la Federación; copies from the Asociación de Bancos de México)",
+      "location": "https://www.abm.org.mx/dias-feriados/",
+      "retrieved": "2026-10-15",
+      "covers": "2017-01-01 to 2026-12-31",
+      "notes": "The annual list that binds the stock exchanges (\"Las instituciones de crédito, casas de bolsa, bolsas de valores ... deberán cerrar sus puertas, suspender operaciones\"): 1 January, the first Monday of February, the third Monday of March, Maundy Thursday and Good Friday, 1 May, 16 September, 2 November, the third Monday of November, 12 and 25 December, Saturdays and Sundays, plus 1 July 2018 (election, a Sunday), 1 December 2018 (a Saturday) and 1 October 2024. The exchange's 2026 table is identical to the 2026 list. The 2025 list is seen through BBVA Research's rendering.",
+      "local_files": [
+        {
+          "path": "MX-BMV/dof-2016-12-20-dias-2017.pdf",
+          "sha256": "313a410e03606431c3ef30fbf2d1759b1a5d190b54ee6dac39050377028e1ddf"
+        },
+        {
+          "path": "MX-BMV/dof-2017-12-18-dias-2018.pdf",
+          "sha256": "b7a3ba25bad5110a60bbe98dadfaa30507769a87f2bb270ed7e417d5505c3309"
+        },
+        {
+          "path": "MX-BMV/dof-2018-12-11-dias-2019.pdf",
+          "sha256": "0cedbc13df230a3a3acd4f7a3457f794fdf27d09cd6226c8c2e2bd8fb7ed4a26"
+        },
+        {
+          "path": "MX-BMV/dof-2019-12-20-dias-2020.pdf",
+          "sha256": "9ced5c9abd38f2cbf7d48ecd774f4b87606a932c2ecb74833d1b5fe0b292fb8b"
+        },
+        {
+          "path": "MX-BMV/dof-2020-12-10-dias-2021.pdf",
+          "sha256": "16d1e3674e9ed0124ee49aad597e6196e4ee68f21550fed7461cb84130d2b01c"
+        },
+        {
+          "path": "MX-BMV/dof-2021-12-24-dias-2022.pdf",
+          "sha256": "fc492b9bcd7f7c2a62d52ddf8054f5fd8e4159204514b53573e7673cafbb2151"
+        },
+        {
+          "path": "MX-BMV/dof-2022-11-28-dias-2023.pdf",
+          "sha256": "18b4b660658258742f9d590ccd8e30726423dea2b22e2717bb4d1ceeff878247"
+        },
+        {
+          "path": "MX-BMV/dof-2023-12-12-dias-2024.html",
+          "sha256": "591d2a3b5131237596762f7780796894abf6ab51d8626de8a01fc9ce9b54d57e"
+        },
+        {
+          "path": "MX-BMV/dof-2023-12-12-dias-2024.pdf",
+          "sha256": "55dc17b58457d1e340c91d7b58a8b77651a0bebc7fbe1e5c95ab6d500c6ef116"
+        },
+        {
+          "path": "MX-BMV/dof-2025-12-10-dias-2026.html",
+          "sha256": "cc118f7371253753771125c38c7b1941f9c42ee3cb28e5811e402f90f1ab6072"
+        },
+        {
+          "path": "MX-BMV/dof-2025-12-10-dias-2026.pdf",
+          "sha256": "030a8b40278551ca16b25e7fd78c52fc8de6ada4d40e7c219c0aeb91c825639d"
+        },
+        {
+          "path": "MX-BMV/bbva-research-2025-01-regulacion.pdf",
+          "sha256": "ce35d15c9a97613e943cadf9f19e4a9e39917d2c2679b0cbf73e4fb80158dc22"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2017-01-01",
+          "to": "2026-12-31"
+        }
+      ]
+    },
+    {
+      "id": "dof-2023-12-12-dias-2024",
+      "title": "DOF 12 December 2023: CNBV provisions for 2024",
+      "publisher": "Comisión Nacional Bancaria y de Valores (Diario Oficial de la Federación; copies from the Asociación de Bancos de México)",
+      "location": "https://dof.gob.mx/nota_detalle.php?codigo=5711052&fecha=12/12/2023",
+      "retrieved": "2026-10-15",
+      "covers": "2024-01-01 to 2024-12-31",
+      "notes": "\"VII. El 1o. de octubre.\": the first inauguration-day closure under the reformed art. 74.",
+      "local_files": [
+        {
+          "path": "MX-BMV/dof-2023-12-12-dias-2024.html",
+          "sha256": "591d2a3b5131237596762f7780796894abf6ab51d8626de8a01fc9ce9b54d57e"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2024-01-01",
+          "to": "2024-12-31"
+        }
+      ]
+    },
+    {
+      "id": "dof-2009-12-16-dias-2010",
+      "title": "DOF 16 December 2009: CNBV provisions for 2010 (image-only copy)",
+      "publisher": "Comisión Nacional Bancaria y de Valores (Diario Oficial de la Federación; copies from the Asociación de Bancos de México)",
+      "location": "https://www.abm.org.mx/legislacion-y-regulacion/juridico/cnbv/disposiciones/Disposicionesdecaractergeneralquesenalanlosdiasde2010%20.pdf",
+      "retrieved": "2026-10-15",
+      "covers": "2010-01-01 to 2010-12-31",
+      "notes": "The 2010 list as published (scanned; the dates are read from the HSBC 2010 calendar, fund-hsbc-2010-01-01).",
+      "local_files": [
+        {
+          "path": "MX-BMV/dof-2009-12-16-dias-2010.pdf",
+          "sha256": "4dddcc416ad4fc2eb68d508af874fa87855d9216d72f939337d3ddd7166418af"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2010-01-01",
+          "to": "2010-12-31"
+        }
+      ]
+    },
+    {
+      "id": "cnbv-resolucion-2010-09",
+      "title": "CNBV 'Resolución que modifica las disposiciones ... días del año 2010' adding 17 September 2010 (quoted by contadormx, 13 September 2010)",
+      "publisher": "CNBV via contadormx.com",
+      "location": "https://contadormx.com/dia-inhabil-para-los-bancos-17-de-septiembre-2010-bicentenario/",
+      "retrieved": "2026-10-15",
+      "covers": "2010-09-17",
+      "notes": "\"Asimismo, el día 17 de septiembre, en conmemoración del Bicentenario del inicio de la Independencia Mexicana.\"",
+      "local_files": [
+        {
+          "path": "MX-BMV/contadormx-2010-09-13.html",
+          "sha256": "cb1e242a1a0cc8b2a91691dbe42c40feacba3b7d274ed27bb1cf3854b0940d20"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2010-09-17",
+          "to": "2010-09-17"
+        }
+      ]
+    },
+    {
+      "id": "bmv-calendario-2026",
+      "title": "BMV 'Calendario de Días Festivos' (Días no laborables BMV 2026)",
+      "publisher": "Bolsa Mexicana de Valores",
+      "location": "https://www.bmv.com.mx/es/Grupo_BMV/Calendario_de_dias_festivos",
+      "retrieved": "2026-10-15",
+      "covers": "2026-01-01 to 2026-12-31",
+      "notes": "The exchange's own 2026 table: Año Nuevo, Conmemoración del 5 de febrero (2 February), Conmemoración del 21 de marzo (16 March), Jueves Santo, Viernes Santo, Día del trabajo, Día de la Independencia, Día de muertos, Conmemoración del 20 de noviembre (16 November), Día del empleado bancario (12 December, a Saturday, no substitute), Navidad.",
+      "local_files": [
+        {
+          "path": "MX-BMV/bmv-calendario-dias-festivos-2026.html",
+          "sha256": "a27d6ba6b1b0c1b3a2ed718f3974973ecb72e2768d0470cc002ccc60bbd5df9d"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2026-01-01",
+          "to": "2026-12-31"
+        }
+      ]
+    },
+    {
+      "id": "bmv-horarios-negociacion",
+      "title": "BMV 'Horarios de Negociación'",
+      "publisher": "Bolsa Mexicana de Valores",
+      "location": "https://www.bmv.com.mx/es/Grupo_BMV/Calendario_de_dias_festivos/_rid/662/_mod/TAB_HORARIOS_NEG",
+      "retrieved": "2026-10-15",
+      "covers": "current",
+      "notes": "The session stages currently shown (the 7:30-14:00 schedule while New York is on daylight-saving time).",
+      "local_files": [
+        {
+          "path": "MX-BMV/bmv-horarios-negociacion.html",
+          "sha256": "c6ed66187cdcd191b1656187b496797c6d6b5286227cac334e6e1f5bab854e02"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "bmv-manual-operativo",
+      "title": "BMV Manual Operativo: Reglas Operativas del Sistema Electrónico de Negociación, v1.97 (in force 23 July 2026)",
+      "publisher": "Bolsa Mexicana de Valores",
+      "location": "https://bmv.com.mx/docs-pub/MARCO_NORMATIVO/CTEN_MERMO/20260723_V1.97_Clarif_Dto.Aranceles_Ambiente_Pruerbas.pdf",
+      "retrieved": "2026-10-15",
+      "covers": "current rules",
+      "notes": "Section 1.1.2: continuous market 8:30-15:00 (order cancellation 7:50, opening auctions 8:00-8:29:59, closing-price orders executed 15:00, after-close stage to 15:20) and the seasonal 7:30-14:00 schedule \"durante el horario de verano (estacional) en Estados Unidos\". No shortened-session rule.",
+      "local_files": [
+        {
+          "path": "MX-BMV/bmv-manual-operativo-v1-97.pdf",
+          "sha256": "e5a6ab5850e954c098545535038522b863ac75f3625f92fec3904dddf4f50e19"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2026-07-23",
+          "to": "2027-12-31"
+        }
+      ]
+    },
+    {
+      "id": "bmv-avisos-horario",
+      "title": "BMV 'Aviso importante: horario de operación' notices of 25 February 2019, 2 October 2020 and 15 October 2021",
+      "publisher": "Bolsa Mexicana de Valores",
+      "location": "https://www.bmv.com.mx/docs-pub/SALA_PRENSA/CTEN_NOTI/Aviso_Importante_Horario_Operaci%C3%B3n.pdf",
+      "retrieved": "2026-10-15",
+      "covers": "2019-03-11 to 2021-11-05 (the daylight-saving mismatch weeks)",
+      "notes": "The exchange's notices that the session runs 7:30-14:00 while Mexico and the United States are out of step on daylight saving (11 March-5 April 2019, 26-30 October 2020, 1-5 November 2021), with the full stage table.",
+      "local_files": [
+        {
+          "path": "MX-BMV/bmv-aviso-2019-02-25-horario.pdf",
+          "sha256": "491195c0fcfdc7ba8c0f2a44765f244a4d7690a48ef30a981ee6c902a553f213"
+        },
+        {
+          "path": "MX-BMV/bmv-aviso-2020-10-02-horario.pdf",
+          "sha256": "ae5a5a9517fad35eb1101db4eee6ce4544252eba8bf289775118e754e08556f5"
+        },
+        {
+          "path": "MX-BMV/bmv-aviso-2021-10-15-horario.pdf",
+          "sha256": "4a726bd151703a97d6ae75d95d4fe2d011ec2fbf8517e2c0d842789156d61931"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "bmv-press-2017-09-20",
+      "title": "BMV press release of 20 September 2017: 'Todas las empresas del Grupo Bolsa Mexicana de Valores están operando de forma regular'",
+      "publisher": "Bolsa Mexicana de Valores",
+      "location": "https://www.bmv.com.mx/docs-pub/SALA_PRENSA/CTEN_BOLE/Inicio%20operaciones%20BMV.%2020.09.17.pdf",
+      "retrieved": "2026-10-15",
+      "covers": "2017-09-19 to 2017-09-20",
+      "notes": "\"a raíz del sismo registrado la tarde del día de ayer ... procedió a suspender operaciones decretando un receso administrativo que inició a las 13:43 horas, manteniéndose hasta el cierre del Mercado\"; trading resumed on 20 September.",
+      "local_files": [
+        {
+          "path": "MX-BMV/bmv-press-2017-09-20-earthquake.pdf",
+          "sha256": "3e525b83180374dc1893b35b8039712621b6df0bb4154182d18293a99ad75eb9"
+        },
+        {
+          "path": "MX-BMV/press-gobmx-2017-09-19-comunicado-conjunto.pdf",
+          "sha256": "0f02dc5ad9f8e3cce6c4f6371c4afa17e49f06192a1b88857ff9709f2c200100"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2017-09-19",
+          "to": "2017-09-20"
+        }
+      ]
+    },
+    {
+      "id": "bmv-nota-2023-04-10",
+      "title": "BMV 'Nota Informativa: Suspensión de la Sesión de Remate', 10 April 2023",
+      "publisher": "Bolsa Mexicana de Valores",
+      "location": "https://www.bmv.com.mx/docs-pub/SALA_PRENSA/CTEN_BOLE/Nota%20Informativa%20-%20SUSPENSI%C3%93N%20SESI%C3%93N%20REMATE%2010.04.23.pdf",
+      "retrieved": "2026-10-15",
+      "covers": "2023-04-10",
+      "notes": "Halts 9:02-9:57 and 10:12-10:40 for a market-data fault; the session resumed and closed normally.",
+      "local_files": [
+        {
+          "path": "MX-BMV/bmv-nota-2023-04-10-suspension.pdf",
+          "sha256": "1fcbf7c039fccec6177ed49ffe179335d0d78d56db13d25b1bd5b03cbfcd212d"
+        },
+        {
+          "path": "MX-BMV/press-elceo-2023-04-10.html",
+          "sha256": "f9c2e63b95dde5f9a3dadd27dcdbbafb1f1f15a66cf98143c5fa88ae21bc838c"
+        },
+        {
+          "path": "MX-BMV/press-bloomberglaw-2023-04-10.html",
+          "sha256": "b09b03b346c87bfb250f33b1ac4578ec91313134308e7819a0b04de6c79546c0"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2023-04-10",
+          "to": "2023-04-10"
+        }
+      ]
+    },
+    {
+      "id": "bmv-informes-anuales",
+      "title": "BMV annual reports (Informe Anual 2010, 2011, 2012; Reporte Anual 2016, 2017): 'Indicadores Operativos del Mercado Accionario' with number of operations and daily averages",
+      "publisher": "Bolsa Mexicana de Valores",
+      "location": "https://www.bmv.com.mx/docs-pub/reporteAnualDictaminado/",
+      "retrieved": "2026-10-15",
+      "covers": "2010-01-01 to 2012-12-31 and 2014-01-01 to 2017-12-31",
+      "notes": "Number of operations divided by the daily average gives the exchange's session count: 252 (2010), 252 (2011), 252 (2012), 251 (2014), 251 (2015), 252 (2016), 251 (2017), each equal to the modelled calendar (2010 only with 17 September closed).",
+      "local_files": [
+        {
+          "path": "MX-BMV/bmv-informe-anual-2010.pdf",
+          "sha256": "653e79a2e53a8c4102e5a755523ed240525e629ad53ee64cf6ba0f903f26724f"
+        },
+        {
+          "path": "MX-BMV/bmv-informe-anual-2011.pdf",
+          "sha256": "abce529f3b6fa3e3947f9e96c3fc0552213d2954a709b8b0673e65b708e623bf"
+        },
+        {
+          "path": "MX-BMV/bmv-informe-anual-2012.pdf",
+          "sha256": "c1ced27cc5283734129ad994bf4052e6dd720602917bce7e7e856f75630ef354"
+        },
+        {
+          "path": "MX-BMV/bmv-reporte-anual-2016.pdf",
+          "sha256": "5351954e1fd69206ab713bb0e826edc2325a82b47d7e557a6c2b7f19e63916fc"
+        },
+        {
+          "path": "MX-BMV/bmv-reporte-anual-2017.pdf",
+          "sha256": "585ad2d493189341b73645f937b1eefa301dac37e134ba48bf71ac4d7e2385b3"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2010-01-01",
+          "to": "2012-12-31"
+        },
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2014-01-01",
+          "to": "2017-12-31"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2010-01-01",
+          "to": "2012-12-31"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2014-01-01",
+          "to": "2017-12-31"
+        }
+      ]
+    },
+    {
+      "id": "bmv-reporte-anual-2025",
+      "title": "BMV Reporte Anual 2025 and 4Q24 investor presentation",
+      "publisher": "Bolsa Mexicana de Valores",
+      "location": "https://bmv.com.mx/docs-pub/reporteAnualDictaminado/Reporte%20Anual%202025.pdf",
+      "retrieved": "2026-10-15",
+      "covers": "2024-2025",
+      "notes": "Daily-average series only; no session counts for 2018-2025. Not preserved locally (large files that only show the absence of session counts).",
+      "local_files": [],
+      "support_intervals": []
+    },
+    {
+      "id": "mx-ley-federal-del-trabajo",
+      "title": "Ley Federal del Trabajo (consolidated), art. 74",
+      "publisher": "Gobierno de México (ordenjuridico.gob.mx)",
+      "location": "https://www.ordenjuridico.gob.mx/Documentos/Federal/pdf/wo9059.pdf",
+      "retrieved": "2026-10-15",
+      "covers": "1987 onward",
+      "notes": "The mandatory rest days: 1 January; the first Monday of February, the third Monday of March and the third Monday of November (since the 17 January 2006 reform); 1 May; 16 September; 1 October every six years for the inauguration (reform of 30 September 2024, formerly 1 December); 25 December; election days.",
+      "local_files": [
+        {
+          "path": "MX-BMV/lft-ley-federal-del-trabajo.pdf",
+          "sha256": "4877b36370ceac405d1e17669c1fc0c99683d39d638330ddac04e7848fef5d77"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "fund-hsbc-2010-01-01",
+      "title": "HSBC fund calendar 2010 (Mexico non-business days)",
+      "publisher": "HSBC México",
+      "location": "https://piblinkandlaunch.hsbc.com.mx/1/PA_esf-ca-app-content/content/inicio/personas/inversiones_fondos/fondos_inversion/archivos/calendario_2010.pdf",
+      "retrieved": "2026-10-15",
+      "covers": "2010-01-01 to 2010-12-31",
+      "notes": "\"Enero 1 / Febrero 1 / Marzo 15 / Abril 1, 2 / Mayo 1 / Septiembre 16 / Noviembre 2, 15 / Diciembre 12, 25\" (before the bicentennial resolution).",
+      "local_files": [
+        {
+          "path": "MX-BMV/fund-hsbc-2010-01-01.pdf",
+          "sha256": "109db41ebc4e47bb24caa7c5db0f49709f3705a605e886461fc60c8571746956"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2010-01-01",
+          "to": "2010-12-31"
+        }
+      ]
+    },
+    {
+      "id": "fund-compass-2018-12-18",
+      "title": "Compass aviso de cierre anticipado de fondos, 18 December 2018",
+      "publisher": "Compass Group (fund operator, relaying the exchange)",
+      "location": "https://latam.vincicompass.com/wp-content/uploads/mexico/Operadora/Avisos%20Relevantes/2018/Aviso%20cierre%20anticipado%20fondos%2024%20Diciembre%202018.pdf",
+      "retrieved": "2026-10-15",
+      "covers": "2018-12-24 and 2018-12-31",
+      "notes": "\"Debido a que el horario de la sesión de remate de la BMV y de BIVA del 24 de diciembre será de las 8:00 a las 12:00 horas\"; 31 December normal.",
+      "local_files": [
+        {
+          "path": "MX-BMV/fund-compass-2018-12-18.pdf",
+          "sha256": "41f2be5c065367af84894623c0504c1f633b7ab826f07f015c8895de304ab137"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "EARLY_CLOSES",
+          "from": "2018-12-24",
+          "to": "2018-12-24"
+        }
+      ]
+    },
+    {
+      "id": "fund-compass-2021-12-03",
+      "title": "Compass aviso de cierres de diciembre 2021",
+      "publisher": "Compass Group",
+      "location": "https://latam.vincicompass.com/wp-content/uploads/mexico/Operadora/Avisos%20Relevantes/2021/Aviso%20cierre%20fondos%20diciembre%202021.pdf",
+      "retrieved": "2026-10-15",
+      "covers": "2021-12-24 and 2021-12-31",
+      "notes": "Fund cut-offs 11:00 on 24 December 2021 and normal on 31 December, consistent with a shortened exchange session on the 24th.",
+      "local_files": [
+        {
+          "path": "MX-BMV/fund-compass-2021-12-03.pdf",
+          "sha256": "cec4bf7b97ab5508070471f413dcf05601e45521a367853c068d2638f99726a0"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "fund-franklin-templeton-2021-12-01",
+      "title": "Franklin Templeton: cierre anticipado 24 y 31 de diciembre 2021",
+      "publisher": "Franklin Templeton México",
+      "location": "https://inversiones.suramexico.com/inversiones/pdf/avisos_importantes/Cierre_anticipado_de_fondos_24_y_31_de_diciembre_2021.pdf",
+      "retrieved": "2026-10-15",
+      "covers": "2021-12-24 and 2021-12-31",
+      "notes": "Fund-level early closes (the 31 December one for liquidity, not exchange hours).",
+      "local_files": [
+        {
+          "path": "MX-BMV/fund-franklin-templeton-2021-12-01.pdf",
+          "sha256": "9fc93f846faaf94e59f70f1b4430247469d4441fb65270dc1f18f4ff110bd2d8"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "fund-hsbc-2025-12-09",
+      "title": "HSBC aviso: cierre anticipado de fondos el 24 de diciembre de 2025",
+      "publisher": "HSBC México",
+      "location": "https://www.hsbc.com.mx/content/dam/hsbc/mx/documents/inversiones/eventos-relevantes-25/diciembre/cierre-anticipado-fondos-inversi%C3%B3n-24dic.pdf",
+      "retrieved": "2026-10-15",
+      "covers": "2025-12-24",
+      "notes": "\"cerrarán 3 horas antes respecto al horario habitual, por lo que el horario de operación será de 8:00 a 10:30 hrs., lo anterior debido a que habrá un cambio en el horario de operaciones en la Bolsa Mexicana de Valores (BMV), en la Bolsa Institucional de Valores (BIVA) y en los mercados de Estados Unidos Americanos\".",
+      "local_files": [
+        {
+          "path": "MX-BMV/fund-hsbc-2025-12-09.pdf",
+          "sha256": "163c3047e0aa870d5d5730c85326e173f826588410df8cb87e79663cfe61525e"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "fund-hsbc-2020-12-22",
+      "title": "HSBC aviso: cierre anticipado de fondos el 24 de diciembre de 2020 (seen through a search excerpt only; the file could not be retrieved)",
+      "publisher": "HSBC México",
+      "location": "https://personal.hsbc.com.mx/content/dam/hsbc/mx/documents/inversiones/eventos-relevantes/eventos_relevantes_20/cierre_anticipado_fondos_inversion_24_dic_2020.pdf",
+      "retrieved": "2026-10-15",
+      "covers": "2020-12-24",
+      "notes": "Funds closed \"3 horas antes respecto al horario habitual ... de 8:00 a 10:30 hrs.\" because of \"un cambio en el horario de operaciones en la BMV y BIVA\".",
+      "local_files": [],
+      "support_intervals": []
+    },
+    {
+      "id": "fund-banorte-2024-12-17",
+      "title": "Banorte aviso: reducción de horarios 24 de diciembre 2024 (seen through a search excerpt only; the file could not be retrieved)",
+      "publisher": "Banorte",
+      "location": "https://banorte.com/cms/banorte/ahorroeInversion/Instrumentosdeinversion/FondosDeInversion/avisos/AVISOS%20GENERALES/Aviso-reduccion-horarios-24-diciembre-2024.pdf",
+      "retrieved": "2026-10-15",
+      "covers": "2024-12-24",
+      "notes": "Equity-fund cut-offs reduced to 11:00-11:30 citing an early market close in Mexico and the United States.",
+      "local_files": [],
+      "support_intervals": []
+    },
+    {
+      "id": "fund-hours-notices",
+      "title": "Fund-operator notices relaying the exchange's seasonal hours 2020-2025 (Monex, BlackRock, HSBC, SURA)",
+      "publisher": "Monex, BlackRock, HSBC, SURA (relaying the exchange)",
+      "location": "https://www.monex.com.mx/portal/download/avisos/MONEXIN%20cambio%20de%20horario%209%20marzo%20al%203%20abril%202020.pdf",
+      "retrieved": "2026-10-15",
+      "covers": "2020-03-09 to 2026-03-06",
+      "notes": "The 7:30-14:00 session windows quoted from the exchange's communications (2020, 2021, 2022, 2023-2024, 2025-2026).",
+      "local_files": [
+        {
+          "path": "MX-BMV/fund-monex-2020-02-24.pdf",
+          "sha256": "c43719456618097e13237c152ce3618ed9fdc1ab95858b09461f412328058b64"
+        },
+        {
+          "path": "MX-BMV/fund-blackrock-2022-03-08.pdf",
+          "sha256": "596c8e56c3bd48943444671458f85f58464a8bd5048a47c6647dafaad53981b3"
+        },
+        {
+          "path": "MX-BMV/fund-blackrock-2023-03-02.pdf",
+          "sha256": "f7740af3bee7e7f63aa103b33982382ac0e0b37d2fb712fbee9480550ad72871"
+        },
+        {
+          "path": "MX-BMV/fund-blackrock-2023-10-30.pdf",
+          "sha256": "bdf399246fce6ca81963f8f66527b1e081ce3feac49f9567a0755f4c27eecbd8"
+        },
+        {
+          "path": "MX-BMV/fund-blackrock-2025-10-27.pdf",
+          "sha256": "e9a0c763c17031982df4242fecba98e2ba6ad9ccce6ac16805f397ff2f759363"
+        },
+        {
+          "path": "MX-BMV/fund-hsbc-2025-02-24.pdf",
+          "sha256": "5c111bcbe2df32b7d5f5ced908a58a36ecf0060859b122914fb55a4fe49b5a9d"
+        },
+        {
+          "path": "MX-BMV/fund-sura-2021-09-30.pdf",
+          "sha256": "ae8c0eceb83a3a74e2d7bb2be3a0db2aace50201f607f1cecd7070fa80a3dbd7"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "fund-sura-2023-01-01",
+      "title": "SURA: días inhábiles 2023",
+      "publisher": "SURA México",
+      "location": "https://afore.suramexico.com/inversiones/pdf/avisos_importantes/Dias_inhabiles_2023.pdf",
+      "retrieved": "2026-10-15",
+      "covers": "2023-01-01 to 2023-12-31",
+      "notes": "The 2023 non-business days for Mexico, identical to the CNBV list.",
+      "local_files": [
+        {
+          "path": "MX-BMV/fund-sura-2023-01-01.pdf",
+          "sha256": "c8d89ac898efad9136170dca10f4a276fbb2812576e3122059e3371a1eb94947"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2023-01-01",
+          "to": "2023-12-31"
+        }
+      ]
+    },
+    {
+      "id": "press-elsiglodetorreon-2010-09-15",
+      "title": "El Siglo de Torreón: Cerrarán bancos, tome precauciones",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://www.elsiglodetorreon.com.mx/noticia/2010/cerraran-bancos-tome-precauciones.html",
+      "retrieved": "2026-10-15",
+      "covers": "2010-09-16 to 2010-09-17",
+      "notes": "Banks and the exchange \"suspenderán sus actividades a nivel nacional\" on Thursday 16 and Friday 17 September 2010; usual hours 8:30-15:00.",
+      "local_files": [
+        {
+          "path": "MX-BMV/press-elsiglodetorreon-2010-09-15.html",
+          "sha256": "32c3d6e676ae8e3e42c26671f417011b4e11f35bc0ae52cf68b0ed900edc3340"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2010-09-16",
+          "to": "2010-09-17"
+        }
+      ]
+    },
+    {
+      "id": "press-elsiglodetorreon-2008-12-12",
+      "title": "El Siglo de Torreón: Suspenden actividades financieras festejos guadalupanos",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://www.elsiglodetorreon.com.mx/noticia/2008/suspenden-actividades-financieras-por-los-festejos-guadalupanos.html",
+      "retrieved": "2026-10-15",
+      "covers": "2008-12-12",
+      "notes": "The exchange and banks closed on 12 December 2008 (before coverage): the 12 December closure practice.",
+      "local_files": [
+        {
+          "path": "MX-BMV/press-elsiglodetorreon-2008-12-12.html",
+          "sha256": "25f9c57b2fedab1db8171e51b11ceb5355df21c131791b68c036d20c7dbfdf5c"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "press-bloomberglinea-2022-11-01",
+      "title": "Bloomberg Línea: Día de muertos 2022 abren las bolsas",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://www.bloomberglinea.com/2022/11/01/dia-de-muertos-2022-abren-las-bolsas-de-valores-en-mexico-el-2-de-noviembre/",
+      "retrieved": "2026-10-15",
+      "covers": "2022-11-02",
+      "notes": "The exchange's 2022 holiday list and the 2 November closure (\"el 2 de noviembre las operaciones serán suspendidas para reanudar el 3 de noviembre\").",
+      "local_files": [
+        {
+          "path": "MX-BMV/press-bloomberglinea-2022-11-01.html",
+          "sha256": "2d20b7f0eeeb1dad832e5e9fb8e1a714d857b536738fad778d99d6e2190f23ba"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2022-01-01",
+          "to": "2022-12-31"
+        }
+      ]
+    },
+    {
+      "id": "press-bloomberglinea-2023-04-03",
+      "title": "Bloomberg Línea: Semana Santa 2023 abren las bolsas",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://www.bloomberglinea.com/2023/04/03/semana-santa-2023-abren-las-bolsas-de-valores-el-jueves-6-y-viernes-7-de-abril/",
+      "retrieved": "2026-10-15",
+      "covers": "2023-04-06 to 2023-04-07",
+      "notes": "The exchange's 2023 list; Maundy Thursday and Good Friday closures.",
+      "local_files": [
+        {
+          "path": "MX-BMV/press-bloomberglinea-2023-04-03.html",
+          "sha256": "295cff4856afe2085a3eba196eb38012bff796fe5b9bfca24762ac1f6ad1fc4b"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2023-01-01",
+          "to": "2023-12-31"
+        }
+      ]
+    },
+    {
+      "id": "press-bloomberglinea-2023-11-02",
+      "title": "Bloomberg Línea: Mercado accionario 2 de noviembre",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://www.bloomberglinea.com/latinoamerica/mexico/mercado-accionario-en-la-region-muestra-ganancias-hoy-2-de-noviembre/",
+      "retrieved": "2026-10-15",
+      "covers": "2023-11-02",
+      "notes": "The exchange closed on 2 November 2023.",
+      "local_files": [
+        {
+          "path": "MX-BMV/press-bloomberglinea-2023-11-02.html",
+          "sha256": "1e6b22325061e50c027bc68fcc26f25bb430d6135d3a9c529b83d9f8c7a6cad1"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "press-bloomberglinea-2022-12-12",
+      "title": "Bloomberg Línea: Así amanece la Bolsa el 12 de diciembre",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://www.bloomberglinea.com/2022/12/12/asi-amanece-la-bolsa-en-mexico-el-12-de-diciembre/",
+      "retrieved": "2026-10-15",
+      "covers": "2022-12-12",
+      "notes": "Exchanges, banks and brokers closed on 12 December 2022.",
+      "local_files": [
+        {
+          "path": "MX-BMV/press-bloomberglinea-2022-12-12.html",
+          "sha256": "bb6436e9d9fee42242d4aae28abf2e6b1f2bd87d0b6e7371088378f8255a3b19"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "press-bloomberglinea-2025-12-30",
+      "title": "Bloomberg Línea: Las bolsas operan el 31 de diciembre y el 1 de enero",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://www.bloomberglinea.com/mercados/las-bolsas-operan-el-31-de-diciembre-y-el-1-de-enero-asi-sera-en-america-latina-y-wall-street/",
+      "retrieved": "2026-10-15",
+      "covers": "2025-12-31",
+      "notes": "\"El horario de la sesión de remate se llevará a cabo de forma regular\" on 31 December 2025.",
+      "local_files": [
+        {
+          "path": "MX-BMV/press-bloomberglinea-2025-12-30.html",
+          "sha256": "c4ed2f705721c5bc9d72824492c0ab98e5b1f0a15f3b7e29dbfabed33d2ecc73"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "press-bloomberglinea-2024-11-01",
+      "title": "Bloomberg Línea: Cuál es el horario de la BMV",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://www.bloomberglinea.com/latinoamerica/mexico/cual-es-el-horario-de-la-bmv-bolsa-mexicana-ajusta-jornada-de-operacion-ante-cambio-en-eeuu/",
+      "retrieved": "2026-10-15",
+      "covers": "2024",
+      "notes": "The 2024 seasonal hours and the return to 8:30-15:00 on 4 November 2024; Mexico's daylight-saving abolition.",
+      "local_files": [
+        {
+          "path": "MX-BMV/press-bloomberglinea-2024-11-01.html",
+          "sha256": "9658065254dc90d3d2e5126f0b711ef82b921e2524f3bcb4a81c1f0dc607438f"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "press-bloomberglinea-2026-03-05",
+      "title": "Bloomberg Línea: EE.UU. cambia de horario verano 2026",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://www.bloomberglinea.com/mercados/eeuu-cambia-de-horario-a-que-hora-abre-wall-street-y-las-bolsas-de-mexico-colombia-y-la-region-este-verano-2026/",
+      "retrieved": "2026-10-15",
+      "covers": "2026-03-09 to 2026-10-30",
+      "notes": "The exchange's notice: 7:30-14:00 from 9 March to 30 October 2026.",
+      "local_files": [
+        {
+          "path": "MX-BMV/press-bloomberglinea-2026-03-05.html",
+          "sha256": "a7841b9f5a32e3382876584abb3b00707968a0f9631c43682d17b930969de1e8"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "press-bloomberglinea-2022-09-29",
+      "title": "Bloomberg Línea: Cómo afecta eliminar el horario de verano",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://www.bloomberglinea.com/2022/09/29/como-afecta-al-mercado-bursatil-eliminar-el-horario-de-verano-en-mexico/",
+      "retrieved": "2026-10-15",
+      "covers": "2022-10-30",
+      "notes": "Mexico's abolition of daylight saving in October 2022.",
+      "local_files": [
+        {
+          "path": "MX-BMV/press-bloomberglinea-2022-09-29.html",
+          "sha256": "a2f0738177e27c3e5404d284a53cc5156c5ce3d3027785081daa3e9ce912f7a3"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "press-elceo-2023-03-13",
+      "title": "El CEO: Eliminación del horario de verano y mercado bursátil",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://elceo.com/mercados/eliminacion-del-horario-de-verano-en-mexico-como-afectara-las-operaciones-del-mercado-bursatil/",
+      "retrieved": "2026-10-15",
+      "covers": "2023-03-13 to 2023-11-03",
+      "notes": "The 2023 seasonal hours.",
+      "local_files": [
+        {
+          "path": "MX-BMV/press-elceo-2023-03-13.html",
+          "sha256": "1db402078aea68422624bebff3b273128f454b01fdbf91b8280e0247bc685aeb"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "press-expansion-2025-10-31",
+      "title": "Expansión: Bolsa mexicana regresa horario",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://expansion.mx/mercados/2025/10/31/bolsa-mexicana-regresa-horario-apertura-cierre",
+      "retrieved": "2026-10-15",
+      "covers": "2025-11-03",
+      "notes": "Return to 8:30-15:00 on 3 November 2025.",
+      "local_files": [
+        {
+          "path": "MX-BMV/press-expansion-2025-10-31.html",
+          "sha256": "b410aa2700f697d2c4fd7d9c76d80da8a8b8ca293887381f12b95e37cb27fef5"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "press-expansion-2024-10-01",
+      "title": "Expansión: Abren los bancos hoy 1 de octubre",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://expansion.mx/economia/2024/10/01/abren-los-bancos-hoy-1-de-octubre",
+      "retrieved": "2026-10-15",
+      "covers": "2024-10-01",
+      "notes": "The entities obliged to close on 1 October 2024 include \"casas de bolsa, bolsas de valores\".",
+      "local_files": [
+        {
+          "path": "MX-BMV/press-expansion-2024-10-01.html",
+          "sha256": "93387c526b9e22eaca9fae9c55b4dfa4b4f59ebd1a23db413466f1592c0ec4bc"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2024-10-01",
+          "to": "2024-10-01"
+        }
+      ]
+    },
+    {
+      "id": "press-elceo-2020-10-09",
+      "title": "El CEO: BMV suspendió operaciones por error tecnológico",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://elceo.com/mercados/bolsa-mexicana-de-valores-suspendio-operaciones-por-error-tecnologico-descarta-ataque-cibernetico/",
+      "retrieved": "2026-10-15",
+      "covers": "2020-10-09",
+      "notes": "The exchange's statement: \"a las 11:56 hrs., se presentó una desconexión en el motor de negociación ... decretó la suspensión de la Sesión de Remate que se mantuvo hasta el cierre de la jornada bursátil\".",
+      "local_files": [
+        {
+          "path": "MX-BMV/press-elceo-2020-10-09.html",
+          "sha256": "350b86e64b44b10da2bc7ccbbd4b6620e68109d6fcaa6bf2c74b26f51aaffa8e"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2020-10-09",
+          "to": "2020-10-09"
+        }
+      ]
+    },
+    {
+      "id": "press-razon-2020-10-09",
+      "title": "La Razón: BMV descarta ataque cibernético",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://www.razon.com.mx/negocios/bmv-descarta-ataque-cibernetico-suspension-operaciones-408360",
+      "retrieved": "2026-10-15",
+      "covers": "2020-10-09",
+      "notes": "The exchange rules out a cyber-attack; trading resumes on Monday 12 October.",
+      "local_files": [
+        {
+          "path": "MX-BMV/press-larazon-2020-10-09.html",
+          "sha256": "6f680123145bdb3c2e471ad2ffda8f59ca56e7beafb4f88f7d132128c6b8dbdf"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2020-10-09",
+          "to": "2020-10-12"
+        }
+      ]
+    },
+    {
+      "id": "press-forbes-2020-10-09",
+      "title": "Forbes México: suspensión BMV 9-Oct-2020",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://forbes.com.mx/?p=726798",
+      "retrieved": "2026-10-15",
+      "covers": "2020-10-09",
+      "notes": "The 9 October 2020 suspension.",
+      "local_files": [
+        {
+          "path": "MX-BMV/press-forbes-2020-10-09.html",
+          "sha256": "c80890e24b112bc4f0189d42749c1550bcd3c3d0510d63e3bcb579aeb02f8f26"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "press-milenio-2020-10-09",
+      "title": "Milenio: BMV suspendió operaciones por desconexión",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://www.milenio.com/negocios/bmv-suspendio-operaciones-viernes-eventos-tecnologicos",
+      "retrieved": "2026-10-15",
+      "covers": "2020-10-09",
+      "notes": "The 9 October 2020 suspension (\"la suspensión duró más de una hora\").",
+      "local_files": [
+        {
+          "path": "MX-BMV/press-milenio-2020-10-09.html",
+          "sha256": "7f71800e40434b1cea5e613d5032be2b31a60634cd388d597b96828890fd609d"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "press-elfinanciero-2020-10-12",
+      "title": "El Financiero: Apagón en BMV detuvo 10 mil mdp",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://elfinanciero.com.mx/mercados/apagon-en-bmv-detuvo-10-mil-mdp-en-operaciones",
+      "retrieved": "2026-10-15",
+      "covers": "2020-10-09",
+      "notes": "Volume lost in the 9 October 2020 halt.",
+      "local_files": [
+        {
+          "path": "MX-BMV/press-elfinanciero-2020-10-12.html",
+          "sha256": "b08dfc74254ec6e4d6783c4924f8fbeafb630f03db9ad0207609c0d38cadfc0f"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "press-milenio-2020-12-08",
+      "title": "Milenio: BMV tendrá sanción por suspensión",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://www.milenio.com/negocios/bmv-tendra-sancion-por-suspension-de-actividades-en-octubre",
+      "retrieved": "2026-10-15",
+      "covers": "2020-10-09",
+      "notes": "The sanction expected for the October 2020 suspension.",
+      "local_files": [
+        {
+          "path": "MX-BMV/press-milenio-2020-12-08.html",
+          "sha256": "e3a84a55b6e9eda3d5c2c828d5cd1dffd494a521e51ca5aeafadf78a96ad4df6"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "press-expansion-2019-09-24",
+      "title": "Expansión: Quién sufre cuando la bolsa falla",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://expansion.mx/mercados/2019/09/24/quien-sufre-cuando-la-bolsa-falla",
+      "retrieved": "2026-10-15",
+      "covers": "2019-04 and 2019-09",
+      "notes": "Two intraday halts of about 40 minutes in 2019 (dates not stated).",
+      "local_files": [
+        {
+          "path": "MX-BMV/press-expansion-2019-09-24.html",
+          "sha256": "64a9c50963b6f369b2de91ceadf2c06aded1c866921e9733e4ea641988590568"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "press-adn40-2020-03-17",
+      "title": "ADN40: BMV suspende actividades tras caer más de 7%",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://www.adn40.mx/noticia/finanzas/notas/2020-03-17-08-36/bmv-suspende-actividades-tras-caer-mas-de-7/",
+      "retrieved": "2026-10-15",
+      "covers": "2020-03-12 and 2020-03-17",
+      "notes": "The 15-minute circuit-breaker halts of March 2020.",
+      "local_files": [
+        {
+          "path": "MX-BMV/press-adn40-2020-03-17.html",
+          "sha256": "286201aae87b5eab46535a96fb25df0970b23b474f59a7a896e6f1a4f74abf92"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2020-03-12",
+          "to": "2020-03-17"
+        }
+      ]
+    },
+    {
+      "id": "press-expansion-2026-06-29",
+      "title": "Expansión: BMV reanuda operaciones tras suspensión",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://expansion.mx/mercados/2026/06/29/bmv-reanuda-operaciones-tras-suspension-por-duplicidad-de-informacion",
+      "retrieved": "2026-10-15",
+      "covers": "2026-06-29",
+      "notes": "Pre-open suspension at 7:27 resumed at 9:55 on 29 June 2026.",
+      "local_files": [
+        {
+          "path": "MX-BMV/press-expansion-2026-06-29.html",
+          "sha256": "3fc4a7b660ed960cbbc0fafe8face2b6f2c62f6f3a1794ab1f73cd2f709018b7"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2026-06-29",
+          "to": "2026-06-29"
+        }
+      ]
+    },
+    {
+      "id": "press-cronista-2026-06-29",
+      "title": "El Cronista: BMV reanuda operaciones",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://www.cronista.com/mexico/finanzas-economia/bmv-reanuda-operaciones-tras-su-peor-interrupcion-en-cuatro-anos-por-falla-en-base-de-datos/",
+      "retrieved": "2026-10-15",
+      "covers": "2026-06-29",
+      "notes": "The 29 June 2026 suspension (database duplication).",
+      "local_files": [
+        {
+          "path": "MX-BMV/press-cronista-2026-06-29.html",
+          "sha256": "d7dda89a99d31d51c582142b7f212f1ebaac08626eb0d8fc256a4e48c0d3ffbb"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "press-bloomberglinea-2026-06-29",
+      "title": "Bloomberg Línea: BMV suspende la negociación antes de la apertura",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://www.bloomberglinea.com/latinoamerica/mexico/bolsa-mexicana-de-valores-suspende-la-negociacion-antes-de-la-apertura-de-la-sesion/",
+      "retrieved": "2026-10-15",
+      "covers": "2026-06-29",
+      "notes": "The 29 June 2026 pre-open suspension.",
+      "local_files": [
+        {
+          "path": "MX-BMV/press-bloomberglinea-2026-06-29.html",
+          "sha256": "248ea5a149b0c571a5707ea102cce4cb94f1a8e6d12b25320397453c716147ae"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "press-elceo-2026-03-19",
+      "title": "El CEO: BMV suspende operaciones piso de remates",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://elceo.com/mercados/bmv-suspende-operaciones-piso-remates-por-falla-sistema/",
+      "retrieved": "2026-10-15",
+      "covers": "2026-03-19",
+      "notes": "A reported late-session halt on 19 March 2026 (single, internally inconsistent source; not modelled).",
+      "local_files": [
+        {
+          "path": "MX-BMV/press-elceo-2026-03-19.html",
+          "sha256": "cc65d4d2d05ee2f5436a7501047065591f67fafe5164a6dd2d99c272448c7bc7"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "press-zetatijuana-2016-02-26",
+      "title": "Zeta Tijuana: BMV suspende operaciones por fallas técnicas",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://zetatijuana.com/2016/02/la-bolsa-mexicana-de-valores-suspende-sus-operaciones-por-fallas-tecnicas/",
+      "retrieved": "2026-10-15",
+      "covers": "2016-02-26",
+      "notes": "Reuters: the session suspended at its 8:30 start for technical faults on 26 February 2016 (resumption time not reported); the year's session count (252) shows the day counted.",
+      "local_files": [
+        {
+          "path": "MX-BMV/press-zetatijuana-2016-02-26.html",
+          "sha256": "b5d73c4562f01c2dd07440dcea2d442b514363b8985f619d79b875b793c13bf2"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "press-elfinanciero-2017-09-19",
+      "title": "El Financiero: BMV resiente el sismo",
+      "publisher": "Press (quoting the exchange)",
+      "location": "https://www.elfinanciero.com.mx/mercados/bmv-resiente-el-sismo-registrado-en-la-cdmx/",
+      "retrieved": "2026-10-15",
+      "covers": "2017-09-19",
+      "notes": "The session suspended after the earthquake; the index closed at 50,265.46.",
+      "local_files": [
+        {
+          "path": "MX-BMV/press-elfinanciero-2017-09-19.html",
+          "sha256": "31f39a514cee0fd4d9a25dd0224768068826b02bf1112a8d74cd6025156b28d4"
+        }
+      ],
+      "support_intervals": []
+    }
+  ]
+}
