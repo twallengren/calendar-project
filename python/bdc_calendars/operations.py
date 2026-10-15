@@ -106,6 +106,22 @@ class MemberClose(NamedTuple):
     local_time: _dt.time
 
 
+class SpecialSession(NamedTuple):
+    """
+    A trading session on a date that is not a business day (a ``SPECIAL_SESSION``
+    event), with the calendar and timezone its local times belong to.
+    ``timezone`` is ``None`` only for legacy metadata.
+    """
+
+    calendar_id: str
+    timezone: Optional[str]
+    open_time: _dt.time
+    close_time: _dt.time
+    key: Optional[str]
+    description: str
+    status: str
+
+
 def convention(value) -> BusinessDayConvention:
     if isinstance(value, BusinessDayConvention):
         return value

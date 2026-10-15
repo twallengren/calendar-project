@@ -11,8 +11,8 @@ The data ships inside the wheel under ``bdc_calendars/data``:
     ``weekend_policy`` block
 
 ``<CALENDAR_ID>/holidays.csv``
-    every non-weekend event row (CLOSED, EARLY_CLOSE, NOTABLE); weekend rows
-    are reconstructed from ``weekend_policy``
+    every non-weekend event row (CLOSED, EARLY_CLOSE, NOTABLE,
+    SPECIAL_SESSION); weekend rows are reconstructed from ``weekend_policy``
 """
 
 from __future__ import annotations
@@ -33,11 +33,20 @@ try:  # Python >= 3.9
 except ImportError:  # pragma: no cover - Python 3.8 and older are unsupported
     _files = None  # type: ignore[assignment]
 
-__all__ = ["Event", "manifest", "resolve_id", "calendar_ids", "load_calendar"]
+__all__ = ["Event", "SpecialSessionEvent", "manifest", "resolve_id", "calendar_ids", "load_calendar"]
 
 
 class Event(NamedTuple):
-    """One calendar event: a closure, an early close, a notable day or a weekend."""
+    """
+    One calendar event: a closure, an early close, a notable day, a weekend or
+    a special session.
+
+    The tuple has the same eight fields it has always had, so positional
+    unpacking, ``len``, equality and ``_asdict()`` are unchanged. The local open
+    time of a ``SPECIAL_SESSION`` is the :attr:`open_time` attribute, which is
+    ``None`` on every other event; special-session rows are
+    :class:`SpecialSessionEvent` instances that carry it alongside the tuple.
+    """
 
     date: _dt.date
     """The ISO (Gregorian) civil date, in the market's own timezone."""
@@ -58,10 +67,75 @@ class Event(NamedTuple):
     """The unshifted date, when an observance rule moved the closure."""
 
     close_time: Optional[_dt.time] = None
-    """Local close time of a shortened session (``EARLY_CLOSE`` only)."""
+    """Local close time of a shortened session (``EARLY_CLOSE``) or of a ``SPECIAL_SESSION``."""
 
     status: str = "CONFIRMED"
     """``CONFIRMED`` or ``PROJECTED`` — how the row itself was derived."""
+
+    @property
+    def open_time(self) -> Optional[_dt.time]:
+        """Local open time of a ``SPECIAL_SESSION``; ``None`` for every other event."""
+        return None
+
+
+class SpecialSessionEvent(Event):
+    """
+    A ``SPECIAL_SESSION`` event: a trading session on a date that is otherwise
+    not a business day (a holiday or a weekend day).
+
+    It is an :class:`Event` with the same eight tuple fields; the session's
+    local :attr:`open_time` rides alongside the tuple rather than inside it, so
+    code that unpacks or measures event tuples is unaffected. Equality and
+    hashing include ``open_time``, so two sessions that differ only in their
+    open time remain distinct records.
+    """
+
+    # A tuple subclass cannot declare non-empty __slots__; open_time lives in
+    # the instance __dict__.
+
+    def __new__(cls, *args: Any, open_time: _dt.time, **kwargs: Any) -> "SpecialSessionEvent":
+        self = super().__new__(cls, *args, **kwargs)
+        if self.type != "SPECIAL_SESSION":
+            raise ValueError("SpecialSessionEvent must have type SPECIAL_SESSION, got {!r}".format(self.type))
+        if open_time is None or self.close_time is None or not open_time < self.close_time:
+            raise ValueError(
+                "a SPECIAL_SESSION needs an open_time before its close_time: {}".format(self.date)
+            )
+        self.__dict__["_open_time"] = open_time
+        return self
+
+    @property
+    def open_time(self) -> _dt.time:  # type: ignore[override]
+        """Local open time of the session, in the calendar's timezone."""
+        return self.__dict__["_open_time"]
+
+    def _replace(self, **changes: Any) -> "SpecialSessionEvent":  # type: ignore[override]
+        open_time = changes.pop("open_time", self.open_time)
+        return SpecialSessionEvent(*Event._replace(self, **changes), open_time=open_time)
+
+    def __eq__(self, other: object) -> bool:
+        same = tuple.__eq__(self, other)
+        if same is NotImplemented or not same:
+            return same
+        return getattr(other, "open_time", None) == self.open_time
+
+    def __ne__(self, other: object) -> bool:
+        same = self.__eq__(other)
+        return same if same is NotImplemented else not same
+
+    def __hash__(self) -> int:
+        return hash((tuple(self), self.open_time))
+
+    def __reduce__(self):
+        return (_special_session_event, (tuple(self), self.open_time))
+
+    def __repr__(self) -> str:
+        return "{}, open_time={!r})".format(Event.__repr__(self)[:-1], self.open_time)
+
+
+def _special_session_event(fields: Tuple[Any, ...], open_time: _dt.time) -> SpecialSessionEvent:
+    return SpecialSessionEvent(*fields, open_time=open_time)
+
 
 _manifest_cache: Optional[Dict[str, Any]] = None
 _calendar_cache: Dict[str, "CalendarData"] = {}
@@ -203,11 +277,18 @@ def _event_from_row(row) -> Event:
     status = row.get("status") or "CONFIRMED"
     if status not in ("CONFIRMED", "PROJECTED"):
         raise ValueError("event status must be CONFIRMED or PROJECTED, got {!r}".format(status))
-    return Event(date=_date(row["date"]), type=row["type"], description=row.get("description") or "",
+    fields = dict(date=_date(row["date"]), type=row["type"], description=row.get("description") or "",
         key=row.get("key") or None, source_module=row.get("source_module") or None,
         observed_from=_date(row["observed_from"]) if row.get("observed_from") else None,
         close_time=_time(row["close_time"]) if row.get("close_time") else None,
         status=status)
+    # open_time (wire schema 2.1) is addressed by name; older data has no such column.
+    open_time = _time(row["open_time"]) if row.get("open_time") else None
+    if fields["type"] == "SPECIAL_SESSION":
+        return SpecialSessionEvent(**fields, open_time=open_time)
+    if open_time is not None:
+        raise ValueError("open_time is only defined for SPECIAL_SESSION: {}".format(fields["date"]))
+    return Event(**fields)
 
 
 def _date(value: str) -> _dt.date:
