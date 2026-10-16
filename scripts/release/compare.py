@@ -38,6 +38,8 @@ CSV_FIELDS = (
     "observed_from",
     "close_time",
     "status",
+    # Wire schema 2.1: the open time of a SPECIAL_SESSION, appended after status.
+    "open_time",
 )
 
 
