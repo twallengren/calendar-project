@@ -1,0 +1,215 @@
+kind: calendar
+id: AU-ASX
+metadata:
+  name: Australian Securities Exchange
+  description: ASX Trade cash equities market trading calendar (MIC XASX)
+  chronology: ISO
+  timezone: Australia/Sydney
+  coverage:
+    from: 2010-01-01
+    to: 2030-12-31
+    quality:
+    - scope: SCHEDULED_CLOSURES
+      from: 2010-01-01
+      to: 2019-12-31
+      quality: VERIFIED
+      evidenceIds:
+      - asx-cash-market-trading-days-by-month
+      - asx-activity-report-2010-06
+      - asx-activity-report-2011-06
+      - asx-activity-report-2012-06
+      - asx-activity-report-2013-06
+      - asx-activity-report-2014-06
+      - asx-activity-report-2015-06
+      - asx-activity-report-2016-06
+      - asx-activity-report-2017-06
+      - asx-activity-report-2018-06
+      - asx-activity-report-2019-06
+      - asx-activity-report-2020-06
+      - asx-activity-report-2011-04
+      - asx-activity-report-2012-01
+      - asx-activity-report-2015-04
+      - asx-events-2016-04
+      - asx-events-2018-12
+      - asx24-trading-calendar-2019
+    - scope: SCHEDULED_CLOSURES
+      from: 2020-01-01
+      to: 2020-12-31
+      quality: VERIFIED
+      evidenceIds:
+      - asx-trade-calendar-2020
+      - asx-activity-report-2020-06
+      - asx-activity-report-2021-06
+    - scope: SCHEDULED_CLOSURES
+      from: 2021-01-01
+      to: 2021-12-31
+      quality: VERIFIED
+      evidenceIds:
+      - asx-cash-market-trading-days-by-month
+      - asx-activity-report-2021-06
+      - asx-activity-report-2022-06
+      - asx-notice-1320-20-10
+      - asx-notice-0812-18-07
+      - asx-activity-report-2021-04
+      - asx-notice-1639-21-11
+    - scope: SCHEDULED_CLOSURES
+      from: 2022-01-01
+      to: 2027-12-31
+      quality: VERIFIED
+      evidenceIds:
+      - asx-trade-calendar-2022
+      - asx-trade-calendar-2023
+      - asx-trade-calendar-2024
+      - asx-notice-0840-23-08
+      - asx-trade-calendar-2025
+      - asx-trade-calendar-2026
+      - asx-trade-calendar-2026-2027
+      - asx-activity-report-2022-06
+      - asx-activity-report-2023-06
+      - asx-activity-report-2024-06
+      - asx-activity-report-2025-06
+      - asx-activity-report-2026-06
+      - asx-activity-report-2026-09
+    - scope: SCHEDULED_CLOSURES
+      from: 2028-01-01
+      to: 2030-12-31
+      quality: PROJECTED
+      evidenceIds:
+      - nsw-public-holidays-act
+    - scope: EARLY_CLOSES
+      from: 2010-01-01
+      to: 2016-11-30
+      quality: PROJECTED
+      evidenceIds:
+      - fnarena-2010-12-24
+      - asx-notice-1514-16-12
+    - scope: EARLY_CLOSES
+      from: 2016-12-01
+      to: 2016-12-31
+      quality: VERIFIED
+      evidenceIds:
+      - asx-notice-1514-16-12
+      - asx-events-2016-12
+      - asx-event-2016-12-23
+    - scope: EARLY_CLOSES
+      from: 2017-01-01
+      to: 2017-11-30
+      quality: PROJECTED
+      evidenceIds:
+      - asx-notice-1357-16-11
+    - scope: EARLY_CLOSES
+      from: 2017-12-01
+      to: 2017-12-31
+      quality: VERIFIED
+      evidenceIds:
+      - asx-notice-1357-16-11
+      - asx-notice-1305-17-11
+    - scope: EARLY_CLOSES
+      from: 2018-01-01
+      to: 2018-11-30
+      quality: PROJECTED
+      evidenceIds:
+      - asx-notice-1357-16-11
+    - scope: EARLY_CLOSES
+      from: 2018-12-01
+      to: 2018-12-31
+      quality: VERIFIED
+      evidenceIds:
+      - asx-notice-1396-18-12
+    - scope: EARLY_CLOSES
+      from: 2019-01-01
+      to: 2019-12-31
+      quality: PROJECTED
+      evidenceIds:
+      - asx-notice-1357-16-11
+    - scope: EARLY_CLOSES
+      from: 2020-01-01
+      to: 2020-12-31
+      quality: VERIFIED
+      evidenceIds:
+      - asx-trade-calendar-2020
+      - asx-notice-1541-20-11
+    - scope: EARLY_CLOSES
+      from: 2021-01-01
+      to: 2021-11-30
+      quality: PROJECTED
+      evidenceIds:
+      - asx-notice-1357-16-11
+    - scope: EARLY_CLOSES
+      from: 2021-12-01
+      to: 2021-12-31
+      quality: VERIFIED
+      evidenceIds:
+      - asx-notice-1639-21-11
+    - scope: EARLY_CLOSES
+      from: 2022-01-01
+      to: 2027-12-31
+      quality: VERIFIED
+      evidenceIds:
+      - asx-trade-calendar-2022
+      - asx-notice-1253-22-11
+      - asx-trade-calendar-2023
+      - asx-trade-calendar-2024
+      - asx-trade-calendar-2025
+      - asx-trade-calendar-2026
+      - asx-trade-calendar-2026-2027
+    - scope: EARLY_CLOSES
+      from: 2028-01-01
+      to: 2030-12-31
+      quality: PROJECTED
+      evidenceIds:
+      - asx-notice-1357-16-11
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2010-01-01
+      to: 2026-09-30
+      quality: VERIFIED
+      evidenceIds:
+      - asx-cash-market-trading-days-by-month
+      - asx-activity-report-2010-06
+      - asx-activity-report-2011-06
+      - asx-activity-report-2012-06
+      - asx-activity-report-2013-06
+      - asx-activity-report-2014-06
+      - asx-activity-report-2015-06
+      - asx-activity-report-2016-06
+      - asx-activity-report-2017-06
+      - asx-activity-report-2018-06
+      - asx-activity-report-2019-06
+      - asx-activity-report-2020-06
+      - asx-activity-report-2021-06
+      - asx-activity-report-2022-06
+      - asx-activity-report-2023-06
+      - asx-activity-report-2024-06
+      - asx-activity-report-2025-06
+      - asx-activity-report-2026-06
+      - asx-activity-report-2026-09
+      - asx-notice-1111-16-09
+      - asx-media-alert-2016-09-19
+      - asic-16-352mr
+      - asx-market-outage-report-2020-12-04
+      - asx-media-alert-2020-11-16
+      - asx-notice-1469-20-11
+      - asic-20-284mr
+      - asx-notice-0984-22-09
+      - asx-media-release-2011-10-27
+      - asx-activity-report-2020-11
+      - asx-activity-report-2022-09
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2026-10-01
+      to: 2030-12-31
+      quality: PROJECTED
+      evidenceIds:
+      - asx-notice-1111-16-09
+      - asx-market-outage-report-2020-12-04
+    verified_through: 2027-12-31
+  kind: market
+  mic: XASX
+  aliases: []
+uses:
+- weekend_sat_sun
+- au_asx_holidays
+classifications: {}
+deltas: []
+extends: []
+event_sources: []
+weekend_shift_policy: NEXT_AVAILABLE_WEEKDAY

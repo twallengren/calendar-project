@@ -1,0 +1,355 @@
+kind: resolved_calendar
+id: BR-B3
+metadata:
+  name: B3 - Brasil Bolsa Balcão
+  description: B3 (São Paulo) listed equities and derivatives trading calendar (MIC
+    BVMF)
+  chronology: ISO
+  timezone: America/Sao_Paulo
+  mic: BVMF
+  coverage:
+    from: 2010-01-01
+    to: 2027-12-31
+    verified_through: 2026-12-31
+    quality:
+    - scope: SCHEDULED_CLOSURES
+      from: 2010-01-01
+      to: 2026-12-31
+      quality: VERIFIED
+      evidence_ids:
+      - b3-calendars
+      - bmfbovespa-calendar-2014
+      - bmfbovespa-numero-mensal-de-pregoes
+      - b3-oc-068-2020
+      - b3-oc-072-2020
+      - b3-ce-001-2021
+      - b3-oc-215-2023
+      - b3-news-2025-11-17
+      - br-lei-662-1949
+      - br-lei-14759-2023
+    - scope: SCHEDULED_CLOSURES
+      from: 2027-01-01
+      to: 2027-12-31
+      quality: PROJECTED
+      evidence_ids:
+      - anbima-feriados-2027
+      - br-lei-662-1949
+    - scope: EARLY_CLOSES
+      from: 2010-01-01
+      to: 2026-12-31
+      quality: VERIFIED
+      evidence_ids:
+      - b3-calendars
+      - b3-ash-wednesday-circulars
+      - bmfbovespa-hours-news
+      - b3-hours-circulars
+    - scope: EARLY_CLOSES
+      from: 2027-01-01
+      to: 2027-12-31
+      quality: PROJECTED
+      evidence_ids:
+      - b3-hours-circulars
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2010-01-01
+      to: 2015-12-31
+      quality: VERIFIED
+      evidence_ids:
+      - bmfbovespa-numero-mensal-de-pregoes
+      - bmfbovespa-calendar-2014
+      - press-exame-2010-11-22
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2016-01-01
+      to: 2027-12-31
+      quality: PROJECTED
+      evidence_ids:
+      - b3-ce-009-2020-circuit-breaker
+      - press-istoedinheiro-2017-05-18
+      - press-moneytimes-2020-03-18
+      - press-istoedinheiro-2025-08-01
+      - press-infomoney-2026-07-31
+      - press-noticiasagricolas-2026-07-31
+weekend_policy:
+  days:
+  - SATURDAY
+  - SUNDAY
+weekend_shift_policy: NONE
+resolution_chain:
+- module:weekend_sat_sun
+- module:br_new_years_day
+- module:br_b3_sao_paulo_holidays
+- module:br_b3_easter_holidays
+- module:br_tiradentes
+- module:br_labour_day
+- module:br_independence_day
+- module:br_nossa_senhora_aparecida
+- module:br_finados
+- module:br_republic_day
+- module:br_consciencia_negra
+- module:br_b3_christmas_eve
+- module:br_christmas_day
+- module:br_b3_year_end_closure
+- module:br_b3_one_off_closures
+- module:br_b3_holidays
+- calendar:BR-B3
+references:
+- key: easter
+  formula: EASTER_WESTERN
+event_sources:
+- key: br_new_years_day
+  name: Confraternização Universal
+  origin: module:br_new_years_day
+  classification: CLOSED
+  shift_policy: NONE
+  status: CONFIRMED
+  source:
+  - id: br-lei-662-1949
+  rule:
+    type: fixed_month_day
+    month: 1
+    day: 1
+- key: br_b3_sao_paulo_anniversary
+  name: Aniversário de São Paulo (municipal holiday)
+  origin: module:br_b3_sao_paulo_holidays
+  classification: CLOSED
+  shift_policy: NONE
+  status: CONFIRMED
+  active_years:
+  - - 2010
+    - 2021
+  source:
+  - id: br-lei-sp-13707-2004
+  rule:
+    type: fixed_month_day
+    month: 1
+    day: 25
+- key: br_b3_revolucao_constitucionalista
+  name: Revolução Constitucionalista (São Paulo state holiday)
+  origin: module:br_b3_sao_paulo_holidays
+  classification: CLOSED
+  shift_policy: NONE
+  status: CONFIRMED
+  active_years:
+  - - 2010
+    - 2019
+  - 2021
+  source:
+  - id: br-lei-sp-9497-1997
+  - id: b3-oc-072-2020
+    ref: "09/07/20: as atividades de negociação, liquidação, registro e depósito centralizado\
+      \ de ativos funcionarão normalmente."
+  rule:
+    type: fixed_month_day
+    month: 7
+    day: 9
+- key: br_carnival_monday
+  name: Carnaval
+  origin: module:br_b3_easter_holidays
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: b3-calendars
+  rule:
+    type: relative_to_reference
+    reference: easter
+    offset_days: -48
+- key: br_carnival_tuesday
+  name: Carnaval
+  origin: module:br_b3_easter_holidays
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: b3-calendars
+  rule:
+    type: relative_to_reference
+    reference: easter
+    offset_days: -47
+- key: br_good_friday
+  name: Paixão de Cristo
+  origin: module:br_b3_easter_holidays
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: b3-calendars
+  rule:
+    type: relative_to_reference
+    reference: easter
+    offset_days: -2
+- key: br_corpus_christi
+  name: Corpus Christi
+  origin: module:br_b3_easter_holidays
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: b3-calendars
+  rule:
+    type: relative_to_reference
+    reference: easter
+    offset_days: 60
+- key: br_tiradentes
+  name: Tiradentes
+  origin: module:br_tiradentes
+  classification: CLOSED
+  shift_policy: NONE
+  status: CONFIRMED
+  source:
+  - id: br-lei-662-1949
+  rule:
+    type: fixed_month_day
+    month: 4
+    day: 21
+- key: br_labour_day
+  name: Dia do Trabalho
+  origin: module:br_labour_day
+  classification: CLOSED
+  shift_policy: NONE
+  status: CONFIRMED
+  source:
+  - id: br-lei-662-1949
+  rule:
+    type: fixed_month_day
+    month: 5
+    day: 1
+- key: br_independence_day
+  name: Independência do Brasil
+  origin: module:br_independence_day
+  classification: CLOSED
+  shift_policy: NONE
+  status: CONFIRMED
+  source:
+  - id: br-lei-662-1949
+  rule:
+    type: fixed_month_day
+    month: 9
+    day: 7
+- key: br_nossa_senhora_aparecida
+  name: Nossa Senhora Aparecida
+  origin: module:br_nossa_senhora_aparecida
+  classification: CLOSED
+  shift_policy: NONE
+  status: CONFIRMED
+  source:
+  - id: br-lei-6802-1980
+  rule:
+    type: fixed_month_day
+    month: 10
+    day: 12
+- key: br_finados
+  name: Finados
+  origin: module:br_finados
+  classification: CLOSED
+  shift_policy: NONE
+  status: CONFIRMED
+  source:
+  - id: br-lei-662-1949
+  rule:
+    type: fixed_month_day
+    month: 11
+    day: 2
+- key: br_republic_day
+  name: Proclamação da República
+  origin: module:br_republic_day
+  classification: CLOSED
+  shift_policy: NONE
+  status: CONFIRMED
+  source:
+  - id: br-lei-662-1949
+  rule:
+    type: fixed_month_day
+    month: 11
+    day: 15
+- key: br_consciencia_negra_sao_paulo
+  name: Consciência Negra (São Paulo municipal holiday)
+  origin: module:br_consciencia_negra
+  classification: CLOSED
+  shift_policy: NONE
+  status: CONFIRMED
+  active_years:
+  - - 2010
+    - 2019
+  source:
+  - id: br-lei-sp-13707-2004
+  - id: b3-calendars
+  rule:
+    type: fixed_month_day
+    month: 11
+    day: 20
+- key: br_consciencia_negra
+  name: Dia Nacional de Zumbi e da Consciência Negra
+  origin: module:br_consciencia_negra
+  classification: CLOSED
+  shift_policy: NONE
+  status: CONFIRMED
+  active_years:
+  - - 2024
+    - null
+  source:
+  - id: br-lei-14759-2023
+    ref: Art. 1º Fica declarado feriado nacional o dia 20 de novembro
+  - id: b3-oc-215-2023
+  rule:
+    type: fixed_month_day
+    month: 11
+    day: 20
+- key: br_b3_christmas_eve
+  name: Véspera de Natal
+  origin: module:br_b3_christmas_eve
+  classification: CLOSED
+  shift_policy: NONE
+  status: CONFIRMED
+  source:
+  - id: b3-calendars
+  rule:
+    type: fixed_month_day
+    month: 12
+    day: 24
+- key: br_christmas_day
+  name: Natal
+  origin: module:br_christmas_day
+  classification: CLOSED
+  shift_policy: NONE
+  status: CONFIRMED
+  source:
+  - id: br-lei-662-1949
+  rule:
+    type: fixed_month_day
+    month: 12
+    day: 25
+- key: br_b3_year_end_closure
+  name: Último dia útil do ano (sem sessão de negociação)
+  origin: module:br_b3_year_end_closure
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: b3-calendars
+  rule:
+    type: explicit_dates
+    dates:
+    - 2010-12-31
+    - 2011-12-30
+    - 2012-12-31
+    - 2013-12-31
+    - 2014-12-31
+    - 2015-12-31
+    - 2016-12-30
+    - 2017-12-29
+    - 2018-12-31
+    - 2019-12-31
+    - 2020-12-31
+    - 2021-12-31
+    - 2022-12-30
+    - 2023-12-29
+    - 2024-12-31
+    - 2025-12-31
+    - 2026-12-31
+    - 2027-12-31
+- key: br_b3_world_cup_opening_2014
+  name: Abertura da Copa do Mundo (feriado municipal)
+  origin: module:br_b3_one_off_closures
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: bmfbovespa-calendar-2014
+  rule:
+    type: explicit_dates
+    dates:
+    - 2014-06-12

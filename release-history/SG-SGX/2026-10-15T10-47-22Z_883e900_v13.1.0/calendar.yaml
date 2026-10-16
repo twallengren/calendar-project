@@ -1,0 +1,260 @@
+kind: calendar
+id: SG-SGX
+metadata:
+  name: Singapore Exchange
+  description: SGX securities market (SGX-ST) trading calendar (MIC XSES)
+  chronology: ISO
+  timezone: Asia/Singapore
+  coverage:
+    from: 2010-01-01
+    to: 2027-12-31
+    quality:
+    - scope: SCHEDULED_CLOSURES
+      from: 2010-01-01
+      to: 2012-12-31
+      quality: VERIFIED
+      evidenceIds:
+      - mom-holidays-wb-20100627
+      - mom-holidays-wb-20130630
+      - mom-holidays-wb-20130125
+      - sgx-calendar-wb-20090515
+      - sgx-calendar-wb-20140821
+      - sgx-trading-days-by-month
+    - scope: SCHEDULED_CLOSURES
+      from: 2013-01-01
+      to: 2019-12-31
+      quality: VERIFIED
+      evidenceIds:
+      - sgx-calendar-wb-20140821
+      - sgx-calendar-wb-20150924
+      - sgx-calendar-wb-20160108
+      - sgx-calendar-wb-20170608
+      - sgx-calendar-wb-20181020
+      - sgx-calendar-wb-20181223
+      - mom-holidays-wb-20130124
+      - mom-holidays-wb-20130413
+      - mom-holidays-wb-20140410
+      - mom-holidays-wb-20150531
+      - mom-holidays-wb-20170602
+      - mom-holidays-wb-20190630
+      - sgx-trading-days-by-month
+    - scope: SCHEDULED_CLOSURES
+      from: 2020-01-01
+      to: 2020-12-31
+      quality: VERIFIED
+      evidenceIds:
+      - settlement-holidays-2020
+      - mom-press-2019-0408
+      - mom-press-2020-0624-polling-day
+      - datagov-public-holidays-2020-2027
+      - sgx-trading-days-by-month
+    - scope: SCHEDULED_CLOSURES
+      from: 2021-01-01
+      to: 2022-12-31
+      quality: VERIFIED
+      evidenceIds:
+      - mom-press-2020-0624-holidays-2021
+      - mom-press-2021-0406
+      - mom-press-2021-1021
+      - datagov-public-holidays-2020-2027
+      - sgx-trading-days-by-month
+    - scope: SCHEDULED_CLOSURES
+      from: 2023-01-01
+      to: 2023-12-31
+      quality: VERIFIED
+      evidenceIds:
+      - settlement-holidays-2023
+      - mom-press-2022-0408
+      - mom-press-2022-0929
+      - dtam-64-2023
+      - datagov-public-holidays-2020-2027
+      - sgx-trading-days-by-month
+    - scope: SCHEDULED_CLOSURES
+      from: 2024-01-01
+      to: 2024-12-31
+      quality: VERIFIED
+      evidenceIds:
+      - settlement-holidays-2024
+      - gazette-1387
+      - datagov-public-holidays-2020-2027
+      - sgx-trading-days-by-month
+    - scope: SCHEDULED_CLOSURES
+      from: 2025-01-01
+      to: 2025-12-31
+      quality: VERIFIED
+      evidenceIds:
+      - settlement-holidays-2025
+      - mom-public-holidays
+      - sgx-trading-page
+      - datagov-public-holidays-2020-2027
+      - sgx-trading-days-by-month
+    - scope: SCHEDULED_CLOSURES
+      from: 2026-01-01
+      to: 2027-12-31
+      quality: VERIFIED
+      evidenceIds:
+      - gazette-2258
+      - gazette-3467
+      - mom-public-holidays
+      - sgx-trading-page
+      - datagov-public-holidays-2020-2027
+    - scope: EARLY_CLOSES
+      from: 2010-01-01
+      to: 2013-12-31
+      quality: PROJECTED
+      evidenceIds:
+      - sgx-calendar-wb-20140821
+      - sgx-rulebook-pn13-1-rev7300
+      - sgx-rulebook-pn13-1-rev7712
+    - scope: EARLY_CLOSES
+      from: 2014-01-01
+      to: 2019-12-31
+      quality: VERIFIED
+      evidenceIds:
+      - sgx-calendar-wb-20140821
+      - sgx-calendar-wb-20150924
+      - sgx-calendar-wb-20160108
+      - sgx-calendar-wb-20170608
+      - sgx-calendar-wb-20181020
+      - sgx-calendar-wb-20181223
+      - sgx-rulebook-pn13-1-rev9845
+    - scope: EARLY_CLOSES
+      from: 2020-01-01
+      to: 2024-12-31
+      quality: PROJECTED
+      evidenceIds:
+      - sgx-rulebook-rn-8-2-1
+      - sgx-trading-page
+    - scope: EARLY_CLOSES
+      from: 2025-01-01
+      to: 2026-12-31
+      quality: VERIFIED
+      evidenceIds:
+      - sgx-trading-page
+      - sgx-rulebook-rn-8-2-1
+    - scope: EARLY_CLOSES
+      from: 2027-01-01
+      to: 2027-12-31
+      quality: PROJECTED
+      evidenceIds:
+      - sgx-trading-page
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2010-01-01
+      to: 2010-11-30
+      quality: PROJECTED
+      evidenceIds:
+      - sgx-outage-2016-07-14
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2010-12-01
+      to: 2012-06-30
+      quality: VERIFIED
+      evidenceIds:
+      - sgx-trading-days-by-month
+      - sgx-release-2011-06-30
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2012-07-01
+      to: 2012-07-31
+      quality: PROJECTED
+      evidenceIds:
+      - sgx-trading-days-by-month
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2012-08-01
+      to: 2013-03-31
+      quality: VERIFIED
+      evidenceIds:
+      - sgx-trading-days-by-month
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2013-04-01
+      to: 2013-10-31
+      quality: PROJECTED
+      evidenceIds:
+      - sgx-trading-days-by-month
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2013-11-01
+      to: 2013-11-30
+      quality: VERIFIED
+      evidenceIds:
+      - sgx-trading-days-by-month
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2013-12-01
+      to: 2013-12-31
+      quality: PROJECTED
+      evidenceIds:
+      - sgx-trading-days-by-month
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2014-01-01
+      to: 2014-04-30
+      quality: VERIFIED
+      evidenceIds:
+      - sgx-trading-days-by-month
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2014-05-01
+      to: 2014-06-30
+      quality: PROJECTED
+      evidenceIds:
+      - sgx-trading-days-by-month
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2014-07-01
+      to: 2015-05-31
+      quality: VERIFIED
+      evidenceIds:
+      - sgx-trading-days-by-month
+      - sgx-outage-2014-11-05
+      - sgx-outage-2014-12-03
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2015-06-01
+      to: 2015-06-30
+      quality: PROJECTED
+      evidenceIds:
+      - sgx-trading-days-by-month
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2015-07-01
+      to: 2020-06-30
+      quality: VERIFIED
+      evidenceIds:
+      - sgx-trading-days-by-month
+      - sgx-outage-2016-07-14
+      - sgx-release-2020-04-03
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2020-07-01
+      to: 2020-07-31
+      quality: PROJECTED
+      evidenceIds:
+      - sgx-trading-days-by-month
+      - mom-press-2020-0624-polling-day
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2020-08-01
+      to: 2023-03-31
+      quality: VERIFIED
+      evidenceIds:
+      - sgx-trading-days-by-month
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2023-04-01
+      to: 2023-06-30
+      quality: PROJECTED
+      evidenceIds:
+      - sgx-trading-days-by-month
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2023-07-01
+      to: 2026-06-30
+      quality: VERIFIED
+      evidenceIds:
+      - sgx-trading-days-by-month
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2026-07-01
+      to: 2027-12-31
+      quality: PROJECTED
+      evidenceIds:
+      - sgx-outage-2016-07-14
+    verified_through: 2027-12-31
+  kind: market
+  mic: XSES
+  aliases: []
+uses:
+- weekend_sat_sun
+- sg_sgx_holidays
+classifications: {}
+deltas: []
+extends: []
+event_sources: []
+weekend_shift_policy: NEXT_AVAILABLE_FROM_LAST_WEEKEND_DAY

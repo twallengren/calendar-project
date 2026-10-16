@@ -1,24 +1,24 @@
 {
   "asset": {
-    "id": 643227157,
-    "name": "bdc-calendars-13.0.0.tar.gz",
-    "sha256": "sha256:8cb4f217981ac11e9bfbdddbc35311a9ecbc6b2739f9831a4d05dc5e6de027a4",
-    "size": 17120049,
-    "url": "https://github.com/twallengren/calendar-project/releases/download/v13.0.0/bdc-calendars-13.0.0.tar.gz"
+    "id": 643542526,
+    "name": "bdc-calendars-13.1.0.tar.gz",
+    "sha256": "sha256:e6d5c086101f9311e1f4289182cf9ea45fc5eb5ba8c922942ea79daf22facf58",
+    "size": 91194474,
+    "url": "https://github.com/twallengren/calendar-project/releases/download/v13.1.0/bdc-calendars-13.1.0.tar.gz"
   },
   "checksums_asset": {
-    "id": 643227211,
-    "sha256": "sha256:4eca3b3e2381aa6a96da5192aa381effe3e564002437e2c6be1e07122eb55e96"
+    "id": 643542636,
+    "sha256": "sha256:88c5f6233563cf4188d1d4568078bf4a1440e03dbc7f416e078c8578d51dc779"
   },
-  "data_version": "13.0.0",
-  "observed_current_at": "2026-10-15T10:21:59Z",
-  "published_at": "2026-10-15T08:31:02Z",
-  "release_id": 413577914,
-  "release_url": "https://github.com/twallengren/calendar-project/releases/tag/v13.0.0",
+  "data_version": "13.1.0",
+  "observed_current_at": "2026-10-16T10:08:34Z",
+  "published_at": "2026-10-15T10:47:22Z",
+  "release_id": 413693912,
+  "release_url": "https://github.com/twallengren/calendar-project/releases/tag/v13.1.0",
   "repository": "twallengren/calendar-project",
   "schema_version": "1.0",
-  "source_sha": "74d854cdbdfa9f622720d205ef9e999d23f008eb",
-  "tag": "v13.0.0",
-  "tag_commit": "51b8047f45ac6ea1ae6d371029fb1b902b7cb457",
-  "tag_equivalent_files": 263
+  "source_sha": "883e900e59f9b17c57970680eaee0e253cbbcd2d",
+  "tag": "v13.1.0",
+  "tag_commit": "efc93f8452976bf169a2a710fb8d9fcfb02c0489",
+  "tag_equivalent_files": 989
 }

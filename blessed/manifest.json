@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "blessed_at": "2026-10-15T10:24:04Z",
+  "blessed_at": "2026-10-16T12:00:00Z",
   "blessed_by": "github-actions",
   "calendars": {
     "AU-ASX": {
@@ -187,9 +187,9 @@
     }
   },
   "release_version": {
-    "semantic": "13.1.0",
-    "git_sha": "883e900e59f9b17c57970680eaee0e253cbbcd2d",
-    "generation_date": "2026-10-15"
+    "semantic": "13.2.0",
+    "git_sha": "76feae1639e4586f2280dfc5cd22860d4396caf0",
+    "generation_date": "2026-10-16"
   },
   "aliases": {
     "BVMF": "BR-B3",

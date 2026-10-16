@@ -25,7 +25,7 @@
     "XTKS": "JP-JPX",
     "XTSE": "CA-TSX"
   },
-  "blessed_at": "2026-10-15T10:24:04Z",
+  "blessed_at": "2026-10-16T12:00:00Z",
   "calendars": {
     "AU-ASX": {
       "kind": "market",
@@ -158,8 +158,8 @@
       "range_start": "2010-01-01"
     }
   },
-  "data_git_sha": "883e900e59f9b17c57970680eaee0e253cbbcd2d",
-  "data_version": "13.1.0",
-  "generation_date": "2026-10-15",
+  "data_git_sha": "76feae1639e4586f2280dfc5cd22860d4396caf0",
+  "data_version": "13.2.0",
+  "generation_date": "2026-10-16",
   "schema_version": "1.0"
 }
