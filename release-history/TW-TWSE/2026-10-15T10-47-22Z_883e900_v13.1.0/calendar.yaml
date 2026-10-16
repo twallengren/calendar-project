@@ -1,0 +1,88 @@
+kind: calendar
+id: TW-TWSE
+metadata:
+  name: Taiwan Stock Exchange
+  description: TWSE centralised securities market trading calendar (MIC XTAI)
+  chronology: ISO
+  timezone: Asia/Taipei
+  coverage:
+    from: 2010-01-01
+    to: 2027-12-31
+    quality:
+    - scope: SCHEDULED_CLOSURES
+      from: 2010-01-01
+      to: 2026-12-31
+      quality: VERIFIED
+      evidenceIds:
+      - twse-holiday-schedules
+      - twse-trading-days
+      - twse-factbook
+      - twse-eshop-lny-2026
+      - law-moj-D0020033
+      - law-moj-D0020095
+    - scope: SCHEDULED_CLOSURES
+      from: 2027-01-01
+      to: 2027-12-31
+      quality: PROJECTED
+      evidenceIds:
+      - dgpa-calendars
+      - law-moj-D0020095
+    - scope: EARLY_CLOSES
+      from: 2010-01-01
+      to: 2026-12-31
+      quality: VERIFIED
+      evidenceIds:
+      - twse-holiday-schedules
+      - twse-history
+      - twse-trading-system
+      - twse-suspended
+    - scope: EARLY_CLOSES
+      from: 2027-01-01
+      to: 2027-12-31
+      quality: PROJECTED
+      evidenceIds:
+      - twse-trading-system
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2010-01-01
+      to: 2026-10-14
+      quality: VERIFIED
+      evidenceIds:
+      - twse-trading-days
+      - taipei-suspension-register
+      - twse-suspended
+      - twse-factbook
+      - press-ctee-2012-08-02
+      - press-ctee-2013-08-21
+      - press-ettoday-2014-07-22
+      - press-cna-2015-07-09
+      - press-bloomberg-2015-09-28
+      - press-cmoney-2016-07-08
+      - press-ettoday-2016-09-28
+      - press-ctee-2019-08-08
+      - press-ettoday-2019-09-29
+      - cbc-2019-09-30
+      - press-ettoday-2023-08-02
+      - press-cnyes-2024-07-23
+      - press-yahoo-2024-07-24
+      - press-cnyes-2024-10-01
+      - press-newtalk-2024-10-03
+      - press-taiwannews-2024-10-31
+      - press-ettoday-2026-07-09
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2026-10-15
+      to: 2027-12-31
+      quality: PROJECTED
+      evidenceIds:
+      - twse-suspended
+      - taipei-suspension-register
+    verified_through: 2026-12-31
+  kind: market
+  mic: XTAI
+  aliases: []
+uses:
+- tw_twse_holidays
+classifications: {}
+deltas: []
+extends: []
+event_sources: []
+weekend_shift_policy: NONE

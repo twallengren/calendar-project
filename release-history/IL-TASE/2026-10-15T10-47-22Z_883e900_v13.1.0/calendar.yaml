@@ -1,0 +1,72 @@
+kind: calendar
+id: IL-TASE
+metadata:
+  name: Tel Aviv Stock Exchange
+  description: "Tel Aviv Stock Exchange (TASE) equity trading calendar. Scheduled\
+    \ closures are complete and verified for 2025 through 2028 from TASE's own vacation\
+    \ schedules, each row retained as a bounded Hebrew-calendar origin. Trading moved\
+    \ from a Sunday-Thursday week to Monday-Friday on 4 January 2026; every Friday\
+    \ session since then closes at 13:50 and the non-Friday intermediate days of Passover\
+    \ and Sukkot close at 14:30. Exact 2025 shortened-session close times and unscheduled\
+    \ exceptions remain incomplete."
+  chronology: ISO
+  timezone: Asia/Jerusalem
+  coverage:
+    from: 2025-01-01
+    to: 2028-12-31
+    quality:
+    - scope: SCHEDULED_CLOSURES
+      from: 2025-01-01
+      to: 2025-12-31
+      quality: VERIFIED
+      evidenceIds:
+      - tase-vacation-schedule-2025
+    - scope: SCHEDULED_CLOSURES
+      from: 2026-01-01
+      to: 2028-12-31
+      quality: VERIFIED
+      evidenceIds:
+      - tase-trading-vacation-schedule
+      - tase-weekly-review-2026-04-20
+      - isa-trading-week-2026
+    - scope: EARLY_CLOSES
+      from: 2025-01-01
+      to: 2026-01-03
+      quality: INCOMPLETE
+      evidenceIds:
+      - tase-vacation-schedule-2025
+      - tase-board-trading-hours-2024
+    - scope: EARLY_CLOSES
+      from: 2026-01-04
+      to: 2028-12-31
+      quality: VERIFIED
+      evidenceIds:
+      - tase-trading-vacation-schedule
+      - tase-tradingdays-change
+      - isa-trading-week-2026
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2025-01-01
+      to: 2026-10-13
+      quality: VERIFIED
+      evidenceIds:
+      - tase-ta35-eod-sessions
+      - tase-quarterly-trading-days-2025-2026
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2026-10-14
+      to: 2028-12-31
+      quality: PROJECTED
+      evidenceIds:
+      - tase-trading-vacation-schedule
+    verified_through: 2028-12-31
+  kind: market
+  mic: XTAE
+  aliases:
+  - TASE
+uses:
+- tase_weekends
+- tase_holidays
+classifications: {}
+deltas: []
+extends: []
+event_sources: []
+weekend_shift_policy: NONE

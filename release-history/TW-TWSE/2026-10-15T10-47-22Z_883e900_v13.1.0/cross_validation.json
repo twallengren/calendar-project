@@ -1,0 +1,19 @@
+{
+  "calendar_id" : "TW-TWSE",
+  "status" : "ok",
+  "results" : [ {
+    "source" : "exchange_calendars-XTAI",
+    "library_version" : "exchange_calendars 4.11, python 3.13.12, 2026-10-14",
+    "from" : "2010-01-04",
+    "to" : "2027-12-31",
+    "compared_types" : [ "CLOSED", "EARLY_CLOSE" ],
+    "counts" : {
+      "matched" : 282,
+      "allowlisted" : 21,
+      "unexplained" : 0
+    },
+    "unexplained_rows" : [ ],
+    "stale_allowlist_rows" : [ ],
+    "status" : "ok"
+  } ]
+}

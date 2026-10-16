@@ -5289,7 +5289,7 @@
       "type": "CLOSED"
     }
   ],
-  "generated_at": "2026-10-15T10:24:04Z",
+  "generated_at": "2026-10-16T12:00:00Z",
   "kind": "market",
   "mic": "XTSE",
   "range_end": "2030-12-31",
@@ -5311,8 +5311,8 @@
     "calendar:CA-TSX"
   ],
   "source_version": {
-    "git_sha": "883e900e59f9b17c57970680eaee0e253cbbcd2d",
-    "semantic": "13.1.0"
+    "git_sha": "76feae1639e4586f2280dfc5cd22860d4396caf0",
+    "semantic": "13.2.0"
   },
   "timezone": "America/Toronto",
   "weekend_policy": {

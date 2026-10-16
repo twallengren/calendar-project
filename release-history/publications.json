@@ -75,6 +75,43 @@
       "release_url": "https://github.com/twallengren/calendar-project/releases/tag/v13.0.0",
       "source_sha": "74d854cdbdfa9f622720d205ef9e999d23f008eb",
       "tag": "v13.0.0"
+    },
+    {
+      "asset_sha256": "sha256:e6d5c086101f9311e1f4289182cf9ea45fc5eb5ba8c922942ea79daf22facf58",
+      "atomic_dataset": true,
+      "calendar_ids": [
+        "AU-ASX",
+        "BE-EURONEXT-BRUSSELS",
+        "BR-B3",
+        "CA-TSX",
+        "DE-XETRA",
+        "EU-EURONEXT",
+        "EU-TARGET",
+        "FR-EURONEXT-PARIS",
+        "GB-CHAPS",
+        "GB-LSE",
+        "HK-HKEX",
+        "IL-TASE",
+        "JP-JPX",
+        "KR-KRX",
+        "MX-BMV",
+        "NL-EURONEXT-AMSTERDAM",
+        "PT-EURONEXT-LISBON",
+        "SA-TADAWUL",
+        "SG-SGX",
+        "TW-TWSE",
+        "US-CORP-IN-VISIBILITY",
+        "US-FEDWIRE",
+        "US-MARKET-BASE",
+        "US-NYSE",
+        "ZA-JSE"
+      ],
+      "data_version": "13.1.0",
+      "observed_current_at": "2026-10-16T10:08:34Z",
+      "published_at": "2026-10-15T10:47:22Z",
+      "release_url": "https://github.com/twallengren/calendar-project/releases/tag/v13.1.0",
+      "source_sha": "883e900e59f9b17c57970680eaee0e253cbbcd2d",
+      "tag": "v13.1.0"
     }
   ],
   "schema_version": "1.0"

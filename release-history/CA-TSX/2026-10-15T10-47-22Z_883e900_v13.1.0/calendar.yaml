@@ -1,0 +1,147 @@
+kind: calendar
+id: CA-TSX
+metadata:
+  name: Toronto Stock Exchange
+  description: "Toronto Stock Exchange (TSX, MIC XTSE) trading calendar"
+  chronology: ISO
+  timezone: America/Toronto
+  coverage:
+    from: 2000-01-01
+    to: 2030-12-31
+    quality:
+    - scope: SCHEDULED_CLOSURES
+      from: 2000-01-01
+      to: 2007-12-31
+      quality: PROJECTED
+      evidenceIds:
+      - tsx-calendar-page
+      - holidays-act-canada
+      - ontario-family-day-2007
+    - scope: SCHEDULED_CLOSURES
+      from: 2008-01-01
+      to: 2025-12-31
+      quality: VERIFIED
+      evidenceIds:
+      - tsx-stats-dec-2009
+      - tmx-stats-dec-2011
+      - tmx-stats-dec-2012
+      - tmx-stats-dec-2013
+      - tmx-stats-dec-2014
+      - tmx-stats-dec-2015
+      - tmx-stats-dec-2016
+      - tmx-stats-dec-2018
+      - tmx-stats-dec-2019
+      - tmx-stats-dec-2021
+      - tmx-stats-dec-2022
+      - tmx-stats-dec-2023
+      - tmx-stats-dec-2024
+      - tmx-stats-dec-2025
+      - tsx-calendar-page
+      - holidays-act-canada
+      - ontario-family-day-2007
+    - scope: SCHEDULED_CLOSURES
+      from: 2026-01-01
+      to: 2030-12-31
+      quality: PROJECTED
+      evidenceIds:
+      - tsx-calendar-page
+      - holidays-act-canada
+      - ontario-family-day-2007
+    - scope: EARLY_CLOSES
+      from: 2000-01-01
+      to: 2008-12-31
+      quality: PROJECTED
+      evidenceIds:
+      - tsx-calendar-page
+    - scope: EARLY_CLOSES
+      from: 2001-09-11
+      to: 2001-09-11
+      quality: VERIFIED
+      evidenceIds:
+      - tse-2001-09-11-market-closed
+      - cbc-2002-09-11-tsx
+    - scope: EARLY_CLOSES
+      from: 2009-01-01
+      to: 2025-12-31
+      quality: VERIFIED
+      evidenceIds:
+      - tsx-stats-dec-2009
+      - tmx-stats-dec-2011
+      - tmx-stats-dec-2012
+      - tmx-stats-dec-2013
+      - tmx-stats-dec-2014
+      - tmx-stats-dec-2015
+      - tmx-stats-dec-2016
+      - tmx-stats-dec-2018
+      - tmx-stats-dec-2019
+      - tmx-stats-dec-2021
+      - tmx-stats-dec-2022
+      - tmx-stats-dec-2023
+      - tmx-stats-dec-2024
+      - tmx-stats-dec-2025
+      - tmx-2018-04-28-outage-update
+      - tmx-2020-02-27-incident-report
+      - tsx-calendar-page
+      - tmx-holiday-schedule-2025
+    - scope: EARLY_CLOSES
+      from: 2026-01-01
+      to: 2026-12-31
+      quality: VERIFIED
+      evidenceIds:
+      - tsx-calendar-page
+      - tmx-holiday-schedule-2025
+    - scope: EARLY_CLOSES
+      from: 2027-01-01
+      to: 2030-12-31
+      quality: INCOMPLETE
+      evidenceIds:
+      - tsx-calendar-page
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2000-01-01
+      to: 2007-12-31
+      quality: PROJECTED
+      evidenceIds:
+      - tsx-calendar-page
+      - tse-2001-09-11-market-closed
+      - tse-2001-09-12-closed
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2008-01-01
+      to: 2025-12-31
+      quality: VERIFIED
+      evidenceIds:
+      - tsx-stats-dec-2009
+      - tmx-stats-dec-2011
+      - tmx-stats-dec-2012
+      - tmx-stats-dec-2013
+      - tmx-stats-dec-2014
+      - tmx-stats-dec-2015
+      - tmx-stats-dec-2016
+      - tmx-stats-dec-2018
+      - tmx-stats-dec-2019
+      - tmx-stats-dec-2021
+      - tmx-stats-dec-2022
+      - tmx-stats-dec-2023
+      - tmx-stats-dec-2024
+      - tmx-stats-dec-2025
+      - tmx-2008-12-18-trading-resumes
+      - tmx-2018-04-28-outage-update
+      - tmx-2020-02-27-incident-report
+      - tmx-2022-11-01-ops-notice
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2026-01-01
+      to: 2030-12-31
+      quality: PROJECTED
+      evidenceIds:
+      - tsx-calendar-page
+    verified_through: 2026-12-31
+  kind: market
+  mic: XTSE
+  aliases: []
+uses:
+- weekend_sat_sun
+- ca_tsx_holidays
+classifications: {}
+deltas: []
+extends: []
+event_sources: []
+weekend_shift_policy: NEXT_AVAILABLE_WEEKDAY

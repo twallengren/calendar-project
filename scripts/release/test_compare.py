@@ -184,6 +184,24 @@ class ReleaseCompareTest(unittest.TestCase):
         self.assertEqual(0, changes["within_overlap"]["old_only_count"])
         self.assertEqual(0, changes["within_overlap"]["new_only_count"])
 
+    def test_appended_open_time_column_is_minor_and_compares_the_existing_fields(self):
+        row = self.row()
+        self.write_dataset(self.old, {"CAL": {"rows": [row]}})
+        old_csv = os.path.join(self.old, "CAL", "events.csv")
+        with open(old_csv, "w", newline="", encoding="utf-8") as handle:
+            writer = csv.DictWriter(
+                handle, fieldnames=[f for f in HEADER if f != "open_time"], extrasaction="ignore"
+            )
+            writer.writeheader()
+            writer.writerow(row)
+        self.write_dataset(self.new, {"CAL": {"rows": [row]}})
+        report = compare.compare(self.old, self.new)
+        self.assertEqual("MINOR", report["severity"])
+        changes = report["calendars"]["CAL"]["record_changes"]
+        self.assertEqual(["open_time"], changes["schema_changes"]["added_fields"])
+        self.assertEqual(0, changes["within_overlap"]["old_only_count"])
+        self.assertEqual(0, changes["within_overlap"]["new_only_count"])
+
     def test_manifest_identity_fallback_is_used_on_both_sides(self):
         self.write_dataset(self.old, {"CAL": {"kind": "market"}})
         self.write_dataset(self.new, {"CAL": {"kind": "base"}})

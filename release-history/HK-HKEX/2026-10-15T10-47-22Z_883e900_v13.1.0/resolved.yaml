@@ -1,0 +1,522 @@
+kind: resolved_calendar
+id: HK-HKEX
+metadata:
+  name: Hong Kong Exchanges and Clearing
+  description: "Securities market of The Stock Exchange of Hong Kong Limited, operated\
+    \ by Hong Kong Exchanges and Clearing Limited (MIC XHKG). Trading runs Monday\
+    \ to Friday; the market is closed on every Hong Kong general holiday (General\
+    \ Holidays Ordinance, Cap. 149) that falls on a weekday, and trades a morning\
+    \ session only (12:00 noon close) on Christmas Eve, New Year's Eve and Lunar New\
+    \ Year's Eve. Hong Kong observance: a general holiday falling on a Sunday is observed\
+    \ on the following weekday; a general holiday falling on a Saturday is not substituted.\
+    \ Lunar holidays retain CHINESE_HK native origins and Ching Ming uses a bounded\
+    \ HKO reference table. Every resulting closure remains bounded to, and confirmed\
+    \ against, the Government and exchange schedules through the last gazetted year\
+    \ (2027); computed future dates are not published as confirmed holidays. Unscheduled\
+    \ severe-weather closures before HKEX began trading through severe weather on\
+    \ 23 September 2024 are modelled as explicit, individually cited dates: six whole-day\
+    \ cancellations (Typhoon Signal No. 8 or above, a Black Rainstorm Warning or Extreme\
+    \ Conditions in force at noon) and two afternoon sessions terminated at 13:55\
+    \ when Signal No. 8 was issued mid-session. Days on which only the morning session\
+    \ was cancelled traded to the scheduled close and are ordinary business days;\
+    \ a late open is not an event in this model."
+  chronology: ISO
+  timezone: Asia/Hong_Kong
+  mic: XHKG
+  coverage:
+    from: 2018-01-01
+    to: 2027-12-31
+    verified_through: 2027-12-31
+    quality:
+    - scope: SCHEDULED_CLOSURES
+      from: 2018-01-01
+      to: 2027-12-31
+      quality: VERIFIED
+      evidence_ids:
+      - hkex-calendar
+      - hkex-calendar-archived
+      - govhk-general-holidays
+    - scope: EARLY_CLOSES
+      from: 2018-01-01
+      to: 2027-12-31
+      quality: VERIFIED
+      evidence_ids:
+      - hkex-calendar
+      - hkex-calendar-archived
+      - hkex-securities-trading-hours
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2018-01-01
+      to: 2024-09-22
+      quality: VERIFIED
+      evidence_ids:
+      - hko-warnings-database
+      - hkex-severe-weather-arrangements-2023
+      - hkex-swt-consultation-2023
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2024-09-23
+      to: 2027-12-31
+      quality: PROJECTED
+      evidence_ids:
+      - hkex-severe-weather-trading
+weekend_policy:
+  days:
+  - SATURDAY
+  - SUNDAY
+weekend_shift_policy: FORWARD_ONLY
+resolution_chain:
+- module:weekend_sat_sun
+- module:hk_new_years_day
+- module:hk_lunar_new_year
+- module:hk_ching_ming
+- module:hk_good_friday
+- module:hk_easter_monday
+- module:hk_labour_day
+- module:hk_buddhas_birthday
+- module:hk_tuen_ng
+- module:hk_hksar_establishment_day
+- module:hk_mid_autumn
+- module:hk_national_day
+- module:hk_chung_yeung
+- module:hk_christmas
+- module:hk_hkex_early_closes
+- module:hk_hkex_severe_weather
+- module:hk_hkex_holidays
+- calendar:HK-HKEX
+references:
+- key: ching_ming_hko
+  formula: QINGMING_HK
+- key: easter
+  formula: EASTER_WESTERN
+event_sources:
+- key: hk_new_years_day
+  name: The first day of January
+  origin: module:hk_new_years_day
+  classification: CLOSED
+  shift_policy: FORWARD_ONLY
+  status: CONFIRMED
+  source:
+  - id: govhk-general-holidays
+  - id: hkex-calendar
+  rule:
+    type: fixed_month_day
+    month: 1
+    day: 1
+- key: hk_lunar_new_year
+  name: Lunar New Year
+  origin: module:hk_lunar_new_year
+  classification: CLOSED
+  shift_policy: NEXT_AVAILABLE_FROM_LAST_WEEKEND_DAY
+  status: CONFIRMED
+  source:
+  - id: govhk-general-holidays
+  - id: hkex-calendar
+  - id: hko-gregorian-lunar-conversion
+  rule:
+    chronology: CHINESE_HK
+    month_codes:
+    - M01
+    native_years:
+    - start: 2018
+      end: 2027
+    duration_days: 3
+    type: native_fixed_month_day
+    day: 1
+- key: hk_ching_ming
+  name: Ching Ming Festival
+  origin: module:hk_ching_ming
+  classification: CLOSED
+  shift_policy: FORWARD_ONLY
+  status: CONFIRMED
+  active_years:
+  - - 2018
+    - 2027
+  source:
+  - id: govhk-general-holidays
+  - id: hkex-calendar
+  - id: hko-gregorian-lunar-conversion
+  rule:
+    type: relative_to_reference
+    reference: ching_ming_hko
+    offset_days: 0
+- key: hk_good_friday
+  name: Good Friday
+  origin: module:hk_good_friday
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: govhk-general-holidays
+  - id: hkex-calendar
+  rule:
+    type: relative_to_reference
+    reference: easter
+    offset_days: -2
+- key: hk_easter_monday
+  name: Easter Monday
+  origin: module:hk_easter_monday
+  classification: CLOSED
+  status: CONFIRMED
+  active_years:
+  - - null
+    - 2020
+  - - 2022
+    - 2025
+  - - 2027
+    - null
+  source:
+  - id: govhk-general-holidays
+  - id: hkex-calendar
+  rule:
+    type: relative_to_reference
+    reference: easter
+    offset_days: 1
+- key: hk_day_following_easter_monday
+  name: The day following Easter Monday
+  origin: module:hk_easter_monday
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: govhk-general-holidays
+  - id: hkex-calendar
+  rule:
+    type: explicit_dates
+    dates:
+    - date: 2021-04-06
+      comment: Ching Ming Sunday 4 April observed Monday 5 April; Easter Monday moved
+        on
+    - date: 2026-04-07
+      comment: Ching Ming Sunday 5 April observed Monday 6 April; Easter Monday moved
+        on
+- key: hk_labour_day
+  name: Labour Day
+  origin: module:hk_labour_day
+  classification: CLOSED
+  shift_policy: FORWARD_ONLY
+  status: CONFIRMED
+  source:
+  - id: govhk-general-holidays
+  - id: hkex-calendar
+  rule:
+    type: fixed_month_day
+    month: 5
+    day: 1
+- key: hk_buddhas_birthday
+  name: The Birthday of the Buddha
+  origin: module:hk_buddhas_birthday
+  classification: CLOSED
+  shift_policy: FORWARD_ONLY
+  status: CONFIRMED
+  source:
+  - id: govhk-general-holidays
+  - id: hkex-calendar
+  - id: hko-gregorian-lunar-conversion
+  rule:
+    chronology: CHINESE_HK
+    month_codes:
+    - M04
+    native_years:
+    - start: 2018
+      end: 2027
+    type: native_fixed_month_day
+    day: 8
+- key: hk_tuen_ng
+  name: Tuen Ng Festival
+  origin: module:hk_tuen_ng
+  classification: CLOSED
+  shift_policy: FORWARD_ONLY
+  status: CONFIRMED
+  source:
+  - id: govhk-general-holidays
+  - id: hkex-calendar
+  - id: hko-gregorian-lunar-conversion
+  rule:
+    chronology: CHINESE_HK
+    month_codes:
+    - M05
+    native_years:
+    - start: 2018
+      end: 2027
+    type: native_fixed_month_day
+    day: 5
+- key: hk_hksar_establishment_day
+  name: Hong Kong Special Administrative Region Establishment Day
+  origin: module:hk_hksar_establishment_day
+  classification: CLOSED
+  shift_policy: FORWARD_ONLY
+  status: CONFIRMED
+  source:
+  - id: govhk-general-holidays
+  - id: hkex-calendar
+  rule:
+    type: fixed_month_day
+    month: 7
+    day: 1
+- key: hk_mid_autumn
+  name: The day following the Chinese Mid-Autumn Festival
+  origin: module:hk_mid_autumn
+  classification: CLOSED
+  shift_policy: FORWARD_ONLY
+  status: CONFIRMED
+  source:
+  - id: govhk-general-holidays
+  - id: hkex-calendar
+  - id: hko-gregorian-lunar-conversion
+  rule:
+    chronology: CHINESE_HK
+    month_codes:
+    - M08
+    native_years:
+    - start: 2018
+      end: 2027
+    type: native_fixed_month_day
+    day: 16
+- key: hk_national_day
+  name: National Day
+  origin: module:hk_national_day
+  classification: CLOSED
+  shift_policy: FORWARD_ONLY
+  status: CONFIRMED
+  source:
+  - id: govhk-general-holidays
+  - id: hkex-calendar
+  rule:
+    type: fixed_month_day
+    month: 10
+    day: 1
+- key: hk_chung_yeung
+  name: Chung Yeung Festival
+  origin: module:hk_chung_yeung
+  classification: CLOSED
+  shift_policy: FORWARD_ONLY
+  status: CONFIRMED
+  source:
+  - id: govhk-general-holidays
+  - id: hkex-calendar
+  - id: hko-gregorian-lunar-conversion
+  rule:
+    chronology: CHINESE_HK
+    month_codes:
+    - M09
+    native_years:
+    - start: 2018
+      end: 2027
+    type: native_fixed_month_day
+    day: 9
+- key: hk_christmas_day
+  name: Christmas Day
+  origin: module:hk_christmas
+  classification: CLOSED
+  shift_policy: FORWARD_ONLY
+  status: CONFIRMED
+  active_years:
+  - - null
+    - 2021
+  - - 2023
+    - null
+  source:
+  - id: govhk-general-holidays
+  - id: hkex-calendar
+  rule:
+    type: fixed_month_day
+    month: 12
+    day: 25
+- key: hk_first_weekday_after_christmas
+  name: The first weekday after Christmas Day
+  origin: module:hk_christmas
+  classification: CLOSED
+  shift_policy: FORWARD_ONLY
+  status: CONFIRMED
+  source:
+  - id: govhk-general-holidays
+  - id: hkex-calendar
+  rule:
+    type: fixed_month_day
+    month: 12
+    day: 26
+- key: hk_second_weekday_after_christmas
+  name: The second weekday after Christmas Day
+  origin: module:hk_christmas
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: govhk-general-holidays
+  - id: hkex-calendar
+  rule:
+    type: explicit_dates
+    dates:
+    - date: 2022-12-27
+      comment: 25 December 2022 fell on a Sunday
+- key: hk_hkex_christmas_eve_early_close
+  name: Christmas Eve (Half Day)
+  origin: module:hk_hkex_early_closes
+  classification: EARLY_CLOSE
+  only_if_weekday:
+  - MONDAY
+  - TUESDAY
+  - WEDNESDAY
+  - THURSDAY
+  - FRIDAY
+  close_time: 12:00
+  status: CONFIRMED
+  source:
+  - id: hkex-securities-trading-hours
+    ref: "no Extended Morning Session and Afternoon Session on the eves of Christmas,\
+      \ New Year and Lunar New Year"
+  - id: hkex-calendar
+    ref: Half-Day Trading Day - Afternoon Session is Closed on Christmas's Eve
+  - id: hkex-derivatives-holiday-schedule
+    ref: 24 December 2027 (Friday) - Eve of Christmas Day
+  rule:
+    type: fixed_month_day
+    month: 12
+    day: 24
+- key: hk_hkex_new_years_eve_early_close
+  name: New Year's Eve (Half Day)
+  origin: module:hk_hkex_early_closes
+  classification: EARLY_CLOSE
+  only_if_weekday:
+  - MONDAY
+  - TUESDAY
+  - WEDNESDAY
+  - THURSDAY
+  - FRIDAY
+  close_time: 12:00
+  status: CONFIRMED
+  source:
+  - id: hkex-securities-trading-hours
+    ref: "no Extended Morning Session and Afternoon Session on the eves of Christmas,\
+      \ New Year and Lunar New Year"
+  - id: hkex-calendar
+    ref: Half-Day Trading Day - Afternoon Session is Closed on New Year's Eve
+  - id: hkex-derivatives-holiday-schedule
+    ref: 31 December 2027 (Friday) - Eve of New Year
+  rule:
+    type: fixed_month_day
+    month: 12
+    day: 31
+- key: hk_hkex_lunar_new_years_eve_early_close
+  name: Lunar New Year's Eve (Half Day)
+  origin: module:hk_hkex_early_closes
+  classification: EARLY_CLOSE
+  close_time: 12:00
+  status: CONFIRMED
+  source:
+  - id: hkex-calendar
+    ref: Half-Day Trading Day - Afternoon Session is Closed on Lunar New Year's Eve
+  - id: hko-gregorian-lunar-conversion
+    ref: Gregorian-Lunar conversion table
+  rule:
+    type: native_explicit_dates
+    dates:
+    - chronology_id: CHINESE_HK
+      year: 2017
+      month_code: M12
+      day: 30
+    - chronology_id: CHINESE_HK
+      year: 2018
+      month_code: M12
+      day: 30
+    - chronology_id: CHINESE_HK
+      year: 2019
+      month_code: M12
+      day: 30
+    - chronology_id: CHINESE_HK
+      year: 2020
+      month_code: M12
+      day: 30
+    - chronology_id: CHINESE_HK
+      year: 2021
+      month_code: M12
+      day: 29
+    - chronology_id: CHINESE_HK
+      year: 2023
+      month_code: M12
+      day: 30
+    - chronology_id: CHINESE_HK
+      year: 2024
+      month_code: M12
+      day: 29
+    - chronology_id: CHINESE_HK
+      year: 2025
+      month_code: M12
+      day: 29
+    - chronology_id: CHINESE_HK
+      year: 2026
+      month_code: M12
+      day: 29
+- key: hk_hkex_severe_weather_closure
+  name: Severe Weather Closure
+  origin: module:hk_hkex_severe_weather
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: hkex-no-trading-2020-10-13
+    ref: No Trading Today ... due to the issuance of Typhoon Signal No. 8
+  - id: hkex-no-trading-2021-10-13
+    ref: No Trading Today ... due to the issuance of Typhoon Signal No. 8
+  - id: hkex-no-trading-2023-07-17
+    ref: No Trading Today ... all trading sessions today (Monday) ... have been cancelled
+  - id: hkex-no-trading-2023-09-01
+    ref: No Trading Today ... all trading sessions today (Friday) ... have been cancelled
+  - id: hkex-no-trading-2023-09-08
+    ref: No Trading Today ... due to a Black Rainstorm Warning remaining in force
+      ... Extreme Conditions
+  - id: hkex-no-trading-2024-09-06
+    ref: No Trading Today ... due to the issuance of Typhoon Signal No. 8
+  - id: hko-warnings-database
+    ref: Signal No. 8 or above / Black Rainstorm Warning in force at 12:00 noon on
+      each date
+  rule:
+    type: explicit_dates
+    dates:
+    - date: 2020-10-13
+      comment: "Tropical Storm Nangka, Typhoon Signal No. 8"
+    - date: 2021-10-13
+      comment: "Severe Tropical Storm Kompasu, Typhoon Signal No. 8"
+    - date: 2023-07-17
+      comment: "Severe Tropical Storm Talim, Typhoon Signal No. 8"
+    - date: 2023-09-01
+      comment: "Super Typhoon Saola, Typhoon Signal No. 8 to No. 10"
+    - date: 2023-09-08
+      comment: Black Rainstorm Warning and Extreme Conditions
+    - date: 2024-09-06
+      comment: "Super Typhoon Yagi, Typhoon Signal No. 8"
+- key: hk_hkex_severe_weather_early_termination
+  name: Severe Weather Early Termination
+  origin: module:hk_hkex_severe_weather
+  classification: EARLY_CLOSE
+  close_time: 13:55
+  status: CONFIRMED
+  source:
+  - id: hkex-trading-terminated-2019-07-31
+    ref: will be terminated at 1:55pm
+  - id: hkex-trading-suspended-2022-11-02
+    ref: will be suspended at 13:55
+  - id: hko-warnings-database
+    ref: Typhoon Signal No. 8 issued 13:40 HKT on each date
+  rule:
+    type: explicit_dates
+    dates:
+    - date: 2019-07-31
+      comment: "Tropical Storm Wipha, Typhoon Signal No. 8 issued 13:40"
+    - date: 2022-11-02
+      comment: "Severe Tropical Storm Nalgae, Typhoon Signal No. 8 issued 13:40"
+deltas:
+- action: remove
+  key: hk_lunar_new_year
+  date: 2027-02-08
+- action: remove
+  key: hk_lunar_new_year
+  date: 2027-02-09
+- action: remove
+  key: hk_lunar_new_year
+  date: 2027-02-10
+- action: add
+  key: hk_lunar_new_year
+  name: Lunar New Year (The third day of Lunar New Year)
+  date: 2027-02-08
+  classification: CLOSED
+- action: add
+  key: hk_lunar_new_year
+  name: Lunar New Year (The fourth day of Lunar New Year)
+  date: 2027-02-09
+  classification: CLOSED

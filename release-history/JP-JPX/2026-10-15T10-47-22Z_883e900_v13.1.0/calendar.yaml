@@ -1,0 +1,77 @@
+kind: calendar
+id: JP-JPX
+metadata:
+  name: Japan Exchange Group (Tokyo Stock Exchange)
+  description: "Tokyo Stock Exchange cash equity market trading calendar (MIC XTKS),\
+    \ operated by Japan Exchange Group. Closed on Saturdays, Sundays, Japanese national\
+    \ holidays, and JPX's own year-end and New Year market holidays (December 31 and\
+    \ January 2-3)."
+  chronology: ISO
+  timezone: Asia/Tokyo
+  coverage:
+    from: 2010-01-01
+    to: 2030-12-31
+    quality:
+    - scope: SCHEDULED_CLOSURES
+      from: 2010-01-01
+      to: 2018-12-31
+      quality: VERIFIED
+      evidenceIds:
+      - cao-shukujitsu
+      - jpx-market-holidays
+      - jpx-monthly-report-2014-12
+      - jpx-monthly-report-2016-01
+      - jpx-monthly-report-2019-08
+    - scope: SCHEDULED_CLOSURES
+      from: 2019-01-01
+      to: 2027-12-31
+      quality: VERIFIED
+      evidenceIds:
+      - jpx-market-holidays-archive
+      - jpx-market-holidays
+      - cao-shukujitsu
+    - scope: SCHEDULED_CLOSURES
+      from: 2028-01-01
+      to: 2030-12-31
+      quality: PROJECTED
+      evidenceIds:
+      - jpx-market-holidays
+      - cao-shukujitsu-gaiyou
+    - scope: EARLY_CLOSES
+      from: 2010-01-01
+      to: 2030-12-31
+      quality: PROJECTED
+      evidenceIds:
+      - jpx-market-holidays
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2010-01-01
+      to: 2026-08-31
+      quality: VERIFIED
+      evidenceIds:
+      - jpx-system-failure-2020
+      - jpx-monthly-report-2014-12
+      - jpx-monthly-report-2016-01
+      - jpx-monthly-report-2019-08
+      - jpx-trading-overview-2020
+      - jpx-monthly-report-2026-08
+      - tse-statement-2011-03-14
+      - tse-arrowhead-2018-10-09
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2026-09-01
+      to: 2030-12-31
+      quality: PROJECTED
+      evidenceIds:
+      - jpx-system-failure-2020
+    verified_through: 2027-12-31
+  kind: market
+  mic: XTKS
+  aliases:
+  - XJPX
+uses:
+- weekend_sat_sun
+- jp_jpx_holidays
+classifications: {}
+deltas: []
+extends: []
+event_sources: []
+weekend_shift_policy: NEXT_AVAILABLE_FROM_LAST_WEEKEND_DAY

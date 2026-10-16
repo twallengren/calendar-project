@@ -1,0 +1,845 @@
+kind: resolved_calendar
+id: IL-TASE
+metadata:
+  name: Tel Aviv Stock Exchange
+  description: "Tel Aviv Stock Exchange (TASE) equity trading calendar. Scheduled\
+    \ closures are complete and verified for 2025 through 2028 from TASE's own vacation\
+    \ schedules, each row retained as a bounded Hebrew-calendar origin. Trading moved\
+    \ from a Sunday-Thursday week to Monday-Friday on 4 January 2026; every Friday\
+    \ session since then closes at 13:50 and the non-Friday intermediate days of Passover\
+    \ and Sukkot close at 14:30. Exact 2025 shortened-session close times and unscheduled\
+    \ exceptions remain incomplete."
+  chronology: ISO
+  timezone: Asia/Jerusalem
+  mic: XTAE
+  aliases:
+  - TASE
+  coverage:
+    from: 2025-01-01
+    to: 2028-12-31
+    verified_through: 2028-12-31
+    quality:
+    - scope: SCHEDULED_CLOSURES
+      from: 2025-01-01
+      to: 2025-12-31
+      quality: VERIFIED
+      evidence_ids:
+      - tase-vacation-schedule-2025
+    - scope: SCHEDULED_CLOSURES
+      from: 2026-01-01
+      to: 2028-12-31
+      quality: VERIFIED
+      evidence_ids:
+      - tase-trading-vacation-schedule
+      - tase-weekly-review-2026-04-20
+      - isa-trading-week-2026
+    - scope: EARLY_CLOSES
+      from: 2025-01-01
+      to: 2026-01-03
+      quality: INCOMPLETE
+      evidence_ids:
+      - tase-vacation-schedule-2025
+      - tase-board-trading-hours-2024
+    - scope: EARLY_CLOSES
+      from: 2026-01-04
+      to: 2028-12-31
+      quality: VERIFIED
+      evidence_ids:
+      - tase-trading-vacation-schedule
+      - tase-tradingdays-change
+      - isa-trading-week-2026
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2025-01-01
+      to: 2026-10-13
+      quality: VERIFIED
+      evidence_ids:
+      - tase-ta35-eod-sessions
+      - tase-quarterly-trading-days-2025-2026
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2026-10-14
+      to: 2028-12-31
+      quality: PROJECTED
+      evidence_ids:
+      - tase-trading-vacation-schedule
+weekend_policy:
+  days:
+  - FRIDAY
+  - SATURDAY
+  - SUNDAY
+  periods:
+  - days:
+    - FRIDAY
+    - SATURDAY
+    to: 2026-01-03
+  - days:
+    - SATURDAY
+    - SUNDAY
+    from: 2026-01-04
+weekend_shift_policy: NONE
+resolution_chain:
+- module:tase_weekends
+- module:tase_scheduled_closures_2025
+- module:tase_verified_events_2026
+- module:tase_scheduled_closures_2026_2028
+- module:tase_shortened_sessions
+- module:tase_holidays
+- calendar:IL-TASE
+event_sources:
+- key: tase_purim_2025
+  name: Purim
+  origin: module:tase_scheduled_closures_2025
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: tase-vacation-schedule-2025
+    ref: "Complete 2025 vacation table, rows 14 March through 14 October"
+  rule:
+    chronology: HEBREW
+    month_codes:
+    - ADAR
+    - ADAR_II
+    native_years:
+    - start: 5785
+      end: 5785
+    type: native_fixed_month_day
+    day: 14
+- key: tase_passover_2025
+  name: Passover
+  origin: module:tase_scheduled_closures_2025
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: tase-vacation-schedule-2025
+    ref: "Complete 2025 vacation table, rows 14 March through 14 October"
+  rule:
+    chronology: HEBREW
+    month_codes:
+    - NISAN
+    native_years:
+    - start: 5785
+      end: 5785
+    type: native_fixed_month_day
+    day: 15
+- key: tase_seventh_passover_eve_2025
+  name: Seventh Day of Passover Eve
+  origin: module:tase_scheduled_closures_2025
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: tase-vacation-schedule-2025
+    ref: "Complete 2025 vacation table, rows 14 March through 14 October"
+  rule:
+    chronology: HEBREW
+    month_codes:
+    - NISAN
+    native_years:
+    - start: 5785
+      end: 5785
+    type: native_fixed_month_day
+    day: 20
+- key: tase_memorial_day_2025
+  name: Memorial Day
+  origin: module:tase_scheduled_closures_2025
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: tase-vacation-schedule-2025
+    ref: "Complete 2025 vacation table, rows 14 March through 14 October"
+  rule:
+    chronology: HEBREW
+    month_codes:
+    - IYAR
+    native_years:
+    - start: 5785
+      end: 5785
+    type: native_relative_to_reference
+    day: 4
+    offset_days: -2
+- key: tase_independence_day_2025
+  name: Independence Day
+  origin: module:tase_scheduled_closures_2025
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: tase-vacation-schedule-2025
+    ref: "Complete 2025 vacation table, rows 14 March through 14 October"
+  rule:
+    chronology: HEBREW
+    month_codes:
+    - IYAR
+    native_years:
+    - start: 5785
+      end: 5785
+    type: native_relative_to_reference
+    day: 5
+    offset_days: -2
+- key: tase_shavuot_eve_2025
+  name: Shavuot Eve
+  origin: module:tase_scheduled_closures_2025
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: tase-vacation-schedule-2025
+    ref: "Complete 2025 vacation table, rows 14 March through 14 October"
+  rule:
+    chronology: HEBREW
+    month_codes:
+    - SIVAN
+    native_years:
+    - start: 5785
+      end: 5785
+    type: native_fixed_month_day
+    day: 5
+- key: tase_shavuot_2025
+  name: Shavuot
+  origin: module:tase_scheduled_closures_2025
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: tase-vacation-schedule-2025
+    ref: "Complete 2025 vacation table, rows 14 March through 14 October"
+  rule:
+    chronology: HEBREW
+    month_codes:
+    - SIVAN
+    native_years:
+    - start: 5785
+      end: 5785
+    type: native_fixed_month_day
+    day: 6
+- key: tase_tisha_bav_2025
+  name: Tisha B'Av
+  origin: module:tase_scheduled_closures_2025
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: tase-vacation-schedule-2025
+    ref: "Complete 2025 vacation table, rows 14 March through 14 October"
+  rule:
+    chronology: HEBREW
+    month_codes:
+    - AV
+    native_years:
+    - start: 5785
+      end: 5785
+    type: native_fixed_month_day
+    day: 9
+- key: tase_rosh_hashanah_eve_2025
+  name: Rosh Hashanah Eve
+  origin: module:tase_scheduled_closures_2025
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: tase-vacation-schedule-2025
+    ref: "Complete 2025 vacation table, rows 14 March through 14 October"
+  rule:
+    chronology: HEBREW
+    month_codes:
+    - ELUL
+    native_years:
+    - start: 5785
+      end: 5785
+    type: native_fixed_month_day
+    day: 29
+- key: tase_rosh_hashanah_2025
+  name: Rosh Hashanah
+  origin: module:tase_scheduled_closures_2025
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: tase-vacation-schedule-2025
+    ref: "Complete 2025 vacation table, rows 14 March through 14 October"
+  rule:
+    chronology: HEBREW
+    month_codes:
+    - TISHRI
+    native_years:
+    - start: 5786
+      end: 5786
+    duration_days: 2
+    type: native_fixed_month_day
+    day: 1
+- key: tase_yom_kippur_eve_2025
+  name: Yom Kippur Eve
+  origin: module:tase_scheduled_closures_2025
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: tase-vacation-schedule-2025
+    ref: "Complete 2025 vacation table, rows 14 March through 14 October"
+  rule:
+    chronology: HEBREW
+    month_codes:
+    - TISHRI
+    native_years:
+    - start: 5786
+      end: 5786
+    type: native_fixed_month_day
+    day: 9
+- key: tase_yom_kippur_2025
+  name: Yom Kippur
+  origin: module:tase_scheduled_closures_2025
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: tase-vacation-schedule-2025
+    ref: "Complete 2025 vacation table, rows 14 March through 14 October"
+  rule:
+    chronology: HEBREW
+    month_codes:
+    - TISHRI
+    native_years:
+    - start: 5786
+      end: 5786
+    type: native_fixed_month_day
+    day: 10
+- key: tase_sukkot_eve_2025
+  name: Sukkot Eve
+  origin: module:tase_scheduled_closures_2025
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: tase-vacation-schedule-2025
+    ref: "Complete 2025 vacation table, rows 14 March through 14 October"
+  rule:
+    chronology: HEBREW
+    month_codes:
+    - TISHRI
+    native_years:
+    - start: 5786
+      end: 5786
+    type: native_fixed_month_day
+    day: 14
+- key: tase_sukkot_2025
+  name: Sukkot
+  origin: module:tase_scheduled_closures_2025
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: tase-vacation-schedule-2025
+    ref: "Complete 2025 vacation table, rows 14 March through 14 October"
+  rule:
+    chronology: HEBREW
+    month_codes:
+    - TISHRI
+    native_years:
+    - start: 5786
+      end: 5786
+    type: native_fixed_month_day
+    day: 15
+- key: tase_simchat_torah_eve_2025
+  name: Simchat Torah Eve
+  origin: module:tase_scheduled_closures_2025
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: tase-vacation-schedule-2025
+    ref: "Complete 2025 vacation table, rows 14 March through 14 October"
+  rule:
+    chronology: HEBREW
+    month_codes:
+    - TISHRI
+    native_years:
+    - start: 5786
+      end: 5786
+    type: native_fixed_month_day
+    day: 21
+- key: tase_simchat_torah_2025
+  name: Simchat Torah
+  origin: module:tase_scheduled_closures_2025
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: tase-vacation-schedule-2025
+    ref: "Complete 2025 vacation table, rows 14 March through 14 October"
+  rule:
+    chronology: HEBREW
+    month_codes:
+    - TISHRI
+    native_years:
+    - start: 5786
+      end: 5786
+    type: native_fixed_month_day
+    day: 22
+- key: tase_memorial_day_2026
+  name: Memorial Day
+  origin: module:tase_verified_events_2026
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: tase-weekly-review-2026-04-20
+    ref: "p. 1: no Tuesday trading due to Memorial Day"
+  - id: tase-trading-vacation-schedule
+    ref: "Apr-21 Tuesday Memorial Day, Non-trading day"
+  rule:
+    type: native_explicit_dates
+    dates:
+    - chronology_id: HEBREW
+      year: 5786
+      month_code: IYAR
+      day: 4
+- key: tase_independence_day_2026
+  name: Independence Day
+  origin: module:tase_verified_events_2026
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: tase-weekly-review-2026-04-20
+    ref: "p. 1: no Wednesday trading due to Independence Day; resumes Thursday"
+  - id: tase-trading-vacation-schedule
+    ref: "Apr-22 Wednesday Independence Day, Non-trading day"
+  rule:
+    type: native_explicit_dates
+    dates:
+    - chronology_id: HEBREW
+      year: 5786
+      month_code: IYAR
+      day: 5
+- key: tase_purim
+  name: Purim
+  origin: module:tase_scheduled_closures_2026_2028
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: tase-trading-vacation-schedule
+    ref: "2026, 2027 and 2028 vacation schedule tables"
+  rule:
+    chronology: HEBREW
+    month_codes:
+    - ADAR
+    - ADAR_II
+    native_years:
+    - start: 5786
+      end: 5788
+    type: native_fixed_month_day
+    day: 14
+- key: tase_passover_eve
+  name: Passover Eve
+  origin: module:tase_scheduled_closures_2026_2028
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: tase-trading-vacation-schedule
+    ref: "2026, 2027 and 2028 vacation schedule tables"
+  rule:
+    chronology: HEBREW
+    month_codes:
+    - NISAN
+    native_years:
+    - start: 5786
+      end: 5788
+    type: native_fixed_month_day
+    day: 14
+- key: tase_passover
+  name: Passover
+  origin: module:tase_scheduled_closures_2026_2028
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: tase-trading-vacation-schedule
+    ref: "2026, 2027 and 2028 vacation schedule tables"
+  rule:
+    chronology: HEBREW
+    month_codes:
+    - NISAN
+    native_years:
+    - start: 5786
+      end: 5788
+    type: native_fixed_month_day
+    day: 15
+- key: tase_seventh_passover_eve
+  name: Seventh Day of Passover Eve
+  origin: module:tase_scheduled_closures_2026_2028
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: tase-trading-vacation-schedule
+    ref: "2026, 2027 and 2028 vacation schedule tables"
+  rule:
+    chronology: HEBREW
+    month_codes:
+    - NISAN
+    native_years:
+    - start: 5786
+      end: 5788
+    type: native_fixed_month_day
+    day: 20
+- key: tase_seventh_passover
+  name: Seventh Day of Passover
+  origin: module:tase_scheduled_closures_2026_2028
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: tase-trading-vacation-schedule
+    ref: "2026, 2027 and 2028 vacation schedule tables"
+  rule:
+    chronology: HEBREW
+    month_codes:
+    - NISAN
+    native_years:
+    - start: 5786
+      end: 5788
+    type: native_fixed_month_day
+    day: 21
+- key: tase_memorial_day_2027
+  name: Memorial Day
+  origin: module:tase_scheduled_closures_2026_2028
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: tase-trading-vacation-schedule
+    ref: "2026, 2027 and 2028 vacation schedule tables"
+  rule:
+    chronology: HEBREW
+    month_codes:
+    - IYAR
+    native_years:
+    - start: 5787
+      end: 5787
+    type: native_fixed_month_day
+    day: 4
+- key: tase_independence_day_2027
+  name: Independence Day
+  origin: module:tase_scheduled_closures_2026_2028
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: tase-trading-vacation-schedule
+    ref: "2026, 2027 and 2028 vacation schedule tables"
+  rule:
+    chronology: HEBREW
+    month_codes:
+    - IYAR
+    native_years:
+    - start: 5787
+      end: 5787
+    type: native_fixed_month_day
+    day: 5
+- key: tase_memorial_day_2028
+  name: Memorial Day
+  origin: module:tase_scheduled_closures_2026_2028
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: tase-trading-vacation-schedule
+    ref: "2026, 2027 and 2028 vacation schedule tables"
+  rule:
+    chronology: HEBREW
+    month_codes:
+    - IYAR
+    native_years:
+    - start: 5788
+      end: 5788
+    type: native_relative_to_reference
+    day: 4
+    offset_days: 1
+- key: tase_independence_day_2028
+  name: Independence Day
+  origin: module:tase_scheduled_closures_2026_2028
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: tase-trading-vacation-schedule
+    ref: "2026, 2027 and 2028 vacation schedule tables"
+  rule:
+    chronology: HEBREW
+    month_codes:
+    - IYAR
+    native_years:
+    - start: 5788
+      end: 5788
+    type: native_relative_to_reference
+    day: 5
+    offset_days: 1
+- key: tase_shavuot_eve
+  name: Shavuot Eve
+  origin: module:tase_scheduled_closures_2026_2028
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: tase-trading-vacation-schedule
+    ref: "2026, 2027 and 2028 vacation schedule tables"
+  rule:
+    chronology: HEBREW
+    month_codes:
+    - SIVAN
+    native_years:
+    - start: 5786
+      end: 5788
+    type: native_fixed_month_day
+    day: 5
+- key: tase_shavuot
+  name: Shavuot
+  origin: module:tase_scheduled_closures_2026_2028
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: tase-trading-vacation-schedule
+    ref: "2026, 2027 and 2028 vacation schedule tables"
+  rule:
+    chronology: HEBREW
+    month_codes:
+    - SIVAN
+    native_years:
+    - start: 5786
+      end: 5788
+    type: native_fixed_month_day
+    day: 6
+- key: tase_tisha_bav
+  name: Tisha B'Av
+  origin: module:tase_scheduled_closures_2026_2028
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: tase-trading-vacation-schedule
+    ref: "2026, 2027 and 2028 vacation schedule tables"
+  rule:
+    chronology: HEBREW
+    month_codes:
+    - AV
+    native_years:
+    - start: 5786
+      end: 5788
+    type: native_fixed_month_day
+    day: 9
+- key: tase_rosh_hashanah_eve
+  name: Rosh Hashanah Eve
+  origin: module:tase_scheduled_closures_2026_2028
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: tase-trading-vacation-schedule
+    ref: "2026, 2027 and 2028 vacation schedule tables"
+  rule:
+    chronology: HEBREW
+    month_codes:
+    - ELUL
+    native_years:
+    - start: 5786
+      end: 5788
+    type: native_fixed_month_day
+    day: 29
+- key: tase_rosh_hashanah
+  name: Rosh Hashanah
+  origin: module:tase_scheduled_closures_2026_2028
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: tase-trading-vacation-schedule
+    ref: "2026, 2027 and 2028 vacation schedule tables"
+  rule:
+    chronology: HEBREW
+    month_codes:
+    - TISHRI
+    native_years:
+    - start: 5787
+      end: 5789
+    duration_days: 2
+    type: native_fixed_month_day
+    day: 1
+- key: tase_friday_before_sunday_holiday
+  name: Friday Before a Sunday Holiday (No Trading)
+  origin: module:tase_scheduled_closures_2026_2028
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: tase-trading-vacation-schedule
+    ref: "* On a Friday before a Sunday that is a holiday eve or a public holiday,\
+      \ no trading will take place"
+  rule:
+    type: native_explicit_dates
+    dates:
+    - chronology_id: HEBREW
+      year: 5787
+      month_code: TISHRI
+      day: 7
+    - chronology_id: HEBREW
+      year: 5788
+      month_code: TISHRI
+      day: 7
+    - chronology_id: HEBREW
+      year: 5788
+      month_code: ADAR
+      day: 12
+- key: tase_yom_kippur_eve
+  name: Yom Kippur Eve
+  origin: module:tase_scheduled_closures_2026_2028
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: tase-trading-vacation-schedule
+    ref: "2026, 2027 and 2028 vacation schedule tables"
+  rule:
+    chronology: HEBREW
+    month_codes:
+    - TISHRI
+    native_years:
+    - start: 5787
+      end: 5789
+    type: native_fixed_month_day
+    day: 9
+- key: tase_yom_kippur
+  name: Yom Kippur
+  origin: module:tase_scheduled_closures_2026_2028
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: tase-trading-vacation-schedule
+    ref: "2026, 2027 and 2028 vacation schedule tables"
+  rule:
+    chronology: HEBREW
+    month_codes:
+    - TISHRI
+    native_years:
+    - start: 5787
+      end: 5789
+    type: native_fixed_month_day
+    day: 10
+- key: tase_sukkot_eve
+  name: Sukkot Eve
+  origin: module:tase_scheduled_closures_2026_2028
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: tase-trading-vacation-schedule
+    ref: "2026, 2027 and 2028 vacation schedule tables"
+  rule:
+    chronology: HEBREW
+    month_codes:
+    - TISHRI
+    native_years:
+    - start: 5787
+      end: 5789
+    type: native_fixed_month_day
+    day: 14
+- key: tase_sukkot
+  name: Sukkot
+  origin: module:tase_scheduled_closures_2026_2028
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: tase-trading-vacation-schedule
+    ref: "2026, 2027 and 2028 vacation schedule tables"
+  rule:
+    chronology: HEBREW
+    month_codes:
+    - TISHRI
+    native_years:
+    - start: 5787
+      end: 5789
+    type: native_fixed_month_day
+    day: 15
+- key: tase_simchat_torah_eve
+  name: Simchat Torah Eve
+  origin: module:tase_scheduled_closures_2026_2028
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: tase-trading-vacation-schedule
+    ref: "2026, 2027 and 2028 vacation schedule tables"
+  rule:
+    chronology: HEBREW
+    month_codes:
+    - TISHRI
+    native_years:
+    - start: 5787
+      end: 5789
+    type: native_fixed_month_day
+    day: 21
+- key: tase_simchat_torah
+  name: Simchat Torah
+  origin: module:tase_scheduled_closures_2026_2028
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: tase-trading-vacation-schedule
+    ref: "2026, 2027 and 2028 vacation schedule tables"
+  rule:
+    chronology: HEBREW
+    month_codes:
+    - TISHRI
+    native_years:
+    - start: 5787
+      end: 5789
+    type: native_fixed_month_day
+    day: 22
+- key: tase_knesset_election_day
+  name: Knesset Election Day
+  origin: module:tase_scheduled_closures_2026_2028
+  classification: CLOSED
+  status: CONFIRMED
+  source:
+  - id: tase-trading-vacation-schedule
+    ref: "Oct-27 Tuesday Knesset Election Day, Non-trading day, Non-settlement day"
+  rule:
+    type: explicit_dates
+    dates:
+    - date: 2026-10-27
+      comment: 26th Knesset election
+- key: tase_friday_session
+  name: Friday Session (Early Close)
+  origin: module:tase_shortened_sessions
+  classification: EARLY_CLOSE
+  close_time: 13:50
+  status: CONFIRMED
+  source:
+  - id: tase-trading-vacation-schedule
+    ref: Trading hours on Friday ... End of TAL trading phase 13:50
+  - id: tase-tradingdays-change
+    ref: Trading Schedule for Fridays - Cash Markets ... End of Trading 13:50
+  - id: isa-trading-week-2026
+    ref: "pp. 17-19, 30: every Friday 10:00-13:50 from 2026-01-05"
+  rule:
+    type: weekly
+    weekday: FRIDAY
+    from: 2026-01-09
+- key: tase_passover_intermediate_session
+  name: Passover Intermediate Day (Early Close)
+  origin: module:tase_shortened_sessions
+  classification: EARLY_CLOSE
+  only_if_weekday:
+  - MONDAY
+  - TUESDAY
+  - WEDNESDAY
+  - THURSDAY
+  close_time: 14:30
+  status: CONFIRMED
+  source:
+  - id: tase-trading-vacation-schedule
+    ref: "Trading hours on Friday: End of TAL trading phase 13:50; intermediate holidays\
+      \ of Pesach and of Sukkot (exc. interim holidays that occur on Fridays): 14:30"
+  rule:
+    chronology: HEBREW
+    month_codes:
+    - NISAN
+    native_years:
+    - start: 5786
+      end: 5788
+    duration_days: 4
+    type: native_fixed_month_day
+    day: 16
+- key: tase_sukkot_intermediate_session
+  name: Sukkot Intermediate Day (Early Close)
+  origin: module:tase_shortened_sessions
+  classification: EARLY_CLOSE
+  only_if_weekday:
+  - MONDAY
+  - TUESDAY
+  - WEDNESDAY
+  - THURSDAY
+  close_time: 14:30
+  status: CONFIRMED
+  source:
+  - id: tase-trading-vacation-schedule
+    ref: "Trading hours on Friday: End of TAL trading phase 13:50; intermediate holidays\
+      \ of Pesach and of Sukkot (exc. interim holidays that occur on Fridays): 14:30"
+  rule:
+    chronology: HEBREW
+    month_codes:
+    - TISHRI
+    native_years:
+    - start: 5787
+      end: 5789
+    duration_days: 5
+    type: native_fixed_month_day
+    day: 16
