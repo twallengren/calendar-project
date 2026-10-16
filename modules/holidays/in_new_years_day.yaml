@@ -1,0 +1,19 @@
+kind: module
+id: in_new_years_day
+
+# New Year's Day: as dated in the exchange's annual trading-holiday circulars (Capital Market
+# Segment), weekday occurrences only; the exchange never substitutes a weekday for a holiday that
+# falls on a Saturday or Sunday. The circulars spell it: New Year.
+# Source: nse-holiday-lists.
+
+source:
+  - id: nse-holiday-lists
+
+event_sources:
+  - key: in_new_years_day
+    name: "New Year's Day"
+    default_classification: CLOSED
+    rule:
+      type: explicit_dates
+      dates:
+        - 2010-01-01  # NSE/CMTR/13713

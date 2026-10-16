@@ -1,0 +1,33 @@
+kind: module
+id: in_bakri_id
+
+# Bakri Id: as dated in the exchange's annual trading-holiday circulars (Capital Market Segment),
+# weekday occurrences only; the exchange never substitutes a weekday for a holiday that falls on a
+# Saturday or Sunday. The circulars spell it: Bakri ID; Bakri Id.
+# The 2023 holiday moved from 28 to 29 June when Maharashtra moved its public holiday
+# (NSE/CMTR/57285, 27 June 2023).
+# Source: nse-holiday-lists, nse-additional-holidays.
+
+source:
+  - id: nse-holiday-lists
+  - id: nse-additional-holidays
+
+event_sources:
+  - key: in_bakri_id
+    name: "Bakri Id"
+    default_classification: CLOSED
+    rule:
+      type: explicit_dates
+      dates:
+        - 2010-11-17  # NSE/CMTR/13713
+        - 2011-11-07  # NSE/CMTR/16348
+        - 2013-10-16  # NSE/CMTR/22317
+        - 2014-10-06  # NSE/CMTR/25326
+        - 2015-09-25  # NSE/CMTR/28337
+        - 2016-09-13  # NSE/CMTR/31297
+        - 2018-08-22  # NSE/CMTR/36475
+        - 2019-08-12  # NSE/CMTR/39612
+        - 2021-07-21  # NSE/CMTR/46623
+        - 2023-06-29  # NSE/CMTR/54757 listed 28 June; moved to 29 June by NSE/CMTR/57285
+        - 2024-06-17  # NSE/CMTR/59722
+        - 2026-05-28  # NSE/CMTR/71775

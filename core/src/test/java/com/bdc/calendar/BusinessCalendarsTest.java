@@ -196,7 +196,8 @@ class BusinessCalendarsTest {
         event.sourceModule(),
         event.observedFrom(),
         event.closeTime(),
-        event.status());
+        event.status(),
+        event.openTime());
   }
 
   private static DayAssessment publicAssessment(DayAssessment day) {

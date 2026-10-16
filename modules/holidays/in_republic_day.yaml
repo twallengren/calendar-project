@@ -1,0 +1,30 @@
+kind: module
+id: in_republic_day
+
+# Republic Day: as dated in the exchange's annual trading-holiday circulars (Capital Market
+# Segment), weekday occurrences only; the exchange never substitutes a weekday for a holiday that
+# falls on a Saturday or Sunday. The circulars spell it: Republic Day.
+# Source: nse-holiday-lists.
+
+source:
+  - id: nse-holiday-lists
+
+event_sources:
+  - key: in_republic_day
+    name: "Republic Day"
+    default_classification: CLOSED
+    rule:
+      type: explicit_dates
+      dates:
+        - 2010-01-26  # NSE/CMTR/13713
+        - 2011-01-26  # NSE/CMTR/16348
+        - 2012-01-26  # NSE/CMTR/19539
+        - 2015-01-26  # NSE/CMTR/28337
+        - 2016-01-26  # NSE/CMTR/31297
+        - 2017-01-26  # NSE/CMTR/33746
+        - 2018-01-26  # NSE/CMTR/36475
+        - 2021-01-26  # NSE/CMTR/46623
+        - 2022-01-26  # NSE/CMTR/50560
+        - 2023-01-26  # NSE/CMTR/54757
+        - 2024-01-26  # NSE/CMTR/59722
+        - 2026-01-26  # NSE/CMTR/71775

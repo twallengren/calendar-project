@@ -1,0 +1,62 @@
+kind: calendar
+id: IN-NSE
+metadata:
+  name: National Stock Exchange of India
+  description: NSE Capital Market (equity cash) segment trading calendar (MIC XNSE)
+  chronology: ISO
+  timezone: Asia/Kolkata
+  coverage:
+    from: 2010-01-01
+    to: 2026-12-31
+    quality:
+    - scope: SCHEDULED_CLOSURES
+      from: 2010-01-01
+      to: 2026-12-31
+      quality: VERIFIED
+      evidenceIds:
+      - nse-holiday-lists
+      - nse-additional-holidays
+      - nse-muhurat-circulars
+      - nse-weekend-sessions
+    - scope: EARLY_CLOSES
+      from: 2010-01-01
+      to: 2026-11-07
+      quality: PROJECTED
+      evidenceIds:
+      - nse-market-timings
+      - nse-outage-2021-02-24
+    - scope: EARLY_CLOSES
+      from: 2026-11-08
+      to: 2026-11-08
+      quality: INCOMPLETE
+      evidenceIds:
+      - nse-holiday-lists
+    - scope: EARLY_CLOSES
+      from: 2026-11-09
+      to: 2026-12-31
+      quality: PROJECTED
+      evidenceIds:
+      - nse-market-timings
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2010-01-01
+      to: 2026-10-14
+      quality: VERIFIED
+      evidenceIds:
+      - nse-bhavcopy-availability
+    - scope: UNSCHEDULED_EXCEPTIONS
+      from: 2026-10-15
+      to: 2026-12-31
+      quality: PROJECTED
+      evidenceIds:
+      - nse-holiday-lists
+    verified_through: 2026-10-14
+  kind: market
+  mic: XNSE
+  aliases: []
+uses:
+- in_nse_holidays
+classifications: {}
+deltas: []
+extends: []
+event_sources: []
+weekend_shift_policy: NONE

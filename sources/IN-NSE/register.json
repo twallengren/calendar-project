@@ -1,0 +1,664 @@
+{
+  "schema_version": "1.0",
+  "entries": [
+    {
+      "id": "nse-holiday-lists",
+      "title": "NSE Capital Market Segment circulars 'Trading holidays for the calendar year' 2010-2026, the live holiday list, and archived copies of the exchange's holiday page",
+      "publisher": "National Stock Exchange of India Limited",
+      "location": "https://www.nseindia.com/resources/exchange-communication-holidays",
+      "retrieved": "2026-10-15",
+      "covers": "2010-01-01 to 2026-12-31",
+      "notes": "One circular each December for the following year (NSE/CMTR/13713, 16348, 19539, 22317, 25326, 28337, 31297, 33746, 36475, 39612, 42877, 46623, 50560, 54757, 59722, 65587, 71775), issued 'in pursuance to clause 2 of Chapter IX of the Bye-Laws and Regulation 2.3.1 of part A Regulations of the Capital Market Segment'. Each lists the weekday holidays and, separately, the holidays falling on Saturday or Sunday; none is substituted. Each marks Diwali Laxmi Pujan for Muhurat trading with 'Timings of Muhurat Trading shall be notified subsequently'. The calendar reproduces every weekday row (241, with 8 November 2022 Gurunanak Jayanti, whose row wraps across lines in the PDF). holidays.json is the live API response for 2026; the hol_*.htm files are Internet Archive captures of the exchange's holiday page (2011-2017) that agree with the circulars and add that the exchange 'may however close the market on days other than the above schedule holidays or may open the market on days originally declared as holidays'.",
+      "local_files": [
+        {
+          "path": "IN-NSE/CMTR19539.pdf",
+          "sha256": "4f798db91049897c90cf381ac36c7c8a0315b7144dcf90dc1f6eb3d854e1055d"
+        },
+        {
+          "path": "IN-NSE/CMTR22317.pdf",
+          "sha256": "2c9b5c2502129d03d4919ed6b81d440b76912d0f0a461d7684f3d6bab99fdf02"
+        },
+        {
+          "path": "IN-NSE/CMTR25326.pdf",
+          "sha256": "1247dc6cb843e6bfaa50c42d416dc021fd55cbbb6420c43e652d2b7a07fd2f35"
+        },
+        {
+          "path": "IN-NSE/CMTR28337.pdf",
+          "sha256": "5733cf3b16cf5cf05879fb28777d0fbf6636c44c8dd204c8fe2f02ef9bb722c4"
+        },
+        {
+          "path": "IN-NSE/CMTR31297.pdf",
+          "sha256": "bf33e9aade8773908fc5d6de105cc731e93bf063cd1564a82fe1998c5aaf6432"
+        },
+        {
+          "path": "IN-NSE/CMTR33746.pdf",
+          "sha256": "2fd7ee17432434df26154bbdb9de549d3e4a7acd4cf567843513457e9c98fbce"
+        },
+        {
+          "path": "IN-NSE/CMTR36475.pdf",
+          "sha256": "d80ac64d32806f9ada629bc96ba91c6d85546dfde405f4468bbfcb194fdb22fb"
+        },
+        {
+          "path": "IN-NSE/CMTR39612.pdf",
+          "sha256": "3fe8f7356085b75a14efec16e765216d09b99be6f00ff2305d813a864394ab88"
+        },
+        {
+          "path": "IN-NSE/CMTR42877.pdf",
+          "sha256": "635535e35ddc37e79b188d9f21409210cfdef00f44cde1cb980c4f64ed005eaf"
+        },
+        {
+          "path": "IN-NSE/CMTR46623.pdf",
+          "sha256": "3c922e234ad2cbe8320cc34507e281477e0ce273ba9ee39d73da2a49d5629add"
+        },
+        {
+          "path": "IN-NSE/CMTR50560.pdf",
+          "sha256": "731a4f0f3b3633e53ff344ffda23dab0277c4a6608f5a6da8874f931c9be4ead"
+        },
+        {
+          "path": "IN-NSE/CMTR54757.pdf",
+          "sha256": "035ea9a4178e322549b87c6d72f7fc74c7cec06e2d6074c01ac2a7e6a5a7b621"
+        },
+        {
+          "path": "IN-NSE/CMTR59722.pdf",
+          "sha256": "7157229ba94c179d280dd0d732da56d0992c482e862fac72d9d3879626c77c8a"
+        },
+        {
+          "path": "IN-NSE/CMTR65587.pdf",
+          "sha256": "1e0f85615fbbcde9243dd6cafbbad4d9b581b8d2467fd9e27c0a4fe42a720c7d"
+        },
+        {
+          "path": "IN-NSE/CMTR71775.pdf",
+          "sha256": "aa97e0afc0ce394097f2fc62631c68e3c2e4c7c23541ed35f21d9fc06b0dcacb"
+        },
+        {
+          "path": "IN-NSE/FAOP33750.pdf",
+          "sha256": "72be48d3fe700a4b272cd451e698436e569d316de29704648b33d5f35c6ffd8b"
+        },
+        {
+          "path": "IN-NSE/FAOP71777.pdf",
+          "sha256": "5a2079cd78b2e6b536ef0d28300e63b645721bed22cc82a91facf5945f3296ea"
+        },
+        {
+          "path": "IN-NSE/cmtr13713.pdf",
+          "sha256": "a9a6460af3f0db88f5f24657e8d79530abe2a22896f09ef53571bb5dfbe923d7"
+        },
+        {
+          "path": "IN-NSE/cmtr16348.pdf",
+          "sha256": "d52836223ceba71a6fd1f1ab73fade75df122ce57f7d98a63a3918ad66908ed7"
+        },
+        {
+          "path": "IN-NSE/holidays.json",
+          "sha256": "933cf5dc6dd4efe3b8db8ce6ecd6ecb2582929f5e0b4faffdb88e11cf4efdfbe"
+        },
+        {
+          "path": "IN-NSE/hol_20110708222938.html",
+          "sha256": "f679f40ed4f347764fcbf813774d38a1351524c25c7bb6a37c34cfb67e75132f"
+        },
+        {
+          "path": "IN-NSE/hol_20111002150829.html",
+          "sha256": "6a9ffd72f8ffc7a0bd65eeb29ce40d385091c23e701f664e29baa36626f8803d"
+        },
+        {
+          "path": "IN-NSE/hol_20140122082410.html",
+          "sha256": "17a29786b83c29383570bbebb0260789745ef6ae3525c35fa0ba0f79c36fdead"
+        },
+        {
+          "path": "IN-NSE/hol_20141020014213.html",
+          "sha256": "1c3942ea44ffcd7dd37795c150900c8d8cdbe033bb93d26f046a69ea1019c31a"
+        },
+        {
+          "path": "IN-NSE/hol_20150102110045.html",
+          "sha256": "92604a7f407489808163fafe96d8cad55a9e269b5a8fe6d12ed81879f3d89884"
+        },
+        {
+          "path": "IN-NSE/hol_20151231015007.html",
+          "sha256": "4999161b31e94daddc44f63c8a705280ed22107c6d5564d654d949f6a550f787"
+        },
+        {
+          "path": "IN-NSE/hol_20160302111023.html",
+          "sha256": "4babd8009816f00a5a5f8473cf71ec914e51347d28755fb6ca84c5117a507a4a"
+        },
+        {
+          "path": "IN-NSE/hol_20161104035629.html",
+          "sha256": "da53d2f6a47cfb3ee24c6c1d537b26180c230cfc913bc6bbb1369b3ca1a169aa"
+        },
+        {
+          "path": "IN-NSE/hol_20170505185052.html",
+          "sha256": "622bd1c06c2a8c11f4751178ddb6692ab83d3e6cfdc9520cf804ff4e7c61df90"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2010-01-01",
+          "to": "2026-12-31"
+        }
+      ]
+    },
+    {
+      "id": "nse-additional-holidays",
+      "title": "NSE circulars adding trading holidays during the year (2013-2026)",
+      "publisher": "National Stock Exchange of India Limited",
+      "location": "https://www.nseindia.com/resources/exchange-communication-circulars",
+      "retrieved": "2026-10-15",
+      "covers": "2013-11-14 to 2026-01-15",
+      "notes": "Issued 'in partial modification' of the annual list: the move of Muharram 2013 from 14 to 15 November after the RBI moved its holiday (NSE/CMTR/24977), 15 October 2014 (Maharashtra assembly elections; NSE/CMTR/27792), the move of Bakri Id 2023 from 28 to 29 June after Maharashtra moved its public holiday (NSE/CMTR/57285, a zip with the state gazette), 24 April 2014, 29 April 2019 and 20 May 2024 (parliamentary elections; NSE/CMTR/26360, 40536 with the currency-derivatives twin NSE/CD/40538, 61518), 21 October 2019 and 20 November 2024 (Maharashtra assembly elections; NSE/MSD/42319, NSE/CMTR/64960), 15 January 2026 (municipal corporation elections; NSE/CMTR/72260), and 22 January 2024 (public holiday under the Negotiable Instruments Act declared by the Government of Maharashtra and the RBI; NSE/CMTR/60338, a zip with both notifications).",
+      "local_files": [
+        {
+          "path": "IN-NSE/CMTR24977.pdf",
+          "sha256": "928113cf29df9df6ad5db93dc1c2657cb545353732f346da70e2f29979e3c273"
+        },
+        {
+          "path": "IN-NSE/CMTR26360.pdf",
+          "sha256": "dcc7ba7d2b626494189065569732fc27f5a13945c707d5a9be62474ddb0331a5"
+        },
+        {
+          "path": "IN-NSE/CMTR27792.pdf",
+          "sha256": "1e5e2964d919b72fc3728d2e4d2ba785f77aebb162188c260b8f3d6479590282"
+        },
+        {
+          "path": "IN-NSE/CMTR57285.zip",
+          "sha256": "3fb71dc522449ca306e0e947f56cfba9e41016a54042689659bc85d35f38615d"
+        },
+        {
+          "path": "IN-NSE/CMTR40536.pdf",
+          "sha256": "0ffd5d5c6f2e967947b0fafc45f285c2eff70abbde138b06e35d4ac8169ebc65"
+        },
+        {
+          "path": "IN-NSE/CD40538.pdf",
+          "sha256": "868c862d924eac06b09090cf6690fd8134f2b8cd2cfecf0b2378802e6f99a42d"
+        },
+        {
+          "path": "IN-NSE/MSD42319.pdf",
+          "sha256": "bc49d7698fefa2b9ed3a5fbb2477dd74e5ed04dc69cec3ff5e9aca074fcc1b8a"
+        },
+        {
+          "path": "IN-NSE/CMTR60338.zip",
+          "sha256": "c70a96e353be65fa1905057300ddd0cb8823fb8398bb3b9e13d95fbe166888b2"
+        },
+        {
+          "path": "IN-NSE/CMTR61518.pdf",
+          "sha256": "8f44e5dab885e081e9809aa41cbc6017309cf35281d29655a219d822e6f31a39"
+        },
+        {
+          "path": "IN-NSE/CMTR64960.pdf",
+          "sha256": "342b404b2f6631e8d2b74bb203e53faeb5e8b02abc21eb31094ef0c53b168e31"
+        },
+        {
+          "path": "IN-NSE/CMTR72260.pdf",
+          "sha256": "c5d32a838b46d5044717b830a4793479a51a40f8e4e19d3896c65682d15b6ebc"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2013-11-14",
+          "to": "2026-01-15"
+        }
+      ]
+    },
+    {
+      "id": "nse-settlement-2017-02-21",
+      "title": "NSE/CMPT/34182: CM - Change in settlement schedule on account of Municipal Corporation elections (21 February 2017)",
+      "publisher": "NSE Clearing Limited (then National Securities Clearing Corporation)",
+      "location": "https://nsearchives.nseindia.com/content/circulars/CMPT34182.pdf",
+      "retrieved": "2026-10-15",
+      "covers": "2017-02-21",
+      "notes": "21 February 2017 was a settlement holiday only; the cash market traded, and a bhavcopy exists for the day.",
+      "local_files": [
+        {
+          "path": "IN-NSE/CMPT34182.pdf",
+          "sha256": "2181d9d1f315b21e9ec8b989cd7e501208cbcc94e364e7ea840eb8697676c7bb"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "nse-muhurat-circulars",
+      "title": "NSE circulars 'Muhurat Trading session on account of Diwali' 2010-2025, with settlement circulars and archived copies of the exchange's Muhurat page",
+      "publisher": "National Stock Exchange of India Limited",
+      "location": "https://www.nseindia.com/resources/exchange-communication-circulars",
+      "retrieved": "2026-10-15",
+      "covers": "2010-11-05 to 2025-10-21",
+      "notes": "The normal-market window of every session: 2010 18:15-19:00 (NSE/CMTR/16062), 2011 16:45-18:00 (19187), 2012 15:45-17:00 (22083, revising 22027), 2013 18:15-19:30 (24773), 2014 18:30-19:30 (27779), 2015 17:45-18:45 (31047), 2016 18:30-19:30 (33424), 2017 18:30-19:30 (35993), 2018 17:30-18:30 (39216), 2019 18:15-19:15 (42483, revising the image-only 42403), 2020 18:15-19:15 (46230), 2021-2023 18:15-19:15 (50050, 54023, 59124), 2024 18:00-19:00 (64628), 2025 13:45-14:45 (70319). 'All trades executed in this Diwali Muhurat trading session shall result in settlement obligations' (from 2013); the NSCCL/NSE Clearing circulars (CMPT46255, 64643, 70411) give the settlement schedule.",
+      "local_files": [
+        {
+          "path": "IN-NSE/cmtr16062.pdf",
+          "sha256": "0e39bfe8a687d62666b3811e2854d98d996df05374307339969db6c35fbbc255"
+        },
+        {
+          "path": "IN-NSE/CMTR19187.pdf",
+          "sha256": "b5639b0f3af5c7597f78bfe29546cc4c7ff56b2962dcd79eb54f4cd4e11904d5"
+        },
+        {
+          "path": "IN-NSE/CMTR22027.pdf",
+          "sha256": "cecbadc1bb0904efe41025d5fe573115d1b8ccf495de0206a67828f35efeb050"
+        },
+        {
+          "path": "IN-NSE/CMTR22083.pdf",
+          "sha256": "95269060c61f754433a15f73801deea73fdb0eae8aa7c980c27dca1356a27c0e"
+        },
+        {
+          "path": "IN-NSE/CMTR24773.pdf",
+          "sha256": "6292ce71f08cff22b7478de7917fe49de4422adba3a09e89f78b38c7d20afaf3"
+        },
+        {
+          "path": "IN-NSE/CMTR27779.pdf",
+          "sha256": "1e77a9a4e2730c78c22ca5e1a8698d0e4fb46d6412749df86b90ce4eb9123430"
+        },
+        {
+          "path": "IN-NSE/CMTR31047.pdf",
+          "sha256": "060afe66d01e7d03098254bbd6fe772f485184684c3453e411dceb3339bd169d"
+        },
+        {
+          "path": "IN-NSE/CMTR33424.pdf",
+          "sha256": "9e11622e7acd164c68ef56d0eae60014617b47747c9c4de7545399fd98ad4dfc"
+        },
+        {
+          "path": "IN-NSE/CMTR35993.pdf",
+          "sha256": "1419ab5d8070a2cd9896859d7ad8bebee69fedc2bb0200b1260a0eb41db5804c"
+        },
+        {
+          "path": "IN-NSE/CMTR39216.pdf",
+          "sha256": "d68c2e0d4c6160c5ed75533dceb48a4084ecd8d2dea71b6dadee73a07ccb6438"
+        },
+        {
+          "path": "IN-NSE/CMTR42403.pdf",
+          "sha256": "9a4e8e80a4342560d52491e889fdae4d8384fa8e19f910fa59395269aabe4097"
+        },
+        {
+          "path": "IN-NSE/CMTR42483.pdf",
+          "sha256": "933768f41a67a216b04531374751afeb79af0f53b025685328b166dd6c33ef23"
+        },
+        {
+          "path": "IN-NSE/CMTR46230.pdf",
+          "sha256": "dc545416272a0da2d7465e66b879f884fa6c49bdead5b9e0cc5ae15d1e5672be"
+        },
+        {
+          "path": "IN-NSE/CMPT46255.pdf",
+          "sha256": "2081569de1f16d3d8e56c151aabe58c16ebd952813486a26e08d7a11107fa2ac"
+        },
+        {
+          "path": "IN-NSE/CMTR50050.pdf",
+          "sha256": "5ac9d2034e5dc3bb22632fd1b0e46a2acfae49f71e1126897e7e13bcd52d6803"
+        },
+        {
+          "path": "IN-NSE/CMTR54023.pdf",
+          "sha256": "01e579eac8e2dd4a870a9ebc9f08d60bc26fae28d0d35cf58891bf2a2964e0c7"
+        },
+        {
+          "path": "IN-NSE/FAOP54024.pdf",
+          "sha256": "b5d0714192bd14e0f2f1c9186b01fb6363ac54c033aad8f7e18d945a26ff01ae"
+        },
+        {
+          "path": "IN-NSE/CMTR59124.pdf",
+          "sha256": "09f80430f3ec95aeaeeb98938124273892abccc38a7aaa440b38a6426b428c21"
+        },
+        {
+          "path": "IN-NSE/CMTR64628.pdf",
+          "sha256": "dd1b8bc34a4b3c2900002341c41e4b8f165af862a74fd2a5bfb1355b0afec4a8"
+        },
+        {
+          "path": "IN-NSE/CMPT64643.pdf",
+          "sha256": "2f6bf4dbacc0fbae8cbf494b1c6d8ae17e7146b47425d28f1e94b50f2c48bbba"
+        },
+        {
+          "path": "IN-NSE/CMTR70319.pdf",
+          "sha256": "19b7d88003cb05eb8c6abdc8d1bfad5df821a17e4f9ae36f75e327a68a48d258"
+        },
+        {
+          "path": "IN-NSE/CMPT70411.pdf",
+          "sha256": "c1d9bb732b7512fe817ffe96b707abcc2a1a0c58f0c9876c4f1e760b8e047184"
+        },
+        {
+          "path": "IN-NSE/muh_20131103122754.html",
+          "sha256": "40d1ec4ba98278a6f3d6448fcf9b4d1d7a09967318c1be8f4645639e07908be2"
+        },
+        {
+          "path": "IN-NSE/muh_20161031090411.html",
+          "sha256": "f83da6131b6535c069467f7178ea841f7931ddf3dec45881c002845a89a79922"
+        },
+        {
+          "path": "IN-NSE/muh_20170202002008.html",
+          "sha256": "f83da6131b6535c069467f7178ea841f7931ddf3dec45881c002845a89a79922"
+        },
+        {
+          "path": "IN-NSE/muh_20171019162955.html",
+          "sha256": "85d87156093c32eec8f3ac3c4ad0c91410de4ae1f6e1ac90b2426a837d2d05d3"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2010-11-05",
+          "to": "2025-10-21"
+        }
+      ]
+    },
+    {
+      "id": "nse-weekend-sessions",
+      "title": "NSE circulars on live trading sessions held on a Saturday or Sunday (2012-2026)",
+      "publisher": "National Stock Exchange of India Limited",
+      "location": "https://www.nseindia.com/resources/exchange-communication-circulars",
+      "retrieved": "2026-10-15",
+      "covers": "2010-02-06 to 2026-02-01",
+      "notes": "Shortened 'special live trading sessions' with a separate settlement, held to bring a new trading system or the BCP site into live use: 6 February 2010 11:00-12:30 (NSE/CMTR/14051); 7 January, 3 March, 28 April and 8 September 2012, 11 May 2013 and 22 March 2014 (BCP site), each 11:15-12:45 (NSE/CMTR/19734, 20063, 20561, 21547, 23302, 26045); found from the exchange's circular index after the bhavcopy record showed trading on those Saturdays. Full regular sessions (09:15-15:30) on the Union Budget days 28 February 2015 (NSE/CMTR/28939), 1 February 2020 (43290, F&O twin FAOP/43291), 1 February 2025 (65729, NSE/MSD/66381) and Sunday 1 February 2026 (72349), and on Saturday 20 January 2024, when the planned disaster-recovery drill (NSE/MSD/59999, 60300; clearing NSE/CMPT/60016, 60026) became a regular session from the primary site (NSE/MSD/60340). Two-window sessions with an intra-day switch to the DR site on Saturdays 2 March 2024 (NSE/MSD/60677, reminder 60942) and 18 May 2024 (NSE/MSD/61893, F&O FAOP/62001): normal market 09:15-10:00 from the primary site and 11:30-12:30 from the DR site, with settlement. The Sunday sessions of 16 May 2010 (Akshaya Tritiya, 09:00-15:30, seven gold ETFs; NSE/CMTR/14775) and 11 November 2012 (Dhanteras, 11:00-15:30, gold ETFs; NSE/CMTR/22063) were limited to gold ETFs and are not modelled.",
+      "local_files": [
+        {
+          "path": "IN-NSE/cmtr14051.pdf",
+          "sha256": "c0e9c226dd1c37636b82404285fc3e9d3b897006e570842c5495db9803227374"
+        },
+        {
+          "path": "IN-NSE/cmtr14775.pdf",
+          "sha256": "2fdddf364f743fc54d88773a5d908a8de3981d1d2fadc959eecba9cd550b5bfd"
+        },
+        {
+          "path": "IN-NSE/CMTR19734.pdf",
+          "sha256": "a8161ca8cb3c350de045b4ee234ebaec09573aa2232630a54792354184cd14a2"
+        },
+        {
+          "path": "IN-NSE/CMTR20063.pdf",
+          "sha256": "c7e20a561de073efb56f0dfd7a2274460e02f5d4ca424540a41b2bcc93921f2a"
+        },
+        {
+          "path": "IN-NSE/CMTR20561.pdf",
+          "sha256": "acd086a1d5eeecb7b3061d03b363b1cbbcdc316a2f70851e0d34bb9a6b710641"
+        },
+        {
+          "path": "IN-NSE/CMTR21547.pdf",
+          "sha256": "acf95b5943bb5ad99dbad95df40bbd0df25a52edf6789baed6a5f7b95f38a25d"
+        },
+        {
+          "path": "IN-NSE/CMTR23302.pdf",
+          "sha256": "71445678dd4452b8ef468b4585ae6e82aeb69f5fa81a2617059e0470264733f0"
+        },
+        {
+          "path": "IN-NSE/CMTR26045.pdf",
+          "sha256": "29c0eb8dad67a30944b8df6d6124f679811d9864ca30dd468b3742bf1fa28ca4"
+        },
+        {
+          "path": "IN-NSE/CMTR22063.pdf",
+          "sha256": "1664b538e1ef6e058888da08858364ccfe2b6f22bfef38ae1f36a3f60681149f"
+        },
+        {
+          "path": "IN-NSE/CMTR28939.pdf",
+          "sha256": "0ac90d2a3898d3df90160e5f0adf2413088a06aaeef2ebc627c4228fe8407d2c"
+        },
+        {
+          "path": "IN-NSE/CMTR43290.pdf",
+          "sha256": "2f667503047c3399bc7c013271dd64b3119bc532b0cbb6d988d4d9a6998da4a9"
+        },
+        {
+          "path": "IN-NSE/FAOP43291.pdf",
+          "sha256": "0ad8d9eb169857bcccbaa005d2592ad6e2e26296b499fc3ad0bf270137d5c39c"
+        },
+        {
+          "path": "IN-NSE/MSD59999.pdf",
+          "sha256": "614b965d1152ed636052e983a01206117ff6af224365348fa00b7165a6baa243"
+        },
+        {
+          "path": "IN-NSE/CMPT60016.pdf",
+          "sha256": "c42c4246bb54efc284d0f15f278ecd7d40214290c8e420ed3c1736f2bd929bf5"
+        },
+        {
+          "path": "IN-NSE/CMPT60026.pdf",
+          "sha256": "3add24d6681829524c84ae27476c9fb5e089b54efa86d8d4574582e6394ab211"
+        },
+        {
+          "path": "IN-NSE/MSD60300.pdf",
+          "sha256": "96dc70980bcbc2fab13c10300aad16e0664bbca8b56b15a6a212145c1564e3be"
+        },
+        {
+          "path": "IN-NSE/MSD60340.pdf",
+          "sha256": "6d165b8d132b7b430ae79032356ea331fab3d852192b74df4bc9e56722f54cdd"
+        },
+        {
+          "path": "IN-NSE/MSD60677.pdf",
+          "sha256": "04b67f39314bae95672d86497c28cbed6cea698ad6f029ba47ef74feb9f6da91"
+        },
+        {
+          "path": "IN-NSE/MSD60942.pdf",
+          "sha256": "9129c15ab9fd56e48de9ed1bc84f5ba9245b6be409c36ab22db5b1e444ee975d"
+        },
+        {
+          "path": "IN-NSE/MSD61893.pdf",
+          "sha256": "2483f60d67c34231d6fd25024cf5767c031b234196a7a475535d434cd4e758c8"
+        },
+        {
+          "path": "IN-NSE/FAOP62001.pdf",
+          "sha256": "d2f8fb162153a452761196433c8c2b6779f88d61fe327e3a0404a4890d4aa19c"
+        },
+        {
+          "path": "IN-NSE/CMTR65729.pdf",
+          "sha256": "84d12e29654e75f77baa0b9064a26f6d0e4c3ff58e64df14e01247a0c15a91be"
+        },
+        {
+          "path": "IN-NSE/MSD66381.pdf",
+          "sha256": "3f7b5c68e66fd67b9021149f125d8527ec09e16a2d18ba146fbbd5fc6f58e9ce"
+        },
+        {
+          "path": "IN-NSE/CMTR72349.pdf",
+          "sha256": "70458f7b8126f47584d4bc402a78dde357e42dbebaa5d53cfce0c70c82dabfc3"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2010-02-06",
+          "to": "2026-02-01"
+        }
+      ]
+    },
+    {
+      "id": "nse-bhavcopy-availability",
+      "title": "NSE Capital Market bhavcopy (end-of-day price file) availability for every date from 1 January 2010 to 14 October 2026, with the files for the weekend sessions 2010-2014",
+      "publisher": "National Stock Exchange of India Limited",
+      "location": "https://www.nseindia.com/all-reports",
+      "retrieved": "2026-10-16",
+      "covers": "2010-01-01 to 2026-10-14",
+      "notes": "The exchange publishes one bhavcopy for every day the capital market traded, including Muhurat and weekend sessions, and serves none for any other day (a request returns 404). nse-bhavcopy-availability.csv records the response for all 6,131 dates (4,166 present). The calendar's trading days (business days plus special sessions) equal the present dates exactly except 16 May 2010 and 11 November 2012, the gold-ETF-only Sundays this calendar deliberately does not model. The record surfaced seven special live sessions of 2010-2014, the move of Muharram 2013 and the 2014 election holiday, all then confirmed from circulars. The bhavcopies of the 2010-2014 weekend sessions are preserved; the 16 May 2010 file lists 7 securities and the 11 November 2012 file 14.",
+      "local_files": [
+        {
+          "path": "IN-NSE/nse-bhavcopy-availability.csv",
+          "sha256": "c5031a0bfd2a2d0516b862a0c75fb95513eaacdda3080da67518dd7b8413d7d0"
+        },
+        {
+          "path": "IN-NSE/cm03MAR2012bhav.csv.zip",
+          "sha256": "28e7a70cf73bc77720128bad6d96c54474cc4d65508a2c9647c83d3fbf13a1c4"
+        },
+        {
+          "path": "IN-NSE/cm06FEB2010bhav.csv.zip",
+          "sha256": "9fe0dbb1a28e9cea488e11156e91bda97a2f8dc7844b6d2684333c262579e7fe"
+        },
+        {
+          "path": "IN-NSE/cm07JAN2012bhav.csv.zip",
+          "sha256": "362f4b7f085270a98c9e2866630546e4e7f3a7fa847b32d91f246b93f5a4655d"
+        },
+        {
+          "path": "IN-NSE/cm08SEP2012bhav.csv.zip",
+          "sha256": "14d062b0c733a2f41817c66d04cf694c2204c7e57c25006cdcc91a3ab8dd0cab"
+        },
+        {
+          "path": "IN-NSE/cm11MAY2013bhav.csv.zip",
+          "sha256": "9d0bc68811ef4c569703ae745161e5fe4d22a6baee88bbd9d276d0045536092d"
+        },
+        {
+          "path": "IN-NSE/cm11NOV2012bhav.csv.zip",
+          "sha256": "e65af0d5ffcbefcd9d854daeece06b03043f70c037dce2f316ab4307fdaff897"
+        },
+        {
+          "path": "IN-NSE/cm16MAY2010bhav.csv.zip",
+          "sha256": "0feba86d6fbe2b9198301ace3dbfde808aee87ef2018acc1fc11aa2bcba788cc"
+        },
+        {
+          "path": "IN-NSE/cm22MAR2014bhav.csv.zip",
+          "sha256": "a83a1b9924ccc4b2c396fca69235027fced18f210f6c009dc5f22a324f7e9410"
+        },
+        {
+          "path": "IN-NSE/cm28APR2012bhav.csv.zip",
+          "sha256": "da259ede3aee053c0ee73901aa9eddafebaec13df6933059d7f21e193b5a6c66"
+        }
+      ],
+      "support_intervals": [
+        {
+          "scope": "SCHEDULED_CLOSURES",
+          "from": "2010-01-01",
+          "to": "2026-10-14"
+        },
+        {
+          "scope": "UNSCHEDULED_EXCEPTIONS",
+          "from": "2010-01-01",
+          "to": "2026-10-14"
+        }
+      ]
+    },
+    {
+      "id": "nse-dhanteras-extended-hours",
+      "title": "NSE circulars 'Extended LIVE TRADING session' on Dhanteras (2011-2019)",
+      "publisher": "National Stock Exchange of India Limited",
+      "location": "https://www.nseindia.com/resources/exchange-communication-circulars",
+      "retrieved": "2026-10-15",
+      "covers": "2011-10-24 to 2019-10-25",
+      "notes": "Gold ETFs (and sovereign gold bonds from 2016) traded after the regular close on Dhanteras: 24 October 2011 to 20:00; 21 October 2014, 9 November 2015, 28 October 2016, 17 October 2017 and 5 November 2018 to 19:00; 25 October 2019 17:00-19:00. The regular session was unchanged and the extension covered a handful of instruments, so it is not modelled.",
+      "local_files": [
+        {
+          "path": "IN-NSE/CMTR19202.pdf",
+          "sha256": "31019b30f3eaec175d08db5fc2b10edd0efbe833f59be2d88358f4dcc3ef3ba2"
+        },
+        {
+          "path": "IN-NSE/CMTR27852.pdf",
+          "sha256": "7773af601113594ec88f9976aface348aa890b436af8e8d3f5fb819431b6fde9"
+        },
+        {
+          "path": "IN-NSE/CMTR31058.pdf",
+          "sha256": "a0746bbe0886438bdf9915014e22ef8a879ec5d587b9dd0241f6019566e715cc"
+        },
+        {
+          "path": "IN-NSE/CMTR33442.pdf",
+          "sha256": "19c48d5090da26d7b65be082cddf8717bea03b9b2bb9d20f3bcd7845e5f9c259"
+        },
+        {
+          "path": "IN-NSE/CMTR36003.pdf",
+          "sha256": "bc414302c0a55dda23590e00e38548f8b8c2de63924cb65464ba8c37916ccba7"
+        },
+        {
+          "path": "IN-NSE/CMTR39215.pdf",
+          "sha256": "f86bddc55b3054895cec6151464e6aba17a08bd07f78c0b2d7a46e42d5161b37"
+        },
+        {
+          "path": "IN-NSE/CMTR39332.pdf",
+          "sha256": "1664498868f28425079e80624ac41651837a20269fe69fe1e91b0681804f6bdd"
+        },
+        {
+          "path": "IN-NSE/CMTR42455.pdf",
+          "sha256": "5b3259ab7efdb860e90bc4b8590cdbe7d6b283b5f53067d33cd7358c2446a20f"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "nse-outage-2021-02-24",
+      "title": "NSE statements of 24 and 26 February 2021 and SEBI press release 9/2021 on the 24 February 2021 trading halt",
+      "publisher": "National Stock Exchange of India Limited; Securities and Exchange Board of India",
+      "location": "https://www.sebi.gov.in/media/press-releases/feb-2021/",
+      "retrieved": "2026-10-15",
+      "covers": "2021-02-24",
+      "notes": "All segments halted at 11:40 after a telecom-link failure affecting the clearing corporation's risk system, resumed at 15:45 after a 15:30 pre-open and extended to 17:00. The day was a trading day with a gap, not a closure or an early close.",
+      "local_files": [
+        {
+          "path": "IN-NSE/PR_cc_24022021.pdf",
+          "sha256": "330e9c21cef2f1057ba2ff5c269b56ce9fd1e0fd5b373a818c01e50155757540"
+        },
+        {
+          "path": "IN-NSE/PR_cc_26022021.pdf",
+          "sha256": "288d5ca4ef2fec435e65b47c9052ead2723aa11ca172c0e6daa2a80f867ec44c"
+        },
+        {
+          "path": "IN-NSE/sebi_pr9.pdf",
+          "sha256": "e5b59a9e01f497f2f94c4029f4866666543bce477bd26f4ad3e9f00089fdc1b0"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "nse-market-timings",
+      "title": "NSE circulars on Capital Market session timings (2009-2026)",
+      "publisher": "National Stock Exchange of India Limited",
+      "location": "https://www.nseindia.com/resources/exchange-communication-circulars",
+      "retrieved": "2026-10-15",
+      "covers": "2010-01-04 to 2026-10-15",
+      "notes": "Open moved to 09:00 from 4 January 2010 (NSE/CMTR/13705, 13708); pre-open call auction 09:00-09:15 from 18 October 2010 (15981); the consolidated timetable with the normal market 09:15-15:30 and the closing session (41180); the closing auction session 15:15-15:35 for derivative-eligible stocks from 3 August 2026 (73362, 74466, 75479). None defines a shortened session.",
+      "local_files": [
+        {
+          "path": "IN-NSE/cmtr13705.pdf",
+          "sha256": "4ff911b3b5190a76fb57eb2a3c94f1a8456d76c719b629a2a8fff557309d75ab"
+        },
+        {
+          "path": "IN-NSE/cmtr13708.pdf",
+          "sha256": "0ad7e76613f3a470411eefa55d598591764cf020a47c698075ace83571bc97d5"
+        },
+        {
+          "path": "IN-NSE/cmtr15981.zip",
+          "sha256": "5057dea29a11961eaebda7eafe6ca31e02801a7de66739e5551babd921d40ebd"
+        },
+        {
+          "path": "IN-NSE/CMTR41180.pdf",
+          "sha256": "b9b282389a4a9a027e52a651932b65160ad0c164de63d4bfa2eb6e4690e42bc7"
+        },
+        {
+          "path": "IN-NSE/CMTR73362.pdf",
+          "sha256": "c7da4fb3a74954903d9ac2106e16f22679654405774df7abe602f369fd1e8377"
+        },
+        {
+          "path": "IN-NSE/CMTR74466.zip",
+          "sha256": "11bbe31123cfcb3e8fbd269cc0e2a9f2eed39ca198cb1ff6d41d6bf76b3e4b9d"
+        },
+        {
+          "path": "IN-NSE/CMTR75479.pdf",
+          "sha256": "17e415f619be6a132f86a4edbc127412f44e90f87e838151d86484e2204022c1"
+        }
+      ],
+      "support_intervals": []
+    },
+    {
+      "id": "nse-mock-and-dr-days",
+      "title": "NSE circulars on mock trading sessions and on live trading days run from the disaster-recovery site",
+      "publisher": "National Stock Exchange of India Limited",
+      "location": "https://www.nseindia.com/resources/exchange-communication-circulars",
+      "retrieved": "2026-10-15",
+      "covers": "2022-01-01 to 2026-09-04",
+      "notes": "Mock sessions (Saturdays) carry 'no pay-in/pay-out obligation' and are not trading days, so they are not modelled (NSE/MSD/53457, NSE/CMTR/58656, 66665, FAOP/75144). Live days run from the DR site on ordinary weekdays (NSE/MSD/70263, 73126, 76140) are normal trading days.",
+      "local_files": [
+        {
+          "path": "IN-NSE/MSD53457.pdf",
+          "sha256": "61b55476da0032ba8cba52f0bdd7c47d697587689f20ce6e8be7fe9a97e69573"
+        },
+        {
+          "path": "IN-NSE/CMTR58656.pdf",
+          "sha256": "bfe8f6a4abc2aedbb06eb5b64a4c4347c52550c6d634d6a49af71fdaa6ffb900"
+        },
+        {
+          "path": "IN-NSE/CMTR66665.pdf",
+          "sha256": "b9732d5428b2cce922dd3c4a4201c52f0393fe1796da4f1d5ba3f3351774ddab"
+        },
+        {
+          "path": "IN-NSE/FAOP75144.pdf",
+          "sha256": "c542d254dc13339d12ea3141a60714cfe15e3fe17bfc59cef25929f8331a49ef"
+        },
+        {
+          "path": "IN-NSE/MSD70263.pdf",
+          "sha256": "71eb1f79fba85916d10a00d089663aeacd38534abb075bb759d9e17a5ec8b61f"
+        },
+        {
+          "path": "IN-NSE/MSD73126.pdf",
+          "sha256": "4adaadc137e0653274cde4d2831eca9c14e5f74bb43cc111f64216db07c1a35e"
+        },
+        {
+          "path": "IN-NSE/MSD76140.pdf",
+          "sha256": "aa48a3d0998a2993ca7f094046fde8101c05c161497d82d9aa8ffe04922c67fc"
+        }
+      ],
+      "support_intervals": []
+    }
+  ]
+}

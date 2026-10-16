@@ -1,0 +1,26 @@
+kind: module
+id: in_nse_weekends
+
+# Effective-dated weekend definition for the National Stock Exchange of India.
+#
+# Saturday and Sunday are weekend days, except the days the exchange held a full regular session
+# (09:15-15:30) on a weekend: the Union Budget days of Saturday 28 February 2015 (NSE/CMTR/28939),
+# Saturday 1 February 2020 (NSE/CMTR/43290), Saturday 1 February 2025 (NSE/CMTR/65729,
+# NSE/MSD/66381) and Sunday 1 February 2026 (NSE/CMTR/72349), and Saturday 20 January 2024, a
+# regular session from the primary site in place of the planned disaster-recovery drill
+# (NSE/MSD/60340). Each is a one-day period in which only the other weekend day is a weekend day;
+# later periods win for overlapping dates.
+#
+# Source: nse-weekend-sessions.
+
+source:
+  - id: nse-weekend-sessions
+
+policies:
+  weekends:
+    - {days: [SATURDAY, SUNDAY]}
+    - {days: [SUNDAY], from: 2015-02-28, to: 2015-02-28}
+    - {days: [SUNDAY], from: 2020-02-01, to: 2020-02-01}
+    - {days: [SUNDAY], from: 2024-01-20, to: 2024-01-20}
+    - {days: [SUNDAY], from: 2025-02-01, to: 2025-02-01}
+    - {days: [SATURDAY], from: 2026-02-01, to: 2026-02-01}

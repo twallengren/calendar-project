@@ -1,0 +1,28 @@
+kind: module
+id: in_mahavir_jayanti
+
+# Shri Mahavir Jayanti: as dated in the exchange's annual trading-holiday circulars (Capital Market
+# Segment), weekday occurrences only; the exchange never substitutes a weekday for a holiday that
+# falls on a Saturday or Sunday. The circulars spell it: Mahavir Jayanti; Shri Mahavir Jayanti.
+# Source: nse-holiday-lists.
+
+source:
+  - id: nse-holiday-lists
+
+event_sources:
+  - key: in_mahavir_jayanti
+    name: "Shri Mahavir Jayanti"
+    default_classification: CLOSED
+    rule:
+      type: explicit_dates
+      dates:
+        - 2012-04-05  # NSE/CMTR/19539
+        - 2013-04-24  # NSE/CMTR/22317
+        - 2015-04-02  # NSE/CMTR/28337
+        - 2016-04-19  # NSE/CMTR/31297
+        - 2018-03-29  # NSE/CMTR/36475
+        - 2019-04-17  # NSE/CMTR/39612
+        - 2020-04-06  # NSE/CMTR/42877
+        - 2023-04-04  # NSE/CMTR/54757
+        - 2025-04-10  # NSE/CMTR/65587
+        - 2026-03-31  # NSE/CMTR/71775

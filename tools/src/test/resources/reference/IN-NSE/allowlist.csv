@@ -1,0 +1,9 @@
+source,side,date,type,close_time,reason
+# Known differences between our IN-NSE data and exchange_calendars' XBOM (BSE) calendar, which
+# follows the same exchange holiday list. Each of our dates is confirmed by the NSE circulars and
+# by the bhavcopy record (nse-bhavcopy-availability).
+exchange_calendars-XBOM,ours,2010-11-05,CLOSED,,"Diwali Laxmi Pujan: a trading holiday with only the evening Muhurat session (NSE/CMTR/13713, 16062), modelled as CLOSED plus a SPECIAL_SESSION; XBOM counts the day as a session in 2010-2012"
+exchange_calendars-XBOM,ours,2011-10-26,CLOSED,,"Diwali Laxmi Pujan: a trading holiday with only the Muhurat session (NSE/CMTR/16348, 19187); XBOM counts the day as a session"
+exchange_calendars-XBOM,ours,2012-11-13,CLOSED,,"Diwali Laxmi Pujan: a trading holiday with only the Muhurat session (NSE/CMTR/19539, 22083); XBOM counts the day as a session"
+exchange_calendars-XBOM,ours,2013-11-15,CLOSED,,Muharram moved from 14 to 15 November 2013 (NSE/CMTR/24977); XBOM keeps the original date
+exchange_calendars-XBOM,theirs,2013-11-14,CLOSED,,Muharram moved from 14 to 15 November 2013 (NSE/CMTR/24977); 14 November was a trading day and has a bhavcopy

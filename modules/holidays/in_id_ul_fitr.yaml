@@ -1,0 +1,32 @@
+kind: module
+id: in_id_ul_fitr
+
+# Id-Ul-Fitr (Ramadan Eid): as dated in the exchange's annual trading-holiday circulars (Capital
+# Market Segment), weekday occurrences only; the exchange never substitutes a weekday for a holiday
+# that falls on a Saturday or Sunday. The circulars spell it: Id-Ul-Fitr (Ramadan Eid); Id-Ul-Fitr
+# (Ramzan ID); Ramzan ID.
+# Source: nse-holiday-lists.
+
+source:
+  - id: nse-holiday-lists
+
+event_sources:
+  - key: in_id_ul_fitr
+    name: "Id-Ul-Fitr (Ramadan Eid)"
+    default_classification: CLOSED
+    rule:
+      type: explicit_dates
+      dates:
+        - 2010-09-10  # NSE/CMTR/13713
+        - 2011-08-31  # NSE/CMTR/16348
+        - 2012-08-20  # NSE/CMTR/19539
+        - 2013-08-09  # NSE/CMTR/22317
+        - 2014-07-29  # NSE/CMTR/25326
+        - 2016-07-06  # NSE/CMTR/31297
+        - 2017-06-26  # NSE/CMTR/33746
+        - 2019-06-05  # NSE/CMTR/39612
+        - 2020-05-25  # NSE/CMTR/42877
+        - 2021-05-13  # NSE/CMTR/46623
+        - 2022-05-03  # NSE/CMTR/50560
+        - 2024-04-11  # NSE/CMTR/59722
+        - 2025-03-31  # NSE/CMTR/65587

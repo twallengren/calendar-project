@@ -1,0 +1,40 @@
+kind: calendar
+id: IN-NSE
+
+metadata:
+  name: National Stock Exchange of India
+  description: NSE Capital Market (equity cash) segment trading calendar (MIC XNSE)
+  chronology: ISO
+  timezone: Asia/Kolkata
+  mic: XNSE
+  coverage:
+    from: 2010-01-01
+    to: 2026-12-31
+    verified_through: 2026-10-14
+    quality:
+      # The exchange's annual trading-holiday circulars (2010-2026), its mid-year additions, the
+      # Muhurat timing circulars and the weekend-session circulars state every scheduled change to
+      # the trading calendar. The 2027 list has not been issued, which bounds coverage.
+      - {scope: SCHEDULED_CLOSURES, from: 2010-01-01, to: 2026-12-31, quality: VERIFIED, evidence_ids: [nse-holiday-lists, nse-additional-holidays, nse-muhurat-circulars, nse-weekend-sessions]}
+      # The market has no scheduled shortened sessions: the regular session (09:15-15:30, with the
+      # pre-open from 18 October 2010 and the closing session after it) is fixed by circular, and
+      # the incidents found ended in a halt and a later resumption (24 February 2021) or a
+      # mid-morning halt with a normal close (10 July 2017), not an early close. No exchange
+      # record of close times was retrieved, so the scope is PROJECTED. Session detail for the
+      # 2026 Muhurat session is unknown until its timings are notified.
+      - {scope: EARLY_CLOSES, from: 2010-01-01, to: 2026-11-07, quality: PROJECTED, evidence_ids: [nse-market-timings, nse-outage-2021-02-24]}
+      - {scope: EARLY_CLOSES, from: 2026-11-08, to: 2026-11-08, quality: INCOMPLETE, evidence_ids: [nse-holiday-lists]}
+      - {scope: EARLY_CLOSES, from: 2026-11-09, to: 2026-12-31, quality: PROJECTED, evidence_ids: [nse-market-timings]}
+      # The exchange publishes a bhavcopy (end-of-day price file) for every day the capital
+      # market traded and for no other day; the presence of that file for every date from
+      # 1 January 2010 to 14 October 2026 equals this calendar's trading days exactly
+      # (nse-bhavcopy-availability), so no unscheduled closure is missing.
+      - {scope: UNSCHEDULED_EXCEPTIONS, from: 2010-01-01, to: 2026-10-14, quality: VERIFIED, evidence_ids: [nse-bhavcopy-availability]}
+      - {scope: UNSCHEDULED_EXCEPTIONS, from: 2026-10-15, to: 2026-12-31, quality: PROJECTED, evidence_ids: [nse-holiday-lists]}
+
+# The exchange never moves a holiday off a weekend: holidays falling on a Saturday or Sunday are
+# listed separately in each circular and no weekday replaces them.
+weekend_shift_policy: NONE
+
+uses:
+  - in_nse_holidays

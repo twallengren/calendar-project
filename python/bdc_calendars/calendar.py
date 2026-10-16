@@ -726,7 +726,9 @@ class SingleCalendar(BusinessCalendar):
         if day not in self._data.details_by_date:
             return super().event_details_on(day)
         details = list(self._data.details_by_date[day])
-        details.extend(detail for detail in super().event_details_on(day) if detail.event.type == "WEEKEND")
+        weekend = [detail for detail in super().event_details_on(day) if detail.event.type == "WEEKEND"]
+        at = _before_special_sessions([detail.event for detail in details])
+        details[at:at] = weekend
         return details
 
     def _events_on_unchecked(self, day: _dt.date) -> List[Event]:
@@ -737,7 +739,9 @@ class SingleCalendar(BusinessCalendar):
         # holds for the published data, so this reproduces it row for row.
         rows = list(self._data.events_by_date.get(day) or ())
         if self._is_weekend_row(day, rows):
-            rows.append(
+            # WEEKEND sorts after every other type except SPECIAL_SESSION (the Java enum order).
+            rows.insert(
+                _before_special_sessions(rows),
                 Event(
                     date=day,
                     type="WEEKEND",
@@ -970,6 +974,14 @@ class JointCalendar(BusinessCalendar):
             else OPEN,
             business_day_confidence,
         )
+
+
+def _before_special_sessions(rows: Sequence[Event]) -> int:
+    """The index of a date's first SPECIAL_SESSION row (or its length): where a WEEKEND row goes."""
+    for index, event in enumerate(rows):
+        if event.type == "SPECIAL_SESSION":
+            return index
+    return len(rows)
 
 
 def _qualify(member: BusinessCalendar, event: Event) -> Event:

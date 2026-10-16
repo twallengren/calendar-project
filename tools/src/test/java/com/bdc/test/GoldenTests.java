@@ -255,6 +255,19 @@ class GoldenTests {
   }
 
   @Test
+  void inNse2024() throws IOException {
+    // Muhurat on a weekday holiday, the two-window drill Saturdays, a full regular Saturday, the
+    // Ram temple holiday and two election holidays
+    productionCalendarRunner.assertCsvGoldenMatch("IN-NSE", 2024);
+  }
+
+  @Test
+  void inNse2023() throws IOException {
+    // Muhurat on a Sunday and Bakri Id moved from 28 to 29 June
+    productionCalendarRunner.assertCsvGoldenMatch("IN-NSE", 2023);
+  }
+
+  @Test
   void brB32026() throws IOException {
     productionCalendarRunner.assertCsvGoldenMatch("BR-B3", 2026);
   }

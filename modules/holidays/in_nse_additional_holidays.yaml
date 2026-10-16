@@ -1,0 +1,43 @@
+kind: module
+id: in_nse_additional_holidays
+
+# Trading holidays the exchange added during the year "in partial modification" of its annual list:
+# polling days in Mumbai and the public holiday the Maharashtra government and the Reserve Bank
+# declared for 22 January 2024 under the Negotiable Instruments Act. Two listed holidays moved:
+# Muharram 2013, from 14 to 15 November (NSE/CMTR/24977; see in_muharram), and Bakri Id 2023,
+# from 28 to 29 June (NSE/CMTR/57285; see in_bakri_id). 21 February 2017 (municipal elections) was a settlement holiday only: the cash
+# market traded (nse-settlement-2017-02-21), so it is not here.
+
+event_sources:
+  - key: in_parliamentary_elections
+    name: "Parliamentary Elections"
+    default_classification: CLOSED
+    source:
+      - id: nse-additional-holidays
+    rule:
+      type: explicit_dates
+      dates:
+        - 2014-04-24  # NSE/CMTR/26360
+        - 2019-04-29  # NSE/CMTR/40536
+        - 2024-05-20  # NSE/CMTR/61518
+  - key: in_maharashtra_elections
+    name: "Elections in Maharashtra"
+    default_classification: CLOSED
+    source:
+      - id: nse-additional-holidays
+    rule:
+      type: explicit_dates
+      dates:
+        - 2014-10-15  # NSE/CMTR/27792, assembly elections
+        - 2019-10-21  # NSE/MSD/42319, assembly elections
+        - 2024-11-20  # NSE/CMTR/64960, assembly elections
+        - 2026-01-15  # NSE/CMTR/72260, municipal corporation elections
+  - key: in_negotiable_instruments_holiday_2024
+    name: "Public Holiday (Negotiable Instruments Act)"
+    default_classification: CLOSED
+    source:
+      - id: nse-additional-holidays
+    rule:
+      type: explicit_dates
+      dates:
+        - 2024-01-22  # NSE/CMTR/60338

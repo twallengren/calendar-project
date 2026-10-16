@@ -7,6 +7,14 @@ Books and the live holiday API; not yet modelled because of the special-session 
 before it becomes a row; the circular numbers are the citation. `nse-circulars-manifest.csv` lists
 the documents retrieved with their checksums so they can be re-fetched and verified.
 
+**Status (October 2026): modelled as `IN-NSE`.** The calendar, `sources/IN-NSE/` and its README
+supersede these notes. The exchange's bhavcopy record (`nse-bhavcopy-availability`) showed four
+things these notes missed or got wrong, each then confirmed from a circular: the 15 October 2014
+election holiday (NSE/CMTR/27792), the moves of Muharram 2013 from 14 to 15 November
+(NSE/CMTR/24977) and Bakri Id 2023 from 28 to 29 June (NSE/CMTR/57285), so "no listed holiday was
+removed" is wrong, and seven settled Saturday "special live trading sessions" of 2010-2014 plus
+the gold-ETF-only Sunday of 16 May 2010.
+
 ## Rules the exchange states
 
 - The annual list (issued each December "In pursuance to clause 2 of Chapter IX of the Bye-Laws and
